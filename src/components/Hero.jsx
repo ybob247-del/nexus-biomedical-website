@@ -1,0 +1,95 @@
+import React from 'react'
+
+export default function Hero() {
+  return (
+    <section style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      padding: '2rem',
+      position: 'relative',
+      zIndex: 1
+    }}>
+      <div className="container">
+        <h1 style={{
+          fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+          fontWeight: 800,
+          marginBottom: '1.5rem',
+          lineHeight: 1.1,
+          color: '#FFFFFF',
+          textShadow: '0 2px 10px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 168, 204, 0.3)'
+        }}>
+          <span style={{
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #00A8CC 50%, #5B2C87 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Nexus Biomedical Intelligence
+          </span>
+        </h1>
+        <p style={{
+          fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+          color: '#E8F4FD',
+          marginBottom: '2rem',
+          maxWidth: '800px',
+          margin: '0 auto 2rem',
+          textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)'
+        }}>
+          Revolutionary AI Healthcare Platforms Transforming Patient Safety and Clinical Excellence
+        </p>
+        <p style={{
+          fontSize: '1.125rem',
+          color: '#B8D4E8',
+          marginBottom: '3rem',
+          maxWidth: '700px',
+          margin: '0 auto 3rem',
+          textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
+        }}>
+          Six groundbreaking AI platforms addressing critical healthcare challenges from medication safety to skin cancer detection
+        </p>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button 
+            className="nexus-button" 
+            onClick={() => document.getElementById('platforms')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{
+              background: 'linear-gradient(135deg, #00A8CC 0%, #5B2C87 100%)',
+              color: '#FFFFFF',
+              padding: '1rem 2.5rem',
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              border: 'none',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(0, 168, 204, 0.4)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Explore Our Platforms
+          </button>
+          <button 
+            className="nexus-button" 
+            style={{ 
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              color: '#FFFFFF',
+              padding: '1rem 2.5rem',
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+

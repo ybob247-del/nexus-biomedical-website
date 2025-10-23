@@ -1,0 +1,90 @@
+/* Nexus Biomedical Intelligence Brand System */
+
+:root {
+  /* Primary Brand Colors */
+  --nexus-quantum-blue: #0A1B3D;
+  --nexus-neural-silver: #E8F4FD;
+  --nexus-biomedical-teal: #00A8CC;
+  
+  /* Secondary Medical Colors */
+  --nexus-vitality-green: #00D084;
+  --nexus-caution-amber: #FFB800;
+  --nexus-critical-crimson: #FF4757;
+  --nexus-insight-purple: #5B2C87;
+  
+  /* Gradients */
+  --nexus-primary-gradient: linear-gradient(135deg, var(--nexus-quantum-blue) 0%, var(--nexus-biomedical-teal) 100%);
+  --nexus-secondary-gradient: linear-gradient(135deg, var(--nexus-neural-silver) 0%, var(--nexus-vitality-green) 100%);
+  
+  /* Typography */
+  --nexus-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--nexus-font-family);
+  background: #0A1B3D;
+  background: radial-gradient(ellipse at top, #1B2735 0%, #0A1B3D 50%, #090A0F 100%);
+  color: #E8F4FD;
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.nexus-app {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nexus-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #00A8CC 50%, #5B2C87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nexus-button {
+  background: var(--nexus-primary-gradient);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 168, 204, 0.4);
+}
+
+.nexus-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 168, 204, 0.6);
+}
+
+.nexus-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 168, 204, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(10, 27, 61, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nexus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(10, 27, 61, 0.15);
+}
+

@@ -89,3 +89,55 @@
 - [x] SkinScan Pro™ FAQ #1: Clarified these are general AI dermatology numbers
 - [x] SkinScan Pro™ FAQ #2: Removed fabricated FDA clearance number
 
+
+
+
+## NEW: Regulatory Compliance & FDA Status (Oct 27, 2025)
+- [x] Fix SkinScan Pro™ false FDA clearance claims (changed to "pursuing clearance")
+- [x] Add regulatory status FAQ to RxGuard™ (21st Century Cures Act exemption)
+- [x] Add regulatory status FAQ to ReguReady™ (not a medical device)
+- [x] Clarify: Only SkinScan Pro™ needs FDA clearance (other 5 platforms exempt)
+
+## NEW: Interactive Prototypes & Stripe Integration (2-Day Launch)
+- [x] Create RxGuard™ prototype component (RxGuardPrototype.jsx)
+- [x] Integrate RxGuard™ prototype into App.jsx navigation
+- [x] Add "Try Interactive Demo" button to RxGuard™ Learn More page
+- [x] Build ReguReady™ interactive prototype/dashboard
+- [x] Add "Try Interactive Demo" button to ReguReady™ Learn More page
+- [ ] Wait for 4 Stripe Price IDs from user (RxGuard Pro, RxGuard Enterprise, ReguReady Starter, ReguReady Pro)
+- [ ] Create Stripe checkout integration component
+- [ ] Connect "Start Free Trial" buttons to Stripe checkout
+- [ ] Test Stripe payment flow in test mode
+- [ ] Push all code to GitHub (triggers Vercel deployment)
+- [ ] Test live site at nexusbiomedical.ai
+- [ ] Switch Stripe to live mode for launch
+
+## Notes
+- User creating Stripe products now (need guidance on 14-day trial setup)
+- 2-day deadline for RxGuard™ and ReguReady™ MVP launch
+- CI/CD pipeline: GitHub → Vercel → Production (already configured)
+
+
+
+
+## Enhancement Requests
+- [x] Expand RxGuard™ demo to show 3-4 drug interactions simultaneously
+- [x] Add psychiatric medications to RxGuard™ demo database (SSRIs, antipsychotics, MAOIs)
+- [x] Create realistic polypharmacy scenarios showing tool's power
+- [x] Demonstrate complex multi-drug interactions including psychiatric meds
+- [x] Add one-click "Example Scenarios" to RxGuard™ demo (elderly patient, psychiatric crisis, post-surgery, cardiac complexity)
+- [x] Add one-click "Example Scenarios" to ReguReady™ demo (AI/ML device, high-risk implant, low-risk diagnostic)
+
+
+
+
+## Stripe Payment Integration
+- [x] Install Stripe npm packages (@stripe/stripe-js)
+- [x] Create Stripe configuration file with Price IDs and Publishable Key
+- [x] Create Stripe checkout utility function
+- [x] Connect "Upgrade to Pro" buttons in RxGuard™ prototype to Stripe
+- [x] Connect "Upgrade to Pro" buttons in ReguReady™ prototype to Stripe
+- [x] Add 14-day free trial logic to RxGuard™ Professional checkout
+- [ ] Connect pricing cards on LearnMore pages to Stripe checkout
+- [ ] Test Stripe checkout flow for all 4 products
+

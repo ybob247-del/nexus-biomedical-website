@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LearnMore({ platform, onBack }) {
+export default function LearnMore({ platform, onBack, onTryDemo }) {
   if (!platform) return null;
 
   return (
@@ -86,6 +86,27 @@ export default function LearnMore({ platform, onBack }) {
             {platform.hero.subtitle}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            {/* Show Try Demo button for RxGuard and ReguReady */}
+            {(platform.name === 'RxGuard™' || platform.name === 'ReguReady™') && onTryDemo && (
+              <button style={{
+                background: platform.gradient,
+                color: 'white',
+                border: 'none',
+                padding: '1rem 2.5rem',
+                borderRadius: '30px',
+                fontSize: '1.1rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: `0 4px 20px ${platform.color}40`
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => onTryDemo(platform.name === 'RxGuard™' ? 'rxguard' : 'reguready')}
+              >
+                🚀 Try Interactive Demo
+              </button>
+            )}
             <button style={{
               background: platform.gradient,
               color: 'white',

@@ -8,7 +8,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["healthcare", "ai", "biomedical"],
+  "keywords": [
+    "healthcare",
+    "ai",
+    "biomedical"
+  ],
   "author": "Dr. Pamela Tebebi-Njoh",
   "license": "ISC",
   "packageManager": "pnpm@10.18.0",
@@ -17,6 +21,7 @@
     "vite": "^7.1.11"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^8.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }

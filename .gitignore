@@ -1,1 +1,30 @@
 .vercel
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output  
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor directories
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp

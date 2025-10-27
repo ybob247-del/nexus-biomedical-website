@@ -48,7 +48,8 @@ export const platformsData = {
       { q: 'How accurate is RxGuard™ compared to other drug interaction checkers?', a: 'RxGuard™ uses ensemble machine learning trained on clinical evidence from thousands of drug interaction studies. Published research shows AI-powered drug interaction checkers achieve 87-100% sensitivity and 80-90% specificity (Kheshti et al., 2016). The system is continuously updated with new interaction evidence from FDA safety communications and peer-reviewed literature.' },
       { q: 'Does RxGuard™ replace clinical judgment?', a: 'No. RxGuard™ is a clinical decision support tool designed to assist healthcare providers, not replace their professional judgment.' },
       { q: 'How often is the drug database updated?', a: 'RxGuard™\'s drug database is updated weekly with new drug approvals, emerging interaction evidence, and safety alerts from the FDA.' },
-      { q: 'Is RxGuard™ HIPAA compliant?', a: 'Yes. RxGuard™ is fully HIPAA compliant with AES-256 encryption, comprehensive audit logging, and Business Associate Agreements for all healthcare customers.' }
+      { q: 'Is RxGuard™ HIPAA compliant?', a: 'Yes. RxGuard™ is fully HIPAA compliant with AES-256 encryption, comprehensive audit logging, and Business Associate Agreements for all healthcare customers.' },
+      { q: 'What is RxGuard™\'s regulatory status?', a: 'RxGuard™ is a clinical decision support tool that provides recommendations to healthcare professionals. Under the FDA\'s 21st Century Cures Act, clinical decision support software that assists healthcare providers in making clinical decisions is not regulated as a medical device. RxGuard™ is intended to support, not replace, clinical judgment.' }
     ]
   },
 
@@ -101,7 +102,8 @@ export const platformsData = {
       { q: 'How accurate is ReguReady™\'s pathway recommendation?', a: 'ReguReady™\'s AI is trained on analysis of 10,000+ successful FDA submissions across all device categories. The system identifies patterns in successful regulatory pathways and provides recommendations based on device characteristics, risk classification, and historical precedents. Recommendations should be reviewed with regulatory consultants for final submission strategy.' },
       { q: 'Can ReguReady™ help with international regulatory submissions?', a: 'Yes. ReguReady™ provides guidance for CE Mark (Europe), PMDA (Japan), NMPA (China), Health Canada, and other major regulatory bodies.' },
       { q: 'Does ReguReady™ replace regulatory consultants?', a: 'ReguReady™ complements regulatory consultants by handling routine analysis and documentation, allowing consultants to focus on strategic guidance.' },
-      { q: 'How often is the regulatory database updated?', a: 'ReguReady™\'s database is updated daily with new FDA submissions, guidance documents, and regulatory changes.' }
+      { q: 'How often is the regulatory database updated?', a: 'ReguReady™\'s database is updated daily with new FDA submissions, guidance documents, and regulatory changes.' },
+      { q: 'Is ReguReady™ regulated by the FDA?', a: 'No. ReguReady™ is professional software that provides regulatory intelligence and guidance for medical device companies. It is not a medical device and is not regulated by the FDA. All recommendations should be reviewed by qualified regulatory professionals before submission.' }
     ]
   },
 
@@ -269,7 +271,7 @@ export const platformsData = {
     tagline: 'AI Skin Cancer Detection Platform',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
-    badge: 'CLINICAL-GRADE AI DETECTION',
+    badge: 'AI-POWERED SKIN ANALYSIS',
     hero: {
       title: 'SkinScan Pro™ AI Skin Cancer Detection',
       subtitle: 'Detect Melanoma Early with Clinical-Grade AI - Analyze skin lesions using computer vision to assist early identification'
@@ -295,13 +297,13 @@ export const platformsData = {
       { title: 'Dermoscopy Support', desc: 'Analyzes both standard clinical photographs and dermoscopic images for enhanced accuracy.' },
       { title: 'Skin Type Diversity', desc: 'Trained on all Fitzpatrick skin types (I-VI), ensuring accurate performance across diverse patient populations.' },
       { title: 'Longitudinal Monitoring', desc: 'Track lesions over time with side-by-side comparison and AI-powered change detection.' },
-      { title: 'FDA Clearance', desc: 'FDA 510(k) cleared as a Class II medical device for computer-aided detection of skin cancer.' }
+      { title: 'FDA Clearance Path', desc: 'Designed to meet FDA 510(k) Class II clearance requirements. Actively pursuing regulatory clearance for clinical use.' }
     ],
     benefits: [
       { stat: '94.5%', title: 'Sensitivity', desc: 'Correctly identifies melanomas (clinical validation)' },
       { stat: '89.3%', title: 'Specificity', desc: 'Reduces unnecessary biopsies (clinical validation)' },
       { stat: 'Up to 30%', title: 'Biopsy Reduction', desc: 'AI reduces unnecessary biopsies (Esteva et al., Nature 2017)' },
-      { stat: 'FDA', title: 'Clearance Path', desc: 'Designed for 510(k) Class II clearance' }
+      { stat: 'FDA', title: 'Clearance Path', desc: 'Pursuing 510(k) Class II clearance' }
     ],
     benefitsDisclaimer: 'Sensitivity and specificity based on clinical validation studies of similar AI dermatology systems.',
     pricing: [
@@ -311,7 +313,7 @@ export const platformsData = {
     ],
     faqs: [
       { q: 'How accurate is SkinScan Pro™ compared to dermatologists?', a: 'SkinScan Pro™ uses deep learning trained on dermatology images. Published research shows AI dermatology systems achieve 94.5% sensitivity and 89.3% specificity, matching or exceeding average dermatologist performance (Esteva et al., Nature 2017 - cited by 16,607). The system is designed as a clinical decision support tool to assist healthcare providers in early melanoma detection.' },
-      { q: 'Is SkinScan Pro™ FDA cleared?', a: 'SkinScan Pro™ is designed for the FDA 510(k) clearance pathway as a Class II medical device for computer-aided detection of skin cancer. The system follows FDA guidance for AI/ML-based Software as a Medical Device (SaMD) and is pursuing regulatory clearance.' },
+      { q: 'Is SkinScan Pro™ FDA cleared?', a: 'SkinScan Pro™ is designed to meet FDA 510(k) Class II clearance requirements and we are actively pursuing regulatory clearance. The system follows FDA guidance for AI/ML-based Software as a Medical Device (SaMD). Currently available for research, educational, and clinical decision support purposes. Not yet FDA cleared for independent diagnostic use. Always consult a board-certified dermatologist for medical diagnosis.' },
       { q: 'Can SkinScan Pro™ replace a dermatologist?', a: 'No. SkinScan Pro™ is a clinical decision support tool designed to assist healthcare providers, not replace them.' },
       { q: 'Does SkinScan Pro™ work on all skin types?', a: 'Yes. The AI is trained on images representing all Fitzpatrick skin types (I-VI), ensuring accurate performance across diverse populations.' }
     ]

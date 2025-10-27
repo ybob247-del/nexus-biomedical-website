@@ -10,6 +10,13 @@ const platforms = [
     gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)'
   },
   {
+    name: 'ReguReady™',
+    tagline: 'FDA Regulatory Guidance Platform',
+    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
+    color: '#B794F4',
+    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)'
+  },
+  {
     name: 'ClinicalIQ™',
     tagline: 'Clinical Decision Support System',
     description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design.',
@@ -17,36 +24,29 @@ const platforms = [
     gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)'
   },
   {
-    name: 'ReguReady™',
-    tagline: 'FDA Regulatory Guidance Platform',
-    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
-    color: '#5B2C87',
-    gradient: 'linear-gradient(135deg, #5B2C87 0%, #4A2470 100%)'
-  },
-  {
     name: 'ElderWatch™',
     tagline: 'Senior Health Monitoring',
     description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention.',
-    color: '#FFB800',
-    gradient: 'linear-gradient(135deg, #FFB800 0%, #E6A700 100%)'
+    color: '#FB923C',
+    gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)'
   },
   {
     name: 'PediCalc Pro™',
     tagline: 'Pediatric Medication Dosing',
     description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children.',
-    color: '#FF4757',
-    gradient: 'linear-gradient(135deg, #FF4757 0%, #E63946 100%)'
+    color: '#FDA4AF',
+    gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)'
   },
   {
     name: 'SkinScan Pro™',
     tagline: 'AI Skin Cancer Detection',
     description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification.',
-    color: '#0A1B3D',
-    gradient: 'linear-gradient(135deg, #0A1B3D 0%, #1a2942 100%)'
+    color: '#14B8A6',
+    gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)'
   }
 ]
 
-export default function Platforms() {
+export default function Platforms({ onLearnMore }) {
   return (
     <section id="platforms" style={{
       padding: '6rem 2rem',
@@ -118,17 +118,17 @@ export default function Platforms() {
               
               {/* Platform Icon */}
               <div style={{
-                width: '64px',
-                height: '64px',
-                background: `${platform.color}15`,
-                borderRadius: '16px',
+                width: '80px',
+                height: '80px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                borderRadius: '20px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginBottom: '1.5rem',
-                border: `2px solid ${platform.color}30`
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
               }}>
-                {React.createElement(platformIcons[platform.name], { color: platform.color, size: 40 })}
+                {React.createElement(platformIcons[platform.name], { size: 48 })}
               </div>
               
               {/* Platform header */}
@@ -179,7 +179,8 @@ export default function Platforms() {
               </p>
               
               {/* CTA Button */}
-              <button 
+              <button
+                onClick={() => onLearnMore && onLearnMore(platform.name)} 
                 style={{
                   background: platform.gradient,
                   color: 'white',

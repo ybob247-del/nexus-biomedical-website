@@ -141,3 +141,38 @@
 - [ ] Connect pricing cards on LearnMore pages to Stripe checkout
 - [ ] Test Stripe checkout flow for all 4 products
 
+
+
+## 🚨 URGENT: Professional UI Redesign (SHOWSTOPPER - Blocking Sales)
+- [ ] Complete RxGuard™ professional redesign:
+  - [ ] Remove giant background circles (distracting, unprofessional)
+  - [ ] Add generous padding and spacing (currently too cramped)
+  - [ ] Professional typography (Inter/Roboto fonts, larger sizes)
+  - [ ] Card-based demo scenario layout (make obviously clickable)
+  - [ ] Larger, clearer buttons (Remove buttons too small)
+  - [ ] Prominent drug search with autocomplete dropdown
+  - [ ] Clean medication list display (cards instead of cramped list)
+  - [ ] Professional interaction results table/cards
+  - [ ] Fix "Start Free Trial" to go to Stripe (currently opens email)
+  - [ ] Remove "Schedule Demo" button (redundant with interactive demo)
+  - [ ] Larger back button (currently too small)
+- [ ] Complete ReguReady™ professional redesign:
+  - [ ] Remove giant decorative circles (taking up entire screen)
+  - [ ] Clear step labels: "Device Information" → "Risk Classification" → "Predicate Device" → "Regulatory Pathway"
+  - [ ] Professional progress bar showing current step (1-4 confusing)
+  - [ ] Generous spacing and padding (currently cramped)
+  - [ ] Card-based quick demo scenarios
+  - [ ] Larger, clearer navigation buttons
+  - [ ] Focused content area (not empty space)
+  - [ ] Professional results/recommendation display
+  - [ ] Fix "Upgrade to Pro" to go to Stripe properly
+- [ ] Research-backed design decisions:
+  - [ ] Follow best practices from Skilljar, Hunter, Clay, Nudge demos
+  - [ ] Clean, spacious layouts with clear visual hierarchy
+  - [ ] Single-focus CTAs at each step
+  - [ ] Professional color schemes
+  - [ ] Make demos feel like real, valuable products
+- [ ] Test redesigned prototypes end-to-end
+- [ ] Deploy to production
+- [ ] Verify sales-readiness (no longer blocking conversions)
+

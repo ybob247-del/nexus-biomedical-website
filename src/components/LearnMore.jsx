@@ -125,24 +125,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             >
               Start Free Trial
             </button>
-            <button style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              color: 'white',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              padding: '1rem 2.5rem',
-              borderRadius: '30px',
-              fontSize: '1.1rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-            onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
-            onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=Schedule Demo - ${platform.name}`}
-            >
-              Schedule Demo
-            </button>
+
           </div>
         </div>
 
@@ -383,23 +366,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             >
               Start Free Trial
             </button>
-            <button style={{
-              background: 'rgba(255, 255, 255, 0.2)',
-              color: 'white',
-              border: '1px solid white',
-              padding: '1rem 2.5rem',
-              borderRadius: '30px',
-              fontSize: '1.1rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'}
-            onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-            onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=Schedule Demo - ${platform.name}`}
-            >
-              Schedule Demo
-            </button>
+
           </div>
         </section>
 

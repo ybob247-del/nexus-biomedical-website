@@ -250,3 +250,28 @@
 - [ ] If approved, apply same standards to ReguReady™
 - [ ] Deploy to production
 
+
+
+
+#### 🚨 CRITICAL BUGS: RxGuard Demo Layout Issues (Oct 28, 2025)
+- [x] Fix text spacing - too tight/cramped, hard to read
+  - [x] Increase line-height from default to 1.6-1.8
+  - [x] Add more padding inside cards (p-8 → p-10)
+  - [x] Increase font size for better readability
+- [x] Fix hover effect breaking layout
+  - [x] Card skews left on hover causing text to fall off page
+  - [x] "Try This Scenario" button gets cut off
+  - [x] Remove scale transform on hover
+  - [x] Test hover states don't break layout
+- [x] Overall spacing improvements
+  - [x] More whitespace between elements (space-y-3 → space-y-4)
+  - [x] Larger margins between sections
+  - [x] Better visual breathing room
+
+- [x] Add visual differentiation for scenario cards (borders/shadows/contrast)
+  - [ ] Cards still blend into dark background (needs more work)
+  - [x] Add visible borders (border-4) and increase shadow (shadow-2xl)
+  - [x] Add ring for extra visibility
+
+- [x] Increase gap between scenario cards for better visual separation (gap-8 → gap-12)on
+

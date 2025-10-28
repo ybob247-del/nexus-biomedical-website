@@ -290,7 +290,7 @@ const RxGuardPrototype = ({ onBack }) => {
             <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
               RxGuard™ Interactive Demo
             </h1>
-            <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed" style={{lineHeight: '1.8'}}>
               Experience how AI-powered drug interaction detection protects patients and reduces healthcare costs
             </p>
           </motion.div>
@@ -325,19 +325,19 @@ const RxGuardPrototype = ({ onBack }) => {
             <h2 className="text-4xl font-bold text-slate-900 mb-6 text-center">
               Explore Real Clinical Scenarios
             </h2>
-            <p className="text-xl text-slate-600 mb-12 text-center max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-12 text-center max-w-3xl mx-auto leading-relaxed" style={{lineHeight: '1.8'}}>
               See how RxGuard™ detects life-threatening interactions instantly • No signup required • Real FDA data
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
               {scenarios.map((scenario, index) => (
                 <motion.div
                   key={scenario.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  whileHover={{ scale: 1.03, boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}
-                  className="bg-white rounded-2xl p-8 shadow-md border-2 border-slate-200 hover:border-cyan-400 transition-all cursor-pointer group"
+                  whileHover={{ boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
+                  className="bg-white rounded-2xl p-10 shadow-2xl border-4 border-slate-300 hover:border-cyan-400 transition-all cursor-pointer group ring-2 ring-slate-200"
                   onClick={() => handleScenarioSelect(scenario)}
                 >
                   <div className="mb-8">
@@ -347,14 +347,14 @@ const RxGuardPrototype = ({ onBack }) => {
                     <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
                       {scenario.title}
                     </h3>
-                    <p className="text-lg font-semibold text-slate-700 mb-3">{scenario.subtitle}</p>
-                    <p className="text-slate-600 leading-relaxed">{scenario.description}</p>
+                    <p className="text-lg font-semibold text-slate-700 mb-4" style={{lineHeight: '1.7'}}>{scenario.subtitle}</p>
+                    <p className="text-slate-600" style={{lineHeight: '1.8'}}>{scenario.description}</p>
                   </div>
 
-                  <div className="space-y-3 mb-8">
+                  <div className="space-y-4 mb-8">
                     <div className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Medications:</div>
                     {scenario.medications.map((med, idx) => (
-                      <div key={idx} className="flex items-center space-x-3">
+                      <div key={idx} className="flex items-center space-x-3" style={{lineHeight: '1.7'}}>
                         <div className="w-2 h-2 bg-cyan-500 rounded-full flex-shrink-0"></div>
                         <span className="text-slate-700">{med}</span>
                       </div>
@@ -378,7 +378,7 @@ const RxGuardPrototype = ({ onBack }) => {
               <h3 className="text-4xl font-bold text-white mb-4">
                 Build Your Own Scenario
               </h3>
-              <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto" style={{lineHeight: '1.8'}}>
                 Use our interactive calculator to analyze any medication combination with real-time FDA data
               </p>
               <button

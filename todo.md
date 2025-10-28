@@ -275,3 +275,10 @@
 
 - [x] Increase gap between scenario cards for better visual separation (gap-8 → gap-12)on
 
+
+
+- [x] Lighten demo background to make white cards visible
+  - [x] Change from dark blue gradient to light blue/gray gradient
+  - [x] Ensure sufficient contrast between background and white cards
+  - [x] Override body's dark background with inline styles
+

@@ -265,7 +265,7 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'welcome') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-20 px-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc 0%, #eff6ff 50%, #ecfeff 100%)'}}>
         <div className="max-w-7xl mx-auto">
           {/* Back Button */}
           {onBack && (
@@ -399,7 +399,7 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'calculator') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-20 px-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc 0%, #eff6ff 50%, #ecfeff 100%)'}}>
         <div className="max-w-5xl mx-auto">
           {/* Back Button */}
           <button
@@ -513,7 +513,7 @@ const RxGuardPrototype = ({ onBack }) => {
     const interactions = selectedScenario.interactions || [];
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-20 px-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc 0%, #eff6ff 50%, #ecfeff 100%)'}}>
         <div className="max-w-7xl mx-auto">
           {/* Back Button */}
           <button

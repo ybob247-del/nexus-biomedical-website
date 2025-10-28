@@ -289,3 +289,10 @@
   - [x] Increase contrast between cards and background
   - [x] Make borders more visible (border-4 with #94a3b8 slate color)
 
+
+
+-- [x] Make card borders darker for better contrast
+  - [x] Change from slate-400 (#94a3b8) to slate-600 (#475569)
+
+- [x] Remove "Schedule Demo" button from LearnMore pagee
+

@@ -338,7 +338,7 @@ const RxGuardPrototype = ({ onBack }) => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                   whileHover={{ boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
                   className="bg-slate-50 rounded-2xl p-10 shadow-2xl border-4 border-slate-400 hover:border-cyan-500 transition-all cursor-pointer group"
-                  style={{backgroundColor: '#f8fafc', borderColor: '#94a3b8'}}
+                  style={{backgroundColor: '#f8fafc', borderColor: '#475569'}}
                   onClick={() => handleScenarioSelect(scenario)}
                 >
                   <div className="mb-8">

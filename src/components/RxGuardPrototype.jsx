@@ -309,13 +309,13 @@ const RxGuardPrototype = ({ onBack }) => {
             <div className="flex items-center gap-6">
               <div className="text-6xl">✓</div>
               <div>
-                <p className="font-bold text-2xl mb-2">Trusted by 1,247 Healthcare Providers</p>
-                <p className="text-blue-100 text-lg">Used at 89 hospitals nationwide • FDA FAERS data-powered</p>
+                <p className="font-bold text-2xl mb-2">FDA FAERS data-powered</p>
+                <p className="text-blue-100 text-lg">Built on 10M+ FDA adverse event records</p>
               </div>
             </div>
             <div className="bg-white bg-opacity-20 px-10 py-6 rounded-2xl backdrop-blur-sm">
-              <p className="font-bold text-4xl mb-1">2,847</p>
-              <p className="text-blue-100 text-base">Critical interactions caught this month</p>
+              <p className="font-bold text-4xl mb-1">1,000+</p>
+              <p className="text-blue-100 text-base">Known drug interactions analyzed</p>
             </div>
           </div>
         </motion.div>

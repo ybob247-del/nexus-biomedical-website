@@ -220,3 +220,14 @@
 - [ ] Research best 2025 SaaS websites (Stripe, Linear, Vercel, Notion)
 - [ ] Make it look like $10M+ funded startup
 
+
+
+
+## NEW: Remove Fake Stats from Demos (Oct 28, 2025)
+- [x] Remove "Trusted by 1,247 Healthcare Providers" from RxGuard demo
+- [x] Remove "Used at 89 hospitals nationwide" from RxGuard demo
+- [x] Replace "2,847 Critical interactions caught this month" with "Built on 10M+ FDA adverse event records"
+- [x] Add "Analyzing 1,000+ known drug interactions" metric
+- [x] Keep "FDA FAERS data-powered" (factually accurate)
+- [x] Apply same changes to ReguReady demo if applicable
+

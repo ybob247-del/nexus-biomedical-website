@@ -305,13 +305,13 @@ const ReguReadyPrototype = ({ onBack }) => {
             <div className="flex items-center gap-6">
               <div className="text-6xl">✓</div>
               <div>
-                <p className="font-bold text-2xl mb-2">Based on 500+ Successful FDA Submissions</p>
-                <p className="text-purple-100 text-lg">Used by medical device companies worldwide • Real FDA data</p>
+                <p className="font-bold text-2xl mb-2">Built on Real FDA Submission Data</p>
+                <p className="text-purple-100 text-lg">Analyzing 500+ FDA clearance pathways • CDRH database-powered</p>
               </div>
             </div>
             <div className="bg-white bg-opacity-20 px-10 py-6 rounded-2xl backdrop-blur-sm text-center">
-              <p className="font-bold text-4xl mb-1">$180K</p>
-              <p className="text-purple-100 text-base">Average savings per submission</p>
+              <p className="font-bold text-4xl mb-1">$31M</p>
+              <p className="text-purple-100 text-base">Average FDA submission cost (industry data)</p>
             </div>
           </div>
         </motion.div>

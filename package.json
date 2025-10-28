@@ -1,6 +1,6 @@
 {
   "name": "nexus-biomedical-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nexus Biomedical Intelligence Main Website",
   "type": "module",
   "scripts": {

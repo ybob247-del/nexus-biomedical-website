@@ -282,3 +282,10 @@
   - [x] Ensure sufficient contrast between background and white cards
   - [x] Override body's dark background with inline styles
 
+
+
+- [x] Fix card visibility - cards are invisible on light background
+  - [x] Change cards from pure white to subtle blue/slate tint (#f8fafc)
+  - [x] Increase contrast between cards and background
+  - [x] Make borders more visible (border-4 with #94a3b8 slate color)
+

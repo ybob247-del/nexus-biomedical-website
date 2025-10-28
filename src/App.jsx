@@ -7,11 +7,15 @@ import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
 import RxGuardPrototype from './components/RxGuardPrototype'
 import ReguReadyPrototype from './components/ReguReadyPrototype'
+import ClinicalIQPrototype from './components/ClinicalIQPrototype'
+import ElderWatchPrototype from './components/ElderWatchPrototype'
+import PediCalcPrototype from './components/PediCalcPrototype'
+import SkinScanPrototype from './components/SkinScanPrototype'
 import { platformsData } from './data/platformData'
 
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState(null)
-  const [showPrototype, setShowPrototype] = useState(null) // 'rxguard' or 'reguready'
+  const [showPrototype, setShowPrototype] = useState(null) // 'rxguard', 'reguready', 'clinicaliq', 'elderwatch', 'pedicalc', 'skinscan'
 
   const handleLearnMore = (platformName) => {
     setSelectedPlatform(platformsData[platformName])
@@ -40,6 +44,18 @@ function App() {
   }
   if (showPrototype === 'reguready') {
     return <ReguReadyPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
+  }
+  if (showPrototype === 'clinicaliq') {
+    return <ClinicalIQPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
+  }
+  if (showPrototype === 'elderwatch') {
+    return <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
+  }
+  if (showPrototype === 'pedicalc') {
+    return <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
+  }
+  if (showPrototype === 'skinscan') {
+    return <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
   }
 
   // If a platform is selected, show Learn More page

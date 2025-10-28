@@ -310,3 +310,32 @@
   - [x] Remove fake stats, use verifiable FDA/CDRH data
   - [x] BaseCase-style professional design
 
+
+
+
+## Build Professional Demos for Remaining Platforms (Oct 28, 2025)
+
+### ClinicalIQ™ Demo
+- [ ] Build professional BaseCase-style interactive demo
+  - [ ] 3 clinical trial scenario cards (Oncology Phase III, Rare Disease Phase II, Cardiovascular Phase III)
+  - [ ] Instant results with trial success prediction
+  - [ ] Two-column layout (protocol analysis + ROI calculator)
+  - [ ] Success probability scoring (0-100%)
+  - [ ] Recruitment timeline forecasting
+  - [ ] Site selection recommendations
+  - [ ] Cost savings calculator
+  - [ ] Light background with visible cards
+  - [ ] Honest metrics (400K+ trials analyzed, 75-85% forecast accuracy)
+
+### ElderWatch™ Demo
+- [ ] Build professional BaseCase-style interactive demo
+  - [ ] 3 senior health scenario cards (Fall Risk, Medication Non-Adherence, Cognitive Decline)
+  - [ ] Instant results with health risk prediction
+  - [ ] Two-column layout (risk analysis + intervention recommendations)
+  - [ ] Fall risk scoring (0-100%)
+  - [ ] Activity pattern visualization
+  - [ ] Medication adherence tracking
+  - [ ] Intervention cost savings calculator
+  - [ ] Light background with visible cards
+  - [ ] Honest metrics (30-40% fall reduction, 24% fewer hospitalizations)
+

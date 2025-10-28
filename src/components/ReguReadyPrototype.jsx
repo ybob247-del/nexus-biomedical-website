@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { checkoutReguReadyProfessional } from '../utils/stripe'
 
 const ReguReadyPrototype = ({ onBack }) => {
@@ -15,7 +16,6 @@ const ReguReadyPrototype = ({ onBack }) => {
 
   // Pre-load results on mount for instant wow
   useEffect(() => {
-    // Auto-show results for immediate impact
     setShowResults(true)
   }, [])
 
@@ -185,239 +185,386 @@ const ReguReadyPrototype = ({ onBack }) => {
 
   const pathway = getPathwayRecommendation()
 
+  // Animated timeline visualization
+  const TimelineVisualization = ({ steps }) => {
+    return (
+      <div className="relative w-full h-[500px] bg-gradient-to-br from-purple-900 via-pink-900 to-purple-900 rounded-3xl p-8 overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 opacity-10">
+          <svg width="100%" height="100%">
+            <defs>
+              <pattern id="timeline-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="2" fill="white" opacity="0.3"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#timeline-grid)" />
+          </svg>
+        </div>
+
+        {/* Timeline path */}
+        <div className="relative h-full flex flex-col justify-between py-8">
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 0
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.2, type: 'spring' }}
+                className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'} relative`}
+              >
+                {/* Milestone card */}
+                <div className={`bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl p-6 shadow-2xl max-w-md ${isEven ? 'mr-auto' : 'ml-auto'}`}>
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="bg-white text-purple-600 rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                      {index + 1}
+                    </div>
+                    <h4 className="font-bold text-lg flex-1">{step.title}</h4>
+                  </div>
+                  <div className="flex gap-4 text-sm">
+                    <span className="bg-white bg-opacity-20 px-3 py-1 rounded-lg">⏱️ {step.duration}</span>
+                    <span className="bg-white bg-opacity-20 px-3 py-1 rounded-lg">💰 {step.cost}</span>
+                  </div>
+                </div>
+
+                {/* Connector line */}
+                {index < steps.length - 1 && (
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    animate={{ scaleY: 1 }}
+                    transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
+                    className="absolute left-1/2 top-full w-1 h-8 bg-gradient-to-b from-pink-400 to-purple-400 origin-top"
+                    style={{ transform: 'translateX(-50%)' }}
+                  />
+                )}
+              </motion.div>
+            )
+          })}
+        </div>
+
+        {/* Success indicator */}
+        <motion.div
+          initial={{ scale: 0, rotate: -180 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: steps.length * 0.2, type: 'spring' }}
+          className="absolute bottom-4 right-4 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl shadow-2xl"
+        >
+          ✓
+        </motion.div>
+
+        {/* Stats */}
+        <div className="absolute top-4 right-4 bg-black bg-opacity-50 backdrop-blur-sm rounded-xl px-4 py-3 text-white">
+          <div className="text-sm mb-1">Success Rate</div>
+          <div className="text-2xl font-bold">{pathway.successRate}</div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50" style={{ fontFamily: 'Inter, -apple-system, system-ui, sans-serif' }}>
       {/* Header */}
       <div className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <button
                 onClick={onBack}
-                className="flex items-center gap-2 px-4 py-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all font-medium text-base"
+                className="flex items-center gap-2 px-5 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all font-medium text-lg"
               >
-                <span className="text-xl">←</span>
+                <span className="text-2xl">←</span>
                 <span className="hidden sm:inline">Back</span>
               </button>
-              <div className="h-8 w-px bg-gray-300 hidden sm:block"></div>
+              <div className="h-10 w-px bg-gray-300 hidden sm:block"></div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">ReguReady™ Interactive Demo</h1>
-                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">FDA Regulatory Pathway Analyzer</p>
+                <h1 className="text-3xl font-bold text-gray-900">ReguReady™ Interactive Demo</h1>
+                <p className="text-base text-gray-600 mt-1 hidden sm:block">FDA Regulatory Pathway Analyzer</p>
               </div>
             </div>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={checkoutReguReadyProfessional}
-              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-md hover:shadow-lg text-sm sm:text-base whitespace-nowrap"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl text-lg whitespace-nowrap"
             >
               Get Started
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         {/* Trust Bar */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="text-3xl sm:text-4xl">✓</div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl p-10 mb-16 shadow-2xl"
+        >
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-6">
+              <div className="text-6xl">✓</div>
               <div>
-                <p className="font-bold text-base sm:text-lg">Based on 500+ Successful FDA Submissions</p>
-                <p className="text-purple-100 text-xs sm:text-sm">Used by medical device companies worldwide • Real FDA data</p>
+                <p className="font-bold text-2xl mb-2">Based on 500+ Successful FDA Submissions</p>
+                <p className="text-purple-100 text-lg">Used by medical device companies worldwide • Real FDA data</p>
               </div>
             </div>
-            <div className="bg-white bg-opacity-20 px-4 sm:px-6 py-2 sm:py-3 rounded-lg backdrop-blur-sm text-center">
-              <p className="font-bold text-lg sm:text-2xl">$180K</p>
-              <p className="text-purple-100 text-xs sm:text-sm">Average savings per submission</p>
+            <div className="bg-white bg-opacity-20 px-10 py-6 rounded-2xl backdrop-blur-sm text-center">
+              <p className="font-bold text-4xl mb-1">$180K</p>
+              <p className="text-purple-100 text-base">Average savings per submission</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Hero CTA - Pre-loaded scenario */}
-        {!hasInteracted && showResults && (
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300 rounded-2xl p-6 sm:p-8 mb-8 shadow-xl">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="text-4xl sm:text-5xl mb-4">🚀</div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">See Your FDA Pathway in 60 Seconds</h2>
-              <p className="text-base sm:text-lg text-gray-700 mb-4">We've pre-analyzed an AI medical device for you:</p>
-              <div className="bg-white border-2 border-purple-300 rounded-xl p-4 sm:p-6 mb-6 text-left">
-                <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-3">{deviceData.deviceName}</h3>
-                <div className="grid sm:grid-cols-2 gap-3 text-sm sm:text-base">
-                  <div>
-                    <span className="text-gray-600">Type:</span>
-                    <span className="font-semibold text-gray-900 ml-2">{deviceData.deviceType}</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Risk Class:</span>
-                    <span className="font-semibold text-gray-900 ml-2">Class {deviceData.riskClass}</span>
+        <AnimatePresence>
+          {!hasInteracted && showResults && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300 rounded-3xl p-16 mb-16 shadow-2xl"
+            >
+              <div className="text-center max-w-4xl mx-auto">
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                  className="text-7xl mb-8"
+                >
+                  🚀
+                </motion.div>
+                <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">See Your FDA Pathway in 60 Seconds</h2>
+                <p className="text-2xl text-gray-700 mb-6">We've pre-analyzed an AI medical device for you:</p>
+                <div className="bg-white border-2 border-purple-300 rounded-2xl p-10 mb-8 text-left">
+                  <h3 className="font-bold text-3xl text-gray-900 mb-6">{deviceData.deviceName}</h3>
+                  <div className="grid md:grid-cols-2 gap-6 text-xl">
+                    <div>
+                      <span className="text-gray-600">Type:</span>
+                      <span className="font-semibold text-gray-900 ml-3">{deviceData.deviceType}</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-600">Risk Class:</span>
+                      <span className="font-semibold text-gray-900 ml-3">Class {deviceData.riskClass}</span>
+                    </div>
                   </div>
                 </div>
+                <p className="text-lg text-gray-600 mb-4">Scroll down to see the complete regulatory roadmap, timeline, and cost analysis ↓</p>
+                <p className="text-base text-gray-500">Or try a different scenario below</p>
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mb-6">Scroll down to see the complete regulatory roadmap, timeline, and cost analysis ↓</p>
-              <p className="text-xs text-gray-500">Or try a different scenario below</p>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Quick Demo Scenarios */}
-        <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Try These Device Types</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {demoScenarios.map(scenario => (
-              <button
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">Try These Device Types</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {demoScenarios.map((scenario, idx) => (
+              <motion.button
                 key={scenario.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
                 onClick={() => loadDemoScenario(scenario)}
-                className="bg-white border-2 border-gray-200 rounded-xl p-5 text-left hover:border-purple-500 hover:shadow-xl transition-all group"
+                className="bg-white border-2 border-gray-200 rounded-3xl p-8 text-left hover:border-purple-500 hover:shadow-2xl transition-all group"
               >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="text-3xl">{scenario.icon}</div>
-                  <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">{scenario.savings}</span>
+                <div className="flex items-start justify-between mb-6">
+                  <div className="text-5xl">{scenario.icon}</div>
+                  <span className="text-sm font-semibold text-purple-600 bg-purple-100 px-4 py-2 rounded-xl">{scenario.savings}</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors text-base sm:text-lg">{scenario.title}</h3>
-                <p className="text-sm text-gray-600">{scenario.subtitle}</p>
-              </button>
+                <h3 className="font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors text-2xl">{scenario.title}</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">{scenario.subtitle}</p>
+              </motion.button>
             ))}
           </div>
         </div>
 
         {/* Analyzing State */}
-        {analyzing && (
-          <div className="bg-white rounded-xl shadow-lg p-8 sm:p-12 text-center">
-            <div className="animate-spin text-5xl sm:text-6xl mb-4">⚙️</div>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Analyzing Your Device...</h3>
-            <p className="text-sm sm:text-base text-gray-600">Reviewing FDA database, predicate devices, and regulatory requirements</p>
-          </div>
-        )}
-
-        {/* Results */}
-        {showResults && !analyzing && (
-          <div className="space-y-6 sm:space-y-8">
-            {/* Pathway Overview */}
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="text-4xl sm:text-5xl">🎯</div>
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl font-bold">Recommended Pathway</h2>
-                    <p className="text-purple-100 text-sm sm:text-base">{pathway.realWorldData}</p>
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-3 gap-4 mt-6">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                    <p className="text-purple-100 text-xs sm:text-sm mb-1">Pathway</p>
-                    <p className="font-bold text-lg sm:text-xl">{pathway.pathway}</p>
-                  </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                    <p className="text-purple-100 text-xs sm:text-sm mb-1">Timeline</p>
-                    <p className="font-bold text-lg sm:text-xl">{pathway.timeline}</p>
-                  </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                    <p className="text-purple-100 text-xs sm:text-sm mb-1">Estimated Cost</p>
-                    <p className="font-bold text-lg sm:text-xl">{pathway.cost}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 sm:p-8">
-                <p className="text-base sm:text-lg text-gray-700 mb-6">{pathway.description}</p>
-
-                {/* Key Steps */}
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Regulatory Roadmap</h3>
-                <div className="space-y-3 mb-8">
-                  {pathway.steps.map((step, index) => (
-                    <div key={index} className="flex items-start gap-4 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">{step.title}</h4>
-                        <div className="flex flex-wrap gap-3 text-xs sm:text-sm text-gray-600">
-                          <span>⏱️ {step.duration}</span>
-                          <span>💰 {step.cost}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Locked Premium Features */}
-                <div className="relative mt-8">
-                  <div className="filter blur-sm pointer-events-none bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border-2 border-dashed border-gray-300">
-                    <h4 className="font-bold text-lg mb-4">Detailed Submission Strategy:</h4>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-semibold mb-2">Key Advantages:</h5>
-                        <ul className="text-sm space-y-1">
-                          <li>• Strategic advantage #1...</li>
-                          <li>• Strategic advantage #2...</li>
-                          <li>• Strategic advantage #3...</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold mb-2">Common Pitfalls:</h5>
-                        <ul className="text-sm space-y-1">
-                          <li>• Pitfall to avoid #1...</li>
-                          <li>• Pitfall to avoid #2...</li>
-                          <li>• Pitfall to avoid #3...</li>
-                        </ul>
-                      </div>
-                    </div>
-                    {deviceData.riskClass === 'II' && (
-                      <div className="mt-4">
-                        <h5 className="font-semibold mb-2">Predicate Devices:</h5>
-                        <div className="space-y-2">
-                          <div className="bg-white p-3 rounded">Predicate device #1...</div>
-                          <div className="bg-white p-3 rounded">Predicate device #2...</div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <button
-                      onClick={checkoutReguReadyProfessional}
-                      className="px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-2xl hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 text-sm sm:text-base"
-                    >
-                      🔓 Unlock Full Strategy
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Upgrade CTA */}
-            <div className="bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 text-white rounded-2xl p-6 sm:p-8 text-center shadow-2xl">
-              <div className="text-3xl sm:text-4xl mb-4">💎</div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">Ready for Your Complete Regulatory Strategy?</h3>
-              <p className="text-base sm:text-lg mb-6 text-purple-100">Companies using ReguReady™ saved an average of $180K and 8 months</p>
-              <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-6 text-left">
-                <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                  <p className="font-semibold mb-1 text-sm sm:text-base">✓ Unlimited Submissions</p>
-                  <p className="text-xs sm:text-sm text-purple-100">Analyze all your devices</p>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                  <p className="font-semibold mb-1 text-sm sm:text-base">✓ Predicate Device Database</p>
-                  <p className="text-xs sm:text-sm text-purple-100">10,000+ cleared devices</p>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                  <p className="font-semibold mb-1 text-sm sm:text-base">✓ International Guidance</p>
-                  <p className="text-xs sm:text-sm text-purple-100">EU MDR, Health Canada, more</p>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                  <p className="font-semibold mb-1 text-sm sm:text-base">✓ Expert Support</p>
-                  <p className="text-xs sm:text-sm text-purple-100">Quarterly strategy calls</p>
-                </div>
-              </div>
-              <button
-                onClick={checkoutReguReadyProfessional}
-                className="px-8 sm:px-12 py-4 sm:py-5 bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-all shadow-2xl text-base sm:text-lg transform hover:scale-105"
+        <AnimatePresence>
+          {analyzing && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-3xl shadow-2xl p-16 text-center"
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+                className="text-7xl mb-8"
               >
-                Get Started - $25,000/year
-              </button>
-              <p className="text-xs sm:text-sm text-purple-100 mt-4">ROI typically achieved in first submission • Cancel anytime</p>
-            </div>
-          </div>
-        )}
+                ⚙️
+              </motion.div>
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">Analyzing Your Device...</h3>
+              <p className="text-xl text-gray-600">Reviewing FDA database, predicate devices, and regulatory requirements</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Results - Two Column Layout */}
+        <AnimatePresence>
+          {showResults && !analyzing && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="space-y-12"
+            >
+              {/* Pathway Overview */}
+              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-12">
+                  <div className="flex items-center gap-6 mb-8">
+                    <div className="text-7xl">🎯</div>
+                    <div>
+                      <h2 className="text-4xl font-bold mb-2">Recommended Pathway</h2>
+                      <p className="text-purple-100 text-xl">{pathway.realWorldData}</p>
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm">
+                      <p className="text-purple-100 text-base mb-2">Pathway</p>
+                      <p className="font-bold text-2xl">{pathway.pathway}</p>
+                    </div>
+                    <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm">
+                      <p className="text-purple-100 text-base mb-2">Timeline</p>
+                      <p className="font-bold text-2xl">{pathway.timeline}</p>
+                    </div>
+                    <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm">
+                      <p className="text-purple-100 text-base mb-2">Estimated Cost</p>
+                      <p className="font-bold text-2xl">{pathway.cost}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-12">
+                  <p className="text-2xl text-gray-700 mb-12 leading-relaxed">{pathway.description}</p>
+
+                  {/* Two-Column Layout: Timeline + Details */}
+                  <div className="grid lg:grid-cols-2 gap-12 mb-12">
+                    {/* Left: Animated Timeline */}
+                    <div>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-6">Regulatory Roadmap</h3>
+                      <TimelineVisualization steps={pathway.steps} />
+                    </div>
+
+                    {/* Right: Step Details */}
+                    <div>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-6">Key Milestones</h3>
+                      <div className="space-y-6">
+                        {pathway.steps.map((step, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-6"
+                          >
+                            <div className="flex items-start gap-4">
+                              <div className="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                                {index + 1}
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-bold text-gray-900 mb-3 text-xl">{step.title}</h4>
+                                <div className="flex flex-wrap gap-4 text-lg text-gray-600">
+                                  <span className="bg-white px-4 py-2 rounded-lg">⏱️ {step.duration}</span>
+                                  <span className="bg-white px-4 py-2 rounded-lg">💰 {step.cost}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Locked Premium Features */}
+                  <div className="relative mt-12">
+                    <div className="filter blur-sm pointer-events-none bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-10 border-2 border-dashed border-gray-300">
+                      <h4 className="font-bold text-2xl mb-8">Detailed Submission Strategy:</h4>
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                          <h5 className="font-semibold text-xl mb-4">Key Advantages:</h5>
+                          <ul className="text-lg space-y-3">
+                            <li>• Strategic advantage #1...</li>
+                            <li>• Strategic advantage #2...</li>
+                            <li>• Strategic advantage #3...</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-xl mb-4">Common Pitfalls:</h5>
+                          <ul className="text-lg space-y-3">
+                            <li>• Pitfall to avoid #1...</li>
+                            <li>• Pitfall to avoid #2...</li>
+                            <li>• Pitfall to avoid #3...</li>
+                          </ul>
+                        </div>
+                      </div>
+                      {deviceData.riskClass === 'II' && (
+                        <div className="mt-8">
+                          <h5 className="font-semibold text-xl mb-4">Predicate Devices:</h5>
+                          <div className="space-y-3">
+                            <div className="bg-white p-6 rounded-xl">Predicate device #1...</div>
+                            <div className="bg-white p-6 rounded-xl">Predicate device #2...</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={checkoutReguReadyProfessional}
+                        className="px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-2xl shadow-2xl hover:from-purple-700 hover:to-pink-700 transition-all text-xl"
+                      >
+                        🔓 Unlock Full Strategy
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Upgrade CTA */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                className="bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 text-white rounded-3xl p-16 text-center shadow-2xl"
+              >
+                <div className="text-6xl mb-8">💎</div>
+                <h3 className="text-4xl font-bold mb-6">Ready for Your Complete Regulatory Strategy?</h3>
+                <p className="text-2xl mb-10 text-purple-100">Companies using ReguReady™ saved an average of $180K and 8 months</p>
+                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+                  <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm text-left">
+                    <p className="font-semibold mb-2 text-xl">✓ Unlimited Submissions</p>
+                    <p className="text-lg text-purple-100">Analyze all your devices</p>
+                  </div>
+                  <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm text-left">
+                    <p className="font-semibold mb-2 text-xl">✓ Predicate Device Database</p>
+                    <p className="text-lg text-purple-100">10,000+ cleared devices</p>
+                  </div>
+                  <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm text-left">
+                    <p className="font-semibold mb-2 text-xl">✓ International Guidance</p>
+                    <p className="text-lg text-purple-100">EU MDR, Health Canada, more</p>
+                  </div>
+                  <div className="bg-white bg-opacity-20 rounded-2xl p-6 backdrop-blur-sm text-left">
+                    <p className="font-semibold mb-2 text-xl">✓ Expert Support</p>
+                    <p className="text-lg text-purple-100">Quarterly strategy calls</p>
+                  </div>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={checkoutReguReadyProfessional}
+                  className="px-16 py-6 bg-white text-purple-600 font-bold rounded-2xl hover:bg-gray-100 transition-all shadow-2xl text-2xl"
+                >
+                  Get Started - $25,000/year
+                </motion.button>
+                <p className="text-base text-purple-100 mt-6">ROI typically achieved in first submission • Cancel anytime</p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

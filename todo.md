@@ -348,3 +348,15 @@
   - [x] Need to add ClinicalIQ™, ElderWatch™, PediCalc Pro™, SkinScan Pro™
   - [x] Update onClick handler to map platform names to demo types
 
+
+
+
+## 🚨 URGENT FIXES (Oct 29, 2025)
+- [ ] Update RxGuard demo to match new professional light background layout (currently still has old dark background)
+- [ ] Fix "Start Free Trial" button - currently opens email, should either:
+  - [ ] Remove it entirely (no trial system yet)
+  - [ ] Link to Stripe checkout
+  - [ ] Link to a signup/registration page
+- [ ] Decide what to do with "Start Free Trial" button for each platform (some are B2B enterprise, not consumer trial products)
+- [ ] Fix back buttons in demos - only RxGuard works, other 5 demos' back buttons are broken
+

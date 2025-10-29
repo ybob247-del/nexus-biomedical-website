@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function PediCalcPrototype() {
+export default function PediCalcPrototype({ onBack }) {
   const [selectedScenario, setSelectedScenario] = useState(null);
 
   const scenarios = [
@@ -548,7 +548,7 @@ export default function PediCalcPrototype() {
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <button
-          onClick={() => window.history.back()}
+          onClick={onBack}
           style={{
             position: 'fixed',
             top: '2rem',

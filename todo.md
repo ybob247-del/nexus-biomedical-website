@@ -377,3 +377,13 @@
   - [x] Match font sizes and spacing
   - [x] Ensure consistent styling with other 5 demos
 
+
+
+
+## 💳 Stripe Payment Links Integration (Oct 29, 2025)
+- [ ] Replace deprecated Stripe checkout with Payment Links
+- [ ] Add all 6 payment links to LearnMore.jsx
+- [ ] Update ClinicalIQ™ to "Contact Sales" only (no self-service checkout)
+- [ ] Update pricing display to reflect free trials for PediCalc and SkinScan
+- [ ] Remove old Stripe Price ID configuration
+

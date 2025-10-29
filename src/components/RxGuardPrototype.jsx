@@ -265,7 +265,7 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'welcome') {
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #00A8CC15 0%, #00A8CC25 50%, #00A8CC15 100%)'}}>
+      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
         <div className="max-w-7xl mx-auto">
           {/* Back Button */}
           {onBack && (
@@ -400,7 +400,7 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'calculator') {
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #00A8CC15 0%, #00A8CC25 50%, #00A8CC15 100%)'}}>
+      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
         <div className="max-w-5xl mx-auto">
           {/* Back Button */}
           <button
@@ -514,7 +514,7 @@ const RxGuardPrototype = ({ onBack }) => {
     const interactions = selectedScenario.interactions || [];
     
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #00A8CC15 0%, #00A8CC25 50%, #00A8CC15 100%)'}}>
+      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
         <div className="max-w-7xl mx-auto">
           {/* Back Button */}
           <button

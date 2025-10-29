@@ -124,7 +124,7 @@ export default function ReguReadyPrototype({ onBack }) {
     return (
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #B794F415 0%, #B794F425 50%, #B794F415 100%)',
+        background: 'linear-gradient(135deg, #f8fafc 0%, #f3e8ff 50%, #e9d5ff 100%)',
         padding: '2rem',
         position: 'fixed',
         top: 0,
@@ -431,7 +431,7 @@ export default function ReguReadyPrototype({ onBack }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #B794F415 0%, #B794F425 50%, #B794F415 100%)',
+      background: 'linear-gradient(135deg, #f8fafc 0%, #f3e8ff 50%, #e9d5ff 100%)',
       padding: '4rem 2rem',
       position: 'fixed',
       top: 0,

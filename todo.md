@@ -381,9 +381,9 @@
 
 
 ## 💳 Stripe Payment Links Integration (Oct 29, 2025)
-- [ ] Replace deprecated Stripe checkout with Payment Links
-- [ ] Add all 6 payment links to LearnMore.jsx
-- [ ] Update ClinicalIQ™ to "Contact Sales" only (no self-service checkout)
-- [ ] Update pricing display to reflect free trials for PediCalc and SkinScan
-- [ ] Remove old Stripe Price ID configuration
+- [x] Replace deprecated Stripe checkout with Payment Links
+- [x] Add all 6 payment links to LearnMore.jsx
+- [x] Update ClinicalIQ™ to "Contact Sales" only (no self-service checkout)
+- [x] Update pricing display to reflect free trials for PediCalc and SkinScan
+- [x] Remove old Stripe Price ID configuration
 

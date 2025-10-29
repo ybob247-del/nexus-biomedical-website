@@ -86,8 +86,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             {platform.hero.subtitle}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {/* Show Try Demo button for RxGuard and ReguReady */}
-            {(platform.name === 'RxGuard™' || platform.name === 'ReguReady™') && onTryDemo && (
+            {/* Show Try Demo button for all platforms */}
+            {onTryDemo && (
               <button style={{
                 background: platform.gradient,
                 color: 'white',
@@ -102,7 +102,17 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
               }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              onClick={() => onTryDemo(platform.name === 'RxGuard™' ? 'rxguard' : 'reguready')}
+              onClick={() => {
+                const demoMap = {
+                  'RxGuard™': 'rxguard',
+                  'ReguReady™': 'reguready',
+                  'ClinicalIQ™': 'clinicaliq',
+                  'ElderWatch™': 'elderwatch',
+                  'PediCalc Pro™': 'pedicalc',
+                  'SkinScan Pro™': 'skinscan'
+                };
+                onTryDemo(demoMap[platform.name]);
+              }}
               >
                 🚀 Try Interactive Demo
               </button>

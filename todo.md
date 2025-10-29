@@ -358,5 +358,5 @@
   - [ ] Link to Stripe checkout
   - [ ] Link to a signup/registration page
 - [ ] Decide what to do with "Start Free Trial" button for each platform (some are B2B enterprise, not consumer trial products)
-- [ ] Fix back buttons in demos - only RxGuard works, other 5 demos' back buttons are broken
+- [x] Fix back buttons in demos - only RxGuard works, other 5 demos' back buttons are broken
 

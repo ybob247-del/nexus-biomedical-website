@@ -1,7 +1,53 @@
 import React from 'react';
+import { checkoutRxGuardProfessional, checkoutRxGuardEnterprise, checkoutReguReadyStarter, checkoutReguReadyProfessional } from '../utils/stripe';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
   if (!platform) return null;
+
+  // Handle Start Free Trial button clicks
+  const handleStartTrial = () => {
+    // RxGuard™ Professional has 14-day free trial
+    if (platform.name === 'RxGuard™') {
+      checkoutRxGuardProfessional();
+    }
+    // ReguReady™ - default to Starter plan
+    else if (platform.name === 'ReguReady™') {
+      checkoutReguReadyStarter();
+    }
+    // For other platforms, open email for now
+    else {
+      window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`;
+    }
+  };
+
+  // Handle pricing card button clicks
+  const handlePricingClick = (plan) => {
+    // RxGuard™
+    if (platform.name === 'RxGuard™') {
+      if (plan.tier === 'Professional') {
+        checkoutRxGuardProfessional(); // 14-day free trial
+      } else if (plan.tier === 'Enterprise') {
+        checkoutRxGuardEnterprise(); // Contact sales
+      } else {
+        // Free tier - no action needed
+        alert('Free tier is available without signup. Click "Try Interactive Demo" to get started!');
+      }
+    }
+    // ReguReady™
+    else if (platform.name === 'ReguReady™') {
+      if (plan.tier === 'Starter') {
+        checkoutReguReadyStarter(); // $10K one-time
+      } else if (plan.tier === 'Professional') {
+        checkoutReguReadyProfessional(); // $25K/year
+      } else if (plan.tier === 'Enterprise') {
+        window.location.href = `mailto:sales@nexusbiomedical.ai?subject=ReguReady Enterprise Inquiry`;
+      }
+    }
+    // Other platforms - email for now
+    else {
+      window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ${platform.name}`;
+    }
+  };
 
   return (
     <div style={{
@@ -131,7 +177,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`}
+            onClick={handleStartTrial}
             >
               Start Free Trial
             </button>
@@ -313,7 +359,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ${platform.name}`}
+                onClick={() => handlePricingClick(plan)}
                 >
                   {plan.tier === 'Free' || plan.tier === 'Starter' ? 'Get Started' : plan.tier.includes('Professional') ? 'Start Free Trial' : 'Contact Sales'}
                 </button>
@@ -372,7 +418,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`}
+            onClick={handleStartTrial}
             >
               Start Free Trial
             </button>

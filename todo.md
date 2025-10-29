@@ -360,3 +360,10 @@
 - [x] Decide what to do with "Start Free Trial" button for each platform (some are B2B enterprise, not consumer trial products)
 - [x] Fix back buttons in demos - only RxGuard works, other 5 demos' back buttons are broken
 
+
+
+## 🎨 Demo Background Color Fixes (Oct 29, 2025)
+- [ ] Update RxGuard demo background to match LearnMore dark blue (#0A1B3D gradient)
+- [ ] Update ReguReady demo background to richer blue tone
+- [ ] Update SkinScan demo background to better match branding
+

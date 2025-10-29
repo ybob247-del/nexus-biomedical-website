@@ -178,7 +178,7 @@ export default function SkinScanPrototype({ onBack }) {
     return (
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
+        background: 'linear-gradient(135deg, #14B8A615 0%, #14B8A625 50%, #14B8A615 100%)',
         padding: '2rem',
         position: 'fixed',
         top: 0,
@@ -487,7 +487,7 @@ export default function SkinScanPrototype({ onBack }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
+      background: 'linear-gradient(135deg, #14B8A615 0%, #14B8A625 50%, #14B8A615 100%)',
       padding: '4rem 2rem',
       position: 'fixed',
       top: 0,

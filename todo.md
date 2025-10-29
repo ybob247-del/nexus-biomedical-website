@@ -367,3 +367,13 @@
 - [x] Update ReguReady demo background to lavender/purple (#B794F4)
 - [x] Update SkinScan demo background to teal (#14B8A6)
 
+
+
+## 🎨 RxGuard Demo Layout Rebuild (Oct 29, 2025)
+- [ ] Rebuild RxGuard demo to match modern layout pattern (like ReguReady, ClinicalIQ, etc.)
+  - [ ] Center title with badge above
+  - [ ] Add stats box with 3 columns
+  - [ ] Update scenario cards with rounded borders
+  - [ ] Match font sizes and spacing
+  - [ ] Ensure consistent styling with other 5 demos
+

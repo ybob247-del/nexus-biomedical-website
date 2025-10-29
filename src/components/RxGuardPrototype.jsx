@@ -265,130 +265,272 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'welcome') {
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
-        <div className="max-w-7xl mx-auto">
+      <div style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)',
+        padding: '4rem 2rem',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflowY: 'auto'
+      }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Back Button */}
           {onBack && (
             <button
               onClick={onBack}
-              className="mb-8 text-slate-600 hover:text-slate-900 font-semibold flex items-center space-x-2 transition-colors"
+              style={{
+                position: 'fixed',
+                top: '2rem',
+                left: '2rem',
+                background: '#00A8CC',
+                color: 'white',
+                border: 'none',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '30px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: 600,
+                zIndex: 1001,
+                boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)'
+              }}
             >
-              <span>←</span>
-              <span>Back to Home</span>
+              ← Back to Home
             </button>
           )}
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            style={{ textAlign: 'center', marginBottom: '4rem', paddingTop: '2rem' }}
           >
-            <div className="inline-block px-6 py-2 bg-cyan-100 text-cyan-800 rounded-full text-sm font-bold mb-6">
+            <div style={{
+              display: 'inline-block',
+              background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+              color: 'white',
+              padding: '0.75rem 2rem',
+              borderRadius: '30px',
+              fontSize: '1rem',
+              fontWeight: 700,
+              marginBottom: '2rem',
+              boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)'
+            }}>
               AI-POWERED MEDICATION SAFETY
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
+
+            <h1 style={{
+              fontSize: '4rem',
+              fontWeight: 800,
+              background: 'linear-gradient(135deg, #1e293b 0%, #00A8CC 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '1.5rem',
+              lineHeight: '1.2'
+            }}>
               RxGuard™ Interactive Demo
             </h1>
-            <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed" style={{lineHeight: '1.8'}}>
+
+            <p style={{
+              fontSize: '1.5rem',
+              color: '#475569',
+              maxWidth: '900px',
+              margin: '0 auto 3rem auto',
+              lineHeight: '1.8'
+            }}>
               Experience how AI-powered drug interaction detection protects patients and reduces healthcare costs
             </p>
+
+            {/* Stats Bar */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '2rem',
+              maxWidth: '900px',
+              margin: '0 auto',
+              padding: '2rem',
+              background: 'rgba(255, 255, 255, 0.8)',
+              borderRadius: '16px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              border: '2px solid #cbd5e1'
+            }}>
+              <div>
+                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>100K+ Deaths</div>
+                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>FDA adverse event records analyzed</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>10,000+ Interactions</div>
+                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Detected</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>$85K/Event</div>
+                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Cost-powered predictions</div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Stats Bar */}
+          {/* Scenarios Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+            style={{ marginBottom: '4rem' }}
           >
-            <div className="bg-white rounded-2xl p-10 shadow-sm border border-slate-200 text-center">
-              <div className="text-5xl font-bold text-cyan-600 mb-3">10M+</div>
-              <div className="text-slate-600 text-lg">FDA adverse event records analyzed</div>
-            </div>
-            <div className="bg-white rounded-2xl p-10 shadow-sm border border-slate-200 text-center">
-              <div className="text-5xl font-bold text-cyan-600 mb-3">1,000+</div>
-              <div className="text-slate-600 text-lg">Known drug interactions detected</div>
-            </div>
-            <div className="bg-white rounded-2xl p-10 shadow-sm border border-slate-200 text-center">
-              <div className="text-5xl font-bold text-cyan-600 mb-3">FDA FAERS</div>
-              <div className="text-slate-600 text-lg">Data-powered predictions</div>
-            </div>
-          </motion.div>
-
-          {/* Scenario Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <h2 className="text-4xl font-bold text-slate-900 mb-6 text-center">
+            <h2 style={{
+              fontSize: '2.5rem',
+              fontWeight: 700,
+              color: '#1e293b',
+              textAlign: 'center',
+              marginBottom: '1rem'
+            }}>
               Explore Real Clinical Scenarios
             </h2>
-            <p className="text-xl text-slate-600 mb-12 text-center max-w-3xl mx-auto leading-relaxed" style={{lineHeight: '1.8'}}>
+            <p style={{
+              fontSize: '1.2rem',
+              color: '#64748b',
+              textAlign: 'center',
+              marginBottom: '3rem',
+              maxWidth: '800px',
+              margin: '0 auto 3rem auto'
+            }}>
               See how RxGuard™ detects life-threatening interactions instantly • No signup required • Real FDA data
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-              {scenarios.map((scenario, index) => (
+            {/* Scenario Cards */}
+            <div style={{ display: 'grid', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+              {scenarios.map((scenario, idx) => (
                 <motion.div
                   key={scenario.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  whileHover={{ boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
-                  className="bg-slate-50 rounded-2xl p-10 shadow-2xl border-4 border-slate-400 hover:border-cyan-500 transition-all cursor-pointer group"
-                  style={{backgroundColor: '#f8fafc', borderColor: '#475569'}}
+                  transition={{ delay: 0.3 + idx * 0.1 }}
                   onClick={() => handleScenarioSelect(scenario)}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    borderRadius: '16px',
+                    padding: '2rem',
+                    cursor: 'pointer',
+                    border: '2px solid #cbd5e1',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 168, 204, 0.2)';
+                    e.currentTarget.style.borderColor = '#00A8CC';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                    e.currentTarget.style.borderColor = '#cbd5e1';
+                  }}
                 >
-                  <div className="mb-8">
-                    <div className={`inline-block px-4 py-2 ${scenario.severityColor} text-white rounded-full text-sm font-bold mb-5`}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                    <div style={{ flex: 1 }}>
+                      <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.5rem' }}>
+                        {scenario.title}
+                      </h3>
+                      <p style={{ fontSize: '1.2rem', color: '#00A8CC', fontWeight: 600, marginBottom: '0.5rem' }}>
+                        {scenario.subtitle}
+                      </p>
+                      <p style={{ fontSize: '1rem', color: '#64748b' }}>
+                        {scenario.description}
+                      </p>
+                    </div>
+                    <div style={{
+                      background: scenario.severity.includes('10') ? '#dc2626' : scenario.severity.includes('9') ? '#f97316' : '#eab308',
+                      color: 'white',
+                      padding: '0.5rem 1rem',
+                      borderRadius: '8px',
+                      fontSize: '0.9rem',
+                      fontWeight: 700,
+                      whiteSpace: 'nowrap',
+                      marginLeft: '1rem'
+                    }}>
                       {scenario.severity}
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
-                      {scenario.title}
-                    </h3>
-                    <p className="text-lg font-semibold text-slate-700 mb-4" style={{lineHeight: '1.7'}}>{scenario.subtitle}</p>
-                    <p className="text-slate-600" style={{lineHeight: '1.8'}}>{scenario.description}</p>
                   </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Medications:</div>
-                    {scenario.medications.map((med, idx) => (
-                      <div key={idx} className="flex items-center space-x-3" style={{lineHeight: '1.7'}}>
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full flex-shrink-0"></div>
-                        <span className="text-slate-700">{med}</span>
+                  <div style={{
+                    display: 'flex',
+                    gap: '1rem',
+                    marginTop: '1.5rem',
+                    paddingTop: '1.5rem',
+                    borderTop: '1px solid #e2e8f0'
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.25rem' }}>Timeline</div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e293b' }}>
+                        {scenario.medications.length} medications
                       </div>
-                    ))}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.25rem' }}>Est. Cost</div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e293b' }}>
+                        ${(scenario.annualCost / 1000000).toFixed(0)}M annually
+                      </div>
+                    </div>
+                    <button style={{
+                      background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+                      color: 'white',
+                      border: 'none',
+                      padding: '0.75rem 2rem',
+                      borderRadius: '8px',
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 8px rgba(0, 168, 204, 0.3)'
+                    }}>
+                      Try This Scenario →
+                    </button>
                   </div>
-
-                  <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-6 rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg group-hover:shadow-xl">
-                    Try This Scenario →
-                  </button>
                 </motion.div>
               ))}
             </div>
+          </motion.div>
 
-            {/* Custom Calculator CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-12 text-center shadow-xl"
+          {/* Custom Calculator CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            style={{
+              textAlign: 'center',
+              padding: '4rem 2rem',
+              background: 'linear-gradient(135deg, #1e293b 0%, #00A8CC 100%)',
+              borderRadius: '24px',
+              maxWidth: '900px',
+              margin: '0 auto',
+              boxShadow: '0 8px 24px rgba(0, 168, 204, 0.3)'
+            }}
+          >
+            <h3 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white', marginBottom: '1rem' }}>
+              Build Your Own Scenario
+            </h3>
+            <p style={{ fontSize: '1.3rem', color: '#cbd5e1', marginBottom: '2rem', lineHeight: '1.6' }}>
+              Use our interactive calculator to analyze any medication combination with real-time FDA data
+            </p>
+            <button
+              onClick={handleStartCustom}
+              style={{
+                background: 'white',
+                color: '#00A8CC',
+                border: 'none',
+                padding: '1.25rem 3rem',
+                borderRadius: '12px',
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 4px 16px rgba(255, 255, 255, 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-              <h3 className="text-4xl font-bold text-white mb-4">
-                Build Your Own Scenario
-              </h3>
-              <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto" style={{lineHeight: '1.8'}}>
-                Use our interactive calculator to analyze any medication combination with real-time FDA data
-              </p>
-              <button
-                onClick={handleStartCustom}
-                className="bg-white text-slate-900 font-bold py-5 px-12 rounded-xl hover:bg-slate-100 transition-all text-lg shadow-2xl hover:shadow-3xl hover:scale-105"
-              >
-                Open Interactive Calculator →
-              </button>
-            </motion.div>
+              Open Interactive Calculator →
+            </button>
           </motion.div>
         </div>
       </div>

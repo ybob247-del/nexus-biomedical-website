@@ -15,9 +15,7 @@ export default function ElderWatchPrototype() {
       riskScore: 85,
       patientInfo: {
         age: 78,
-        livingS
-
-ituation: 'Independent Living',
+        livingSituation: 'Independent Living',
         medications: 5,
         recentChanges: 'Started new blood pressure medication 2 weeks ago'
       },

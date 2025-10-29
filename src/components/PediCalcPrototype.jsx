@@ -50,7 +50,7 @@ export default function PediCalcPrototype() {
         errorRate: '42% (manual)',
         aiErrorRate: '0% (automated)',
         potentialHarmPrevented: 'Dosing error prevented',
-        timeS avings: '99% faster'
+        timeSavings: '99% faster'
       }
     },
     {

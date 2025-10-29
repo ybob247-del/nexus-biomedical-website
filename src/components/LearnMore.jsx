@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkoutRxGuardProfessional, checkoutRxGuardEnterprise, checkoutReguReadyStarter, checkoutReguReadyProfessional } from '../utils/stripe';
+import { checkoutRxGuardProfessional, checkoutRxGuardEnterprise, checkoutReguReadyStarter, checkoutReguReadyProfessional, checkoutClinicalIQProfessional, checkoutElderWatchFacility, checkoutPediCalcProIndividual, checkoutSkinScanProGroup } from '../utils/stripe';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
   if (!platform) return null;
@@ -14,7 +14,23 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
     else if (platform.name === 'ReguReady™') {
       checkoutReguReadyStarter();
     }
-    // For other platforms, open email for now
+    // ClinicalIQ™ Professional
+    else if (platform.name === 'ClinicalIQ™') {
+      checkoutClinicalIQProfessional();
+    }
+    // ElderWatch™ Facility
+    else if (platform.name === 'ElderWatch™') {
+      checkoutElderWatchFacility();
+    }
+    // PediCalc Pro™ Individual Provider
+    else if (platform.name === 'PediCalc Pro™') {
+      checkoutPediCalcProIndividual();
+    }
+    // SkinScan Pro™ Group
+    else if (platform.name === 'SkinScan Pro™') {
+      checkoutSkinScanProGroup();
+    }
+    // Fallback
     else {
       window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`;
     }
@@ -43,7 +59,47 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         window.location.href = `mailto:sales@nexusbiomedical.ai?subject=ReguReady Enterprise Inquiry`;
       }
     }
-    // Other platforms - email for now
+    // ClinicalIQ™
+    else if (platform.name === 'ClinicalIQ™') {
+      if (plan.tier === 'Professional') {
+        checkoutClinicalIQProfessional(); // $150K/year
+      } else if (plan.tier === 'Enterprise') {
+        window.location.href = `mailto:sales@nexusbiomedical.ai?subject=ClinicalIQ Enterprise Inquiry`;
+      } else {
+        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ClinicalIQ`;
+      }
+    }
+    // ElderWatch™
+    else if (platform.name === 'ElderWatch™') {
+      if (plan.tier === 'Facility (10-50 residents)') {
+        checkoutElderWatchFacility(); // $400/month
+      } else if (plan.tier === 'Enterprise (50+ residents)') {
+        window.location.href = `mailto:sales@nexusbiomedical.ai?subject=ElderWatch Enterprise Inquiry`;
+      } else {
+        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ElderWatch`;
+      }
+    }
+    // PediCalc Pro™
+    else if (platform.name === 'PediCalc Pro™') {
+      if (plan.tier === 'Individual Provider') {
+        checkoutPediCalcProIndividual(); // $99/month
+      } else if (plan.tier === 'Enterprise') {
+        window.location.href = `mailto:sales@nexusbiomedical.ai?subject=PediCalc Pro Enterprise Inquiry`;
+      } else {
+        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - PediCalc Pro`;
+      }
+    }
+    // SkinScan Pro™
+    else if (platform.name === 'SkinScan Pro™') {
+      if (plan.tier === 'Group (5-20 providers)') {
+        checkoutSkinScanProGroup(); // $79/month
+      } else if (plan.tier === 'Hospital/Enterprise') {
+        window.location.href = `mailto:sales@nexusbiomedical.ai?subject=SkinScan Pro Enterprise Inquiry`;
+      } else {
+        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - SkinScan Pro`;
+      }
+    }
+    // Other platforms - email fallback
     else {
       window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ${platform.name}`;
     }

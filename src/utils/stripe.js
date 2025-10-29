@@ -87,3 +87,39 @@ export const checkoutReguReadyProfessional = () => {
   })
 }
 
+/**
+ * Start checkout for ClinicalIQ™ Professional (yearly subscription)
+ */
+export const checkoutClinicalIQProfessional = () => {
+  return redirectToCheckout(STRIPE_CONFIG.prices.clinicalIQProfessional, {
+    mode: 'subscription',
+  })
+}
+
+/**
+ * Start checkout for ElderWatch™ Facility (monthly subscription)
+ */
+export const checkoutElderWatchFacility = () => {
+  return redirectToCheckout(STRIPE_CONFIG.prices.elderWatchFacility, {
+    mode: 'subscription',
+  })
+}
+
+/**
+ * Start checkout for PediCalc Pro™ Individual Provider (monthly subscription)
+ */
+export const checkoutPediCalcProIndividual = () => {
+  return redirectToCheckout(STRIPE_CONFIG.prices.pediCalcProIndividual, {
+    mode: 'subscription',
+  })
+}
+
+/**
+ * Start checkout for SkinScan Pro™ Group (monthly subscription)
+ */
+export const checkoutSkinScanProGroup = () => {
+  return redirectToCheckout(STRIPE_CONFIG.prices.skinScanProGroup, {
+    mode: 'subscription',
+  })
+}
+

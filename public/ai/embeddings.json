@@ -1,0 +1,487 @@
+{
+  "version": "1.0",
+  "website": "Nexus Biomedical Intelligence",
+  "url": "https://nexusbiomedical.ai",
+  "generated": "2025-10-30",
+  "description": "AI embeddings and structured content for AI agent understanding of Nexus Biomedical Intelligence healthcare platforms",
+  "pages": [
+    {
+      "id": "homepage",
+      "url": "https://nexusbiomedical.ai/",
+      "title": "Nexus Biomedical Intelligence - AI-Powered Healthcare Solutions",
+      "summary": "Nexus Biomedical Intelligence provides six AI-powered healthcare platforms: RxGuard for drug interaction detection, ReguReady for FDA regulatory compliance, ClinicalIQ for clinical trial intelligence, ElderWatch for senior health monitoring, PediCalc Pro for pediatric dosing, and SkinScan Pro for skin cancer detection. These platforms serve healthcare professionals, medical device companies, pharmaceutical companies, and healthcare facilities.",
+      "key_concepts": [
+        "Healthcare AI platforms",
+        "Drug safety and interaction detection",
+        "FDA regulatory compliance",
+        "Clinical trial optimization",
+        "Senior care monitoring",
+        "Pediatric medication safety",
+        "Skin cancer screening",
+        "Patient safety improvement",
+        "Healthcare cost reduction",
+        "Evidence-based medicine"
+      ],
+      "entities": [
+        {"type": "company", "name": "Nexus Biomedical Intelligence"},
+        {"type": "industry", "name": "Healthcare Technology"},
+        {"type": "industry", "name": "Medical Software"},
+        {"type": "regulatory_body", "name": "FDA"}
+      ]
+    },
+    {
+      "id": "rxguard",
+      "url": "https://nexusbiomedical.ai/#rxguard",
+      "title": "RxGuard™ - AI Drug Interaction Detection",
+      "summary": "RxGuard is an AI-powered drug interaction detection platform that analyzes over 10,000 drug interactions using real FDA adverse event data. It provides instant clinical recommendations and reduces medication errors by 85%. The platform helps healthcare professionals prevent life-threatening adverse drug events through real-time analysis and evidence-based decision support. Pricing starts at $49/month with a 14-day free trial.",
+      "key_concepts": [
+        "Drug-drug interactions",
+        "Adverse drug events (ADEs)",
+        "Medication error prevention",
+        "Clinical decision support system (CDSS)",
+        "FDA adverse event reporting system (FAERS)",
+        "Polypharmacy management",
+        "Patient safety",
+        "Pharmacovigilance",
+        "Evidence-based prescribing",
+        "Real-time drug safety alerts"
+      ],
+      "statistics": [
+        {"metric": "Drug interactions analyzed", "value": "10,000+"},
+        {"metric": "Medication error reduction", "value": "85%"},
+        {"metric": "Annual deaths from ADEs", "value": "100,000+"},
+        {"metric": "Cost per adverse drug event", "value": "$85,000"}
+      ],
+      "use_cases": [
+        "Hospital pharmacists reviewing medication orders",
+        "Primary care physicians prescribing new medications",
+        "Emergency department drug safety checks",
+        "Long-term care facility medication management",
+        "Ambulatory care polypharmacy screening"
+      ],
+      "pricing": {
+        "professional": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "features": [
+            "10,000+ drug interaction database",
+            "Real-time FDA adverse event data",
+            "Clinical decision support",
+            "Severity classification",
+            "Evidence-based recommendations"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "RxGuard"},
+        {"type": "data_source", "name": "FDA Adverse Event Reporting System"},
+        {"type": "target_user", "name": "Healthcare professionals"},
+        {"type": "target_user", "name": "Pharmacists"},
+        {"type": "target_user", "name": "Physicians"}
+      ]
+    },
+    {
+      "id": "reguready",
+      "url": "https://nexusbiomedical.ai/#reguready",
+      "title": "ReguReady™ - FDA Regulatory Compliance Platform",
+      "summary": "ReguReady is an FDA regulatory compliance platform designed for medical device companies navigating 510(k), PMA, and De Novo pathways. It uses AI to analyze regulatory pathways, optimize submission timelines, and calculate cost impacts. The platform reduces FDA approval time by 2-6 months and saves $50,000-$550,000 per submission. Pricing starts at $199/month for Starter and $399/month for Professional with 7-day free trials.",
+      "key_concepts": [
+        "FDA 510(k) clearance",
+        "Premarket Approval (PMA)",
+        "De Novo classification",
+        "Medical device regulation",
+        "Regulatory pathway optimization",
+        "Submission strategy",
+        "Predicate device analysis",
+        "Clinical data requirements",
+        "Quality system regulation (QSR)",
+        "FDA submission timeline"
+      ],
+      "statistics": [
+        {"metric": "Approval time reduction", "value": "2-6 months"},
+        {"metric": "Cost savings per submission", "value": "$50,000-$550,000"},
+        {"metric": "FDA approval success rate improvement", "value": "92%"},
+        {"metric": "Traditional pathway cost", "value": "$180,000"},
+        {"metric": "Optimized pathway cost", "value": "$130,000"}
+      ],
+      "use_cases": [
+        "Medical device startups planning FDA submission strategy",
+        "Established companies optimizing regulatory pathways",
+        "Regulatory affairs teams managing multiple submissions",
+        "Investors evaluating medical device regulatory risk",
+        "Contract manufacturers advising clients on FDA compliance"
+      ],
+      "pricing": {
+        "starter": {
+          "price": 199,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 7,
+          "target": "Startups and small medical device companies",
+          "features": [
+            "510(k) pathway analysis",
+            "De Novo pathway guidance",
+            "Submission timeline optimization",
+            "Cost impact calculator",
+            "Predicate device search"
+          ]
+        },
+        "professional": {
+          "price": 399,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 7,
+          "target": "Established medical device companies",
+          "features": [
+            "All Starter features",
+            "PMA pathway support",
+            "Clinical trial design assistance",
+            "Priority support",
+            "Multi-device portfolio management"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "ReguReady"},
+        {"type": "regulatory_body", "name": "FDA"},
+        {"type": "regulatory_pathway", "name": "510(k)"},
+        {"type": "regulatory_pathway", "name": "PMA"},
+        {"type": "regulatory_pathway", "name": "De Novo"},
+        {"type": "target_user", "name": "Medical device companies"},
+        {"type": "target_user", "name": "Regulatory affairs professionals"}
+      ]
+    },
+    {
+      "id": "clinicaliq",
+      "url": "https://nexusbiomedical.ai/#clinicaliq",
+      "title": "ClinicalIQ™ - Clinical Trial Intelligence Platform",
+      "summary": "ClinicalIQ is an AI-powered clinical trial intelligence platform for biotech and pharmaceutical companies. It predicts trial success probability, optimizes patient eligibility criteria, and forecasts recruitment timelines using machine learning trained on 400,000+ clinical trials. The platform reduces trial costs by 15-25% and improves enrollment speed by 30%. Pricing starts at $299/month for Starter and $699/month for Professional with 14-day free trials.",
+      "key_concepts": [
+        "Clinical trial design",
+        "Patient recruitment optimization",
+        "Trial success prediction",
+        "Eligibility criteria optimization",
+        "Protocol design",
+        "Site selection",
+        "Enrollment forecasting",
+        "Competitive intelligence",
+        "Trial feasibility analysis",
+        "Patient retention strategies"
+      ],
+      "statistics": [
+        {"metric": "Clinical trials analyzed", "value": "400,000+"},
+        {"metric": "Trial cost reduction", "value": "15-25%"},
+        {"metric": "Enrollment speed improvement", "value": "30%"},
+        {"metric": "Success prediction accuracy", "value": "78%"},
+        {"metric": "Average trial cost", "value": "$2.6 million"}
+      ],
+      "use_cases": [
+        "Biotech companies designing Phase II/III trials",
+        "Pharmaceutical companies optimizing recruitment strategies",
+        "CROs improving site selection and feasibility",
+        "Academic medical centers planning investigator-initiated trials",
+        "Investors evaluating clinical trial risk"
+      ],
+      "pricing": {
+        "starter": {
+          "price": 299,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Small biotech and academic researchers",
+          "features": [
+            "Trial success prediction",
+            "Patient eligibility optimization",
+            "Recruitment timeline forecasting",
+            "Protocol optimization",
+            "Competitive intelligence"
+          ]
+        },
+        "professional": {
+          "price": 699,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Pharmaceutical companies and large biotech",
+          "features": [
+            "All Starter features",
+            "Site selection analytics",
+            "Multi-trial portfolio management",
+            "Advanced predictive modeling",
+            "Priority support"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "ClinicalIQ"},
+        {"type": "target_user", "name": "Biotech companies"},
+        {"type": "target_user", "name": "Pharmaceutical companies"},
+        {"type": "target_user", "name": "Contract Research Organizations (CROs)"},
+        {"type": "data_source", "name": "ClinicalTrials.gov"}
+      ]
+    },
+    {
+      "id": "elderwatch",
+      "url": "https://nexusbiomedical.ai/#elderwatch",
+      "title": "ElderWatch™ - AI Senior Health Monitoring",
+      "summary": "ElderWatch is an AI-powered senior health monitoring platform with fall risk prediction, medication adherence tracking, and activity monitoring for families and care facilities. Machine learning analyzes vital signs, gait patterns, and activity levels to predict fall risk 48 hours in advance with 85% accuracy, reducing falls by 30-40%. Pricing starts at $49/month for Home Care and $199/month for Facility plans with 14-day free trials.",
+      "key_concepts": [
+        "Fall risk prediction",
+        "Gait analysis",
+        "Medication adherence monitoring",
+        "Activity tracking",
+        "Vital signs monitoring",
+        "Aging in place",
+        "Caregiver support",
+        "Remote patient monitoring",
+        "Preventive healthcare",
+        "Senior safety"
+      ],
+      "statistics": [
+        {"metric": "Fall risk prediction accuracy", "value": "85%"},
+        {"metric": "Advance warning time", "value": "48 hours"},
+        {"metric": "Fall reduction", "value": "30-40%"},
+        {"metric": "Annual falls among seniors", "value": "3 million+"},
+        {"metric": "Average fall-related hospitalization cost", "value": "$35,000"}
+      ],
+      "use_cases": [
+        "Family caregivers monitoring elderly parents at home",
+        "Assisted living facilities preventing resident falls",
+        "Home health agencies tracking patient safety",
+        "Skilled nursing facilities reducing fall incidents",
+        "Independent living communities supporting aging in place"
+      ],
+      "pricing": {
+        "home_care": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Individual families and home caregivers",
+          "features": [
+            "Fall risk prediction (48-hour advance)",
+            "Medication adherence tracking",
+            "Activity monitoring",
+            "Family caregiver alerts",
+            "Mobile app access"
+          ]
+        },
+        "facility": {
+          "price": 199,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Assisted living and nursing facilities",
+          "features": [
+            "All Home Care features",
+            "Multi-resident monitoring",
+            "Staff alert system",
+            "Compliance reporting",
+            "Integration with EHR systems"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "ElderWatch"},
+        {"type": "target_user", "name": "Family caregivers"},
+        {"type": "target_user", "name": "Assisted living facilities"},
+        {"type": "target_user", "name": "Nursing homes"},
+        {"type": "target_user", "name": "Home health agencies"}
+      ]
+    },
+    {
+      "id": "pedicalc",
+      "url": "https://nexusbiomedical.ai/#pedicalc",
+      "title": "PediCalc Pro™ - Pediatric Medication Dosing Calculator",
+      "summary": "PediCalc Pro is an AI-enhanced pediatric medication dosing calculator with built-in safety checks and evidence-based dosing guidelines from the American Academy of Pediatrics and FDA. It reduces pediatric dosing errors by 89% compared to manual calculations and provides instant access to critical medication doses in emergency situations. Pricing starts at $19.99/month for Individual and $14.99/month per provider for Group plans with 14-day free trials.",
+      "key_concepts": [
+        "Pediatric dosing calculations",
+        "Weight-based dosing",
+        "Age-appropriate formulations",
+        "Dosing safety checks",
+        "Emergency medication doses",
+        "AAP dosing guidelines",
+        "FDA pediatric labeling",
+        "Medication error prevention",
+        "Pediatric pharmacotherapy",
+        "Critical care dosing"
+      ],
+      "statistics": [
+        {"metric": "Pediatric dosing error reduction", "value": "89%"},
+        {"metric": "Medication errors in pediatrics", "value": "3x adult rate"},
+        {"metric": "Preventable adverse drug events", "value": "700,000+ annually"},
+        {"metric": "Average cost per pediatric ADE", "value": "$15,000"}
+      ],
+      "use_cases": [
+        "Pediatricians calculating weight-based medication doses",
+        "Emergency department physicians treating pediatric patients",
+        "Pediatric nurses verifying medication orders",
+        "Pharmacists checking pediatric prescriptions",
+        "Urgent care providers managing pediatric emergencies"
+      ],
+      "pricing": {
+        "individual": {
+          "price": 19.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Individual healthcare providers",
+          "features": [
+            "Weight-based dosing calculations",
+            "AAP/FDA dosing guidelines",
+            "Safety range alerts",
+            "Emergency medication doses",
+            "Age-appropriate formulations"
+          ]
+        },
+        "group": {
+          "price": 14.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "per_provider": true,
+          "trial_days": 14,
+          "target": "Healthcare practices and facilities (5-20 providers)",
+          "features": [
+            "All Individual features",
+            "Shared dosing protocols",
+            "Team collaboration",
+            "Usage analytics",
+            "Priority support"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "PediCalc Pro"},
+        {"type": "organization", "name": "American Academy of Pediatrics (AAP)"},
+        {"type": "regulatory_body", "name": "FDA"},
+        {"type": "target_user", "name": "Pediatricians"},
+        {"type": "target_user", "name": "Emergency medicine physicians"},
+        {"type": "target_user", "name": "Pediatric nurses"}
+      ]
+    },
+    {
+      "id": "skinscan",
+      "url": "https://nexusbiomedical.ai/#skinscan",
+      "title": "SkinScan Pro™ - AI Skin Cancer Detection",
+      "summary": "SkinScan Pro is an AI-powered skin cancer detection platform with clinical-grade melanoma screening using smartphone cameras and computer vision. It achieves 94.5% sensitivity and 89.3% specificity for melanoma detection, matching or exceeding average dermatologist performance, and reduces unnecessary biopsies by up to 30%. Pricing starts at $59/month for Individual and $49/month per provider for Group plans with 14-day free trials.",
+      "key_concepts": [
+        "Melanoma detection",
+        "Skin lesion analysis",
+        "Dermatology AI",
+        "Teledermatology",
+        "Early cancer detection",
+        "Computer vision",
+        "Smartphone-based screening",
+        "Biopsy decision support",
+        "Skin cancer screening",
+        "Lesion tracking"
+      ],
+      "statistics": [
+        {"metric": "Melanoma detection sensitivity", "value": "94.5%"},
+        {"metric": "Melanoma detection specificity", "value": "89.3%"},
+        {"metric": "Unnecessary biopsy reduction", "value": "30%"},
+        {"metric": "New melanoma cases annually", "value": "100,000+"},
+        {"metric": "5-year survival rate (early detection)", "value": "99%"}
+      ],
+      "use_cases": [
+        "Primary care physicians screening for skin cancer",
+        "Dermatologists triaging patient referrals",
+        "Teledermatology platforms providing remote consultations",
+        "Occupational health clinics screening high-risk workers",
+        "Mobile health clinics in underserved communities"
+      ],
+      "pricing": {
+        "individual": {
+          "price": 59,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial_days": 14,
+          "target": "Individual healthcare providers",
+          "features": [
+            "Smartphone-based skin lesion analysis",
+            "Melanoma detection (94.5% sensitivity)",
+            "Risk stratification",
+            "Biopsy recommendation engine",
+            "Lesion tracking over time"
+          ]
+        },
+        "group": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "per_provider": true,
+          "trial_days": 14,
+          "target": "Dermatology practices and clinics (5-20 providers)",
+          "features": [
+            "All Individual features",
+            "Teledermatology integration",
+            "Patient case management",
+            "Team collaboration",
+            "Priority support"
+          ]
+        }
+      },
+      "entities": [
+        {"type": "product", "name": "SkinScan Pro"},
+        {"type": "condition", "name": "Melanoma"},
+        {"type": "condition", "name": "Skin cancer"},
+        {"type": "target_user", "name": "Dermatologists"},
+        {"type": "target_user", "name": "Primary care physicians"},
+        {"type": "technology", "name": "Computer vision"},
+        {"type": "technology", "name": "Smartphone imaging"}
+      ]
+    }
+  ],
+  "common_questions": [
+    {
+      "question": "What is Nexus Biomedical Intelligence?",
+      "answer": "Nexus Biomedical Intelligence is a healthcare technology company that provides six AI-powered platforms for drug safety (RxGuard), FDA regulatory compliance (ReguReady), clinical trial optimization (ClinicalIQ), senior care monitoring (ElderWatch), pediatric dosing (PediCalc Pro), and skin cancer detection (SkinScan Pro)."
+    },
+    {
+      "question": "How much do Nexus Biomedical platforms cost?",
+      "answer": "Pricing varies by platform: RxGuard ($49/mo), ReguReady ($199-$399/mo), ClinicalIQ ($299-$699/mo), ElderWatch ($49-$199/mo), PediCalc Pro ($14.99-$19.99/mo), and SkinScan Pro ($49-$59/mo). All plans include free trials (7-14 days)."
+    },
+    {
+      "question": "Do Nexus Biomedical platforms offer free trials?",
+      "answer": "Yes, all platforms offer free trials: RxGuard (14 days), ReguReady (7 days), ClinicalIQ (14 days), ElderWatch (14 days), PediCalc Pro (14 days), and SkinScan Pro (14 days)."
+    },
+    {
+      "question": "Who uses Nexus Biomedical platforms?",
+      "answer": "Nexus Biomedical platforms serve healthcare professionals (physicians, pharmacists, nurses), medical device companies, pharmaceutical and biotech companies, healthcare facilities (hospitals, assisted living, nursing homes), and clinical researchers."
+    },
+    {
+      "question": "Are Nexus Biomedical platforms FDA compliant?",
+      "answer": "ReguReady helps medical device companies navigate FDA regulatory pathways (510(k), PMA, De Novo). All platforms use FDA data sources and evidence-based guidelines where applicable (e.g., RxGuard uses FDA adverse event data, PediCalc Pro includes FDA pediatric labeling)."
+    },
+    {
+      "question": "How accurate are Nexus Biomedical AI platforms?",
+      "answer": "Accuracy varies by platform: RxGuard reduces medication errors by 85%, ElderWatch predicts fall risk with 85% accuracy 48 hours in advance, PediCalc Pro reduces pediatric dosing errors by 89%, and SkinScan Pro achieves 94.5% sensitivity and 89.3% specificity for melanoma detection."
+    },
+    {
+      "question": "Can I use Nexus Biomedical platforms for teledermatology or telemedicine?",
+      "answer": "Yes, SkinScan Pro integrates with teledermatology platforms for remote skin cancer screening. ElderWatch supports remote patient monitoring for senior care. All platforms are cloud-based and accessible remotely."
+    },
+    {
+      "question": "Do Nexus Biomedical platforms integrate with EHR systems?",
+      "answer": "ElderWatch Facility plan integrates with EHR systems for assisted living and nursing facilities. Contact support@nexusbiomedical.ai for EHR integration details for other platforms."
+    },
+    {
+      "question": "What data sources do Nexus Biomedical platforms use?",
+      "answer": "RxGuard uses FDA Adverse Event Reporting System (FAERS) data. ClinicalIQ is trained on 400,000+ clinical trials from ClinicalTrials.gov. PediCalc Pro uses American Academy of Pediatrics (AAP) and FDA dosing guidelines. All platforms use evidence-based, peer-reviewed medical data."
+    },
+    {
+      "question": "How do I contact Nexus Biomedical Intelligence?",
+      "answer": "Email support@nexusbiomedical.ai for product inquiries, support, and sales questions."
+    }
+  ],
+  "metadata": {
+    "total_pages": 7,
+    "total_products": 6,
+    "content_types": ["product_pages", "pricing_information", "use_cases", "statistics", "features"],
+    "last_updated": "2025-10-30",
+    "embedding_purpose": "Enable AI assistants to understand and accurately represent Nexus Biomedical Intelligence healthcare platforms when answering user questions"
+  }
+}
+

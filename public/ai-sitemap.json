@@ -1,0 +1,220 @@
+{
+  "version": "1.0",
+  "website": {
+    "name": "Nexus Biomedical Intelligence",
+    "url": "https://nexusbiomedical.ai",
+    "description": "AI-powered healthcare intelligence platforms for drug safety, regulatory compliance, clinical trials, senior care, pediatric dosing, and skin cancer detection.",
+    "company": "Nexus Biomedical Intelligence",
+    "industry": "Healthcare Technology / Medical Software",
+    "target_audience": [
+      "Healthcare professionals",
+      "Medical device companies",
+      "Pharmaceutical companies",
+      "Biotech companies",
+      "Healthcare facilities",
+      "Clinical researchers"
+    ]
+  },
+  "pages": [
+    {
+      "url": "https://nexusbiomedical.ai/",
+      "title": "Nexus Biomedical Intelligence - AI-Powered Healthcare Solutions",
+      "description": "Transform healthcare with AI-powered platforms for drug safety, FDA compliance, clinical trials, senior care monitoring, pediatric dosing, and skin cancer detection.",
+      "type": "homepage",
+      "keywords": ["healthcare AI", "medical software", "drug safety", "FDA compliance", "clinical trials", "patient safety"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#rxguard",
+      "title": "RxGuard™ - AI Drug Interaction Detection",
+      "description": "AI-powered drug interaction detection analyzing 10,000+ interactions using real FDA adverse event data. Reduces medication errors by 85% with instant clinical recommendations.",
+      "type": "product",
+      "category": "Drug Safety",
+      "pricing": {
+        "professional": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        }
+      },
+      "features": [
+        "Real-time drug interaction analysis",
+        "FDA adverse event data integration",
+        "Clinical decision support",
+        "Medication error prevention",
+        "Evidence-based recommendations"
+      ],
+      "keywords": ["drug interactions", "medication safety", "adverse drug events", "clinical decision support", "pharmacy software"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#reguready",
+      "title": "ReguReady™ - FDA Regulatory Compliance Platform",
+      "description": "FDA regulatory compliance platform for medical device companies. AI-powered pathway analysis, submission optimization, and cost calculators reduce approval time by 2-6 months.",
+      "type": "product",
+      "category": "Regulatory Compliance",
+      "pricing": {
+        "starter": {
+          "price": 199,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "7 days"
+        },
+        "professional": {
+          "price": 399,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "7 days"
+        }
+      },
+      "features": [
+        "510(k) pathway analysis",
+        "PMA submission support",
+        "De Novo pathway guidance",
+        "Submission timeline optimization",
+        "Cost impact calculators",
+        "Regulatory intelligence"
+      ],
+      "keywords": ["FDA compliance", "510k", "PMA", "medical device approval", "regulatory affairs", "submission strategy"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#clinicaliq",
+      "title": "ClinicalIQ™ - Clinical Trial Intelligence Platform",
+      "description": "AI-powered clinical trial intelligence predicting trial success, optimizing eligibility criteria, and forecasting recruitment. Trained on 400,000+ trials, reduces costs by 15-25%.",
+      "type": "product",
+      "category": "Clinical Research",
+      "pricing": {
+        "starter": {
+          "price": 299,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        },
+        "professional": {
+          "price": 699,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        }
+      },
+      "features": [
+        "Trial success prediction",
+        "Patient eligibility optimization",
+        "Recruitment timeline forecasting",
+        "Competitive intelligence",
+        "Protocol optimization",
+        "Site selection analytics"
+      ],
+      "keywords": ["clinical trials", "patient recruitment", "trial design", "protocol optimization", "biotech", "pharmaceutical research"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#elderwatch",
+      "title": "ElderWatch™ - AI Senior Health Monitoring",
+      "description": "AI-powered senior health monitoring with fall risk prediction, medication adherence tracking, and activity monitoring. Predicts fall risk 48 hours in advance with 85% accuracy.",
+      "type": "product",
+      "category": "Senior Care",
+      "pricing": {
+        "home_care": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        },
+        "facility": {
+          "price": 199,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        }
+      },
+      "features": [
+        "Fall risk prediction (48-hour advance)",
+        "Medication adherence tracking",
+        "Activity monitoring",
+        "Vital signs analysis",
+        "Gait pattern recognition",
+        "Family caregiver alerts"
+      ],
+      "keywords": ["senior care", "fall prevention", "elderly monitoring", "aging in place", "caregiver support", "assisted living"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#pedicalc",
+      "title": "PediCalc Pro™ - Pediatric Medication Dosing Calculator",
+      "description": "AI-enhanced pediatric dosing calculator with built-in safety checks and AAP/FDA guidelines. Reduces pediatric dosing errors by 89% with instant critical medication doses.",
+      "type": "product",
+      "category": "Pediatric Care",
+      "pricing": {
+        "individual": {
+          "price": 19.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        },
+        "group": {
+          "price": 14.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "per_provider": true,
+          "trial": "14 days"
+        }
+      },
+      "features": [
+        "Weight-based dosing calculations",
+        "AAP/FDA dosing guidelines",
+        "Safety range alerts",
+        "Emergency medication doses",
+        "Age-appropriate formulations",
+        "Dosing history tracking"
+      ],
+      "keywords": ["pediatric dosing", "medication safety", "children's healthcare", "pediatric pharmacy", "dosing calculator", "emergency medicine"],
+      "last_updated": "2025-10-30"
+    },
+    {
+      "url": "https://nexusbiomedical.ai/#skinscan",
+      "title": "SkinScan Pro™ - AI Skin Cancer Detection",
+      "description": "AI-powered skin cancer detection with clinical-grade melanoma screening using smartphone cameras. Achieves 94.5% sensitivity and 89.3% specificity, matching dermatologist performance.",
+      "type": "product",
+      "category": "Dermatology",
+      "pricing": {
+        "individual": {
+          "price": 59,
+          "currency": "USD",
+          "billing": "monthly",
+          "trial": "14 days"
+        },
+        "group": {
+          "price": 49,
+          "currency": "USD",
+          "billing": "monthly",
+          "per_provider": true,
+          "trial": "14 days"
+        }
+      },
+      "features": [
+        "Smartphone-based skin lesion analysis",
+        "Melanoma detection (94.5% sensitivity)",
+        "Risk stratification",
+        "Biopsy recommendation engine",
+        "Lesion tracking over time",
+        "Teledermatology integration"
+      ],
+      "keywords": ["skin cancer detection", "melanoma screening", "dermatology AI", "teledermatology", "skin lesion analysis", "early detection"],
+      "last_updated": "2025-10-30"
+    }
+  ],
+  "contact": {
+    "email": "support@nexusbiomedical.ai",
+    "support": "For product inquiries and support, contact support@nexusbiomedical.ai"
+  },
+  "metadata": {
+    "generated": "2025-10-30",
+    "format_version": "1.0",
+    "purpose": "AI agent discovery and content understanding",
+    "usage": "This sitemap is designed for AI assistants (ChatGPT, Claude, Perplexity, etc.) to discover and understand Nexus Biomedical Intelligence's healthcare AI platforms."
+  }
+}
+

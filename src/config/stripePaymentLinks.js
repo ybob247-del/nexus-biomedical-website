@@ -7,52 +7,52 @@ export const STRIPE_PAYMENT_LINKS = {
   // RxGuard™ - AI Drug Interaction Detection
   // ==============================================
   // Professional: $49/month with 14-day free trial
-  rxguard_professional: 'PLACEHOLDER_RXGUARD_PROFESSIONAL',
+  rxguard_professional: 'https://buy.stripe.com/test_7sYbJ1cg5ajR3HKge1aMU06',
   
   // ==============================================
   // ReguReady™ - FDA Regulatory Compliance
   // ==============================================
   // Starter: $199/month with 7-day free trial
-  reguready_starter: 'PLACEHOLDER_REGUREADY_STARTER',
+  reguready_starter: 'https://buy.stripe.com/test_9B6cN50xn77FbacbXLaMU07',
   
   // Professional: $399/month with 7-day free trial
-  reguready_professional: 'PLACEHOLDER_REGUREADY_PROFESSIONAL',
+  reguready_professional: 'https://buy.stripe.com/test_8x23cvcg5crZ5PSf9XaMU08',
   
   // ==============================================
   // ClinicalIQ™ - Clinical Trial Intelligence
   // ==============================================
   // Starter: $299/month with 14-day free trial
-  clinicaliq_starter: 'PLACEHOLDER_CLINICALIQ_STARTER',
+  clinicaliq_starter: 'https://buy.stripe.com/test_6oUaEX6VLcrZ4LO1j7aMU09',
   
   // Professional: $699/month with 14-day free trial
-  clinicaliq_professional: 'PLACEHOLDER_CLINICALIQ_PROFESSIONAL',
+  clinicaliq_professional: 'https://buy.stripe.com/test_bJe3cv0xn0Jhceg1j7aMU0a',
   
   // ==============================================
   // ElderWatch™ - Senior Care Monitoring
   // ==============================================
   // Home Care: $49/month with 14-day free trial
-  elderwatch_home: 'PLACEHOLDER_ELDERWATCH_HOME',
+  elderwatch_home: 'https://buy.stripe.com/test_8x25kDdk977F2DG1j7aMU0b',
   
   // Facility: $199/month with 14-day free trial
-  elderwatch_facility: 'PLACEHOLDER_ELDERWATCH_FACILITY',
+  elderwatch_facility: 'https://buy.stripe.com/test_dRmfZh7ZPfEbfqs0f3aMU0c',
   
   // ==============================================
   // PediCalc Pro™ - Pediatric Dosing Calculator
   // ==============================================
   // Individual: $19.99/month with 14-day free trial
-  pedicalc_individual: 'PLACEHOLDER_PEDICALC_INDIVIDUAL',
+  pedicalc_individual: 'https://buy.stripe.com/test_fZu6oH3JzgIfemo5znaMU0f',
   
   // Group (5-20 providers): $14.99/provider/month with 14-day free trial
-  pedicalc_group: 'PLACEHOLDER_PEDICALC_GROUP',
+  pedicalc_group: 'https://buy.stripe.com/test_bJe3cveod63B4LO2nbaMU0e',
   
   // ==============================================
   // SkinScan Pro™ - AI Skin Cancer Detection
   // ==============================================
   // Individual Provider: $59/month with 14-day free trial
-  skinscan_individual: 'PLACEHOLDER_SKINSCAN_INDIVIDUAL',
+  skinscan_individual: 'https://buy.stripe.com/test_aFaeVd2FvbnV5PS9PDaMU0g',
   
   // Group (5-20 providers): $49/provider/month with 14-day free trial
-  skinscan_group: 'PLACEHOLDER_SKINSCAN_GROUP',
+  skinscan_group: 'https://buy.stripe.com/test_9B6cN51Br0Jh4LO8LzaMU0h',
 };
 
 // Helper function to open payment link

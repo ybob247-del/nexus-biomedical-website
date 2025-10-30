@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import './styles/nexus.css'
 import StarryBackground from './components/StarryBackground'
 import Hero from './components/Hero'
 import Platforms from './components/Platforms'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
-import RxGuardPrototype from './components/RxGuardPrototype'
-import ReguReadyPrototype from './components/ReguReadyPrototype'
-import ClinicalIQPrototype from './components/ClinicalIQPrototype'
-import ElderWatchPrototype from './components/ElderWatchPrototype'
-import PediCalcPrototype from './components/PediCalcPrototype'
-import SkinScanPrototype from './components/SkinScanPrototype'
 import { platformsData } from './data/platformData'
+
+// Lazy load demo components for better performance
+const RxGuardPrototype = lazy(() => import('./components/RxGuardPrototype'))
+const ReguReadyPrototype = lazy(() => import('./components/ReguReadyPrototype'))
+const ClinicalIQPrototype = lazy(() => import('./components/ClinicalIQPrototype'))
+const ElderWatchPrototype = lazy(() => import('./components/ElderWatchPrototype'))
+const PediCalcPrototype = lazy(() => import('./components/PediCalcPrototype'))
+const SkinScanPrototype = lazy(() => import('./components/SkinScanPrototype'))
 
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState(null)
@@ -38,24 +40,24 @@ function App() {
     alert('Stripe checkout coming soon! You\'ll be able to start your 14-day free trial here.')
   }
 
-  // If showing a prototype, render it
-  if (showPrototype === 'rxguard') {
-    return <RxGuardPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
-  }
-  if (showPrototype === 'reguready') {
-    return <ReguReadyPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
-  }
-  if (showPrototype === 'clinicaliq') {
-    return <ClinicalIQPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
-  }
-  if (showPrototype === 'elderwatch') {
-    return <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
-  }
-  if (showPrototype === 'pedicalc') {
-    return <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
-  }
-  if (showPrototype === 'skinscan') {
-    return <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />
+  // If showing a prototype, render it with Suspense for lazy loading
+  if (showPrototype) {
+    const LoadingFallback = () => (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
+        <div style={{ color: '#60a5fa', fontSize: '1.5rem', fontWeight: 600 }}>Loading demo...</div>
+      </div>
+    )
+
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        {showPrototype === 'rxguard' && <RxGuardPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {showPrototype === 'reguready' && <ReguReadyPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {showPrototype === 'clinicaliq' && <ClinicalIQPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {showPrototype === 'elderwatch' && <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {showPrototype === 'pedicalc' && <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {showPrototype === 'skinscan' && <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+      </Suspense>
+    )
   }
 
   // If a platform is selected, show Learn More page

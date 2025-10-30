@@ -71,6 +71,7 @@ export default function Hero() {
           </button>
           <button 
             className="nexus-button" 
+            onClick={() => window.location.href = 'mailto:support@nexusbiomedical.ai?subject=General%20Inquiry'}
             style={{ 
               background: 'rgba(255, 255, 255, 0.15)',
               backdropFilter: 'blur(10px)',

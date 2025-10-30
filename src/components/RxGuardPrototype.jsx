@@ -150,9 +150,13 @@ const RxGuardPrototype = ({ onBack }) => {
   ];
 
   const handleScenarioSelect = (scenario) => {
+    console.log('handleScenarioSelect called with:', scenario);
+    console.log('Scenario medications:', scenario.medications);
+    console.log('Scenario interactions:', scenario.interactions);
     setSelectedScenario(scenario);
     setMedications(scenario.medications);
     setCurrentStep('results');
+    console.log('State updated - currentStep should be results');
   };
 
   const handleStartCustom = () => {
@@ -406,12 +410,10 @@ const RxGuardPrototype = ({ onBack }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
-                  onClick={() => handleScenarioSelect(scenario)}
                   style={{
                     background: 'rgba(255, 255, 255, 0.9)',
                     borderRadius: '16px',
                     padding: '2rem',
-                    cursor: 'pointer',
                     border: '2px solid #cbd5e1',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                     transition: 'all 0.3s ease'
@@ -472,17 +474,26 @@ const RxGuardPrototype = ({ onBack }) => {
                         ${(scenario.annualCost / 1000000).toFixed(0)}M annually
                       </div>
                     </div>
-                    <button style={{
-                      background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-                      color: 'white',
-                      border: 'none',
-                      padding: '0.75rem 2rem',
-                      borderRadius: '8px',
-                      fontSize: '1rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      boxShadow: '0 2px 8px rgba(0, 168, 204, 0.3)'
-                    }}>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleScenarioSelect(scenario);
+                      }}
+                      style={{
+                        background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+                        color: 'white',
+                        border: 'none',
+                        padding: '0.75rem 2rem',
+                        borderRadius: '8px',
+                        fontSize: '1rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 8px rgba(0, 168, 204, 0.3)',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                    >
                       Try This Scenario →
                     </button>
                   </div>
@@ -652,19 +663,33 @@ const RxGuardPrototype = ({ onBack }) => {
   // RESULTS SCREEN
   // ======================
   if (currentStep === 'results' && selectedScenario) {
+    console.log('Rendering results screen');
+    console.log('selectedScenario:', selectedScenario);
     const roi = calculateROI();
     const interactions = selectedScenario.interactions || [];
+    console.log('ROI calculated:', roi);
+    console.log('Interactions:', interactions);
     
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
-        <div className="max-w-7xl mx-auto">
+      <div style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)', padding: '5rem 2rem'}}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Back Button */}
           <button
             onClick={handleBackToWelcome}
-            className="mb-8 text-slate-600 hover:text-slate-900 font-semibold flex items-center space-x-2 transition-colors"
+            style={{
+              background: '#00A8CC',
+              color: 'white',
+              border: 'none',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '30px',
+              cursor: 'pointer',
+              fontSize: '1rem',
+              fontWeight: 600,
+              marginBottom: '2rem',
+              boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)'
+            }}
           >
-            <span>←</span>
-            <span>Back to Scenarios</span>
+            ← Back to Scenarios
           </button>
 
           {/* Alert Banner */}
@@ -672,19 +697,35 @@ const RxGuardPrototype = ({ onBack }) => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-red-50 border-2 border-red-300 rounded-2xl p-10 mb-12 shadow-lg"
+              style={{
+                backgroundColor: '#fef2f2',
+                border: '4px solid #ef4444',
+                borderRadius: '16px',
+                padding: '2.5rem',
+                marginBottom: '3rem',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
+              }}
             >
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-4xl text-white font-bold">!</span>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '2rem' }}>
+                <div style={{ flexShrink: 0 }}>
+                  <div style={{
+                    width: '80px',
+                    height: '80px',
+                    backgroundColor: '#ef4444',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 8px 24px rgba(239, 68, 68, 0.3)'
+                  }}>
+                    <span style={{ fontSize: '3rem', color: 'white', fontWeight: 700 }}>!</span>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-4xl font-bold text-red-900 mb-4">
+                <div style={{ flex: 1 }}>
+                  <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#7f1d1d', marginBottom: '1rem', lineHeight: '1.3' }}>
                     Critical Drug Interactions Detected
                   </h2>
-                  <p className="text-xl text-red-800 leading-relaxed">
+                  <p style={{ fontSize: '1.25rem', color: '#991b1b', lineHeight: '1.8' }}>
                     {interactions.length} life-threatening interaction{interactions.length > 1 ? 's' : ''} found in this medication combination. 
                     Immediate clinical review recommended.
                   </p>
@@ -697,19 +738,35 @@ const RxGuardPrototype = ({ onBack }) => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-green-50 border-2 border-green-300 rounded-2xl p-10 mb-12 shadow-lg"
+              style={{
+                backgroundColor: '#f0fdf4',
+                border: '4px solid #10b981',
+                borderRadius: '16px',
+                padding: '2.5rem',
+                marginBottom: '3rem',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
+              }}
             >
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-4xl text-white font-bold">✓</span>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '2rem' }}>
+                <div style={{ flexShrink: 0 }}>
+                  <div style={{
+                    width: '80px',
+                    height: '80px',
+                    backgroundColor: '#10b981',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 8px 24px rgba(16, 185, 129, 0.3)'
+                  }}>
+                    <span style={{ fontSize: '3rem', color: 'white', fontWeight: 700 }}>✓</span>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-4xl font-bold text-green-900 mb-4">
+                <div style={{ flex: 1 }}>
+                  <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#065f46', marginBottom: '1rem', lineHeight: '1.3' }}>
                     No Critical Interactions Detected
                   </h2>
-                  <p className="text-xl text-green-800 leading-relaxed">
+                  <p style={{ fontSize: '1.25rem', color: '#047857', lineHeight: '1.8' }}>
                     This medication combination appears safe based on current FDA data. Continue monitoring for adverse effects.
                   </p>
                 </div>
@@ -718,23 +775,49 @@ const RxGuardPrototype = ({ onBack }) => {
           )}
 
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
             {/* Left Column: Medications & Interactions */}
-            <div className="space-y-8">
+            <div>
               {/* Medications List */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl p-10 shadow-lg border border-slate-200"
+                style={{
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '16px',
+                  padding: '2.5rem',
+                  marginBottom: '2rem',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                  border: '4px solid #475569'
+                }}
               >
-                <h3 className="text-3xl font-bold text-slate-900 mb-8">Current Medications</h3>
-                <div className="space-y-4">
+                <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#1e293b', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                  Current Medications
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {selectedScenario.medications.map((med, idx) => (
-                    <div key={idx} className="flex items-center space-x-4 p-5 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="w-14 h-14 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-cyan-700 font-bold text-xl">{idx + 1}</span>
+                    <div key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '1rem',
+                      padding: '1.25rem',
+                      backgroundColor: 'white',
+                      borderRadius: '12px',
+                      border: '2px solid #cbd5e1'
+                    }}>
+                      <div style={{
+                        width: '56px',
+                        height: '56px',
+                        backgroundColor: '#cffafe',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <span style={{ color: '#0e7490', fontWeight: 700, fontSize: '1.25rem' }}>{idx + 1}</span>
                       </div>
-                      <span className="text-lg font-semibold text-slate-900">{med}</span>
+                      <span style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e293b' }}>{med}</span>
                     </div>
                   ))}
                 </div>
@@ -746,27 +829,47 @@ const RxGuardPrototype = ({ onBack }) => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-white rounded-2xl p-10 shadow-lg border border-slate-200"
+                  style={{
+                    backgroundColor: '#fef2f2',
+                    borderRadius: '16px',
+                    padding: '2.5rem',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                    border: '4px solid #ef4444'
+                  }}
                 >
-                  <h3 className="text-3xl font-bold text-slate-900 mb-8">Detected Interactions</h3>
-                  <div className="space-y-6">
+                  <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#7f1d1d', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                    Detected Interactions
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {interactions.map((interaction, idx) => (
-                      <div key={idx} className="border-l-4 border-red-500 pl-8 py-5 bg-red-50 rounded-r-xl">
-                        <div className="flex items-start justify-between mb-3">
-                          <span className="text-xl font-bold text-slate-900">{interaction.risk}</span>
-                          <span className={`px-4 py-2 rounded-full text-sm font-bold flex-shrink-0 ml-4 ${
-                            interaction.severity >= 9 ? 'bg-red-600 text-white' :
-                            interaction.severity >= 7 ? 'bg-orange-500 text-white' :
-                            'bg-yellow-500 text-white'
-                          }`}>
+                      <div key={idx} style={{
+                        borderLeft: '4px solid #ef4444',
+                        paddingLeft: '1.5rem',
+                        paddingTop: '1.25rem',
+                        paddingBottom: '1.25rem',
+                        backgroundColor: 'white',
+                        borderRadius: '0 12px 12px 0'
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'start', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1e293b' }}>{interaction.risk}</span>
+                          <span style={{
+                            padding: '0.5rem 1rem',
+                            borderRadius: '20px',
+                            fontSize: '0.9rem',
+                            fontWeight: 700,
+                            flexShrink: 0,
+                            marginLeft: '1rem',
+                            backgroundColor: interaction.severity >= 9 ? '#dc2626' : interaction.severity >= 7 ? '#f97316' : '#eab308',
+                            color: 'white'
+                          }}>
                             Severity {interaction.severity}/10
                           </span>
                         </div>
-                        <p className="text-slate-700 font-semibold mb-3">
+                        <p style={{ color: '#475569', fontWeight: 600, marginBottom: '0.75rem', fontSize: '1.05rem' }}>
                           {interaction.drug1} + {interaction.drug2}
                         </p>
-                        <p className="text-slate-600 mb-3 leading-relaxed">{interaction.description}</p>
-                        <div className="text-sm text-slate-500 space-y-1">
+                        <p style={{ color: '#64748b', marginBottom: '0.75rem', lineHeight: '1.7' }}>{interaction.description}</p>
+                        <div style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.6' }}>
                           <p><strong>Mechanism:</strong> {interaction.mechanism}</p>
                           <p><strong>Data Source:</strong> {interaction.fdaData}</p>
                         </div>
@@ -778,55 +881,91 @@ const RxGuardPrototype = ({ onBack }) => {
             </div>
 
             {/* Right Column: ROI Calculator */}
-            <div className="space-y-8">
+            <div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-10 text-white shadow-2xl"
+                style={{
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '16px',
+                  padding: '2.5rem',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                  border: '4px solid #475569',
+                  position: 'sticky',
+                  top: '2rem'
+                }}
               >
-                <h3 className="text-4xl font-bold mb-10">Cost Impact Calculator</h3>
+                <h3 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e293b', marginBottom: '2rem', lineHeight: '1.5' }}>
+                  Cost Impact Calculator
+                </h3>
                 
-                <div className="space-y-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <div className="text-white/80 text-lg mb-2">Adverse Events (Annual)</div>
-                    <div className="text-5xl font-bold">{selectedScenario.adverseEvents.toLocaleString()}</div>
+                <div style={{ marginBottom: '2rem' }}>
+                  <div style={{ marginBottom: '2rem' }}>
+                    <label style={{ fontSize: '1rem', color: '#64748b', fontWeight: 600, display: 'block', marginBottom: '0.75rem' }}>
+                      Adverse Events (Annual)
+                    </label>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#ef4444', lineHeight: '1.3' }}>
+                      {selectedScenario.adverseEvents.toLocaleString()}
+                    </div>
                   </div>
 
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <div className="text-white/80 text-lg mb-2">Average Cost per Event</div>
-                    <div className="text-5xl font-bold">
+                  <div style={{ marginBottom: '2rem' }}>
+                    <label style={{ fontSize: '1rem', color: '#64748b', fontWeight: 600, display: 'block', marginBottom: '0.75rem' }}>
+                      Average Cost per Event
+                    </label>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#f97316', lineHeight: '1.3' }}>
                       ${selectedScenario.costPerEvent.toLocaleString()}
                     </div>
                   </div>
 
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <div className="text-white/80 text-lg mb-2">Events Prevented (85% detection)</div>
-                    <div className="text-5xl font-bold text-green-300">{roi.prevented.toLocaleString()}</div>
+                  <div style={{ marginBottom: '2rem' }}>
+                    <label style={{ fontSize: '1rem', color: '#64748b', fontWeight: 600, display: 'block', marginBottom: '0.75rem' }}>
+                      Events Prevented (85% detection)
+                    </label>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#10b981', lineHeight: '1.3' }}>
+                      {roi.prevented.toLocaleString()}
+                    </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-8 text-slate-900 shadow-xl">
-                    <div className="mb-6">
-                      <div className="text-slate-600 text-lg mb-2">Annual Cost Savings</div>
-                      <div className="text-6xl font-bold text-green-600 mb-2">
-                        ${roi.savings.toLocaleString()}
-                      </div>
+                  <div style={{
+                    backgroundColor: '#10b981',
+                    borderRadius: '12px',
+                    padding: '2rem',
+                    marginBottom: '1.5rem',
+                    color: 'white'
+                  }}>
+                    <div style={{ fontSize: '1.1rem', marginBottom: '0.75rem', opacity: 0.9 }}>Total Cost Savings</div>
+                    <div style={{ fontSize: '3rem', fontWeight: 700, lineHeight: '1.2' }}>
+                      ${roi.savings.toLocaleString()}
                     </div>
-                    
-                    <div className="border-t border-slate-200 pt-6 mb-6">
-                      <div className="text-slate-600 text-lg mb-2">Implementation Cost</div>
-                      <div className="text-3xl font-bold text-slate-700">
-                        ${roi.implementationCost.toLocaleString()}
-                      </div>
+                    <div style={{ fontSize: '1rem', marginTop: '1rem', opacity: 0.9 }}>
+                      28% cost reduction
                     </div>
+                  </div>
 
-                    <div className="bg-cyan-50 rounded-xl p-6 border-2 border-cyan-200">
-                      <div className="text-slate-600 text-lg mb-2">Return on Investment</div>
-                      <div className="text-6xl font-bold text-cyan-600">
-                        {roi.roi}%
-                      </div>
-                      <div className="text-slate-600 mt-3">
-                        Net savings: ${roi.netSavings.toLocaleString()}
-                      </div>
+                  <div style={{
+                    borderTop: '2px solid #e2e8f0',
+                    paddingTop: '1.5rem',
+                    marginBottom: '1.5rem'
+                  }}>
+                    <div style={{ fontSize: '0.95rem', color: '#64748b', marginBottom: '0.5rem' }}>Implementation Cost</div>
+                    <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#475569' }}>
+                      ${roi.implementationCost.toLocaleString()}
+                    </div>
+                  </div>
+
+                  <div style={{
+                    backgroundColor: '#cffafe',
+                    borderRadius: '12px',
+                    padding: '1.5rem',
+                    border: '2px solid #06b6d4'
+                  }}>
+                    <div style={{ fontSize: '1rem', color: '#0e7490', marginBottom: '0.5rem', fontWeight: 600 }}>Return on Investment</div>
+                    <div style={{ fontSize: '3.5rem', fontWeight: 700, color: '#0e7490', lineHeight: '1.2' }}>
+                      {roi.roi}%
+                    </div>
+                    <div style={{ fontSize: '0.95rem', color: '#0e7490', marginTop: '0.75rem' }}>
+                      Net savings: ${roi.netSavings.toLocaleString()}
                     </div>
                   </div>
                 </div>
@@ -837,17 +976,39 @@ const RxGuardPrototype = ({ onBack }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl p-10 shadow-lg border border-slate-200 text-center"
+                style={{
+                  backgroundColor: 'white',
+                  borderRadius: '16px',
+                  padding: '2.5rem',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                  border: '2px solid #cbd5e1',
+                  textAlign: 'center',
+                  marginTop: '2rem'
+                }}
               >
-                <h4 className="text-3xl font-bold text-slate-900 mb-4">
+                <h4 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e293b', marginBottom: '1rem', lineHeight: '1.4' }}>
                   Ready to Protect Your Patients?
                 </h4>
-                <p className="text-slate-600 mb-8 text-lg leading-relaxed">
+                <p style={{ color: '#64748b', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.7' }}>
                   Start your free trial and see results in minutes • No credit card required
                 </p>
                 <button 
                   onClick={() => checkoutRxGuardProfessional()}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-5 px-6 rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg text-lg hover:shadow-xl hover:scale-105"
+                  style={{
+                    width: '100%',
+                    background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+                    color: 'white',
+                    fontWeight: 700,
+                    padding: '1.25rem 1.5rem',
+                    borderRadius: '12px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '1.1rem',
+                    boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 >
                   Start Free Trial →
                 </button>
@@ -859,7 +1020,41 @@ const RxGuardPrototype = ({ onBack }) => {
     );
   }
 
-  return null;
+  // Fallback for unexpected state
+  return (
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)',
+      padding: '4rem 2rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e293b', marginBottom: '1rem' }}>
+          Loading...
+        </h2>
+        <p style={{ color: '#64748b', marginBottom: '2rem' }}>
+          Current step: {currentStep}, Scenario: {selectedScenario ? 'loaded' : 'not loaded'}
+        </p>
+        <button
+          onClick={handleBackToWelcome}
+          style={{
+            background: '#00A8CC',
+            color: 'white',
+            border: 'none',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '30px',
+            cursor: 'pointer',
+            fontSize: '1rem',
+            fontWeight: 600
+          }}
+        >
+          ← Back to Welcome
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default RxGuardPrototype;

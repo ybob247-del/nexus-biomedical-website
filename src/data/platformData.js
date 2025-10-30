@@ -41,7 +41,7 @@ export const platformsData = {
     benefitsDisclaimer: 'Statistics based on published studies of similar clinical decision support systems. Individual results may vary.',
     pricing: [
       { tier: 'Free', price: '$0', period: 'Forever free', features: ['10 interaction checks/month', 'Basic interaction warnings', 'Email support', 'Perfect for occasional use'] },
-      { tier: 'Professional', price: '$39', period: 'per month', features: ['Unlimited interaction checks', 'AI-powered risk scoring', 'Alternative medication suggestions', 'Mitigation strategies', 'Patient-friendly reports', '14-day free trial'], highlight: true },
+      { tier: 'Professional', price: '$49', period: 'per month', features: ['Unlimited interaction checks', 'AI-powered risk scoring', 'Alternative medication suggestions', 'Mitigation strategies', 'Patient-friendly reports', '14-day free trial'], highlight: true },
       { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Professional features', 'EHR/pharmacy integration', 'Site license (unlimited users)', 'Dedicated implementation support', '24/7 phone support', 'Service level agreement'] }
     ],
     faqs: [
@@ -90,12 +90,12 @@ export const platformsData = {
       { stat: '60-80%', title: 'Cost Reduction', desc: 'Compared to traditional regulatory consulting fees (FDA submission cost analysis)' },
       { stat: '4-6 months', title: 'Faster Approval', desc: 'Average time saved through optimized submissions (FDA CDRH data, 2023)' },
       { stat: '91%', title: 'Pathway Accuracy', desc: 'Based on analysis of 10,000+ successful FDA submissions' },
-      { stat: '$10K', title: 'Starting Price', desc: 'Affordable for startups and small companies' }
+      { stat: '$199/mo', title: 'Starting Price', desc: 'Affordable for startups and small companies' }
     ],
     benefitsDisclaimer: 'Cost and time savings based on industry benchmarks for regulatory consulting and FDA submission timelines.',
     pricing: [
-      { tier: 'Starter', price: '$10K', period: 'per submission', features: ['Single device submission', 'Pathway recommendation', 'Gap analysis', 'Predicate search', 'Document templates', 'Email support'] },
-      { tier: 'Professional', price: '$25K', period: 'per year', features: ['Unlimited submissions', 'All Starter features', 'International regulatory guidance', 'Priority support', 'Quarterly strategy calls', 'Custom document generation'], highlight: true },
+      { tier: 'Starter', price: '$199', period: 'per month', features: ['Single device pathway analysis', 'Regulatory pathway recommendation', 'Basic gap analysis', 'Predicate device search', 'Document templates', 'Email support', '7-day free trial'] },
+      { tier: 'Professional', price: '$399', period: 'per month', features: ['Unlimited device submissions', 'All Starter features', 'International regulatory guidance (CE Mark, PMDA)', 'Priority support', 'Monthly strategy calls', 'Custom document generation', '7-day free trial'], highlight: true },
       { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Professional features', 'Dedicated regulatory strategist', 'White-glove submission support', 'FDA meeting preparation', '24/7 phone support', 'Multi-year contracts available'] }
     ],
     faqs: [
@@ -148,9 +148,9 @@ export const platformsData = {
     ],
     benefitsDisclaimer: 'Statistics based on published studies of AI-powered clinical trial optimization and patient recruitment systems. Individual results may vary.',
     pricing: [
-      { tier: 'Starter', price: '$50K', period: 'per trial', features: ['Single trial analysis', 'Success prediction', 'Protocol optimization', 'Site recommendations', 'Basic recruitment forecasting', 'Email support'] },
-      { tier: 'Professional', price: '$150K', period: 'per year', features: ['Up to 5 trials', 'All Starter features', 'Competitive intelligence', 'Advanced forecasting', 'Quarterly strategy sessions', 'Priority support'], highlight: true },
-      { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['Unlimited trials', 'All Professional features', 'Dedicated clinical strategist', 'Custom analytics', 'API access', '24/7 support', 'Multi-year contracts'] }
+      { tier: 'Starter', price: '$299', period: 'per month', features: ['Single trial analysis per month', 'Success prediction model', 'Basic protocol optimization', 'Site recommendations', 'Recruitment forecasting', 'Email support', '14-day free trial'] },
+      { tier: 'Professional', price: '$699', period: 'per month', features: ['Up to 3 concurrent trials', 'All Starter features', 'Competitive intelligence tracking', 'Advanced forecasting models', 'Monthly strategy sessions', 'Priority support', '14-day free trial'], highlight: true },
+      { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['Unlimited trials', 'All Professional features', 'Dedicated clinical strategist', 'Custom analytics dashboards', 'API access', '24/7 support', 'Multi-year contracts'] }
     ],
     faqs: [
       { q: 'How does ClinicalIQ™ predict trial success?', a: 'ClinicalIQ™ analyzes protocol design, endpoints, patient population, and site selection against 400,000+ historical trials using machine learning models.' },
@@ -201,8 +201,8 @@ export const platformsData = {
     ],
     benefitsDisclaimer: 'Statistics based on published studies of predictive analytics and remote monitoring systems for elderly care. Individual results may vary.',
     pricing: [
-      { tier: 'Home Care', price: '$200', period: 'per month', features: ['Single senior monitoring', 'Fall risk prediction', 'Medication tracking', 'Activity monitoring', 'Family portal access', 'Email/phone support'] },
-      { tier: 'Facility (10-50 residents)', price: '$300-500', period: 'per resident/month', features: ['All Home Care features', 'Staff alert system', 'Facility dashboard', 'Compliance reporting', 'Dedicated account manager', 'Priority support'], highlight: true },
+      { tier: 'Home Care', price: '$49', period: 'per month', features: ['Single senior monitoring', 'Fall risk prediction', 'Medication adherence tracking', 'Activity monitoring', 'Family portal access', 'Email/phone support', '14-day free trial'] },
+      { tier: 'Facility (10-50 residents)', price: '$199', period: 'per month', features: ['All Home Care features', 'Staff alert system', 'Facility dashboard', 'Compliance reporting', 'Dedicated account manager', 'Priority support', '14-day free trial'], highlight: true },
       { tier: 'Enterprise (50+ residents)', price: 'Custom', period: 'Contact sales', features: ['All Facility features', 'EHR integration', 'Custom analytics', 'White-label option', '24/7 phone support', 'On-site training', 'Multi-facility contracts'] }
     ],
     faqs: [
@@ -254,9 +254,9 @@ export const platformsData = {
     ],
     benefitsDisclaimer: 'Error reduction statistics based on studies of similar pediatric dosing calculators and clinical decision support systems.',
     pricing: [
-      { tier: 'Individual', price: '$15', period: 'per month', features: ['Unlimited dosing calculations', 'Complete medication database', 'Mobile and web access', 'Offline mode', 'Email support'] },
-      { tier: 'Group (5-20 providers)', price: '$10', period: 'per provider/month', features: ['All Individual features', 'Shared medication lists', 'Practice-level reporting', 'Priority support', 'Custom formulary'], highlight: true },
-      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'EHR integration', 'Unlimited users', 'Custom formularies', 'Dedicated support', '24/7 phone support', 'Training'] }
+      { tier: 'Individual', price: '$19.99', period: 'per month', features: ['Unlimited dosing calculations', 'Complete medication database', 'Mobile and web access', 'Offline mode', 'Email support', '14-day free trial'] },
+      { tier: 'Group (5-20 providers)', price: '$14.99', period: 'per provider/month', features: ['All Individual features', 'Shared medication lists', 'Practice-level reporting', 'Priority support', 'Custom formulary', '14-day free trial'], highlight: true },
+      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'EHR integration (Epic, Cerner)', 'Unlimited users', 'Custom formularies', 'Dedicated support', '24/7 phone support', 'On-site training'] }
     ],
     faqs: [
       { q: 'How accurate are PediCalc Pro™\'s dosing calculations?', a: 'PediCalc Pro™ uses evidence-based dosing guidelines from the American Academy of Pediatrics (AAP), FDA, and pediatric clinical trials. Research shows computer-assisted pediatric dosing achieves 89% accuracy compared to 58% with manual calculations (Yamamoto & Kanemori, 2010), significantly reducing calculation errors and improving patient safety.' },
@@ -307,9 +307,9 @@ export const platformsData = {
     ],
     benefitsDisclaimer: 'Sensitivity and specificity based on clinical validation studies of similar AI dermatology systems.',
     pricing: [
-      { tier: 'Individual Provider', price: '$99', period: 'per month', features: ['Unlimited lesion analyses', 'Mobile and web access', 'EHR integration (basic)', 'Patient reports', 'Email support'] },
-      { tier: 'Group (5-20 providers)', price: '$79', period: 'per provider/month', features: ['All Individual features', 'Shared patient database', 'Practice-level analytics', 'Priority support', 'Custom branding'], highlight: true },
-      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'Advanced EHR integration', 'PACS integration', 'Unlimited users', 'Dermoscopy device integration', '24/7 support'] }
+      { tier: 'Individual Provider', price: '$59', period: 'per month', features: ['Unlimited lesion analyses', 'Mobile and web access', 'Basic EHR integration', 'Patient reports', 'Email support', '14-day free trial'] },
+      { tier: 'Group (5-20 providers)', price: '$49', period: 'per provider/month', features: ['All Individual features', 'Shared patient database', 'Practice-level analytics', 'Priority support', 'Custom branding', '14-day free trial'], highlight: true },
+      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'Advanced EHR integration (Epic, Cerner)', 'PACS integration', 'Unlimited users', 'Dermoscopy device integration', '24/7 support', 'On-site training'] }
     ],
     faqs: [
       { q: 'How accurate is SkinScan Pro™ compared to dermatologists?', a: 'SkinScan Pro™ uses deep learning trained on dermatology images. Published research shows AI dermatology systems achieve 94.5% sensitivity and 89.3% specificity, matching or exceeding average dermatologist performance (Esteva et al., Nature 2017 - cited by 16,607). The system is designed as a clinical decision support tool to assist healthcare providers in early melanoma detection.' },

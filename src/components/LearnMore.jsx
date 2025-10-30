@@ -6,29 +6,29 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
   // Handle Start Free Trial button clicks
   const handleStartTrial = () => {
-    // RxGuard™ Professional has 14-day free trial
+    // RxGuard™ Professional - $49/month with 14-day trial
     if (platform.name === 'RxGuard™') {
       openPaymentLink('rxguard_professional');
     }
-    // ReguReady™ - default to Starter plan
+    // ReguReady™ - default to Starter plan ($199/month with 7-day trial)
     else if (platform.name === 'ReguReady™') {
       openPaymentLink('reguready_starter');
     }
-    // ClinicalIQ™ - Contact Sales only (no self-service)
+    // ClinicalIQ™ - default to Starter plan ($299/month with 14-day trial)
     else if (platform.name === 'ClinicalIQ™') {
-      window.location.href = 'mailto:support@nexusbiomedical.ai?subject=ClinicalIQ Professional Inquiry';
+      openPaymentLink('clinicaliq_starter');
     }
-    // ElderWatch™ Facility
+    // ElderWatch™ - default to Home Care ($49/month with 14-day trial)
     else if (platform.name === 'ElderWatch™') {
-      openPaymentLink('elderwatch_facility');
+      openPaymentLink('elderwatch_home');
     }
-    // PediCalc Pro™ Individual Provider
+    // PediCalc Pro™ - Individual ($19.99/month with 14-day trial)
     else if (platform.name === 'PediCalc Pro™') {
       openPaymentLink('pedicalc_individual');
     }
-    // SkinScan Pro™ Group
+    // SkinScan Pro™ - Individual Provider ($59/month with 14-day trial)
     else if (platform.name === 'SkinScan Pro™') {
-      openPaymentLink('skinscan_group');
+      openPaymentLink('skinscan_individual');
     }
     // Fallback
     else {
@@ -41,56 +41,59 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
     // RxGuard™
     if (platform.name === 'RxGuard™') {
       if (plan.tier === 'Professional') {
-        openPaymentLink('rxguard_professional'); // 14-day free trial
+        openPaymentLink('rxguard_professional'); // $49/month with 14-day trial
       } else if (plan.tier === 'Enterprise') {
-        window.location.href = 'mailto:support@nexusbiomedical.ai?subject=RxGuard Enterprise Inquiry'; // Contact sales
-      } else {
-        // Free tier - no action needed
-        alert('Free tier is available without signup. Click "Try Interactive Demo" to get started!');
+        window.location.href = 'mailto:support@nexusbiomedical.ai?subject=RxGuard Enterprise Inquiry';
       }
     }
     // ReguReady™
     else if (platform.name === 'ReguReady™') {
       if (plan.tier === 'Starter') {
-        openPaymentLink('reguready_starter'); // $10K one-time
+        openPaymentLink('reguready_starter'); // $199/month with 7-day trial
       } else if (plan.tier === 'Professional') {
-        openPaymentLink('reguready_professional'); // $25K/year
+        openPaymentLink('reguready_professional'); // $399/month with 7-day trial
       } else if (plan.tier === 'Enterprise') {
         window.location.href = 'mailto:support@nexusbiomedical.ai?subject=ReguReady Enterprise Inquiry';
       }
     }
-    // ClinicalIQ™ - All tiers are Contact Sales
+    // ClinicalIQ™
     else if (platform.name === 'ClinicalIQ™') {
-      window.location.href = `mailto:support@nexusbiomedical.ai?subject=ClinicalIQ ${plan.tier} Inquiry`;
+      if (plan.tier === 'Starter') {
+        openPaymentLink('clinicaliq_starter'); // $299/month with 14-day trial
+      } else if (plan.tier === 'Professional') {
+        openPaymentLink('clinicaliq_professional'); // $699/month with 14-day trial
+      } else if (plan.tier === 'Enterprise') {
+        window.location.href = 'mailto:support@nexusbiomedical.ai?subject=ClinicalIQ Enterprise Inquiry';
+      }
     }
     // ElderWatch™
     else if (platform.name === 'ElderWatch™') {
-      if (plan.tier === 'Facility (10-50 residents)') {
-        openPaymentLink('elderwatch_facility'); // $400/month
+      if (plan.tier === 'Home Care') {
+        openPaymentLink('elderwatch_home'); // $49/month with 14-day trial
+      } else if (plan.tier === 'Facility (10-50 residents)') {
+        openPaymentLink('elderwatch_facility'); // $199/month with 14-day trial
       } else if (plan.tier === 'Enterprise (50+ residents)') {
         window.location.href = 'mailto:support@nexusbiomedical.ai?subject=ElderWatch Enterprise Inquiry';
-      } else {
-        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - ElderWatch`;
       }
     }
     // PediCalc Pro™
     else if (platform.name === 'PediCalc Pro™') {
-      if (plan.tier === 'Individual Provider') {
-        openPaymentLink('pedicalc_individual'); // $99/month
-      } else if (plan.tier === 'Enterprise') {
+      if (plan.tier === 'Individual') {
+        openPaymentLink('pedicalc_individual'); // $19.99/month with 14-day trial
+      } else if (plan.tier === 'Group (5-20 providers)') {
+        openPaymentLink('pedicalc_group'); // $14.99/provider/month with 14-day trial
+      } else if (plan.tier === 'Hospital/Enterprise') {
         window.location.href = 'mailto:support@nexusbiomedical.ai?subject=PediCalc Pro Enterprise Inquiry';
-      } else {
-        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - PediCalc Pro`;
       }
     }
     // SkinScan Pro™
     else if (platform.name === 'SkinScan Pro™') {
-      if (plan.tier === 'Group (5-20 providers)') {
-        openPaymentLink('skinscan_group'); // $79/month per provider
+      if (plan.tier === 'Individual Provider') {
+        openPaymentLink('skinscan_individual'); // $59/month with 14-day trial
+      } else if (plan.tier === 'Group (5-20 providers)') {
+        openPaymentLink('skinscan_group'); // $49/provider/month with 14-day trial
       } else if (plan.tier === 'Hospital/Enterprise') {
         window.location.href = 'mailto:support@nexusbiomedical.ai?subject=SkinScan Pro Enterprise Inquiry';
-      } else {
-        window.location.href = `mailto:support@nexusbiomedical.ai?subject=${plan.tier} Plan Inquiry - SkinScan Pro`;
       }
     }
     // Other platforms - email fallback

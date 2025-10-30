@@ -387,3 +387,47 @@
 - [x] Update pricing display to reflect free trials for PediCalc and SkinScan
 - [x] Remove old Stripe Price ID configuration
 
+
+
+
+## 🚨 CRITICAL BUGS FOUND (Oct 29, 2025 - Post-Blueprint)
+- [ ] Fix "Contact Us" button in navigation - currently goes nowhere
+- [ ] Fix Stripe payment links - still showing "Something went wrong" error
+- [ ] Rebuild RxGuard demo with 3 clinical interaction scenarios (currently missing)
+- [ ] Review ALL pricing tiers across all 6 platforms:
+  - [ ] Apply rule: < $500/month = Stripe checkout, >= $500/month = Contact Sales
+  - [ ] ElderWatch: Home Care ($200/mo) → Stripe, Facility ($300-500/mo) → Stripe, Enterprise → Contact Sales
+  - [ ] SkinScan: Individual ($99/mo) → Stripe, Group ($79/mo/provider) → Stripe, Enterprise → Contact Sales
+  - [ ] PediCalc: Individual ($15/mo) → Stripe, Group ($10/mo/provider) → Stripe, Enterprise → Contact Sales
+- [ ] Audit ALL hyperlinks - found mailto: links that should be proper buttons/links
+- [ ] Create Stripe payment links for all missing tiers (currently only have 6, need ~12-15 total)
+
+
+
+
+## ✅ APPROVED: Premium Pricing Implementation (Oct 29, 2025)
+
+### Phase 1: Stripe Payment Links (USER ACTION REQUIRED)
+- [ ] Delete 6 old/incorrect payment links in Stripe
+- [ ] Create 13 new Stripe payment links with approved premium pricing
+- [ ] Provide all payment link URLs to Manus
+
+### Phase 2: Website Code Updates (MANUS)
+- [ ] Update platformData.js with premium pricing for all 6 platforms
+- [ ] Update stripePaymentLinks.js with new payment link URLs  
+- [ ] Update LearnMore.jsx pricing display logic
+- [ ] Add new pricing tiers to all platform pages
+- [ ] Test all Stripe checkout flows
+
+### Phase 3: Fix Critical Bugs (MANUS)
+- [ ] Fix Contact Us button (already done - add email link)
+- [ ] Fix RxGuard demo scenarios (rebuild 3 clinical scenarios)
+- [ ] Audit all hyperlinks across website
+- [ ] Test all navigation flows
+
+### Phase 4: Final QA (MANUS)
+- [ ] Test all 6 platforms end-to-end
+- [ ] Verify all payment links work
+- [ ] Check mobile responsiveness
+- [ ] Create final checkpoint
+

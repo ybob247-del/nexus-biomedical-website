@@ -78,8 +78,9 @@ export default function Platforms({ onLearnMore }) {
         </p>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-          gap: '2rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+          gap: '2rem',
+          padding: '0 0.5rem'
         }}>
           {platforms.map((platform, index) => (
             <div 
@@ -106,14 +107,15 @@ export default function Platforms({ onLearnMore }) {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
               }}
             >
-              {/* Gradient accent bar */}
+              {/* Gradient accent bar - Enhanced visibility */}
               <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
-                height: '4px',
-                background: platform.gradient
+                height: '6px',
+                background: platform.gradient,
+                boxShadow: `0 0 20px ${platform.color}, 0 4px 10px ${platform.color}80`
               }}></div>
               
               {/* Platform Icon */}
@@ -157,13 +159,15 @@ export default function Platforms({ onLearnMore }) {
                 </span>
               </div>
               
-              {/* Tagline */}
+              {/* Tagline - Enhanced contrast */}
               <p style={{
                 fontSize: '0.95rem',
-                fontWeight: 600,
+                fontWeight: 700,
                 color: platform.color,
                 marginBottom: '1.25rem',
-                letterSpacing: '0.3px'
+                letterSpacing: '0.3px',
+                textShadow: `0 0 20px ${platform.color}80, 0 2px 4px rgba(0, 0, 0, 0.5)`,
+                filter: 'brightness(1.3)'
               }}>
                 {platform.tagline}
               </p>

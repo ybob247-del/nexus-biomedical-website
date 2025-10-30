@@ -19,16 +19,9 @@ export default function Hero() {
           marginBottom: '1.5rem',
           lineHeight: 1.1,
           color: '#FFFFFF',
-          textShadow: '0 2px 10px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 168, 204, 0.3)'
+          textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 168, 204, 0.6), 0 2px 4px rgba(0, 0, 0, 1)'
         }}>
-          <span style={{
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #00A8CC 50%, #5B2C87 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
-            Nexus Biomedical Intelligence
-          </span>
+          Nexus Biomedical Intelligence
         </h1>
         <p style={{
           fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',

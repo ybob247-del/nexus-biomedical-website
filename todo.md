@@ -484,3 +484,14 @@
 - [x] Reduce Max Potential FID
 - [x] Re-run Lighthouse audit - ACHIEVED: 92% performance, 100% best practices, 100% accessibility, 100% SEO
 
+
+
+
+## Mobile UX Fixes (Oct 30, 2025 - Critical Issues from Phone Testing)
+- [x] Fix "Nexus Biomedical Intelligence" title readability on mobile (solid white with strong shadow)
+- [x] Fix platform cards overflowing/skewed on mobile viewport (minmax(min(100%, 320px), 1fr))
+- [x] Enhance color contrast for subtitles (brightness(1.3) + text-shadow + glow)
+- [x] Make card borders more prominent (6px gradient bar with glow effect)
+- [ ] Test all fixes on real mobile device
+- [ ] Verify responsive layout works on all screen sizes
+

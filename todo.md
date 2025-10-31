@@ -513,3 +513,9 @@
 - [ ] Fix PediCalc demo mobile responsiveness
 - [ ] Fix SkinScan demo mobile responsiveness
 
+
+
+## Demo Color Contrast Fixes (Oct 30, 2025)
+- [ ] Fix RxGuard demo title "RxGuard™ Interactive Demo" - low contrast against dark background
+- [ ] Fix subtitle text contrast in demo welcome screen
+

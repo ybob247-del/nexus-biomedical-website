@@ -326,11 +326,10 @@ const RxGuardPrototype = ({ onBack }) => {
             </div>
 
             <h1 style={{
-              fontSize: '4rem',
+              fontSize: 'clamp(2rem, 8vw, 4rem)',
               fontWeight: 800,
-              background: 'linear-gradient(135deg, #1e293b 0%, #00A8CC 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#FFFFFF',
+              textShadow: '0 2px 8px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 168, 204, 0.4)',
               marginBottom: '1.5rem',
               lineHeight: '1.2'
             }}>
@@ -338,11 +337,12 @@ const RxGuardPrototype = ({ onBack }) => {
             </h1>
 
             <p style={{
-              fontSize: '1.5rem',
-              color: '#475569',
+              fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+              color: '#B8D4E8',
               maxWidth: '900px',
               margin: '0 auto 3rem auto',
-              lineHeight: '1.8'
+              lineHeight: '1.8',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)'
             }}>
               Experience how AI-powered drug interaction detection protects patients and reduces healthcare costs
             </p>

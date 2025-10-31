@@ -526,7 +526,7 @@
 
 
 ## Calculator UX Enhancements (Oct 30, 2025)
-- [ ] Add loading animation to 'Analyze' button after it's clicked
+- [x] Add loading animation to 'Analyze' button after it's clicked
 - [ ] Ensure dropdown menu is mobile-responsive and easy to use on touch screens
 - [ ] Refine hover and active states on medication chips for better user feedback
 

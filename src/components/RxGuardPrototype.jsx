@@ -665,11 +665,12 @@ const RxGuardPrototype = ({ onBack }) => {
                         key={idx}
                         onClick={() => addMedication(med)}
                         style={{
-                          padding: 'clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem)',
+                          padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 1.75rem)',
                           cursor: 'pointer',
                           transition: 'background 0.2s ease',
                           borderBottom: '1px solid #f1f5f9',
-                          fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                          fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                          minHeight: '3rem'
                         }}
                         onMouseEnter={(e) => e.currentTarget.style.background = '#ecfeff'}
                         onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
@@ -705,7 +706,20 @@ const RxGuardPrototype = ({ onBack }) => {
                       borderRadius: '12px',
                       border: '2px solid #e2e8f0',
                       flexWrap: 'wrap',
-                      gap: '0.75rem'
+                      gap: '0.75rem',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#ecfeff';
+                      e.currentTarget.style.borderColor = '#00A8CC';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 168, 204, 0.15)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = '#f8fafc';
+                      e.currentTarget.style.borderColor = '#e2e8f0';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
                         <div style={{

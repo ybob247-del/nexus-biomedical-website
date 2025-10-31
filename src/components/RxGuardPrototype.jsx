@@ -350,27 +350,27 @@ const RxGuardPrototype = ({ onBack }) => {
             {/* Stats Bar */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '2rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1.5rem',
               maxWidth: '900px',
               margin: '0 auto',
-              padding: '2rem',
+              padding: '1.5rem',
               background: 'rgba(255, 255, 255, 0.8)',
               borderRadius: '16px',
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
               border: '2px solid #cbd5e1'
             }}>
               <div>
-                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>100K+ Deaths</div>
-                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>FDA adverse event records analyzed</div>
+                <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>100K+ Deaths</div>
+                <div style={{ fontSize: 'clamp(0.85rem, 2vw, 1rem)', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>FDA adverse event records analyzed</div>
               </div>
               <div>
-                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>10,000+ Interactions</div>
-                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Detected</div>
+                <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>10,000+ Interactions</div>
+                <div style={{ fontSize: 'clamp(0.85rem, 2vw, 1rem)', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Detected</div>
               </div>
               <div>
-                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>$85K/Event</div>
-                <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Cost-powered predictions</div>
+                <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#00A8CC', lineHeight: '1.3' }}>$85K/Event</div>
+                <div style={{ fontSize: 'clamp(0.85rem, 2vw, 1rem)', color: '#64748b', marginTop: '0.5rem', lineHeight: '1.6' }}>Cost-powered predictions</div>
               </div>
             </div>
           </motion.div>
@@ -775,7 +775,7 @@ const RxGuardPrototype = ({ onBack }) => {
           )}
 
           {/* Two Column Layout */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '2rem' }}>
             {/* Left Column: Medications & Interactions */}
             <div>
               {/* Medications List */}

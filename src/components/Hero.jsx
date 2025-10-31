@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
+import ContactForm from './ContactForm';
 
 export default function Hero() {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   return (
     <section style={{
       minHeight: '100vh',
@@ -85,7 +87,7 @@ export default function Hero() {
           </button>
           <button 
             className="nexus-button" 
-            onClick={() => window.location.href = 'mailto:support@nexusbiomedical.ai?subject=General%20Inquiry'}
+            onClick={() => setIsContactFormOpen(true)}
             style={{ 
               background: 'rgba(255, 255, 255, 0.15)',
               backdropFilter: 'blur(10px)',
@@ -104,6 +106,12 @@ export default function Hero() {
           </button>
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+      />
     </section>
   )
 }

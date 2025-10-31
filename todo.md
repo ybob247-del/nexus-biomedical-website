@@ -527,11 +527,22 @@
 
 ## Calculator UX Enhancements (Oct 30, 2025)
 - [x] Add loading animation to 'Analyze' button after it's clicked
-- [ ] Ensure dropdown menu is mobile-responsive and easy to use on touch screens
-- [ ] Refine hover and active states on medication chips for better user feedback
+- [x] Ensure dropdown menu is mobile-responsive and easy to use on touch screens
+- [x] Refine hover and active states on medication chips for better user feedback
 
 ## Sales Infrastructure Setup (Oct 30, 2025)
-- [ ] Create 3 sales documents for Nexus Biomedical platforms
-- [ ] Set up Google Sheet for customer tracking with pipeline stages
-- [ ] Create Calendly account and configure discovery call booking
+- [x] Create 3 sales documents for Nexus Biomedical platforms
+- [x] Set up Google Sheet for customer tracking with pipeline stages
+- [x] Create Calendly account and configure discovery call booking
+
+
+
+## Contact Form & Product Sheets (Oct 31, 2025)
+- [ ] Create contact form component with Name, Email, Company, Product Interest, Message fields
+- [ ] Connect Contact Us button to open contact form modal
+- [ ] Configure form to send emails to support@nexusbiomedical.ai
+- [ ] Create ElderWatch product one-pager PDF
+- [ ] Create PediCalc product one-pager PDF
+- [ ] Create SkinScan product one-pager PDF
+- [ ] Update all 6 product sheets with support@nexusbiomedical.ai (remove phone numbers)
 

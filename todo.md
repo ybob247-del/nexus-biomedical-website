@@ -554,6 +554,15 @@
 - [x] Remove phone numbers from all product sheets (already done, verify)
 - [x] Remove "Schedule Demo" / "Book a call" references (Calendly not set up)
 - [x] Update "Get Started Today" sections with only: support email and website URL
-- [ ] Change PediCalc icon to dark-skinned baby (currently white baby)
-- [ ] Regenerate all 6 PDFs with accurate information only
+- [x] Change PediCalc icon to dark-skinned baby (currently white baby)
+- [x] Regenerate all 6 PDFs with accurate information only
+
+
+
+## Calendly Integration (Oct 31, 2025)
+- [ ] Add "Schedule Consultation" button to homepage hero (primary cyan, opens Calendly)
+- [ ] Make "Contact Us" button secondary/smaller (gray, opens contact form)
+- [ ] Update all 6 product sheets with Calendly booking link
+- [ ] Add interactive demo link to all 6 product sheets
+- [ ] Regenerate PDFs with Calendly and demo links
 

@@ -66,7 +66,7 @@ export default function Hero() {
         }}>
           Six groundbreaking AI platforms addressing critical healthcare challenges from medication safety to skin cancer detection
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
           <button 
             className="nexus-button" 
             onClick={() => document.getElementById('platforms')?.scrollIntoView({ behavior: 'smooth' })}
@@ -87,18 +87,36 @@ export default function Hero() {
           </button>
           <button 
             className="nexus-button" 
-            onClick={() => setIsContactFormOpen(true)}
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.15)',
-              backdropFilter: 'blur(10px)',
+            onClick={() => window.open('https://calendly.com/nexusbiomedical-ai/30min', '_blank')}
+            style={{
+              background: 'linear-gradient(135deg, #00A8CC 0%, #5B2C87 100%)',
               color: '#FFFFFF',
               padding: '1rem 2.5rem',
               fontSize: '1.1rem',
               fontWeight: 600,
-              border: '2px solid rgba(255, 255, 255, 0.3)',
+              border: 'none',
               borderRadius: '50px',
               cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+              boxShadow: '0 4px 15px rgba(0, 168, 204, 0.4)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Schedule Consultation
+          </button>
+          <button 
+            className="nexus-button" 
+            onClick={() => setIsContactFormOpen(true)}
+            style={{ 
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              color: '#B8D4E8',
+              padding: '0.75rem 1.75rem',
+              fontSize: '0.95rem',
+              fontWeight: 500,
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
               transition: 'all 0.3s ease'
             }}
           >

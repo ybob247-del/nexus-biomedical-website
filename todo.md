@@ -516,6 +516,10 @@
 
 
 ## Demo Color Contrast Fixes (Oct 30, 2025)
-- [ ] Fix RxGuard demo title "RxGuard™ Interactive Demo" - low contrast against dark background
-- [ ] Fix subtitle text contrast in demo welcome screen
+- [x] Fix RxGuard demo title "RxGuard™ Interactive Demo" - low contrast against dark background
+- [x] Fix subtitle text contrast in demo welcome screen
+
+## Calculator Interface Redesign (Oct 30, 2025)
+- [ ] Redesign Interactive Drug Interaction Calculator to match scenario card layout
+- [ ] Improve calculator mobile responsiveness and styling
 

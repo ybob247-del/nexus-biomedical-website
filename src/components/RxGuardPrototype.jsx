@@ -556,35 +556,68 @@ const RxGuardPrototype = ({ onBack }) => {
   // ======================
   if (currentStep === 'calculator') {
     return (
-      <div className="min-h-screen py-20 px-6" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)'}}>
-        <div className="max-w-5xl mx-auto">
+      <div style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)', padding: 'clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem)'}}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           {/* Back Button */}
           <button
             onClick={handleBackToWelcome}
-            className="mb-8 text-slate-600 hover:text-slate-900 font-semibold flex items-center space-x-2 transition-colors"
+            style={{
+              background: '#00A8CC',
+              color: 'white',
+              border: 'none',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '30px',
+              cursor: 'pointer',
+              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+              fontWeight: 600,
+              marginBottom: '2rem',
+              boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)',
+              transition: 'all 0.2s ease'
+            }}
           >
-            <span>←</span>
-            <span>Back to Scenarios</span>
+            ← Back to Scenarios
           </button>
 
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-slate-900 mb-4">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h1 style={{
+              fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+              fontWeight: 700,
+              color: '#1e293b',
+              marginBottom: '1rem',
+              lineHeight: '1.2'
+            }}>
               Interactive Drug Interaction Calculator
             </h1>
-            <p className="text-xl text-slate-600">
+            <p style={{
+              fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+              color: '#64748b',
+              lineHeight: '1.6'
+            }}>
               Add medications to analyze potential interactions
             </p>
           </div>
 
           {/* Main Card */}
-          <div className="bg-white rounded-2xl p-10 shadow-lg border border-slate-200">
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '16px',
+            padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+            border: '2px solid #cbd5e1',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
             {/* Medication Search */}
-            <div className="mb-8">
-              <label className="block text-lg font-bold text-slate-900 mb-4">
+            <div style={{ marginBottom: '2rem' }}>
+              <label style={{
+                display: 'block',
+                fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                fontWeight: 700,
+                color: '#1e293b',
+                marginBottom: '1rem'
+              }}>
                 Search and Add Medications
               </label>
-              <div className="relative">
+              <div style={{ position: 'relative' }}>
                 <input
                   type="text"
                   value={searchTerm}
@@ -594,17 +627,44 @@ const RxGuardPrototype = ({ onBack }) => {
                   }}
                   onFocus={() => setShowDropdown(searchTerm.length > 0)}
                   placeholder="Type medication name (e.g., Warfarin, Aspirin)..."
-                  className="w-full px-6 py-4 text-lg border-2 border-slate-300 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
+                  style={{
+                    width: '100%',
+                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem)',
+                    fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
+                    border: '2px solid #cbd5e1',
+                    borderRadius: '12px',
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
+                  }}
                 />
                 
                 {/* Dropdown */}
                 {showDropdown && filteredMedications.length > 0 && (
-                  <div className="absolute z-10 w-full mt-2 bg-white border-2 border-slate-200 rounded-xl shadow-xl max-h-64 overflow-y-auto">
+                  <div style={{
+                    position: 'absolute',
+                    zIndex: 10,
+                    width: '100%',
+                    marginTop: '0.5rem',
+                    background: 'white',
+                    border: '2px solid #e2e8f0',
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
+                    maxHeight: '16rem',
+                    overflowY: 'auto'
+                  }}>
                     {filteredMedications.slice(0, 10).map((med, idx) => (
                       <div
                         key={idx}
                         onClick={() => addMedication(med)}
-                        className="px-6 py-3 hover:bg-cyan-50 cursor-pointer transition-colors border-b border-slate-100 last:border-b-0"
+                        style={{
+                          padding: 'clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem)',
+                          cursor: 'pointer',
+                          transition: 'background 0.2s ease',
+                          borderBottom: '1px solid #f1f5f9',
+                          fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = '#ecfeff'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
                       >
                         {med}
                       </div>
@@ -616,22 +676,63 @@ const RxGuardPrototype = ({ onBack }) => {
 
             {/* Current Medications */}
             {medications.length > 0 && (
-              <div className="mb-8">
-                <label className="block text-lg font-bold text-slate-900 mb-4">
+              <div style={{ marginBottom: '2rem' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                  fontWeight: 700,
+                  color: '#1e293b',
+                  marginBottom: '1rem'
+                }}>
                   Current Medications ({medications.length})
                 </label>
-                <div className="space-y-3">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {medications.map((med, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-cyan-700 font-bold">{idx + 1}</span>
+                    <div key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: 'clamp(0.75rem, 2vw, 1rem)',
+                      background: '#f8fafc',
+                      borderRadius: '12px',
+                      border: '2px solid #e2e8f0',
+                      flexWrap: 'wrap',
+                      gap: '0.75rem'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
+                        <div style={{
+                          width: 'clamp(2rem, 5vw, 2.5rem)',
+                          height: 'clamp(2rem, 5vw, 2.5rem)',
+                          background: '#cffafe',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0
+                        }}>
+                          <span style={{ color: '#0e7490', fontWeight: 700, fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>{idx + 1}</span>
                         </div>
-                        <span className="text-lg font-semibold text-slate-900">{med}</span>
+                        <span style={{
+                          fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
+                          fontWeight: 600,
+                          color: '#1e293b'
+                        }}>{med}</span>
                       </div>
                       <button
                         onClick={() => removeMedication(med)}
-                        className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors font-semibold"
+                        style={{
+                          padding: 'clamp(0.5rem, 1.5vw, 0.6rem) clamp(0.75rem, 2vw, 1rem)',
+                          background: '#fee2e2',
+                          color: '#b91c1c',
+                          border: 'none',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          fontWeight: 600,
+                          fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
+                          transition: 'background 0.2s ease'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = '#fecaca'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = '#fee2e2'}
                       >
                         Remove
                       </button>
@@ -645,11 +746,31 @@ const RxGuardPrototype = ({ onBack }) => {
             <button
               onClick={analyzeCustomMedications}
               disabled={medications.length < 2}
-              className={`w-full py-5 px-6 rounded-xl font-bold text-lg transition-all shadow-lg ${
-                medications.length >= 2
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:from-cyan-600 hover:to-blue-600 hover:shadow-xl'
-                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
-              }`}
+              style={{
+                width: '100%',
+                padding: 'clamp(0.9rem, 2.5vw, 1.25rem) clamp(1rem, 3vw, 1.5rem)',
+                borderRadius: '12px',
+                fontWeight: 700,
+                fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
+                transition: 'all 0.3s ease',
+                boxShadow: medications.length >= 2 ? '0 4px 15px rgba(0, 168, 204, 0.3)' : 'none',
+                background: medications.length >= 2 ? 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)' : '#e2e8f0',
+                color: medications.length >= 2 ? 'white' : '#94a3b8',
+                border: 'none',
+                cursor: medications.length >= 2 ? 'pointer' : 'not-allowed'
+              }}
+              onMouseEnter={(e) => {
+                if (medications.length >= 2) {
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 168, 204, 0.4)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (medications.length >= 2) {
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 168, 204, 0.3)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }
+              }}
             >
               {medications.length < 2 
                 ? 'Add at least 2 medications to analyze' 

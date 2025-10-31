@@ -8,6 +8,7 @@ const RxGuardPrototype = ({ onBack }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedScenario, setSelectedScenario] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   // Medication database
   const medicationDatabase = [
@@ -184,11 +185,17 @@ const RxGuardPrototype = ({ onBack }) => {
     setMedications(medications.filter(m => m !== med));
   };
 
-  const analyzeCustomMedications = () => {
+  const analyzeCustomMedications = async () => {
     if (medications.length < 2) {
       alert('Please add at least 2 medications to analyze.');
       return;
     }
+    
+    // Show loading animation
+    setIsAnalyzing(true);
+    
+    // Simulate analysis delay for better UX (1.5 seconds)
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Find matching scenario or create custom one
     const matchingScenario = scenarios.find(s => 
@@ -212,6 +219,7 @@ const RxGuardPrototype = ({ onBack }) => {
       });
     }
     
+    setIsAnalyzing(false);
     setCurrentStep('results');
   };
 
@@ -745,7 +753,7 @@ const RxGuardPrototype = ({ onBack }) => {
             {/* Analyze Button */}
             <button
               onClick={analyzeCustomMedications}
-              disabled={medications.length < 2}
+              disabled={medications.length < 2 || isAnalyzing}
               style={{
                 width: '100%',
                 padding: 'clamp(0.9rem, 2.5vw, 1.25rem) clamp(1rem, 3vw, 1.5rem)',
@@ -753,30 +761,69 @@ const RxGuardPrototype = ({ onBack }) => {
                 fontWeight: 700,
                 fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
                 transition: 'all 0.3s ease',
-                boxShadow: medications.length >= 2 ? '0 4px 15px rgba(0, 168, 204, 0.3)' : 'none',
-                background: medications.length >= 2 ? 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)' : '#e2e8f0',
-                color: medications.length >= 2 ? 'white' : '#94a3b8',
+                boxShadow: (medications.length >= 2 && !isAnalyzing) ? '0 4px 15px rgba(0, 168, 204, 0.3)' : 'none',
+                background: (medications.length >= 2 && !isAnalyzing) ? 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)' : '#e2e8f0',
+                color: (medications.length >= 2 && !isAnalyzing) ? 'white' : '#94a3b8',
                 border: 'none',
-                cursor: medications.length >= 2 ? 'pointer' : 'not-allowed'
+                cursor: (medications.length >= 2 && !isAnalyzing) ? 'pointer' : 'not-allowed',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.75rem'
               }}
               onMouseEnter={(e) => {
-                if (medications.length >= 2) {
+                if (medications.length >= 2 && !isAnalyzing) {
                   e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 168, 204, 0.4)';
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }
               }}
               onMouseLeave={(e) => {
-                if (medications.length >= 2) {
+                if (medications.length >= 2 && !isAnalyzing) {
                   e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 168, 204, 0.3)';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }
               }}
             >
-              {medications.length < 2 
-                ? 'Add at least 2 medications to analyze' 
-                : `Analyze ${medications.length} Medications →`
-              }
+              {isAnalyzing ? (
+                <>
+                  <svg
+                    style={{
+                      animation: 'spin 1s linear infinite',
+                      width: '1.25rem',
+                      height: '1.25rem'
+                    }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      style={{ opacity: 0.25 }}
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      style={{ opacity: 0.75 }}
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  <span>Analyzing Interactions...</span>
+                </>
+              ) : medications.length < 2 ? (
+                'Add at least 2 medications to analyze'
+              ) : (
+                `Analyze ${medications.length} Medications →`
+              )}
             </button>
+            <style>{`
+              @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
           </div>
         </div>
       </div>

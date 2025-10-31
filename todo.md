@@ -520,6 +520,18 @@
 - [x] Fix subtitle text contrast in demo welcome screen
 
 ## Calculator Interface Redesign (Oct 30, 2025)
-- [ ] Redesign Interactive Drug Interaction Calculator to match scenario card layout
-- [ ] Improve calculator mobile responsiveness and styling
+- [x] Redesign Interactive Drug Interaction Calculator to match scenario card layout
+- [x] Improve calculator mobile responsiveness and styling
+
+
+
+## Calculator UX Enhancements (Oct 30, 2025)
+- [ ] Add loading animation to 'Analyze' button after it's clicked
+- [ ] Ensure dropdown menu is mobile-responsive and easy to use on touch screens
+- [ ] Refine hover and active states on medication chips for better user feedback
+
+## Sales Infrastructure Setup (Oct 30, 2025)
+- [ ] Create 3 sales documents for Nexus Biomedical platforms
+- [ ] Set up Google Sheet for customer tracking with pipeline stages
+- [ ] Create Calendly account and configure discovery call booking
 

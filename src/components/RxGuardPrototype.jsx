@@ -413,7 +413,7 @@ const RxGuardPrototype = ({ onBack }) => {
                   style={{
                     background: 'rgba(255, 255, 255, 0.9)',
                     borderRadius: '16px',
-                    padding: '2rem',
+                    padding: 'clamp(1rem, 3vw, 2rem)',
                     border: '2px solid #cbd5e1',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                     transition: 'all 0.3s ease'
@@ -429,15 +429,15 @@ const RxGuardPrototype = ({ onBack }) => {
                     e.currentTarget.style.borderColor = '#cbd5e1';
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
                     <div style={{ flex: 1 }}>
-                      <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.5rem' }}>
+                      <h3 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 700, color: '#1e293b', marginBottom: '0.5rem' }}>
                         {scenario.title}
                       </h3>
-                      <p style={{ fontSize: '1.2rem', color: '#00A8CC', fontWeight: 600, marginBottom: '0.5rem' }}>
+                      <p style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', color: '#00A8CC', fontWeight: 600, marginBottom: '0.5rem' }}>
                         {scenario.subtitle}
                       </p>
-                      <p style={{ fontSize: '1rem', color: '#64748b' }}>
+                      <p style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: '#64748b' }}>
                         {scenario.description}
                       </p>
                     </div>
@@ -446,10 +446,10 @@ const RxGuardPrototype = ({ onBack }) => {
                       color: 'white',
                       padding: '0.5rem 1rem',
                       borderRadius: '8px',
-                      fontSize: '0.9rem',
+                      fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
                       fontWeight: 700,
                       whiteSpace: 'nowrap',
-                      marginLeft: '1rem'
+                      flexShrink: 0
                     }}>
                       {scenario.severity}
                     </div>
@@ -457,20 +457,22 @@ const RxGuardPrototype = ({ onBack }) => {
 
                   <div style={{
                     display: 'flex',
+                    flexWrap: 'wrap',
                     gap: '1rem',
                     marginTop: '1.5rem',
                     paddingTop: '1.5rem',
-                    borderTop: '1px solid #e2e8f0'
+                    borderTop: '1px solid #e2e8f0',
+                    alignItems: 'center'
                   }}>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.25rem' }}>Timeline</div>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e293b' }}>
+                      <div style={{ fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#64748b', marginBottom: '0.25rem' }}>Timeline</div>
+                      <div style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', fontWeight: 600, color: '#1e293b' }}>
                         {scenario.medications.length} medications
                       </div>
                     </div>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.25rem' }}>Est. Cost</div>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e293b' }}>
+                      <div style={{ fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#64748b', marginBottom: '0.25rem' }}>Est. Cost</div>
+                      <div style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', fontWeight: 600, color: '#1e293b' }}>
                         ${(scenario.annualCost / 1000000).toFixed(0)}M annually
                       </div>
                     </div>
@@ -483,13 +485,14 @@ const RxGuardPrototype = ({ onBack }) => {
                         background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
                         color: 'white',
                         border: 'none',
-                        padding: '0.75rem 2rem',
+                        padding: 'clamp(0.6rem, 2vw, 0.75rem) clamp(1.2rem, 4vw, 2rem)',
                         borderRadius: '8px',
-                        fontSize: '1rem',
+                        fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
                         fontWeight: 600,
                         cursor: 'pointer',
                         boxShadow: '0 2px 8px rgba(0, 168, 204, 0.3)',
-                        transition: 'all 0.2s ease'
+                        transition: 'all 0.2s ease',
+                        whiteSpace: 'nowrap'
                       }}
                       onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                       onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}

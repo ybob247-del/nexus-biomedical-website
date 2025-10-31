@@ -505,8 +505,8 @@
 
 
 ## Demo Mobile Responsiveness (Oct 30, 2025)
-- [ ] Fix RxGuard demo statistics section overflow (10,000+ Interactions text cut off)
-- [ ] Fix RxGuard demo content width on mobile devices
+- [x] Fix RxGuard demo statistics section overflow (10,000+ Interactions text cut off)
+- [x] Fix RxGuard demo content width on mobile devices
 - [ ] Fix ReguReady demo mobile responsiveness
 - [ ] Fix ClinicalIQ demo mobile responsiveness
 - [ ] Fix ElderWatch demo mobile responsiveness

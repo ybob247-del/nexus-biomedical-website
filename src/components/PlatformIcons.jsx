@@ -17,7 +17,7 @@ export const ElderWatchIcon = ({ size = 48 }) => (
 )
 
 export const PediCalcIcon = ({ size = 48 }) => (
-  <div style={{ fontSize: `${size}px`, lineHeight: 1 }}>👶</div>
+  <div style={{ fontSize: `${size}px`, lineHeight: 1 }}>👶🏿</div>
 )
 
 export const SkinScanIcon = ({ size = 48 }) => (

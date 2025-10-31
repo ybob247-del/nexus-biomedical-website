@@ -538,11 +538,22 @@
 
 
 ## Contact Form & Product Sheets (Oct 31, 2025)
-- [ ] Create contact form component with Name, Email, Company, Product Interest, Message fields
-- [ ] Connect Contact Us button to open contact form modal
-- [ ] Configure form to send emails to support@nexusbiomedical.ai
-- [ ] Create ElderWatch product one-pager PDF
-- [ ] Create PediCalc product one-pager PDF
-- [ ] Create SkinScan product one-pager PDF
-- [ ] Update all 6 product sheets with support@nexusbiomedical.ai (remove phone numbers)
+- [x] Create contact form component with Name, Email, Company, Product Interest, Message fields
+- [x] Connect Contact Us button to open contact form modal
+- [x] Configure form to send emails to support@nexusbiomedical.ai
+- [x] Create ElderWatch product one-pager PDF
+- [x] Create PediCalc product one-pager PDF
+- [x] Create SkinScan product one-pager PDF
+- [x] Update all 6 product sheets with support@nexusbiomedical.ai (remove phone numbers)
+
+
+
+## Product Sheet Accuracy Fixes (Oct 31, 2025)
+- [x] Review website to verify actual Stripe pricing for all 6 platforms
+- [x] Remove false "30-day free trial" claims from all product sheets
+- [x] Remove phone numbers from all product sheets (already done, verify)
+- [x] Remove "Schedule Demo" / "Book a call" references (Calendly not set up)
+- [x] Update "Get Started Today" sections with only: support email and website URL
+- [ ] Change PediCalc icon to dark-skinned baby (currently white baby)
+- [ ] Regenerate all 6 PDFs with accurate information only
 

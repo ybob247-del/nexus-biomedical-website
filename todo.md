@@ -495,3 +495,10 @@
 - [ ] Test all fixes on real mobile device
 - [ ] Verify responsive layout works on all screen sizes
 
+
+
+## Mobile UX Fixes (Oct 30, 2025)
+- [ ] Fix "COMING SOON" badge overflow on mobile platform cards (currently cut off screen)
+- [ ] Verify all "Try Interactive Demo" buttons work correctly
+- [ ] Verify all "Start Free Trial" Stripe payment links work correctly
+

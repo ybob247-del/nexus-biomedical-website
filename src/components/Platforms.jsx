@@ -134,7 +134,7 @@ export default function Platforms({ onLearnMore }) {
               </div>
               
               {/* Platform header */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
                 <h3 style={{
                   fontSize: '1.75rem',
                   fontWeight: 700,
@@ -153,7 +153,9 @@ export default function Platforms({ onLearnMore }) {
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
-                  boxShadow: '0 4px 10px rgba(255, 71, 87, 0.3)'
+                  boxShadow: '0 4px 10px rgba(255, 71, 87, 0.3)',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0
                 }}>
                   Coming Soon
                 </span>

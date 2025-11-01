@@ -7,42 +7,48 @@ const platforms = [
     tagline: 'Medication Interaction Predictor',
     description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
     color: '#00A8CC',
-    gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)'
+    gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+    comingSoon: false
   },
   {
     name: 'ReguReady™',
     tagline: 'FDA Regulatory Guidance Platform',
     description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
     color: '#B794F4',
-    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)'
+    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
+    comingSoon: false
   },
   {
     name: 'ClinicalIQ™',
     tagline: 'Clinical Decision Support System',
     description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design.',
     color: '#00D084',
-    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)'
+    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+    comingSoon: false
   },
   {
     name: 'ElderWatch™',
     tagline: 'Senior Health Monitoring',
     description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention.',
     color: '#FB923C',
-    gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)'
+    gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
+    comingSoon: false
   },
   {
     name: 'PediCalc Pro™',
     tagline: 'Pediatric Medication Dosing',
     description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children.',
     color: '#FDA4AF',
-    gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)'
+    gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
+    comingSoon: false
   },
   {
     name: 'SkinScan Pro™',
     tagline: 'AI Skin Cancer Detection',
     description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification.',
     color: '#14B8A6',
-    gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)'
+    gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
+    comingSoon: true
   }
 ]
 
@@ -144,21 +150,23 @@ export default function Platforms({ onLearnMore }) {
                 }}>
                   {platform.name}
                 </h3>
-                <span style={{
-                  background: 'linear-gradient(135deg, #FFB800 0%, #FF4757 100%)',
-                  color: 'white',
-                  padding: '0.4rem 0.9rem',
-                  borderRadius: '20px',
-                  fontSize: '0.7rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  boxShadow: '0 4px 10px rgba(255, 71, 87, 0.3)',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0
-                }}>
-                  Coming Soon
-                </span>
+                {platform.comingSoon && (
+                  <span style={{
+                    background: 'linear-gradient(135deg, #FFB800 0%, #FF4757 100%)',
+                    color: 'white',
+                    padding: '0.4rem 0.9rem',
+                    borderRadius: '20px',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    boxShadow: '0 4px 10px rgba(255, 71, 87, 0.3)',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0
+                  }}>
+                    Coming Soon
+                  </span>
+                )}
               </div>
               
               {/* Tagline - Enhanced contrast */}

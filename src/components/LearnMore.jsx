@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { openPaymentLink } from '../config/stripePaymentLinks';
+import { updateMetaTags, resetMetaTags } from '../config/seoMetadata';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
+  // Update SEO meta tags when platform changes
+  useEffect(() => {
+    if (platform && platform.name) {
+      updateMetaTags(platform.name);
+    }
+    
+    // Cleanup: reset to homepage meta tags when component unmounts
+    return () => {
+      resetMetaTags();
+    };
+  }, [platform]);
+
   if (!platform) return null;
 
   // Handle Start Free Trial button clicks

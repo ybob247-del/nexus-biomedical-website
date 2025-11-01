@@ -6,7 +6,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 3006,
-    allowedHosts: 'all'
+    allowedHosts: [
+      '.manusvm.computer',
+      'localhost',
+      '127.0.0.1'
+    ]
   },
   build: {
     // Enable code splitting

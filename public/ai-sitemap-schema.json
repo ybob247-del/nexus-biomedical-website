@@ -1,0 +1,180 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Nexus Biomedical Intelligence",
+  "url": "https://nexusbiomedical.ai",
+  "description": "A suite of six AI healthcare platforms for regulatory compliance, medication safety, clinical research, and digital health.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nexus Biomedical Intelligence",
+    "email": "support@nexusbiomedical.ai",
+    "url": "https://nexusbiomedical.ai"
+  },
+  "keywords": [
+    "AI healthcare compliance",
+    "regulatory automation",
+    "clinical AI platforms",
+    "predictive health analytics",
+    "digital pharmacovigilance",
+    "telemedicine innovation"
+  ],
+  "mainEntity": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "RxGuard",
+      "url": "https://nexusbiomedical.ai/#rxguard",
+      "applicationCategory": "HealthcareCompliance",
+      "description": "AI-driven drug compliance and prescription safety analytics platform for healthcare providers and pharmacies. Detects adverse drug interactions and ensures medication safety using AI-powered compliance analytics.",
+      "keywords": [
+        "AI drug interaction checker",
+        "clinical medication safety",
+        "pharmacy decision-support AI",
+        "adverse event prediction",
+        "pharmacovigilance analytics",
+        "prescription safety system"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "49.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "49.00",
+          "priceCurrency": "USD",
+          "unitText": "MONTH"
+        }
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "ReguReady",
+      "url": "https://nexusbiomedical.ai/#reguready",
+      "applicationCategory": "RegulatoryAutomation",
+      "description": "AI-powered regulatory compliance and documentation platform for medical device manufacturers and consultants. Automates FDA and CE submissions using AI document analysis and compliance scoring.",
+      "keywords": [
+        "AI regulatory compliance software",
+        "FDA 510k automation",
+        "PMA submission platform",
+        "medical device approval AI",
+        "CE documentation automation",
+        "ISO 13485 readiness"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "199.00",
+        "highPrice": "399.00",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "ClinicalIQ",
+      "url": "https://nexusbiomedical.ai/#clinicaliq",
+      "applicationCategory": "ClinicalResearchAI",
+      "description": "Predictive analytics and patient recruitment optimization platform for biotech and pharmaceutical research teams. Predicts trial outcomes and accelerates patient recruitment using AI-driven analytics.",
+      "keywords": [
+        "AI clinical trial optimization",
+        "patient recruitment AI",
+        "protocol design intelligence",
+        "biotech analytics",
+        "trial success prediction",
+        "clinical research automation"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "299.00",
+        "highPrice": "699.00",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "ElderWatch",
+      "url": "https://nexusbiomedical.ai/#elderwatch",
+      "applicationCategory": "RemotePatientMonitoring",
+      "description": "AI-driven platform for senior health monitoring, fall-risk prediction, and proactive elderly care management. Provides AI-powered senior health monitoring and fall-risk prediction for safe, independent living.",
+      "keywords": [
+        "AI senior monitoring",
+        "fall-risk prediction",
+        "elderly care platform",
+        "remote patient monitoring AI",
+        "aging in place analytics",
+        "geriatric care technology"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "49.00",
+        "highPrice": "199.00",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PediCalc Pro",
+      "url": "https://nexusbiomedical.ai/#pedicalc",
+      "applicationCategory": "PediatricPharmacyAI",
+      "description": "AI-based pediatric dosing calculator for accurate, weight-based medication safety compliant with AAP standards. Automates pediatric medication dosing with AI-driven accuracy and AAP-compliant safeguards.",
+      "keywords": [
+        "AI pediatric dosing calculator",
+        "weight-based medication safety",
+        "pediatric pharmacy software",
+        "AAP-compliant dosing AI",
+        "neonatal dosing support"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "14.99",
+        "highPrice": "19.99",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SkinScan Pro",
+      "url": "https://nexusbiomedical.ai/#skinscan",
+      "applicationCategory": "DermatologyAI",
+      "description": "AI-based skin cancer detection and lesion analysis platform for dermatologists and teledermatology providers. Leverages AI imaging to detect melanoma and skin lesions early for dermatologists and telemedicine platforms.",
+      "keywords": [
+        "AI skin cancer detection",
+        "melanoma analysis",
+        "dermatology imaging AI",
+        "lesion classification",
+        "teledermatology software",
+        "skin health analytics"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "49.00",
+        "highPrice": "59.00",
+        "priceCurrency": "USD"
+      }
+    }
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://nexusbiomedical.ai/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "aiEmbedding": {
+    "summary": "Nexus Biomedical Intelligence combines six AI healthcare platforms—RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc Pro, and SkinScan Pro—each targeting critical areas of healthcare safety, compliance, and predictive analytics.",
+    "capabilities": [
+      "Drug interaction detection and medication safety (RxGuard)",
+      "FDA regulatory compliance automation (ReguReady)",
+      "Clinical trial optimization and patient recruitment (ClinicalIQ)",
+      "Senior health monitoring and fall risk prediction (ElderWatch)",
+      "Pediatric medication dosing calculations (PediCalc Pro)",
+      "Skin cancer detection and dermatology screening (SkinScan Pro)"
+    ],
+    "targetAudience": [
+      "Healthcare providers",
+      "Pharmacies",
+      "Medical device manufacturers",
+      "Biotech companies",
+      "Pharmaceutical researchers",
+      "Elderly care facilities",
+      "Pediatricians",
+      "Dermatologists"
+    ]
+  }
+}
+

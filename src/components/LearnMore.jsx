@@ -427,7 +427,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 onClick={() => handlePricingClick(plan)}
                 >
-                  {plan.tier === 'Free' || plan.tier === 'Starter' ? 'Get Started' : plan.tier.includes('Professional') ? 'Start Free Trial' : 'Contact Sales'}
+                  {plan.tier.includes('Enterprise') || plan.tier.includes('Hospital') || plan.tier === 'Custom' ? 'Contact Sales' : plan.tier === 'Free' ? 'Get Started' : 'Start Free Trial'}
                 </button>
               </div>
             ))}

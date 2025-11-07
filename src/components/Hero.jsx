@@ -107,7 +107,7 @@ export default function Hero() {
             className="nexus-button" 
             onClick={() => document.querySelector('.faq-section')?.scrollIntoView({ behavior: 'smooth' })}
             style={{
-              background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)',
+              background: 'linear-gradient(135deg, #00A8CC 0%, #5B2C87 100%)',
               color: '#FFFFFF',
               padding: '1rem 2.5rem',
               fontSize: '1.1rem',
@@ -115,7 +115,7 @@ export default function Hero() {
               border: 'none',
               borderRadius: '50px',
               cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(96, 165, 250, 0.4)',
+              boxShadow: '0 4px 15px rgba(0, 168, 204, 0.4)',
               transition: 'all 0.3s ease'
             }}
           >

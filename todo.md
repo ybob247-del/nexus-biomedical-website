@@ -628,3 +628,36 @@
 - [x] Keep "Coming Soon" only on SkinScan Pro (needs FDA clearance)
 - [x] Test website to verify changes
 
+
+
+
+## Update Sora 2 Research (Nov 1, 2025)
+- [ ] Correct Sora 2 access information (currently open in US/Canada/Japan/South Korea for limited time)
+- [ ] Add waitlist and Discord invite code methods
+- [ ] Research and document alternative AI video tools (Runway, Pika, Luma, etc.)
+- [ ] Create comparison table of AI video tools with pricing
+- [ ] Update go-to-market strategy with correct Sora 2 access info
+- [ ] Provide alternative video creation recommendations
+
+
+
+
+## Launch Day Actions (Nov 1, 2025)
+- [x] Research YouTube channels (Nate Herk, Futurepedia, AI Automation Society)
+- [ ] Update LinkedIn profile (bio, tagline, background image)
+- [ ] Write first LinkedIn announcement post
+- [ ] Create Sora 1 video strategy (Nexus overview + individual platforms)
+- [ ] Create beta tester Google Sheet with roles
+- [ ] Write LinkedIn beta tester recruitment post
+
+
+
+## FAQ Section (November 7, 2025)
+- [x] Created FAQ component with 10 fear-based questions
+- [x] Designed professional, clean FAQ styling
+- [x] Integrated FAQ section into homepage (after Platforms, before Footer)
+- [x] Built production version with FAQ
+- [ ] User confirmation that FAQ is live and working
+- [ ] Deploy to production after user approval
+
+

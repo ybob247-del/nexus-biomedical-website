@@ -3,6 +3,7 @@ import './styles/nexus.css'
 import StarryBackground from './components/StarryBackground'
 import Hero from './components/Hero'
 import Platforms from './components/Platforms'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
 import { platformsData } from './data/platformData'
@@ -72,6 +73,7 @@ function App() {
       <div className="nexus-app">
         <Hero />
         <Platforms onLearnMore={handleLearnMore} />
+        <FAQ />
         <Footer />
       </div>
     </>

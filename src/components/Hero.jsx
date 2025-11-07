@@ -105,6 +105,24 @@ export default function Hero() {
           </button>
           <button 
             className="nexus-button" 
+            onClick={() => document.querySelector('.faq-section')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{
+              background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)',
+              color: '#FFFFFF',
+              padding: '1rem 2.5rem',
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              border: 'none',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(96, 165, 250, 0.4)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Hard Questions Answered
+          </button>
+          <button 
+            className="nexus-button" 
             onClick={() => setIsContactFormOpen(true)}
             style={{ 
               background: 'rgba(255, 255, 255, 0.1)',

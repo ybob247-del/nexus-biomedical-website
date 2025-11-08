@@ -7,6 +7,7 @@ import Platforms from './components/Platforms'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
+import AdminProtectedRoute from './components/AdminProtectedRoute'
 import { platformsData } from './data/platformData'
 
 // Lazy load demo components for better performance
@@ -17,7 +18,6 @@ const ElderWatchPrototype = lazy(() => import('./components/ElderWatchPrototype'
 const PediCalcPrototype = lazy(() => import('./components/PediCalcPrototype'))
 const SkinScanPrototype = lazy(() => import('./components/SkinScanPrototype'))
 const AdminBetaInvites = lazy(() => import('./components/AdminBetaInvites'))
-const AdminProtectedRoute = lazy(() => import('./components/AdminProtectedRoute'))
 
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState(null)

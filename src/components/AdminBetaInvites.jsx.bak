@@ -1,0 +1,226 @@
+import { useState } from 'react';
+
+/**
+ * Admin Panel for Beta Invites
+ * 
+ * This component allows you to manually send beta invites to users who comment "BETA" on LinkedIn.
+ * 
+ * Usage:
+ * 1. User comments "BETA" on your LinkedIn post
+ * 2. Copy their email from LinkedIn profile
+ * 3. Paste email here, select days (30, 60, or 90)
+ * 4. Click "Send Beta Invite"
+ * 5. System automatically sends welcome email and grants access
+ * 
+ * Access this page at: /admin/beta-invites
+ */
+
+export default function AdminBetaInvites() {
+  const [email, setEmail] = useState('');
+  const [days, setDays] = useState(60);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [recentInvites, setRecentInvites] = useState([]);
+
+  const handleSendInvite = async (e) => {
+    e.preventDefault();
+    
+    // Validate email
+    if (!email || !email.includes('@')) {
+      setMessage('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+    setMessage('');
+
+    try {
+      // Call API to send beta invite
+      const response = await fetch('/api/admin/send-beta-invite', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, days }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(`✅ Beta invite sent to ${email}!`);
+        setEmail('');
+        
+        // Add to recent invites
+        setRecentInvites([
+          {
+            email,
+            days,
+            timestamp: new Date().toISOString(),
+          },
+          ...recentInvites.slice(0, 9), // Keep last 10
+        ]);
+      } else {
+        setMessage(`❌ Error: ${data.error || 'Failed to send invite'}`);
+      }
+    } catch (error) {
+      setMessage(`❌ Error: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffDays = Math.floor(diffMs / 86400000);
+
+    if (diffMins < 1) return 'just now';
+    if (diffMins < 60) return `${diffMins} min ago`;
+    if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+    return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 py-12 px-4">
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-6 border border-white/20">
+          <h1 className="text-3xl font-bold text-white mb-2">
+            🎉 RxGuard Beta Invite System
+          </h1>
+          <p className="text-gray-300">
+            Send beta invites to users who comment "BETA" on LinkedIn
+          </p>
+        </div>
+
+        {/* Invite Form */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-6 border border-white/20">
+          <form onSubmit={handleSendInvite}>
+            {/* Email Input */}
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-white font-semibold mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="user@hospital.com"
+                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            {/* Days Selector */}
+            <div className="mb-6">
+              <label htmlFor="days" className="block text-white font-semibold mb-2">
+                Beta Access Duration
+              </label>
+              <select
+                id="days"
+                value={days}
+                onChange={(e) => setDays(Number(e.target.value))}
+                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value={30} className="bg-gray-800">30 days</option>
+                <option value={60} className="bg-gray-800">60 days (recommended)</option>
+                <option value={90} className="bg-gray-800">90 days</option>
+              </select>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full py-4 rounded-lg font-bold text-white transition-all ${
+                loading
+                  ? 'bg-gray-600 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105'
+              }`}
+            >
+              {loading ? '⏳ Sending...' : '📧 Send Beta Invite'}
+            </button>
+          </form>
+
+          {/* Message */}
+          {message && (
+            <div
+              className={`mt-4 p-4 rounded-lg ${
+                message.startsWith('✅')
+                  ? 'bg-green-500/20 border border-green-500/50 text-green-300'
+                  : 'bg-red-500/20 border border-red-500/50 text-red-300'
+              }`}
+            >
+              {message}
+            </div>
+          )}
+        </div>
+
+        {/* Recent Invites */}
+        {recentInvites.length > 0 && (
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+            <h2 className="text-2xl font-bold text-white mb-4">Recent Invites</h2>
+            <div className="space-y-3">
+              {recentInvites.map((invite, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 rounded-lg p-4 border border-white/10"
+                >
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <p className="text-white font-semibold">{invite.email}</p>
+                      <p className="text-gray-400 text-sm">
+                        {invite.days} days access
+                      </p>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      {formatTimestamp(invite.timestamp)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Instructions */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mt-6 border border-white/20">
+          <h2 className="text-2xl font-bold text-white mb-4">📋 How to Use</h2>
+          <ol className="space-y-3 text-gray-300">
+            <li className="flex items-start">
+              <span className="text-blue-400 font-bold mr-3">1.</span>
+              <span>User comments "BETA" on your LinkedIn post</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-400 font-bold mr-3">2.</span>
+              <span>Copy their email from their LinkedIn profile</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-400 font-bold mr-3">3.</span>
+              <span>Paste email above and select days (60 recommended)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-400 font-bold mr-3">4.</span>
+              <span>Click "Send Beta Invite"</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-400 font-bold mr-3">5.</span>
+              <span>System automatically sends welcome email and grants access</span>
+            </li>
+          </ol>
+
+          <div className="mt-6 p-4 bg-yellow-500/20 border border-yellow-500/50 rounded-lg">
+            <p className="text-yellow-300 text-sm">
+              <strong>⚠️ Important:</strong> This takes only 5 seconds per user. The system handles everything else automatically (welcome email, account setup, access granting).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+

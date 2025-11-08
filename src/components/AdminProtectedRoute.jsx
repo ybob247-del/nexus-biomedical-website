@@ -9,9 +9,14 @@ export default function AdminProtectedRoute({ children }) {
 
   // Check if already authenticated (stored in sessionStorage)
   useEffect(() => {
+    console.log('AdminProtectedRoute: Checking authentication...');
     const auth = sessionStorage.getItem('admin_authenticated');
+    console.log('AdminProtectedRoute: auth value:', auth);
     if (auth === 'true') {
+      console.log('AdminProtectedRoute: User is authenticated');
       setIsAuthenticated(true);
+    } else {
+      console.log('AdminProtectedRoute: User is NOT authenticated');
     }
     setChecking(false);
   }, []);
@@ -32,7 +37,10 @@ export default function AdminProtectedRoute({ children }) {
     }
   };
 
+  console.log('AdminProtectedRoute: Rendering... checking:', checking, 'isAuthenticated:', isAuthenticated);
+
   if (checking) {
+    console.log('AdminProtectedRoute: Showing loading screen');
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0A1B3D 0%, #1a2942 50%, #0A1B3D 100%)' }}>
         <div style={{ color: '#60a5fa', fontSize: '1.5rem', fontWeight: 600 }}>Loading...</div>
@@ -41,6 +49,7 @@ export default function AdminProtectedRoute({ children }) {
   }
 
   if (!isAuthenticated) {
+    console.log('AdminProtectedRoute: Showing password prompt');
     return (
       <div style={{
         minHeight: '100vh',
@@ -126,6 +135,7 @@ export default function AdminProtectedRoute({ children }) {
     );
   }
 
+  console.log('AdminProtectedRoute: User authenticated, rendering children');
   return children;
 }
 

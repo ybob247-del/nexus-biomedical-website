@@ -5,6 +5,10 @@
       "destination": "/api/:path*"
     },
     {
+      "source": "/admin/beta-invites",
+      "destination": "/admin.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

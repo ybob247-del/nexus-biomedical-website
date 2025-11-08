@@ -7,7 +7,7 @@ import Platforms from './components/Platforms'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
-import AdminProtectedRoute from './components/AdminProtectedRoute'
+// AdminProtectedRoute removed - password protection now built into AdminBetaInvites
 import { platformsData } from './data/platformData'
 
 // Lazy load demo components for better performance
@@ -58,11 +58,9 @@ function App() {
       <Route 
         path="/admin/beta-invites" 
         element={
-          <AdminProtectedRoute>
-            <Suspense fallback={<LoadingFallback />}>
-              <AdminBetaInvites />
-            </Suspense>
-          </AdminProtectedRoute>
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminBetaInvites />
+          </Suspense>
         } 
       />
 

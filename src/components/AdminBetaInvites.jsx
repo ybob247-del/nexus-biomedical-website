@@ -105,24 +105,22 @@ export default function AdminBetaInvites() {
         <div style={{
           maxWidth: '400px',
           width: '100%',
-          background: 'rgba(255, 255, 255, 0.05)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          background: '#FFFFFF',
+          border: '3px solid #60A5FA',
           borderRadius: '20px',
           padding: '2rem',
+          boxShadow: '0 10px 40px rgba(96, 165, 250, 0.5)',
         }}>
           <h2 style={{
             fontSize: '2rem',
             fontWeight: 800,
             marginBottom: '0.5rem',
-            background: 'linear-gradient(135deg, #60A5FA 0%, #FFFFFF 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            color: '#0A1B3D',
             textAlign: 'center',
           }}>
-            Admin Access
+            🔐 Admin Access
           </h2>
-          <p style={{ color: '#B8D4E8', marginBottom: '2rem', textAlign: 'center' }}>
+          <p style={{ color: '#1a2942', marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem' }}>
             Enter password to access admin panel
           </p>
           <form onSubmit={handlePasswordSubmit}>
@@ -135,10 +133,10 @@ export default function AdminBetaInvites() {
                 width: '100%',
                 padding: '0.75rem 1rem',
                 borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                background: 'rgba(255, 255, 255, 0.05)',
-                color: '#FFFFFF',
-                fontSize: '1rem',
+                border: '2px solid #60A5FA',
+                background: '#F0F9FF',
+                color: '#0A1B3D',
+                fontSize: '1.1rem',
                 marginBottom: '1rem',
               }}
               autoFocus

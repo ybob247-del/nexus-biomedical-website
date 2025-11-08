@@ -49,12 +49,79 @@ module.exports = async (req, res) => {
           platform: session.metadata?.platform,
         });
 
-        // TODO: Grant access to platform
-        // This is where you would:
-        // 1. Create user account in database
-        // 2. Store subscription details
-        // 3. Send welcome email
-        // 4. Grant access to platform
+        // Grant access to platform
+        const { query } = require('./utils/db');
+        
+        try {
+          // Find or create user
+          let user;
+          const userResult = await query(
+            'SELECT id FROM users WHERE email = $1',
+            [session.customer_email.toLowerCase()]
+          );
+          
+          if (userResult.rows.length > 0) {
+            user = userResult.rows[0];
+          } else {
+            // Create user account (they paid before signing up)
+            const { hashPassword } = require('./utils/auth');
+            const tempPassword = await hashPassword(Math.random().toString(36).slice(-8));
+            
+            const newUserResult = await query(
+              `INSERT INTO users (email, password_hash)
+               VALUES ($1, $2)
+               RETURNING id`,
+              [session.customer_email.toLowerCase(), tempPassword]
+            );
+            user = newUserResult.rows[0];
+          }
+          
+          // Get subscription details from Stripe
+          const subscription = await stripe.subscriptions.retrieve(session.subscription);
+          
+          // Store subscription in database
+          await query(
+            `INSERT INTO subscriptions (
+              user_id, stripe_customer_id, stripe_subscription_id, stripe_price_id,
+              platform, status, current_period_start, current_period_end, trial_end
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            ON CONFLICT (stripe_subscription_id) DO UPDATE SET
+              status = EXCLUDED.status,
+              current_period_start = EXCLUDED.current_period_start,
+              current_period_end = EXCLUDED.current_period_end`,
+            [
+              user.id,
+              session.customer,
+              session.subscription,
+              subscription.items.data[0].price.id,
+              session.metadata?.platform || 'Unknown',
+              subscription.status,
+              new Date(subscription.current_period_start * 1000),
+              new Date(subscription.current_period_end * 1000),
+              subscription.trial_end ? new Date(subscription.trial_end * 1000) : null
+            ]
+          );
+          
+          // Grant platform access
+          await query(
+            `INSERT INTO platform_access (user_id, platform, subscription_id, access_expires_at)
+             SELECT $1, $2, id, $3
+             FROM subscriptions WHERE stripe_subscription_id = $4
+             ON CONFLICT (user_id, platform) DO UPDATE SET
+               is_active = true,
+               access_expires_at = EXCLUDED.access_expires_at`,
+            [
+              user.id,
+              session.metadata?.platform || 'Unknown',
+              new Date(subscription.current_period_end * 1000),
+              session.subscription
+            ]
+          );
+          
+          console.log('Access granted successfully');
+        } catch (error) {
+          console.error('Error granting access:', error);
+        }
         
         break;
       }
@@ -68,11 +135,32 @@ module.exports = async (req, res) => {
           status: subscription.status,
         });
 
-        // TODO: Revoke access to platform
-        // This is where you would:
-        // 1. Update user subscription status in database
-        // 2. Revoke platform access
-        // 3. Send cancellation confirmation email
+        // Revoke access to platform
+        const { query } = require('./utils/db');
+        
+        try {
+          // Update subscription status
+          await query(
+            `UPDATE subscriptions
+             SET status = 'canceled'
+             WHERE stripe_subscription_id = $1`,
+            [subscription.id]
+          );
+          
+          // Revoke platform access
+          await query(
+            `UPDATE platform_access
+             SET is_active = false
+             WHERE subscription_id IN (
+               SELECT id FROM subscriptions WHERE stripe_subscription_id = $1
+             )`,
+            [subscription.id]
+          );
+          
+          console.log('Access revoked successfully');
+        } catch (error) {
+          console.error('Error revoking access:', error);
+        }
         
         break;
       }
@@ -87,7 +175,57 @@ module.exports = async (req, res) => {
           cancelAtPeriodEnd: subscription.cancel_at_period_end,
         });
 
-        // TODO: Update subscription status in database
+        // Update subscription status
+        const { query: queryUpdate } = require('./utils/db');
+        
+        try {
+          // Update subscription details
+          await queryUpdate(
+            `UPDATE subscriptions
+             SET status = $1,
+                 current_period_start = $2,
+                 current_period_end = $3,
+                 cancel_at_period_end = $4
+             WHERE stripe_subscription_id = $5`,
+            [
+              subscription.status,
+              new Date(subscription.current_period_start * 1000),
+              new Date(subscription.current_period_end * 1000),
+              subscription.cancel_at_period_end,
+              subscription.id
+            ]
+          );
+          
+          // Update platform access based on status
+          if (subscription.status === 'active' || subscription.status === 'trialing') {
+            await queryUpdate(
+              `UPDATE platform_access
+               SET is_active = true,
+                   access_expires_at = $1
+               WHERE subscription_id IN (
+                 SELECT id FROM subscriptions WHERE stripe_subscription_id = $2
+               )`,
+              [
+                new Date(subscription.current_period_end * 1000),
+                subscription.id
+              ]
+            );
+          } else if (subscription.status === 'past_due' || subscription.status === 'unpaid') {
+            // Temporarily revoke access for past_due subscriptions
+            await queryUpdate(
+              `UPDATE platform_access
+               SET is_active = false
+               WHERE subscription_id IN (
+                 SELECT id FROM subscriptions WHERE stripe_subscription_id = $1
+               )`,
+              [subscription.id]
+            );
+          }
+          
+          console.log('Subscription updated successfully');
+        } catch (error) {
+          console.error('Error updating subscription:', error);
+        }
         
         break;
       }

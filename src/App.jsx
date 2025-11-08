@@ -58,11 +58,11 @@ function App() {
       <Route 
         path="/admin/beta-invites" 
         element={
-          <Suspense fallback={<LoadingFallback />}>
-            <AdminProtectedRoute>
+          <AdminProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
               <AdminBetaInvites />
-            </AdminProtectedRoute>
-          </Suspense>
+            </Suspense>
+          </AdminProtectedRoute>
         } 
       />
 

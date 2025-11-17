@@ -17,12 +17,12 @@ const FeedbackWidget = () => {
     
     try {
       // Send feedback to API endpoint
-      const response = await fetch('/api/feedback', {
+      const response = await fetch('/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ type: 'feedback', ...formData })
       })
 
       if (response.ok) {

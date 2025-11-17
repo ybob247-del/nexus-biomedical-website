@@ -18,12 +18,12 @@ const BetaSignup = ({ isOpen, onClose }) => {
     setIsSubmitting(true)
     
     try {
-      const response = await fetch('/api/beta-signup', {
+      const response = await fetch('/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ type: 'beta-signup', ...formData })
       })
 
       if (response.ok) {

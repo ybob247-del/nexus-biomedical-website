@@ -88,3 +88,222 @@ body {
   box-shadow: 0 8px 16px rgba(10, 27, 61, 0.15);
 }
 
+
+/* ===================================
+   FEEDBACK WIDGET STYLES
+   =================================== */
+
+.feedback-widget-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, var(--nexus-biomedical-teal) 0%, var(--nexus-insight-purple) 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 168, 204, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.feedback-widget-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 168, 204, 0.6);
+}
+
+.feedback-widget-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feedback-widget-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 27, 61, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+}
+
+.feedback-widget-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1002;
+}
+
+.feedback-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.feedback-widget-header h3 {
+  color: var(--nexus-quantum-blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.feedback-widget-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.feedback-widget-close:hover {
+  background: #f3f4f6;
+  color: var(--nexus-quantum-blue);
+}
+
+.feedback-widget-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.feedback-widget-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feedback-widget-field label {
+  color: var(--nexus-quantum-blue);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feedback-widget-field select,
+.feedback-widget-field input,
+.feedback-widget-field textarea {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-family: var(--nexus-font-family);
+  font-size: 1rem;
+  color: var(--nexus-quantum-blue);
+  transition: all 0.2s ease;
+}
+
+.feedback-widget-field select:focus,
+.feedback-widget-field input:focus,
+.feedback-widget-field textarea:focus {
+  outline: none;
+  border-color: var(--nexus-biomedical-teal);
+  box-shadow: 0 0 0 3px rgba(0, 168, 204, 0.1);
+}
+
+.feedback-widget-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.feedback-widget-field small {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.feedback-widget-submit {
+  background: linear-gradient(135deg, var(--nexus-biomedical-teal) 0%, var(--nexus-insight-purple) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.feedback-widget-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 204, 0.3);
+}
+
+.feedback-widget-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedback-widget-success {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feedback-widget-success p {
+  color: var(--nexus-quantum-blue);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.feedback-widget-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .feedback-widget-button {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .feedback-widget-button span {
+    display: none;
+  }
+
+  .feedback-widget-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .feedback-widget-modal {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .feedback-widget-header h3 {
+    font-size: 1.25rem;
+  }
+}

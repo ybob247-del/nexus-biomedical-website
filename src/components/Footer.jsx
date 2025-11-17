@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -30,10 +31,10 @@ export default function Footer() {
           flexWrap: 'wrap',
           marginBottom: '2rem'
         }}>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>About Us</a>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Contact</a>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Careers</a>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Privacy Policy</a>
+          <Link to="/privacy" style={{ color: 'white', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.target.style.opacity = 1} onMouseLeave={(e) => e.target.style.opacity = 0.8}>Privacy Policy</Link>
+          <Link to="/terms" style={{ color: 'white', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.target.style.opacity = 1} onMouseLeave={(e) => e.target.style.opacity = 0.8}>Terms of Service</Link>
+          <Link to="/hipaa" style={{ color: 'white', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.target.style.opacity = 1} onMouseLeave={(e) => e.target.style.opacity = 0.8}>HIPAA Compliance</Link>
+          <a href="mailto:contact@nexusbiomedical.ai" style={{ color: 'white', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.target.style.opacity = 1} onMouseLeave={(e) => e.target.style.opacity = 0.8}>Contact</a>
         </div>
         <p style={{
           fontSize: '0.875rem',

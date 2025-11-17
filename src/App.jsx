@@ -7,6 +7,7 @@ import Platforms from './components/Platforms'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
+import FeedbackWidget from './components/FeedbackWidget'
 // AdminProtectedRoute removed - password protection now built into AdminBetaInvites
 import { platformsData } from './data/platformData'
 
@@ -18,6 +19,9 @@ const ElderWatchPrototype = lazy(() => import('./components/ElderWatchPrototype'
 const PediCalcPrototype = lazy(() => import('./components/PediCalcPrototype'))
 const SkinScanPrototype = lazy(() => import('./components/SkinScanPrototype'))
 const AdminBetaInvites = lazy(() => import('./components/AdminBetaInvites'))
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./components/TermsOfService'))
+const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState(null)
@@ -54,6 +58,32 @@ function App() {
 
   return (
     <Routes>
+      {/* Compliance Pages Routes */}
+      <Route 
+        path="/privacy" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <PrivacyPolicy />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/terms" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <TermsOfService />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/hipaa" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <HIPAACompliance />
+          </Suspense>
+        } 
+      />
+
       {/* Admin Panel Route */}
       <Route 
         path="/admin/beta-invites" 
@@ -92,6 +122,7 @@ function App() {
                   <FAQ />
                   <Footer />
                 </div>
+                <FeedbackWidget />
               </>
             )}
           </>

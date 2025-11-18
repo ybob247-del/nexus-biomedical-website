@@ -30,9 +30,11 @@ const LoadingFallback = () => (
 
 // Platform Page Component
 function PlatformPage() {
-  const { platformId } = useParams()
   const navigate = useNavigate()
   const [showPrototype, setShowPrototype] = useState(false)
+
+  // Get platform ID from URL path
+  const platformId = window.location.pathname.replace('/', '')
 
   // Map URL params to platform data keys
   const platformMap = {

@@ -55,7 +55,7 @@ const platforms = [
 export default function Platforms({ onLearnMore }) {
   return (
     <section id="platforms" style={{
-      padding: '6rem 2rem',
+      padding: '4rem 2rem',
       background: 'rgba(10, 27, 61, 0.03)',
       position: 'relative',
       zIndex: 1

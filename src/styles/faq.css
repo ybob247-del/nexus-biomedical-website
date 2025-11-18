@@ -17,8 +17,13 @@
 }
 
 .faq-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  background: rgba(30, 41, 59, 0.4);
+  border: 2px solid rgba(96, 165, 250, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Header */
@@ -196,6 +201,10 @@
     padding: 4rem 1.5rem;
   }
 
+  .faq-container {
+    padding: 2rem 1.5rem;
+  }
+
   .faq-title {
     font-size: 2rem;
   }
@@ -247,6 +256,10 @@
 @media (max-width: 480px) {
   .faq-section {
     padding: 3rem 1rem;
+  }
+
+  .faq-container {
+    padding: 1.5rem 1rem;
   }
 
   .faq-title {

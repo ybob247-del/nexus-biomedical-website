@@ -2,12 +2,14 @@ import { useState, lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import './styles/nexus.css'
 import StarryBackground from './components/StarryBackground'
+import Header from './components/Header'
 import Hero from './components/Hero'
 import Platforms from './components/Platforms'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
 import FeedbackWidget from './components/FeedbackWidget'
+import ScreenshotBugWidget from './components/ScreenshotBugWidget'
 import { platformsData } from './data/platformData'
 
 // Lazy load demo components for better performance
@@ -116,13 +118,14 @@ function Homepage() {
   return (
     <>
       <StarryBackground />
+      <Header />
       <div className="nexus-app">
         <Hero />
         <Platforms onLearnMore={handleLearnMore} />
         <FAQ />
         <Footer />
       </div>
-      <FeedbackWidget />
+      <ScreenshotBugWidget />
     </>
   )
 }

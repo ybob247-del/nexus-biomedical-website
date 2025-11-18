@@ -125,6 +125,7 @@ function Homepage() {
   )
 }
 
+// Force Vercel redeploy - URL routing fix
 function App() {
   return (
     <Routes>

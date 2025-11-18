@@ -1,7 +1,7 @@
 /* FAQ Section Styles */
 .faq-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -24,7 +24,7 @@
 /* Header */
 .faq-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .faq-title {

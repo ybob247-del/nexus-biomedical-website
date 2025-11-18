@@ -1,5 +1,5 @@
-import { useState, lazy, Suspense } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { useState, lazy, Suspense, useEffect } from 'react'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import './styles/nexus.css'
 import StarryBackground from './components/StarryBackground'
 import Hero from './components/Hero'
@@ -8,7 +8,6 @@ import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import LearnMore from './components/LearnMore'
 import FeedbackWidget from './components/FeedbackWidget'
-// AdminProtectedRoute removed - password protection now built into AdminBetaInvites
 import { platformsData } from './data/platformData'
 
 // Lazy load demo components for better performance
@@ -23,39 +22,110 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 
-function App() {
-  const [selectedPlatform, setSelectedPlatform] = useState(null)
-  const [showPrototype, setShowPrototype] = useState(null)
-  const navigate = useNavigate()
-  const location = useLocation()
+const LoadingFallback = () => (
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
+    <div style={{ color: '#60a5fa', fontSize: '1.5rem', fontWeight: 600 }}>Loading...</div>
+  </div>
+)
 
-  const handleLearnMore = (platformName) => {
-    setSelectedPlatform(platformsData[platformName])
+// Platform Page Component
+function PlatformPage() {
+  const { platformId } = useParams()
+  const navigate = useNavigate()
+  const [showPrototype, setShowPrototype] = useState(false)
+
+  // Map URL params to platform data keys
+  const platformMap = {
+    'rxguard': 'RxGuard™',
+    'reguready': 'ReguReady™',
+    'clinicaliq': 'ClinicalIQ™',
+    'elderwatch': 'ElderWatch™',
+    'pedicalc': 'PediCalc Pro™',
+    'skinscan': 'SkinScan Pro™'
+  }
+
+  const platformName = platformMap[platformId]
+  const platform = platformsData[platformName]
+
+  // If invalid platform, redirect to home
+  useEffect(() => {
+    if (!platform) {
+      navigate('/')
+    }
+  }, [platform, navigate])
+
+  if (!platform) {
+    return null
   }
 
   const handleBackToHome = () => {
-    setSelectedPlatform(null)
     navigate('/')
   }
 
-  const handleTryDemo = (platformType) => {
-    setShowPrototype(platformType)
+  const handleTryDemo = () => {
+    setShowPrototype(true)
   }
 
   const handleBackFromPrototype = () => {
-    setShowPrototype(null)
+    setShowPrototype(false)
   }
 
   const handleUpgrade = () => {
     alert('Stripe checkout coming soon! You\'ll be able to start your 14-day free trial here.')
   }
 
-  const LoadingFallback = () => (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
-      <div style={{ color: '#60a5fa', fontSize: '1.5rem', fontWeight: 600 }}>Loading...</div>
-    </div>
-  )
+  if (showPrototype) {
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        {platformId === 'rxguard' && <RxGuardPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'reguready' && <ReguReadyPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'clinicaliq' && <ClinicalIQPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'elderwatch' && <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'pedicalc' && <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'skinscan' && <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+      </Suspense>
+    )
+  }
 
+  return <LearnMore platform={platform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
+}
+
+// Homepage Component
+function Homepage() {
+  const navigate = useNavigate()
+
+  const handleLearnMore = (platformName) => {
+    // Convert platform name to URL-friendly format
+    const urlMap = {
+      'RxGuard™': 'rxguard',
+      'ReguReady™': 'reguready',
+      'ClinicalIQ™': 'clinicaliq',
+      'ElderWatch™': 'elderwatch',
+      'PediCalc Pro™': 'pedicalc',
+      'SkinScan Pro™': 'skinscan'
+    }
+    
+    const platformUrl = urlMap[platformName]
+    if (platformUrl) {
+      navigate(`/${platformUrl}`)
+    }
+  }
+
+  return (
+    <>
+      <StarryBackground />
+      <div className="nexus-app">
+        <Hero />
+        <Platforms onLearnMore={handleLearnMore} />
+        <FAQ />
+        <Footer />
+      </div>
+      <FeedbackWidget />
+    </>
+  )
+}
+
+function App() {
   return (
     <Routes>
       {/* Compliance Pages Routes */}
@@ -94,44 +164,19 @@ function App() {
         } 
       />
 
-      {/* Main App Route */}
-      <Route 
-        path="/*" 
-        element={
-          <>
-            {/* If showing a prototype, render it */}
-            {showPrototype ? (
-              <Suspense fallback={<LoadingFallback />}>
-                {showPrototype === 'rxguard' && <RxGuardPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-                {showPrototype === 'reguready' && <ReguReadyPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-                {showPrototype === 'clinicaliq' && <ClinicalIQPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-                {showPrototype === 'elderwatch' && <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-                {showPrototype === 'pedicalc' && <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-                {showPrototype === 'skinscan' && <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
-              </Suspense>
-            ) : selectedPlatform ? (
-              /* If a platform is selected, show Learn More page */
-              <LearnMore platform={selectedPlatform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
-            ) : (
-              /* Otherwise show the main homepage */
-              <>
-                <StarryBackground />
-                <div className="nexus-app">
-                  <Hero />
-                  <Platforms onLearnMore={handleLearnMore} />
-                  <FAQ />
-                  <Footer />
-                </div>
-                <FeedbackWidget />
-              </>
-            )}
-          </>
-        } 
-      />
+      {/* Platform Routes */}
+      <Route path="/rxguard" element={<PlatformPage />} />
+      <Route path="/reguready" element={<PlatformPage />} />
+      <Route path="/clinicaliq" element={<PlatformPage />} />
+      <Route path="/elderwatch" element={<PlatformPage />} />
+      <Route path="/pedicalc" element={<PlatformPage />} />
+      <Route path="/skinscan" element={<PlatformPage />} />
+
+      {/* Homepage Route */}
+      <Route path="/" element={<Homepage />} />
+      <Route path="*" element={<Homepage />} />
     </Routes>
   )
 }
 
 export default App
-
-// Force rebuild Sat Nov  8 17:05:29 EST 2025

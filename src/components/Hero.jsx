@@ -5,7 +5,7 @@ export default function Hero() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   return (
     <section style={{
-      minHeight: '100vh',
+      minHeight: '80vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

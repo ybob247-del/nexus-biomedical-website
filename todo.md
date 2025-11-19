@@ -867,3 +867,10 @@
 - [x] Fix screenshot bug widget - currently just a red dot without text
 - [x] Add text label or tooltip to make it clear what the widget is for
 - [x] Make widget more visible and user-friendly
+
+
+## 🚨 DEPLOYMENT ERROR: Git Repository Packaging Issue (Nov 18, 2025)
+- [ ] Fix deployment error: "failed to create zip from repository: helper-validator-identifier is a directory"
+- [ ] Clean node_modules and rebuild dependencies
+- [ ] Ensure .gitignore properly excludes node_modules from Git
+- [ ] Test deployment after cleanup

@@ -1036,3 +1036,8 @@
 - [ ] Update DNS to point www.nexusbiomedical.ai to Vercel (not Manus)
 - [ ] Verify production site is live on Vercel
 - [ ] Document deployment workflow for future updates
+
+
+## 🎨 Visual Enhancements
+- [x] Add dynamic shimmer/shine animation to logo (light moving across)
+- [x] Increase bug report screenshot size to reduce white space and improve visibility

@@ -90,6 +90,36 @@
   animation: logoGlowPulse 4s ease-in-out infinite;
   filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-animated::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.3) 55%,
+    transparent 70%
+  );
+  animation: shimmerMove 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerMove {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 .logo-animated:hover {

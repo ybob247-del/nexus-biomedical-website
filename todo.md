@@ -1047,4 +1047,8 @@
 - [x] Fix "Failed to capture screenshot" error in Report Bug feature
 - [x] Simplify html2canvas configuration to improve reliability
 - [x] Remove complex capture options causing browser compatibility issues
+- [x] Replace html2canvas with native browser getDisplayMedia API
+- [x] Implement reliable screenshot capture with user permission
+- [x] Add fallback to manual screenshot upload if permission denied
+- [x] Add skip screenshot option for text-only bug reports
 - [ ] Test screenshot capture works on production site

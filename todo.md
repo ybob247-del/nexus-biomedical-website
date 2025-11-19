@@ -1014,3 +1014,8 @@
 
 ## 🐛 Beta Modal Centering Bug
 - [x] Fix beta signup modal - FIXED using flexbox centering on backdrop instead of fixed positioning with transform
+
+
+## 🐛 Report Bug Modal & Beta Signup Issues
+- [x] Fix Report Bug modal - screenshot preview is too dark and showing full page content, making form hard to read
+- [x] Verify beta signup submissions are being saved to database correctly (confirmed: beta_requests table with duplicate detection)

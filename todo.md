@@ -926,3 +926,8 @@
 - [x] Privacy Policy still has privacy@nexusbiomedical.ai (FIXED: changed to support@)
 - [x] Report Bug button shows as red dot only (FIXED: added "Report Bug" text label)
 - [x] Header logo wrong (FIXED: changed from animated GIF to OFFICIAL static logo)
+
+## 🐛 FOOTER PLATFORM LINKS BUG (Nov 19, 2025)
+- [x] Footer platform links (RxGuard, ReguReady, etc.) navigate to blank pages
+- [x] Links go to /rxguard, /reguready, etc. but these routes don't exist
+- [x] Should navigate to Learn More pages (/learn-more/rxguard, etc.)

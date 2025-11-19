@@ -6,7 +6,7 @@ export default function Footer() {
   const navigate = useNavigate()
 
   const handlePlatformClick = (platformUrl) => {
-    navigate(`/${platformUrl}`)
+    navigate(`/learn-more/${platformUrl}`)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 

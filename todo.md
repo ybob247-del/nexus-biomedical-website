@@ -1052,3 +1052,10 @@
 - [x] Add fallback to manual screenshot upload if permission denied
 - [x] Add skip screenshot option for text-only bug reports
 - [ ] Test screenshot capture works on production site
+
+
+## 📧 Bug Report API Endpoint (Nov 19, 2025)
+- [x] Fix API endpoint URL mismatch (bug-report vs bug-reports)
+- [x] API endpoint already exists and stores reports in database
+- [ ] Test bug report submission on production (works on Vercel, not in local dev)
+- [ ] Add email notifications for new bug reports (future enhancement)

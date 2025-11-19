@@ -20,6 +20,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.4",
     "terser": "^5.44.0",
+    "vercel": "^48.10.4",
     "vite": "^7.1.11"
   },
   "dependencies": {

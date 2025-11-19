@@ -78,7 +78,7 @@ function ScreenshotBugWidget() {
     setSubmitStatus(null)
 
     try {
-      const response = await fetch('/api/bug-report', {
+      const response = await fetch('/api/bug-reports', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

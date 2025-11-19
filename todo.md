@@ -1072,3 +1072,4 @@
 - [x] Add platform dropdown to mobile menu showing all 7 platforms
 - [x] Soften beta warning language to be more welcoming and less scary
 - [x] Screenshot capture fails on mobile (expected - native API not supported on mobile browsers)
+- [x] Hide "Capture Screenshot" button on mobile to prevent confusion

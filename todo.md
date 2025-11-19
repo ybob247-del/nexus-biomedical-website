@@ -1059,3 +1059,10 @@
 - [x] API endpoint already exists and stores reports in database
 - [ ] Test bug report submission on production (works on Vercel, not in local dev)
 - [ ] Add email notifications for new bug reports (future enhancement)
+
+
+## ✨ Logo Animation Enhancement (Nov 19, 2025)
+- [x] Increase glow intensity for more visibility (8px → 16px base, 28px peak)
+- [x] Make shimmer effect brighter and more prominent (0.7 → 0.9 opacity)
+- [x] Speed up animations slightly for better noticeability (4s → 2.5s glow, 3s → 2s shimmer)
+- [x] Add more dramatic color transitions (dual drop-shadows at peak)

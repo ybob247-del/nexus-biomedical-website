@@ -87,8 +87,8 @@
 
 /* Logo Image Animation */
 .logo-animated {
-  animation: logoGlowPulse 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
+  animation: logoGlowPulse 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.8));
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -103,13 +103,13 @@
   height: 200%;
   background: linear-gradient(
     45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.3) 45%,
-    rgba(255, 255, 255, 0.7) 50%,
-    rgba(255, 255, 255, 0.3) 55%,
-    transparent 70%
+    transparent 20%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.5) 60%,
+    transparent 80%
   );
-  animation: shimmerMove 3s linear infinite;
+  animation: shimmerMove 2s linear infinite;
   pointer-events: none;
 }
 
@@ -123,16 +123,16 @@
 }
 
 .logo-animated:hover {
-  filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.8));
-  transform: scale(1.05);
+  filter: drop-shadow(0 0 24px rgba(0, 217, 255, 1));
+  transform: scale(1.08);
 }
 
 @keyframes logoGlowPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
+    filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.8));
   }
   50% {
-    filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.7));
+    filter: drop-shadow(0 0 28px rgba(0, 217, 255, 1)) drop-shadow(0 0 40px rgba(96, 165, 250, 0.6));
   }
 }
 

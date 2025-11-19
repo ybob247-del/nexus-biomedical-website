@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Suspense, lazy } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const BetaSignup = ({ isOpen = true, onClose }) => {
@@ -66,45 +66,42 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            className="beta-signup-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={handleClose}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'rgba(10, 27, 61, 0.9)',
-              backdropFilter: 'blur(8px)',
-              zIndex: 2000
-            }}
-          />
-
-          {/* Modal */}
+        <motion.div
+          className="beta-signup-backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleClose}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(10, 27, 61, 0.9)',
+            backdropFilter: 'blur(8px)',
+            zIndex: 2000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1rem'
+          }}
+        >
           <motion.div
             className="beta-signup-modal"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
             style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
               background: 'white',
               borderRadius: '1rem',
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-              width: '90%',
+              width: '100%',
               maxWidth: '600px',
               maxHeight: '90vh',
               overflowY: 'auto',
-              zIndex: 2001
+              position: 'relative'
             }}
           >
             <div style={{
@@ -198,8 +195,8 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Dr. Jane Smith"
                     required
+                    placeholder="Dr. Jane Smith"
                     style={{
                       padding: '0.75rem',
                       border: '2px solid #e5e7eb',
@@ -235,8 +232,8 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="jane.smith@hospital.com"
                     required
+                    placeholder="jane.smith@hospital.com"
                     style={{
                       padding: '0.75rem',
                       border: '2px solid #e5e7eb',
@@ -272,8 +269,8 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     type="text"
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                    placeholder="Memorial Hospital"
                     required
+                    placeholder="Memorial Hospital"
                     style={{
                       padding: '0.75rem',
                       border: '2px solid #e5e7eb',
@@ -316,7 +313,9 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                       fontFamily: 'var(--nexus-font-family)',
                       fontSize: '1rem',
                       color: 'var(--nexus-quantum-blue)',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      background: 'white',
+                      cursor: 'pointer'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = 'var(--nexus-biomedical-teal)'
@@ -331,9 +330,8 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     <option value="physician">Physician</option>
                     <option value="pharmacist">Pharmacist</option>
                     <option value="nurse">Nurse Practitioner</option>
-                    <option value="administrator">Healthcare Administrator</option>
-                    <option value="insurance">Insurance/Payer Executive</option>
                     <option value="researcher">Clinical Researcher</option>
+                    <option value="administrator">Healthcare Administrator</option>
                     <option value="other">Other Healthcare Professional</option>
                   </select>
                 </div>
@@ -360,7 +358,9 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                       fontFamily: 'var(--nexus-font-family)',
                       fontSize: '1rem',
                       color: 'var(--nexus-quantum-blue)',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      background: 'white',
+                      cursor: 'pointer'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = 'var(--nexus-biomedical-teal)'
@@ -372,12 +372,13 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     }}
                   >
                     <option value="">Select a platform</option>
-                    <option value="rxguard">RxGuard™ - Medication Safety</option>
-                    <option value="reguready">ReguReady™ - Regulatory Compliance</option>
-                    <option value="clinicaliq">ClinicalIQ™ - Clinical Insights</option>
-                    <option value="elderwatch">ElderWatch™ - Geriatric Care</option>
-                    <option value="pedicalc">PediCalc Pro™ - Pediatric Dosing</option>
-                    <option value="skinscan">SkinScan Pro™ - Dermatology AI</option>
+                    <option value="rxguard">RxGuard™ - Drug Interaction Analyzer</option>
+                    <option value="reguready">ReguReady™ - FDA Regulatory Advisor</option>
+                    <option value="clinicaliq">ClinicalIQ™ - Clinical Decision Support</option>
+                    <option value="elderwatch">ElderWatch™ - Geriatric Care Monitor</option>
+                    <option value="pedicalc">PediCalc Pro™ - Pediatric Dosing Calculator</option>
+                    <option value="skinscan">SkinScan Pro™ - Dermatology Diagnostic Assistant</option>
+                    <option value="endoguard">EndoGuard™ - Environmental Health & Hormone Wellness</option>
                     <option value="all">All Platforms</option>
                   </select>
                 </div>
@@ -390,14 +391,14 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     textTransform: 'uppercase',
                     letterSpacing: '0.5px'
                   }}>
-                    Tell Us About Your Use Case (Optional)
+                    Message (Optional)
                   </label>
                   <textarea
                     id="beta-message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="How do you plan to use Nexus Biomedical Intelligence?"
-                    rows="3"
+                    placeholder="Tell us about your use case or any specific features you're interested in..."
+                    rows="4"
                     style={{
                       padding: '0.75rem',
                       border: '2px solid #e5e7eb',
@@ -406,8 +407,7 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                       fontSize: '1rem',
                       color: 'var(--nexus-quantum-blue)',
                       transition: 'all 0.2s ease',
-                      resize: 'vertical',
-                      minHeight: '80px'
+                      resize: 'vertical'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = 'var(--nexus-biomedical-teal)'
@@ -465,7 +465,7 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
               </form>
             )}
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   )

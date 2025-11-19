@@ -1013,4 +1013,4 @@
 
 
 ## 🐛 Beta Modal Centering Bug
-- [x] Fix beta signup modal - not properly centered on screen (positioned too far right and not vertically centered)
+- [x] Fix beta signup modal - FIXED using flexbox centering on backdrop instead of fixed positioning with transform

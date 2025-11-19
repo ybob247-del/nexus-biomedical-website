@@ -42,7 +42,7 @@ const Header = () => {
             <img 
               src={nexusLogoOfficial} 
               alt="Nexus Biomedical Intelligence" 
-              className="logo-image"
+              className="logo-image logo-animated"
               style={{
                 height: '60px',
                 width: 'auto',

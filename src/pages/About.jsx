@@ -156,6 +156,10 @@ export default function About() {
               {
                 title: 'SkinScan Pro™',
                 description: 'Dermatological assessment and triage support'
+              },
+              {
+                title: 'EndoGuard™',
+                description: 'Environmental health and hormone wellness platform with EDC exposure assessment'
               }
             ].map((platform, index) => (
               <div key={index} style={{

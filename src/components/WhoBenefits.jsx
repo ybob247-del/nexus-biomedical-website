@@ -50,6 +50,12 @@ export default function WhoBenefits() {
       title: 'Telemedicine Providers',
       description: 'Deliver safer remote care with real-time clinical decision support. Screen for drug interactions, assess pediatric dosing, and triage dermatological concerns confidently.',
       benefits: ['Remote safety checks', 'Confident prescribing', 'Better triage']
+    },
+    {
+      icon: '🧘',
+      title: 'Individuals & Patients',
+      description: 'Take control of your hormone health with EndoGuard™. Understand EDC exposures, track symptoms for PCOS/thyroid/perimenopause, and get evidence-based guidance from trusted sources.',
+      benefits: ['EDC exposure assessment', 'Symptom tracking', 'Evidence-based insights']
     }
   ]
 

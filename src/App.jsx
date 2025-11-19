@@ -205,6 +205,32 @@ function App() {
         } 
       />
 
+      {/* Legal Pages Routes */}
+      <Route 
+        path="/privacy-policy" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <PrivacyPolicy />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/terms-of-service" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <TermsOfService />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/hipaa-compliance" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <HIPAACompliance />
+          </Suspense>
+        } 
+      />
+
       {/* Homepage Route */}
       <Route path="/" element={<Homepage />} />
       </Routes>

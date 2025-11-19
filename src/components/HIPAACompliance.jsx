@@ -161,19 +161,21 @@ const HIPAACompliance = () => {
                 borderRadius: '0.5rem',
                 borderLeft: '4px solid #f59e0b'
               }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#92400e' }}>
-                  ⚠️ Important Notice for Early Access Users
-                </h3>
-                <p style={{ marginBottom: '0.75rem' }}>
-                  During our Early Access phase, please observe these guidelines:
-                </p>
-                <ul style={{ marginLeft: '1.5rem' }}>
-                  <li><strong>No Real PHI:</strong> Do not enter actual patient health information</li>
-                  <li><strong>No Real PII:</strong> Do not enter real personally identifiable information</li>
-                  <li><strong>Use Sample Data:</strong> Use only fictional, anonymized test data</li>
-                  <li><strong>Evaluation Only:</strong> Platforms are for demonstration and evaluation purposes</li>
-                  <li><strong>Not for Clinical Use:</strong> Not approved for clinical decision-making at this stage</li>
-                </ul>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#92400e' }}>
+                🚀 Early Access Program Guidelines
+              </h3>
+              <p style={{ marginBottom: '0.75rem' }}>
+                Thank you for helping us build the future of healthcare AI! As an Early Access member, you're part of our journey toward full HIPAA compliance. Here's how to make the most of your experience:
+              </p>
+              <ul style={{ marginLeft: '1.5rem' }}>
+                <li><strong>Test with Sample Data:</strong> Please use fictional, anonymized test scenarios to explore platform capabilities</li>
+                <li><strong>Explore & Evaluate:</strong> Try different features, workflows, and use cases to help us refine the experience</li>
+                <li><strong>Share Your Feedback:</strong> Your insights are invaluable as we prepare for production launch</li>
+                <li><strong>Stay Tuned:</strong> We're actively working toward full compliance certification for real-world clinical use</li>
+              </ul>
+              <p style={{ marginTop: '0.75rem', fontSize: '0.875rem', fontStyle: 'italic' }}>
+                Note: During Early Access, please avoid entering actual Protected Health Information (PHI) or Personally Identifiable Information (PII) as we complete our compliance certification process.
+              </p>
               </div>
             </section>
 

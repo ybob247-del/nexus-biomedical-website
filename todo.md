@@ -1019,3 +1019,7 @@
 ## 🐛 Report Bug Modal & Beta Signup Issues
 - [x] Fix Report Bug modal - screenshot preview is too dark and showing full page content, making form hard to read
 - [x] Verify beta signup submissions are being saved to database correctly (confirmed: beta_requests table with duplicate detection)
+
+
+## 🔧 Bug Report Screenshot Size
+- [x] Increase screenshot preview max-height to 800px for optimal detail visibility when reviewing bug reports

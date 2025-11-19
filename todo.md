@@ -1073,3 +1073,9 @@
 - [x] Soften beta warning language to be more welcoming and less scary
 - [x] Screenshot capture fails on mobile (expected - native API not supported on mobile browsers)
 - [x] Hide "Capture Screenshot" button on mobile to prevent confusion
+
+
+## ✨ Logo Animation Brightness Boost (Nov 19, 2025)
+- [x] Increase logo glow intensity even more (24px base with dual shadows, 40-80px peak with triple shadows)
+- [x] Make shimmer effect much brighter and more visible (0.9 → 1.0 opacity at peak)
+- [x] Increase hover glow (24px → 32-48px with dual shadows)

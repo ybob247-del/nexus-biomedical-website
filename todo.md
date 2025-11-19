@@ -1041,3 +1041,10 @@
 ## 🎨 Visual Enhancements
 - [x] Add dynamic shimmer/shine animation to logo (light moving across)
 - [x] Increase bug report screenshot size to reduce white space and improve visibility
+
+
+## 🐛 Screenshot Capture Failure (Nov 19, 2025)
+- [x] Fix "Failed to capture screenshot" error in Report Bug feature
+- [x] Simplify html2canvas configuration to improve reliability
+- [x] Remove complex capture options causing browser compatibility issues
+- [ ] Test screenshot capture works on production site

@@ -20,14 +20,14 @@ const ScreenshotBugWidget = () => {
       // Wait a moment for the widget to close
       await new Promise(resolve => setTimeout(resolve, 300))
       
-      // Capture the entire page
-      const canvas = await html2canvas(document.body, {
+      // Try simplified capture of just the root element
+      const rootElement = document.getElementById('root') || document.body
+      const canvas = await html2canvas(rootElement, {
         useCORS: true,
-        allowTaint: true,
-        scrollY: -window.scrollY,
-        scrollX: -window.scrollX,
-        windowWidth: document.documentElement.scrollWidth,
-        windowHeight: document.documentElement.scrollHeight
+        allowTaint: false,
+        logging: false,
+        scale: window.devicePixelRatio || 1,
+        backgroundColor: '#0f172a'
       })
       
       // Convert to base64
@@ -39,7 +39,8 @@ const ScreenshotBugWidget = () => {
       console.error('Screenshot capture failed:', error)
       setIsCapturing(false)
       setIsOpen(true)
-      alert('Failed to capture screenshot. Please try again.')
+      // Allow submission without screenshot
+      alert('Screenshot capture failed. You can still submit the bug report without a screenshot.')
     }
   }
 

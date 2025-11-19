@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import BetaDisclaimer from './BetaDisclaimer';
 
 export default function SkinScanPrototype({ onBack }) {
   const [selectedScenario, setSelectedScenario] = useState(null);
@@ -497,6 +498,7 @@ export default function SkinScanPrototype({ onBack }) {
       overflowY: 'auto'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <BetaDisclaimer platformColor="#14B8A6" />
         <button
           onClick={onBack}
           style={{

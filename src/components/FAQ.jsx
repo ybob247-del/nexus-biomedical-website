@@ -19,7 +19,7 @@ const FAQ = () => {
     },
     {
       question: "How do I know my patient data is safe?",
-      answer: "We take data security and compliance as seriously as you do. All Nexus platforms are HIPAA-compliant, use end-to-end encryption, and operate within secure, isolated environments. We never sell, share, or train on your private data. You retain full ownership and control—always."
+      answer: "We take data security and compliance as seriously as you do. All Nexus platforms are built HIPAA-ready with end-to-end encryption and operate within secure, isolated environments. We never sell, share, or train on your private data. You retain full ownership and control—always."
     },
     {
       question: "I'm not tech-savvy. Will this make my job harder?",

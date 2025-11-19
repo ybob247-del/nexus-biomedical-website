@@ -6,9 +6,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Platforms from './components/Platforms'
 import FAQ from './components/FAQ'
+import WhoBenefits from './components/WhoBenefits'
 import Footer from './components/Footer'
-import LearnMore from './components/LearnMore'
-import FeedbackWidget from './components/FeedbackWidget'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
 import { platformsData } from './data/platformData'
 
@@ -20,6 +19,7 @@ const ElderWatchPrototype = lazy(() => import('./components/ElderWatchPrototype'
 const PediCalcPrototype = lazy(() => import('./components/PediCalcPrototype'))
 const SkinScanPrototype = lazy(() => import('./components/SkinScanPrototype'))
 const AdminBetaInvites = lazy(() => import('./components/AdminBetaInvites'))
+const About = lazy(() => import('./pages/About'))
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
@@ -117,11 +117,11 @@ function Homepage() {
 
   return (
     <>
-      <StarryBackground />
       <Header />
       <div className="nexus-app">
         <Hero />
         <Platforms onLearnMore={handleLearnMore} />
+        <WhoBenefits />
         <FAQ />
         <Footer />
       </div>
@@ -133,7 +133,9 @@ function Homepage() {
 // Force Vercel redeploy - URL routing fix
 function App() {
   return (
-    <Routes>
+    <>
+      <StarryBackground />
+      <Routes>
       {/* Compliance Pages Routes */}
       <Route 
         path="/privacy" 
@@ -178,10 +180,21 @@ function App() {
       <Route path="/pedicalc" element={<PlatformPage />} />
       <Route path="/skinscan" element={<PlatformPage />} />
 
+      {/* About Page Route */}
+      <Route 
+        path="/about" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <About />
+          </Suspense>
+        } 
+      />
+
       {/* Homepage Route */}
       <Route path="/" element={<Homepage />} />
       <Route path="*" element={<Homepage />} />
-    </Routes>
+      </Routes>
+    </>
   )
 }
 

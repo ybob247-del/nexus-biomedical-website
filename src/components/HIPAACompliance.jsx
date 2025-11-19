@@ -189,7 +189,7 @@ const HIPAACompliance = () => {
                 <li><strong>Facility Access Controls:</strong> Restricted access to data centers and server rooms</li>
                 <li><strong>Workstation Security:</strong> Policies for workstation use and positioning</li>
                 <li><strong>Device and Media Controls:</strong> Procedures for disposal and reuse of hardware</li>
-                <li><strong>Secure Cloud Infrastructure:</strong> SOC 2 Type II certified cloud providers</li>
+                <li><strong>Secure Cloud Infrastructure:</strong> Enterprise-grade cloud providers with SOC 2 Type II compliance</li>
               </ul>
             </section>
 
@@ -270,12 +270,12 @@ const HIPAACompliance = () => {
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
                 Certifications and Attestations
               </h2>
-              <p>Our infrastructure and security practices are validated by:</p>
+              <p>Our infrastructure and security practices are designed to meet industry-leading standards. Our certification roadmap includes:</p>
               <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li><strong>SOC 2 Type II:</strong> Annual audits of security, availability, and confidentiality controls</li>
-                <li><strong>HITRUST CSF:</strong> Healthcare-specific security framework certification</li>
+                <li><strong>SOC 2 Type II:</strong> Independent audits of security, availability, and confidentiality controls</li>
+                <li><strong>HITRUST CSF:</strong> Healthcare-specific security framework compliance</li>
                 <li><strong>ISO 27001:</strong> Information security management system certification</li>
-                <li><strong>Cloud Provider Compliance:</strong> Use of HIPAA-compliant cloud infrastructure (AWS/Azure/GCP)</li>
+                <li><strong>Cloud Infrastructure:</strong> Built on HIPAA-ready cloud providers (AWS/Azure/GCP) with SOC 2 Type II compliance</li>
               </ul>
             </section>
 

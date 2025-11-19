@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import BetaDisclaimer from './BetaDisclaimer';
 
 export default function ReguReadyPrototype({ onBack }) {
   const [selectedScenario, setSelectedScenario] = useState(null);
@@ -440,6 +441,8 @@ export default function ReguReadyPrototype({ onBack }) {
       bottom: 0,
       overflowY: 'auto'
     }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <BetaDisclaimer platformColor="#9333EA" />
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <button
           onClick={onBack}

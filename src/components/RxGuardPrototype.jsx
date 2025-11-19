@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { checkoutRxGuardProfessional } from '../utils/stripe';
+import BetaDisclaimer from './BetaDisclaimer';
 
 const RxGuardPrototype = ({ onBack }) => {
   const [currentStep, setCurrentStep] = useState('welcome'); // welcome, calculator, results
@@ -288,7 +289,8 @@ const RxGuardPrototype = ({ onBack }) => {
         bottom: 0,
         overflowY: 'auto'
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <BetaDisclaimer platformColor="#00A8CC" />
           {/* Back Button */}
           {onBack && (
             <button

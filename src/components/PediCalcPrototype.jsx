@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import BetaDisclaimer from './BetaDisclaimer';
 
 export default function PediCalcPrototype({ onBack }) {
   const [selectedScenario, setSelectedScenario] = useState(null);
@@ -547,6 +548,7 @@ export default function PediCalcPrototype({ onBack }) {
       overflowY: 'auto'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <BetaDisclaimer platformColor="#EC4899" />
         <button
           onClick={onBack}
           style={{

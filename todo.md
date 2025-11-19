@@ -793,3 +793,15 @@
 
 ### Documentation
 - [x] AUTHENTICATION_SETUP_GUIDE.md created with complete deployment instructions
+
+
+## 🚨 URGENT: Content Accuracy & Corrections (Nov 18, 2025)
+- [ ] Fix false legal/compliance claims throughout the site
+- [ ] Update incorrect/fake email addresses to real ones
+- [ ] Add missing content that was created but not included
+- [x] Change "Schedule Demo" to "Request Beta Access" in Header.jsx
+- [x] Link "Request Beta Access" button to BetaSignup component
+- [ ] Review all claims for accuracy and honesty
+- [ ] Ensure HIPAA language is "HIPAA Ready" not "HIPAA Compliant" (if needed)
+- [ ] Set up custom domain www.nexusbiomedical.ai in Vercel
+- [ ] Configure DNS records for custom domain

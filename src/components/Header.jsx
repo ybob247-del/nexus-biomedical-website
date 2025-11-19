@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/header.css'
+import nexusLogoAnimated from '../assets/logos/nexus-logo-ANIMATED.gif'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -27,65 +28,28 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const handleBetaClick = () => {
+    navigate('/beta-signup')
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <header className="nexus-header">
       <div className="header-container">
         {/* Logo and Brand */}
         <div className="header-brand" onClick={handleLogoClick}>
           <div className="header-logo">
-            <svg 
-              className="logo-icon" 
-              viewBox="0 0 100 100" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Animated X Logo */}
-              <defs>
-                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#00D9FF" />
-                  <stop offset="50%" stopColor="#00A8CC" />
-                  <stop offset="100%" stopColor="#0088AA" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                  <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              
-              {/* X Shape */}
-              <path 
-                className="logo-path logo-path-1"
-                d="M 20 20 L 80 80" 
-                stroke="url(#logoGradient)" 
-                strokeWidth="8" 
-                strokeLinecap="round"
-                fill="none"
-                filter="url(#glow)"
-              />
-              <path 
-                className="logo-path logo-path-2"
-                d="M 80 20 L 20 80" 
-                stroke="url(#logoGradient)" 
-                strokeWidth="8" 
-                strokeLinecap="round"
-                fill="none"
-                filter="url(#glow)"
-              />
-              
-              {/* Center Dot */}
-              <circle 
-                className="logo-center"
-                cx="50" 
-                cy="50" 
-                r="6" 
-                fill="#00D9FF"
-                filter="url(#glow)"
-              />
-            </svg>
+            <img 
+              src={nexusLogoAnimated} 
+              alt="Nexus Biomedical Intelligence" 
+              className="logo-image"
+              style={{
+                height: '60px',
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
           </div>
-          <span className="header-brand-text">Nexus Biomedical Intelligence</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -100,10 +64,10 @@ const Header = () => {
             FAQ
           </button>
           <button 
-            onClick={() => window.open('https://calendly.com/nexusbiomedical-ai/30min', '_blank')} 
+            onClick={handleBetaClick} 
             className="nav-link nav-cta"
           >
-            Schedule Demo
+            Request Beta Access
           </button>
         </nav>
 
@@ -142,13 +106,10 @@ const Header = () => {
           FAQ
         </button>
         <button 
-          onClick={() => {
-            window.open('https://calendly.com/nexusbiomedical-ai/30min', '_blank')
-            setIsMobileMenuOpen(false)
-          }} 
+          onClick={handleBetaClick} 
           className="nav-link nav-cta"
         >
-          Schedule Demo
+          Request Beta Access
         </button>
       </nav>
     </header>

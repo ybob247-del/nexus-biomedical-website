@@ -64,7 +64,7 @@ const Header = () => {
             onMouseEnter={() => setIsDesktopDropdownOpen(true)}
             onMouseLeave={() => setIsDesktopDropdownOpen(false)}
           >
-            <button onClick={() => handleNavClick('platforms')} className="nav-link nav-dropdown-toggle">
+            <button className="nav-link nav-dropdown-toggle">
               Platforms
               <svg 
                 width="12" 
@@ -86,8 +86,8 @@ const Header = () => {
                 <button onClick={() => navigate('/reguready')} className="desktop-dropdown-link">ReguReady™</button>
                 <button onClick={() => navigate('/clinicaliq')} className="desktop-dropdown-link">ClinicalIQ™</button>
                 <button onClick={() => navigate('/elderwatch')} className="desktop-dropdown-link">ElderWatch™</button>
-                <button onClick={() => navigate('/pedicalc-pro')} className="desktop-dropdown-link">PediCalc Pro™</button>
-                <button onClick={() => navigate('/skinscan-pro')} className="desktop-dropdown-link">SkinScan Pro™</button>
+                <button onClick={() => navigate('/pedicalc')} className="desktop-dropdown-link">PediCalc Pro™</button>
+                <button onClick={() => navigate('/skinscan')} className="desktop-dropdown-link">SkinScan Pro™</button>
                 <button onClick={() => navigate('/endoguard')} className="desktop-dropdown-link">EndoGuard™</button>
               </div>
             )}
@@ -157,8 +157,8 @@ const Header = () => {
               <button onClick={() => { navigate('/reguready'); setIsMobileMenuOpen(false); }} className="dropdown-link">ReguReady™</button>
               <button onClick={() => { navigate('/clinicaliq'); setIsMobileMenuOpen(false); }} className="dropdown-link">ClinicalIQ™</button>
               <button onClick={() => { navigate('/elderwatch'); setIsMobileMenuOpen(false); }} className="dropdown-link">ElderWatch™</button>
-              <button onClick={() => { navigate('/pedicalc-pro'); setIsMobileMenuOpen(false); }} className="dropdown-link">PediCalc Pro™</button>
-              <button onClick={() => { navigate('/skinscan-pro'); setIsMobileMenuOpen(false); }} className="dropdown-link">SkinScan Pro™</button>
+              <button onClick={() => { navigate('/pedicalc'); setIsMobileMenuOpen(false); }} className="dropdown-link">PediCalc Pro™</button>
+              <button onClick={() => { navigate('/skinscan'); setIsMobileMenuOpen(false); }} className="dropdown-link">SkinScan Pro™</button>
               <button onClick={() => { navigate('/endoguard'); setIsMobileMenuOpen(false); }} className="dropdown-link">EndoGuard™</button>
             </div>
           )}

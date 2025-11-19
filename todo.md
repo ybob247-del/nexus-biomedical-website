@@ -1086,3 +1086,10 @@
 - [x] Show all 7 platforms in dropdown
 - [x] Style dropdown to match site design
 - [x] Ensure smooth hover interactions
+
+
+## 🔧 Desktop Dropdown Fixes (Nov 19, 2025)
+- [x] Expand hover area to cover entire "Platforms" button and dropdown
+- [x] Remove click-to-scroll behavior (conflicts with dropdown)
+- [x] Make dropdown stay open when hovering over dropdown items
+- [x] Fix platform URLs to match Learn More button routes (pedicalc-pro → pedicalc, skinscan-pro → skinscan)

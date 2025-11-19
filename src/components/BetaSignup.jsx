@@ -104,8 +104,7 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
               maxWidth: '600px',
               maxHeight: '90vh',
               overflowY: 'auto',
-              zIndex: 2001,
-              margin: '0 auto'
+              zIndex: 2001
             }}
           >
             <div style={{

@@ -1010,3 +1010,7 @@
 - [x] Add logo animation (currently static)
 -- [x] Final testing before production deployment
 - [x] Fix HIPAA Compliance route - currently showing 404 error
+
+
+## 🐛 Beta Modal Centering Bug
+- [x] Fix beta signup modal - not properly centered on screen (positioned too far right and not vertically centered)

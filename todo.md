@@ -874,3 +874,13 @@
 - [x] Clean node_modules and rebuild dependencies
 - [x] Ensure .gitignore properly excludes node_modules from Git
 - [ ] Test deployment after cleanup (ready for user to click Publish)
+
+
+## 🚨 NEW DEPLOYMENT ERROR: MODULE_NOT_FOUND (Nov 18, 2025)
+- [x] Fix deployment error: "Cannot find module '/usr/src/app/dist/index.js'"
+- [x] Verify build process completes successfully
+- [x] Check package.json build scripts
+- [x] Ensure deployment configuration is correct
+- [x] Created index.js server entry point to serve built React app
+- [x] Converted db.js from CommonJS to ES modules
+- [x] Added express dependency and start script

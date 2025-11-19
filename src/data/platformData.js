@@ -321,43 +321,43 @@ export const platformsData = {
 
   'EndoGuard™': {
     name: 'EndoGuard™',
-    tagline: 'Endocrine Disorder Risk Predictor',
+    tagline: 'Environmental Health & Hormone Wellness',
     color: '#00CED1',
     gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
-    badge: 'AI-POWERED ENDOCRINE HEALTH',
+    badge: 'AI-POWERED HORMONE WELLNESS',
     comingSoon: true,
     hero: {
-      title: 'EndoGuard™ Endocrine Disorder Risk Predictor',
-      subtitle: 'Coming Soon - AI-powered early detection and risk assessment for thyroid, diabetes, and hormonal disorders'
+      title: 'EndoGuard™ Environmental Health & Hormone Wellness',
+      subtitle: 'Coming Soon - The first platform bridging environmental health and hormone wellness through AI-powered EDC exposure assessment and evidence-based clinical guidance'
     },
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Endocrine disorders affect millions of Americans, yet many cases go undiagnosed for years. Early detection is critical for preventing serious complications, but traditional screening methods miss subtle hormonal imbalances.',
-        'EndoGuard™ will use AI to analyze patient data and identify early warning signs of thyroid disorders, diabetes, and other endocrine conditions before they become serious health problems.'
+        'Endocrine-disrupting chemicals (EDCs) from everyday products are silently affecting hormone health, contributing to PCOS, thyroid disorders, perimenopause symptoms, and low testosterone. Yet most people have no idea what they\'re exposed to or how to protect themselves.',
+        'EndoGuard™ bridges the critical gap between environmental health and hormone wellness. We combine AI-powered symptom analysis, comprehensive EDC exposure assessment, and evidence-based clinical guidance—all traceable to peer-reviewed research from the FDA, CDC, NIH, and leading medical journals.'
       ]
     },
     howItWorks: [
-      { step: 1, title: 'Patient Data Input', desc: 'Enter patient demographics, symptoms, and lab values into the system.' },
-      { step: 2, title: 'AI Risk Analysis', desc: 'Machine learning algorithms analyze patterns associated with endocrine disorders.' },
-      { step: 3, title: 'Risk Scoring', desc: 'Receive comprehensive risk scores for thyroid disease, diabetes, and hormonal imbalances.' },
-      { step: 4, title: 'Clinical Recommendations', desc: 'Get evidence-based testing and treatment recommendations.' },
-      { step: 5, title: 'Monitoring Guidance', desc: 'Track patient progress with personalized monitoring protocols.' },
-      { step: 6, title: 'Early Intervention', desc: 'Identify at-risk patients before symptoms become severe.' }
+      { step: 1, title: 'Symptom Analysis', desc: 'AI-powered analysis of hormone-related symptoms including PCOS, thyroid issues, perimenopause, and low testosterone.' },
+      { step: 2, title: 'EDC Exposure Assessment', desc: 'Comprehensive evaluation of endocrine-disrupting chemical exposure from everyday products and environment.' },
+      { step: 3, title: 'Evidence-Based Guidance', desc: 'Clinical recommendations traceable to peer-reviewed research from FDA, CDC, NIH, and medical journals.' },
+      { step: 4, title: 'Personalized Action Plan', desc: 'Get specific, actionable steps to reduce EDC exposure and optimize hormone health.' },
+      { step: 5, title: 'Product Safety Database', desc: 'Access comprehensive database of products and their EDC content with safer alternatives.' },
+      { step: 6, title: 'Progress Tracking', desc: 'Monitor symptom improvements and hormone health optimization over time.' }
     ],
     features: [
-      { title: 'Thyroid Disorder Detection', desc: 'AI-powered analysis of TSH, T3, T4, and antibody levels to detect hypothyroidism, hyperthyroidism, and autoimmune thyroid disease.' },
-      { title: 'Diabetes Risk Prediction', desc: 'Predict Type 2 diabetes risk years before diagnosis using metabolic markers and patient history.' },
-      { title: 'Hormonal Imbalance Assessment', desc: 'Comprehensive analysis of sex hormones, cortisol, and other endocrine markers.' },
-      { title: 'Personalized Monitoring', desc: 'Custom monitoring protocols based on individual risk factors and disorder progression.' },
-      { title: 'Treatment Optimization', desc: 'AI-guided medication dosing and treatment adjustments for optimal hormone balance.' },
-      { title: 'Patient Education', desc: 'Generate patient-friendly reports explaining endocrine health and recommended actions.' }
+      { title: 'AI Symptom Analysis', desc: 'Intelligent analysis of PCOS, thyroid disorders, perimenopause, low testosterone, and other hormone-related conditions.' },
+      { title: 'EDC Exposure Assessment', desc: 'Comprehensive evaluation of endocrine-disrupting chemical exposure from personal care products, plastics, food packaging, and environment.' },
+      { title: 'Evidence-Based Research', desc: 'All recommendations traceable to peer-reviewed studies from FDA, CDC, NIH, JAMA, Endocrine Society, and leading medical journals.' },
+      { title: 'Product Safety Database', desc: 'Extensive database of products with EDC content analysis and safer alternatives for everyday use.' },
+      { title: 'Personalized Action Plans', desc: 'Customized roadmap to reduce EDC exposure and optimize hormone health based on your specific situation.' },
+      { title: 'Hormone Health Education', desc: 'Clear, science-backed information helping you understand the connection between environmental exposures and hormone wellness.' }
     ],
     benefits: [
-      { stat: 'Coming Soon', title: 'Early Detection', desc: 'Identify endocrine disorders before serious complications develop' },
-      { stat: 'Coming Soon', title: 'Better Outcomes', desc: 'Improve patient outcomes through early intervention' },
-      { stat: 'Coming Soon', title: 'Cost Savings', desc: 'Reduce healthcare costs by preventing complications' },
-      { stat: 'Coming Soon', title: 'AI Accuracy', desc: 'Machine learning trained on thousands of endocrine cases' }
+      { stat: 'Coming Soon', title: 'Comprehensive EDC Database', desc: 'Extensive database of endocrine-disrupting chemicals in everyday products' },
+      { stat: 'Coming Soon', title: 'Evidence-Based Guidance', desc: 'All recommendations traceable to FDA, CDC, NIH, and peer-reviewed research' },
+      { stat: 'Coming Soon', title: 'Personalized Assessment', desc: 'AI-powered analysis of your unique hormone health and EDC exposure' },
+      { stat: 'Coming Soon', title: 'Actionable Insights', desc: 'Clear, specific steps to reduce exposure and optimize hormone wellness' }
     ],
     benefitsDisclaimer: 'EndoGuard™ is currently in development. Features and benefits are subject to change.',
     pricing: [
@@ -365,9 +365,10 @@ export const platformsData = {
     ],
     faqs: [
       { q: 'When will EndoGuard™ be available?', a: 'EndoGuard™ is currently in development. We expect to launch a beta version in 2026. Join our waitlist to be notified when early access becomes available.' },
-      { q: 'What endocrine disorders will EndoGuard™ detect?', a: 'EndoGuard™ will focus on thyroid disorders (hypothyroidism, hyperthyroidism, thyroiditis), Type 2 diabetes, metabolic syndrome, PCOS, and hormonal imbalances. Additional conditions will be added based on clinical validation.' },
-      { q: 'Will EndoGuard™ be HIPAA compliant?', a: 'Yes. Like all Nexus platforms, EndoGuard™ will be fully HIPAA compliant with enterprise-grade security and encryption.' },
-      { q: 'How can I get early access?', a: 'Contact us at support@nexusbiomedical.ai to join the EndoGuard™ beta testing waitlist. We\'re looking for endocrinologists and primary care physicians to help validate the platform.' }
+      { q: 'What conditions does EndoGuard™ help with?', a: 'EndoGuard™ focuses on hormone-related conditions including PCOS, thyroid disorders (hypothyroidism, hyperthyroidism), perimenopause symptoms, low testosterone, and other hormonal imbalances that may be influenced by environmental EDC exposure.' },
+      { q: 'What are EDCs and why do they matter?', a: 'Endocrine-disrupting chemicals (EDCs) are substances in everyday products (plastics, personal care items, food packaging) that interfere with hormone function. Research from the NIH, CDC, and Endocrine Society links EDC exposure to PCOS, thyroid disorders, fertility issues, and metabolic problems. EndoGuard™ helps you identify and reduce these exposures.' },
+      { q: 'Is the research really evidence-based?', a: 'Yes. Every recommendation in EndoGuard™ is traceable to peer-reviewed research from the FDA, CDC, NIH, JAMA, Endocrine Society, and other authoritative medical sources. We never make claims without scientific backing.' },
+      { q: 'How can I get early access?', a: 'Contact us at support@nexusbiomedical.ai to join the EndoGuard™ beta testing waitlist. We\'re looking for individuals struggling with PCOS, thyroid issues, perimenopause, low testosterone, or anyone interested in optimizing their hormone health.' }
     ]
   }
 };

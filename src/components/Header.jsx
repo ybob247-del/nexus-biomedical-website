@@ -50,6 +50,9 @@ const Header = () => {
               }}
             />
           </div>
+          <div className="header-brand-text">
+            <span className="brand-name">Nexus Biomedical Intelligence</span>
+          </div>
         </div>
 
         {/* Desktop Navigation */}

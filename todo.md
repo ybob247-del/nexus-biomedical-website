@@ -964,3 +964,31 @@
 - [x] Fix platformData.js syntax error (EndoGuard was outside export object)
 - [x] Add missing LearnMore import to App.jsx
 - [x] Test EndoGuard integration (homepage card, Coming Soon page, footer link, navigation)
+
+
+## EndoGuard™ Content Update (Oct 29, 2025)
+- [ ] Review user-provided video and source material
+- [ ] Update EndoGuard™ platformData.js content to reflect:
+  - [ ] Environmental health and hormone wellness focus
+  - [ ] EDC (Endocrine Disrupting Chemicals) exposure assessment
+  - [ ] AI-powered symptom analysis
+  - [ ] Evidence-based clinical guidance traceable to FDA, CDC, NIH
+  - [ ] Target conditions: PCOS, thyroid issues, perimenopause, low testosterone
+- [ ] Update EndoGuard™ tagline from "Endocrine Disorder Risk Predictor" to correct positioning
+- [ ] Replace EndoGuard™ logo with user-provided image
+- [ ] Update homepage card description
+- [ ] Test all changes and save checkpoint
+
+
+## 🚨 CRITICAL BUGS - User Video Review (Nov 19, 2025)
+- [x] Fix header logo - "Nexus Biomedical Intelligence" text disappeared
+- [x] Fix "Request Beta Access" button - currently doesn't navigate anywhere
+- [x] Fix "Report Bug" button - creates error instead of working
+- [x] Fix "About" link - not navigating to correct page
+- [x] Update EndoGuard™ content with correct positioning:
+  - [x] Environmental health and hormone wellness focus
+  - [x] EDC (Endocrine Disrupting Chemicals) exposure assessment
+  - [x] AI-powered symptom analysis
+  - [x] Evidence-based clinical guidance (FDA, CDC, NIH)
+  - [x] Target conditions: PCOS, thyroid, perimenopause, low testosterone
+  - [x] Update tagline from "Endocrine Disorder Risk Predictor"

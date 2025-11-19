@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const BetaSignup = ({ isOpen, onClose }) => {
+const BetaSignup = ({ isOpen = true, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,7 +37,7 @@ const BetaSignup = ({ isOpen, onClose }) => {
           message: ''
         })
         setTimeout(() => {
-          onClose()
+          handleClose()
           setSubmitStatus(null)
         }, 3000)
       } else {
@@ -51,7 +51,17 @@ const BetaSignup = ({ isOpen, onClose }) => {
     }
   }
 
-  if (!isOpen) return null
+  // If used as standalone page (no onClose provided), use navigate
+  const isStandalonePage = !onClose
+  const handleClose = () => {
+    if (onClose) {
+      onClose()
+    } else if (typeof window !== 'undefined') {
+      window.history.back()
+    }
+  }
+
+  if (!isOpen && !isStandalonePage) return null
 
   return (
     <AnimatePresence>
@@ -63,7 +73,7 @@ const BetaSignup = ({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             style={{
               position: 'fixed',
               top: 0,
@@ -122,7 +132,7 @@ const BetaSignup = ({ isOpen, onClose }) => {
                 </p>
               </div>
               <button
-                onClick={onClose}
+                onClick={handleClose}
                 style={{
                   background: 'none',
                   border: 'none',

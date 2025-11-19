@@ -18,7 +18,7 @@ export default function Footer() {
           <h4 className="footer-column-title">Company</h4>
           <ul className="footer-links">
             <li>
-              <button onClick={() => navigate('/')} className="footer-link">
+              <button onClick={() => navigate('/about')} className="footer-link">
                 About
               </button>
             </li>

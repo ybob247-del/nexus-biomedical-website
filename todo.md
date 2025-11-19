@@ -884,3 +884,45 @@
 - [x] Created index.js server entry point to serve built React app
 - [x] Converted db.js from CommonJS to ES modules
 - [x] Added express dependency and start script
+
+
+## 🐛 POST-DEPLOYMENT BUGS (Nov 19, 2025)
+
+### Critical Navigation Issues:
+- [ ] **Learn More pages are BLANK** - clicking "Learn More" on any platform shows empty page
+  - [ ] Check if LearnMore component is rendering
+  - [ ] Check if platform data is being passed correctly
+  - [ ] Verify routing is working in production
+
+- [ ] **About link doesn't work** - clicking "About" in header does nothing
+  - [ ] Check if /about route exists
+  - [ ] Verify About component is imported in App.jsx
+  - [ ] Test navigation to /about
+
+- [ ] **Footer links broken** - some footer links go nowhere
+  - [ ] Audit all footer links
+  - [ ] Verify all linked pages exist
+  - [ ] Fix or remove broken links
+
+- [ ] **Contact Us infinite loading** - shows "loading" forever, never sends email
+  - [ ] Check email integration (mailto: or form submission)
+  - [ ] Verify contact form backend is working
+  - [ ] Test email sending functionality
+
+### Enhancement Request:
+- [ ] **Add Platforms dropdown menu** - header should have dropdown to select platforms
+  - [ ] Create dropdown component
+  - [ ] List all 6 platforms in dropdown
+  - [ ] Link to each platform's Learn More page
+  - [ ] Style dropdown to match header design
+
+
+## 🚨 POST-DEPLOYMENT BUGS (Nov 19, 2025 - From User Walkthrough Video)
+- [x] About link goes to /about but shows homepage content (FIXED: removed catch-all route)
+- [x] FAQ link in header doesn't scroll to FAQ section (ALREADY WORKING - was browser cache)
+- [x] "Schedule Demo" button in header should be "Request Beta Access" (ALREADY CORRECT - was browser cache)
+- [x] "Schedule Consultation" button should open Calendly link (ALREADY WORKING - opens Calendly)
+- [x] Contact Us button shows "Loading..." forever (FIXED: added timeout to reset state)
+- [x] Privacy Policy still has privacy@nexusbiomedical.ai (FIXED: changed to support@)
+- [x] Report Bug button shows as red dot only (FIXED: added "Report Bug" text label)
+- [x] Header logo wrong (FIXED: changed from animated GIF to OFFICIAL static logo)

@@ -203,7 +203,6 @@ function App() {
 
       {/* Homepage Route */}
       <Route path="/" element={<Homepage />} />
-      <Route path="*" element={<Homepage />} />
       </Routes>
     </>
   )

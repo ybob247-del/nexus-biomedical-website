@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/header.css'
-import nexusLogoAnimated from '../assets/logos/nexus-logo-ANIMATED.gif'
+import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -40,7 +40,7 @@ const Header = () => {
         <div className="header-brand" onClick={handleLogoClick}>
           <div className="header-logo">
             <img 
-              src={nexusLogoAnimated} 
+              src={nexusLogoOfficial} 
               alt="Nexus Biomedical Intelligence" 
               className="logo-image"
               style={{

@@ -40,9 +40,11 @@ ${formData.message}
     // Open email client
     window.location.href = mailtoLink;
 
-    // Show success message
-    setSubmitStatus('success');
-    setIsSubmitting(false);
+    // Reset submitting state after a short delay (in case mailto doesn't trigger)
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+    }, 500);
 
     // Reset form and close after 2 seconds
     setTimeout(() => {

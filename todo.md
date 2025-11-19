@@ -856,3 +856,8 @@
   - [x] Add logos to Learn More page headers
   - [ ] Add logos to demo welcome screens (optional enhancement)
   - [ ] Test logo visibility and sizing on all pages (needs testing after deployment)
+
+
+## 🐛 CRITICAL BUGS: Navigation Issues (Nov 18, 2025)
+- [x] Fix FAQ link in navigation - does not scroll to FAQ section
+- [x] Fix "Request Beta Access" button - does nothing when clicked (should open BetaSignup modal)

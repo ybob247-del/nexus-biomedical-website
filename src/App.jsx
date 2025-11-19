@@ -23,6 +23,7 @@ const About = lazy(() => import('./pages/About'))
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
+const BetaSignup = lazy(() => import('./components/BetaSignup'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -179,6 +180,16 @@ function App() {
       <Route path="/elderwatch" element={<PlatformPage />} />
       <Route path="/pedicalc" element={<PlatformPage />} />
       <Route path="/skinscan" element={<PlatformPage />} />
+
+      {/* Beta Signup Route */}
+      <Route 
+        path="/beta-signup" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <BetaSignup />
+          </Suspense>
+        } 
+      />
 
       {/* About Page Route */}
       <Route 

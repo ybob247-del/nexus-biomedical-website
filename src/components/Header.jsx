@@ -6,6 +6,7 @@ import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false)
+  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -58,9 +59,39 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="header-nav desktop-nav">
-          <button onClick={() => handleNavClick('platforms')} className="nav-link">
-            Platforms
-          </button>
+          <div 
+            className="desktop-dropdown-container"
+            onMouseEnter={() => setIsDesktopDropdownOpen(true)}
+            onMouseLeave={() => setIsDesktopDropdownOpen(false)}
+          >
+            <button onClick={() => handleNavClick('platforms')} className="nav-link nav-dropdown-toggle">
+              Platforms
+              <svg 
+                width="12" 
+                height="12" 
+                viewBox="0 0 16 16" 
+                fill="currentColor"
+                style={{ 
+                  marginLeft: '6px', 
+                  transform: isDesktopDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none" />
+              </svg>
+            </button>
+            {isDesktopDropdownOpen && (
+              <div className="desktop-dropdown">
+                <button onClick={() => navigate('/rxguard')} className="desktop-dropdown-link">RxGuard™</button>
+                <button onClick={() => navigate('/reguready')} className="desktop-dropdown-link">ReguReady™</button>
+                <button onClick={() => navigate('/clinicaliq')} className="desktop-dropdown-link">ClinicalIQ™</button>
+                <button onClick={() => navigate('/elderwatch')} className="desktop-dropdown-link">ElderWatch™</button>
+                <button onClick={() => navigate('/pedicalc-pro')} className="desktop-dropdown-link">PediCalc Pro™</button>
+                <button onClick={() => navigate('/skinscan-pro')} className="desktop-dropdown-link">SkinScan Pro™</button>
+                <button onClick={() => navigate('/endoguard')} className="desktop-dropdown-link">EndoGuard™</button>
+              </div>
+            )}
+          </div>
           <button onClick={() => navigate('/about')} className="nav-link">
             About
           </button>

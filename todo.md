@@ -1079,3 +1079,10 @@
 - [x] Increase logo glow intensity even more (24px base with dual shadows, 40-80px peak with triple shadows)
 - [x] Make shimmer effect much brighter and more visible (0.9 → 1.0 opacity at peak)
 - [x] Increase hover glow (24px → 32-48px with dual shadows)
+
+
+## 🖥️ Desktop Platform Dropdown (Nov 19, 2025)
+- [x] Add hover dropdown menu to desktop "Platforms" button
+- [x] Show all 7 platforms in dropdown
+- [x] Style dropdown to match site design
+- [x] Ensure smooth hover interactions

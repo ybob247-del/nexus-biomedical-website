@@ -27,7 +27,7 @@ const BetaDisclaimer = ({ platformColor = '#00A8CC' }) => {
           marginBottom: '0.75rem',
           margin: 0
         }}>
-          BETA TEST ENVIRONMENT - DO NOT ENTER REAL PATIENT DATA
+          Welcome to Our Beta Testing Platform
         </h3>
         <p style={{
           color: '#FFFFFF',
@@ -36,7 +36,7 @@ const BetaDisclaimer = ({ platformColor = '#00A8CC' }) => {
           margin: 0,
           opacity: 0.95
         }}>
-          This is a beta testing platform for evaluation purposes only. <strong>Do not enter any real Protected Health Information (PHI), Personally Identifiable Information (PII), or electronic Protected Health Information (ePHI).</strong> Use only test, dummy, or sample data. By using this demo, you acknowledge that this platform is not yet certified for production use with real patient data.
+          Thank you for helping us test and improve our platform! This is a beta environment designed for evaluation and feedback. <strong>Please use only test or sample data</strong> — no real patient information (PHI, PII, or ePHI) should be entered at this time. We're working hard to prepare for full certification, and your input is invaluable in making this platform safer and better for everyone.
         </p>
       </div>
     </div>

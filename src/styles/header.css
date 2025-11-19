@@ -331,3 +331,43 @@
 body {
   padding-top: 80px;
 }
+
+/* Mobile Platform Dropdown */
+.mobile-nav-item {
+  width: 100%;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-left: 2px solid rgba(0, 217, 255, 0.3);
+  margin: 0.5rem 0;
+}
+
+.dropdown-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.dropdown-link:hover {
+  background: rgba(0, 217, 255, 0.1);
+  color: #00D9FF;
+  transform: translateX(4px);
+}

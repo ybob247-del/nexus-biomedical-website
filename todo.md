@@ -1066,3 +1066,9 @@
 - [x] Make shimmer effect brighter and more prominent (0.7 → 0.9 opacity)
 - [x] Speed up animations slightly for better noticeability (4s → 2.5s glow, 3s → 2s shimmer)
 - [x] Add more dramatic color transitions (dual drop-shadows at peak)
+
+
+## 📱 Mobile Menu & Beta Warning Fixes (Nov 19, 2025)
+- [x] Add platform dropdown to mobile menu showing all 7 platforms
+- [x] Soften beta warning language to be more welcoming and less scary
+- [x] Screenshot capture fails on mobile (expected - native API not supported on mobile browsers)

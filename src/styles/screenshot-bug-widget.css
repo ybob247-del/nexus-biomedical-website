@@ -5,9 +5,9 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  min-width: 140px;
+  height: 48px;
+  border-radius: 24px;
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #ffffff;
   border: none;
@@ -16,13 +16,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
   transition: all 0.3s ease;
   z-index: 999;
+  font-weight: 600;
+  font-size: 0.9375rem;
 }
 
 .screenshot-bug-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.6);
+}
+
+.screenshot-bug-button-text {
+  white-space: nowrap;
 }
 
 /* Capturing Overlay */
@@ -318,10 +326,17 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .screenshot-bug-button {
-    width: 48px;
-    height: 48px;
+    min-width: 120px;
+    height: 44px;
     bottom: 20px;
     right: 20px;
+    font-size: 0.875rem;
+    padding: 0 16px;
+  }
+  
+  .screenshot-bug-button svg {
+    width: 18px;
+    height: 18px;
   }
 
   .screenshot-bug-modal {

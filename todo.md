@@ -861,3 +861,9 @@
 ## 🐛 CRITICAL BUGS: Navigation Issues (Nov 18, 2025)
 - [x] Fix FAQ link in navigation - does not scroll to FAQ section
 - [x] Fix "Request Beta Access" button - does nothing when clicked (should open BetaSignup modal)
+
+
+## 🐛 UI BUG: Screenshot Widget Not Clear (Nov 18, 2025)
+- [x] Fix screenshot bug widget - currently just a red dot without text
+- [x] Add text label or tooltip to make it clear what the widget is for
+- [x] Make widget more visible and user-friendly

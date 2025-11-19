@@ -107,9 +107,10 @@ const ScreenshotBugWidget = () => {
         onClick={() => setIsOpen(true)}
         title="Report a Bug"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
+        <span className="screenshot-bug-button-text">Report Bug</span>
       </button>
 
       {/* Capturing Overlay */}

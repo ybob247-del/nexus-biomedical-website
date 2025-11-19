@@ -931,3 +931,36 @@
 - [x] Footer platform links (RxGuard, ReguReady, etc.) navigate to blank pages
 - [x] Links go to /rxguard, /reguready, etc. but these routes don't exist
 - [x] Should navigate to Learn More pages (/learn-more/rxguard, etc.)
+
+## 🆕 ADD NEW PLATFORM: EndoGuard™ (Nov 19, 2025)
+- [ ] Copy EndoGuard logo files to project assets folder
+- [ ] Create white background version matching other platform logos
+- [ ] Add EndoGuard to homepage platform cards with "Coming Soon" badge
+- [ ] Create EndoGuard Learn More page with large "COMING SOON" message
+- [ ] Add EndoGuard to footer platform links
+- [ ] Add EndoGuard to platformData.js (placeholder content)
+- [ ] Test EndoGuard integration (homepage, footer, Learn More page)
+
+
+## EndoGuard™ Platform Addition (Nov 19, 2025)
+- [x] Copy EndoGuard logos to /public/logos/ directory
+- [x] Add EndoGuard to platformData.js with Coming Soon status
+- [x] Add EndoGuard to homepage Platforms.jsx (7th platform card with Coming Soon badge)
+- [x] Update homepage subtitle from "Six" to "Seven revolutionary platforms"
+- [x] Add EndoGuard to App.jsx URL mapping (endoguard route)
+- [x] Create Coming Soon page in LearnMore.jsx with large COMING SOON message
+- [x] Add EndoGuard to Footer.jsx platform links with (Coming Soon) label
+- [x] Fix footer platform link routing (remove /learn-more/ prefix)
+- [ ] Test EndoGuard integration on all pages
+- [ ] Save checkpoint with all EndoGuard changes
+
+
+## EndoGuard™ Platform Addition (Oct 29, 2025)
+- [x] Add EndoGuard™ to platformData.js with Coming Soon status
+- [x] Add EndoGuard™ to homepage platforms array
+- [x] Add EndoGuard™ Coming Soon page handling in LearnMore component
+- [x] Add EndoGuard™ to footer platform links
+- [x] Add EndoGuard™ to App.jsx URL mapping
+- [x] Fix platformData.js syntax error (EndoGuard was outside export object)
+- [x] Add missing LearnMore import to App.jsx
+- [x] Test EndoGuard integration (homepage card, Coming Soon page, footer link, navigation)

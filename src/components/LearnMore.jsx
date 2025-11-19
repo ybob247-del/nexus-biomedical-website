@@ -17,6 +17,176 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
   if (!platform) return null;
 
+  // Special handling for Coming Soon platforms (EndoGuard™)
+  if (platform.comingSoon) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        background: 'transparent',
+        color: '#FFFFFF',
+        padding: '2rem 1rem',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflowY: 'auto',
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Back Button */}
+        <button
+          onClick={onBack}
+          style={{
+            position: 'fixed',
+            top: '2rem',
+            left: '2rem',
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            color: '#FFFFFF',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '30px',
+            cursor: 'pointer',
+            fontSize: '1rem',
+            fontWeight: 600,
+            transition: 'all 0.3s ease',
+            zIndex: 1001
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+            e.currentTarget.style.transform = 'translateX(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+            e.currentTarget.style.transform = 'translateX(0)';
+          }}
+        >
+          ← Back to Home
+        </button>
+
+        {/* Coming Soon Content */}
+        <div style={{ textAlign: 'center', maxWidth: '900px', padding: '2rem' }}>
+          {/* Platform Logo */}
+          <div style={{
+            width: '200px',
+            height: '200px',
+            background: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '30px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '3rem',
+            boxShadow: `0 8px 32px ${platform.color}60`,
+            padding: '2rem'
+          }}>
+            <img 
+              src={`/logos/${platform.name.replace('™', '').replace(' ', '_')}_Logo_White_BG.png`}
+              alt={`${platform.name} Logo`}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </div>
+
+          {/* Platform Name */}
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            fontWeight: 800,
+            marginBottom: '2rem',
+            background: `linear-gradient(135deg, ${platform.color} 0%, #FFFFFF 100%)`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            lineHeight: 1.2
+          }}>
+            {platform.name}
+          </h1>
+
+          {/* COMING SOON Badge */}
+          <div style={{
+            display: 'inline-block',
+            background: 'linear-gradient(135deg, #FFB800 0%, #FF4757 100%)',
+            padding: '2rem 4rem',
+            borderRadius: '20px',
+            marginBottom: '3rem',
+            boxShadow: '0 8px 32px rgba(255, 71, 87, 0.4)'
+          }}>
+            <div style={{
+              fontSize: 'clamp(2rem, 4vw, 4rem)',
+              fontWeight: 900,
+              color: 'white',
+              letterSpacing: '4px',
+              textShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+            }}>
+              COMING SOON
+            </div>
+          </div>
+
+          {/* Tagline */}
+          <p style={{
+            fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+            color: platform.color,
+            marginBottom: '2rem',
+            fontWeight: 600,
+            textShadow: `0 0 20px ${platform.color}80`
+          }}>
+            {platform.tagline}
+          </p>
+
+          {/* Description */}
+          <p style={{
+            fontSize: 'clamp(1rem, 1.8vw, 1.3rem)',
+            color: '#B8D4E8',
+            lineHeight: 1.8,
+            marginBottom: '3rem',
+            maxWidth: '700px',
+            margin: '0 auto 3rem'
+          }}>
+            {platform.hero.subtitle}
+          </p>
+
+          {/* Join Waitlist Button */}
+          <button
+            onClick={() => window.location.href = `mailto:support@nexusbiomedical.ai?subject=EndoGuard™ Early Access Waitlist&body=I'm interested in early access to EndoGuard™. Please add me to the waitlist.`}
+            style={{
+              background: platform.gradient,
+              color: 'white',
+              border: 'none',
+              padding: '1.5rem 3rem',
+              borderRadius: '50px',
+              fontSize: '1.3rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: `0 8px 24px ${platform.color}60`,
+              letterSpacing: '1px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = `0 12px 32px ${platform.color}80`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = `0 8px 24px ${platform.color}60`;
+            }}
+          >
+            🚀 Join Early Access Waitlist
+          </button>
+
+          {/* Additional Info */}
+          <p style={{
+            fontSize: '1rem',
+            color: '#B8D4E8',
+            marginTop: '3rem',
+            fontStyle: 'italic'
+          }}>
+            EndoGuard™ is currently in development. Join our waitlist to be notified when beta testing begins.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   // Handle Start Free Trial button clicks
   const handleStartTrial = () => {
     // RxGuard™ Professional - $49/month with 14-day trial

@@ -48,6 +48,14 @@ const platforms = [
     description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification.',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
+    comingSoon: false
+  },
+  {
+    name: 'EndoGuard™',
+    tagline: 'Endocrine Disorder Risk Predictor',
+    description: 'AI-powered early detection and risk assessment for thyroid, diabetes, and hormonal disorders using advanced machine learning.',
+    color: '#00CED1',
+    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
     comingSoon: true
   }
 ]
@@ -80,7 +88,7 @@ export default function Platforms({ onLearnMore }) {
           margin: '0 auto 4rem',
           textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
         }}>
-          Six revolutionary platforms addressing critical gaps in healthcare delivery
+          Seven revolutionary platforms addressing critical gaps in healthcare delivery
         </p>
         <div style={{
           display: 'grid',

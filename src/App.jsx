@@ -24,6 +24,7 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 const BetaSignup = lazy(() => import('./components/BetaSignup'))
+const LearnMore = lazy(() => import('./components/LearnMore'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -46,7 +47,8 @@ function PlatformPage() {
     'clinicaliq': 'ClinicalIQ™',
     'elderwatch': 'ElderWatch™',
     'pedicalc': 'PediCalc Pro™',
-    'skinscan': 'SkinScan Pro™'
+    'skinscan': 'SkinScan Pro™',
+    'endoguard': 'EndoGuard™'
   }
 
   const platformName = platformMap[platformId]
@@ -107,7 +109,8 @@ function Homepage() {
       'ClinicalIQ™': 'clinicaliq',
       'ElderWatch™': 'elderwatch',
       'PediCalc Pro™': 'pedicalc',
-      'SkinScan Pro™': 'skinscan'
+      'SkinScan Pro™': 'skinscan',
+      'EndoGuard™': 'endoguard'
     }
     
     const platformUrl = urlMap[platformName]
@@ -180,6 +183,7 @@ function App() {
       <Route path="/elderwatch" element={<PlatformPage />} />
       <Route path="/pedicalc" element={<PlatformPage />} />
       <Route path="/skinscan" element={<PlatformPage />} />
+      <Route path="/endoguard" element={<PlatformPage />} />
 
       {/* Beta Signup Route */}
       <Route 

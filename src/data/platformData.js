@@ -317,6 +317,57 @@ export const platformsData = {
       { q: 'Can SkinScan Pro™ replace a dermatologist?', a: 'No. SkinScan Pro™ is a clinical decision support tool designed to assist healthcare providers, not replace them.' },
       { q: 'Does SkinScan Pro™ work on all skin types?', a: 'Yes. The AI is trained on images representing all Fitzpatrick skin types (I-VI), ensuring accurate performance across diverse populations.' }
     ]
+  },
+
+  'EndoGuard™': {
+    name: 'EndoGuard™',
+    tagline: 'Endocrine Disorder Risk Predictor',
+    color: '#00CED1',
+    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+    badge: 'AI-POWERED ENDOCRINE HEALTH',
+    comingSoon: true,
+    hero: {
+      title: 'EndoGuard™ Endocrine Disorder Risk Predictor',
+      subtitle: 'Coming Soon - AI-powered early detection and risk assessment for thyroid, diabetes, and hormonal disorders'
+    },
+    problem: {
+      title: 'The Problem We Solve',
+      content: [
+        'Endocrine disorders affect millions of Americans, yet many cases go undiagnosed for years. Early detection is critical for preventing serious complications, but traditional screening methods miss subtle hormonal imbalances.',
+        'EndoGuard™ will use AI to analyze patient data and identify early warning signs of thyroid disorders, diabetes, and other endocrine conditions before they become serious health problems.'
+      ]
+    },
+    howItWorks: [
+      { step: 1, title: 'Patient Data Input', desc: 'Enter patient demographics, symptoms, and lab values into the system.' },
+      { step: 2, title: 'AI Risk Analysis', desc: 'Machine learning algorithms analyze patterns associated with endocrine disorders.' },
+      { step: 3, title: 'Risk Scoring', desc: 'Receive comprehensive risk scores for thyroid disease, diabetes, and hormonal imbalances.' },
+      { step: 4, title: 'Clinical Recommendations', desc: 'Get evidence-based testing and treatment recommendations.' },
+      { step: 5, title: 'Monitoring Guidance', desc: 'Track patient progress with personalized monitoring protocols.' },
+      { step: 6, title: 'Early Intervention', desc: 'Identify at-risk patients before symptoms become severe.' }
+    ],
+    features: [
+      { title: 'Thyroid Disorder Detection', desc: 'AI-powered analysis of TSH, T3, T4, and antibody levels to detect hypothyroidism, hyperthyroidism, and autoimmune thyroid disease.' },
+      { title: 'Diabetes Risk Prediction', desc: 'Predict Type 2 diabetes risk years before diagnosis using metabolic markers and patient history.' },
+      { title: 'Hormonal Imbalance Assessment', desc: 'Comprehensive analysis of sex hormones, cortisol, and other endocrine markers.' },
+      { title: 'Personalized Monitoring', desc: 'Custom monitoring protocols based on individual risk factors and disorder progression.' },
+      { title: 'Treatment Optimization', desc: 'AI-guided medication dosing and treatment adjustments for optimal hormone balance.' },
+      { title: 'Patient Education', desc: 'Generate patient-friendly reports explaining endocrine health and recommended actions.' }
+    ],
+    benefits: [
+      { stat: 'Coming Soon', title: 'Early Detection', desc: 'Identify endocrine disorders before serious complications develop' },
+      { stat: 'Coming Soon', title: 'Better Outcomes', desc: 'Improve patient outcomes through early intervention' },
+      { stat: 'Coming Soon', title: 'Cost Savings', desc: 'Reduce healthcare costs by preventing complications' },
+      { stat: 'Coming Soon', title: 'AI Accuracy', desc: 'Machine learning trained on thousands of endocrine cases' }
+    ],
+    benefitsDisclaimer: 'EndoGuard™ is currently in development. Features and benefits are subject to change.',
+    pricing: [
+      { tier: 'Coming Soon', price: 'TBD', period: 'Pricing not yet available', features: ['Platform in development', 'Join waitlist for early access', 'Beta testing opportunities', 'Founding member discounts'] }
+    ],
+    faqs: [
+      { q: 'When will EndoGuard™ be available?', a: 'EndoGuard™ is currently in development. We expect to launch a beta version in 2026. Join our waitlist to be notified when early access becomes available.' },
+      { q: 'What endocrine disorders will EndoGuard™ detect?', a: 'EndoGuard™ will focus on thyroid disorders (hypothyroidism, hyperthyroidism, thyroiditis), Type 2 diabetes, metabolic syndrome, PCOS, and hormonal imbalances. Additional conditions will be added based on clinical validation.' },
+      { q: 'Will EndoGuard™ be HIPAA compliant?', a: 'Yes. Like all Nexus platforms, EndoGuard™ will be fully HIPAA compliant with enterprise-grade security and encryption.' },
+      { q: 'How can I get early access?', a: 'Contact us at support@nexusbiomedical.ai to join the EndoGuard™ beta testing waitlist. We\'re looking for endocrinologists and primary care physicians to help validate the platform.' }
+    ]
   }
 };
-

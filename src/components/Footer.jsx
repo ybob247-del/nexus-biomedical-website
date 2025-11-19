@@ -6,7 +6,7 @@ export default function Footer() {
   const navigate = useNavigate()
 
   const handlePlatformClick = (platformUrl) => {
-    navigate(`/learn-more/${platformUrl}`)
+    navigate(`/${platformUrl}`)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -99,6 +99,11 @@ export default function Footer() {
             <li>
               <button onClick={() => handlePlatformClick('skinscan')} className="footer-link">
                 SkinScan Pro™
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handlePlatformClick('endoguard')} className="footer-link">
+                EndoGuard™ <span style={{ fontSize: '0.75rem', color: '#FFB800' }}>(Coming Soon)</span>
               </button>
             </li>
           </ul>

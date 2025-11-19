@@ -124,19 +124,24 @@ export default function Platforms({ onLearnMore }) {
                 boxShadow: `0 0 20px ${platform.color}, 0 4px 10px ${platform.color}80`
               }}></div>
               
-              {/* Platform Icon */}
+              {/* Platform Logo */}
               <div style={{
-                width: '80px',
-                height: '80px',
+                width: '120px',
+                height: '120px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 borderRadius: '20px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginBottom: '1.5rem',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                padding: '1rem'
               }}>
-                {React.createElement(platformIcons[platform.name], { size: 48 })}
+                <img 
+                  src={`/logos/${platform.name.replace('™', '').replace(' ', '_')}_Logo_White_BG.png`}
+                  alt={`${platform.name} Logo`}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
               </div>
               
               {/* Platform header */}

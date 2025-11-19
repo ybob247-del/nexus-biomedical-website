@@ -193,7 +193,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances</li>
               </ul>
               <p style={{ marginTop: '1rem' }}>
-                To exercise these rights, please contact us at <strong>privacy@nexusbiomedical.ai</strong>
+                To exercise these rights, please contact us at <strong>support@nexusbiomedical.ai</strong>
               </p>
             </section>
 
@@ -254,7 +254,7 @@ const PrivacyPolicy = () => {
                 borderLeft: '4px solid #00A8CC'
               }}>
                 <p><strong>Nexus Biomedical Intelligence</strong></p>
-                <p>Email: <a href="mailto:privacy@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>privacy@nexusbiomedical.ai</a></p>
+                <p>Email: <a href="mailto:support@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>support@nexusbiomedical.ai</a></p>
                 <p>Privacy Officer: Dr. Pamela Tebebi-Njoh</p>
                 <p>Website: <a href="https://nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>nexusbiomedical.ai</a></p>
               </div>

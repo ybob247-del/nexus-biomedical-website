@@ -330,7 +330,7 @@ const TermsOfService = () => {
                 borderLeft: '4px solid #00A8CC'
               }}>
                 <p><strong>Nexus Biomedical Intelligence</strong></p>
-                <p>Email: <a href="mailto:legal@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>legal@nexusbiomedical.ai</a></p>
+                <p>Email: <a href="mailto:support@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>support@nexusbiomedical.ai</a></p>
                 <p>Website: <a href="https://nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>nexusbiomedical.ai</a></p>
               </div>
             </section>

@@ -34,10 +34,31 @@ const HIPAACompliance = () => {
               ← Back to Home
             </button>
             <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '1rem', color: 'white' }}>
-              HIPAA Compliance
+              Security & Compliance
             </h1>
             <p style={{ color: '#94a3b8', fontSize: '1.125rem' }}>
-              Our Commitment to Healthcare Data Security and Privacy
+              Building HIPAA-Ready Infrastructure for Healthcare AI
+            </p>
+          </div>
+
+          {/* Early Access Notice */}
+          <div style={{ 
+            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', 
+            borderRadius: '1rem', 
+            padding: '2rem',
+            marginBottom: '2rem',
+            color: 'white'
+          }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
+              🚀 Early Access Program
+            </h2>
+            <p style={{ fontSize: '1.125rem', lineHeight: 1.6 }}>
+              Nexus Biomedical Intelligence is currently in <strong>Early Access</strong> as we work toward full HIPAA compliance certification. 
+              Founding members are helping us refine our security workflows and compliance processes before public launch.
+            </p>
+            <p style={{ fontSize: '1rem', marginTop: '1rem', opacity: 0.9 }}>
+              <strong>Important:</strong> During Early Access, our platforms are for demonstration and evaluation purposes only. 
+              Do not enter real Protected Health Information (PHI) or Personally Identifiable Information (PII).
             </p>
           </div>
 
@@ -51,274 +72,202 @@ const HIPAACompliance = () => {
           }}>
             <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                HIPAA Compliance Overview
+                Our Commitment to HIPAA Compliance
               </h2>
               <p>
-                Nexus Biomedical Intelligence is fully committed to compliance with the Health Insurance Portability 
-                and Accountability Act (HIPAA) of 1996 and its implementing regulations, including the Privacy Rule, 
+                Nexus Biomedical Intelligence is building <strong>HIPAA-ready infrastructure</strong> designed to meet the requirements 
+                of the Health Insurance Portability and Accountability Act (HIPAA) of 1996, including the Privacy Rule, 
                 Security Rule, and Breach Notification Rule.
               </p>
               <p style={{ marginTop: '1rem' }}>
-                As a provider of healthcare technology solutions that process Protected Health Information (PHI), 
-                we understand the critical importance of maintaining the highest standards of data security, privacy, 
-                and compliance.
+                As we develop healthcare AI solutions that will eventually process Protected Health Information (PHI), 
+                we are implementing security and privacy controls from day one, following industry best practices and 
+                preparing for formal compliance certification.
               </p>
             </section>
 
             <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Business Associate Responsibilities
+                Current Security Measures
               </h2>
               <p>
-                Nexus Biomedical Intelligence operates as a Business Associate under HIPAA. We enter into Business 
-                Associate Agreements (BAAs) with all covered entities and other business associates before processing 
-                any PHI.
-              </p>
-              <div style={{ 
-                background: '#dbeafe', 
-                padding: '1.5rem', 
-                borderRadius: '0.5rem', 
-                marginTop: '1.5rem',
-                borderLeft: '4px solid #3b82f6'
-              }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#1e40af' }}>
-                  Our BAA Commitments Include:
-                </h3>
-                <ul style={{ marginLeft: '1.5rem' }}>
-                  <li>Use and disclose PHI only as permitted by the BAA and HIPAA</li>
-                  <li>Implement appropriate safeguards to prevent unauthorized use or disclosure</li>
-                  <li>Report any security incidents or breaches to covered entities</li>
-                  <li>Ensure subcontractors comply with HIPAA requirements</li>
-                  <li>Make PHI available to individuals as required by HIPAA</li>
-                  <li>Return or destroy PHI upon termination of the BAA</li>
-                </ul>
-              </div>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Technical Safeguards
-              </h2>
-              <p>
-                We implement comprehensive technical safeguards to protect the confidentiality, integrity, and 
-                availability of electronic Protected Health Information (ePHI):
+                Our Early Access platforms are built on enterprise-grade security infrastructure:
               </p>
 
               <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
-                Encryption
+                Data Encryption
               </h3>
               <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Data at Rest:</strong> AES-256 encryption for all stored ePHI</li>
                 <li><strong>Data in Transit:</strong> TLS 1.3 encryption for all data transmissions</li>
-                <li><strong>Database Encryption:</strong> Encrypted database storage with encrypted backups</li>
-                <li><strong>End-to-End Encryption:</strong> For sensitive communications and file transfers</li>
+                <li><strong>HTTPS Everywhere:</strong> All connections secured with SSL/TLS certificates</li>
+                <li><strong>Secure Cloud Infrastructure:</strong> Hosted on enterprise-grade cloud providers (Vercel, Neon)</li>
               </ul>
 
               <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
                 Access Controls
               </h3>
               <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Unique User Identification:</strong> Each user has a unique identifier</li>
-                <li><strong>Multi-Factor Authentication (MFA):</strong> Required for all user accounts</li>
-                <li><strong>Role-Based Access Control (RBAC):</strong> Principle of least privilege</li>
-                <li><strong>Automatic Logoff:</strong> Sessions timeout after periods of inactivity</li>
-                <li><strong>Emergency Access Procedures:</strong> Documented procedures for emergency access</li>
+                <li><strong>Authentication:</strong> Secure user authentication system</li>
+                <li><strong>Session Management:</strong> Automatic session timeouts for security</li>
+                <li><strong>Role-Based Access:</strong> Principle of least privilege in development</li>
               </ul>
 
               <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
-                Audit Controls
+                Application Security
               </h3>
               <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Comprehensive Logging:</strong> All access to ePHI is logged and monitored</li>
-                <li><strong>Audit Trail Protection:</strong> Logs are tamper-proof and encrypted</li>
-                <li><strong>Regular Review:</strong> Audit logs reviewed regularly for suspicious activity</li>
-                <li><strong>Retention:</strong> Audit logs retained for minimum of 6 years</li>
-              </ul>
-
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
-                Integrity Controls
-              </h3>
-              <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Data Validation:</strong> Mechanisms to ensure data has not been altered</li>
-                <li><strong>Checksums and Hashing:</strong> Verify data integrity during transmission</li>
-                <li><strong>Version Control:</strong> Track changes to ePHI</li>
+                <li><strong>Secure Development:</strong> Following OWASP security best practices</li>
+                <li><strong>Input Validation:</strong> Protection against injection attacks</li>
+                <li><strong>Regular Updates:</strong> Keeping dependencies and frameworks current</li>
               </ul>
             </section>
 
             <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Administrative Safeguards
-              </h2>
-              
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', color: '#00A8CC' }}>
-                Security Management Process
-              </h3>
-              <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Risk Analysis:</strong> Annual comprehensive risk assessments</li>
-                <li><strong>Risk Management:</strong> Implementation of security measures to reduce risks</li>
-                <li><strong>Sanction Policy:</strong> Disciplinary actions for security violations</li>
-                <li><strong>Information System Activity Review:</strong> Regular monitoring and review</li>
-              </ul>
-
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
-                Workforce Security
-              </h3>
-              <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Background Checks:</strong> Conducted for all employees with PHI access</li>
-                <li><strong>HIPAA Training:</strong> Mandatory training for all workforce members</li>
-                <li><strong>Termination Procedures:</strong> Immediate access revocation upon termination</li>
-                <li><strong>Confidentiality Agreements:</strong> Signed by all employees and contractors</li>
-              </ul>
-
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '1.5rem', color: '#00A8CC' }}>
-                Contingency Planning
-              </h3>
-              <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Data Backup Plan:</strong> Automated daily backups with offsite storage</li>
-                <li><strong>Disaster Recovery Plan:</strong> Documented procedures for system restoration</li>
-                <li><strong>Emergency Mode Operation:</strong> Procedures for continuing operations during emergencies</li>
-                <li><strong>Testing:</strong> Regular testing and revision of contingency plans</li>
-              </ul>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Physical Safeguards
-              </h2>
-              <ul style={{ marginLeft: '2rem' }}>
-                <li><strong>Facility Access Controls:</strong> Restricted access to data centers and server rooms</li>
-                <li><strong>Workstation Security:</strong> Policies for workstation use and positioning</li>
-                <li><strong>Device and Media Controls:</strong> Procedures for disposal and reuse of hardware</li>
-                <li><strong>Secure Cloud Infrastructure:</strong> Enterprise-grade cloud providers with SOC 2 Type II compliance</li>
-              </ul>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Privacy Rule Compliance
-              </h2>
-              <p>We comply with the HIPAA Privacy Rule by:</p>
-              <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li>Using and disclosing PHI only as permitted by law and our BAAs</li>
-                <li>Implementing minimum necessary standards for PHI use and disclosure</li>
-                <li>Respecting individuals' rights to access, amend, and receive an accounting of disclosures</li>
-                <li>Maintaining written policies and procedures regarding PHI</li>
-                <li>Training workforce members on privacy practices</li>
-                <li>Designating a Privacy Officer responsible for compliance</li>
-              </ul>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Breach Notification Procedures
+                Compliance Roadmap
               </h2>
               <p>
-                In the event of a breach of unsecured PHI, we follow strict breach notification procedures:
+                As we prepare for full HIPAA compliance, we are actively working on:
               </p>
-              <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li><strong>Discovery:</strong> Immediate investigation upon discovery of potential breach</li>
-                <li><strong>Assessment:</strong> Risk assessment to determine if breach notification is required</li>
-                <li><strong>Notification to Covered Entity:</strong> Within 60 days of discovery</li>
-                <li><strong>Documentation:</strong> Comprehensive documentation of breach and response</li>
-                <li><strong>Mitigation:</strong> Immediate steps to mitigate harmful effects</li>
-                <li><strong>Prevention:</strong> Implementation of measures to prevent future breaches</li>
-              </ul>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Third-Party Vendors and Subcontractors
-              </h2>
-              <p>
-                All third-party vendors and subcontractors who may have access to PHI are required to:
-              </p>
-              <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li>Sign Business Associate Agreements</li>
-                <li>Demonstrate HIPAA compliance</li>
-                <li>Undergo security assessments</li>
-                <li>Maintain appropriate security certifications (SOC 2, ISO 27001, etc.)</li>
-                <li>Provide evidence of regular security audits</li>
-              </ul>
-            </section>
-
-            <section style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Ongoing Compliance and Monitoring
-              </h2>
               <div style={{ 
-                background: '#f0fdf4', 
+                background: '#f0f9ff', 
                 padding: '1.5rem', 
-                borderRadius: '0.5rem',
-                borderLeft: '4px solid #10b981'
+                borderRadius: '0.5rem', 
+                marginTop: '1.5rem',
+                borderLeft: '4px solid #3b82f6'
               }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#065f46' }}>
-                  Our Continuous Compliance Program:
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#1e40af' }}>
+                  Planned Compliance Milestones:
                 </h3>
                 <ul style={{ marginLeft: '1.5rem' }}>
-                  <li>Annual HIPAA risk assessments</li>
-                  <li>Quarterly security audits and penetration testing</li>
-                  <li>Regular policy and procedure reviews and updates</li>
-                  <li>Ongoing workforce training and awareness programs</li>
-                  <li>24/7 security monitoring and incident response</li>
-                  <li>Engagement with third-party security experts</li>
-                  <li>Participation in industry security forums and working groups</li>
+                  <li><strong>Risk Assessment:</strong> Comprehensive security risk analysis</li>
+                  <li><strong>Technical Safeguards:</strong> AES-256 encryption at rest, advanced audit logging</li>
+                  <li><strong>Administrative Safeguards:</strong> HIPAA training, policies & procedures documentation</li>
+                  <li><strong>Physical Safeguards:</strong> Secure facility access controls with cloud providers</li>
+                  <li><strong>BAA Preparation:</strong> Business Associate Agreement templates and workflows</li>
+                  <li><strong>Third-Party Audits:</strong> SOC 2 Type II certification pursuit</li>
+                  <li><strong>Breach Response:</strong> Incident response and breach notification procedures</li>
                 </ul>
               </div>
             </section>
 
             <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Certifications and Attestations
+                Early Access Guidelines
               </h2>
-              <p>Our infrastructure and security practices are designed to meet industry-leading standards. Our certification roadmap includes:</p>
+              <div style={{ 
+                background: '#fef3c7', 
+                padding: '1.5rem', 
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #f59e0b'
+              }}>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', color: '#92400e' }}>
+                  ⚠️ Important Notice for Early Access Users
+                </h3>
+                <p style={{ marginBottom: '0.75rem' }}>
+                  During our Early Access phase, please observe these guidelines:
+                </p>
+                <ul style={{ marginLeft: '1.5rem' }}>
+                  <li><strong>No Real PHI:</strong> Do not enter actual patient health information</li>
+                  <li><strong>No Real PII:</strong> Do not enter real personally identifiable information</li>
+                  <li><strong>Use Sample Data:</strong> Use only fictional, anonymized test data</li>
+                  <li><strong>Evaluation Only:</strong> Platforms are for demonstration and evaluation purposes</li>
+                  <li><strong>Not for Clinical Use:</strong> Not approved for clinical decision-making at this stage</li>
+                </ul>
+              </div>
+            </section>
+
+            <section style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
+                Privacy Commitment
+              </h2>
+              <p>
+                Even during Early Access, we take privacy seriously:
+              </p>
               <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li><strong>SOC 2 Type II:</strong> Independent audits of security, availability, and confidentiality controls</li>
-                <li><strong>HITRUST CSF:</strong> Healthcare-specific security framework compliance</li>
-                <li><strong>ISO 27001:</strong> Information security management system certification</li>
-                <li><strong>Cloud Infrastructure:</strong> Built on HIPAA-ready cloud providers (AWS/Azure/GCP) with SOC 2 Type II compliance</li>
+                <li>We collect only the minimum data necessary for platform functionality</li>
+                <li>We do not sell or share user data with third parties</li>
+                <li>We implement industry-standard security practices</li>
+                <li>We are transparent about our data handling practices</li>
+                <li>We provide clear privacy policies and terms of service</li>
               </ul>
             </section>
 
             <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                Patient Rights
+                Infrastructure Partners
               </h2>
               <p>
-                We support covered entities in fulfilling patient rights under HIPAA, including:
+                We leverage enterprise-grade infrastructure providers who maintain their own compliance certifications:
               </p>
               <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
-                <li><strong>Right of Access:</strong> Patients can access their PHI within 30 days</li>
-                <li><strong>Right to Amend:</strong> Patients can request amendments to their PHI</li>
-                <li><strong>Right to an Accounting:</strong> Patients can receive an accounting of disclosures</li>
-                <li><strong>Right to Request Restrictions:</strong> Patients can request restrictions on use and disclosure</li>
-                <li><strong>Right to Confidential Communications:</strong> Patients can request alternative communication methods</li>
+                <li><strong>Vercel:</strong> SOC 2 Type II certified hosting and deployment platform</li>
+                <li><strong>Neon:</strong> Serverless Postgres with enterprise security features</li>
+                <li><strong>SendGrid:</strong> Email delivery with compliance-ready infrastructure</li>
               </ul>
+              <p style={{ marginTop: '1rem', fontStyle: 'italic', color: '#64748b' }}>
+                Note: While our infrastructure partners maintain compliance certifications, Nexus Biomedical Intelligence 
+                is actively working toward our own independent HIPAA compliance certification.
+              </p>
             </section>
 
-            <section>
+            <section style={{ marginBottom: '2.5rem' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
-                HIPAA Compliance Contact
+                Timeline to Full Compliance
               </h2>
               <p>
-                For questions about our HIPAA compliance program, to request a Business Associate Agreement, 
-                or to report a security concern:
+                We are committed to achieving full HIPAA compliance before processing any real Protected Health Information. 
+                Our target timeline includes:
+              </p>
+              <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
+                <li><strong>Q1 2026:</strong> Complete technical safeguards implementation</li>
+                <li><strong>Q2 2026:</strong> Third-party security audit and SOC 2 Type II certification</li>
+                <li><strong>Q3 2026:</strong> HIPAA compliance certification and BAA readiness</li>
+                <li><strong>Q4 2026:</strong> Full production launch with PHI processing capabilities</li>
+              </ul>
+              <p style={{ marginTop: '1rem', fontStyle: 'italic', color: '#64748b' }}>
+                Timeline subject to change based on audit results and regulatory requirements.
+              </p>
+            </section>
+
+            <section style={{ marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', color: '#0A1B3D' }}>
+                Questions or Concerns?
+              </h2>
+              <p>
+                If you have questions about our security practices, compliance roadmap, or Early Access program, 
+                please contact us:
               </p>
               <div style={{ 
                 background: '#f1f5f9', 
                 padding: '1.5rem', 
                 borderRadius: '0.5rem', 
-                marginTop: '1rem',
-                borderLeft: '4px solid #00A8CC'
+                marginTop: '1.5rem'
               }}>
-                <p><strong>Nexus Biomedical Intelligence</strong></p>
-                <p><strong>Privacy Officer:</strong> Dr. Pamela Tebebi-Njoh</p>
-                <p><strong>Security Officer:</strong> Chief Information Security Officer</p>
-                <p>Email: <a href="mailto:compliance@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>compliance@nexusbiomedical.ai</a></p>
-                <p>Privacy Email: <a href="mailto:privacy@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>privacy@nexusbiomedical.ai</a></p>
-                <p>Security Email: <a href="mailto:security@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>security@nexusbiomedical.ai</a></p>
-                <p>Website: <a href="https://nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>nexusbiomedical.ai</a></p>
+                <p style={{ margin: 0 }}>
+                  <strong>Email:</strong>{' '}
+                  <a href="mailto:support@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>
+                    support@nexusbiomedical.ai
+                  </a>
+                </p>
+                <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.875rem', color: '#64748b' }}>
+                  We typically respond within 1-2 business days
+                </p>
               </div>
             </section>
+
+            <div style={{ 
+              background: '#f0fdf4', 
+              padding: '1.5rem', 
+              borderRadius: '0.5rem',
+              borderLeft: '4px solid #22c55e',
+              marginTop: '2rem'
+            }}>
+              <p style={{ margin: 0, fontSize: '0.875rem', color: '#166534' }}>
+                <strong>Last Updated:</strong> November 18, 2025<br />
+                <strong>Status:</strong> Early Access Program - Actively pursuing HIPAA compliance certification
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

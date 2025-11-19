@@ -805,3 +805,54 @@
 - [ ] Ensure HIPAA language is "HIPAA Ready" not "HIPAA Compliant" (if needed)
 - [ ] Set up custom domain www.nexusbiomedical.ai in Vercel
 - [ ] Configure DNS records for custom domain
+
+
+## 🚨 CRITICAL: False HIPAA Claims & Email Addresses (Nov 18, 2025)
+- [ ] Audit HIPAACompliance.jsx page - remove ALL false claims about being HIPAA compliant
+- [ ] Make it crystal clear: NOT HIPAA compliant, only HIPAA-ready infrastructure
+- [ ] Replace ALL email addresses with ONLY support@nexusbiomedical.ai (the only real email)
+- [ ] Remove: contact@, privacy@, compliance@, security@, legal@ (these don't exist)
+- [ ] Search entire codebase for email addresses and replace them
+
+
+## 🚨 CRITICAL: Legal Compliance & Beta Testing (Nov 18, 2025)
+- [x] Rewrite HIPAA Compliance page to be honest about beta status
+  - [x] Remove false claims about current HIPAA compliance
+  - [x] Remove claims about BAAs (Business Associate Agreements)
+  - [x] Remove claims about SOC 2 Type II certification
+  - [x] Use "HIPAA-ready infrastructure" language (NOT "HIPAA-compliant")
+  - [x] Add clear beta testing disclaimers
+  - [x] Model after Neon's trust center (only relevant sections)
+- [x] Replace ALL fake email addresses with support@nexusbiomedical.ai
+  - [x] Fix compliance@nexusbiomedical.ai → support@nexusbiomedical.ai
+  - [x] Fix contact@nexusbiomedical.ai → support@nexusbiomedical.ai
+  - [x] Fix legal@nexusbiomedical.ai → support@nexusbiomedical.ai
+  - [x] Fix privacy@nexusbiomedical.ai → support@nexusbiomedical.ai
+  - [x] Fix security@nexusbiomedical.ai → support@nexusbiomedical.ai
+  - [x] Search entire codebase for fake emails
+- [x] Create comprehensive beta testing documentation
+  - [x] Expand FINAL_QA_CHECKLIST.md with sample test data for all 6 platforms
+  - [x] Add realistic test scenarios for each platform demo
+  - [x] Add expected results for each test
+  - [x] Create step-by-step testing guide for founder
+- [x] Create bug reporting video script
+  - [x] Write show-and-tell script for recording bug reporting process
+  - [x] Include how to document bugs with screenshots
+  - [x] Include how to describe expected vs actual behavior
+  - [x] Create simple bug report template
+- [ ] Fix root domain (nexusbiomedical.ai) DNS configuration
+  - [ ] Add A record in Namecheap DNS settings
+  - [ ] Test both www.nexusbiomedical.ai and nexusbiomedical.ai
+
+## 🎨 DESIGN FIXES: Starry Background & Platform Logos (Nov 18, 2025)
+- [x] Fix starry background to appear on ALL pages (not just homepage)
+  - [x] Add starry background to FAQ section
+  - [x] Add starry background to all platform Learn More pages
+  - [ ] Add starry background to all demo pages (INTENTIONALLY SKIPPED - demos use light backgrounds for product UI simulation)
+  - [x] Keep Header and Footer WITHOUT starry background (solid backgrounds only)
+- [x] Add platform logos to website
+  - [x] Copy platform logo files from Brand_Kit to /public/logos/ (generated white background versions)
+  - [x] Add logos to platform cards on homepage
+  - [x] Add logos to Learn More page headers
+  - [ ] Add logos to demo welcome screens (optional enhancement)
+  - [ ] Test logo visibility and sizing on all pages (needs testing after deployment)

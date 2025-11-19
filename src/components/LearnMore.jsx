@@ -118,7 +118,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #0A1B3D 0%, #1a2942 50%, #0A1B3D 100%)',
+      background: 'transparent',
       color: '#FFFFFF',
       padding: '2rem 1rem',
       position: 'fixed',
@@ -165,6 +165,25 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         
         {/* Hero Section */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          {/* Platform Logo */}
+          <div style={{
+            width: '180px',
+            height: '180px',
+            background: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '30px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '2rem',
+            boxShadow: `0 8px 24px ${platform.color}40`,
+            padding: '1.5rem'
+          }}>
+            <img 
+              src={`/logos/${platform.name.replace('™', '').replace(' ', '_')}_Logo_White_BG.png`}
+              alt={`${platform.name} Logo`}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </div>
           <div style={{
             display: 'inline-block',
             background: platform.gradient,

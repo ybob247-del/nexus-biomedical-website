@@ -103,7 +103,7 @@ const FAQ = () => {
             We believe transparency builds trust—and trust saves lives.
           </p>
           <div className="faq-cta-buttons">
-            <a href="mailto:contact@nexusbiomedical.ai" className="faq-cta-primary">
+            <a href="mailto:support@nexusbiomedical.ai" className="faq-cta-primary">
               Contact Us
             </a>
             <a href="#platforms" className="faq-cta-secondary">

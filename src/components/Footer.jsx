@@ -28,7 +28,7 @@ export default function Footer() {
               </span>
             </li>
             <li>
-              <a href="mailto:contact@nexusbiomedical.ai" className="footer-link">
+              <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
                 Contact
               </a>
             </li>

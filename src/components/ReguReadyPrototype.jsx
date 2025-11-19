@@ -677,6 +677,7 @@ export default function ReguReadyPrototype({ onBack }) {
         </motion.div>
       </div>
     </div>
+  </div>
   );
 }
 

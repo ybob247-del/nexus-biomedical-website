@@ -1023,3 +1023,16 @@
 
 ## 🔧 Bug Report Screenshot Size
 - [x] Increase screenshot preview max-height to 800px for optimal detail visibility when reviewing bug reports
+
+
+## 🚀 Production Deployment - GitHub & Vercel
+- [ ] Initialize Git repository in project
+- [ ] Create .gitignore file for sensitive files and dependencies
+- [ ] Create GitHub repository for nexus-biomedical-website
+- [ ] Push code to GitHub repository
+- [ ] Set up Vercel project and connect to GitHub
+- [ ] Configure Vercel environment variables (DATABASE_URL, secrets, etc.)
+- [ ] Deploy to Vercel production
+- [ ] Update DNS to point www.nexusbiomedical.ai to Vercel (not Manus)
+- [ ] Verify production site is live on Vercel
+- [ ] Document deployment workflow for future updates

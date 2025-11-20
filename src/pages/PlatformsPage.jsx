@@ -96,6 +96,38 @@ export default function PlatformsPage() {
       padding: '6rem 2rem 4rem',
       position: 'relative'
     }}>
+      {/* Back to Home Button */}
+      <button
+        onClick={() => navigate('/')}
+        style={{
+          position: 'absolute',
+          top: '2rem',
+          left: '2rem',
+          background: 'rgba(255, 255, 255, 0.1)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          color: 'white',
+          padding: '0.75rem 1.5rem',
+          borderRadius: '0.5rem',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          fontSize: '1rem',
+          fontWeight: 500,
+          transition: 'all 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+          e.currentTarget.style.transform = 'translateX(-4px)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+          e.currentTarget.style.transform = 'translateX(0)';
+        }}
+      >
+        ← Back to Home
+      </button>
+
       {/* Header */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', marginBottom: '4rem', textAlign: 'center' }}>
         <motion.h1

@@ -19,7 +19,7 @@
 
 **YOU SAY:**
 
-> "Hi, this is Dr. Pamela Tebebi-Njoh, founder of Nexus Biomedical Intelligence. In this video, I'm going to show you how to properly document and report bugs when testing our website. This process ensures we can quickly identify, reproduce, and fix issues before they affect our users. Let's get started."
+> "Hi, this is the founder of Nexus Biomedical Intelligence. In this video, I'm going to show you how to properly document and report bugs when testing our website. This process ensures we can quickly identify, reproduce, and fix issues before they affect our users. Let's get started."
 
 ---
 

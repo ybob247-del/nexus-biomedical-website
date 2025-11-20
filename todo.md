@@ -1166,3 +1166,10 @@
 - [x] Fix "Start Free Trial" buttons on individual platform pages to route to /pricing/{platform}
 - [x] Fix pricing page tier buttons - "Get Started Free" and paid tier buttons should work (already working)
 - [x] Update all 7 individual platform prototype components (RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc, SkinScan, EndoGuard)
+
+
+## 🎯 UX Improvements (Nov 20, 2025)
+- [x] Add "Back to Home" button to /platforms page
+- [x] Fix About page scroll behavior - should scroll to top, not bottom
+- [x] Remove all instances of personal name from entire codebase (PrivacyPolicy, docs)
+- [x] Test navigation flow after fixes

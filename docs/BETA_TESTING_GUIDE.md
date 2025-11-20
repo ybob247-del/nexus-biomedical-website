@@ -3,7 +3,7 @@
 **Version:** 1.0  
 **Date:** November 18, 2025  
 **Status:** Early Access Program  
-**Tester:** Dr. Pamela Tebebi-Njoh (Founder)
+**Tester:** Founder
 
 ---
 

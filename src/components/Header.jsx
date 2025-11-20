@@ -170,7 +170,7 @@ const Header = () => {
           FAQ
         </button>
         <button 
-          onClick={handleBetaClick} 
+          onClick={handleGetStartedClick} 
           className="nav-link nav-cta"
         >
           Get Started

@@ -1173,3 +1173,27 @@
 - [x] Fix About page scroll behavior - should scroll to top, not bottom
 - [x] Remove all instances of personal name from entire codebase (PrivacyPolicy, docs)
 - [x] Test navigation flow after fixes
+
+
+## 📋 Content Cleanup & Legal Audit (Nov 20, 2025)
+
+### About Page Updates
+- [x] Update tagline from "puts clinicians first" to "AI-powered healthcare intelligence for clinicians, patients, and organizations"
+- [x] Remove "We're Currently in Beta" section entirely
+
+### EndoGuard Pricing Cleanup
+- [x] Remove "Community support" from pricing tiers
+- [x] Remove "Priority support (12-hour response)" from pricing tiers
+- [x] Remove "Quarterly check-in calls" from pricing tiers
+- [x] Remove "CEU credits (12 per year)" from pricing tiers (no accreditation established)
+- [x] Remove "HIPAA-compliant messaging" from pricing tiers (feature not built)
+
+### Comprehensive Legal/Regulatory Audit
+- [x] Audit all 7 platform descriptions for medical claims compliance
+- [x] Review all pricing tier features for accuracy and legal compliance
+- [x] Check Privacy Policy, Terms of Service, HIPAA Compliance documents
+- [x] Verify all marketing copy complies with FDA/FTC regulations
+- [x] Review all health claims and disclaimers
+- [x] Check for any unsubstantiated efficacy claims
+- [x] Verify all "clinical-grade" and similar terminology is accurate
+- [x] Create comprehensive audit report with findings and recommendations

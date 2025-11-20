@@ -39,7 +39,7 @@ export default function About() {
             margin: '0 auto',
             lineHeight: 1.8
           }}>
-            Transforming healthcare through AI-powered decision support that puts clinicians first
+            AI-powered healthcare intelligence for clinicians, patients, and organizations
           </p>
         </div>
 
@@ -252,58 +252,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Beta Status Section */}
-        <section style={{
-          background: 'rgba(255, 193, 7, 0.1)',
-          border: '2px solid #FFC107',
-          borderRadius: '20px',
-          padding: '2rem',
-          textAlign: 'center'
-        }}>
-          <h2 style={{
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: '#FFC107',
-            marginBottom: '1rem'
-          }}>
-            We're Currently in Beta
-          </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#FFFFFF',
-            lineHeight: 1.8,
-            marginBottom: '1.5rem',
-            maxWidth: '800px',
-            margin: '0 auto 1.5rem'
-          }}>
-            We're working closely with early adopters to refine our platforms before full production launch. Interested in being part of our beta program?
-          </p>
-          <button
-            onClick={() => window.location.href = '/platforms'}
-            style={{
-              background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
-              color: 'white',
-              border: 'none',
-              padding: '1rem 2.5rem',
-              borderRadius: '50px',
-              fontSize: '1.125rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(96, 165, 250, 0.3)'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'translateY(-2px)'
-              e.target.style.boxShadow = '0 6px 20px rgba(96, 165, 250, 0.4)'
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'translateY(0)'
-              e.target.style.boxShadow = '0 4px 15px rgba(96, 165, 250, 0.3)'
-            }}
-          >
-            Get Started
-          </button>
-        </section>
       </div>
 
       <Footer />

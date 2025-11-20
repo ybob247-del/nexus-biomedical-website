@@ -103,7 +103,7 @@ export default function Footer() {
             </li>
             <li>
               <button onClick={() => handlePlatformClick('endoguard')} className="footer-link">
-                EndoGuard™ <span style={{ fontSize: '0.75rem', color: '#FFB800' }}>(Coming Soon)</span>
+                EndoGuard™
               </button>
             </li>
           </ul>

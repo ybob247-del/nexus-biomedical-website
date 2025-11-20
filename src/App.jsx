@@ -18,6 +18,7 @@ const ClinicalIQPrototype = lazy(() => import('./components/ClinicalIQPrototype'
 const ElderWatchPrototype = lazy(() => import('./components/ElderWatchPrototype'))
 const PediCalcPrototype = lazy(() => import('./components/PediCalcPrototype'))
 const SkinScanPrototype = lazy(() => import('./components/SkinScanPrototype'))
+const EndoGuardPrototype = lazy(() => import('./components/EndoGuardPrototype'))
 const AdminBetaInvites = lazy(() => import('./components/AdminBetaInvites'))
 const About = lazy(() => import('./pages/About'))
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
@@ -90,6 +91,7 @@ function PlatformPage() {
         {platformId === 'elderwatch' && <ElderWatchPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
         {platformId === 'pedicalc' && <PediCalcPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
         {platformId === 'skinscan' && <SkinScanPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
+        {platformId === 'endoguard' && <EndoGuardPrototype onBack={handleBackFromPrototype} onUpgrade={handleUpgrade} />}
       </Suspense>
     )
   }

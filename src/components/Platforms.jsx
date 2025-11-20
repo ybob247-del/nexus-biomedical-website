@@ -52,11 +52,11 @@ const platforms = [
   },
   {
     name: 'EndoGuard™',
-    tagline: 'Endocrine Disorder Risk Predictor',
-    description: 'AI-powered early detection and risk assessment for thyroid, diabetes, and hormonal disorders using advanced machine learning.',
+    tagline: 'Clinical-Grade Hormone Intelligence Platform',
+    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
     color: '#00CED1',
     gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
-    comingSoon: true
+    comingSoon: false
   }
 ]
 

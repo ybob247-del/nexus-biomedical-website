@@ -53,6 +53,21 @@ export const STRIPE_PAYMENT_LINKS = {
   
   // Group (5-20 providers): $49/provider/month with 14-day free trial
   skinscan_group: 'https://buy.stripe.com/test_9B6cN51Br0Jh4LO8LzaMU0h',
+  
+  // ==============================================
+  // EndoGuard™ - Hormone Intelligence Platform
+  // ==============================================
+  // Premium: $29/month with 14-day free trial
+  endoguard_premium: 'PLACEHOLDER_ENDOGUARD_PREMIUM',
+  
+  // Premium Plus: $49/month with 14-day free trial
+  endoguard_premium_plus: 'PLACEHOLDER_ENDOGUARD_PREMIUM_PLUS',
+  
+  // Provider Basic: $99/month with 14-day free trial
+  endoguard_provider_basic: 'PLACEHOLDER_ENDOGUARD_PROVIDER_BASIC',
+  
+  // Provider Professional: $199/month with 14-day free trial
+  endoguard_provider_professional: 'PLACEHOLDER_ENDOGUARD_PROVIDER_PROFESSIONAL',
 };
 
 // Helper function to open payment link

@@ -1,7 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { openPaymentLink } from '../config/stripePaymentLinks';
-import { openEndoGuardPayment } from '../config/endoguardStripeLinks';
 
 const platforms = [
   {
@@ -77,17 +76,17 @@ const platforms = [
 ];
 
 export default function PlatformsPage() {
+  const navigate = useNavigate();
+  
   const handleStartTrial = (platform) => {
-    if (platform.name === 'EndoGuard™') {
-      // EndoGuard uses separate Stripe configuration
-      openEndoGuardPayment('premium_monthly');
-    } else if (platform.stripeKey) {
-      // Other platforms use main Stripe configuration
-      openPaymentLink(platform.stripeKey);
-    } else {
-      // Fallback to email
-      window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`;
-    }
+    // Convert platform name to URL-friendly format
+    const platformId = platform.name
+      .toLowerCase()
+      .replace(/™/g, '')
+      .replace(/\s+/g, '');
+    
+    // Navigate to pricing page
+    navigate(`/pricing/${platformId}`);
   };
 
   return (

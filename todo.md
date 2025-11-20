@@ -1141,3 +1141,13 @@
 - [x] Fix Get Started button in About page - should go to /platforms
 - [x] Verify all Get Started buttons navigate to /platforms page
 - [x] Test complete flow: Homepage → Get Started → /platforms → Select platform → Stripe checkout
+
+
+## 🎯 FEATURE: Pricing Tier Selection System (Nov 20, 2025)
+- [x] Create PricingPage component that shows all tiers for a platform
+- [x] Add pricing tier data to platformData.js (all tiers with features)
+- [x] Update "Start Free Trial" buttons to navigate to /pricing/:platformId
+- [x] Display all available tiers side-by-side with feature comparison
+- [x] Add "Select Plan" buttons that go to appropriate Stripe checkout links
+- [x] Test flow: Homepage → Get Started → /platforms → Select platform → /pricing/endoguard → Choose tier → Stripe
+- [x] Implement for all 7 platforms (RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc, SkinScan, EndoGuard)

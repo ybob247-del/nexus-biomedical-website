@@ -1127,3 +1127,9 @@
 - [ ] Verify beta tester flow still works via private link
 - [ ] Deploy changes to production
 
+
+## URGENT: Vercel Deployment Issue
+
+- [ ] Fix Vercel not detecting latest GitHub commits (05cae20)
+- [ ] Force new commit to trigger Vercel webhook
+- [ ] Verify latest changes deploy to production (platforms page, EndoGuard Stripe, Get Started routing)

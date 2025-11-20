@@ -34,12 +34,12 @@ const PricingPage = () => {
       }
       // Redirect to Stripe checkout
       window.location.href = STRIPE_PAYMENT_LINKS[tier.stripeKey];
-    } else if (tier.price === '$0') {
-      // Free tier - navigate to signup
-      navigate('/signup');
+    } else if (tier.price === '$0' || tier.price === 0) {
+      // Free tier - open email to get started
+      window.location.href = 'mailto:support@nexusbiomedical.ai?subject=Get Started with ' + platform.name + ' Free Tier&body=I would like to get started with the free tier of ' + platform.name + '.';
     } else {
       // Contact sales for custom pricing
-      navigate('/contact');
+      window.location.href = 'mailto:sales@nexusbiomedical.ai?subject=Enterprise Inquiry for ' + platform.name + '&body=I am interested in learning more about the Enterprise tier for ' + platform.name + '.';
     }
   };
 

@@ -1203,3 +1203,11 @@
 - [x] Add scroll-to-top behavior to PricingPage component
 - [x] Test all "Start Free Trial" buttons from /platforms page
 - [x] Verify pricing pages load at top, not bottom
+
+
+## 🚨 CRITICAL BUG: Pricing Page Buttons Go to Blank Screen (Nov 20, 2025)
+- [x] Investigate why "Start Free Trial" buttons on pricing pages show blank screen (was navigating to non-existent /signup and /contact pages)
+- [x] Fix button click handlers in PricingPage component (changed to use mailto: links)
+- [x] Test all tier buttons (Free, Premium, Professional, Enterprise) across all 7 platforms
+- [x] Verify Stripe checkout links work correctly (RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc, SkinScan all working)
+- [x] Verify "Get Started Free" and "Contact Sales" buttons work (opens email to support/sales)

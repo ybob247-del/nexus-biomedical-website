@@ -27,7 +27,7 @@ const BetaDisclaimer = ({ platformColor = '#00A8CC' }) => {
           marginBottom: '0.75rem',
           margin: 0
         }}>
-          Welcome to Our Beta Testing Platform
+          Important: Demo Environment
         </h3>
         <p style={{
           color: '#FFFFFF',
@@ -36,7 +36,7 @@ const BetaDisclaimer = ({ platformColor = '#00A8CC' }) => {
           margin: 0,
           opacity: 0.95
         }}>
-          Thank you for helping us test and improve our platform! This is a beta environment designed for evaluation and feedback. <strong>Please use only test or sample data</strong> — no real patient information (PHI, PII, or ePHI) should be entered at this time. We're working hard to prepare for full certification, and your input is invaluable in making this platform safer and better for everyone.
+          Welcome! You're exploring our interactive demo environment. To protect your privacy and security, <strong>please use only test or sample data</strong> when trying out features. Do not enter real patient information, personal health data, or any sensitive information. This demo showcases our platform's capabilities — contact us to discuss production deployment for your organization.
         </p>
       </div>
     </div>

@@ -26,6 +26,7 @@ const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
+const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -174,6 +175,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminBetaInvites />
+          </Suspense>
+        } 
+      />
+
+      {/* Platforms Selection Page */}
+      <Route 
+        path="/platforms" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <PlatformsPage />
           </Suspense>
         } 
       />

@@ -276,7 +276,7 @@ export default function About() {
             We're working closely with early adopters to refine our platforms before full production launch. Interested in being part of our beta program?
           </p>
           <button
-            onClick={() => window.location.href = '/beta-signup'}
+            onClick={() => window.location.href = '/platforms'}
             style={{
               background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
               color: 'white',

@@ -203,7 +203,7 @@ export default function WhoBenefits() {
             Ready to see how Nexus can transform your organization?
           </p>
           <button
-            onClick={() => window.location.href = '/beta-signup'}
+            onClick={() => window.location.href = '/platforms'}
             style={{
               background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
               color: 'white',

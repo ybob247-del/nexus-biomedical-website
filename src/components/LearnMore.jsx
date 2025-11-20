@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { openPaymentLink } from '../config/stripePaymentLinks';
+import { openEndoGuardPayment } from '../config/endoguardStripeLinks';
 import { updateMetaTags, resetMetaTags } from '../config/seoMetadata';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
@@ -213,6 +214,10 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
     else if (platform.name === 'SkinScan Pro™') {
       openPaymentLink('skinscan_individual');
     }
+    // EndoGuard™ - Premium ($29/month with 14-day trial)
+    else if (platform.name === 'EndoGuard™') {
+      openEndoGuardPayment('premium_monthly');
+    }
     // Fallback
     else {
       window.location.href = `mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ${platform.name}`;
@@ -277,6 +282,23 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         openPaymentLink('skinscan_group'); // $49/provider/month with 14-day trial
       } else if (plan.tier === 'Hospital/Enterprise') {
         window.location.href = 'mailto:support@nexusbiomedical.ai?subject=SkinScan Pro Enterprise Inquiry';
+      }
+    }
+    // EndoGuard™
+    else if (platform.name === 'EndoGuard™') {
+      if (plan.tier === 'Free') {
+        // Free tier - no payment needed, just redirect to signup
+        window.location.href = '/beta-signup';
+      } else if (plan.tier === 'Premium') {
+        openEndoGuardPayment('premium_monthly'); // $29/month with 14-day trial
+      } else if (plan.tier === 'Premium Plus') {
+        openEndoGuardPayment('premium_plus_monthly'); // $49/month with 14-day trial
+      } else if (plan.tier === 'Provider Basic') {
+        openEndoGuardPayment('provider_basic_monthly'); // $99/month
+      } else if (plan.tier === 'Provider Professional') {
+        openEndoGuardPayment('provider_professional_monthly'); // $199/month
+      } else if (plan.tier.includes('Enterprise') || plan.tier.includes('Partnership')) {
+        window.location.href = 'mailto:sales@nexusbiomedical.ai?subject=EndoGuard Enterprise Partnership Inquiry';
       }
     }
     // Other platforms - email fallback

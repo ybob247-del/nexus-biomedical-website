@@ -1113,4 +1113,17 @@
 - [ ] Search for all instances of "beta", "test", "testing", "work in progress" language
 - [ ] Update buttons: "Request Beta Access" → "Get Started" or "Sign Up"
 - [ ] Remove all references to testing/beta environment
-- [ ] Present as production-ready product for real users
+- [ ] Present as production-ready product for real user## NEW: Separate Beta Tester Flow from Public Signup
+
+- [x] Create dedicated /platforms page showing all 7 platforms with Start Free Trial buttons
+- [x] Set up Stripe integration for EndoGuard platform (Premium $29, Premium Plus $49, Provider Basic $99, Provider Professional $199)
+- [x] Update platformData.js with correct EndoGuard pricing from documentation
+- [x] Create endoguardStripeLinks.js configuration file
+- [x] Update LearnMore.jsx to handle EndoGuard Stripe payments
+- [x] Update PlatformsPage.jsx to handle EndoGuard Stripe payments
+- [x] Update all "Get Started" buttons to point to /platforms page instead of /beta-signup
+- [x] Remove /beta-signup from public navigation (keep as private link for beta testers)
+- [ ] Test complete user flow: Homepage → Get Started → /platforms → Select platform → Stripe checkout
+- [ ] Verify beta tester flow still works via private link
+- [ ] Deploy changes to production
+

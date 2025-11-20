@@ -326,6 +326,7 @@ export const platformsData = {
     gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
     badge: 'AI-POWERED HORMONE INTELLIGENCE',
     comingSoon: false,
+    stripeConfigured: true,
     hero: {
       title: 'EndoGuard™ Hormone Intelligence Platform',
       subtitle: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures'
@@ -362,8 +363,11 @@ export const platformsData = {
     benefitsDisclaimer: 'Statistics based on current database size and research integration. Platform continuously updated with new evidence.',
     pricing: [
       { tier: 'Free', price: '$0', period: 'Forever free', features: ['Basic symptom analysis', 'Limited EDC exposure assessment', 'Access to educational content', 'Community support', 'Perfect for exploring hormone health'] },
-      { tier: 'Personal', price: '$19', period: 'per month', features: ['Unlimited symptom analysis', 'Comprehensive EDC exposure assessment', 'Personalized hormone health roadmap', 'Evidence-based recommendations', 'Lab test guidance', '14-day free trial'], highlight: true },
-      { tier: 'Provider', price: '$199', period: 'per month', features: ['All Personal features', 'Provider dashboard access', 'Clinical decision support', 'Advanced research search', 'ClinicalTrials.gov integration', 'Patient management tools', 'Priority support'] }
+      { tier: 'Premium', price: '$29', period: 'per month', features: ['Unlimited symptom analysis', 'Comprehensive EDC exposure assessment', 'Personalized hormone health roadmap', 'Evidence-based recommendations', 'Lab test guidance', '14-day free trial'], highlight: true, stripeKey: 'premium_monthly' },
+      { tier: 'Premium Plus', price: '$49', period: 'per month', features: ['All Premium features', 'Expert lab interpretation (4/year)', 'Advanced AI predictive modeling', 'Priority support (12-hour response)', 'Quarterly check-in calls', 'Supplement recommendations', '14-day free trial'], stripeKey: 'premium_plus_monthly' },
+      { tier: 'Provider Basic', price: '$99', period: 'per month', features: ['Clinical decision support', 'Patient management (up to 50)', 'Research database access', 'CEU credits (12/year)', 'Patient education handouts', 'Lab interpretation tools', 'HIPAA-compliant messaging'], stripeKey: 'provider_basic_monthly' },
+      { tier: 'Provider Professional', price: '$199', period: 'per month', features: ['All Provider Basic features', 'Unlimited patients', 'EHR integration (API access)', 'Population health analytics', 'White-label options', 'Dedicated account manager', 'Priority support'], stripeKey: 'provider_professional_monthly' },
+      { tier: 'Enterprise / Partnership', price: 'Custom', period: 'Contact sales', features: ['All Provider Professional features', 'Lab testing integration (Quest, LabCorp, Everlywell)', 'Telemedicine platform integration', 'Wearable/health app data sync', 'Custom branding options', 'Revenue share models available', 'Dedicated partnership manager', '24/7 priority support'] }
     ],
     faqs: [
       { q: 'How is EndoGuard™ different from other hormone health apps?', a: 'EndoGuard™ is the only platform that integrates environmental exposures, microplastics, EDC datasets, and clinical decision support. While other apps focus on cycle tracking or general wellness, we provide clinical-grade intelligence traceable to peer-reviewed research from PubMed, FDA EDKB, EPA CompTox, and Endocrine Society guidelines.' },

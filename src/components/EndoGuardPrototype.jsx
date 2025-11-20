@@ -617,7 +617,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                 Try Another Assessment
               </button>
               <button
-                onClick={() => window.location.href = '/beta-signup?platform=endoguard'}
+                onClick={() => window.location.href = '/platforms'}
                 style={{
                   background: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
                   border: 'none',

@@ -30,10 +30,10 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleBetaClick = () => {
-    navigate('/beta-signup')
-    setIsMobileMenuOpen(false)
-  }
+  const handleGetStartedClick = () => {
+    navigate('/platforms');
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="nexus-header">
@@ -99,7 +99,7 @@ const Header = () => {
             FAQ
           </button>
           <button 
-            onClick={handleBetaClick} 
+            onClick={handleGetStartedClick} 
             className="nav-link nav-cta"
           >
             Get Started

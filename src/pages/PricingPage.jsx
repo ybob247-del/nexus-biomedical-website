@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -8,6 +8,11 @@ import { STRIPE_PAYMENT_LINKS } from '../config/stripePaymentLinks';
 const PricingPage = () => {
   const { platformId } = useParams();
   const navigate = useNavigate();
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [platformId]);
   
   // Get platform data
   const platformKey = Object.keys(platformsData).find(

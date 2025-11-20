@@ -1197,3 +1197,9 @@
 - [x] Check for any unsubstantiated efficacy claims
 - [x] Verify all "clinical-grade" and similar terminology is accurate
 - [x] Create comprehensive audit report with findings and recommendations
+
+
+## 🐛 BUG FIX: Pricing Page Scroll Behavior (Nov 20, 2025)
+- [x] Add scroll-to-top behavior to PricingPage component
+- [x] Test all "Start Free Trial" buttons from /platforms page
+- [x] Verify pricing pages load at top, not bottom

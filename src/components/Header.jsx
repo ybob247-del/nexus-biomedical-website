@@ -102,7 +102,7 @@ const Header = () => {
             onClick={handleBetaClick} 
             className="nav-link nav-cta"
           >
-            Request Beta Access
+            Get Started
           </button>
         </nav>
 
@@ -173,7 +173,7 @@ const Header = () => {
           onClick={handleBetaClick} 
           className="nav-link nav-cta"
         >
-          Request Beta Access
+          Get Started
         </button>
       </nav>
     </header>

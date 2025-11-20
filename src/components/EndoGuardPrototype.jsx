@@ -630,7 +630,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                   boxShadow: '0 4px 15px rgba(0, 206, 209, 0.3)'
                 }}
               >
-                Request Beta Access
+                Get Started
               </button>
             </div>
           </motion.div>

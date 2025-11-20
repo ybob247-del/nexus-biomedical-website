@@ -225,7 +225,7 @@ export default function WhoBenefits() {
               e.target.style.boxShadow = '0 4px 15px rgba(96, 165, 250, 0.3)'
             }}
           >
-            Request Beta Access
+            Get Started
           </button>
         </div>
       </div>

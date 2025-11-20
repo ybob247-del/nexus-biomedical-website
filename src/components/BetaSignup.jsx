@@ -118,7 +118,7 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                   fontWeight: 700,
                   margin: 0
                 }}>
-                  Request Beta Access
+                  Get Started
                 </h2>
                 <p style={{
                   color: '#6b7280',
@@ -460,7 +460,7 @@ const BetaSignup = ({ isOpen = true, onClose }) => {
                     e.target.style.boxShadow = 'none'
                   }}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Request Beta Access'}
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
                 </button>
               </form>
             )}

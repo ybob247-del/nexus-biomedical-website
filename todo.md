@@ -1151,3 +1151,18 @@
 - [x] Add "Select Plan" buttons that go to appropriate Stripe checkout links
 - [x] Test flow: Homepage → Get Started → /platforms → Select platform → /pricing/endoguard → Choose tier → Stripe
 - [x] Implement for all 7 platforms (RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc, SkinScan, EndoGuard)
+
+
+## 🐛 BUG FIXES: Navigation and Privacy Issues (Nov 20, 2025)
+- [x] Fix Header "About" button - should navigate to /about page, not scroll to bottom (already correct)
+- [x] Fix Footer "About" button - currently doesn't work (already correct)
+- [x] Remove "Dr. Tebebe" name from Privacy Policy
+- [x] Remove "Dr. Tebebe" name from all legal documents
+- [x] Replace with generic placeholder like "Privacy Officer" or "Compliance Team"
+- [x] Search entire codebase for any other instances of personal names
+- [ ] Test all navigation buttons after fixes
+
+- [x] REMOVE pricing from /platforms page - should only show platform descriptions, no prices
+- [x] Fix "Start Free Trial" buttons on individual platform pages to route to /pricing/{platform}
+- [x] Fix pricing page tier buttons - "Get Started Free" and paid tier buttons should work (already working)
+- [x] Update all 7 individual platform prototype components (RxGuard, ReguReady, ClinicalIQ, ElderWatch, PediCalc, SkinScan, EndoGuard)

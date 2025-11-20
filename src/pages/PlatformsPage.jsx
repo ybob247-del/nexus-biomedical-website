@@ -226,29 +226,7 @@ export default function PlatformsPage() {
               {platform.description}
             </p>
 
-            {/* Pricing */}
-            <div style={{
-              textAlign: 'center',
-              marginBottom: '1.5rem',
-              padding: '1rem',
-              background: 'rgba(255, 255, 255, 0.05)',
-              borderRadius: '12px'
-            }}>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: platform.color,
-                marginBottom: '0.5rem'
-              }}>
-                {platform.price}
-              </div>
-              <div style={{
-                fontSize: '0.875rem',
-                color: '#B8D4E8'
-              }}>
-                {platform.trial}
-              </div>
-            </div>
+
 
             {/* CTA Button */}
             <button

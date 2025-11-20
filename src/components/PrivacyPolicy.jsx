@@ -255,7 +255,7 @@ const PrivacyPolicy = () => {
               }}>
                 <p><strong>Nexus Biomedical Intelligence</strong></p>
                 <p>Email: <a href="mailto:support@nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>support@nexusbiomedical.ai</a></p>
-                <p>Privacy Officer: Dr. Pamela Tebebi-Njoh</p>
+                <p>Privacy Officer: Compliance Team</p>
                 <p>Website: <a href="https://nexusbiomedical.ai" style={{ color: '#00A8CC', textDecoration: 'none' }}>nexusbiomedical.ai</a></p>
               </div>
             </section>

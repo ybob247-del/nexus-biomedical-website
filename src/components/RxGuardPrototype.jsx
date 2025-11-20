@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { checkoutRxGuardProfessional } from '../utils/stripe';
+import { useNavigate } from 'react-router-dom';
 import BetaDisclaimer from './BetaDisclaimer';
 
 const RxGuardPrototype = ({ onBack }) => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState('welcome'); // welcome, calculator, results
   const [medications, setMedications] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -1180,7 +1181,7 @@ const RxGuardPrototype = ({ onBack }) => {
                   Start your free trial and see results in minutes • No credit card required
                 </p>
                 <button 
-                  onClick={() => checkoutRxGuardProfessional()}
+                  onClick={() => navigate('/pricing/rxguard')}
                   style={{
                     width: '100%',
                     background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',

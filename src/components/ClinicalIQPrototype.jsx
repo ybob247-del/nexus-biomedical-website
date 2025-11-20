@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import BetaDisclaimer from './BetaDisclaimer';
 
 export default function ClinicalIQPrototype({ onBack }) {
+  const navigate = useNavigate();
   const [selectedScenario, setSelectedScenario] = useState(null);
 
   const scenarios = [
@@ -415,7 +417,7 @@ export default function ClinicalIQPrototype({ onBack }) {
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                   onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                  onClick={() => window.location.href = 'mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ClinicalIQ'}
+                  onClick={() => navigate('/pricing/clinicaliq')}
                 >
                   Start Free Trial →
                 </button>
@@ -672,7 +674,7 @@ export default function ClinicalIQPrototype({ onBack }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = 'mailto:support@nexusbiomedical.ai?subject=Start Free Trial - ClinicalIQ'}
+            onClick={() => navigate('/pricing/clinicaliq')}
           >
             Start Free Trial →
           </button>

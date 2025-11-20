@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import BetaDisclaimer from './BetaDisclaimer';
 
 const EndoGuardPrototype = ({ onBack }) => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState('welcome'); // welcome, symptoms, edc, analyzing, results
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [edcExposure, setEdcExposure] = useState({});
@@ -617,7 +619,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                 Try Another Assessment
               </button>
               <button
-                onClick={() => window.location.href = '/platforms'}
+                onClick={() => navigate('/pricing/endoguard')}
                 style={{
                   background: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
                   border: 'none',

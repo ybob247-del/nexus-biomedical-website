@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { platformsData } from '../data/platformData';
-import { STRIPE_PAYMENT_LINKS } from '../config/stripePaymentLinks';
 
 const PricingPage = () => {
   const { platformId } = useParams();
@@ -25,21 +25,40 @@ const PricingPage = () => {
     return <div>Platform not found</div>;
   }
 
+  const { user } = useAuth();
+
   const handleSelectPlan = (tier) => {
-    if (tier.stripeKey && STRIPE_PAYMENT_LINKS[tier.stripeKey]) {
-      // Check if it's a placeholder
-      if (STRIPE_PAYMENT_LINKS[tier.stripeKey].startsWith('PLACEHOLDER_')) {
-        alert('This payment option is being set up. Please contact support@nexusbiomedical.ai for immediate access.');
-        return;
-      }
-      // Redirect to Stripe checkout
-      window.location.href = STRIPE_PAYMENT_LINKS[tier.stripeKey];
-    } else if (tier.price === '$0' || tier.price === 0) {
+    // Get platform route based on platformId
+    const platformRoutes = {
+      'rxguard': '/rxguard/dashboard',
+      'endoguard': '/endoguard/assessment',
+      'elderwatch': '/elderwatch/dashboard',
+      'pedicalcpro': '/pedicalc/dashboard',
+      'clinicaliq': '/clinicaliq/dashboard',
+      'reguready': '/reguready/dashboard',
+      'skinscanpro': '/skinscan/dashboard'
+    };
+
+    const platformRoute = platformRoutes[platformId.toLowerCase()];
+
+    if (tier.price === '$0' || tier.price === 0) {
       // Free tier - open email to get started
       window.location.href = 'mailto:support@nexusbiomedical.ai?subject=Get Started with ' + platform.name + ' Free Tier&body=I would like to get started with the free tier of ' + platform.name + '.';
-    } else {
+    } else if (tier.price === 'Custom') {
       // Contact sales for custom pricing
       window.location.href = 'mailto:sales@nexusbiomedical.ai?subject=Enterprise Inquiry for ' + platform.name + '&body=I am interested in learning more about the Enterprise tier for ' + platform.name + '.';
+    } else if (platformRoute) {
+      // Paid tier - redirect to signup/login, then platform (SubscriptionGate will handle payment)
+      if (user) {
+        // User is logged in, go directly to platform
+        navigate(platformRoute);
+      } else {
+        // User not logged in, redirect to signup with return URL
+        navigate('/signup', { state: { returnTo: platformRoute } });
+      }
+    } else {
+      // Platform not yet available
+      alert('This platform is coming soon! Join the waitlist at support@nexusbiomedical.ai');
     }
   };
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import SubscriptionGate from '../components/SubscriptionGate';
+import FDADisclaimer from '../components/FDADisclaimer';
 import '../styles/rxguard-dashboard.css';
 
 const API_BASE = 'http://localhost:3007/api/rxguard';
@@ -177,6 +178,7 @@ export default function RxGuardDashboard() {
       <div className="dashboard-header">
         <h1>RxGuard™ Drug Interaction Checker</h1>
         <p>Add your medications to check for potential interactions</p>
+        <FDADisclaimer />
       </div>
 
       {/* Drug Search */}

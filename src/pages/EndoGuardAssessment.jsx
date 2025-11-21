@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import SubscriptionGate from '../components/SubscriptionGate';
+import FDADisclaimer from '../components/FDADisclaimer';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
@@ -145,6 +146,7 @@ export default function EndoGuardAssessment() {
       <div className="assessment-header">
         <h1>EndoGuard™ Hormone Health Assessment</h1>
         <p>Discover your EDC exposure risk and get personalized recommendations</p>
+        <FDADisclaimer />
         
         {/* Progress Bar */}
         <div className="progress-bar">

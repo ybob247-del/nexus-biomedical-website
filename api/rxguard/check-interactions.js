@@ -8,6 +8,7 @@
 
 import { getDrugInteractions, getDrugInfo } from '../../server/services/rxnorm.js';
 import { analyzeInteractionRisk } from '../../server/services/openfda.js';
+import openaiService from '../../server/services/openai-direct.js';
 
 export default async function handler(req, res) {
   // CORS headers
@@ -100,6 +101,16 @@ export default async function handler(req, res) {
       riskLevel = 'MODERATE';
     }
     
+    // Generate AI-powered clinical insights
+    let aiInsights = null;
+    try {
+      const medications = Object.values(drugDetails).map(d => ({ name: d.name }));
+      aiInsights = await openaiService.analyzeDrugInteractions(medications);
+    } catch (aiError) {
+      console.warn('AI analysis failed:', aiError.message);
+      // Continue without AI insights
+    }
+    
     // Generate recommendations
     const recommendations = [];
     
@@ -162,7 +173,8 @@ export default async function handler(req, res) {
           topReactions: fdaRiskAnalysis.topReactions || [],
           totalReports: fdaRiskAnalysis.totalReports || 0
         },
-        recommendations
+        recommendations,
+        aiInsights: aiInsights || null
       },
       timestamp: new Date().toISOString()
     });

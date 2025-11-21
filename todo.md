@@ -514,3 +514,51 @@
 - [ ] Add subscription management dashboard
 - [ ] Test payment flow end-to-end
 - [ ] Update Stripe account with new products
+
+
+## CURRENT ISSUES TO FIX (Nov 21, 2025)
+
+### Stripe Payment Integration
+- [x] Fix "Start Free Trial" buttons on pricing pages showing "payment option being set up" error
+- [x] Ensure pricing page buttons redirect to login/signup → SubscriptionGate flow
+- [x] Remove old Stripe payment link references from pricing pages
+
+### OpenAI API Authentication
+- [x] Diagnosed root cause: OpenAI SDK has bug with project-scoped keys in sandbox environment
+- [x] Created custom OpenAI service using raw HTTPS requests (bypasses SDK bug)
+- [x] Tested all AI features: drug interaction analysis, hormone health analysis, recommendations
+- [x] Integrate custom OpenAI service into RxGuard platform
+- [ ] Integrate custom OpenAI service into EndoGuard platform
+- [ ] Test AI features in production environment
+
+### Documentation & Consistency Audit
+- [x] Update all pricing pages to show correct trial periods (14 days RxGuard, 30 days EndoGuard)
+- [x] Update platform data/config files with accurate pricing information (RxGuard $39/mo, EndoGuard $97/mo)
+- [x] Update SubscriptionGate component with correct pricing and trials
+- [ ] Update FAQ section with payment and subscription information
+- [ ] Update Terms of Service with subscription terms
+- [ ] Update Privacy Policy if needed for payment processing
+- [ ] Ensure all "Start Free Trial" buttons use consistent flow
+- [ ] Update homepage copy to reflect trial periods
+- [ ] Update platform cards with accurate trial information
+
+
+## URGENT COMPLIANCE FIXES (Nov 21, 2025) - CRITICAL
+
+### Remove False Claims (Legal Risk)
+- [x] Remove all Quest/LabCorp integration claims from EndoGuard
+- [x] Remove all Epic/Cerner EHR integration claims
+- [x] Remove all telemedicine integration claims
+- [x] Remove all pharmacy integration claims
+- [x] Add proper disclaimers for AI features (FDA Disclaimer component)
+
+### Homepage Restructure
+- [x] Move RxGuard and EndoGuard to top of platform list
+- [x] Add "COMING SOON" badges to ElderWatch, PediCalc, ClinicalIQ, ReguReady, SkinScan
+- [ ] Update hero section to focus on RxGuard & EndoGuard only
+
+### Medical/Legal Language Review
+- [ ] Replace "diagnosis" with "assessment" or "analysis"
+- [ ] Replace "treatment" with "recommendations" or "guidance"
+- [ ] Replace "prevention" with "risk reduction" or "awareness"
+- [ ] Add FDA disclaimer about not being a medical device

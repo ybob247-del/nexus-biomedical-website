@@ -11,19 +11,11 @@ const platforms = [
     comingSoon: false
   },
   {
-    name: 'ReguReady™',
-    tagline: 'FDA Regulatory Guidance Platform',
-    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
-    color: '#B794F4',
-    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
-    comingSoon: false
-  },
-  {
-    name: 'ClinicalIQ™',
-    tagline: 'Clinical Decision Support System',
-    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design.',
-    color: '#00D084',
-    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+    name: 'EndoGuard™',
+    tagline: 'Clinical-Grade Hormone Intelligence Platform',
+    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
+    color: '#00CED1',
+    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
     comingSoon: false
   },
   {
@@ -32,7 +24,7 @@ const platforms = [
     description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention.',
     color: '#FB923C',
     gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
-    comingSoon: false
+    comingSoon: true
   },
   {
     name: 'PediCalc Pro™',
@@ -40,7 +32,23 @@ const platforms = [
     description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children.',
     color: '#FDA4AF',
     gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
-    comingSoon: false
+    comingSoon: true
+  },
+  {
+    name: 'ClinicalIQ™',
+    tagline: 'Clinical Decision Support System',
+    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design.',
+    color: '#00D084',
+    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+    comingSoon: true
+  },
+  {
+    name: 'ReguReady™',
+    tagline: 'FDA Regulatory Guidance Platform',
+    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
+    color: '#B794F4',
+    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
+    comingSoon: true
   },
   {
     name: 'SkinScan Pro™',
@@ -48,15 +56,7 @@ const platforms = [
     description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification.',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
-    comingSoon: false
-  },
-  {
-    name: 'EndoGuard™',
-    tagline: 'Clinical-Grade Hormone Intelligence Platform',
-    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
-    color: '#00CED1',
-    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
-    comingSoon: false
+    comingSoon: true
   }
 ]
 

@@ -41,8 +41,8 @@ export const platformsData = {
     benefitsDisclaimer: 'Statistics based on published studies of similar clinical decision support systems. Individual results may vary.',
     pricing: [
       { tier: 'Free', price: '$0', period: 'Forever free', features: ['10 interaction checks/month', 'Basic interaction warnings', 'Email support', 'Perfect for occasional use'] },
-      { tier: 'Professional', price: '$49', period: 'per month', features: ['Unlimited interaction checks', 'AI-powered risk scoring', 'Alternative medication suggestions', 'Mitigation strategies', 'Patient-friendly reports', '14-day free trial'], highlight: true },
-      { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Professional features', 'EHR/pharmacy integration', 'Site license (unlimited users)', 'Dedicated implementation support', '24/7 phone support', 'Service level agreement'] }
+      { tier: 'Professional', price: '$39', period: 'per month', features: ['Unlimited interaction checks', 'AI-powered risk scoring', 'Alternative medication suggestions', 'Mitigation strategies', 'Patient-friendly reports', '14-day free trial'], highlight: true, stripeKey: 'rxguard_professional' },
+      { tier: 'Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Professional features', 'API access for custom integrations (coming soon)', 'Site license (unlimited users)', 'Dedicated implementation support', '24/7 phone support', 'Service level agreement'] }
     ],
     faqs: [
       { q: 'How accurate is RxGuard™ compared to other drug interaction checkers?', a: 'RxGuard™ uses ensemble machine learning trained on clinical evidence from thousands of drug interaction studies. Published research shows AI-powered drug interaction checkers achieve 87-100% sensitivity and 80-90% specificity (Kheshti et al., 2016). The system is continuously updated with new interaction evidence from FDA safety communications and peer-reviewed literature.' },
@@ -203,7 +203,7 @@ export const platformsData = {
     pricing: [
       { tier: 'Home Care', price: '$49', period: 'per month', features: ['Single senior monitoring', 'Fall risk prediction', 'Medication adherence tracking', 'Activity monitoring', 'Family portal access', 'Email/phone support', '14-day free trial'] },
       { tier: 'Facility (10-50 residents)', price: '$199', period: 'per month', features: ['All Home Care features', 'Staff alert system', 'Facility dashboard', 'Compliance reporting', 'Dedicated account manager', 'Priority support', '14-day free trial'], highlight: true },
-      { tier: 'Enterprise (50+ residents)', price: 'Custom', period: 'Contact sales', features: ['All Facility features', 'EHR integration', 'Custom analytics', 'White-label option', '24/7 phone support', 'On-site training', 'Multi-facility contracts'] }
+      { tier: 'Enterprise (50+ residents)', price: 'Custom', period: 'Contact sales', features: ['All Facility features', 'API access for data export', 'Custom analytics', 'White-label option', '24/7 phone support', 'On-site training', 'Multi-facility contracts'] }
     ],
     faqs: [
       { q: 'How accurate is ElderWatch™\'s fall prediction?', a: 'ElderWatch™ uses AI trained on published fall prediction research and real-world elderly care data. Studies show predictive fall models can reduce falls by 30-40% in elderly populations (Seaman et al., BMC Geriatrics 2022). The system analyzes gait patterns, activity levels, medication changes, and vital signs to identify early warning signs of increased fall risk.' },
@@ -256,7 +256,7 @@ export const platformsData = {
     pricing: [
       { tier: 'Individual', price: '$19.99', period: 'per month', features: ['Unlimited dosing calculations', 'Complete medication database', 'Mobile and web access', 'Offline mode', 'Email support', '14-day free trial'] },
       { tier: 'Group (5-20 providers)', price: '$14.99', period: 'per provider/month', features: ['All Individual features', 'Shared medication lists', 'Practice-level reporting', 'Priority support', 'Custom formulary', '14-day free trial'], highlight: true },
-      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'EHR integration (Epic, Cerner)', 'Unlimited users', 'Custom formularies', 'Dedicated support', '24/7 phone support', 'On-site training'] }
+      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'API access for data export', 'Unlimited users', 'Custom formularies', 'Dedicated support', '24/7 phone support', 'On-site training'] }
     ],
     faqs: [
       { q: 'How accurate are PediCalc Pro™\'s dosing calculations?', a: 'PediCalc Pro™ uses evidence-based dosing guidelines from the American Academy of Pediatrics (AAP), FDA, and pediatric clinical trials. Research shows computer-assisted pediatric dosing achieves 89% accuracy compared to 58% with manual calculations (Yamamoto & Kanemori, 2010), significantly reducing calculation errors and improving patient safety.' },
@@ -307,9 +307,9 @@ export const platformsData = {
     ],
     benefitsDisclaimer: 'Sensitivity and specificity based on clinical validation studies of similar AI dermatology systems.',
     pricing: [
-      { tier: 'Individual Provider', price: '$59', period: 'per month', features: ['Unlimited lesion analyses', 'Mobile and web access', 'Basic EHR integration', 'Patient reports', 'Email support', '14-day free trial'] },
+      { tier: 'Individual Provider', price: '$59', period: 'per month', features: ['Unlimited lesion analyses', 'Mobile and web access', 'Patient reports', 'Email support', '14-day free trial'] },
       { tier: 'Group (5-20 providers)', price: '$49', period: 'per provider/month', features: ['All Individual features', 'Shared patient database', 'Practice-level analytics', 'Priority support', 'Custom branding', '14-day free trial'], highlight: true },
-      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'Advanced EHR integration (Epic, Cerner)', 'PACS integration', 'Unlimited users', 'Dermoscopy device integration', '24/7 support', 'On-site training'] }
+      { tier: 'Hospital/Enterprise', price: 'Custom', period: 'Contact sales', features: ['All Group features', 'API access for data export', 'PACS integration (coming soon)', 'Unlimited users', 'Dermoscopy device integration (coming soon)', '24/7 support', 'On-site training'] }
     ],
     faqs: [
       { q: 'How accurate is SkinScan Pro™ compared to dermatologists?', a: 'SkinScan Pro™ uses deep learning trained on dermatology images. Published research shows AI dermatology systems achieve 94.5% sensitivity and 89.3% specificity, matching or exceeding average dermatologist performance (Esteva et al., Nature 2017 - cited by 16,607). The system is designed as a clinical decision support tool to assist healthcare providers in early melanoma detection.' },
@@ -363,11 +363,11 @@ export const platformsData = {
     benefitsDisclaimer: 'Statistics based on current database size and research integration. Platform continuously updated with new evidence.',
     pricing: [
       { tier: 'Free', price: '$0', period: 'Forever free', features: ['Basic symptom analysis', 'Limited EDC exposure assessment', 'Access to educational content', 'Perfect for exploring hormone health'] },
-      { tier: 'Premium', price: '$29', period: 'per month', features: ['Unlimited symptom analysis', 'Comprehensive EDC exposure assessment', 'Personalized hormone health roadmap', 'Evidence-based recommendations', 'Lab test guidance', '14-day free trial'], highlight: true, stripeKey: 'endoguard_premium' },
+      { tier: 'Premium', price: '$97', period: 'per month', features: ['Unlimited symptom analysis', 'Comprehensive EDC exposure assessment', 'Personalized hormone health roadmap', 'Evidence-based recommendations', 'Lab test guidance', '30-day free trial'], highlight: true, stripeKey: 'endoguard_premium' },
       { tier: 'Premium Plus', price: '$49', period: 'per month', features: ['All Premium features', 'Expert lab interpretation (4/year)', 'Advanced AI predictive modeling', 'Supplement recommendations', '14-day free trial'], stripeKey: 'endoguard_premium_plus' },
       { tier: 'Provider Basic', price: '$99', period: 'per month', features: ['Clinical decision support', 'Patient management (up to 50)', 'Research database access', 'Patient education handouts', 'Lab interpretation tools'], stripeKey: 'endoguard_provider_basic' },
-      { tier: 'Provider Professional', price: '$199', period: 'per month', features: ['All Provider Basic features', 'Unlimited patients', 'EHR integration (API access)', 'Population health analytics', 'White-label options', 'Dedicated account manager', 'Priority support'], stripeKey: 'endoguard_provider_professional' },
-      { tier: 'Enterprise / Partnership', price: 'Custom', period: 'Contact sales', features: ['All Provider Professional features', 'Lab testing integration (Quest, LabCorp, Everlywell)', 'Telemedicine platform integration', 'Wearable/health app data sync', 'Custom branding options', 'Revenue share models available', 'Dedicated partnership manager', '24/7 priority support'] }
+      { tier: 'Provider Professional', price: '$199', period: 'per month', features: ['All Provider Basic features', 'Unlimited patients', 'API access for data export', 'Population health analytics', 'White-label options', 'Dedicated account manager', 'Priority support'], stripeKey: 'endoguard_provider_professional' },
+      { tier: 'Enterprise / Partnership', price: 'Custom', period: 'Contact sales', features: ['All Provider Professional features', 'Custom data integrations (coming soon)', 'Advanced analytics dashboards', 'Custom branding options', 'Revenue share models available', 'Dedicated partnership manager', '24/7 priority support'] }
     ],
     faqs: [
       { q: 'How is EndoGuard™ different from other hormone health apps?', a: 'EndoGuard™ is the only platform that integrates environmental exposures, microplastics, EDC datasets, and clinical decision support. While other apps focus on cycle tracking or general wellness, we provide clinical-grade intelligence traceable to peer-reviewed research from PubMed, FDA EDKB, EPA CompTox, and Endocrine Society guidelines.' },

@@ -1,0 +1,895 @@
+{
+  "timestamp": "2025-11-21T13:16:49.418Z",
+  "summary": {
+    "total": 123,
+    "critical": 24,
+    "high": 49,
+    "medium": 50
+  },
+  "issues": [
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "BetaSignup.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "15% screen failure rate)',\n        'Primary endpoint (OS) requires long follow-up - consider PFS as primary',\n        'Competing trials recruiting similar population (3 active trials identified)',\n        'Site selection suboptimal - 40% of sites have no prior oncology trial experience'\n      ],\n      recommendations: [\n        'Broaden inclusion criteria to include ECOG 2 patients (increase eligible population by 25%)',\n        'Change primary endpoint to PFS with OS as key secondary (reduce trial duration by 8-12 months)',\n        'Add 5 high-performing sites in US and EU with proven oncology enrollment track record',\n        'Implement competitive enrollment bonuses for sites exceeding targets'\n      ],\n      siteRecommendations: [\n        { site: 'MD Anderson Cancer Center', location: 'Houston, TX', enrollmentRate: '3",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "85% confidence)'\n      }\n    },\n    {\n      id: 'rare-disease-phase2',\n      title: 'Rare Disease Phase II Trial',\n      subtitle: 'Duchenne Muscular Dystrophy - Gene Therapy',\n      description: 'Open-label, single-arm trial evaluating gene therapy in ambulatory DMD patients aged 4-7',\n      severity: 'MODERATE COMPLEXITY',\n      severityColor: 'bg-orange-600',\n      enrollment: '24 patients',\n      timeline: '18 months',\n      successProbability: 82,\n      protocolIssues: [\n        'Ultra-rare patient population (estimated 200 eligible patients in US)',\n        'Age range too narrow (4-7 years) - only 40% of DMD population',\n        'No established patient registries identified for recruitment',\n        'Endpoint (6-minute walk test) may not be sensitive enough for this age group'\n      ],\n      recommendations: [\n        'Expand age range to 4-12 years (increase eligible population by 150%)',\n        'Partner with Duchenne Registry and Parent Project Muscular Dystrophy for recruitment',\n        'Add motor function composite score as co-primary endpoint',\n        'Implement social media recruitment campaign targeting DMD parent communities',\n        'Offer travel reimbursement and lodging support to increase geographic reach'\n      ],\n      siteRecommendations: [\n        { site: 'Nationwide Children\\'s Hospital', location: 'Columbus, OH', enrollmentRate: '1",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "78% confidence)'\n      }\n    },\n    {\n      id: 'cardiovascular-phase3',\n      title: 'Cardiovascular Phase III Trial',\n      subtitle: 'Heart Failure - SGLT2 Inhibitor',\n      description: 'Randomized, placebo-controlled trial in HFrEF patients evaluating cardiovascular outcomes',\n      severity: 'HIGH COMPLEXITY',\n      severityColor: 'bg-blue-600',\n      enrollment: '5000 patients',\n      timeline: '48 months',\n      successProbability: 75,\n      protocolIssues: [\n        'Very large enrollment target (5000 patients) with aggressive timeline',\n        'Competing SGLT2 inhibitor trials saturating recruitment pool',\n        'Primary endpoint (CV death + HF hospitalization) requires long follow-up',\n        'Site activation delays averaging 6 months per site'\n      ],\n      recommendations: [\n        'Increase site count from 200 to 300 sites to accelerate enrollment',\n        'Implement adaptive design with interim futility analysis at 50% enrollment',\n        'Add sites in Eastern Europe and Latin America for faster enrollment',\n        'Streamline site activation process with centralized IRB and remote monitoring',\n        'Consider enrichment strategy targeting patients with recent HF hospitalization'\n      ],\n      siteRecommendations: [\n        { site: 'Cleveland Clinic', location: 'Cleveland, OH', enrollmentRate: '4",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "82% confidence)'\n      }\n    }\n  ];\n\n  const handleScenarioSelect = (scenario) => {\n    setSelectedScenario(scenario);\n  };\n\n  const handleBack = () => {\n    setSelectedScenario(null);\n  };\n\n  if (selectedScenario) {\n    return (\n      <div style={{\n        minHeight: '100vh',\n        background: 'linear-gradient(135deg, #f8fafc 0%, #dcfce7 50%, #d1fae5 100%)',\n        padding: '2rem',\n        position: 'fixed',\n        top: 0,\n        left: 0,\n        right: 0,\n        bottom: 0,\n        overflowY: 'auto'\n      }}>\n        <button\n          onClick={handleBack}\n          style={{\n            position: 'fixed',\n            top: '2rem',\n            left: '2rem',\n            background: '#10b981',\n            color: 'white',\n            border: 'none',\n            padding: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "85% Accuracy</div>\n              <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ClinicalIQPrototype.jsx",
+      "claim": "70% Cost Reduction</div>\n              <div style={{ fontSize: '1rem', color: '#64748b', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "ClinicalIQPrototype.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "ElderWatchPrototype.jsx",
+      "keyword": "prevention",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevention\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "15% over past 30 days',\n        'Balance instability detected during nighttime bathroom trips',\n        'New antihypertensive medication (orthostatic hypotension risk)',\n        'Decreased daytime activity (30% reduction from baseline)',\n        'Sleep disruption pattern (waking 4-5 times per night)'\n      ],\n      predictions: {\n        fallRisk30Days: '85%',\n        fallRisk90Days: '92%',\n        hospitalizationRisk: '45%',\n        interventionSuccess: '78%'\n      },\n      interventions: [\n        'Physical therapy referral for gait training and balance exercises',\n        'Home safety assessment (remove trip hazards, install grab bars)',\n        'Medication review with physician (consider orthostatic hypotension)',\n        'Increase monitoring frequency to daily check-ins',\n        'Wearable fall detection device recommendation'\n      ],\n      activityData: {\n        stepsPerDay: 2800,\n        stepsBaseline: 4200,\n        sleepQuality: 'Poor (4",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "35% vs",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "45% vs",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "75% (down from 100%)'\n      },\n      costAnalysis: {\n        earlyInterventionCost: 3500,\n        delayedDiagnosisCost: 25000,\n        caregiverBurnoutCost: 15000,\n        potentialSavings: 36500,\n        preventionRate: '75%'\n      }\n    }\n  ];\n\n  const handleScenarioSelect = (scenario) => {\n    setSelectedScenario(scenario);\n  };\n\n  const handleBack = () => {\n    setSelectedScenario(null);\n  };\n\n  if (selectedScenario) {\n    return (\n      <div style={{\n        minHeight: '100vh',\n        background: 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 50%, #fdba74 100%)',\n        padding: '2rem',\n        position: 'fixed',\n        top: 0,\n        left: 0,\n        right: 0,\n        bottom: 0,\n        overflowY: 'auto'\n      }}>\n        <button\n          onClick={handleBack}\n          style={{\n            position: 'fixed',\n            top: '2rem',\n            left: '2rem',\n            background: '#f97316',\n            color: 'white',\n            border: 'none',\n            padding: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "40% Fall Reduction</div>\n              <div style={{ fontSize: '1rem', color: '#92400e', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ElderWatchPrototype.jsx",
+      "claim": "24% Fewer Hospitalizations</div>\n              <div style={{ fontSize: '1rem', color: '#92400e', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "ElderWatchPrototype.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "ElderWatchPrototype.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "EndoGuardPrototype.jsx",
+      "claim": "60% (CDC study)' },\n        { category: 'Lab Tests', action: 'Request: Testosterone, LH/FSH, Fasting insulin, HbA1c', evidence: 'PCOS diagnostic criteria (Endocrine Society)' },\n        { category: 'Lifestyle', action: 'Resistance training 3x/week', evidence: 'Improves insulin sensitivity 25% (Diabetes Care 2020)' }\n      ]\n    },\n    {\n      id: 2,\n      title: 'Hypothyroidism with Environmental Exposures',\n      profile: '45-year-old female, fatigue, weight gain, cold sensitivity',\n      symptoms: ['Fatigue', 'Weight changes', 'Cold sensitivity', 'Hair loss', 'Dry skin', 'Brain fog'],\n      edcScore: 65,\n      hormoneFindings: [\n        { hormone: 'TSH', status: 'Elevated', value: '6",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "EndoGuardPrototype.jsx",
+      "claim": "80% (EPA study)' },\n        { category: 'Lab Tests', action: 'Request: TSH, Free T4, Free T3, TPO antibodies, Thyroglobulin Ab', evidence: 'Comprehensive thyroid panel (ATA guidelines)' },\n        { category: 'Supplements', action: 'Consider: Selenium 200mcg, Zinc 30mg, Vitamin D', evidence: 'Supports thyroid function (Endocrine Reviews 2020)' }\n      ]\n    },\n    {\n      id: 3,\n      title: 'Perimenopause with Estrogen Dominance',\n      profile: '48-year-old female, hot flashes, mood swings, irregular periods',\n      symptoms: ['Hot flashes', 'Night sweats', 'Mood swings', 'Sleep problems', 'Irregular periods'],\n      edcScore: 72,\n      hormoneFindings: [\n        { hormone: 'Estradiol', status: 'Fluctuating', value: '180 pg/mL', normal: '15-350 pg/mL (varies)' },\n        { hormone: 'Progesterone', status: 'Low', value: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "EndoGuardPrototype.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "diagnose",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnose\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "diagnosis",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnosis\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "treat",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treat\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "cure",
+      "count": 1,
+      "message": "Contains medical claim keyword \"cure\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "prevent",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardResults.jsx",
+      "keyword": "medical advice",
+      "count": 2,
+      "message": "Contains medical claim keyword \"medical advice\" which may violate FDA regulations"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "EndoGuardResults.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "FAQ.jsx",
+      "feature": "Epic",
+      "message": "Claims \"Epic\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "FAQ.jsx",
+      "feature": "Cerner",
+      "message": "Claims \"Cerner\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "FAQ.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "FeedbackWidget.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "HIPAACompliance.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "Hero.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "LearnMore.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "PediCalcPrototype.jsx",
+      "keyword": "treat",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treat\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "42% (manual)',\n        aiErrorRate: '0% (automated)',\n        potentialHarmPrevented: 'Dosing error prevented',\n        timeSavings: '99% faster'\n      }\n    },\n    {\n      id: 'adhd-maintenance',\n      title: 'ADHD Medication Dosing',\n      subtitle: '9-year-old, 28 kg - Starting Methylphenidate',\n      description: 'Newly diagnosed ADHD requiring methylphenidate initiation with careful dose titration',\n      severity: 'ROUTINE',\n      severityColor: 'bg-blue-600',\n      patientInfo: {\n        age: '9 years',\n        weight: '28 kg',\n        height: '132 cm',\n        bsa: '1",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "15% (manual dose selection)',\n        aiErrorRate: '0% (automated)',\n        potentialHarmPrevented: 'Suboptimal dosing avoided',\n        timeSavings: '95% faster'\n      }\n    },\n    {\n      id: 'seizure-status',\n      title: 'Status Epilepticus Emergency',\n      subtitle: '4-year-old, 16 kg - Active Seizure >5 minutes',\n      description: 'Emergency seizure management requiring immediate benzodiazepine and potential second-line antiepileptic',\n      severity: 'CRITICAL',\n      severityColor: 'bg-red-600',\n      patientInfo: {\n        age: '4 years',\n        weight: '16 kg',\n        height: '102 cm',\n        bsa: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "35% (manual under stress)',\n        aiErrorRate: '0% (automated)',\n        potentialHarmPrevented: 'Life-threatening dosing error prevented',\n        timeSavings: '99% faster - critical in emergency'\n      }\n    }\n  ];\n\n  const handleScenarioSelect = (scenario) => {\n    setSelectedScenario(scenario);\n  };\n\n  const handleBack = () => {\n    setSelectedScenario(null);\n  };\n\n  if (selectedScenario) {\n    return (\n      <div style={{\n        minHeight: '100vh',\n        background: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%)',\n        padding: '2rem',\n        position: 'fixed',\n        top: 0,\n        left: 0,\n        right: 0,\n        bottom: 0,\n        overflowY: 'auto'\n      }}>\n        <button\n          onClick={handleBack}\n          style={{\n            position: 'fixed',\n            top: '2rem',\n            left: '2rem',\n            background: '#ec4899',\n            color: 'white',\n            border: 'none',\n            padding: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "89% accuracy vs",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "58% manual (Yamamoto & Kanemori, 2010)\n                  </p>\n                </div>\n\n                <button\n                  style={{\n                    width: '100%',\n                    background: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',\n                    color: 'white',\n                    border: 'none',\n                    padding: '1",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "89% Accuracy</div>\n              <div style={{ fontSize: '1rem', color: '#9f1239', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "PediCalcPrototype.jsx",
+      "claim": "58% manual</div>\n            </div>\n            <div>\n              <div style={{ fontSize: '2rem', fontWeight: 700, color: '#ec4899', lineHeight: '1",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "PediCalcPrototype.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "Platforms.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "Platforms.jsx",
+      "keyword": "medical device",
+      "count": 1,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "Platforms.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "PrivacyPolicy.jsx",
+      "keyword": "prevent",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "PrivacyPolicy.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "ReguReadyPrototype.jsx",
+      "keyword": "medical device",
+      "count": 2,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "ReguReadyPrototype.jsx",
+      "claim": "20% contingency for additional FDA requests'\n      ],\n      savings: {\n        traditionalCost: 180000,\n        optimizedCost: 130000,\n        timeSaved: '2-3 months',\n        successRate: '92%'\n      }\n    },\n    {\n      id: 'class-iii-pma',\n      title: 'Class III Medical Device',\n      subtitle: 'Premarket Approval (PMA)',\n      description: 'Implantable cardiovascular stent - full clinical trial required',\n      severity: 'HIGH COMPLEXITY',\n      severityColor: 'bg-red-600',\n      timeline: '18-24 months',\n      costRange: '$2M - $5M',\n      milestones: [\n        { phase: 'Pre-Submission Meeting', status: 'Complete', duration: '3 months', cost: '$50K' },\n        { phase: 'Clinical Trial Design', status: 'Complete', duration: '4 months', cost: '$200K' },\n        { phase: 'Clinical Trial Execution', status: 'In Progress', duration: '12 months', cost: '$2",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "ReguReadyPrototype.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "ReguReadyPrototype.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "RxGuardPrototype.backup.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "RxGuardPrototype.backup.jsx",
+      "claim": "50% + ${x}px), calc(-50% + ${y}px))`\n                }}\n              >\n                <div className=\"bg-gradient-to-br from-cyan-400 to-blue-500 text-white px-6 py-4 rounded-2xl shadow-2xl text-center min-w-[140px]\">\n                  <div className=\"text-sm font-bold\">{med",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "RxGuardPrototype.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "RxGuardPrototype.jsx",
+      "keyword": "prevent",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "RxGuardPrototype.jsx",
+      "claim": "85% of interactions caught\n    const eventsPrevented = Math",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "RxGuardPrototype.jsx",
+      "claim": "85% detection)\n                    </label>\n                    <div style={{ fontSize: '2",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "RxGuardPrototype.jsx",
+      "claim": "28% cost reduction\n                    </div>\n                  </div>\n\n                  <div style={{\n                    borderTop: '2px solid #e2e8f0',\n                    paddingTop: '1",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "RxGuardPrototype.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "RxGuardPrototype_new_welcome.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "SkinScanPrototype.jsx",
+      "keyword": "treatment",
+      "count": 2,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "SkinScanPrototype.jsx",
+      "keyword": "prevent",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "92% melanoma probability'\n      ],\n      recommendations: [\n        '🚨 URGENT: Dermatology referral within 2 weeks',\n        'Excisional biopsy recommended (not shave biopsy)',\n        'Dermoscopy examination by specialist',\n        'Full body skin examination for additional lesions',\n        'Patient education on melanoma warning signs',\n        'Photograph lesion for monitoring if biopsy delayed'\n      ],\n      clinicalContext: {\n        patientAge: '52 years',\n        skinType: 'Fitzpatrick Type II (fair skin)',\n        riskFactors: 'History of sunburns, family history of melanoma',\n        previousLesions: '2 atypical nevi removed (benign)'\n      },\n      outcomeAnalysis: {\n        earlyDetectionSurvival: '99% (5-year survival, Stage I)',\n        lateDetectionSurvival: '27% (5-year survival, Stage IV)',\n        aiDetectionAccuracy: '94",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "6% (vs",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "6% dermatologist)',\n        timeToReferral: '<24 hours (AI-assisted)',\n        manualTimeToReferral: '2-4 weeks (traditional)'\n      }\n    },\n    {\n      id: 'basal-cell-carcinoma',\n      title: 'Basal Cell Carcinoma',\n      subtitle: 'Pearly nodule with telangiectasia - Left cheek',\n      description: 'AI identified basal cell carcinoma features requiring dermatology evaluation',\n      severity: 'MODERATE RISK',\n      severityColor: 'bg-orange-600',\n      riskScore: 78,\n      lesionInfo: {\n        location: 'Left cheek',\n        size: '6mm diameter',\n        color: 'Pearly white with pink areas',\n        border: 'Well-defined, rolled edges',\n        evolution: 'Slowly growing over 18 months'\n      },\n      abcdeAnalysis: {\n        asymmetry: 'NEGATIVE - Relatively symmetric',\n        border: 'POSITIVE - Rolled, pearly border',\n        color: 'POSITIVE - Pearly white with telangiectasia',\n        diameter: 'NEUTRAL - 6mm (at threshold)',\n        evolving: 'POSITIVE - Slow growth over 18 months'\n      },\n      aiFindings: [\n        'Pearly appearance detected (classic BCC feature)',\n        'Telangiectasia (dilated blood vessels) present',\n        'Rolled border characteristic of nodular BCC',\n        'Central ulceration beginning to form',\n        'Slow growth pattern consistent with BCC',\n        'Deep learning confidence: 78% basal cell carcinoma',\n        'Low metastatic potential (BCC rarely metastasizes)'\n      ],\n      recommendations: [\n        'Dermatology referral within 4-6 weeks (non-urgent)',\n        'Shave or punch biopsy for histological confirmation',\n        'Consider Mohs micrographic surgery (facial location)',\n        'Sun protection counseling',\n        'Annual full-body skin examination',\n        'Monitor for additional BCCs (25% develop second BCC within 5 years)'\n      ],\n      clinicalContext: {\n        patientAge: '68 years',\n        skinType: 'Fitzpatrick Type I (very fair, always burns)',\n        riskFactors: 'Lifetime sun exposure, outdoor occupation',\n        previousLesions: 'None'\n      },\n      outcomeAnalysis: {\n        curativeRate: '95% (with appropriate treatment)',\n        metastasisRisk: '<0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "1% (BCC rarely metastasizes)',\n        aiDetectionAccuracy: '91",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "3% (comparable to dermatologist)',\n        timeToReferral: '<48 hours (AI-assisted)',\n        manualTimeToReferral: '4-8 weeks (traditional)'\n      }\n    },\n    {\n      id: 'benign-nevus',\n      title: 'Benign Nevus (Mole)',\n      subtitle: 'Uniform pigmented lesion - Upper back',\n      description: 'AI analysis indicates benign nevus with low malignancy risk, routine monitoring recommended',\n      severity: 'LOW RISK',\n      severityColor: 'bg-green-600',\n      riskScore: 15,\n      lesionInfo: {\n        location: 'Upper back',\n        size: '5mm diameter',\n        color: 'Uniform brown',\n        border: 'Regular and well-defined',\n        evolution: 'Stable for years'\n      },\n      abcdeAnalysis: {\n        asymmetry: 'NEGATIVE - Symmetric',\n        border: 'NEGATIVE - Regular, well-defined',\n        color: 'NEGATIVE - Uniform brown throughout',\n        diameter: 'NEGATIVE - 5mm (below threshold)',\n        evolving: 'NEGATIVE - Stable, no changes'\n      },\n      aiFindings: [\n        'Symmetric appearance (0/5 asymmetry score)',\n        'Regular border with no notching or irregularity',\n        'Uniform brown pigmentation throughout',\n        'Size below melanoma threshold (5mm)',\n        'No evolution reported by patient',\n        'Dermoscopic features: regular pigment network',\n        'Deep learning confidence: 85% benign nevus'\n      ],\n      recommendations: [\n        '✓ No urgent action required',\n        'Routine monitoring with annual skin checks',\n        'Patient self-examination monthly (ABCDE method)',\n        'Photograph for baseline comparison',\n        'Return if any changes in size, shape, color, or symptoms',\n        'Sun protection to prevent new lesions'\n      ],\n      clinicalContext: {\n        patientAge: '34 years',\n        skinType: 'Fitzpatrick Type III (moderate skin tone)',\n        riskFactors: 'Multiple nevi (>50), no family history',\n        previousLesions: 'None removed'\n      },\n      outcomeAnalysis: {\n        malignancyRisk: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "03% lifetime risk per nevus',\n        aiDetectionAccuracy: '89",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "4% (benign classification)',\n        unnecessaryBiopsyAvoided: 'Yes (reduces healthcare costs)',\n        timeToReassurance: '<1 hour (AI-assisted)',\n        manualTimeToReassurance: '2-6 weeks (traditional dermatology wait)'\n      }\n    }\n  ];\n\n  const handleScenarioSelect = (scenario) => {\n    setSelectedScenario(scenario);\n  };\n\n  const handleBack = () => {\n    setSelectedScenario(null);\n  };\n\n  if (selectedScenario) {\n    return (\n      <div style={{\n        minHeight: '100vh',\n        background: 'linear-gradient(135deg, #14B8A615 0%, #14B8A625 50%, #14B8A615 100%)',\n        padding: '2rem',\n        position: 'fixed',\n        top: 0,\n        left: 0,\n        right: 0,\n        bottom: 0,\n        overflowY: 'auto'\n      }}>\n        <button\n          onClick={handleBack}\n          style={{\n            position: 'fixed',\n            top: '2rem',\n            left: '2rem',\n            background: '#3b82f6',\n            color: 'white',\n            border: 'none',\n            padding: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "6% Accuracy</div>\n              <div style={{ fontSize: '1rem', color: '#1e40af', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "SkinScanPrototype.jsx",
+      "claim": "99% Survival</div>\n              <div style={{ fontSize: '1rem', color: '#1e40af', marginTop: '0",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "StarryBackground.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "SubscriptionGate.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "TermsOfService.jsx",
+      "keyword": "diagnosis",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnosis\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "TermsOfService.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "TermsOfService.jsx",
+      "keyword": "medical advice",
+      "count": 2,
+      "message": "Contains medical claim keyword \"medical advice\" which may violate FDA regulations"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "TermsOfService.jsx",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "WhoBenefits.jsx",
+      "keyword": "prevent",
+      "count": 2,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "WhoBenefits.jsx",
+      "keyword": "prevention",
+      "count": 2,
+      "message": "Contains medical claim keyword \"prevention\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "WhoBenefits.jsx",
+      "keyword": "medical device",
+      "count": 1,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "WhoBenefits.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "WhoBenefits.jsx",
+      "feature": "telemedicine",
+      "message": "Claims \"telemedicine\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "seoMetadata.js",
+      "keyword": "medical device",
+      "count": 5,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "seoMetadata.js",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "seoMetadata.js",
+      "feature": "telemedicine",
+      "message": "Claims \"telemedicine\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "platformData.js",
+      "keyword": "diagnosis",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnosis\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "platformData.js",
+      "keyword": "prevent",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevent\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "platformData.js",
+      "keyword": "medical device",
+      "count": 6,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "86% (Devine et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "100% sensitivity and 80-90% specificity (Kheshti et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "30% of Phase III trials fail due to poor protocol design",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "85% accuracy using site-specific enrollment models",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "85% accuracy using site-specific models and real-world recruitment data",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "85% accuracy in recruitment forecasting (Olawade et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "85% accuracy (Olawade et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "82% accuracy",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "40% in elderly populations (Seaman et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "89% accuracy compared to 58% with manual calculations (Yamamoto & Kanemori, 2010), significantly reducing calculation errors and improving patient safety",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "99% when caught early, but drop to 27% for late-stage disease",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "5% sensitivity and 89",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "3% specificity for melanoma detection, matching or exceeding average dermatologist performance",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "5% sensitivity and 89",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "STATISTIC",
+      "file": "platformData.js",
+      "claim": "3% specificity, matching or exceeding average dermatologist performance (Esteva et al",
+      "message": "Percentage claim needs citation/verification"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "platformData.js",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "EHR integration",
+      "message": "Claims \"EHR integration\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "Epic",
+      "message": "Claims \"Epic\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "Cerner",
+      "message": "Claims \"Cerner\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "pharmacy integration",
+      "message": "Claims \"pharmacy integration\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "Quest",
+      "message": "Claims \"Quest\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "LabCorp",
+      "message": "Claims \"LabCorp\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "FALSE_FEATURE",
+      "file": "platformData.js",
+      "feature": "telemedicine",
+      "message": "Claims \"telemedicine\" but this feature is NOT implemented"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "About.jsx",
+      "keyword": "prevention",
+      "count": 1,
+      "message": "Contains medical claim keyword \"prevention\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "About.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "Dashboard.jsx",
+      "keyword": "diagnosis",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnosis\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardAssessment.jsx",
+      "keyword": "diagnose",
+      "count": 1,
+      "message": "Contains medical claim keyword \"diagnose\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardAssessment.jsx",
+      "keyword": "treat",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treat\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "EndoGuardAssessment.jsx",
+      "keyword": "medical advice",
+      "count": 1,
+      "message": "Contains medical claim keyword \"medical advice\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "PlatformsPage.jsx",
+      "keyword": "treatment",
+      "count": 1,
+      "message": "Contains medical claim keyword \"treatment\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "PlatformsPage.jsx",
+      "keyword": "medical device",
+      "count": 1,
+      "message": "Contains medical claim keyword \"medical device\" which may violate FDA regulations"
+    },
+    {
+      "severity": "HIGH",
+      "type": "FEATURE_CLAIM",
+      "file": "PlatformsPage.jsx",
+      "message": "Claims AI-powered features - verify OpenAI integration is working"
+    },
+    {
+      "severity": "HIGH",
+      "type": "MEDICAL_CLAIM",
+      "file": "RxGuardDashboard.jsx",
+      "keyword": "medical advice",
+      "count": 1,
+      "message": "Contains medical claim keyword \"medical advice\" which may violate FDA regulations"
+    }
+  ]
+}

@@ -159,7 +159,7 @@ const EndoGuardPrototype = ({ onBack }) => {
           style={{
             background: 'rgba(255, 255, 255, 0.1)',
             border: '1px solid rgba(0, 206, 209, 0.3)',
-            color: '#00CED1',
+            color: '#D946EF',
             padding: '0.75rem 1.5rem',
             borderRadius: '8px',
             cursor: 'pointer',
@@ -168,7 +168,7 @@ const EndoGuardPrototype = ({ onBack }) => {
           }}
           onMouseEnter={(e) => {
             e.target.style.background = 'rgba(0, 206, 209, 0.2)';
-            e.target.style.borderColor = '#00CED1';
+            e.target.style.borderColor = '#D946EF';
           }}
           onMouseLeave={(e) => {
             e.target.style.background = 'rgba(255, 255, 255, 0.1)';
@@ -190,7 +190,7 @@ const EndoGuardPrototype = ({ onBack }) => {
             style={{ maxWidth: '1200px', margin: '0 auto' }}
           >
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h1 style={{ fontSize: '3rem', color: '#00CED1', marginBottom: '1rem', fontWeight: 'bold' }}>
+              <h1 style={{ fontSize: '3rem', color: '#D946EF', marginBottom: '1rem', fontWeight: 'bold' }}>
                 EndoGuard™ Hormone Intelligence Demo
               </h1>
               <p style={{ fontSize: '1.25rem', color: 'rgba(255, 255, 255, 0.8)', maxWidth: '800px', margin: '0 auto' }}>
@@ -218,11 +218,11 @@ const EndoGuardPrototype = ({ onBack }) => {
                       transition: 'all 0.3s'
                     }}
                   >
-                    <h3 style={{ color: '#00CED1', fontSize: '1.25rem', marginBottom: '0.5rem' }}>{scenario.title}</h3>
+                    <h3 style={{ color: '#D946EF', fontSize: '1.25rem', marginBottom: '0.5rem' }}>{scenario.title}</h3>
                     <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', marginBottom: '1rem' }}>{scenario.profile}</p>
                     <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem' }}>
                       <span style={{ color: '#FFB800' }}>EDC Score: {scenario.edcScore}/100</span>
-                      <span style={{ color: '#00CED1' }}>{scenario.symptoms.length} Symptoms</span>
+                      <span style={{ color: '#D946EF' }}>{scenario.symptoms.length} Symptoms</span>
                     </div>
                   </motion.div>
                 ))}
@@ -241,7 +241,7 @@ const EndoGuardPrototype = ({ onBack }) => {
               <button
                 onClick={() => setCurrentStep('symptoms')}
                 style={{
-                  background: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+                  background: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
                   border: 'none',
                   color: '#fff',
                   padding: '1rem 3rem',
@@ -276,7 +276,7 @@ const EndoGuardPrototype = ({ onBack }) => {
             exit={{ opacity: 0, x: -20 }}
             style={{ maxWidth: '1200px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '2rem', color: '#00CED1', marginBottom: '2rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2rem', color: '#D946EF', marginBottom: '2rem', textAlign: 'center' }}>
               Select Your Symptoms
             </h2>
 
@@ -292,9 +292,9 @@ const EndoGuardPrototype = ({ onBack }) => {
                       onClick={() => handleSymptomToggle(symptom)}
                       style={{
                         background: selectedSymptoms.includes(symptom)
-                          ? 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)'
+                          ? 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)'
                           : 'rgba(255, 255, 255, 0.05)',
-                        border: `1px solid ${selectedSymptoms.includes(symptom) ? '#00CED1' : 'rgba(255, 255, 255, 0.2)'}`,
+                        border: `1px solid ${selectedSymptoms.includes(symptom) ? '#D946EF' : 'rgba(255, 255, 255, 0.2)'}`,
                         color: '#fff',
                         padding: '1rem',
                         borderRadius: '8px',
@@ -330,7 +330,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                 disabled={selectedSymptoms.length === 0}
                 style={{
                   background: selectedSymptoms.length > 0
-                    ? 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)'
+                    ? 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)'
                     : 'rgba(255, 255, 255, 0.1)',
                   border: 'none',
                   color: '#fff',
@@ -356,7 +356,7 @@ const EndoGuardPrototype = ({ onBack }) => {
             exit={{ opacity: 0, x: -20 }}
             style={{ maxWidth: '900px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '2rem', color: '#00CED1', marginBottom: '2rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2rem', color: '#D946EF', marginBottom: '2rem', textAlign: 'center' }}>
               EDC Exposure Assessment
             </h2>
             <p style={{ color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', marginBottom: '3rem' }}>
@@ -375,9 +375,9 @@ const EndoGuardPrototype = ({ onBack }) => {
                       onClick={() => handleEdcAnswer(q.id, option)}
                       style={{
                         background: edcExposure[q.id] === option
-                          ? 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)'
+                          ? 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)'
                           : 'rgba(255, 255, 255, 0.05)',
-                        border: `1px solid ${edcExposure[q.id] === option ? '#00CED1' : 'rgba(255, 255, 255, 0.2)'}`,
+                        border: `1px solid ${edcExposure[q.id] === option ? '#D946EF' : 'rgba(255, 255, 255, 0.2)'}`,
                         color: '#fff',
                         padding: '0.75rem',
                         borderRadius: '8px',
@@ -412,7 +412,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                 disabled={Object.keys(edcExposure).length < edcQuestions.length}
                 style={{
                   background: Object.keys(edcExposure).length === edcQuestions.length
-                    ? 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)'
+                    ? 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)'
                     : 'rgba(255, 255, 255, 0.1)',
                   border: 'none',
                   color: '#fff',
@@ -445,12 +445,12 @@ const EndoGuardPrototype = ({ onBack }) => {
                 width: '80px',
                 height: '80px',
                 border: '4px solid rgba(0, 206, 209, 0.2)',
-                borderTopColor: '#00CED1',
+                borderTopColor: '#D946EF',
                 borderRadius: '50%',
                 margin: '0 auto 2rem'
               }}
             />
-            <h2 style={{ fontSize: '2rem', color: '#00CED1', marginBottom: '1rem' }}>
+            <h2 style={{ fontSize: '2rem', color: '#D946EF', marginBottom: '1rem' }}>
               Analyzing Your Hormone Health...
             </h2>
             <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.1rem', lineHeight: '1.8' }}>
@@ -471,7 +471,7 @@ const EndoGuardPrototype = ({ onBack }) => {
             exit={{ opacity: 0, y: -20 }}
             style={{ maxWidth: '1200px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '2.5rem', color: '#00CED1', marginBottom: '1rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2.5rem', color: '#D946EF', marginBottom: '1rem', textAlign: 'center' }}>
               Your Hormone Health Analysis
             </h2>
             <p style={{ color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', marginBottom: '3rem', fontSize: '1.1rem' }}>
@@ -517,7 +517,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                     }}
                   >
                     <div>
-                      <div style={{ color: '#00CED1', fontSize: '1.1rem', fontWeight: 'bold' }}>{finding.hormone}</div>
+                      <div style={{ color: '#D946EF', fontSize: '1.1rem', fontWeight: 'bold' }}>{finding.hormone}</div>
                       <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
                         Status: <span style={{ color: finding.status.includes('Elevated') || finding.status.includes('Low') ? '#FFB800' : '#4ADE80' }}>{finding.status}</span>
                       </div>
@@ -551,7 +551,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '0.75rem' }}>
                       <div>
-                        <div style={{ color: '#00CED1', fontSize: '1.1rem', fontWeight: 'bold' }}>{exposure.chemical}</div>
+                        <div style={{ color: '#D946EF', fontSize: '1.1rem', fontWeight: 'bold' }}>{exposure.chemical}</div>
                         <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginTop: '0.25rem' }}>Source: {exposure.source}</div>
                       </div>
                       <span style={{
@@ -587,7 +587,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                       padding: '1.5rem'
                     }}
                   >
-                    <div style={{ color: '#00CED1', fontSize: '1rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <div style={{ color: '#D946EF', fontSize: '1rem', fontWeight: 'bold', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       {rec.category}
                     </div>
                     <div style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.75rem' }}>
@@ -625,7 +625,7 @@ const EndoGuardPrototype = ({ onBack }) => {
               <button
                 onClick={() => navigate('/pricing/endoguard')}
                 style={{
-                  background: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+                  background: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
                   border: 'none',
                   color: '#fff',
                   padding: '1rem 2rem',

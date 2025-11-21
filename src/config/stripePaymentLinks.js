@@ -6,7 +6,8 @@ export const STRIPE_PAYMENT_LINKS = {
   // ==============================================
   // RxGuard™ - AI Drug Interaction Detection
   // ==============================================
-  // Professional: $49/month with 14-day free trial
+  // Professional: $39/month with 14-day free trial
+  // WARNING: Current test link may have wrong price - verify in Stripe Dashboard
   rxguard_professional: 'https://buy.stripe.com/test_7sYbJ1cg5ajR3HKge1aMU06',
   
   // ==============================================

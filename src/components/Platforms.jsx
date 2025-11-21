@@ -148,6 +148,7 @@ export default function Platforms({ onLearnMore }) {
                 <img 
                   src={`/logos/${platform.name.replace('™', '').replace(' ', '_')}_Logo_White_BG.png`}
                   alt={`${platform.name} Logo`}
+                  loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
               </div>

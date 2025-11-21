@@ -1,12 +1,12 @@
 ## 🚨 URGENT FIXES (Nov 21, 2025 - User Reported)
-- [ ] Fix blank page issue when clicking "Start Free Trial" on EndoGuard and RxGuard
-- [ ] Add proper message/placeholder on pricing pages until beta testing is complete
-- [ ] Differentiate color schemes between EndoGuard and RxGuard (too similar - user feedback)
+- [x] Fix blank page issue when clicking "Start Free Trial" on EndoGuard and RxGuard
+- [x] Add proper message/placeholder on pricing pages until beta testing is complete
+- [x] Differentiate color schemes between EndoGuard and RxGuard (too similar - user feedback)
 - [ ] Conduct comprehensive beta test of functional platforms (not demos, real platforms)
 - [ ] Verify website documentation matches actual platform functionality
-- [ ] Change EndoGuard color scheme to deep magenta/fuchsia (differentiate from RxGuard)
-- [ ] Remove pricing display from /platforms page (user request - no pricing until after beta testing)
-- [ ] Fix "Start Free Trial" buttons to show beta testing message instead of blank page
+- [x] Change EndoGuard color scheme to deep magenta/fuchsia (differentiate from RxGuard)
+- [x] Remove pricing display from /platforms page (user request - no pricing until after beta testing)
+- [x] Fix "Start Free Trial" buttons to show beta testing message instead of blank page
 
 # Nexus Biomedical Intelligence - TODO
 
@@ -592,3 +592,13 @@
 - [ ] Implement lazy loading for images and components
 - [ ] Add caching headers
 - [ ] Test mobile performance (target: < 3 seconds load time)
+
+## 🚀 PRIORITY TASKS (Nov 21, 2025 - User Directive)
+- [ ] Mobile performance optimization (convert images to WebP, lazy loading, defer JS)
+- [ ] Connect authentication to RxGuard Dashboard (protected routes, save user data)
+- [ ] Connect authentication to EndoGuard Assessment (protected routes, save user data)
+- [ ] Make Stripe payment automatically create user accounts
+- [ ] Verify pricing consistency: Website vs Stripe (EndoGuard $97, RxGuard $39)
+- [ ] Create comprehensive testing guide with step-by-step scripts
+- [ ] Create sample test data for RxGuard and EndoGuard
+- [ ] Create bug tracking template for user testing

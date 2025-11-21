@@ -9,6 +9,7 @@ import FAQ from './components/FAQ'
 import WhoBenefits from './components/WhoBenefits'
 import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
+import ProtectedRoute from './components/ProtectedRoute'
 import { platformsData } from './data/platformData'
 
 // Lazy load demo components for better performance
@@ -30,6 +31,8 @@ const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
 const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
+const Login = lazy(() => import('./pages/Login'))
+const Signup = lazy(() => import('./pages/Signup'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -207,7 +210,9 @@ function App() {
         path="/rxguard/dashboard" 
         element={
           <Suspense fallback={<LoadingFallback />}>
-            <RxGuardDashboard />
+            <ProtectedRoute platform="rxguard">
+              <RxGuardDashboard />
+            </ProtectedRoute>
           </Suspense>
         } 
       />
@@ -217,7 +222,9 @@ function App() {
         path="/endoguard/assessment" 
         element={
           <Suspense fallback={<LoadingFallback />}>
-            <EndoGuardAssessment />
+            <ProtectedRoute platform="endoguard">
+              <EndoGuardAssessment />
+            </ProtectedRoute>
           </Suspense>
         } 
       />
@@ -231,6 +238,24 @@ function App() {
       <Route path="/skinscan" element={<PlatformPage />} />
       <Route path="/endoguard" element={<PlatformPage />} />
 
+      {/* Authentication Routes */}
+      <Route 
+        path="/login" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <Login />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/signup" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <Signup />
+          </Suspense>
+        } 
+      />
+      
       {/* Beta Signup Route */}
       <Route 
         path="/beta-signup" 

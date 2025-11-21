@@ -26,8 +26,9 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       // User is logged in, go directly to platform
       navigate(dashboardUrl);
     } else {
-      // User needs to log in first
-      navigate(`/login?redirect=${encodeURIComponent(dashboardUrl)}`);
+      // Platform is in beta testing - show message
+      alert(`${platform.name} is currently in beta testing.\n\nWe're conducting comprehensive testing to ensure the platform meets our quality standards before launch.\n\nInterested in early access? Click OK to join our beta waitlist.`);
+      navigate('/beta-signup');
     }
   };
   // Update SEO meta tags when platform changes

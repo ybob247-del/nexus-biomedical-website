@@ -91,14 +91,8 @@ export default function PlatformsPage() {
       return;
     }
 
-    // Convert platform name to URL-friendly format
-    const platformId = platform.name
-      .toLowerCase()
-      .replace(/™/g, '')
-      .replace(/\s+/g, '');
-    
-    // Navigate to pricing page
-    navigate(`/pricing/${platformId}`);
+    // Platform is in beta testing
+    alert(`${platform.name} is currently in beta testing.\n\nWe're conducting comprehensive internal testing to ensure the platform meets our quality standards before launch.\n\nInterested in early access? Contact us at support@nexusbiomedical.ai`);
   };
 
   return (
@@ -291,26 +285,24 @@ export default function PlatformsPage() {
               {platform.description}
             </p>
 
-            {/* Price & Trial */}
+            {/* Beta Testing Notice */}
             {!platform.comingSoon && (
               <div style={{
                 textAlign: 'center',
-                marginBottom: '1.5rem'
+                marginBottom: '1.5rem',
+                padding: '1rem',
+                background: 'rgba(255, 165, 0, 0.1)',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 165, 0, 0.3)'
               }}>
                 <div style={{
-                  fontSize: '1.5rem',
-                  fontWeight: 700,
-                  color: '#FFFFFF',
-                  marginBottom: '0.5rem'
-                }}>
-                  {platform.price}
-                </div>
-                <div style={{
                   fontSize: '0.875rem',
-                  color: platform.color,
-                  fontWeight: 600
+                  color: '#FFA500',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px'
                 }}>
-                  {platform.trial}
+                  Beta Testing in Progress
                 </div>
               </div>
             )}

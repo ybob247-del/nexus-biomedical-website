@@ -1,3 +1,13 @@
+## 🚨 URGENT FIXES (Nov 21, 2025 - User Reported)
+- [ ] Fix blank page issue when clicking "Start Free Trial" on EndoGuard and RxGuard
+- [ ] Add proper message/placeholder on pricing pages until beta testing is complete
+- [ ] Differentiate color schemes between EndoGuard and RxGuard (too similar - user feedback)
+- [ ] Conduct comprehensive beta test of functional platforms (not demos, real platforms)
+- [ ] Verify website documentation matches actual platform functionality
+- [ ] Change EndoGuard color scheme to deep magenta/fuchsia (differentiate from RxGuard)
+- [ ] Remove pricing display from /platforms page (user request - no pricing until after beta testing)
+- [ ] Fix "Start Free Trial" buttons to show beta testing message instead of blank page
+
 # Nexus Biomedical Intelligence - TODO
 
 ## 🎯 NEW STRATEGY: Build All 7, Launch Strategically (Nov 20, 2025)

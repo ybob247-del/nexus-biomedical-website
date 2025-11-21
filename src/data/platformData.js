@@ -322,8 +322,8 @@ export const platformsData = {
   'EndoGuard™': {
     name: 'EndoGuard™',
     tagline: 'Clinical-Grade Hormone Intelligence Platform',
-    color: '#00CED1',
-    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+    color: '#D946EF',
+    gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
     badge: 'AI-POWERED HORMONE INTELLIGENCE',
     comingSoon: false,
     stripeConfigured: true,

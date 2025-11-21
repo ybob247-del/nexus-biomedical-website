@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import SubscriptionGate from '../components/SubscriptionGate';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
 const API_BASE = 'http://localhost:3008/api/endoguard';
 
 export default function EndoGuardAssessment() {
+  const navigate = useNavigate();
+  const { user, token } = useAuth();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     // Demographics
@@ -39,6 +44,13 @@ export default function EndoGuardAssessment() {
 
   const [results, setResults] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Check authentication on mount
+  useEffect(() => {
+    if (!user || !token) {
+      navigate('/login?redirect=/endoguard/assessment');
+    }
+  }, [user, token, navigate]);
 
   // Symptom options organized by hormone system
   const symptomOptions = {
@@ -107,7 +119,8 @@ export default function EndoGuardAssessment() {
       const response = await fetch(`${API_BASE}/assess`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(formData)
       });
@@ -127,7 +140,8 @@ export default function EndoGuardAssessment() {
   };
 
   return (
-    <div className="endoguard-assessment">
+    <SubscriptionGate platform="endoguard">
+      <div className="endoguard-assessment">
       <div className="assessment-header">
         <h1>EndoGuard™ Hormone Health Assessment</h1>
         <p>Discover your EDC exposure risk and get personalized recommendations</p>
@@ -480,6 +494,7 @@ export default function EndoGuardAssessment() {
           <EndoGuardResults results={results} />
         )}
       </div>
-    </div>
+      </div>
+    </SubscriptionGate>
   );
 }

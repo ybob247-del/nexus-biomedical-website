@@ -464,3 +464,53 @@
 - [ ] Remove any false claims or promises
 - [ ] Add "Beta" labels where appropriate
 - [ ] Update FAQ section with accurate information
+
+
+## 🔌 CURRENT TASK: Connect Dashboards to Backend APIs (Nov 21, 2025)
+
+### RxGuard Dashboard API Integration
+- [ ] Update RxGuardDashboard.jsx to call backend API (http://localhost:3007)
+- [ ] Implement drug search with autocomplete using /api/rxguard/search-drugs
+- [ ] Implement drug info retrieval using /api/rxguard/drug-info
+- [ ] Implement interaction checking using /api/rxguard/check-interactions
+- [ ] Add authentication token to all API requests
+- [ ] Save medication lists to database (user_medication_lists table)
+- [ ] Load user's saved medication lists on dashboard load
+- [ ] Add error handling and loading states
+- [ ] Test complete flow: search → add → check interactions → save
+
+### EndoGuard Assessment API Integration
+- [ ] Update EndoGuardAssessment.jsx to call backend API (http://localhost:3008)
+- [ ] Implement assessment submission using /api/endoguard/assess
+- [ ] Add authentication token to API requests
+- [ ] Save assessment results to database (endoguard_assessments table)
+- [ ] Load user's assessment history
+- [ ] Display progress tracking over time
+- [ ] Add error handling and loading states
+- [ ] Test complete flow: assessment → results → save → history
+
+### Authentication & Protected Routes
+- [ ] Add ProtectedRoute component for dashboard access
+- [ ] Redirect unauthenticated users to login
+- [ ] Pass authentication token from AuthContext to API calls
+- [ ] Handle token expiration and refresh
+- [ ] Add logout functionality from dashboards
+
+### Data Persistence
+- [ ] Verify database tables exist (user_medication_lists, endoguard_assessments)
+- [ ] Test saving data from frontend to database
+- [ ] Test loading saved data on dashboard
+- [ ] Implement data export (PDF reports)
+
+
+### Stripe Payment Integration (USER REQUEST)
+- [ ] Add Stripe subscription endpoints to backend
+- [ ] Create RxGuard subscription product ($39/month)
+- [ ] Create EndoGuard subscription product ($97/month)
+- [ ] Add 7-day free trial to both subscriptions
+- [ ] Create checkout page for platform subscriptions
+- [ ] Add subscription status check before platform access
+- [ ] Handle webhook events (payment success, subscription canceled)
+- [ ] Add subscription management dashboard
+- [ ] Test payment flow end-to-end
+- [ ] Update Stripe account with new products

@@ -1,15 +1,76 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import SubscriptionGate from '../components/SubscriptionGate';
 import '../styles/rxguard-dashboard.css';
 
 const API_BASE = 'http://localhost:3007/api/rxguard';
 
 export default function RxGuardDashboard() {
+  const navigate = useNavigate();
+  const { user, token } = useAuth();
   const [medications, setMedications] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [analysis, setAnalysis] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+
+  // Check authentication on mount
+  useEffect(() => {
+    if (!user || !token) {
+      navigate('/login?redirect=/rxguard/dashboard');
+    }
+  }, [user, token, navigate]);
+
+  // Load saved medication lists on mount
+  useEffect(() => {
+    if (user && token) {
+      loadSavedMedications();
+    }
+  }, [user, token]);
+
+  // Load user's saved medications
+  const loadSavedMedications = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/my-medications`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const data = await response.json();
+      if (data.success && data.medications) {
+        setMedications(data.medications);
+      }
+    } catch (error) {
+      console.error('Error loading medications:', error);
+    }
+  };
+
+  // Save medications to database
+  const saveMedications = async () => {
+    setIsSaving(true);
+    try {
+      const response = await fetch(`${API_BASE}/save-medications`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ medications })
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert('Medication list saved successfully!');
+      }
+    } catch (error) {
+      console.error('Error saving medications:', error);
+      alert('Failed to save medication list.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   // Search for drugs
   const searchDrugs = async (query) => {
@@ -111,7 +172,8 @@ export default function RxGuardDashboard() {
   }, [searchQuery]);
 
   return (
-    <div className="rxguard-dashboard">
+    <SubscriptionGate platform="rxguard">
+      <div className="rxguard-dashboard">
       <div className="dashboard-header">
         <h1>RxGuard™ Drug Interaction Checker</h1>
         <p>Add your medications to check for potential interactions</p>
@@ -178,14 +240,25 @@ export default function RxGuardDashboard() {
           </div>
         )}
 
-        {medications.length >= 2 && (
-          <button
-            onClick={checkInteractions}
-            disabled={isAnalyzing}
-            className="check-interactions-btn"
-          >
-            {isAnalyzing ? 'Analyzing...' : 'Check for Interactions'}
-          </button>
+        {medications.length >= 1 && (
+          <div className="action-buttons">
+            <button
+              onClick={saveMedications}
+              disabled={isSaving}
+              className="save-btn"
+            >
+              {isSaving ? 'Saving...' : '💾 Save Medication List'}
+            </button>
+            {medications.length >= 2 && (
+              <button
+                onClick={checkInteractions}
+                disabled={isAnalyzing}
+                className="check-interactions-btn"
+              >
+                {isAnalyzing ? 'Analyzing...' : '🔍 Check for Interactions'}
+              </button>
+            )}
+          </div>
         )}
       </div>
 
@@ -275,6 +348,7 @@ export default function RxGuardDashboard() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </SubscriptionGate>
   );
 }

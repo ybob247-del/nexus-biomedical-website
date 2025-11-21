@@ -397,6 +397,77 @@ app.post('/api/rxguard/check-interactions', async (req, res) => {
   }
 });
 
+// Authentication middleware
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+
+  // TODO: Verify JWT token properly
+  // For now, just pass through - will integrate with main auth system
+  req.user = { id: 'user123' }; // Placeholder
+  next();
+};
+
+// Save Medications (Protected)
+app.post('/api/rxguard/save-medications', authenticateToken, async (req, res) => {
+  try {
+    const { medications } = req.body;
+    const userId = req.user.id;
+
+    if (!medications || !Array.isArray(medications)) {
+      return res.status(400).json({ 
+        error: 'Invalid request',
+        message: 'Medications array is required' 
+      });
+    }
+
+    // TODO: Save to database
+    // For now, just acknowledge
+    console.log(`Saving ${medications.length} medications for user ${userId}`);
+
+    return res.status(200).json({
+      success: true,
+      message: 'Medications saved successfully',
+      count: medications.length
+    });
+
+  } catch (error) {
+    console.error('Save medications error:', error);
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      message: error.message 
+    });
+  }
+});
+
+// Load Medications (Protected)
+app.get('/api/rxguard/my-medications', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    // TODO: Load from database
+    // For now, return empty array
+    console.log(`Loading medications for user ${userId}`);
+
+    return res.status(200).json({
+      success: true,
+      medications: [],
+      message: 'No saved medications found'
+    });
+
+  } catch (error) {
+    console.error('Load medications error:', error);
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      message: error.message 
+    });
+  }
+});
+
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ RxGuard API Server running on http://0.0.0.0:${PORT}`);

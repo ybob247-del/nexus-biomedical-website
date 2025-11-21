@@ -404,3 +404,63 @@
 - [ ] First 100 customers acquisition plan
 - [ ] Pricing optimization analysis
 - [ ] Partner outreach templates (NP, OBGYN)
+
+
+## 🚨 CRITICAL: CONNECT PLATFORMS TO WEBSITE (IN PROGRESS)
+
+### Frontend-Backend Integration
+- [ ] Connect homepage "Get Started" buttons to actual signup/platform pages
+- [ ] Wire RxGuard™ frontend to backend API (port 3007)
+- [ ] Wire EndoGuard™ frontend to backend API (port 3008)
+- [ ] Add authentication flow to platform access
+- [ ] Create user dashboards for saved data
+- [ ] Test complete user journey from homepage to platform
+
+### Marketing Content Updates
+- [ ] Audit all homepage claims against actual functionality
+- [ ] Remove or update false/misleading statements
+- [ ] Add "Beta" labels where appropriate
+- [ ] Update platform descriptions to match reality
+- [ ] Fix all broken links and redirects
+- [ ] Update FAQ with accurate information
+- [ ] Revise "How it works" section to match actual flow
+
+### User Experience Fixes
+- [ ] Fix slow loading/lagging issues reported by users
+- [ ] Optimize frontend performance
+- [ ] Add loading states and error handling
+- [ ] Test on multiple devices/browsers
+- [ ] Ensure mobile responsiveness
+
+### Payment & Subscription
+- [ ] Add Stripe checkout for RxGuard ($39/month)
+- [ ] Add Stripe checkout for EndoGuard ($97/month)
+- [ ] Implement 7-day free trial
+- [ ] Add subscription management dashboard
+- [ ] Test payment flow end-to-end
+
+
+## 🎯 CURRENT PRIORITY: Add Disclaimers & Connect Real Platforms (Nov 21, 2025)
+
+### Prototype Disclaimers (CRITICAL - User Request)
+- [x] Add prominent "Preview Demo - Sample Data Only" banner to RxGuard prototype
+- [x] Add disclaimer to EndoGuard prototype
+- [x] Add disclaimer to all other platform prototypes
+- [x] Add "Get Full Access" button in prototypes linking to signup/login
+- [x] Visual distinction (badge/banner) so users know it's a demo
+- [x] Clear message: "Real platform includes live FDA data and full features"
+
+### Authentication Flow (IN PROGRESS)
+- [x] Update LearnMore component to redirect Get Started to login
+- [x] Add handleGetStarted function with authentication check
+- [ ] Test login → redirect to dashboard flow
+- [ ] Add protected routes for all dashboards
+- [ ] Connect RxGuard dashboard to backend API (port 3007)
+- [ ] Connect EndoGuard assessment to backend API (port 3008)
+
+### Marketing Content Accuracy
+- [ ] Review homepage hero copy for accuracy
+- [ ] Update platform descriptions to match actual capabilities
+- [ ] Remove any false claims or promises
+- [ ] Add "Beta" labels where appropriate
+- [ ] Update FAQ section with accurate information

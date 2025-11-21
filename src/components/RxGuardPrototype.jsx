@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import BetaDisclaimer from './BetaDisclaimer';
+import DemoDisclaimer from './DemoDisclaimer';
 
 const RxGuardPrototype = ({ onBack }) => {
   const navigate = useNavigate();
@@ -11,6 +12,10 @@ const RxGuardPrototype = ({ onBack }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedScenario, setSelectedScenario] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  
+  const handleGetFullAccess = () => {
+    navigate('/login?redirect=/rxguard/dashboard');
+  };
 
   // Medication database
   const medicationDatabase = [
@@ -292,6 +297,7 @@ const RxGuardPrototype = ({ onBack }) => {
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <BetaDisclaimer platformColor="#00A8CC" />
+          <DemoDisclaimer platformName="RxGuard™" dashboardUrl="/rxguard/dashboard" />
           {/* Back Button */}
           {onBack && (
             <button

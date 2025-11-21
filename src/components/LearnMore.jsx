@@ -2,8 +2,34 @@ import React, { useEffect } from 'react';
 import { openPaymentLink } from '../config/stripePaymentLinks';
 import { openEndoGuardPayment } from '../config/endoguardStripeLinks';
 import { updateMetaTags, resetMetaTags } from '../config/seoMetadata';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  
+  // Map platform names to dashboard URLs
+  const platformDashboards = {
+    'RxGuard™': '/rxguard/dashboard',
+    'EndoGuard™': '/endoguard/assessment',
+    'ElderWatch™': '/elderwatch/dashboard',
+    'PediCalc Pro™': '/pedicalc/dashboard',
+    'ClinicalIQ™': '/clinicaliq/dashboard',
+    'ReguReady™': '/reguready/dashboard',
+    'SkinScan Pro™': '/skinscan/dashboard'
+  };
+  
+  const handleGetStarted = () => {
+    const dashboardUrl = platformDashboards[platform.name];
+    if (isAuthenticated) {
+      // User is logged in, go directly to platform
+      navigate(dashboardUrl);
+    } else {
+      // User needs to log in first
+      navigate(`/login?redirect=${encodeURIComponent(dashboardUrl)}`);
+    }
+  };
   // Update SEO meta tags when platform changes
   useEffect(() => {
     if (platform && platform.name) {
@@ -190,6 +216,12 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
   // Handle Start Free Trial button clicks
   const handleStartTrial = () => {
+    // For functional platforms, redirect to login/dashboard
+    if (['RxGuard™', 'EndoGuard™'].includes(platform.name)) {
+      handleGetStarted();
+      return;
+    }
+    
     // RxGuard™ Professional - $49/month with 14-day trial
     if (platform.name === 'RxGuard™') {
       openPaymentLink('rxguard_professional');
@@ -226,6 +258,12 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
   // Handle pricing card button clicks
   const handlePricingClick = (plan) => {
+    // For functional platforms, redirect to login/dashboard
+    if (['RxGuard™', 'EndoGuard™'].includes(platform.name)) {
+      handleGetStarted();
+      return;
+    }
+    
     // RxGuard™
     if (platform.name === 'RxGuard™') {
       if (plan.tier === 'Professional') {

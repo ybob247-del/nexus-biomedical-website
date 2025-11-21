@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import BetaDisclaimer from './BetaDisclaimer';
+import DemoDisclaimer from './DemoDisclaimer';
 
 const EndoGuardPrototype = ({ onBack }) => {
   const navigate = useNavigate();
@@ -147,6 +148,9 @@ const EndoGuardPrototype = ({ onBack }) => {
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #0a1b3d 0%, #1a2f5a 100%)', padding: '2rem' }}>
       <BetaDisclaimer />
+      <div style={{ maxWidth: '1200px', margin: '0 auto 2rem' }}>
+        <DemoDisclaimer platformName="EndoGuard™" dashboardUrl="/endoguard/assessment" />
+      </div>
       
       {/* Header */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '2rem' }}>

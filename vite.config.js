@@ -17,8 +17,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split vendor code into separate chunk
-          vendor: ['react', 'react-dom']
+          // Split vendor code into separate chunks for better caching
+          react: ['react', 'react-dom', 'react-router-dom'],
+          motion: ['framer-motion']
         }
       }
     },

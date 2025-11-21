@@ -21,7 +21,11 @@ export default function StarryBackground() {
     // Create stars
     const initStars = () => {
       stars = []
-      const numStars = Math.floor((canvas.width * canvas.height) / 3000)
+      // Reduce stars on mobile for better performance
+      const isMobile = window.innerWidth < 768
+      const numStars = isMobile 
+        ? Math.floor((canvas.width * canvas.height) / 8000) // 60% fewer stars on mobile
+        : Math.floor((canvas.width * canvas.height) / 3000)
       
       for (let i = 0; i < numStars; i++) {
         stars.push({
@@ -37,6 +41,14 @@ export default function StarryBackground() {
 
     // Animate stars
     const animate = () => {
+      // Reduce frame rate on mobile
+      const isMobile = window.innerWidth < 768
+      if (isMobile && Math.random() > 0.5) {
+        // Skip every other frame on mobile
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // Draw stars

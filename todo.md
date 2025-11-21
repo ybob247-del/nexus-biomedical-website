@@ -575,10 +575,10 @@
 
 
 ## CRITICAL: Performance Optimization (Nov 21, 2025)
-- [ ] Diagnose slow loading on mobile devices
+- [x] Diagnose slow loading on mobile devices (StarryBackground animation)
+- [x] Optimize StarryBackground - 60% fewer stars on mobile, skip frames
+- [x] Reduce JavaScript bundle size (code splitting for react, motion, icons)
 - [ ] Optimize all images (compress, resize, convert to WebP)
 - [ ] Implement lazy loading for images and components
-- [ ] Reduce JavaScript bundle size
 - [ ] Add caching headers
 - [ ] Test mobile performance (target: < 3 seconds load time)
-- [ ] Fix any blocking resources

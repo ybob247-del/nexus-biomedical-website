@@ -562,3 +562,23 @@
 - [ ] Replace "treatment" with "recommendations" or "guidance"
 - [ ] Replace "prevention" with "risk reduction" or "awareness"
 - [ ] Add FDA disclaimer about not being a medical device
+
+
+## Platform Ordering & Page Issues (Nov 21, 2025)
+- [x] Swap platform order: EndoGuard first, RxGuard second (homepage)
+- [x] Update "Get Started" page platform order
+- [x] Fix pricing on PlatformsPage (RxGuard $39, EndoGuard $97)
+- [x] Fix trial periods on PlatformsPage (RxGuard 14 days, EndoGuard 30 days)
+- [x] Add COMING SOON badges to 5 platforms on PlatformsPage
+- [ ] Debug EndoGuard page blank/loading issue
+- [ ] Test all platform pages load correctly
+
+
+## CRITICAL: Performance Optimization (Nov 21, 2025)
+- [ ] Diagnose slow loading on mobile devices
+- [ ] Optimize all images (compress, resize, convert to WebP)
+- [ ] Implement lazy loading for images and components
+- [ ] Reduce JavaScript bundle size
+- [ ] Add caching headers
+- [ ] Test mobile performance (target: < 3 seconds load time)
+- [ ] Fix any blocking resources

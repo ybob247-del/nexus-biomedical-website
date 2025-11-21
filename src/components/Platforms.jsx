@@ -3,19 +3,19 @@ import { platformIcons } from './PlatformIcons'
 
 const platforms = [
   {
-    name: 'RxGuard™',
-    tagline: 'Medication Interaction Predictor',
-    description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
-    color: '#00A8CC',
-    gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-    comingSoon: false
-  },
-  {
     name: 'EndoGuard™',
     tagline: 'Clinical-Grade Hormone Intelligence Platform',
     description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
     color: '#00CED1',
     gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+    comingSoon: false
+  },
+  {
+    name: 'RxGuard™',
+    tagline: 'Medication Interaction Predictor',
+    description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
+    color: '#00A8CC',
+    gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
     comingSoon: false
   },
   {

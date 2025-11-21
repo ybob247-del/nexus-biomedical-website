@@ -4,34 +4,26 @@ import { motion } from 'framer-motion';
 
 const platforms = [
   {
+    name: 'EndoGuard™',
+    tagline: 'Clinical-Grade Hormone Intelligence Platform',
+    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
+    color: '#00CED1',
+    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
+    stripeKey: 'endoguard_premium',
+    price: '$97/month',
+    trial: '30-day free trial',
+    comingSoon: false
+  },
+  {
     name: 'RxGuard™',
     tagline: 'Medication Interaction Predictor',
     description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
     color: '#00A8CC',
     gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
     stripeKey: 'rxguard_professional',
-    price: '$49/month',
-    trial: '14-day free trial'
-  },
-  {
-    name: 'ReguReady™',
-    tagline: 'FDA Regulatory Guidance Platform',
-    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals.',
-    color: '#B794F4',
-    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
-    stripeKey: 'reguready_starter',
-    price: '$199/month',
-    trial: '7-day free trial'
-  },
-  {
-    name: 'ClinicalIQ™',
-    tagline: 'Clinical Decision Support System',
-    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations.',
-    color: '#00D084',
-    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
-    stripeKey: 'clinicaliq_starter',
-    price: '$299/month',
-    trial: '14-day free trial'
+    price: '$39/month',
+    trial: '14-day free trial',
+    comingSoon: false
   },
   {
     name: 'ElderWatch™',
@@ -39,9 +31,10 @@ const platforms = [
     description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge.',
     color: '#FB923C',
     gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
-    stripeKey: 'elderwatch_home',
-    price: '$49/month',
-    trial: '14-day free trial'
+    stripeKey: null,
+    price: 'Coming Soon',
+    trial: '',
+    comingSoon: true
   },
   {
     name: 'PediCalc Pro™',
@@ -49,9 +42,32 @@ const platforms = [
     description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification.',
     color: '#FDA4AF',
     gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
-    stripeKey: 'pedicalc_individual',
-    price: '$19.99/month',
-    trial: '14-day free trial'
+    stripeKey: null,
+    price: 'Coming Soon',
+    trial: '',
+    comingSoon: true
+  },
+  {
+    name: 'ClinicalIQ™',
+    tagline: 'Clinical Decision Support System',
+    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations.',
+    color: '#00D084',
+    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+    stripeKey: null,
+    price: 'Coming Soon',
+    trial: '',
+    comingSoon: true
+  },
+  {
+    name: 'ReguReady™',
+    tagline: 'FDA Regulatory Guidance Platform',
+    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals.',
+    color: '#B794F4',
+    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
+    stripeKey: null,
+    price: 'Coming Soon',
+    trial: '',
+    comingSoon: true
   },
   {
     name: 'SkinScan Pro™',
@@ -59,19 +75,10 @@ const platforms = [
     description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist in early melanoma identification.',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
-    stripeKey: 'skinscan_individual',
-    price: '$59/month',
-    trial: '14-day free trial'
-  },
-  {
-    name: 'EndoGuard™',
-    tagline: 'Environmental Health & Hormone Wellness',
-    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
-    color: '#00CED1',
-    gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
-    stripeKey: 'endoguard_premium', // Now set up!
-    price: '$29/month',
-    trial: '14-day free trial'
+    stripeKey: null,
+    price: 'Coming Soon',
+    trial: '',
+    comingSoon: true
   }
 ];
 
@@ -79,6 +86,11 @@ export default function PlatformsPage() {
   const navigate = useNavigate();
   
   const handleStartTrial = (platform) => {
+    if (platform.comingSoon) {
+      alert('This platform is coming soon! Join the waitlist at support@nexusbiomedical.ai');
+      return;
+    }
+
     // Convert platform name to URL-friendly format
     const platformId = platform.name
       .toLowerCase()
@@ -183,14 +195,35 @@ export default function PlatformsPage() {
               transition: 'all 0.3s ease',
               cursor: 'pointer',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              opacity: platform.comingSoon ? 0.7 : 1
             }}
             whileHover={{
-              scale: 1.02,
+              scale: platform.comingSoon ? 1 : 1.02,
               borderColor: platform.color,
-              boxShadow: `0 10px 40px ${platform.color}40`
+              boxShadow: platform.comingSoon ? 'none' : `0 10px 40px ${platform.color}40`
             }}
           >
+            {/* Coming Soon Badge */}
+            {platform.comingSoon && (
+              <div style={{
+                position: 'absolute',
+                top: '1.5rem',
+                right: '1.5rem',
+                background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
+                color: 'white',
+                padding: '0.5rem 1rem',
+                borderRadius: '20px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                zIndex: 10
+              }}>
+                Coming Soon
+              </div>
+            )}
+
             {/* Gradient accent bar */}
             <div style={{
               position: 'absolute',
@@ -258,35 +291,61 @@ export default function PlatformsPage() {
               {platform.description}
             </p>
 
-
+            {/* Price & Trial */}
+            {!platform.comingSoon && (
+              <div style={{
+                textAlign: 'center',
+                marginBottom: '1.5rem'
+              }}>
+                <div style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  marginBottom: '0.5rem'
+                }}>
+                  {platform.price}
+                </div>
+                <div style={{
+                  fontSize: '0.875rem',
+                  color: platform.color,
+                  fontWeight: 600
+                }}>
+                  {platform.trial}
+                </div>
+              </div>
+            )}
 
             {/* CTA Button */}
             <button
               onClick={() => handleStartTrial(platform)}
               style={{
-                background: platform.gradient,
+                background: platform.comingSoon ? 'rgba(255, 255, 255, 0.1)' : platform.gradient,
                 color: 'white',
-                border: 'none',
+                border: platform.comingSoon ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
                 borderRadius: '30px',
                 padding: '1rem 2rem',
                 fontSize: '1rem',
                 fontWeight: 600,
-                cursor: 'pointer',
+                cursor: platform.comingSoon ? 'not-allowed' : 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: `0 4px 15px ${platform.color}40`,
+                boxShadow: platform.comingSoon ? 'none' : `0 4px 15px ${platform.color}40`,
                 width: '100%',
                 letterSpacing: '0.5px'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = `0 6px 20px ${platform.color}60`;
+                if (!platform.comingSoon) {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = `0 6px 20px ${platform.color}60`;
+                }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = `0 4px 15px ${platform.color}40`;
+                if (!platform.comingSoon) {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = `0 4px 15px ${platform.color}40`;
+                }
               }}
             >
-              {platform.stripeKey ? 'Start Free Trial →' : 'Join Waitlist →'}
+              {platform.comingSoon ? 'Join Waitlist →' : 'Start Free Trial →'}
             </button>
           </motion.div>
         ))}

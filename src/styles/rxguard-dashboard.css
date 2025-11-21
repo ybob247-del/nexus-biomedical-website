@@ -1,0 +1,440 @@
+.rxguard-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Drug Search Section */
+.drug-search-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+  position: relative;
+}
+
+.drug-search-input {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.drug-search-input:focus {
+  border-color: #667eea;
+}
+
+.search-spinner {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.search-results {
+  margin-top: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.search-result-item {
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9ff;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.drug-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.drug-rxcui {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Medication List Section */
+.medication-list-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.medication-list-section h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.medication-list {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.medication-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.3s;
+}
+
+.medication-card:hover {
+  border-color: #667eea;
+}
+
+.med-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.med-header h3 {
+  color: #333;
+  margin: 0;
+}
+
+.remove-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+
+.med-details p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.check-interactions-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.check-interactions-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.check-interactions-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Analysis Section */
+.analysis-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-section h2 {
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.risk-card {
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.risk-card.risk-low {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.risk-card.risk-moderate {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.risk-card.risk-high {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.risk-score {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Interaction Summary */
+.interaction-summary {
+  margin-bottom: 30px;
+}
+
+.interaction-summary h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.summary-item {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+}
+
+.summary-item.major {
+  border-color: #ff4444;
+  background: #fff5f5;
+}
+
+.summary-item.moderate {
+  border-color: #ffaa00;
+  background: #fffbf0;
+}
+
+.summary-item.minor {
+  border-color: #4CAF50;
+  background: #f1f8f4;
+}
+
+.summary-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Recommendations */
+.recommendations-section {
+  margin-bottom: 30px;
+}
+
+.recommendations-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recommendation-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid;
+}
+
+.recommendation-card.priority-urgent {
+  background: #fff5f5;
+  border-color: #ff4444;
+}
+
+.recommendation-card.priority-important {
+  background: #fffbf0;
+  border-color: #ffaa00;
+}
+
+.recommendation-card.priority-info {
+  background: #f0f8ff;
+  border-color: #4CAF50;
+}
+
+.rec-priority {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.priority-urgent .rec-priority {
+  color: #ff4444;
+}
+
+.priority-important .rec-priority {
+  color: #ffaa00;
+}
+
+.priority-info .rec-priority {
+  color: #4CAF50;
+}
+
+.rec-message {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.rec-action {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Interaction Details */
+.interactions-detail {
+  margin-bottom: 30px;
+}
+
+.interactions-detail h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.interaction-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid;
+}
+
+.interaction-card.major {
+  background: #fff5f5;
+  border-color: #ff4444;
+}
+
+.interaction-card.moderate {
+  background: #fffbf0;
+  border-color: #ffaa00;
+}
+
+.interaction-card h4 {
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.interaction-card .severity {
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.interaction-card.major .severity {
+  color: #ff4444;
+}
+
+.interaction-card.moderate .severity {
+  color: #ffaa00;
+}
+
+.interaction-card .description {
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.interaction-card .source {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Disclaimer */
+.disclaimer {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #667eea;
+  margin-top: 30px;
+}
+
+.disclaimer p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .risk-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

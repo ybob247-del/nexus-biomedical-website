@@ -28,6 +28,8 @@ const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
+const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
+const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -196,6 +198,26 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <PricingPage />
+          </Suspense>
+        }
+      />
+      
+      {/* RxGuard Dashboard Route */}
+      <Route 
+        path="/rxguard/dashboard" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <RxGuardDashboard />
+          </Suspense>
+        } 
+      />
+      
+      {/* EndoGuard Assessment Route */}
+      <Route 
+        path="/endoguard/assessment" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <EndoGuardAssessment />
           </Suspense>
         } 
       />

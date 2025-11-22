@@ -70,6 +70,30 @@ module.exports = async (req, res) => {
       ]
     );
 
+    // Automatically create free trials for RxGuard (14 days) and EndoGuard (30 days)
+    try {
+      // RxGuard: 14-day trial
+      await query(
+        `INSERT INTO platform_trials (user_id, platform, trial_end_date, trial_type)
+         VALUES ($1, 'RxGuard', CURRENT_TIMESTAMP + INTERVAL '14 days', 'regular')
+         ON CONFLICT (user_id, platform) DO NOTHING`,
+        [user.id]
+      );
+
+      // EndoGuard: 30-day trial
+      await query(
+        `INSERT INTO platform_trials (user_id, platform, trial_end_date, trial_type)
+         VALUES ($1, 'EndoGuard', CURRENT_TIMESTAMP + INTERVAL '30 days', 'regular')
+         ON CONFLICT (user_id, platform) DO NOTHING`,
+        [user.id]
+      );
+
+      console.log(`Free trials created for user ${user.id}: RxGuard (14 days), EndoGuard (30 days)`);
+    } catch (trialError) {
+      console.error('Error creating trials:', trialError);
+      // Don't fail signup if trial creation fails
+    }
+
     // Return user data and token
     return res.status(201).json({
       success: true,

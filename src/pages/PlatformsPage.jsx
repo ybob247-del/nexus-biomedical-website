@@ -91,8 +91,8 @@ export default function PlatformsPage() {
       return;
     }
 
-    // Platform is in beta testing
-    alert(`${platform.name} is currently in beta testing.\n\nWe're conducting comprehensive internal testing to ensure the platform meets our quality standards before launch.\n\nInterested in early access? Contact us at support@nexusbiomedical.ai`);
+    // Navigate to signup for active platforms (RxGuard and EndoGuard)
+    navigate('/signup');
   };
 
   return (

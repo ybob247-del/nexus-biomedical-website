@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import SubscriptionGate from '../components/SubscriptionGate';
+import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
 import '../styles/rxguard-dashboard.css';
 
@@ -173,7 +173,7 @@ export default function RxGuardDashboard() {
   }, [searchQuery]);
 
   return (
-    <SubscriptionGate platform="rxguard">
+    <TrialGate platform="RxGuard">
       <div className="rxguard-dashboard">
       <div className="dashboard-header">
         <h1>RxGuard™ Drug Interaction Checker</h1>
@@ -351,6 +351,6 @@ export default function RxGuardDashboard() {
         </div>
       )}
       </div>
-    </SubscriptionGate>
+    </TrialGate>
   );
 }

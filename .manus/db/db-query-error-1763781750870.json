@@ -1,8 +1,0 @@
-{
-  "query": "-- Update RxGuard pricing to $39\nUPDATE platforms \nSET price_monthly = 39.00 \nWHERE platform_key = 'rxguard';\n\n-- Add EndoGuard platform\nINSERT INTO platforms (platform_key, platform_name, description, price_monthly, trial_days, trial_usage_limit) \nVALUES ('endoguard', 'EndoGuard™', 'Clinical-grade hormone intelligence platform', 97.00, 30, 10)\nON CONFLICT (platform_key) DO UPDATE \nSET price_monthly = 97.00, trial_days = 30, trial_usage_limit = 10;\n\n-- Show all platforms\nSELECT platform_key, platform_name, price_monthly, trial_days FROM platforms ORDER BY platform_key;",
-  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute -- Update RxGuard pricing to $39\nUPDATE platforms \nSET price_monthly = 39.00 \nWHERE platform_key = 'rxguard';\n\n-- Add EndoGuard platform\nINSERT INTO platforms (platform_key, platform_name, description, price_monthly, trial_days, trial_usage_limit) \nVALUES ('endoguard', 'EndoGuard™', 'Clinical-grade hormone intelligence platform', 97.00, 30, 10)\nON CONFLICT (platform_key) DO UPDATE \nSET price_monthly = 97.00, trial_days = 30, trial_usage_limit = 10;\n\n-- Show all platforms\nSELECT platform_key, platform_name, price_monthly, trial_days FROM platforms ORDER BY platform_key;",
-  "returncode": 1,
-  "logs": [
-    "ERROR 1146 (42S02) at line 2: Table '3gcyftfyzmb2335uoynmho.platforms' doesn't exist"
-  ]
-}

@@ -6,8 +6,7 @@
 export const endoguardPaymentLinks = {
   // B2C Subscriptions
   // Premium: $97/month with 30-day free trial
-  // WARNING: Current test link may have wrong price - verify in Stripe Dashboard
-  premium_monthly: 'https://buy.stripe.com/test_3cI8wP0xnajRceg9PDaMU0i',
+  premium_monthly: 'https://buy.stripe.com/test_28E8wP0753j9e2J2m0gw001',
   premium_annual: 'https://buy.stripe.com/test_aFa28r5RHajR3HK7HvaMU0j',
   
   premium_plus_monthly: 'https://buy.stripe.com/test_aFadR95RH8bJdikd1PaMU0k',

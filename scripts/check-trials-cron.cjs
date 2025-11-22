@@ -6,10 +6,8 @@
  * Command: node scripts/check-trials-cron.mjs
  */
 
-import pg from 'pg';
-import { sendTrialReminderEmail, sendTrialExpiredEmail } from '../api/utils/emailService.js';
-
-const { Pool } = pg;
+const { Pool } = require('pg');
+const { sendTrialReminderEmail, sendTrialExpiredEmail } = require('../api/utils/emailService.js');
 
 // Database connection
 const pool = new Pool({

@@ -35,6 +35,8 @@ const Login = lazy(() => import('./pages/Login'))
 const Signup = lazy(() => import('./pages/Signup'))
 const MyAssessments = lazy(() => import('./pages/MyAssessments'))
 const WaitlistAdmin = lazy(() => import('./pages/WaitlistAdmin'))
+const NotifyWaitlist = lazy(() => import('./pages/NotifyWaitlist'))
+const Analytics = lazy(() => import('./pages/Analytics'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -294,6 +296,26 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <WaitlistAdmin />
+          </Suspense>
+        } 
+      />
+
+      {/* Admin Notify Waitlist Route */}
+      <Route 
+        path="/admin/notify-waitlist" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <NotifyWaitlist />
+          </Suspense>
+        } 
+      />
+
+      {/* Admin Analytics Route */}
+      <Route 
+        path="/admin/analytics" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <Analytics />
           </Suspense>
         } 
       />

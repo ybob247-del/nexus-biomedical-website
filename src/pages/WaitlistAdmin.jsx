@@ -328,7 +328,25 @@ export default function WaitlistAdmin() {
             />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.75rem' }}>
+            <button
+              onClick={() => navigate('/admin/notify-waitlist')}
+              style={{
+                padding: '0.75rem 1.5rem',
+                background: 'linear-gradient(135deg, #9F7AEA 0%, #00CED1 100%)',
+                border: 'none',
+                borderRadius: '10px',
+                color: '#FFFFFF',
+                fontSize: '1rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+            >
+              📧 Send Notifications
+            </button>
             <button
               onClick={exportToCSV}
               style={{

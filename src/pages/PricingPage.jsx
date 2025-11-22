@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { platformsData } from '../data/platformData';
+import ComingSoonModal from '../components/ComingSoonModal';
 
 const PricingPage = () => {
   const { platformId } = useParams();
   const navigate = useNavigate();
+  const [waitlistPlatform, setWaitlistPlatform] = useState(null);
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -57,12 +59,13 @@ const PricingPage = () => {
         navigate('/signup', { state: { returnTo: platformRoute } });
       }
     } else {
-      // Platform not yet available
-      alert('This platform is coming soon! Join the waitlist at support@nexusbiomedical.ai');
+      // Platform not yet available - show waitlist modal
+      setWaitlistPlatform(platform);
     }
   };
 
   return (
+    <>
     <div style={{ minHeight: '100vh', background: 'transparent' }}>
       <Header />
       
@@ -281,6 +284,15 @@ const PricingPage = () => {
       
       <Footer />
     </div>
+    
+    {/* Coming Soon Modal */}
+    {waitlistPlatform && (
+      <ComingSoonModal
+        platform={waitlistPlatform}
+        onClose={() => setWaitlistPlatform(null)}
+      />
+    )}
+    </>
   );
 };
 

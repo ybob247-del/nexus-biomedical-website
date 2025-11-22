@@ -662,3 +662,46 @@
 - [ ] Add "Share with Doctor" feature (PDF export)
 - [ ] Show trial status in user profile/settings
 - [ ] Add upgrade prompts before trial expiration
+
+
+## 🚀 CURRENT SPRINT: Coming Soon Fixes + Email Notifications + Assessment History (Nov 22, 2025)
+
+### Waitlist System for Coming Soon Platforms
+- [x] Create waitlist database table (email, name, platform, created_at)
+- [x] Create ComingSoonModal component with two-step flow
+- [x] Create backend API to save waitlist signups
+- [x] Replace alert() with ComingSoonModal for coming soon platforms
+- [x] Add confirmation message after waitlist signup
+- [ ] Create admin page to view waitlist signups by platform
+- [ ] Test waitlist signup flow for all coming soon platforms
+- [x] Only RxGuard and EndoGuard should navigate to signup
+
+### Test Complete Flow
+- [ ] Create test account via signup form
+- [ ] Verify 2 trials created in database (RxGuard 14 days, EndoGuard 30 days)
+- [ ] Test RxGuard: Add medication and save
+- [ ] Test RxGuard: Refresh page and verify medication persists
+- [ ] Test EndoGuard: Complete assessment
+- [ ] Test EndoGuard: Verify results display
+- [ ] Test logout and login - verify data persists
+- [ ] Test trial countdown banner displays correctly
+
+### Email Notification System
+- [x] Create email service utility (using built-in notification API)
+- [x] Trial reminder at 50% (7 days RxGuard, 15 days EndoGuard)
+- [x] Trial reminder at 25% (3 days RxGuard, 7 days EndoGuard)
+- [x] Trial expiring tomorrow (1 day remaining)
+- [x] Trial expired notification
+- [x] Create cron job or scheduled task for checking trials
+- [x] Email templates with professional styling
+- [ ] Test email delivery
+
+### Assessment History UI
+- [x] Create "My Assessments" page for EndoGuard
+- [x] Display list of past assessments with dates
+- [x] Show risk score for each assessment
+- [x] Add risk score trend chart (Chart.js)
+- [x] Allow viewing full assessment details
+- [ ] Add "Compare Assessments" feature
+- [ ] Export assessment report as PDF
+- [x] Add navigation link in EndoGuard platform

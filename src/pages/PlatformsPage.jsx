@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ComingSoonModal from '../components/ComingSoonModal';
 
 const platforms = [
   {
@@ -84,10 +85,12 @@ const platforms = [
 
 export default function PlatformsPage() {
   const navigate = useNavigate();
+  const [waitlistPlatform, setWaitlistPlatform] = useState(null);
   
   const handleStartTrial = (platform) => {
     if (platform.comingSoon) {
-      alert('This platform is coming soon! Join the waitlist at support@nexusbiomedical.ai');
+      // Show waitlist modal for coming soon platforms
+      setWaitlistPlatform(platform);
       return;
     }
 
@@ -96,6 +99,7 @@ export default function PlatformsPage() {
   };
 
   return (
+    <>
     <div style={{
       minHeight: '100vh',
       background: 'linear-gradient(to bottom, #0a1b3d 0%, #1a2f5a 100%)',
@@ -370,5 +374,14 @@ export default function PlatformsPage() {
         </p>
       </div>
     </div>
+    
+    {/* Coming Soon Modal */}
+    {waitlistPlatform && (
+      <ComingSoonModal
+        platform={waitlistPlatform}
+        onClose={() => setWaitlistPlatform(null)}
+      />
+    )}
+    </>
   );
 }

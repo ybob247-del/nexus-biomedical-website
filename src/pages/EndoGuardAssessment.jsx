@@ -144,7 +144,29 @@ export default function EndoGuardAssessment() {
     <TrialGate platform="EndoGuard">
       <div className="endoguard-assessment">
       <div className="assessment-header">
-        <h1>EndoGuard™ Hormone Health Assessment</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <h1 style={{ margin: 0 }}>EndoGuard™ Hormone Health Assessment</h1>
+          {user && (
+            <button
+              onClick={() => navigate('/my-assessments')}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: '#FFFFFF',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '10px',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
+            >
+              📊 My Assessments
+            </button>
+          )}
+        </div>
         <p>Discover your EDC exposure risk and get personalized recommendations</p>
         <FDADisclaimer />
         

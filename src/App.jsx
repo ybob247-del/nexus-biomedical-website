@@ -33,6 +33,7 @@ const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
 const Login = lazy(() => import('./pages/Login'))
 const Signup = lazy(() => import('./pages/Signup'))
+const MyAssessments = lazy(() => import('./pages/MyAssessments'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -272,6 +273,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <About />
+          </Suspense>
+        } 
+      />
+
+      {/* My Assessments Route */}
+      <Route 
+        path="/my-assessments" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <MyAssessments />
           </Suspense>
         } 
       />

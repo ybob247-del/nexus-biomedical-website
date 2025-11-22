@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Line } from 'react-chartjs-2';
+import { jsPDF } from 'jspdf';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -78,6 +79,58 @@ export default function MyAssessments() {
     if (score >= 70) return { label: 'High', color: '#EF4444' };
     if (score >= 40) return { label: 'Moderate', color: '#F59E0B' };
     return { label: 'Low', color: '#10B981' };
+  };
+
+  const exportToPDF = (assessment) => {
+    const doc = new jsPDF();
+    const risk = getRiskLevel(assessment.riskScore);
+    const date = new Date(assessment.createdAt);
+
+    // Header
+    doc.setFontSize(20);
+    doc.setTextColor(0, 206, 209);
+    doc.text('Nexus Biomedical Intelligence', 20, 20);
+    
+    doc.setFontSize(16);
+    doc.setTextColor(0, 0, 0);
+    doc.text('EndoGuard™ Assessment Report', 20, 35);
+
+    // Date
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+    doc.text(`Assessment Date: ${date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`, 20, 45);
+
+    // Risk Score Box
+    doc.setFillColor(240, 240, 240);
+    doc.rect(20, 55, 170, 40, 'F');
+    
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text('Risk Score', 25, 65);
+    
+    doc.setFontSize(32);
+    if (risk.label === 'High') doc.setTextColor(239, 68, 68);
+    else if (risk.label === 'Moderate') doc.setTextColor(245, 158, 11);
+    else doc.setTextColor(16, 185, 129);
+    doc.text(assessment.riskScore.toString(), 25, 85);
+    
+    doc.setFontSize(14);
+    doc.text(`${risk.label} Risk`, 60, 85);
+
+    // Disclaimer
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+    doc.text('This assessment is for informational purposes only and does not constitute medical advice.', 20, 110, { maxWidth: 170 });
+    doc.text('Please consult with a qualified healthcare provider for personalized medical guidance.', 20, 120, { maxWidth: 170 });
+
+    // Footer
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text('© ' + new Date().getFullYear() + ' Nexus Biomedical Intelligence. All rights reserved.', 20, 280);
+    doc.text('Generated on ' + new Date().toLocaleDateString(), 20, 285);
+
+    // Download
+    doc.save(`EndoGuard-Assessment-${date.toISOString().split('T')[0]}.pdf`);
   };
 
   const chartData = {
@@ -362,13 +415,52 @@ export default function MyAssessments() {
                       </div>
                     </div>
 
-                    <p style={{
-                      fontSize: '0.875rem',
-                      color: 'rgba(255, 255, 255, 0.7)',
-                      marginBottom: '0'
-                    }}>
-                      Click to view full details →
-                    </p>
+                    <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedAssessment(assessment);
+                        }}
+                        style={{
+                          flex: 1,
+                          padding: '0.5rem',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          borderRadius: '8px',
+                          color: '#FFFFFF',
+                          fontSize: '0.875rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
+                      >
+                        View Details
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          exportToPDF(assessment);
+                        }}
+                        style={{
+                          flex: 1,
+                          padding: '0.5rem',
+                          background: 'linear-gradient(135deg, #00CED1 0%, #9F7AEA 100%)',
+                          border: 'none',
+                          borderRadius: '8px',
+                          color: '#FFFFFF',
+                          fontSize: '0.875rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                      >
+                        📄 Export PDF
+                      </button>
+                    </div>
                   </div>
                 );
               })}

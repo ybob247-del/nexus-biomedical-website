@@ -1,0 +1,9 @@
+{
+  "query": "-- Trial Reminders Table\nCREATE TABLE IF NOT EXISTS trial_reminders (\n  id SERIAL PRIMARY KEY,\n  trial_id INTEGER NOT NULL REFERENCES platform_trials(id) ON DELETE CASCADE,\n  days_remaining INTEGER NOT NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  UNIQUE(trial_id, days_remaining)\n);\n\nCREATE INDEX IF NOT EXISTS idx_trial_reminders_trial_id ON trial_reminders(trial_id);\nCREATE INDEX IF NOT EXISTS idx_trial_reminders_days ON trial_reminders(days_remaining);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute -- Trial Reminders Table\nCREATE TABLE IF NOT EXISTS trial_reminders (\n  id SERIAL PRIMARY KEY,\n  trial_id INTEGER NOT NULL REFERENCES platform_trials(id) ON DELETE CASCADE,\n  days_remaining INTEGER NOT NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  UNIQUE(trial_id, days_remaining)\n);\n\nCREATE INDEX IF NOT EXISTS idx_trial_reminders_trial_id ON trial_reminders(trial_id);\nCREATE INDEX IF NOT EXISTS idx_trial_reminders_days ON trial_reminders(days_remaining);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1097
+}

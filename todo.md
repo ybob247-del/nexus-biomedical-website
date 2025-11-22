@@ -705,3 +705,38 @@
 - [ ] Add "Compare Assessments" feature
 - [ ] Export assessment report as PDF
 - [x] Add navigation link in EndoGuard platform
+
+
+## 🚀 CURRENT SPRINT: Database Migrations + Admin Dashboard + PDF Export (Nov 22, 2025)
+
+### Database Migrations
+- [x] Run waitlist table migration (database-waitlist.sql)
+- [x] Run trial reminders table migration (database-trial-reminders.sql)
+- [x] Verify tables created successfully
+- [x] Test waitlist API with database
+
+### Admin Waitlist Dashboard
+- [x] Create /admin/waitlist route
+- [x] Build WaitlistAdmin page component
+- [x] Display waitlist signups grouped by platform
+- [x] Show total count per platform
+- [x] Add export to CSV functionality
+- [ ] Add date range filter
+- [x] Add search by email
+- [x] Protect route with admin authentication
+
+### PDF Export for Assessments
+- [x] Install PDF generation library
+- [x] Create assessment PDF template
+- [x] Add "Export PDF" button to My Assessments
+- [x] Generate PDF with risk score and details
+- [x] Include Nexus branding in PDF
+- [x] Add download functionality
+- [x] Test PDF generation
+
+### Cron Job Setup
+- [x] Create cron job documentation
+- [x] Add cron setup instructions to README
+- [ ] Test cron script manually
+- [ ] Verify email sending works
+- [x] Document monitoring procedures

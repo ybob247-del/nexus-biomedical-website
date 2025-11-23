@@ -4,8 +4,8 @@
  * Creates a new user account
  */
 
-import { query } from '../utils/db.js';
-import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.js';
+import { query } from '../utils/db.mjs';
+import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.mjs';
 
 export default async function handler(req, res) {
   // Debug logging for DATABASE_URL

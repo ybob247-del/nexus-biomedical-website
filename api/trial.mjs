@@ -9,7 +9,7 @@
  * - POST /api/trial?action=track-usage - Track usage
  */
 
-import { query } from './utils/db.js';
+import { query } from './utils/db.mjs';
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {

@@ -4,8 +4,8 @@
  * Returns the currently authenticated user's information
  */
 
-import { query } from '../utils/db.js';
-import { extractToken, verifyToken } from '../utils/auth.js';
+import { query } from '../utils/db.mjs';
+import { extractToken, verifyToken } from '../utils/auth.mjs';
 
 export default async function handler(req, res) {
   // Only allow GET requests

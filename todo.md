@@ -1063,7 +1063,18 @@
 - [ ] Test OpenAI integration for EndoGuard risk analysis
 - [ ] Confirm www.nexusbiomedical.ai shows EDC acronym spelled out
 
-## 🚨 CRITICAL BUGS (Nov 23, 2025 - Owner Testing - BLOCKING LAUNCH)
+## 🚨 CRITICAL PRIORITY 1: SIGNUP BROKEN (BLOCKING ALL REVENUE)
+- [x] DIAGNOSED: Vercel serverless functions failing with FUNCTION_INVOCATION_FAILED - ES module issue
+- [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
+- [x] FIXED: Updated all import statements to reference .mjs files
+- [ ] Deploy and test signup end-to-end with real account creation
+
+## 🚨 CRITICAL PRIORITY 2: NOTEBOOKLM CRAWLING (BLOCKING AI ANALYSIS)
+- [ ] Add SEO meta tags to index.html for crawler visibility
+- [ ] Add structured data (JSON-LD) for search engines
+- [ ] Test NotebookLM can successfully crawl www.nexusbiomedical.ai
+
+## 🚨 PREVIOUS CRITICAL BUGS (Nov 23, 2025 - Owner Testing)
 - [x] ADDED: DATABASE_URL to Vercel environment variables (from Neon console)
 - [x] DEPLOYED: New deployment (CjRSytUJM) with DATABASE_URL
 - [ ] STILL FAILING: Signup API still shows "connect ECONNREFUSED 127.0.0.1:5432" - DATABASE_URL not being read!

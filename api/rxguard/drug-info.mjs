@@ -6,8 +6,8 @@
  * GET /api/rxguard/drug-info?name=Lipitor
  */
 
-import { getDrugInfo, getRxCUI } from '../../server/services/rxnorm.js';
-import { getDrugLabel } from '../../server/services/openfda.js';
+import { getDrugInfo, getRxCUI } from '../../server/services/rxnorm.mjs';
+import { getDrugLabel } from '../../server/services/openfda.mjs';
 
 export default async function handler(req, res) {
   // CORS headers

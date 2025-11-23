@@ -4,9 +4,9 @@
  * Sends password reset email with token
  */
 
-import { query } from '../utils/db.js';
-import { generateRandomToken, isValidEmail } from '../utils/auth.js';
-import { sendEmail } from '../utils/emailService.js';
+import { query } from '../utils/db.mjs';
+import { generateRandomToken, isValidEmail } from '../utils/auth.mjs';
+import { sendEmail } from '../utils/emailService.mjs';
 
 export default async function handler(req, res) {
   // Only allow POST requests

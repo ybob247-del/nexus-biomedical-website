@@ -6,9 +6,9 @@
  * Body: { "rxcuis": ["153165", "197361", "42347"] }
  */
 
-import { getDrugInteractions, getDrugInfo } from '../../server/services/rxnorm.js';
-import { analyzeInteractionRisk } from '../../server/services/openfda.js';
-import openaiService from '../../server/services/openai-direct.js';
+import { getDrugInteractions, getDrugInfo } from '../../server/services/rxnorm.mjs';
+import { analyzeInteractionRisk } from '../../server/services/openfda.mjs';
+import openaiService from '../../server/services/openai-direct.mjs';
 
 export default async function handler(req, res) {
   // CORS headers

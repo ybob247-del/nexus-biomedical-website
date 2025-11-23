@@ -385,13 +385,6 @@ const PrivacyPolicy = () => {
                 </p>
               </div>
             </section>
-
-            <div style={{ marginTop: '3rem', padding: '1.5rem', background: '#fef3c7', borderRadius: '0.5rem', borderLeft: '4px solid #f59e0b' }}>
-              <p style={{ fontWeight: 600, marginBottom: '0.5rem' }}>⚖️ Legal Review Recommended</p>
-              <p style={{ fontSize: '0.9rem' }}>
-                This Privacy Policy should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction.
-              </p>
-            </div>
           </div>
         </motion.div>
       </div>

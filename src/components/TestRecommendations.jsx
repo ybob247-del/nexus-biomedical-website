@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import '../styles/test-recommendations.css';
 
 export default function TestRecommendations({ testRecommendations }) {
@@ -12,9 +14,19 @@ export default function TestRecommendations({ testRecommendations }) {
     setExpandedCondition(expandedCondition === conditionName ? null : conditionName);
   };
 
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
   const handleDownloadLabLetter = (condition) => {
-    // TODO: Implement PDF generation
-    alert(`Lab request letter for ${condition.name} will be generated. This feature is coming soon!`);
+    if (!isAuthenticated) {
+      // Prompt user to sign up for PDF export
+      if (window.confirm('Sign up FREE to download your personalized lab request letter. Create account now?')) {
+        navigate('/signup');
+      }
+      return;
+    }
+    // TODO: Implement PDF generation for authenticated users
+    alert(`Lab request letter for ${condition.name} will be generated. PDF export coming soon!`);
   };
 
   return (

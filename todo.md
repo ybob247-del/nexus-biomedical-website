@@ -975,3 +975,14 @@
 - [ ] Complete bilingual translations for remaining components (FAQ, WhoBenefits, About, Legal pages, Learn More pages)
 - [ ] Test language toggle on all pages after deployment
 - [ ] Verify magenta colors display correctly after cache clears
+
+## 🎯 Hybrid Freemium Conversion Model (Nov 23, 2025 - User Decision)
+- [x] Allow unauthenticated access to EndoGuard assessment (no signup required to start)
+- [x] Show basic test recommendations to all users (build trust, prove value)
+- [x] Add "Sign Up FREE" prompts on results page to unlock premium features
+- [x] Gate PDF lab letter export behind signup (free tier)
+- [x] Add prominent CTAs: "Save Your Results" / "Get Full Report" / "Download PDF Letter"
+- [ ] Gate detailed cost breakdowns behind signup (free tier) - OPTIONAL
+- [ ] Gate symptom tracking over time behind paid tier - FUTURE FEATURE
+- [ ] Test conversion funnel: Anonymous → See Value → Sign Up → Upgrade to Paid
+- [ ] Track metrics: Assessment completions vs. Signups vs. Paid conversions

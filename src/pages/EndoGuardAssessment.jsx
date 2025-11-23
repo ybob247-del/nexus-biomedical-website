@@ -46,12 +46,9 @@ export default function EndoGuardAssessment() {
   const [results, setResults] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-  // Check authentication on mount
-  useEffect(() => {
-    if (!user || !token) {
-      navigate('/login?redirect=/endoguard/assessment');
-    }
-  }, [user, token, navigate]);
+  // Hybrid freemium model - allow unauthenticated access
+  // Users will be prompted to sign up when viewing results
+  // (Authentication check removed to enable try-before-signup flow)
 
   // Symptom options organized by hormone system
   const symptomOptions = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRecommendations from './TestRecommendations';
+import SignupPrompt from './SignupPrompt';
 import '../styles/endoguard-results.css';
 
 export default function EndoGuardResults({ results }) {
@@ -81,9 +82,12 @@ export default function EndoGuardResults({ results }) {
         )}
       </div>
 
-      {/* Test Recommendations Section (NEW - Monetization Feature) */}
+      {/* Signup Prompt for Unauthenticated Users */}
+      <SignupPrompt feature="Your Complete Test Recommendations & PDF Lab Letter" />
+
+      {/* Test Recommendations Section */}
       {testRecommendations && testRecommendations.length > 0 && (
-        <TestRecommendations testRecommendations={testRecommendations} />
+        <TestRecommendations recommendations={testRecommendations} />
       )}
 
       {/* Recommendations Section */}

@@ -239,14 +239,12 @@ function App() {
         } 
       />
       
-      {/* EndoGuard Assessment Route */}
+      {/* EndoGuard Assessment Route - Unauthenticated access allowed for hybrid freemium model */}
       <Route 
         path="/endoguard/assessment" 
         element={
           <Suspense fallback={<LoadingFallback />}>
-            <ProtectedRoute platform="endoguard">
-              <EndoGuardAssessment />
-            </ProtectedRoute>
+            <EndoGuardAssessment />
           </Suspense>
         } 
       />

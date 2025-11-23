@@ -1,3 +1,10 @@
+## 🚨 CRITICAL DEPLOYMENT ISSUE (Nov 23, 2025 - BLOCKING LAUNCH)
+- [ ] Fix: Code changes pushed to GitHub (commit 19a953b9) but NOT deploying to www.nexusbiomedical.ai
+- [ ] Fix: Users still redirected to /login when accessing /endoguard/assessment (hybrid freemium model broken)
+- [ ] Investigate: Why latest Vercel deployment not serving to custom domain
+- [ ] Investigate: Possible caching issue or domain routing problem
+- [ ] Test: Verify anonymous access to EndoGuard assessment works after fix
+
 ## 🚨 URGENT FIXES (Nov 22, 2025 - User Reported)
 - [x] Fix PRIVACY_POLICY.md - remove false HIPAA/PHI claims, reflect pseudonymous model
 - [x] Fix TERMS_OF_SERVICE.md - remove false HIPAA/PHI claims, reflect actual data collection

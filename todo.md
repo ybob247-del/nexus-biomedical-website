@@ -927,3 +927,34 @@
 - [ ] Update signup page with social login buttons
 - [ ] Update login page with social login buttons
 - [ ] Test complete authentication flows (email, Google, Apple)
+
+## 🚨 URGENT: Deployment Issue Investigation (Nov 23, 2025) - RESOLVED
+- [x] Investigate why published checkpoints are not reaching www.nexusbiomedical.ai
+- [x] Check Vercel deployment configuration
+- [x] Verify domain mapping and DNS settings
+- [x] Check if custom domain is properly connected
+- [x] Test deployment pipeline and identify blockers
+- [x] Fix root cause of deployment failures - Manus Publish button was not pushing to GitHub
+- [x] Verify latest checkpoint deploys successfully to production - Manually pushed to GitHub, Vercel deployed successfully
+
+**ROOT CAUSE:** Manus "Publish" button was not pushing checkpoints to GitHub. GitHub remote was stuck at Nov 21 commit while local had Nov 23 changes.
+**SOLUTION:** Manually pushed current code to GitHub using `git push github main`, which triggered Vercel auto-deployment.
+**STATUS:** Deployment dpl_9Eeh3hYvTzrx1BryGuw7doD1FMYm is READY and live at www.nexusbiomedical.ai with all Nov 23 improvements.
+
+## 🎨 EndoGuard Color & Feature Implementation (Nov 23, 2025 - Priority)
+- [x] Fix EndoGuard magenta color scheme consistency across all pages
+- [x] Update EndoGuard assessment page colors
+- [x] Update EndoGuard results page colors
+- [ ] Update EndoGuard prototype page colors
+- [x] Ensure all EndoGuard buttons, badges, and accents use magenta (#D946EF, #C026D3)
+- [x] Implement Test Recommendation Engine (HIGHEST PRIORITY)
+- [x] Create hormone test recommendation logic (thyroid, reproductive, adrenal, metabolic)
+- [x] Build test recommendation UI component with three tiers (Essential/Recommended/Optional)
+- [x] Add cost ranges and rationale for each test
+- [x] Integrate test recommendations into EndoGuard API
+- [x] Add test recommendations to EndoGuard results display
+- [ ] Create lab request letter PDF export functionality
+- [ ] Integrate research citations into recommendations (using endoguard_research_sources.md)
+- [ ] Add research evidence modal/popup for each recommendation
+- [ ] Link recommendations to PubMed studies
+- [ ] Create partner list for future lab partnerships (Paloma Health, LetsGetChecked) - NO implementation yet

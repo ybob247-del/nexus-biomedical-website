@@ -5,6 +5,7 @@
 
 import express from 'express';
 import cors from 'cors';
+import { generateTestRecommendations } from './test-recommendations.js';
 
 const app = express();
 const PORT = process.env.ENDOGUARD_PORT || 3008;
@@ -337,8 +338,18 @@ app.post('/api/endoguard/assess', async (req, res) => {
         return priorityOrder[a.priority] - priorityOrder[b.priority];
       }),
 
+      // Test recommendations (NEW - Monetization Feature)
+      testRecommendations: generateTestRecommendations(
+        formData.symptoms || [],
+        symptomAnalysis.hormoneSystemsAffected
+      ),
+
       // Next steps
       nextSteps: [
+        {
+          step: 'Review your recommended hormone tests',
+          action: 'Download the lab request letter to bring to your healthcare provider'
+        },
         {
           step: 'Review your personalized recommendations',
           action: 'Start with high-priority items first'

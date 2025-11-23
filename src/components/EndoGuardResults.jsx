@@ -1,10 +1,11 @@
 import React from 'react';
+import TestRecommendations from './TestRecommendations';
 import '../styles/endoguard-results.css';
 
 export default function EndoGuardResults({ results }) {
   if (!results) return null;
 
-  const { edcExposure, hormoneHealth, overallRisk, recommendations, nextSteps } = results;
+  const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps } = results;
 
   return (
     <div className="endoguard-results">
@@ -79,6 +80,11 @@ export default function EndoGuardResults({ results }) {
           </div>
         )}
       </div>
+
+      {/* Test Recommendations Section (NEW - Monetization Feature) */}
+      {testRecommendations && testRecommendations.length > 0 && (
+        <TestRecommendations testRecommendations={testRecommendations} />
+      )}
 
       {/* Recommendations Section */}
       <div className="results-section">

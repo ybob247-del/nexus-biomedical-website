@@ -17,7 +17,7 @@
 }
 
 .overall-risk-card.risk-moderate {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #D946EF 0%, #C026D3 100%);
 }
 
 .overall-risk-card.risk-high {
@@ -59,7 +59,7 @@
   color: #333;
   margin: 0 0 25px 0;
   font-size: 1.6rem;
-  border-bottom: 3px solid #f5576c;
+  border-bottom: 3px solid #D946EF;
   padding-bottom: 10px;
 }
 
@@ -100,11 +100,11 @@
 }
 
 .stat-value.risk-moderate {
-  color: #f5576c;
+  color: #D946EF;
 }
 
 .stat-value.risk-high {
-  color: #fa709a;
+  color: #ff4444;
 }
 
 .stat-level {
@@ -120,7 +120,7 @@
 
 .risk-factor-card {
   background: #fff5f5;
-  border-left: 4px solid #f5576c;
+  border-left: 4px solid #D946EF;
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -128,7 +128,7 @@
 
 .factor-title {
   font-weight: 700;
-  color: #f5576c;
+  color: #D946EF;
   margin-bottom: 10px;
   font-size: 1.1rem;
 }
@@ -159,7 +159,7 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #f5576c;
+  color: #D946EF;
   margin-bottom: 8px;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .system-badge {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #D946EF 0%, #C026D3 100%);
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -331,7 +331,7 @@
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #D946EF 0%, #C026D3 100%);
   color: white;
   padding: 40px;
   border-radius: 12px;
@@ -371,7 +371,7 @@
 
 .btn-primary {
   background: white;
-  color: #f5576c;
+  color: #D946EF;
 }
 
 .btn-primary:hover {

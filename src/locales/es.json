@@ -49,7 +49,7 @@
   },
   "platforms": {
     "title": "Nuestras Plataformas de IA en Salud",
-    "subtitle": "Elija la plataforma que se adapte a sus necesidades",
+    "subtitle": "Siete plataformas revolucionarias que abordan brechas críticas en la prestación de atención médica",
     "allPlans": "Todos los planes incluyen una prueba gratuita sin tarjeta de crédito",
     "startTrial": "Iniciar Prueba Gratuita",
     "learnMore": "Más Información",
@@ -80,6 +80,31 @@
         "reports": "Informes detallados de interacciones",
         "integration": "Integración con HCE lista para usar"
       }
+    },
+    "elderwatch": {
+      "name": "ElderWatch™",
+      "tagline": "Monitoreo de Salud para Adultos Mayores",
+      "description": "Plataforma de análisis predictivo de salud que utiliza IA para monitorear pacientes de la tercera edad y predecir el deterioro de la salud antes de que aparezcan los síntomas, permitiendo intervención proactiva."
+    },
+    "pedicalc": {
+      "name": "PediCalc Pro™",
+      "tagline": "Dosificación de Medicamentos Pediátricos",
+      "description": "Calculadora de dosificación de medicamentos pediátricos mejorada con IA que proporciona recomendaciones precisas de dosificación basadas en peso con verificación de seguridad incorporada para niños."
+    },
+    "clinicaliq": {
+      "name": "ClinicalIQ™",
+      "tagline": "Sistema de Apoyo a Decisiones Clínicas",
+      "description": "Plataforma de apoyo a decisiones clínicas impulsada por IA que analiza datos de pacientes para proporcionar recomendaciones de tratamiento basadas en evidencia y optimizar el diseño de ensayos clínicos."
+    },
+    "reguready": {
+      "name": "ReguReady™",
+      "tagline": "Plataforma de Orientación Regulatoria de la FDA",
+      "description": "Plataforma de orientación regulatoria impulsada por IA que ayuda a las empresas de dispositivos médicos a navegar las vías de la FDA y acelerar las aprobaciones de productos mediante análisis inteligente de cumplimiento."
+    },
+    "skinscan": {
+      "name": "SkinScan Pro™",
+      "tagline": "Detección de Cáncer de Piel con IA",
+      "description": "Plataforma de detección de cáncer de piel impulsada por IA que analiza lesiones cutáneas utilizando visión por computadora para ayudar a los proveedores de atención médica en la identificación temprana del melanoma."
     }
   },
   "pricing": {

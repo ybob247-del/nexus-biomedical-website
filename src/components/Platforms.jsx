@@ -1,66 +1,69 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { platformIcons } from './PlatformIcons'
 
-const platforms = [
-  {
-    name: 'EndoGuard™',
-    tagline: 'Clinical-Grade Hormone Intelligence Platform',
-    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
-    color: '#D946EF',
-    gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
-    comingSoon: false
-  },
-  {
-    name: 'RxGuard™',
-    tagline: 'Medication Interaction Predictor',
-    description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
-    color: '#00A8CC',
-    gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-    comingSoon: false
-  },
-  {
-    name: 'ElderWatch™',
-    tagline: 'Senior Health Monitoring',
-    description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention.',
-    color: '#FB923C',
-    gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
-    comingSoon: true
-  },
-  {
-    name: 'PediCalc Pro™',
-    tagline: 'Pediatric Medication Dosing',
-    description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children.',
-    color: '#FDA4AF',
-    gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
-    comingSoon: true
-  },
-  {
-    name: 'ClinicalIQ™',
-    tagline: 'Clinical Decision Support System',
-    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design.',
-    color: '#00D084',
-    gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
-    comingSoon: true
-  },
-  {
-    name: 'ReguReady™',
-    tagline: 'FDA Regulatory Guidance Platform',
-    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis.',
-    color: '#B794F4',
-    gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
-    comingSoon: true
-  },
-  {
-    name: 'SkinScan Pro™',
-    tagline: 'AI Skin Cancer Detection',
-    description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification.',
-    color: '#14B8A6',
-    gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
-    comingSoon: true
-  }
-]
-
 export default function Platforms({ onLearnMore }) {
+  const { t } = useTranslation()
+  
+  const platforms = [
+    {
+      name: 'EndoGuard™',
+      taglineKey: 'platforms.endoguard.tagline',
+      descriptionKey: 'platforms.endoguard.description',
+      color: '#D946EF',
+      gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
+      comingSoon: false
+    },
+    {
+      name: 'RxGuard™',
+      taglineKey: 'platforms.rxguard.tagline',
+      descriptionKey: 'platforms.rxguard.description',
+      color: '#00A8CC',
+      gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+      comingSoon: false
+    },
+    {
+      name: 'ElderWatch™',
+      taglineKey: 'platforms.elderwatch.tagline',
+      descriptionKey: 'platforms.elderwatch.description',
+      color: '#FB923C',
+      gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
+      comingSoon: true
+    },
+    {
+      name: 'PediCalc Pro™',
+      taglineKey: 'platforms.pedicalc.tagline',
+      descriptionKey: 'platforms.pedicalc.description',
+      color: '#FDA4AF',
+      gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
+      comingSoon: true
+    },
+    {
+      name: 'ClinicalIQ™',
+      taglineKey: 'platforms.clinicaliq.tagline',
+      descriptionKey: 'platforms.clinicaliq.description',
+      color: '#00D084',
+      gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+      comingSoon: true
+    },
+    {
+      name: 'ReguReady™',
+      taglineKey: 'platforms.reguready.tagline',
+      descriptionKey: 'platforms.reguready.description',
+      color: '#B794F4',
+      gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
+      comingSoon: true
+    },
+    {
+      name: 'SkinScan Pro™',
+      taglineKey: 'platforms.skinscan.tagline',
+      descriptionKey: 'platforms.skinscan.description',
+      color: '#14B8A6',
+      gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
+      comingSoon: true
+    }
+  ]
+
   return (
     <section id="platforms" style={{
       padding: '4rem 2rem',
@@ -77,7 +80,7 @@ export default function Platforms({ onLearnMore }) {
           color: '#FFFFFF',
           textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
         }}>
-          Our AI Healthcare Platforms
+          {t('platforms.title')}
         </h2>
         <p style={{
           fontSize: '1.25rem',
@@ -88,7 +91,7 @@ export default function Platforms({ onLearnMore }) {
           margin: '0 auto 4rem',
           textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
         }}>
-          Seven revolutionary platforms addressing critical gaps in healthcare delivery
+          {t('platforms.subtitle')}
         </p>
         <div style={{
           display: 'grid',
@@ -178,7 +181,7 @@ export default function Platforms({ onLearnMore }) {
                     whiteSpace: 'nowrap',
                     flexShrink: 0
                   }}>
-                    Coming Soon
+                    {t('platforms.comingSoon')}
                   </span>
                 )}
               </div>
@@ -193,7 +196,7 @@ export default function Platforms({ onLearnMore }) {
                 textShadow: `0 0 20px ${platform.color}80, 0 2px 4px rgba(0, 0, 0, 0.5)`,
                 filter: 'brightness(1.3)'
               }}>
-                {platform.tagline}
+                {t(platform.taglineKey)}
               </p>
               
               {/* Description */}
@@ -203,7 +206,7 @@ export default function Platforms({ onLearnMore }) {
                 lineHeight: 1.7,
                 marginBottom: '2rem'
               }}>
-                {platform.description}
+                {t(platform.descriptionKey)}
               </p>
               
               {/* CTA Button */}
@@ -232,7 +235,7 @@ export default function Platforms({ onLearnMore }) {
                   e.currentTarget.style.boxShadow = `0 4px 15px ${platform.color}40`;
                 }}
               >
-                Learn More →
+                {t('platforms.learnMore')} →
               </button>
             </div>
           ))}
@@ -241,4 +244,3 @@ export default function Platforms({ onLearnMore }) {
     </section>
   )
 }
-

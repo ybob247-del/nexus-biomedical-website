@@ -4,11 +4,13 @@
  */
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import '../styles/auth.css';
 
 const Signup = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -34,7 +36,7 @@ const Signup = () => {
 
     // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError(t('auth.passwordMismatch'));
       return;
     }
 
@@ -61,12 +63,12 @@ const Signup = () => {
         {/* Logo */}
         <div className="auth-logo">
           <h1>Nexus Biomedical Intelligence</h1>
-          <p>Create your account to get started</p>
+          <p>{t('auth.createAccount')} to get started</p>
         </div>
 
         {/* Signup Form */}
         <div className="auth-card">
-          <h2>Get Started</h2>
+          <h2>{t('auth.getStarted')}</h2>
 
           {error && (
             <div className="auth-error">
@@ -78,7 +80,7 @@ const Signup = () => {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="firstName">
-                  First Name
+                  {t('auth.firstName')}
                 </label>
                 <input
                   type="text"
@@ -93,7 +95,7 @@ const Signup = () => {
 
               <div>
                 <label htmlFor="lastName">
-                  Last Name
+                  {t('auth.lastName')}
                 </label>
                 <input
                   type="text"
@@ -109,7 +111,7 @@ const Signup = () => {
 
             <div>
               <label htmlFor="email">
-                Email Address
+                {t('auth.email')}
               </label>
               <input
                 type="email"
@@ -125,7 +127,7 @@ const Signup = () => {
 
             <div>
               <label htmlFor="password">
-                Password
+                {t('auth.password')}
               </label>
               <input
                 type="password"
@@ -138,13 +140,13 @@ const Signup = () => {
                 placeholder="••••••••"
               />
               <p className="text-xs text-gray-500 mt-1">
-                Must be at least 8 characters with uppercase, lowercase, and number
+                {t('auth.passwordRequirements')}
               </p>
             </div>
 
             <div>
               <label htmlFor="confirmPassword">
-                Confirm Password
+                {t('auth.confirmPassword')}
               </label>
               <input
                 type="password"
@@ -163,7 +165,7 @@ const Signup = () => {
               disabled={loading}
               className="auth-submit-btn"
             >
-              {loading ? 'Creating account...' : 'Create Account'}
+              {loading ? t('auth.creatingAccount') : t('auth.createAccount')}
             </button>
           </form>
 
@@ -174,11 +176,9 @@ const Signup = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <div>
-                <p className="text-sm font-semibold text-white mb-1">Instant Free Trials Included!</p>
+                <p className="text-sm font-semibold text-white mb-1">{t('auth.freeTrialNotice')}</p>
                 <p className="text-xs text-gray-300">
-                  • RxGuard™: 14-day free trial<br />
-                  • EndoGuard™: 30-day free trial<br />
-                  Automatically activated when you sign up. No credit card required.
+                  {t('auth.freeTrialDetails')}
                 </p>
               </div>
             </div>
@@ -186,11 +186,11 @@ const Signup = () => {
 
           <div className="auth-footer">
             <p>
-              Already have an account?{' '}
-              <Link to="/login">Sign in</Link>
+              {t('auth.hasAccount')}{' '}
+              <Link to="/login">{t('auth.signIn')}</Link>
             </p>
             <p style={{ marginTop: '1rem' }}>
-              <Link to="/">← Back to home</Link>
+              <Link to="/">← {t('common.back')} to home</Link>
             </p>
           </div>
         </div>

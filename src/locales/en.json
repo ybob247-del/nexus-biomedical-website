@@ -49,7 +49,7 @@
   },
   "platforms": {
     "title": "Our AI Healthcare Platforms",
-    "subtitle": "Choose the platform that fits your needs",
+    "subtitle": "Seven revolutionary platforms addressing critical gaps in healthcare delivery",
     "allPlans": "All plans include a free trial with no credit card required",
     "startTrial": "Start Free Trial",
     "learnMore": "Learn More",
@@ -80,6 +80,31 @@
         "reports": "Detailed interaction reports",
         "integration": "EHR integration ready"
       }
+    },
+    "elderwatch": {
+      "name": "ElderWatch™",
+      "tagline": "Senior Health Monitoring",
+      "description": "Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention."
+    },
+    "pedicalc": {
+      "name": "PediCalc Pro™",
+      "tagline": "Pediatric Medication Dosing",
+      "description": "AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children."
+    },
+    "clinicaliq": {
+      "name": "ClinicalIQ™",
+      "tagline": "Clinical Decision Support System",
+      "description": "AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design."
+    },
+    "reguready": {
+      "name": "ReguReady™",
+      "tagline": "FDA Regulatory Guidance Platform",
+      "description": "AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis."
+    },
+    "skinscan": {
+      "name": "SkinScan Pro™",
+      "tagline": "AI Skin Cancer Detection",
+      "description": "AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification."
     }
   },
   "pricing": {

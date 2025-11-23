@@ -4,11 +4,13 @@
  */
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import '../styles/auth.css';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -39,12 +41,12 @@ const Login = () => {
         {/* Logo */}
         <div className="auth-logo">
           <h1>Nexus Biomedical Intelligence</h1>
-          <p>Sign in to access your clinical platforms</p>
+          <p>{t('auth.signIn')} to access your clinical platforms</p>
         </div>
 
         {/* Login Form */}
         <div className="auth-card">
-          <h2>Welcome Back</h2>
+          <h2>{t('auth.welcomeBack')}</h2>
 
           {error && (
             <div className="auth-error">
@@ -54,7 +56,7 @@ const Login = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="auth-input-group">
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">{t('auth.email')}</label>
               <input
                 type="email"
                 id="email"
@@ -67,7 +69,7 @@ const Login = () => {
             </div>
 
             <div className="auth-input-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">{t('auth.password')}</label>
               <input
                 type="password"
                 id="password"
@@ -84,14 +86,14 @@ const Login = () => {
               disabled={loading}
               className="auth-submit-btn"
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? t('auth.signingIn') : t('auth.signIn')}
             </button>
           </form>
 
           <div className="auth-footer">
             <p>
-              Don't have an account?{' '}
-              <Link to="/signup">Sign up</Link>
+              {t('auth.noAccount')}{' '}
+              <Link to="/signup">{t('auth.signUp')}</Link>
             </p>
           </div>
         </div>

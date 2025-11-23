@@ -58,6 +58,9 @@ module.exports = async (req, res) => {
     // Generate JWT token
     const token = generateToken(user);
 
+    // TODO: Re-enable audit_log and platform_trials after fixing database schema
+    // Temporarily disabled to allow signups while debugging foreign key constraints
+    /*
     // Log signup event
     await query(
       `INSERT INTO audit_log (user_id, event_type, event_data, ip_address)
@@ -93,6 +96,8 @@ module.exports = async (req, res) => {
       console.error('Error creating trials:', trialError);
       // Don't fail signup if trial creation fails
     }
+    */
+    console.log(`User ${user.id} created successfully. Audit log and trials temporarily disabled.`);
 
     // Return user data and token
     return res.status(201).json({

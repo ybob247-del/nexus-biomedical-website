@@ -90,6 +90,12 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({ email, password, firstName, lastName }),
       });
 
+      // Check if response is JSON before parsing
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server error: Invalid response format');
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -103,6 +109,7 @@ export const AuthProvider = ({ children }) => {
 
       return { success: true };
     } catch (error) {
+      console.error('Signup error:', error);
       return { success: false, error: error.message };
     }
   };

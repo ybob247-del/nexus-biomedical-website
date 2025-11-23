@@ -94,7 +94,13 @@ export default function PlatformsPage() {
       return;
     }
 
-    // Navigate to signup for active platforms (RxGuard and EndoGuard)
+    // Hybrid freemium model for EndoGuard - allow unauthenticated assessment
+    if (platform.name === 'EndoGuard™') {
+      navigate('/endoguard/assessment');
+      return;
+    }
+
+    // Navigate to signup for other active platforms (RxGuard, etc.)
     navigate('/signup');
   };
 

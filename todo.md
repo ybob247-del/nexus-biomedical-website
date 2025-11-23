@@ -986,3 +986,9 @@
 - [ ] Gate symptom tracking over time behind paid tier - FUTURE FEATURE
 - [ ] Test conversion funnel: Anonymous → See Value → Sign Up → Upgrade to Paid
 - [ ] Track metrics: Assessment completions vs. Signups vs. Paid conversions
+
+## 🚨 URGENT Bug Fixes (Nov 23, 2025 - User Reported)
+- [ ] Fix "Start Free Trial" buttons on platform cards homepage to route to assessment for EndoGuard
+- [ ] Fix signup page JSON parsing error: "Unexpected token 'A', 'A server e'... is not valid JSON"
+- [ ] Verify hybrid freemium flow works end-to-end on live site
+- [ ] Ensure all changes deploy to www.nexusbiomedical.ai via GitHub push

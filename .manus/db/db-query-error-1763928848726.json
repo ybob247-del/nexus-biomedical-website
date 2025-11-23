@@ -1,0 +1,8 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS platform_trials (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, platform VARCHAR(50) NOT NULL, trial_end_date TIMESTAMP NOT NULL, trial_type VARCHAR(20) DEFAULT 'regular', created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, UNIQUE(user_id, platform));",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS platform_trials (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, platform VARCHAR(50) NOT NULL, trial_end_date TIMESTAMP NOT NULL, trial_type VARCHAR(20) DEFAULT 'regular', created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, UNIQUE(user_id, platform));",
+  "returncode": 1,
+  "logs": [
+    "ERROR 3780 (HY000) at line 1: Referencing column 'trial_id' and referenced column 'id' in foreign key constraint 'fk_2' are incompatible."
+  ]
+}

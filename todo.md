@@ -4,6 +4,8 @@
 - [x] Improve HIPAA section - list specific things we DON'T do (no BAAs, no EHR, etc.)
 - [x] Add PII alongside PHI throughout both documents
 - [x] Remove "Note to User" sections from both documents
+- [x] Final rewrite based on competitor research and HIPAA regulations
+- [x] Create clear, general-audience documents (accessible to all, not clinician-focused)
 
 ## 🚨 URGENT FIXES (Nov 21, 2025 - User Reported)
 - [x] Fix blank page issue when clicking "Start Free Trial" on EndoGuard and RxGuard

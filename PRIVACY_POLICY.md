@@ -1,225 +1,237 @@
 # Privacy Policy
 
 **Nexus Biomedical Intelligence**  
-**Last Updated:** November 22, 2024
+**Effective Date:** November 23, 2025  
+**Last Updated:** November 23, 2025
 
 ---
 
 ## Introduction
 
-Nexus Biomedical Intelligence ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our healthcare AI platform and services.
+Nexus Biomedical Intelligence ("we," "our," or "us") operates AI-powered health information and clinical decision support platforms at nexusbiomedical.ai (the "Website" and "Services"). We are committed to protecting your privacy and being transparent about how we collect, use, and protect your information.
 
-By accessing or using our services, you agree to this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access our services.
+This Privacy Policy explains what information we collect, how we use it, how we protect it, and your rights regarding your information. By using our Services, you agree to the practices described in this Privacy Policy.
 
----
-
-## Our Privacy-First Approach
-
-**We believe in pseudonymous healthcare tools.** Our platforms are designed to provide health insights WITHOUT requiring you to share protected health information (PHI), personally identifiable information (PII), or medical records.
-
-### What This Means:
-- You DON'T need to provide patient names
-- You DON'T need to upload medical records
-- You DON'T need to share diagnosis codes
-- You answer health questions anonymously
-- We provide educational insights, not medical diagnoses
+**Important:** We are an educational technology platform providing health information and decision support tools. We are not healthcare providers, and we do not provide medical diagnosis, treatment, or advice. Always consult qualified healthcare professionals for medical decisions.
 
 ---
 
 ## Information We Collect
 
-### Account Information (Required)
-- **Email address** - For account creation and communication
-- **Password** - Securely hashed, never stored in plain text
-- **Account preferences** - Settings and notification preferences
+We collect information in the following categories:
 
-### Health Assessment Data (Anonymous)
-When you use our platforms (RxGuard™, EndoGuard™, etc.), you may provide:
-- Medication names (NOT prescriptions or medical records)
-- Symptom descriptions (self-reported, anonymous)
-- Lifestyle factors (diet, exercise, exposure risks)
-- Assessment responses (quiz answers)
+### Account Information
+When you create an account, we collect:
+- Email address
+- Password (encrypted and securely stored)
+- Name (optional)
+- Professional credentials (for healthcare provider accounts, such as specialty or license type)
+- Account preferences and settings
 
-**Important:** This data is NOT protected health information (PHI) or personally identifiable information (PII) because it's self-reported, anonymous, and not linked to medical records, healthcare providers, or your real identity.
+### Health Assessment Data
+When you use our assessment tools, we collect:
+- Self-reported symptoms and health information
+- Medication lists and drug interaction queries
+- Assessment responses and quiz answers
+- Risk scores and assessment results
+- Usage history within the platforms
 
-### Technical Information (Automatic)
-- IP address and device information
+### Technical Information
+We automatically collect:
+- IP address
 - Browser type and version
-- Operating system
-- Access times and pages visited
-- Cookies and similar tracking technologies
+- Device information (type, operating system)
+- Pages visited and features used
+- Date and time of access
+- Referring website or source
 
 ### Payment Information
-- Processed securely through Stripe (we do NOT store credit card numbers)
-- Billing email and transaction history
-- Subscription status
+When you subscribe to premium services:
+- Payment information is processed securely by Stripe, our payment processor
+- We do not store complete credit card numbers on our servers
+- We receive only transaction confirmations and subscription status from Stripe
 
 ---
 
 ## How We Use Your Information
 
-We use collected information for the following purposes:
+We use your information for the following purposes:
 
-- **Provide Services:** Deliver health assessments, risk analysis, and educational insights
-- **Improve Platforms:** Analyze usage patterns to enhance our AI algorithms
-- **Communicate:** Send account updates, assessment results, and educational content
-- **Process Payments:** Manage subscriptions and billing
-- **Ensure Security:** Detect and prevent fraud, abuse, and technical issues
-- **Comply with Laws:** Meet legal obligations and respond to lawful requests
+**To Provide Our Services:**
+- Deliver personalized health assessments and risk analyses
+- Generate reports and recommendations based on your inputs
+- Maintain your account and provide customer support
+- Process payments and manage subscriptions
+
+**To Improve Our Services:**
+- Analyze usage patterns to enhance platform functionality
+- Develop new features and assessment tools
+- Conduct research to improve accuracy and effectiveness
+- Test and optimize user experience
+
+**To Communicate With You:**
+- Send assessment results and reports
+- Provide customer support and respond to inquiries
+- Send account-related notifications (password resets, subscription updates)
+- Share educational content and platform updates (with your consent)
+
+**To Ensure Security and Compliance:**
+- Detect and prevent fraud or unauthorized access
+- Enforce our Terms of Service
+- Comply with legal obligations
+- Protect the rights and safety of our users
 
 ---
 
-## We Are NOT a HIPAA-Covered Entity
+## How We Share Your Information
 
-**Important Clarification:**
+We do not sell your personal health information to third parties. We may share your information only in the following limited circumstances:
 
-Nexus Biomedical Intelligence is **NOT** a covered entity or business associate under the Health Insurance Portability and Accountability Act (HIPAA). Here's why:
+**Service Providers:**  
+We share information with trusted third-party service providers who help us operate our Services, including:
+- Cloud hosting providers (secure data storage)
+- Payment processors (Stripe for subscription billing)
+- Email service providers (for transactional emails)
+- Analytics providers (to understand platform usage)
 
-### What We DON'T Do (HIPAA Requirements):
+These providers are contractually obligated to protect your information and use it only for the purposes we specify.
 
-- **No PHI/PII Collection:** We do NOT collect protected health information (PHI) or personally identifiable information (PII) as defined by HIPAA
-- **No Business Associate Agreements (BAAs):** We do NOT execute BAAs with healthcare providers because we don't handle their patient data
-- **No EHR Integration:** We do NOT integrate with electronic health record (EHR) systems like Epic, Cerner, or Allscripts
-- **No Provider Data:** We do NOT receive patient information from doctors, hospitals, clinics, or other healthcare providers
-- **No Insurance Processing:** We do NOT process insurance claims, billing codes, or reimbursement data
-- **No Medical Records:** We do NOT store, transmit, or process medical records or clinical documentation
-- **No Identifiable Health Data:** We do NOT link health assessments to real patient identities, medical record numbers, or social security numbers
+**Legal Requirements:**  
+We may disclose information if required by law, such as:
+- In response to valid legal process (subpoena, court order)
+- To protect our rights, property, or safety
+- To prevent fraud or illegal activity
+- To comply with regulatory obligations
 
-### What We Actually Do:
+**Business Transfers:**  
+If we are involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change and any choices you may have.
 
-- Users create accounts with email addresses (not linked to medical records)
-- Users answer health questions anonymously (self-reported data)
-- We provide educational insights and risk assessments (not diagnoses)
-- All data is pseudonymous and cannot be traced back to medical records
+**With Your Consent:**  
+We may share information for other purposes with your explicit consent.
 
-**Our platforms are educational tools and clinical decision support systems, NOT medical record systems or HIPAA-covered services.**
+---
+
+## HIPAA and Healthcare Privacy
+
+### Understanding HIPAA
+
+The Health Insurance Portability and Accountability Act (HIPAA) is a federal law that protects the privacy and security of medical information held by **covered entities**. Under HIPAA, covered entities are defined as:
+
+1. **Healthcare Providers** who transmit health information electronically in connection with certain transactions (such as billing)
+2. **Health Plans** (insurance companies, HMOs, Medicare, Medicaid)
+3. **Healthcare Clearinghouses** that process health information between providers and payers
+
+### Our HIPAA Status
+
+**Nexus Biomedical Intelligence is not a HIPAA-covered entity.** We do not fall into any of the three categories defined by HIPAA because:
+
+- We do not provide medical treatment, diagnosis, or prescriptions
+- We are not a health insurance plan or payer
+- We do not process insurance claims or operate as a clearinghouse
+- We do not transmit protected health information (PHI) on behalf of healthcare providers
+- We do not access or integrate with electronic health records (EHRs) or medical record systems
+
+### What This Means for Healthcare Providers
+
+**If you are a healthcare provider using our Services:**
+
+- Using our platforms **does not create HIPAA liability** for your practice
+- You **do not need a Business Associate Agreement (BAA)** with us
+- Our Services operate independently of your patient records and do not access PHI from your practice
+- We collect only information that users voluntarily enter directly into our assessment tools
+
+**Important:** If you choose to enter patient information into our platforms, you are responsible for de-identifying that information and ensuring compliance with your own HIPAA obligations. We recommend using our tools for educational purposes or with anonymized/de-identified data only.
+
+### What This Means for Individual Users
+
+While HIPAA does not apply to our Services, we are committed to protecting your privacy through:
+
+- **Industry-standard encryption** for data transmission and storage
+- **Secure access controls** to prevent unauthorized access
+- **Regular security audits** and updates
+- **Strict internal policies** limiting employee access to your data
+- **No sale of your personal health data** to third parties for marketing purposes
+
+We collect only the information you voluntarily provide through our assessment tools. We do not collect protected health information (PHI) or personally identifiable information (PII) such as:
+- Patient names or medical record numbers
+- Social Security numbers
+- Insurance policy numbers
+- Medical records from healthcare providers
+- Diagnostic codes or treatment records from clinical systems
 
 ---
 
 ## Data Security
 
-We implement industry-standard security measures to protect your information:
+We implement appropriate technical and organizational measures to protect your information, including:
 
-- **Encryption:** TLS 1.3 for data in transit, AES-256 for data at rest
-- **Secure Authentication:** Password hashing with bcrypt
-- **Access Controls:** Role-based permissions and least-privilege access
-- **Regular Audits:** Security assessments and vulnerability testing
-- **Secure Infrastructure:** Cloud hosting with redundancy and backup
+- **Encryption:** All data transmitted between your device and our servers is encrypted using TLS/SSL protocols
+- **Secure Storage:** Data is stored on secure servers with encryption at rest
+- **Access Controls:** Strict authentication and authorization controls limit access to your data
+- **Regular Audits:** We conduct security assessments and vulnerability testing
+- **Employee Training:** Our team is trained on data protection and privacy best practices
+
+However, no method of transmission or storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.
 
 ---
 
-## Data Sharing and Disclosure
+## Your Privacy Rights
 
-**We do NOT sell your personal information.**
+You have the following rights regarding your information:
 
-We may share information in the following limited circumstances:
+**Access:** You can request a copy of the personal information we hold about you.
 
-- **Service Providers:** Trusted vendors (e.g., Stripe for payments, email services) under strict confidentiality agreements
-- **Legal Compliance:** When required by law, regulation, court order, or legal process
-- **Business Transfers:** In connection with a merger, acquisition, or sale of assets (with notice to you)
-- **Protection of Rights:** To protect our rights, safety, property, or the rights of others
-- **With Your Consent:** When you explicitly authorize us to share information
+**Correction:** You can update or correct inaccurate information through your account settings or by contacting us.
+
+**Deletion:** You can request deletion of your account and associated data. Note that we may retain certain information as required by law or for legitimate business purposes.
+
+**Export:** You can request a copy of your assessment data in a portable format.
+
+**Opt-Out:** You can opt out of marketing communications at any time by using the unsubscribe link in emails or updating your account preferences.
+
+**Do Not Sell:** We do not sell your personal information. If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA).
+
+To exercise any of these rights, please contact us at support@nexusbiomedical.ai.
 
 ---
 
 ## Data Retention
 
-We retain your information for as long as necessary to provide our services and comply with legal obligations:
-
-- **Account Data:** Retained while your account is active, deleted upon account closure
-- **Assessment Data:** Retained for service improvement, anonymized after 2 years
-- **Payment Records:** Retained for 7 years for tax and accounting purposes
-- **Technical Logs:** Retained for 90 days for security and troubleshooting
-
----
-
-## Your Rights Under GDPR
-
-If you are located in the European Economic Area (EEA), you have the following rights:
-
-### Right to Access
-Request access to your personal data and receive a copy of the information we hold about you.
-
-### Right to Rectification
-Request correction of inaccurate or incomplete personal data.
-
-### Right to Erasure
-Request deletion of your personal data when it is no longer necessary for the purposes for which it was collected.
-
-### Right to Restrict Processing
-Request limitation on how we use your data.
-
-### Right to Data Portability
-Request your data in a machine-readable format.
-
-### Right to Object
-Object to processing based on legitimate interests.
-
-### Right to Withdraw Consent
-Withdraw consent for marketing communications anytime.
-
-### How to Exercise Your Rights
-
-To exercise any of these rights:
-
-1. **Log in to your account** → Privacy Settings
-2. **Email us** at support@nexusbiomedical.ai
-3. **Use the data export feature** (Account → Download My Data)
-4. **Use the account deletion feature** (Account → Delete Account)
-
-We will respond to your request within 30 days.
-
----
-
-## Cookies and Tracking
-
-We use cookies and similar tracking technologies to enhance your experience:
-
-- **Essential Cookies:** Required for platform functionality (login, sessions)
-- **Analytics Cookies:** Help us understand how you use our services
-- **Preference Cookies:** Remember your settings and preferences
-
-You can control cookie preferences through your browser settings. Note that disabling cookies may limit functionality of our services.
+We retain your information for as long as your account is active or as needed to provide you Services. If you request deletion of your account, we will delete or anonymize your information within 90 days, except where we are required to retain it for legal, regulatory, or legitimate business purposes (such as resolving disputes or enforcing agreements).
 
 ---
 
 ## Children's Privacy
 
-Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately at support@nexusbiomedical.ai.
+Our Services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child under 18, we will take steps to delete that information promptly.
 
 ---
 
-## International Data Transfers
+## International Users
 
-Your data may be transferred to and processed in countries outside your country of residence, including the United States. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws.
+Our Services are operated in the United States. If you access our Services from outside the United States, your information will be transferred to, stored, and processed in the United States. By using our Services, you consent to this transfer and processing.
 
 ---
 
-## Changes to This Policy
+## Changes to This Privacy Policy
 
-We may update this privacy policy from time to time. We will notify you of significant changes by:
+We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of material changes by:
+- Posting the updated Privacy Policy on our Website with a new "Last Updated" date
+- Sending an email notification to your registered email address (for significant changes)
 
-- Posting the new policy on our website
-- Sending an email notification
-- Displaying a prominent notice on the platform
-
-Continued use of our services after changes constitutes acceptance of the updated policy.
+Your continued use of our Services after changes become effective constitutes your acceptance of the updated Privacy Policy.
 
 ---
 
 ## Contact Us
 
-If you have questions about this privacy policy or our data practices:
+If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us:
 
 **Email:** support@nexusbiomedical.ai  
-**Website:** https://www.nexusbiomedical.ai
+**Website:** https://nexusbiomedical.ai
+
+We will respond to your inquiry within 30 days.
 
 ---
 
-## Medical Disclaimer
-
-**Our services are for informational and educational purposes only.** They are NOT intended to diagnose, treat, cure, or prevent any disease. Always consult qualified healthcare professionals for medical advice.
-
----
-
-
+**This Privacy Policy should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction.**

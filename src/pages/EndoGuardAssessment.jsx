@@ -163,7 +163,7 @@ export default function EndoGuardAssessment() {
             </button>
           )}
         </div>
-        <p>Discover your EDC exposure risk and get personalized recommendations</p>
+        <p>Discover your Endocrine Disrupting Chemical (EDC) exposure risk and get personalized recommendations</p>
         <FDADisclaimer />
         
         {/* Progress Bar */}

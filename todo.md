@@ -1046,3 +1046,9 @@
 - [ ] Fix signup page JSON parsing error: "Unexpected token 'A', 'A server e'... is not valid JSON"
 - [ ] Verify hybrid freemium flow works end-to-end on live site
 - [ ] Ensure all changes deploy to www.nexusbiomedical.ai via GitHub push
+
+## 🔧 UX IMPROVEMENTS (Nov 23, 2025)
+- [x] Fix EDC acronym - spell out "Endocrine Disrupting Chemicals (EDC)" on first mention
+- [x] Update EndoGuard assessment page to define EDC for users
+- [x] Update EndoGuard results page to define EDC for users  
+- [x] Update homepage/platform descriptions to define EDC

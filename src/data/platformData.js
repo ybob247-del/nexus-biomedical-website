@@ -335,12 +335,12 @@ export const platformsData = {
       title: 'The Problem We Solve',
       content: [
         'Hormonal dysregulation impacts women and men across all age groups, yet most clinicians are not fully trained to recognize the early signs, interconnected pathways, or compounding effects of these disruptions. This leaves millions suffering from symptoms that remain untreated, misdiagnosed, or dismissed.',
-        'The silent, often-overlooked imbalances are driven by microplastics, endocrine-disrupting chemicals, environmental estrogens, and modern dietary exposures. EndoGuard™ is the first clinical-grade platform to integrate environmental exposures, microplastics, EDC datasets, and clinical decision support—filling a major medical gap that no competitor addresses.'
+        'The silent, often-overlooked imbalances are driven by microplastics, Endocrine Disrupting Chemicals (EDCs), environmental estrogens, and modern dietary exposures. EndoGuard™ is the first clinical-grade platform to integrate environmental exposures, microplastics, EDC datasets, and clinical decision support—filling a major medical gap that no competitor addresses.'
       ]
     },
     howItWorks: [
       { step: 1, title: 'Symptom Input', desc: 'Enter symptoms and health history. Our AI maps symptoms to endocrine pathways using validated hormone dysfunction profiles.' },
-      { step: 2, title: 'EDC Exposure Assessment', desc: 'Comprehensive evaluation of endocrine-disrupting chemical exposure from personal care products, plastics, food packaging, and environment using FDA EDKB and EPA CompTox databases.' },
+      { step: 2, title: 'EDC Exposure Assessment', desc: 'Comprehensive evaluation of Endocrine Disrupting Chemical (EDC) exposure from personal care products, plastics, food packaging, and environment using FDA EDKB and EPA CompTox databases.' },
       { step: 3, title: 'AI Pattern Analysis', desc: 'Knowledge graph links hormones, symptoms, chemicals, and treatments. NLP processes 10,000+ peer-reviewed studies from PubMed and Endocrine Society guidelines.' },
       { step: 4, title: 'Clinical Evidence Engine', desc: 'Every insight is traceable to PubMed, ClinicalTrials.gov, Endocrine Society guidelines, and peer-reviewed literature.' },
       { step: 5, title: 'Personalized Roadmap', desc: 'Receive actionable guidance on diet, lifestyle modifications, lab tests to request, and clinical discussion points for your healthcare provider.' },
@@ -348,7 +348,7 @@ export const platformsData = {
     ],
     features: [
       { title: 'Hormone Pattern Analyzer', desc: 'AI-driven inference engine maps symptoms to endocrine pathways using machine learning trained on validated hormone dysfunction profiles.' },
-      { title: 'Endocrine Disruptor Exposure Assessment', desc: 'Unique focus on microplastics, EDCs, and environmental factors using FDA EDKB and EPA CompTox databases. No competitor offers this integration.' },
+      { title: 'Endocrine Disruptor Exposure Assessment', desc: 'Unique focus on microplastics, Endocrine Disrupting Chemicals (EDCs), and environmental factors using FDA EDKB and EPA CompTox databases. No competitor offers this integration.' },
       { title: 'Clinical Evidence Engine', desc: 'Every insight traceable to PubMed, Endocrine Society guidelines, and peer-reviewed literature. Zero speculation—only evidence-based recommendations.' },
       { title: 'Personalized Hormone Health Roadmap', desc: 'Actionable guidance on diet, lifestyle, lab tests to request, and clinical discussion points tailored to your unique profile.' },
       { title: 'Provider Dashboard', desc: 'Clinical-grade decision support for physicians, nurse practitioners, and health coaches with advanced search and research integration.' },

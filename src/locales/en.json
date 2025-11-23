@@ -1,0 +1,153 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "selectLanguage": "Select Language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "nav": {
+    "home": "Home",
+    "platforms": "Platforms",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Sign In",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Sign Out",
+    "pricing": "Pricing",
+    "forProviders": "For Providers"
+  },
+  "hero": {
+    "title": "Nexus Biomedical Intelligence",
+    "subtitle": "Revolutionizing Healthcare Through AI-Powered Patient Intelligence",
+    "description": "Advanced clinical decision support platforms combining cutting-edge artificial intelligence with evidence-based medicine to transform patient care and clinical outcomes.",
+    "exploreButton": "Explore Our Platforms",
+    "watchDemo": "Watch Demo",
+    "viewDocumentation": "View Documentation",
+    "contactSales": "Contact Sales"
+  },
+  "earlyAdopter": {
+    "title": "Early Adopter Special",
+    "description": "Save 20% - $39/month (reg. $49) for life!",
+    "cta": "Claim Your Discount",
+    "limitedTime": "Limited Time Offer"
+  },
+  "platforms": {
+    "title": "Our AI Healthcare Platforms",
+    "subtitle": "Choose the platform that fits your needs",
+    "allPlans": "All plans include a free trial with no credit card required",
+    "startTrial": "Start Free Trial",
+    "learnMore": "Learn More",
+    "comingSoon": "Coming Soon",
+    "joinWaitlist": "Join Waitlist",
+    "endoguard": {
+      "name": "EndoGuard™",
+      "tagline": "Clinical-Grade Hormone Intelligence Platform",
+      "description": "Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.",
+      "features": {
+        "assessment": "Comprehensive hormone health assessment",
+        "edc": "EDC exposure tracking and analysis",
+        "recommendations": "Evidence-based treatment recommendations",
+        "monitoring": "Continuous health monitoring",
+        "reports": "Detailed clinical reports",
+        "alerts": "Risk alerts and notifications"
+      }
+    },
+    "rxguard": {
+      "name": "RxGuard™",
+      "tagline": "Medication Interaction Predictor",
+      "description": "AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.",
+      "features": {
+        "checker": "Real-time interaction checking",
+        "alternatives": "Safer medication alternatives",
+        "alerts": "Critical interaction alerts",
+        "database": "Comprehensive drug database",
+        "reports": "Detailed interaction reports",
+        "integration": "EHR integration ready"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Flexible pricing for individuals and healthcare providers",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "save": "Save {{percent}}%",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "freeTrial": "{{days}}-day free trial",
+    "premium": "Premium",
+    "premiumPlus": "Premium Plus",
+    "providerBasic": "Provider Basic",
+    "providerPro": "Provider Professional",
+    "features": "Features",
+    "upTo": "Up to {{count}} patients",
+    "unlimited": "Unlimited patients",
+    "support": "Priority support",
+    "training": "Training included",
+    "bulkLicensing": "Bulk licensing available"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "createAccount": "Create Account",
+    "welcomeBack": "Welcome Back",
+    "getStarted": "Get Started",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signingIn": "Signing in...",
+    "creatingAccount": "Creating account...",
+    "passwordRequirements": "Must be at least 8 characters with uppercase, lowercase, and number",
+    "passwordMismatch": "Passwords do not match",
+    "freeTrialNotice": "Instant Free Trials Included!",
+    "freeTrialDetails": "RxGuard™: 14-day free trial • EndoGuard™: 30-day free trial • Automatically activated when you sign up. No credit card required."
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}",
+    "yourPlatforms": "Your Platforms",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "startAssessment": "Start Assessment",
+    "viewReports": "View Reports",
+    "settings": "Settings"
+  },
+  "footer": {
+    "tagline": "Transforming Healthcare Through AI Innovation",
+    "copyright": "© {{year}} Nexus Biomedical Intelligence. All rights reserved.",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "blog": "Blog",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "apiDocs": "API Documentation",
+    "support": "Support",
+    "caseStudies": "Case Studies",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "security": "Security & Privacy"
+  }
+}

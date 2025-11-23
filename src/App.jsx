@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import './styles/nexus.css'
+import './i18n' // Initialize i18n
 import StarryBackground from './components/StarryBackground'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -30,6 +31,7 @@ const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
+const ProviderPricing = lazy(() => import('./pages/ProviderPricing'))
 const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
 const Login = lazy(() => import('./pages/Login'))
@@ -209,6 +211,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <PricingPage />
+          </Suspense>
+        }
+      />
+      
+      {/* Provider Pricing Route */}
+      <Route 
+        path="/provider-pricing" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProviderPricing />
           </Suspense>
         }
       />

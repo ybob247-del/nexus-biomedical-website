@@ -1,0 +1,153 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "selectLanguage": "Seleccionar Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "nav": {
+    "home": "Inicio",
+    "platforms": "Plataformas",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "dashboard": "Panel",
+    "logout": "Cerrar Sesión",
+    "pricing": "Precios",
+    "forProviders": "Para Proveedores"
+  },
+  "hero": {
+    "title": "Nexus Biomedical Intelligence",
+    "subtitle": "Revolucionando la Atención Médica a Través de Inteligencia Artificial",
+    "description": "Plataformas avanzadas de apoyo a decisiones clínicas que combinan inteligencia artificial de vanguardia con medicina basada en evidencia para transformar la atención al paciente y los resultados clínicos.",
+    "exploreButton": "Explorar Nuestras Plataformas",
+    "watchDemo": "Ver Demostración",
+    "viewDocumentation": "Ver Documentación",
+    "contactSales": "Contactar Ventas"
+  },
+  "earlyAdopter": {
+    "title": "Oferta Especial para Adoptadores Tempranos",
+    "description": "Ahorre 20% - $39/mes (reg. $49) ¡de por vida!",
+    "cta": "Reclamar Su Descuento",
+    "limitedTime": "Oferta por Tiempo Limitado"
+  },
+  "platforms": {
+    "title": "Nuestras Plataformas de IA en Salud",
+    "subtitle": "Elija la plataforma que se adapte a sus necesidades",
+    "allPlans": "Todos los planes incluyen una prueba gratuita sin tarjeta de crédito",
+    "startTrial": "Iniciar Prueba Gratuita",
+    "learnMore": "Más Información",
+    "comingSoon": "Próximamente",
+    "joinWaitlist": "Unirse a Lista de Espera",
+    "endoguard": {
+      "name": "EndoGuard™",
+      "tagline": "Plataforma de Inteligencia Hormonal de Grado Clínico",
+      "description": "Inteligencia hormonal de grado clínico que aborda la crisis de salud silenciosa causada por microplásticos, químicos disruptores endocrinos y exposiciones ambientales.",
+      "features": {
+        "assessment": "Evaluación integral de salud hormonal",
+        "edc": "Seguimiento y análisis de exposición a EDC",
+        "recommendations": "Recomendaciones de tratamiento basadas en evidencia",
+        "monitoring": "Monitoreo continuo de salud",
+        "reports": "Informes clínicos detallados",
+        "alerts": "Alertas de riesgo y notificaciones"
+      }
+    },
+    "rxguard": {
+      "name": "RxGuard™",
+      "tagline": "Predictor de Interacciones Medicamentosas",
+      "description": "Verificador de interacciones medicamentosas impulsado por IA que ayuda a los proveedores de atención médica a identificar combinaciones peligrosas de medicamentos y sugerir alternativas más seguras.",
+      "features": {
+        "checker": "Verificación de interacciones en tiempo real",
+        "alternatives": "Alternativas medicamentosas más seguras",
+        "alerts": "Alertas de interacciones críticas",
+        "database": "Base de datos integral de medicamentos",
+        "reports": "Informes detallados de interacciones",
+        "integration": "Integración con HCE lista para usar"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Elija Su Plan",
+    "subtitle": "Precios flexibles para individuos y proveedores de atención médica",
+    "monthly": "Mensual",
+    "annually": "Anual",
+    "save": "Ahorre {{percent}}%",
+    "perMonth": "/mes",
+    "perYear": "/año",
+    "freeTrial": "Prueba gratuita de {{days}} días",
+    "premium": "Premium",
+    "premiumPlus": "Premium Plus",
+    "providerBasic": "Proveedor Básico",
+    "providerPro": "Proveedor Profesional",
+    "features": "Características",
+    "upTo": "Hasta {{count}} pacientes",
+    "unlimited": "Pacientes ilimitados",
+    "support": "Soporte prioritario",
+    "training": "Capacitación incluida",
+    "bulkLicensing": "Licencias en volumen disponibles"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "createAccount": "Crear Cuenta",
+    "welcomeBack": "Bienvenido de Nuevo",
+    "getStarted": "Comenzar",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "noAccount": "¿No tiene una cuenta?",
+    "hasAccount": "¿Ya tiene una cuenta?",
+    "signingIn": "Iniciando sesión...",
+    "creatingAccount": "Creando cuenta...",
+    "passwordRequirements": "Debe tener al menos 8 caracteres con mayúsculas, minúsculas y números",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "freeTrialNotice": "¡Pruebas Gratuitas Instantáneas Incluidas!",
+    "freeTrialDetails": "RxGuard™: Prueba gratuita de 14 días • EndoGuard™: Prueba gratuita de 30 días • Se activa automáticamente al registrarse. No se requiere tarjeta de crédito."
+  },
+  "dashboard": {
+    "welcome": "Bienvenido de nuevo, {{name}}",
+    "yourPlatforms": "Sus Plataformas",
+    "recentActivity": "Actividad Reciente",
+    "quickActions": "Acciones Rápidas",
+    "startAssessment": "Iniciar Evaluación",
+    "viewReports": "Ver Informes",
+    "settings": "Configuración"
+  },
+  "footer": {
+    "tagline": "Transformando la Atención Médica a Través de la Innovación en IA",
+    "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",
+    "company": "Empresa",
+    "aboutUs": "Acerca de Nosotros",
+    "careers": "Carreras",
+    "contact": "Contacto",
+    "blog": "Blog",
+    "resources": "Recursos",
+    "documentation": "Documentación",
+    "apiDocs": "Documentación de API",
+    "support": "Soporte",
+    "caseStudies": "Casos de Estudio",
+    "legal": "Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "security": "Seguridad y Privacidad"
+  }
+}

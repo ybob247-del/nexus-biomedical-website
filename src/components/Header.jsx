@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/header.css'
 import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
+import LanguageToggle from './LanguageToggle'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -104,6 +105,7 @@ const Header = () => {
           >
             Get Started
           </button>
+          <LanguageToggle />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -175,6 +177,9 @@ const Header = () => {
         >
           Get Started
         </button>
+        <div style={{ padding: '1rem 0', borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '1rem' }}>
+          <LanguageToggle />
+        </div>
       </nav>
     </header>
   )

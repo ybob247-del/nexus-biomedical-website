@@ -958,3 +958,20 @@
 - [ ] Add research evidence modal/popup for each recommendation
 - [ ] Link recommendations to PubMed studies
 - [ ] Create partner list for future lab partnerships (Paloma Health, LetsGetChecked) - NO implementation yet
+
+## 🚨 DEPLOYMENT ISSUE - Translations Not Live (Nov 23, 2025)
+- [ ] Investigate why commit 683f71c pushed to GitHub but translations not appearing on live site
+- [ ] Check Vercel build logs for deployment failures
+- [ ] Verify Vercel webhook is triggered on GitHub push
+- [ ] Confirm Vercel is building from correct branch (main)
+- [ ] Test if manual Vercel deployment works
+- [ ] Root cause: Determine if issue is GitHub→Vercel connection or build failure
+
+## 🐛 Bug Fixes & UX Improvements (Nov 23, 2025 - User Reported)
+- [x] Fix EndoGuard "Get Started" button - should go to /endoguard/assessment not signup section
+- [x] Verify all platform "Get Started" buttons route correctly
+- [ ] Add patient educational handouts feature (PDF generation for providers)
+- [ ] Add patient educational tools feature (interactive web resources)
+- [ ] Complete bilingual translations for remaining components (FAQ, WhoBenefits, About, Legal pages, Learn More pages)
+- [ ] Test language toggle on all pages after deployment
+- [ ] Verify magenta colors display correctly after cache clears

@@ -22,13 +22,6 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   
   const handleGetStarted = () => {
     const dashboardUrl = platformDashboards[platform.name];
-    
-    // Special handling for EndoGuard - allow unauthenticated assessment
-    if (platform.name === 'EndoGuard™') {
-      navigate('/endoguard/assessment');
-      return;
-    }
-    
     if (isAuthenticated) {
       // User is logged in, go directly to platform
       navigate(dashboardUrl);

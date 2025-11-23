@@ -4,11 +4,11 @@
  * Sends password reset email with token
  */
 
-const { query } = require('../utils/db');
-const { generateRandomToken, isValidEmail } = require('../utils/auth');
-const { sendEmail } = require('../utils/emailService');
+import { query } from '../utils/db.js';
+import { generateRandomToken, isValidEmail } from '../utils/auth.js';
+import { sendEmail } from '../utils/emailService.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });

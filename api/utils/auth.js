@@ -3,9 +3,9 @@
  * Password hashing, JWT tokens, session management
  */
 
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 const JWT_EXPIRES_IN = '7d'; // Token expires in 7 days
@@ -147,7 +147,7 @@ function requireAuth(req, res, next) {
   next();
 }
 
-module.exports = {
+export {
   hashPassword,
   comparePassword,
   generateToken,

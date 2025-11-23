@@ -4,10 +4,10 @@
  * Authenticates a user and returns a JWT token
  */
 
-const { query } = require('../utils/db');
-const { comparePassword, generateToken, isValidEmail } = require('../utils/auth');
+import { query } from '../utils/db.js';
+import { comparePassword, generateToken, isValidEmail } from '../utils/auth.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });

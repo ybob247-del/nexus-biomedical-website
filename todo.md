@@ -1054,8 +1054,10 @@
 - [x] Update homepage/platform descriptions to define EDC
 
 ## 🚨 CRITICAL FIXES (Nov 23, 2025 - Owner Reported - BLOCKING TESTING)
-- [x] DIAGNOSED: Signup API failing with FUNCTION_INVOCATION_FAILED - ES module/CommonJS mismatch in db.js
-- [x] FIXED: Converted api/utils/db.js from ES modules to CommonJS (require/module.exports)
+- [x] DIAGNOSED: Signup API failing with FUNCTION_INVOCATION_FAILED - package.json has "type": "module" but auth APIs using CommonJS
+- [x] FIXED: Converted ALL /api/auth/*.js files to ES modules (import/export) to match project configuration
+- [x] FIXED: Converted api/utils/auth.js and emailService.js to ES modules
+- [x] FIXED: Reverted db.js back to ES modules (it was correct originally)
 - [x] Push EDC acronym fix (commit 97ed3970) to GitHub to trigger Vercel deployment
 - [ ] Verify OPENAI_API_KEY is in environment variables (key was provided yesterday)
 - [ ] Test OpenAI integration for EndoGuard risk analysis

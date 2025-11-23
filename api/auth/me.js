@@ -4,10 +4,10 @@
  * Returns the currently authenticated user's information
  */
 
-const { query } = require('../utils/db');
-const { extractToken, verifyToken } = require('../utils/auth');
+import { query } from '../utils/db.js';
+import { extractToken, verifyToken } from '../utils/auth.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });

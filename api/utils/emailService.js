@@ -338,7 +338,7 @@ async function sendPlatformLaunchEmail({ email, firstName, platform }) {
   return sendEmail({ to: email, subject, html });
 }
 
-module.exports = {
+export {
   sendEmail,
   sendTrialReminderEmail,
   sendTrialExpiredEmail,

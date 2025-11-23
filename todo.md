@@ -772,3 +772,13 @@
 - [ ] Revenue metrics (MRR, ARR)
 - [x] User growth chart (30 days)
 - [ ] Export analytics data to CSV
+
+
+## 🚨 URGENT FIXES: Legal Documentation (Nov 22, 2024)
+
+- [x] Fix PRIVACY_POLICY.md - Replace privacy@ and dpo@ emails with support@nexusbiomedical.ai only
+- [x] Fix TERMS_OF_SERVICE.md - Replace legal@ email with support@nexusbiomedical.ai only
+- [x] Remove physical/business address placeholders from both documents
+- [x] Fix Section 5.3 in TERMS - Use generic pricing description instead of listing specific tiers
+- [ ] Deploy fixes to live site
+- [ ] Verify changes on www.nexusbiomedical.ai

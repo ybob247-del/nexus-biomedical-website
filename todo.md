@@ -1067,6 +1067,13 @@
 - [x] DIAGNOSED: Vercel serverless functions failing with FUNCTION_INVOCATION_FAILED - ES module issue
 - [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
 - [x] FIXED: Updated all import statements to reference .mjs files
+- [x] FIXED: Updated vercel.json to recognize .mjs files as serverless functions
+- [ ] Deploy and test signup end-to-end with real account creation
+
+## 🚨 PREVIOUS SIGNUP DEBUGGING (RESOLVED):
+- [x] DIAGNOSED: Vercel serverless functions failing with FUNCTION_INVOCATION_FAILED - ES module issue
+- [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
+- [x] FIXED: Updated all import statements to reference .mjs files
 - [ ] Deploy and test signup end-to-end with real account creation
 
 ## 🚨 CRITICAL PRIORITY 2: NOTEBOOKLM CRAWLING (BLOCKING AI ANALYSIS)

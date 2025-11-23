@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import '../styles/auth.css';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -55,22 +56,20 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
-      <div className="max-w-md w-full">
+    <div className="auth-page">
+      <div className="auth-container">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Nexus Biomedical Intelligence
-          </h1>
-          <p className="text-gray-400 mt-2">Create your account</p>
+        <div className="auth-logo">
+          <h1>Nexus Biomedical Intelligence</h1>
+          <p>Create your account to get started</p>
         </div>
 
         {/* Signup Form */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
-          <h2 className="text-2xl font-bold text-white mb-6">Get Started</h2>
+        <div className="auth-card">
+          <h2>Get Started</h2>
 
           {error && (
-            <div className="bg-red-500/20 border border-red-500 text-red-200 px-4 py-3 rounded-lg mb-6">
+            <div className="auth-error">
               {error}
             </div>
           )}
@@ -78,7 +77,7 @@ const Signup = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="firstName">
                   First Name
                 </label>
                 <input
@@ -87,13 +86,13 @@ const Signup = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  className="auth-input"
                   placeholder="John"
                 />
               </div>
 
               <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="lastName">
                   Last Name
                 </label>
                 <input
@@ -102,14 +101,14 @@ const Signup = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  className="auth-input"
                   placeholder="Doe"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="email">
                 Email Address
               </label>
               <input
@@ -119,13 +118,13 @@ const Signup = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                className="auth-input"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="password">
                 Password
               </label>
               <input
@@ -135,7 +134,7 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                className="auth-input"
                 placeholder="••••••••"
               />
               <p className="text-xs text-gray-500 mt-1">
@@ -144,7 +143,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="confirmPassword">
                 Confirm Password
               </label>
               <input
@@ -154,7 +153,7 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                className="auth-input"
                 placeholder="••••••••"
               />
             </div>
@@ -162,7 +161,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="auth-submit-btn"
             >
               {loading ? 'Creating account...' : 'Create Account'}
             </button>
@@ -185,19 +184,14 @@ const Signup = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-center">
-            <p className="text-gray-400">
+          <div className="auth-footer">
+            <p>
               Already have an account?{' '}
-              <Link to="/login" className="text-cyan-400 hover:text-cyan-300 font-semibold">
-                Sign in
-              </Link>
+              <Link to="/login">Sign in</Link>
             </p>
-          </div>
-
-          <div className="mt-4 text-center">
-            <Link to="/" className="text-sm text-gray-500 hover:text-gray-400">
-              ← Back to home
-            </Link>
+            <p style={{ marginTop: '1rem' }}>
+              <Link to="/">← Back to home</Link>
+            </p>
           </div>
         </div>
       </div>

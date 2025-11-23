@@ -1,9 +1,9 @@
 ## 🚨 CRITICAL DEPLOYMENT ISSUE (Nov 23, 2025 - BLOCKING LAUNCH)
-- [ ] Fix: Code changes pushed to GitHub (commit 19a953b9) but NOT deploying to www.nexusbiomedical.ai
-- [ ] Fix: Users still redirected to /login when accessing /endoguard/assessment (hybrid freemium model broken)
-- [ ] Investigate: Why latest Vercel deployment not serving to custom domain
-- [ ] Investigate: Possible caching issue or domain routing problem
-- [ ] Test: Verify anonymous access to EndoGuard assessment works after fix
+- [x] DIAGNOSED: Code changes ARE deployed to Vercel (commit 19a953b9, deployment 8A4T3BXur marked as "Current Production")
+- [x] DIAGNOSED: Vercel CDN caching issue - edge network serving stale cached content to www.nexusbiomedical.ai
+- [x] DIAGNOSED: TrialGate component in EndoGuardAssessment.jsx was redirecting unauthenticated users to /login
+- [x] FIXED: Removed TrialGate wrapper from EndoGuardAssessment.jsx to allow unauthenticated access
+- [ ] Deploy fix to production and test hybrid freemium model
 
 ## 🚨 URGENT FIXES (Nov 22, 2025 - User Reported)
 - [x] Fix PRIVACY_POLICY.md - remove false HIPAA/PHI claims, reflect pseudonymous model

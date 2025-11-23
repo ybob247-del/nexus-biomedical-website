@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import TrialGate from '../components/TrialGate';
+// import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
 import FDADisclaimer from '../components/FDADisclaimer';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
@@ -138,7 +138,6 @@ export default function EndoGuardAssessment() {
   };
 
   return (
-    <TrialGate platform="EndoGuard">
       <div className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -516,6 +515,5 @@ export default function EndoGuardAssessment() {
         )}
       </div>
       </div>
-    </TrialGate>
   );
 }

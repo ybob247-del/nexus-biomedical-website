@@ -791,3 +791,8 @@
 - [x] Fix Section 5.3 in TERMS - Use generic pricing description instead of listing specific tiers
 - [ ] Deploy fixes to live site
 - [ ] Verify changes on www.nexusbiomedical.ai
+
+## 🚨 URGENT FIXES (Nov 23, 2025 - User Reported)
+- [x] Fix Privacy Policy and Terms not displaying updated content on website
+- [x] Fix footer legal links navigation (clicking should go to top of page, not bottom)
+- [x] Review and update all three footer legal documents for accuracy

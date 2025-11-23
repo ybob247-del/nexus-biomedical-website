@@ -10,6 +10,11 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const handleLegalClick = (path) => {
+    navigate(path)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <footer className="nexus-footer">
       <div className="footer-container">
@@ -114,19 +119,19 @@ export default function Footer() {
           <h4 className="footer-column-title">Legal</h4>
           <ul className="footer-links">
             <li>
-              <Link to="/privacy" className="footer-link">
+              <button onClick={() => handleLegalClick('/privacy')} className="footer-link">
                 Privacy Policy
-              </Link>
+              </button>
             </li>
             <li>
-              <Link to="/terms" className="footer-link">
+              <button onClick={() => handleLegalClick('/terms')} className="footer-link">
                 Terms of Service
-              </Link>
+              </button>
             </li>
             <li>
-              <Link to="/hipaa" className="footer-link">
-                HIPAA Compliance
-              </Link>
+              <button onClick={() => handleLegalClick('/hipaa')} className="footer-link">
+                Security & Privacy
+              </button>
             </li>
           </ul>
         </div>

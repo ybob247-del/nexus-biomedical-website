@@ -11,8 +11,8 @@ const platforms = [
     color: '#00CED1',
     gradient: 'linear-gradient(135deg, #00CED1 0%, #00B4D8 100%)',
     stripeKey: 'endoguard_premium',
-    price: '$97/month',
-    trial: '30-day free trial',
+    price: '$29/month',
+    trial: '14-day free trial',
     comingSoon: false
   },
   {

@@ -104,8 +104,8 @@ export default function SubscriptionGate({ platform, children }) {
     },
     endoguard: {
       name: 'EndoGuard™',
-      price: '$97',
-      trialDays: 30,
+      price: '$29',
+      trialDays: 14,
       description: 'Comprehensive hormone health and EDC exposure platform',
       features: [
         'Hormone health assessment',

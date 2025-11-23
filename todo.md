@@ -824,3 +824,9 @@
 - [ ] Implement language selector/toggle in UI
 - [ ] Translate all assessment questions and results to Spanish
 - [ ] Translate UI elements, buttons, and navigation to Spanish
+
+## 🚨 URGENT PRICING FIXES (Nov 23, 2025)
+- [x] Fix EndoGuard pricing - Premium now $29, Premium Plus $49 (correct order)
+- [x] Remove "Lab Expert Advice" feature - replaced with legitimate features
+- [x] Review all platform pricing tiers for accuracy
+- [x] Verify no other false feature claims exist

@@ -124,7 +124,7 @@ export default function EndoGuardResults({ results }) {
         <h3>Ready to Take Control of Your Hormone Health?</h3>
         <p>Get ongoing support, track your progress, and access our complete hormone wellness program.</p>
         <div className="cta-buttons">
-          <button className="btn-primary">Start Your Journey ($97/month)</button>
+          <button className="btn-primary">Start Your Journey ($29/month)</button>
           <button className="btn-secondary">Download Full Report (PDF)</button>
         </div>
       </div>

@@ -1,8 +1,7 @@
 # Legal Documents for Attorney Review
 
 **Date Prepared:** November 23, 2025  
-**Prepared For:** Attorney Legal Review  
-**Estimated Review Cost:** $500-$1,000 (based on Upwork rates for healthcare legal document review)
+**Prepared For:** Attorney Legal Review
 
 ---
 
@@ -194,16 +193,6 @@ The Terms state:
 4. **Compliance Checklist** for ongoing legal requirements (annual reviews, policy updates, etc.)
 
 5. **Recommendations** for additional legal protections (insurance, contracts, etc.)
-
----
-
-## Timeline
-
-**Urgency:** High - Documents are currently live on website
-
-**Requested Turnaround:** 7-10 business days
-
-**Budget:** $500-$1,000 for initial review
 
 ---
 

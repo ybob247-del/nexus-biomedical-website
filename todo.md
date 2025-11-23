@@ -807,3 +807,20 @@
 - [x] Remove "Legal Review Recommended" warning boxes from Terms of Service page
 - [x] Remove "Legal Review Recommended" warning boxes from Security & Privacy page
 - [x] Remove legal review notes from attorney documents
+
+## 📄 Attorney Document Cleanup (Nov 23, 2025)
+- [x] Remove budget/cost estimates from LEGAL_DOCUMENTS_README.md
+- [x] Remove timeline section from README
+- [x] Remove any other internal business information not relevant for attorney
+
+## 📚 Clinician Documentation (Nov 23, 2025)
+- [x] Create Clinician User Guide explaining pseudonymous workflow
+- [x] Create Data Entry Guidelines with safe vs. unsafe examples
+- [x] Create HIPAA Safety FAQ for clinicians
+
+## 🌐 Internationalization (Future Phase)
+- [ ] Add Spanish language option to EndoGuard platform
+- [ ] Add Spanish language option to RxGuard platform
+- [ ] Implement language selector/toggle in UI
+- [ ] Translate all assessment questions and results to Spanish
+- [ ] Translate UI elements, buttons, and navigation to Spanish

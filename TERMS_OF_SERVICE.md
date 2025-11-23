@@ -148,13 +148,27 @@ You may NOT use our Services to:
 
 ### What We DON'T Collect:
 
-- Patient names or personally identifiable medical information
+- Patient names or real identities
 - Protected Health Information (PHI) as defined by HIPAA
-- Medical records or healthcare provider information
+- Personally Identifiable Information (PII) linked to medical records
+- Medical records or healthcare provider documentation
 - Insurance information or billing codes
-- Diagnosis codes or treatment plans
+- Diagnosis codes or treatment plans from healthcare providers
+- Social security numbers or medical record numbers
 
-**We are NOT a HIPAA-covered entity** because we do not collect PHI. Our platforms use self-reported, anonymous health data for educational purposes.
+### Why We Are NOT a HIPAA-Covered Entity:
+
+Nexus Biomedical Intelligence is **NOT** a covered entity or business associate under HIPAA because:
+
+- **No PHI/PII Collection:** We do NOT collect protected health information (PHI) or personally identifiable information (PII) as defined by HIPAA
+- **No Business Associate Agreements (BAAs):** We do NOT execute BAAs with healthcare providers because we don't handle their patient data
+- **No EHR Integration:** We do NOT integrate with electronic health record (EHR) systems like Epic, Cerner, or Allscripts
+- **No Provider Data:** We do NOT receive patient information from doctors, hospitals, clinics, or other healthcare providers
+- **No Insurance Processing:** We do NOT process insurance claims, billing codes, or reimbursement data
+- **No Medical Records:** We do NOT store, transmit, or process medical records or clinical documentation
+- **No Identifiable Health Data:** We do NOT link health assessments to real patient identities, medical record numbers, or social security numbers
+
+**Our platforms use self-reported, anonymous health data for educational purposes only.**
 
 See our Privacy Policy for complete details: https://www.nexusbiomedical.ai/privacy
 
@@ -307,4 +321,4 @@ Healthcare professionals using our Services must maintain appropriate profession
 
 ---
 
-**Note to User:** These Terms of Service should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction. Estimated cost for legal review: $500-$1,000.
+

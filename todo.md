@@ -1,6 +1,9 @@
 ## 🚨 URGENT FIXES (Nov 22, 2025 - User Reported)
 - [x] Fix PRIVACY_POLICY.md - remove false HIPAA/PHI claims, reflect pseudonymous model
 - [x] Fix TERMS_OF_SERVICE.md - remove false HIPAA/PHI claims, reflect actual data collection
+- [x] Improve HIPAA section - list specific things we DON'T do (no BAAs, no EHR, etc.)
+- [x] Add PII alongside PHI throughout both documents
+- [x] Remove "Note to User" sections from both documents
 
 ## 🚨 URGENT FIXES (Nov 21, 2025 - User Reported)
 - [x] Fix blank page issue when clicking "Start Free Trial" on EndoGuard and RxGuard

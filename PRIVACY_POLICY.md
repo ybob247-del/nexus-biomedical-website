@@ -15,7 +15,7 @@ By accessing or using our services, you agree to this Privacy Policy. If you do 
 
 ## Our Privacy-First Approach
 
-**We believe in pseudonymous healthcare tools.** Our platforms are designed to provide health insights WITHOUT requiring you to share protected health information (PHI) or personally identifiable medical records.
+**We believe in pseudonymous healthcare tools.** Our platforms are designed to provide health insights WITHOUT requiring you to share protected health information (PHI), personally identifiable information (PII), or medical records.
 
 ### What This Means:
 - You DON'T need to provide patient names
@@ -40,7 +40,7 @@ When you use our platforms (RxGuard™, EndoGuard™, etc.), you may provide:
 - Lifestyle factors (diet, exercise, exposure risks)
 - Assessment responses (quiz answers)
 
-**Important:** This data is NOT protected health information (PHI) because it's self-reported, anonymous, and not linked to medical records or healthcare providers.
+**Important:** This data is NOT protected health information (PHI) or personally identifiable information (PII) because it's self-reported, anonymous, and not linked to medical records, healthcare providers, or your real identity.
 
 ### Technical Information (Automatic)
 - IP address and device information
@@ -73,15 +73,26 @@ We use collected information for the following purposes:
 
 **Important Clarification:**
 
-Nexus Biomedical Intelligence is **NOT** a covered entity or business associate under HIPAA because:
+Nexus Biomedical Intelligence is **NOT** a covered entity or business associate under the Health Insurance Portability and Accountability Act (HIPAA). Here's why:
 
-1. We do NOT collect protected health information (PHI)
-2. We do NOT integrate with electronic health records (EHRs)
-3. We do NOT receive information from healthcare providers
-4. We do NOT process insurance claims or billing codes
-5. Users provide self-reported, anonymous health data
+### What We DON'T Do (HIPAA Requirements):
 
-Our platforms are **educational tools** and **clinical decision support**, NOT medical record systems.
+- **No PHI/PII Collection:** We do NOT collect protected health information (PHI) or personally identifiable information (PII) as defined by HIPAA
+- **No Business Associate Agreements (BAAs):** We do NOT execute BAAs with healthcare providers because we don't handle their patient data
+- **No EHR Integration:** We do NOT integrate with electronic health record (EHR) systems like Epic, Cerner, or Allscripts
+- **No Provider Data:** We do NOT receive patient information from doctors, hospitals, clinics, or other healthcare providers
+- **No Insurance Processing:** We do NOT process insurance claims, billing codes, or reimbursement data
+- **No Medical Records:** We do NOT store, transmit, or process medical records or clinical documentation
+- **No Identifiable Health Data:** We do NOT link health assessments to real patient identities, medical record numbers, or social security numbers
+
+### What We Actually Do:
+
+- Users create accounts with email addresses (not linked to medical records)
+- Users answer health questions anonymously (self-reported data)
+- We provide educational insights and risk assessments (not diagnoses)
+- All data is pseudonymous and cannot be traced back to medical records
+
+**Our platforms are educational tools and clinical decision support systems, NOT medical record systems or HIPAA-covered services.**
 
 ---
 
@@ -211,4 +222,4 @@ If you have questions about this privacy policy or our data practices:
 
 ---
 
-**Note to User:** This privacy policy should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction. Estimated cost for legal review: $500-$1,000.
+

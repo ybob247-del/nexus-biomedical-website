@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import '../styles/header.css'
 import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 import LanguageToggle from './LanguageToggle'
 
 const Header = () => {
+  const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false)
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
@@ -66,7 +68,7 @@ const Header = () => {
             onMouseLeave={() => setIsDesktopDropdownOpen(false)}
           >
             <button className="nav-link nav-dropdown-toggle">
-              Platforms
+              {t('nav.platforms')}
               <svg 
                 width="12" 
                 height="12" 
@@ -94,7 +96,7 @@ const Header = () => {
             )}
           </div>
           <button onClick={() => navigate('/about')} className="nav-link">
-            About
+            {t('nav.about')}
           </button>
           <button onClick={() => handleNavClick('faq')} className="nav-link">
             FAQ
@@ -103,7 +105,7 @@ const Header = () => {
             onClick={handleGetStartedClick} 
             className="nav-link nav-cta"
           >
-            Get Started
+            {t('auth.getStarted')}
           </button>
           <LanguageToggle />
         </nav>
@@ -138,7 +140,7 @@ const Header = () => {
             onClick={() => setIsPlatformsDropdownOpen(!isPlatformsDropdownOpen)} 
             className="nav-link nav-dropdown-toggle"
           >
-            Platforms
+            {t('nav.platforms')}
             <svg 
               width="16" 
               height="16" 
@@ -166,7 +168,7 @@ const Header = () => {
           )}
         </div>
         <button onClick={() => navigate('/about')} className="nav-link">
-          About
+          {t('nav.about')}
         </button>
         <button onClick={() => handleNavClick('faq')} className="nav-link">
           FAQ
@@ -175,7 +177,7 @@ const Header = () => {
           onClick={handleGetStartedClick} 
           className="nav-link nav-cta"
         >
-          Get Started
+          {t('auth.getStarted')}
         </button>
         <div style={{ padding: '1rem 0', borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '1rem' }}>
           <LanguageToggle />

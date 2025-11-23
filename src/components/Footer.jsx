@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import '../styles/footer.css'
 
 export default function Footer() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handlePlatformClick = (platformUrl) => {
@@ -20,26 +22,26 @@ export default function Footer() {
       <div className="footer-container">
         {/* Company Column */}
         <div className="footer-column">
-          <h4 className="footer-column-title">Company</h4>
+          <h4 className="footer-column-title">{t('footer.company')}</h4>
           <ul className="footer-links">
             <li>
               <button onClick={() => navigate('/about')} className="footer-link">
-                About
+                {t('footer.aboutUs')}
               </button>
             </li>
             <li>
               <span className="footer-link footer-link-disabled">
-                Careers<br />(Coming Soon)
+{t('footer.careers')}<br />({t('platforms.comingSoon')})
               </span>
             </li>
             <li>
               <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
-                Contact
+                {t('footer.contact')}
               </a>
             </li>
             <li>
               <span className="footer-link footer-link-disabled">
-                Blog<br />(Coming Soon)
+{t('footer.blog')}<br />({t('platforms.comingSoon')})
               </span>
             </li>
           </ul>
@@ -47,26 +49,26 @@ export default function Footer() {
 
         {/* Resources Column */}
         <div className="footer-column">
-          <h4 className="footer-column-title">Resources</h4>
+          <h4 className="footer-column-title">{t('footer.resources')}</h4>
           <ul className="footer-links">
             <li>
               <span className="footer-link footer-link-disabled">
-                Documentation<br />(Coming Soon)
+{t('footer.documentation')}<br />({t('platforms.comingSoon')})
               </span>
             </li>
             <li>
               <span className="footer-link footer-link-disabled">
-                Research<br />(Coming Soon)
+Research<br />({t('platforms.comingSoon')})
               </span>
             </li>
             <li>
               <span className="footer-link footer-link-disabled">
-                Case Studies<br />(Coming Soon)
+{t('footer.caseStudies')}<br />({t('platforms.comingSoon')})
               </span>
             </li>
             <li>
               <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
-                Support
+                {t('footer.support')}
               </a>
             </li>
           </ul>
@@ -74,7 +76,7 @@ export default function Footer() {
 
         {/* Platforms Column */}
         <div className="footer-column">
-          <h4 className="footer-column-title">Platforms</h4>
+          <h4 className="footer-column-title">{t('nav.platforms')}</h4>
           <ul className="footer-links">
             <li>
               <button onClick={() => handlePlatformClick('rxguard')} className="footer-link">
@@ -116,21 +118,21 @@ export default function Footer() {
 
         {/* Legal Column */}
         <div className="footer-column">
-          <h4 className="footer-column-title">Legal</h4>
+          <h4 className="footer-column-title">{t('footer.legal')}</h4>
           <ul className="footer-links">
             <li>
               <button onClick={() => handleLegalClick('/privacy')} className="footer-link">
-                Privacy Policy
+                {t('footer.privacy')}
               </button>
             </li>
             <li>
               <button onClick={() => handleLegalClick('/terms')} className="footer-link">
-                Terms of Service
+                {t('footer.terms')}
               </button>
             </li>
             <li>
               <button onClick={() => handleLegalClick('/hipaa')} className="footer-link">
-                Security & Privacy
+                {t('footer.security')}
               </button>
             </li>
           </ul>
@@ -141,9 +143,9 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <h3 className="footer-brand">Nexus Biomedical Intelligence</h3>
-          <p className="footer-tagline">Transforming Healthcare Through AI Innovation</p>
+          <p className="footer-tagline">{t('footer.tagline')}</p>
           <p className="footer-copyright">
-            © 2025 Nexus Biomedical Intelligence LLC. All rights reserved.
+            {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>

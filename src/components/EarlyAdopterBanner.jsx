@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function EarlyAdopterBanner() {
+  const { t } = useTranslation();
   return (
     <div className="early-adopter-banner">
       <div className="banner-content">
         <div className="banner-icon">🎉</div>
         <div className="banner-text">
-          <div className="banner-title">Early Adopter Special</div>
+          <div className="banner-title">{t('earlyAdopter.title')}</div>
           <div className="banner-subtitle">
-            Save 20% on EndoGuard Premium - <span className="highlight-price">$39/month</span> (reg. $49) for life!
+            {t('earlyAdopter.description')}
           </div>
         </div>
         <Link to="/platforms" className="banner-cta">
-          Claim Your Discount →
+          {t('earlyAdopter.cta')} →
         </Link>
       </div>
 

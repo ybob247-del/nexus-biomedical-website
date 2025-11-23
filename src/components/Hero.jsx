@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ContactForm from './ContactForm';
 
 export default function Hero() {
+  const { t } = useTranslation();
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  
   return (
     <section style={{
       minHeight: '80vh',
@@ -43,7 +46,7 @@ export default function Hero() {
               opacity: 0.4,
               zIndex: -1
             }}></span>
-            Nexus Biomedical Intelligence
+            {t('hero.title')}
           </span>
         </h1>
         <p style={{
@@ -54,7 +57,7 @@ export default function Hero() {
           margin: '0 auto 2rem',
           textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)'
         }}>
-          Revolutionary AI Healthcare Platforms Transforming Patient Safety and Clinical Excellence
+          {t('hero.subtitle')}
         </p>
         <p style={{
           fontSize: '1.125rem',
@@ -64,7 +67,7 @@ export default function Hero() {
           margin: '0 auto 3rem',
           textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
         }}>
-          Six groundbreaking AI platforms addressing critical healthcare challenges from medication safety to skin cancer detection
+          {t('hero.description')}
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
           <button 
@@ -83,7 +86,7 @@ export default function Hero() {
               transition: 'all 0.3s ease'
             }}
           >
-            Explore Our Platforms
+            {t('hero.exploreButton')}
           </button>
           <button 
             className="nexus-button" 
@@ -101,7 +104,7 @@ export default function Hero() {
               transition: 'all 0.3s ease'
             }}
           >
-            Schedule Consultation
+            {t('hero.contactSales')}
           </button>
           <button 
             className="nexus-button" 
@@ -138,7 +141,7 @@ export default function Hero() {
               transition: 'all 0.3s ease'
             }}
           >
-            Contact Us
+            {t('nav.contact')}
           </button>
         </div>
       </div>
@@ -151,4 +154,3 @@ export default function Hero() {
     </section>
   )
 }
-

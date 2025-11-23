@@ -69,7 +69,12 @@ const Login = () => {
             </div>
 
             <div className="auth-input-group">
-              <label htmlFor="password">{t('auth.password')}</label>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                <label htmlFor="password">{t('auth.password')}</label>
+                <Link to="/forgot-password" style={{ fontSize: '0.875rem', color: '#00CED1', textDecoration: 'none' }}>
+                  {t('auth.forgotPassword')}
+                </Link>
+              </div>
               <input
                 type="password"
                 id="password"

@@ -138,6 +138,31 @@ export default function PlatformsPage() {
         ← Back to Home
       </button>
 
+      {/* Beta Status Banner */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto 2rem',
+        background: 'linear-gradient(135deg, #FFB800 0%, #FF8C00 100%)',
+        padding: '1rem 2rem',
+        borderRadius: '12px',
+        textAlign: 'center',
+        boxShadow: '0 4px 20px rgba(255, 184, 0, 0.3)'
+      }}>
+        <p style={{
+          margin: 0,
+          color: 'white',
+          fontSize: '1.1rem',
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '0.5rem'
+        }}>
+          <span style={{ fontSize: '1.5rem' }}>🚀</span>
+          <span>Beta Testing in Progress - EndoGuard™ and RxGuard™ are live for early adopters!</span>
+        </p>
+      </div>
+
       {/* Header */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', marginBottom: '4rem', textAlign: 'center' }}>
         <motion.h1

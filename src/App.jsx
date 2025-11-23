@@ -36,6 +36,8 @@ const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
 const Login = lazy(() => import('./pages/Login'))
 const Signup = lazy(() => import('./pages/Signup'))
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
+const ResetPassword = lazy(() => import('./pages/ResetPassword'))
 const MyAssessments = lazy(() => import('./pages/MyAssessments'))
 const WaitlistAdmin = lazy(() => import('./pages/WaitlistAdmin'))
 const NotifyWaitlist = lazy(() => import('./pages/NotifyWaitlist'))
@@ -272,6 +274,22 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <Signup />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/forgot-password" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ForgotPassword />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/reset-password" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ResetPassword />
           </Suspense>
         } 
       />

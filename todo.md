@@ -913,3 +913,17 @@
 - [ ] Add "For Providers" link to header navigation
 - [ ] Test all translations thoroughly on live site
 - [ ] Create Stripe price configuration documentation
+
+## 🔐 Authentication & UX Improvements (Nov 23, 2025 - User Request)
+- [x] Add beta status indicator to platforms page (visible notice that platforms are in beta)
+- [x] Implement password reset functionality (forgot password link + email workflow)
+- [x] Add "Forgot Password?" link to login page
+- [x] Create password reset page/flow (ForgotPassword.jsx and ResetPassword.jsx)
+- [x] Create password reset API endpoints (forgot-password.js and reset-password.js)
+- [x] Implement password reset email sending
+- [x] Create password_reset_tokens database table
+- [ ] Add social login options (Google OAuth) - NEXT PHASE
+- [ ] Add social login options (Apple Sign In) - NEXT PHASE
+- [ ] Update signup page with social login buttons
+- [ ] Update login page with social login buttons
+- [ ] Test complete authentication flows (email, Google, Apple)

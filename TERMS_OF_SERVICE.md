@@ -9,17 +9,30 @@
 
 By accessing or using Nexus Biomedical Intelligence's healthcare AI platform and services ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use our Services.
 
+These Terms constitute a legally binding agreement between you and Nexus Biomedical Intelligence.
+
 ---
 
 ## 2. Description of Services
 
-Nexus Biomedical Intelligence provides AI-powered healthcare decision support tools, including but not limited to:
+Nexus Biomedical Intelligence provides AI-powered healthcare decision support tools and educational platforms, including:
 
-- **RxGuard™** - Medication interaction analysis and safety monitoring
-- **EndoGuard™** - Hormone health assessment and endocrine disruption risk evaluation
-- Additional clinical decision support platforms (as they become available)
+- **EndoGuard™** - Hormone health assessment and environmental exposure risk evaluation
+- **RxGuard™** - Medication interaction analysis and safety monitoring  
+- **Additional platforms** - Coming soon (ElderWatch™, PediCalc Pro™, ClinicalIQ™, ReguReady™, SkinScan Pro™)
 
-Our Services are designed to assist healthcare professionals and informed individuals in making better healthcare decisions. They are not intended to replace professional medical advice, diagnosis, or treatment.
+### What Our Services Are:
+- Educational tools providing health insights
+- Clinical decision support for informed decision-making
+- Anonymous health assessment platforms
+- Evidence-based risk analysis tools
+
+### What Our Services Are NOT:
+- Medical devices (not FDA-approved or cleared)
+- Diagnostic tools (we don't diagnose medical conditions)
+- Treatment platforms (we don't prescribe or treat)
+- Medical record systems (we don't collect PHI)
+- Replacements for professional medical advice
 
 ---
 
@@ -35,9 +48,9 @@ Healthcare professionals using our Services must maintain appropriate profession
 
 To access certain features, you must create an account. You agree to:
 
-- Provide accurate, current, and complete information during registration
-- Maintain and promptly update your account information
-- Keep your password secure and confidential
+- Provide accurate and current email address
+- Create a secure password
+- Keep your password confidential
 - Notify us immediately of any unauthorized access to your account
 - Accept responsibility for all activities that occur under your account
 
@@ -50,7 +63,7 @@ We reserve the right to suspend or terminate accounts that violate these Terms.
 ### 5.1 Free Trial Period
 
 - New users receive free trial access to our platforms
-- Trial periods vary by platform (typically 14-30 days)
+- Trial periods: **14 days for RxGuard™**, **30 days for EndoGuard™**
 - No credit card required for trial activation
 - Full platform access during trial period
 
@@ -59,13 +72,15 @@ We reserve the right to suspend or terminate accounts that violate these Terms.
 When your trial expires:
 
 - Platform access will be restricted
-- You will receive email notifications before expiration
+- You will receive email notifications before expiration (at 50%, 25%, and 1 day remaining)
 - You can subscribe to continue using the platform
 
 ### 5.3 Subscriptions
 
-Our Services are offered on a subscription basis with monthly billing. Pricing varies by platform and subscription tier. Current pricing information is available on our website at https://www.nexusbiomedical.ai/pricing.
+Our Services are offered on a subscription basis with monthly billing:
 
+- **EndoGuard™:** $97/month (hormone health & environmental wellness)
+- **RxGuard™:** $39/month (medication safety & interaction checking)
 - Billed monthly via Stripe
 - Cancel anytime (no refunds for partial months)
 - Automatic renewal unless cancelled
@@ -85,10 +100,11 @@ Our Services are offered on a subscription basis with monthly billing. Pricing v
 
 You may use our Services to:
 
-- Analyze medication interactions and safety profiles
 - Assess health risks and receive educational information
+- Analyze medication interactions and safety profiles
 - Support clinical decision-making processes
 - Access evidence-based medical insights
+- Track health assessments over time
 
 ### 6.2 Prohibited Uses
 
@@ -102,28 +118,45 @@ You may NOT use our Services to:
 - Use automated tools to scrape or extract data
 - Impersonate others or provide false information
 - Use the Services for any unlawful or fraudulent purpose
+- Share your account credentials with others
 
 ---
 
 ## 7. Medical Disclaimer
 
-**IMPORTANT:** Our Services are intended for informational and educational purposes. They are not FDA-approved medical devices and are not intended to diagnose, treat, cure, or prevent any disease.
+**IMPORTANT:** Our Services are intended for informational and educational purposes. They are NOT FDA-approved medical devices and are NOT intended to diagnose, treat, cure, or prevent any disease.
 
-- Always consult qualified healthcare professionals for medical advice
-- Do not disregard professional medical advice based on information from our Services
+### You Acknowledge That:
+
+- Our Services provide educational insights, NOT medical diagnoses
+- You should always consult qualified healthcare professionals for medical advice
+- You should not disregard professional medical advice based on information from our Services
 - In case of medical emergency, call emergency services immediately
-- Our Services supplement, but do not replace, professional judgment
+- Our Services supplement, but do NOT replace, professional medical judgment
+- Clinical decisions remain the sole responsibility of healthcare professionals
 
 ---
 
-## 8. HIPAA and Data Privacy
+## 8. Privacy and Data Collection
 
-We are committed to protecting your privacy and complying with applicable healthcare regulations, including HIPAA where applicable.
+### What We Collect:
 
-- We execute Business Associate Agreements (BAAs) with covered entities
-- All Protected Health Information (PHI) is encrypted and secured
-- We do not sell your personal information
-- See our Privacy Policy for complete details
+- **Account Information:** Email address, password (hashed), preferences
+- **Assessment Data:** Self-reported symptoms, medication names, lifestyle factors (anonymous, NOT medical records)
+- **Payment Information:** Processed securely through Stripe (we don't store credit card numbers)
+- **Technical Data:** IP address, browser type, usage analytics
+
+### What We DON'T Collect:
+
+- Patient names or personally identifiable medical information
+- Protected Health Information (PHI) as defined by HIPAA
+- Medical records or healthcare provider information
+- Insurance information or billing codes
+- Diagnosis codes or treatment plans
+
+**We are NOT a HIPAA-covered entity** because we do not collect PHI. Our platforms use self-reported, anonymous health data for educational purposes.
+
+See our Privacy Policy for complete details: https://www.nexusbiomedical.ai/privacy
 
 ---
 
@@ -136,15 +169,16 @@ You are granted a limited, non-exclusive, non-transferable license to access and
 - Copy, modify, or create derivative works
 - Distribute, sell, or lease any part of our Services
 - Remove or alter any copyright or proprietary notices
+- Use our Services to build competing products
 
 ---
 
 ## 10. User-Generated Content
 
-If you submit content to our Services (e.g., feedback, suggestions, case data):
+If you submit content to our Services (e.g., feedback, suggestions, assessment data):
 
 - You retain ownership of your content
-- You grant us a worldwide, royalty-free license to use, reproduce, and display your content for operating and improving our Services
+- You grant us a worldwide, royalty-free license to use anonymized, aggregated data for improving our Services
 - You represent that you have the right to submit such content
 - We are not responsible for user-generated content
 
@@ -152,7 +186,13 @@ If you submit content to our Services (e.g., feedback, suggestions, case data):
 
 ## 11. Third-Party Services
 
-Our Services may integrate with or link to third-party services (e.g., payment processors, cloud providers). We are not responsible for the content, privacy practices, or terms of service of third parties.
+Our Services may integrate with or link to third-party services:
+
+- **Stripe** - Payment processing
+- **Cloud providers** - Data storage and hosting
+- **Email services** - Communication and notifications
+
+We are not responsible for the content, privacy practices, or terms of service of third parties.
 
 ---
 
@@ -160,16 +200,17 @@ Our Services may integrate with or link to third-party services (e.g., payment p
 
 ### 12.1 Service Availability
 
-We strive to provide reliable Services, but we do not guarantee uninterrupted or error-free operation. Services are provided "AS IS" and "AS AVAILABLE" without warranties of any kind.
+We strive to provide reliable Services, but we do NOT guarantee uninterrupted or error-free operation. Services are provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied.
 
 ### 12.2 Limitation of Liability
 
-To the maximum extent permitted by law, Nexus Biomedical Intelligence shall not be liable for:
+To the maximum extent permitted by law, Nexus Biomedical Intelligence shall NOT be liable for:
 
 - Indirect, incidental, special, or consequential damages
 - Loss of profits, data, or business opportunities
 - Damages arising from use or inability to use our Services
 - Medical outcomes or decisions based on information from our Services
+- Errors or inaccuracies in content
 
 Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim.
 
@@ -183,6 +224,7 @@ You agree to indemnify and hold harmless Nexus Biomedical Intelligence, its offi
 - Your violation of these Terms
 - Your violation of any rights of third parties
 - Your violation of applicable laws or regulations
+- Medical decisions made based on information from our Services
 
 ---
 
@@ -194,11 +236,12 @@ We reserve the right to suspend or terminate your access to our Services at any 
 - Fraudulent or illegal activity
 - Non-payment of subscription fees
 - Prolonged inactivity
+- Abusive behavior toward our team or other users
 
 Upon termination:
 
 - Your right to use the Services will immediately cease
-- We may delete your account and data
+- We may delete your account and data (subject to legal retention requirements)
 - Provisions that by their nature should survive termination will remain in effect
 
 ---
@@ -231,7 +274,19 @@ These Terms, together with our Privacy Policy, constitute the entire agreement b
 
 ---
 
-## 18. Contact Information
+## 18. Changes to These Terms
+
+We reserve the right to modify these Terms at any time. We will provide notice of material changes by:
+
+- Posting the updated Terms on our website
+- Updating the "Last Updated" date
+- Sending an email notification (for significant changes)
+
+Your continued use of the Services after such modifications constitutes your acceptance of the updated Terms.
+
+---
+
+## 19. Contact Information
 
 For questions about these Terms:
 
@@ -242,14 +297,14 @@ For questions about these Terms:
 
 ## FDA Disclaimer
 
-Our Services are intended for informational and educational purposes. They are not FDA-approved medical devices and are not intended to diagnose, treat, cure, or prevent any disease.
+Our Services are intended for informational and educational purposes. They are NOT FDA-approved or FDA-cleared medical devices and are NOT intended to diagnose, treat, cure, or prevent any disease.
 
 ---
 
 ## Professional Licensing
 
-Healthcare professionals using our Services must maintain appropriate professional licenses and comply with their respective licensing board requirements.
+Healthcare professionals using our Services must maintain appropriate professional licenses and comply with their respective licensing board requirements. Our Services are tools to support, not replace, professional clinical judgment.
 
 ---
 
-**Note to User:** This template should be reviewed by a qualified attorney before publication. Specific details (business address, governing law jurisdiction) need to be added. Cost for legal review: $500-$1,000 on Upwork.
+**Note to User:** These Terms of Service should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction. Estimated cost for legal review: $500-$1,000.

@@ -13,29 +13,46 @@ By accessing or using our services, you agree to this Privacy Policy. If you do 
 
 ---
 
+## Our Privacy-First Approach
+
+**We believe in pseudonymous healthcare tools.** Our platforms are designed to provide health insights WITHOUT requiring you to share protected health information (PHI) or personally identifiable medical records.
+
+### What This Means:
+- You DON'T need to provide patient names
+- You DON'T need to upload medical records
+- You DON'T need to share diagnosis codes
+- You answer health questions anonymously
+- We provide educational insights, not medical diagnoses
+
+---
+
 ## Information We Collect
 
-### Personal Information
+### Account Information (Required)
+- **Email address** - For account creation and communication
+- **Password** - Securely hashed, never stored in plain text
+- **Account preferences** - Settings and notification preferences
 
-We may collect the following types of personal information:
+### Health Assessment Data (Anonymous)
+When you use our platforms (RxGuard™, EndoGuard™, etc.), you may provide:
+- Medication names (NOT prescriptions or medical records)
+- Symptom descriptions (self-reported, anonymous)
+- Lifestyle factors (diet, exercise, exposure risks)
+- Assessment responses (quiz answers)
 
-- Name, email address, and contact information
-- Professional credentials and healthcare provider information
-- Account credentials and authentication data
-- Billing and payment information
-- Usage data and platform interactions
+**Important:** This data is NOT protected health information (PHI) because it's self-reported, anonymous, and not linked to medical records or healthcare providers.
 
-### Protected Health Information (PHI)
-
-When you use our clinical tools, we may process Protected Health Information (PHI) as defined under HIPAA. We act as a Business Associate and handle all PHI in compliance with HIPAA regulations.
-
-### Technical Information
-
+### Technical Information (Automatic)
 - IP address and device information
 - Browser type and version
 - Operating system
-- Access times and referring website addresses
+- Access times and pages visited
 - Cookies and similar tracking technologies
+
+### Payment Information
+- Processed securely through Stripe (we do NOT store credit card numbers)
+- Billing email and transaction history
+- Subscription status
 
 ---
 
@@ -43,59 +60,65 @@ When you use our clinical tools, we may process Protected Health Information (PH
 
 We use collected information for the following purposes:
 
-- Provide, operate, and maintain our healthcare AI services
-- Process clinical data and generate medical insights
-- Improve, personalize, and expand our services
-- Communicate with you about updates, support, and marketing
-- Process transactions and manage billing
-- Ensure compliance with healthcare regulations
-- Detect, prevent, and address technical issues and security threats
-- Analyze usage patterns to improve platform performance
+- **Provide Services:** Deliver health assessments, risk analysis, and educational insights
+- **Improve Platforms:** Analyze usage patterns to enhance our AI algorithms
+- **Communicate:** Send account updates, assessment results, and educational content
+- **Process Payments:** Manage subscriptions and billing
+- **Ensure Security:** Detect and prevent fraud, abuse, and technical issues
+- **Comply with Laws:** Meet legal obligations and respond to lawful requests
 
 ---
 
-## HIPAA Compliance
+## We Are NOT a HIPAA-Covered Entity
 
-Nexus Biomedical Intelligence is committed to full compliance with the Health Insurance Portability and Accountability Act (HIPAA) and its implementing regulations.
+**Important Clarification:**
 
-- We execute Business Associate Agreements (BAAs) with covered entities
-- All PHI is encrypted in transit and at rest using industry-standard encryption
-- Access to PHI is restricted to authorized personnel only
-- We maintain comprehensive audit logs of all PHI access
-- Regular security assessments and risk analyses are conducted
-- Staff receive ongoing HIPAA training and certification
+Nexus Biomedical Intelligence is **NOT** a covered entity or business associate under HIPAA because:
+
+1. We do NOT collect protected health information (PHI)
+2. We do NOT integrate with electronic health records (EHRs)
+3. We do NOT receive information from healthcare providers
+4. We do NOT process insurance claims or billing codes
+5. Users provide self-reported, anonymous health data
+
+Our platforms are **educational tools** and **clinical decision support**, NOT medical record systems.
 
 ---
 
 ## Data Security
 
-We implement administrative, technical, and physical security measures designed to protect your information from unauthorized access, use, or disclosure:
+We implement industry-standard security measures to protect your information:
 
-- AES-256 encryption for data at rest
-- TLS 1.3 encryption for data in transit
-- Multi-factor authentication (MFA) for account access
-- Regular security audits and penetration testing
-- Secure cloud infrastructure with redundancy and backup
-- Role-based access controls (RBAC)
-- 24/7 security monitoring and incident response
+- **Encryption:** TLS 1.3 for data in transit, AES-256 for data at rest
+- **Secure Authentication:** Password hashing with bcrypt
+- **Access Controls:** Role-based permissions and least-privilege access
+- **Regular Audits:** Security assessments and vulnerability testing
+- **Secure Infrastructure:** Cloud hosting with redundancy and backup
 
 ---
 
 ## Data Sharing and Disclosure
 
-We do not sell your personal information. We may share information in the following circumstances:
+**We do NOT sell your personal information.**
 
+We may share information in the following limited circumstances:
+
+- **Service Providers:** Trusted vendors (e.g., Stripe for payments, email services) under strict confidentiality agreements
+- **Legal Compliance:** When required by law, regulation, court order, or legal process
+- **Business Transfers:** In connection with a merger, acquisition, or sale of assets (with notice to you)
+- **Protection of Rights:** To protect our rights, safety, property, or the rights of others
 - **With Your Consent:** When you explicitly authorize us to share information
-- **Service Providers:** With trusted third-party vendors who assist in operating our platform (under strict confidentiality agreements)
-- **Legal Compliance:** When required by law, regulation, or legal process
-- **Business Transfers:** In connection with a merger, acquisition, or sale of assets
-- **Protection of Rights:** To protect our rights, privacy, safety, or property
 
 ---
 
 ## Data Retention
 
-We retain your information for as long as necessary to provide our services and comply with legal obligations. PHI is retained according to HIPAA requirements and applicable state laws, typically for a minimum of 6 years from the date of creation or last use.
+We retain your information for as long as necessary to provide our services and comply with legal obligations:
+
+- **Account Data:** Retained while your account is active, deleted upon account closure
+- **Assessment Data:** Retained for service improvement, anonymized after 2 years
+- **Payment Records:** Retained for 7 years for tax and accounting purposes
+- **Technical Logs:** Retained for 90 days for security and troubleshooting
 
 ---
 
@@ -104,31 +127,24 @@ We retain your information for as long as necessary to provide our services and 
 If you are located in the European Economic Area (EEA), you have the following rights:
 
 ### Right to Access
-
 Request access to your personal data and receive a copy of the information we hold about you.
 
 ### Right to Rectification
-
 Request correction of inaccurate or incomplete personal data.
 
 ### Right to Erasure
-
 Request deletion of your personal data when it is no longer necessary for the purposes for which it was collected.
 
 ### Right to Restrict Processing
-
 Request limitation on how we use your data.
 
 ### Right to Data Portability
-
 Request your data in a machine-readable format.
 
 ### Right to Object
-
 Object to processing based on legitimate interests.
 
 ### Right to Withdraw Consent
-
 Withdraw consent for marketing communications anytime.
 
 ### How to Exercise Your Rights
@@ -146,19 +162,25 @@ We will respond to your request within 30 days.
 
 ## Cookies and Tracking
 
-We use cookies and similar tracking technologies to enhance your experience. You can control cookie preferences through your browser settings. Note that disabling cookies may limit functionality of our services.
+We use cookies and similar tracking technologies to enhance your experience:
+
+- **Essential Cookies:** Required for platform functionality (login, sessions)
+- **Analytics Cookies:** Help us understand how you use our services
+- **Preference Cookies:** Remember your settings and preferences
+
+You can control cookie preferences through your browser settings. Note that disabling cookies may limit functionality of our services.
 
 ---
 
 ## Children's Privacy
 
-Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately.
+Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately at support@nexusbiomedical.ai.
 
 ---
 
 ## International Data Transfers
 
-Your data may be transferred to and processed in countries outside your country of residence, including the United States. We ensure appropriate safeguards are in place for such transfers.
+Your data may be transferred to and processed in countries outside your country of residence, including the United States. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws.
 
 ---
 
@@ -183,12 +205,10 @@ If you have questions about this privacy policy or our data practices:
 
 ---
 
-## Compliance Certifications
+## Medical Disclaimer
 
-- **GDPR Compliant:** European data protection standards
-- **SOC 2 Type II:** (In progress - expected Year 2)
-- **Privacy-First Design:** Pseudonymous data storage
+**Our services are for informational and educational purposes only.** They are NOT intended to diagnose, treat, cure, or prevent any disease. Always consult qualified healthcare professionals for medical advice.
 
 ---
 
-**Note to User:** This template should be reviewed by a qualified attorney before publication. Specific details (business address, DPO contact) need to be added. Cost for legal review: $500-$1,000 on Upwork.
+**Note to User:** This privacy policy should be reviewed by a qualified attorney before publication to ensure compliance with applicable laws in your jurisdiction. Estimated cost for legal review: $500-$1,000.

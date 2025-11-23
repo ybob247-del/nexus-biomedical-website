@@ -8,6 +8,11 @@ import { query } from '../utils/db.js';
 import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.js';
 
 export default async function handler(req, res) {
+  // Debug logging for DATABASE_URL
+  console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+  console.log('DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
+  console.log('DATABASE_URL starts with postgresql:', process.env.DATABASE_URL?.startsWith('postgresql://'));
+  
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });

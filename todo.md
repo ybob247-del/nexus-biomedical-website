@@ -1062,3 +1062,16 @@
 - [ ] Verify OPENAI_API_KEY is in environment variables (key was provided yesterday)
 - [ ] Test OpenAI integration for EndoGuard risk analysis
 - [ ] Confirm www.nexusbiomedical.ai shows EDC acronym spelled out
+
+## 🚨 CRITICAL BUGS (Nov 23, 2025 - Owner Testing - BLOCKING LAUNCH)
+- [x] ADDED: DATABASE_URL to Vercel environment variables (from Neon console)
+- [x] DEPLOYED: New deployment (CjRSytUJM) with DATABASE_URL
+- [ ] STILL FAILING: Signup API still shows "connect ECONNREFUSED 127.0.0.1:5432" - DATABASE_URL not being read!
+- [ ] INVESTIGATE: Why Vercel serverless functions not reading DATABASE_URL environment variable
+- [ ] FIX: "Report a Bug" button only appears on homepage - must be on EVERY page
+- [ ] FIX: Signup page doesn't clarify that account is for entire Nexus platform (not individual platforms)
+
+## 🎨 UX/UI IMPROVEMENTS (Nov 23, 2025 - Owner Requested)
+- [x] Darken magenta background on EndoGuard assessment page for better white text contrast (changed from #D946EF/#C026D3 to #A21CAF/#86198F)
+- [ ] Add "Report a Bug" button to ALL pages (currently only on homepage)
+- [ ] Clarify signup page messaging that account is for entire Nexus platform

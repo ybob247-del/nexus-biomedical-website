@@ -1052,3 +1052,11 @@
 - [x] Update EndoGuard assessment page to define EDC for users
 - [x] Update EndoGuard results page to define EDC for users  
 - [x] Update homepage/platform descriptions to define EDC
+
+## 🚨 CRITICAL FIXES (Nov 23, 2025 - Owner Reported - BLOCKING TESTING)
+- [x] DIAGNOSED: Signup API failing with FUNCTION_INVOCATION_FAILED - ES module/CommonJS mismatch in db.js
+- [x] FIXED: Converted api/utils/db.js from ES modules to CommonJS (require/module.exports)
+- [x] Push EDC acronym fix (commit 97ed3970) to GitHub to trigger Vercel deployment
+- [ ] Verify OPENAI_API_KEY is in environment variables (key was provided yesterday)
+- [ ] Test OpenAI integration for EndoGuard risk analysis
+- [ ] Confirm www.nexusbiomedical.ai shows EDC acronym spelled out

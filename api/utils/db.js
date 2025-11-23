@@ -3,8 +3,7 @@
  * PostgreSQL connection for serverless functions
  */
 
-import pg from 'pg';
-const { Pool } = pg;
+const { Pool } = require('pg');
 
 // Create a connection pool
 // Environment will provide DATABASE_URL environment variable
@@ -22,7 +21,7 @@ const pool = new Pool({
  * @param {Array} params - Query parameters
  * @returns {Promise} Query result
  */
-export async function query(text, params) {
+async function query(text, params) {
   const start = Date.now();
   try {
     const res = await pool.query(text, params);
@@ -39,7 +38,7 @@ export async function query(text, params) {
  * Get a client from the pool for transactions
  * @returns {Promise} Database client
  */
-export async function getClient() {
+async function getClient() {
   const client = await pool.connect();
   const query = client.query.bind(client);
   const release = client.release.bind(client);
@@ -67,4 +66,4 @@ export async function getClient() {
   return client;
 }
 
-export { pool };
+module.exports = { query, getClient, pool };

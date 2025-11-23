@@ -10,7 +10,20 @@ export default defineConfig({
       '.manusvm.computer',
       'localhost',
       '127.0.0.1'
-    ]
+    ],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3006',
+        changeOrigin: true,
+        configure: (proxy, options) => {
+          // Handle API routes by importing and executing the serverless functions
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            // This will be handled by the middleware below
+          });
+        }
+      }
+    },
+    middlewareMode: false
   },
   build: {
     // Enable code splitting

@@ -1068,6 +1068,8 @@
 - [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
 - [x] FIXED: Updated all import statements to reference .mjs files
 - [x] FIXED: Updated vercel.json to recognize .mjs files as serverless functions
+- [x] FIXED: "Passwords do not match" error - added whitespace trimming to password fields
+- [x] FIXED: Added debug logging to identify password comparison issues
 - [ ] Deploy and test signup end-to-end with real account creation
 
 ## 🚨 PREVIOUS SIGNUP DEBUGGING (RESOLVED):

@@ -24,9 +24,13 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const value = e.target.name === 'password' || e.target.name === 'confirmPassword' 
+      ? e.target.value.trim() 
+      : e.target.value;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 
@@ -34,8 +38,16 @@ const Signup = () => {
     e.preventDefault();
     setError('');
 
+    // Debug logging
+    console.log('Password:', formData.password);
+    console.log('Confirm Password:', formData.confirmPassword);
+    console.log('Passwords match:', formData.password === formData.confirmPassword);
+    console.log('Password length:', formData.password.length);
+    console.log('Confirm length:', formData.confirmPassword.length);
+
     // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
+      console.error('PASSWORD MISMATCH DETECTED');
       setError(t('auth.passwordMismatch'));
       return;
     }

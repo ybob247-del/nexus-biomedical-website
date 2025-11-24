@@ -231,10 +231,12 @@ function App() {
       
       {/* RxGuard Dashboard Route */}
       <Route 
-        path="/dashboard" 
+        path="/rxguard/dashboard" 
         element={
           <Suspense fallback={<LoadingFallback />}>
-            <Dashboard />
+            <ProtectedRoute platform="rxguard">
+              <RxGuardDashboard />
+            </ProtectedRoute>
           </Suspense>
         } 
       />

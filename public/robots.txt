@@ -1,26 +1,52 @@
 # robots.txt for Nexus Biomedical Intelligence
-# Allow all search engines and AI crawlers
+# COMPREHENSIVE - Allow ALL legitimate search engines, AI crawlers, social media, and automation tools
 
+# Default: Allow everything
 User-agent: *
 Allow: /
 
-# AI Crawlers
+# ============================================
+# SEARCH ENGINES
+# ============================================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+User-agent: Exabot
+Allow: /
+
+# ============================================
+# AI CRAWLERS & LANGUAGE MODELS
+# ============================================
+# OpenAI (ChatGPT)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
-Allow: /
-
+# Anthropic (Claude)
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 # Google AI (Gemini/Bard)
@@ -28,6 +54,14 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
 Allow: /
 
 # Meta AI
@@ -38,6 +72,9 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 # Apple Intelligence
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
@@ -49,71 +86,292 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Diffbot
-User-agent: Diffbot
-Allow: /
-
 # Cohere
 User-agent: cohere-ai
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
 Allow: /
 
 # AI2 (Allen Institute)
 User-agent: AI2Bot
 Allow: /
 
-# Content Platforms & Social Media
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Brave Search
+User-agent: Brave-Search
+Allow: /
+
+# Neeva
+User-agent: Neevabot
+Allow: /
+
+# ============================================
+# SOCIAL MEDIA PLATFORMS
+# ============================================
+# Twitter/X
 User-agent: Twitterbot
 Allow: /
 
+# Facebook
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: facebookcatalog
+Allow: /
+
+# Instagram
+User-agent: Instagram
+Allow: /
+
+# LinkedIn
 User-agent: LinkedInBot
 Allow: /
 
+# Pinterest
+User-agent: Pinterestbot
+Allow: /
+
+# Reddit
+User-agent: Redditbot
+Allow: /
+
+# Slack
 User-agent: Slackbot
 Allow: /
 
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+# WhatsApp
 User-agent: WhatsApp
 Allow: /
 
+# Telegram
 User-agent: TelegramBot
 Allow: /
 
+# Discord
 User-agent: Discordbot
 Allow: /
 
-# Automation & Integration Tools
+# Snapchat
+User-agent: Snapchat
+Allow: /
+
+# Mastodon
+User-agent: Mastodon
+Allow: /
+
+# ============================================
+# AUTOMATION & INTEGRATION TOOLS
+# ============================================
+# n8n
 User-agent: n8n
 Allow: /
 
+# Zapier
 User-agent: Zapier
 Allow: /
 
+# Make (Integromat)
 User-agent: Make
 Allow: /
 
+User-agent: Integromat
+Allow: /
+
+# IFTTT
 User-agent: IFTTT
 Allow: /
 
-# Content Creation Tools
+# Pipedream
+User-agent: Pipedream
+Allow: /
+
+# Workato
+User-agent: Workato
+Allow: /
+
+# ============================================
+# CONTENT CREATION & PRODUCTIVITY TOOLS
+# ============================================
+# Notion
 User-agent: NotionBot
 Allow: /
 
 User-agent: Notion-Crawler
 Allow: /
 
+# Airtable
 User-agent: AirtableBot
 Allow: /
 
-# Email Marketing
+# Coda
+User-agent: CodaBot
+Allow: /
+
+# Obsidian
+User-agent: ObsidianBot
+Allow: /
+
+# Roam Research
+User-agent: RoamBot
+Allow: /
+
+# ============================================
+# EMAIL MARKETING & CRM
+# ============================================
+# ConvertKit (Kit)
 User-agent: ConvertKit
 Allow: /
 
+# Mailchimp
 User-agent: Mailchimp
 Allow: /
 
-# Sitemap
-Sitemap: https://nexusbiomedical.ai/sitemap.xml
-Sitemap: https://nexusbiomedical.ai/ai-sitemap.json
+# HubSpot
+User-agent: HubSpot
+Allow: /
 
+# Salesforce
+User-agent: SalesforceBot
+Allow: /
+
+# Intercom
+User-agent: Intercom
+Allow: /
+
+# ============================================
+# MEDIA & CONTENT PLATFORMS
+# ============================================
+# YouTube
+User-agent: youtube-dl
+Allow: /
+
+# Spotify
+User-agent: Spotify
+Allow: /
+
+# Medium
+User-agent: MediumBot
+Allow: /
+
+# Substack
+User-agent: SubstackBot
+Allow: /
+
+# Ghost
+User-agent: GhostBot
+Allow: /
+
+# WordPress
+User-agent: WordPress
+Allow: /
+
+# ============================================
+# ANALYTICS & SEO TOOLS
+# ============================================
+# Ahrefs
+User-agent: AhrefsBot
+Allow: /
+
+# SEMrush
+User-agent: SemrushBot
+Allow: /
+
+# Moz
+User-agent: rogerbot
+Allow: /
+
+User-agent: dotbot
+Allow: /
+
+# Majestic
+User-agent: MJ12bot
+Allow: /
+
+# Screaming Frog
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# ============================================
+# ARCHIVING & RESEARCH
+# ============================================
+# Internet Archive (Wayback Machine)
+User-agent: ia_archiver
+Allow: /
+
+# Archive.org
+User-agent: archive.org_bot
+Allow: /
+
+# ============================================
+# NEWS & CONTENT AGGREGATORS
+# ============================================
+# Feedly
+User-agent: Feedlybot
+Allow: /
+
+# Flipboard
+User-agent: FlipboardProxy
+Allow: /
+
+# Apple News
+User-agent: AppleNewsBot
+Allow: /
+
+# Google News
+User-agent: Googlebot-News
+Allow: /
+
+# ============================================
+# E-COMMERCE & SHOPPING
+# ============================================
+# Shopify
+User-agent: ShopifyBot
+Allow: /
+
+# WooCommerce
+User-agent: WooCommerceBot
+Allow: /
+
+# ============================================
+# ACCESSIBILITY & MONITORING
+# ============================================
+# Pingdom
+User-agent: Pingdom.com_bot
+Allow: /
+
+# UptimeRobot
+User-agent: UptimeRobot
+Allow: /
+
+# StatusCake
+User-agent: StatusCake
+Allow: /
+
+# ============================================
+# ACADEMIC & RESEARCH
+# ============================================
+# Semantic Scholar
+User-agent: SemanticScholarBot
+Allow: /
+
+# ResearchGate
+User-agent: ResearchGate
+Allow: /
+
+# ============================================
+# SITEMAPS
+# ============================================
+Sitemap: https://www.nexusbiomedical.ai/sitemap.xml
+Sitemap: https://www.nexusbiomedical.ai/ai-sitemap.json

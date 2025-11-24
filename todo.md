@@ -1115,10 +1115,19 @@
 - [x] Verified sitemap.xml serves correctly as XML on live site
 - [ ] Deploy updated robots.txt and test with NotebookLM, Gemini, and other AI tools
 
-## 🌐 Content Platform & Automation Tool Support (2025-11-23):
-- [x] Added social media crawlers (Twitter, Facebook, LinkedIn, Slack, WhatsApp, Telegram, Discord)
-- [x] Added automation tools (n8n, Zapier, Make, IFTTT)
-- [x] Added content tools (Notion, Airtable)
-- [x] Added email marketing (ConvertKit/Kit, Mailchimp)
-- [ ] Research and add: Riverside, Pomelo (need to find correct user-agent names)
-- [ ] Deploy and verify link previews work on social platforms
+## 🌐 COMPREHENSIVE Crawler Support (2025-11-23):
+- [x] Created exhaustive robots.txt allowing 80+ legitimate crawlers
+- [x] Search engines: Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex, Sogou
+- [x] AI crawlers: ChatGPT, Claude, Gemini, Perplexity, Meta AI, Apple Intelligence, Alexa, Cohere, Diffbot, You.com, Brave
+- [x] Social media: Twitter, Facebook, Instagram, LinkedIn, Pinterest, Reddit, Slack, WhatsApp, Telegram, Discord, Snapchat, Mastodon
+- [x] Automation: n8n, Zapier, Make, IFTTT, Pipedream, Workato
+- [x] Content tools: Notion, Airtable, Coda, Obsidian, Roam
+- [x] Email/CRM: ConvertKit, Mailchimp, HubSpot, Salesforce, Intercom
+- [x] Media: YouTube, Spotify, Medium, Substack, Ghost, WordPress
+- [x] SEO tools: Ahrefs, SEMrush, Moz, Majestic, Screaming Frog
+- [x] Archiving: Internet Archive, Archive.org
+- [x] News: Feedly, Flipboard, Apple News, Google News
+- [x] E-commerce: Shopify, WooCommerce
+- [x] Monitoring: Pingdom, UptimeRobot, StatusCake
+- [x] Academic: Semantic Scholar, ResearchGate
+- [ ] Deploy and verify no more accessibility issues

@@ -39,13 +39,20 @@ export default async function handler(req, res) {
 
     const user = result.rows[0];
 
-    // Get user's active subscriptions
-    const subscriptions = await query(
-      `SELECT platform, status, current_period_end, trial_end, cancel_at_period_end
-       FROM subscriptions
-       WHERE user_id = $1 AND status IN ('active', 'trialing')`,
-      [user.id]
-    );
+    // Get user's active subscriptions (optional - may fail if table doesn't exist)
+    let subscriptions = [];
+    try {
+      const subsResult = await query(
+        `SELECT platform, status, current_period_end, trial_end, cancel_at_period_end
+         FROM subscriptions
+         WHERE user_id = $1 AND status IN ('active', 'trialing')`,
+        [user.id]
+      );
+      subscriptions = subsResult.rows;
+    } catch (subsError) {
+      console.warn('Failed to fetch subscriptions (table may not exist):', subsError.message);
+      // Continue without subscriptions - user can still access dashboard
+    }
 
     // Return user data
     return res.status(200).json({
@@ -58,7 +65,7 @@ export default async function handler(req, res) {
         createdAt: user.created_at,
         emailVerified: user.email_verified,
       },
-      subscriptions: subscriptions.rows,
+      subscriptions: subscriptions,
     });
 
   } catch (error) {

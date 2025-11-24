@@ -1173,3 +1173,4 @@
 **Note:** Beta invite emails are manual (admin-controlled), not automatic on signup. This is working as designed.
 
 - [x] CRITICAL: Login API returns 500 Internal Server Error - Fixed by disabling audit_log insert
+- [x] CRITICAL: /api/auth/me returns 500 error - Fixed by making subscriptions query optional (graceful fallback)

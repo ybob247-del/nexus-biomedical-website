@@ -1168,3 +1168,17 @@
 - [x] Add global language toggle to all pages - Added to App.jsx with fixed positioning in top-right corner
 
 **Note:** Beta invite emails are manual (admin-controlled), not automatic on signup. This is working as designed.
+
+## 🚨 CRITICAL PRIORITY FOR BETA LAUNCH (Nov 24, 2025)
+
+- [x] **FIX DASHBOARD BLANK SCREEN** - Added missing /dashboard route to App.jsx (was redirecting to non-existent route)
+
+## 📅 POST-BETA TASKS (Scheduled for Nov 27-28, 2025)
+
+- [ ] Spanish translation - Connect all hardcoded text to translation keys (es.json already complete)
+- [ ] Get n8n webhook URL from user for SendGrid email integration
+- [ ] Fix apex domain DNS (user to complete in domain registrar)
+
+## ✅ RESOLVED ISSUES
+
+- [x] Language toggle clickable - Works correctly, just no visible change because content not using translation keys yet

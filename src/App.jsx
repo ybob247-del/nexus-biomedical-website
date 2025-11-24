@@ -33,7 +33,6 @@ const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
 const ProviderPricing = lazy(() => import('./pages/ProviderPricing'))
-const Dashboard = lazy(() => import('./pages/Dashboard'))
 const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
 const Login = lazy(() => import('./pages/Login'))
@@ -232,12 +231,10 @@ function App() {
       
       {/* RxGuard Dashboard Route */}
       <Route 
-        path="/rxguard/dashboard" 
+        path="/dashboard" 
         element={
           <Suspense fallback={<LoadingFallback />}>
-            <ProtectedRoute platform="rxguard">
-              <RxGuardDashboard />
-            </ProtectedRoute>
+            <Dashboard />
           </Suspense>
         } 
       />
@@ -275,16 +272,6 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <Signup />
-          </Suspense>
-        } 
-      />
-      <Route 
-        path="/dashboard" 
-        element={
-          <Suspense fallback={<LoadingFallback />}>
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
           </Suspense>
         } 
       />

@@ -1159,3 +1159,12 @@
 - [x] Fix AI crawler accessibility for NotebookLM and Gemini - Verified sitemap.xml and robots.txt are correct, issue is cached data that will resolve in 24-72h
 - [ ] Integrate SendGrid email with existing n8n workflow (replace Resend)
 - [x] Deploy latest bug fixes to production - Deployed to Vercel (FSMj1Ci41), commit 213f1f0, verified Report Bug button appears on all pages
+
+## 🚨 CRITICAL BUGS FROM USER TESTING #2 (Nov 24, 2025)
+**Priority:** URGENT - Blocking user authentication and domain access
+
+- [x] Fix login failure after account creation - Issue was Dashboard not rendering due to authLoading check, fixed by adding loading spinner
+- [ ] Fix https://nexusbiomedical.ai unreachable - DNS configuration issue, requires user to update DNS records in domain registrar (click 'Learn more' in Vercel Domains settings)
+- [x] Add global language toggle to all pages - Added to App.jsx with fixed positioning in top-right corner
+
+**Note:** Beta invite emails are manual (admin-controlled), not automatic on signup. This is working as designed.

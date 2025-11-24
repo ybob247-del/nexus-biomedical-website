@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     // Wait for auth to finish loading before checking authentication
     if (authLoading) {
-      return;
+      return; // Still loading auth
     }
     
     if (!isAuthenticated) {
@@ -66,7 +66,8 @@ const Dashboard = () => {
     navigate('/');
   };
 
-  if (loading) {
+  // Show loading spinner while auth or data is loading
+  if (authLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="text-center">

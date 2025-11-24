@@ -18,6 +18,9 @@ const LanguageToggle = () => {
     <button
       onClick={toggleLanguage}
       style={{
+        position: 'fixed',
+        top: '24px',
+        right: '24px',
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
@@ -29,7 +32,8 @@ const LanguageToggle = () => {
         fontSize: '0.875rem',
         fontWeight: 500,
         cursor: 'pointer',
-        transition: 'all 0.3s ease'
+        transition: 'all 0.3s ease',
+        zIndex: 999
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';

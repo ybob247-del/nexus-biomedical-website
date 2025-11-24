@@ -10,6 +10,7 @@ import FAQ from './components/FAQ'
 import WhoBenefits from './components/WhoBenefits'
 import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
+import LanguageToggle from './components/LanguageToggle'
 import EarlyAdopterBanner from './components/EarlyAdopterBanner'
 import ProtectedRoute from './components/ProtectedRoute'
 import { platformsData } from './data/platformData'
@@ -160,6 +161,7 @@ function App() {
     <>
       <StarryBackground />
       <ScreenshotBugWidget />
+      <LanguageToggle />
       <Routes>
       {/* Compliance Pages Routes */}
       <Route 

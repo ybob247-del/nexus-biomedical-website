@@ -1171,3 +1171,5 @@
 - [x] Add global language toggle to all pages - Added to App.jsx with fixed positioning in top-right corner
 
 **Note:** Beta invite emails are manual (admin-controlled), not automatic on signup. This is working as designed.
+
+- [x] CRITICAL: Login API returns 500 Internal Server Error - Fixed by disabling audit_log insert

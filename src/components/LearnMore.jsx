@@ -25,15 +25,18 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
     
     // Hybrid freemium model for EndoGuard - allow unauthenticated assessment
     if (platform.name === 'EndoGuard™') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       navigate('/endoguard/assessment');
       return;
     }
     
     if (isAuthenticated) {
       // User is logged in, go directly to platform
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       navigate(dashboardUrl);
     } else {
       // User not logged in - navigate to signup to get free trial
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       navigate('/signup');
     }
   };

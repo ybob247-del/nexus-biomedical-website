@@ -3,7 +3,7 @@
  * New user registration page
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
@@ -11,6 +11,11 @@ import '../styles/auth.css';
 
 const Signup = () => {
   const { t } = useTranslation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
   const [formData, setFormData] = useState({
     email: '',
     password: '',

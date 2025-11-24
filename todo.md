@@ -1095,3 +1095,11 @@
 - [x] Darken magenta background on EndoGuard assessment page for better white text contrast (changed from #D946EF/#C026D3 to #A21CAF/#86198F)
 - [ ] Add "Report a Bug" button to ALL pages (currently only on homepage)
 - [ ] Clarify signup page messaging that account is for entire Nexus platform
+
+## 🚨 CRITICAL ISSUES REPORTED BY USER (2025-11-23):
+- [ ] Signup still failing with "Failed to create account" - DATABASE_URL format issue in Vercel
+- [x] EndoGuard color scheme verified in code and confirmed working in local dev
+- [x] Fixed: Added scroll-to-top when navigating to signup from LearnMore component
+- [x] Fixed: Added scroll-to-top in Signup page useEffect to ensure page loads at top
+- [x] All fixes ready for deployment
+- [ ] Deploy to production and verify DATABASE_URL in Vercel

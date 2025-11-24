@@ -23,6 +23,44 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Google AI (Gemini/Bard)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Bytedance/TikTok
+User-agent: Bytespider
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# AI2 (Allen Institute)
+User-agent: AI2Bot
+Allow: /
+
 # Sitemap
 Sitemap: https://nexusbiomedical.ai/sitemap.xml
 Sitemap: https://nexusbiomedical.ai/ai-sitemap.json

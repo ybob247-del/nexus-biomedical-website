@@ -1106,10 +1106,11 @@
 
 ## 🔍 NotebookLM Crawling Issue (2025-11-23):
 - [x] DIAGNOSED: Vercel catch-all rule redirects sitemap.xml to index.html
-- [x] robots.txt already exists and allows all AI crawlers
+- [x] robots.txt updated to allow ALL major AI crawlers (Gemini, ChatGPT, Claude, Perplexity, Meta AI, Apple Intelligence, Alexa, TikTok, Cohere, Diffbot)
 - [x] SEO meta tags already deployed (ai-summary, ai-keywords, og:tags)
 - [x] JSON-LD structured data already deployed
 - [x] ai-sitemap.json already exists with comprehensive platform data
 - [x] Created sitemap.xml with all website pages
 - [x] Fixed vercel.json to serve static files before catch-all rule
-- [ ] Deploy and test with NotebookLM
+- [x] Verified sitemap.xml serves correctly as XML on live site
+- [ ] Deploy updated robots.txt and test with NotebookLM, Gemini, and other AI tools

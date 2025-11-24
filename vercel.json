@@ -9,6 +9,18 @@
       "destination": "/admin.html"
     },
     {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/ai-sitemap.json",
+      "destination": "/ai-sitemap.json"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

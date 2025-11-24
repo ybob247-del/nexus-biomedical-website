@@ -1103,3 +1103,13 @@
 - [x] Fixed: Added scroll-to-top in Signup page useEffect to ensure page loads at top
 - [x] All fixes ready for deployment
 - [ ] Deploy to production and verify DATABASE_URL in Vercel
+
+## 🔍 NotebookLM Crawling Issue (2025-11-23):
+- [x] DIAGNOSED: Vercel catch-all rule redirects sitemap.xml to index.html
+- [x] robots.txt already exists and allows all AI crawlers
+- [x] SEO meta tags already deployed (ai-summary, ai-keywords, og:tags)
+- [x] JSON-LD structured data already deployed
+- [x] ai-sitemap.json already exists with comprehensive platform data
+- [x] Created sitemap.xml with all website pages
+- [x] Fixed vercel.json to serve static files before catch-all rule
+- [ ] Deploy and test with NotebookLM

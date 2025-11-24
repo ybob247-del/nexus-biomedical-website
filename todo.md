@@ -1142,3 +1142,36 @@
 - [x] Fixed database schema - added first_name and last_name columns to production database
 - [x] SIGNUP WORKS! Tested end-to-end - account created, JWT token generated, redirected to dashboard
 - [ ] Test social media link previews (Twitter, LinkedIn, Facebook)
+
+
+## 📧 Email Verification Flow (2025-11-24):
+- [ ] Add email_verification_token and email_verification_expires columns to users table
+- [ ] Create email service using existing email provider (check env vars for email credentials)
+- [ ] Design welcome email template with verification link
+- [ ] Create /api/auth/verify-email endpoint
+- [ ] Update signup flow to send verification email
+- [ ] Add email verification check before platform access
+- [ ] Create resend verification email endpoint
+- [ ] Test email delivery and verification flow
+
+## 📊 Dashboard Build-Out (2025-11-24):
+- [ ] Design dashboard layout with platform cards
+- [ ] Show trial status for each platform (days remaining, usage count)
+- [ ] Add "Start Free Trial" buttons for platforms not yet activated
+- [ ] Display active subscriptions vs trial status
+- [ ] Add quick access buttons to RxGuard and EndoGuard platforms
+- [ ] Show user profile section (name, email, account status)
+- [ ] Add navigation to settings and billing
+- [ ] Implement responsive design for mobile
+- [ ] Test dashboard with real user account
+
+
+## 🚨 CRITICAL: AI Crawlers Cannot Access Site (2025-11-24):
+- [ ] Gemini reports site is "not publicly indexed or accessible"
+- [ ] NotebookLM also cannot access the site
+- [ ] Check for Vercel firewall or security headers blocking crawlers
+- [ ] Check for CSP (Content Security Policy) blocking external access
+- [ ] Verify sitemap.xml is actually being served (not redirected to index.html)
+- [ ] Check if Vercel has bot protection enabled
+- [ ] Test with curl and different user-agents to identify blocking pattern
+- [ ] Fix whatever is blocking legitimate AI crawlers

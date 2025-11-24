@@ -1,6 +1,9 @@
 ## 🚨 CRITICAL BUGS FROM USER TESTING (Nov 24, 2025)
 **Priority:** URGENT - Blocking user experience
 
+- [ ] CRITICAL: Dashboard blank screen after signup (only shows background, language toggle, Report Bug button) - Added comprehensive debugging logs to trace execution
+- [ ] BUG: Login page shows "User with this email already exists" error message - Verified API is correct, likely browser cache or wrong page
+- [x] BUG: Header responsive layout - Get Started button and Language Toggle (EN | ES) overlap on smaller screens - Fixed with better breakpoints
 - [x] Fix RxGuard signup → blank Dashboard (authentication/redirect issue) - Fixed auth loading race condition
 - [x] Add Report Bug button to Dashboard page - Added ScreenshotBugWidget
 - [x] Add Report Bug button to EndoGuard assessment page - Added ScreenshotBugWidget

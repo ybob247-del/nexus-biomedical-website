@@ -13,32 +13,52 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // DEBUG: Log component mount
+  console.log('🔷 Dashboard component mounted');
+  console.log('🔷 Auth state:', { user, token: !!token, isAuthenticated, authLoading });
+
   useEffect(() => {
+    console.log('🔷 Dashboard useEffect triggered');
+    console.log('🔷 authLoading:', authLoading);
+    console.log('🔷 isAuthenticated:', isAuthenticated);
+    console.log('🔷 token:', !!token);
+    console.log('🔷 user:', user);
+
     // Wait for auth to finish loading before checking authentication
     if (authLoading) {
+      console.log('🔷 Auth still loading, waiting...');
       return; // Still loading auth
     }
     
     if (!isAuthenticated) {
+      console.log('🔷 Not authenticated, redirecting to login');
       navigate('/login');
       return;
     }
 
+    console.log('🔷 Authenticated! Fetching subscriptions...');
+
     const fetchSubscriptions = async () => {
       try {
+        console.log('🔷 Fetching subscriptions from /api/auth/me');
         const response = await fetch('/api/auth/me', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
         });
 
+        console.log('🔷 Response status:', response.status);
         if (response.ok) {
           const data = await response.json();
+          console.log('🔷 Subscriptions data:', data);
           setSubscriptions(data.subscriptions || []);
+        } else {
+          console.error('🔷 Failed to fetch subscriptions, status:', response.status);
         }
       } catch (error) {
-        console.error('Failed to fetch subscriptions:', error);
+        console.error('🔷 Failed to fetch subscriptions:', error);
       } finally {
+        console.log('🔷 Setting loading to false');
         setLoading(false);
       }
     };
@@ -67,7 +87,9 @@ const Dashboard = () => {
   };
 
   // Show loading spinner while auth or data is loading
+  console.log('🔷 Render check - authLoading:', authLoading, 'loading:', loading);
   if (authLoading || loading) {
+    console.log('🔷 Showing loading spinner');
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="text-center">
@@ -78,6 +100,9 @@ const Dashboard = () => {
     );
   }
 
+  console.log('🔷 Rendering full Dashboard UI');
+
+  console.log('🔷 About to render Dashboard JSX');
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       {/* Header */}

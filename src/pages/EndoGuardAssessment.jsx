@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
 import FDADisclaimer from '../components/FDADisclaimer';
+import ScreenshotBugWidget from '../components/ScreenshotBugWidget';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
@@ -38,9 +39,9 @@ export default function EndoGuardAssessment() {
     waterSource: '',
     
     // Health History
-    existingConditions: [],
-    medications: [],
-    supplements: []
+    existingConditions: '',
+    medications: '',
+    supplements: ''
   });
 
   const [results, setResults] = useState(null);
@@ -138,6 +139,8 @@ export default function EndoGuardAssessment() {
   };
 
   return (
+    <>
+      <ScreenshotBugWidget />
       <div className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -434,8 +437,8 @@ export default function EndoGuardAssessment() {
             <div className="form-group">
               <label>Existing Health Conditions (optional)</label>
               <textarea
-                value={formData.existingConditions.join(', ')}
-                onChange={(e) => handleInputChange('existingConditions', e.target.value.split(',').map(s => s.trim()))}
+                value={formData.existingConditions}
+                onChange={(e) => handleInputChange('existingConditions', e.target.value)}
                 placeholder="e.g., PCOS, hypothyroidism, endometriosis (separate with commas)"
                 rows="3"
               />
@@ -444,8 +447,8 @@ export default function EndoGuardAssessment() {
             <div className="form-group">
               <label>Current Medications (optional)</label>
               <textarea
-                value={formData.medications.join(', ')}
-                onChange={(e) => handleInputChange('medications', e.target.value.split(',').map(s => s.trim()))}
+                value={formData.medications}
+                onChange={(e) => handleInputChange('medications', e.target.value)}
                 placeholder="List any medications you're taking (separate with commas)"
                 rows="3"
               />
@@ -454,8 +457,8 @@ export default function EndoGuardAssessment() {
             <div className="form-group">
               <label>Current Supplements (optional)</label>
               <textarea
-                value={formData.supplements.join(', ')}
-                onChange={(e) => handleInputChange('supplements', e.target.value.split(',').map(s => s.trim()))}
+                value={formData.supplements}
+                onChange={(e) => handleInputChange('supplements', e.target.value)}
                 placeholder="List any supplements you're taking (separate with commas)"
                 rows="3"
               />
@@ -515,5 +518,6 @@ export default function EndoGuardAssessment() {
         )}
       </div>
       </div>
+    </>
   );
 }

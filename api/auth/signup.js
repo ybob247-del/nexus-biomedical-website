@@ -6,8 +6,6 @@
 
 import { query } from '../utils/db.js';
 import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.js';
-import { sendVerificationEmail } from '../utils/email.js';
-import crypto from 'crypto';
 
 export default async function handler(req, res) {
   // Debug logging for DATABASE_URL
@@ -52,27 +50,15 @@ export default async function handler(req, res) {
     // Hash password
     const passwordHash = await hashPassword(password);
 
-    // Generate email verification token
-    const verificationToken = crypto.randomBytes(32).toString('hex');
-    const verificationExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
-
     // Create user
     const result = await query(
-      `INSERT INTO users (email, password_hash, first_name, last_name, email_verification_token, email_verification_expires)
-       VALUES ($1, $2, $3, $4, $5, $6)
+      `INSERT INTO users (email, password_hash, first_name, last_name)
+       VALUES ($1, $2, $3, $4)
        RETURNING id, email, first_name, last_name, created_at`,
-      [email.toLowerCase(), passwordHash, firstName || null, lastName || null, verificationToken, verificationExpires]
+      [email.toLowerCase(), passwordHash, firstName || null, lastName || null]
     );
 
     const user = result.rows[0];
-
-    // Send verification email
-    const emailResult = await sendVerificationEmail(email, firstName || 'User', verificationToken);
-    
-    if (!emailResult.success) {
-      console.error('Failed to send verification email:', emailResult.error);
-      // Continue anyway - user can resend verification email later
-    }
 
     // Generate JWT token
     const token = generateToken(user);

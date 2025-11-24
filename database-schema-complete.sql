@@ -9,8 +9,6 @@ CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,
   password_hash VARCHAR(255),
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
   name VARCHAR(255),
   phone VARCHAR(50),
   

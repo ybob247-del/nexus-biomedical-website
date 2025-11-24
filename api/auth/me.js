@@ -47,15 +47,6 @@ export default async function handler(req, res) {
       [user.id]
     );
 
-    // Get user's platform trials
-    const trials = await query(
-      `SELECT platform_id, trial_start, trial_end, usage_count, usage_limit
-       FROM platform_trials
-       WHERE user_id = $1
-       ORDER BY trial_start DESC`,
-      [user.id]
-    );
-
     // Return user data
     return res.status(200).json({
       success: true,
@@ -68,7 +59,6 @@ export default async function handler(req, res) {
         emailVerified: user.email_verified,
       },
       subscriptions: subscriptions.rows,
-      trials: trials.rows,
     });
 
   } catch (error) {

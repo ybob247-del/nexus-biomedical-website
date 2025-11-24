@@ -7,7 +7,7 @@
  * - POST /api/admin?action=send-beta-invite - Send beta invite email
  */
 
-import { query } from './utils/db.mjs';
+import { query } from './utils/db.js';
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {

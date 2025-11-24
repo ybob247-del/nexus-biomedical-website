@@ -4,8 +4,8 @@
  * Authenticates a user and returns a JWT token
  */
 
-import { query } from '../utils/db.mjs';
-import { comparePassword, generateToken, isValidEmail } from '../utils/auth.mjs';
+import { query } from '../utils/db.js';
+import { comparePassword, generateToken, isValidEmail } from '../utils/auth.js';
 
 export default async function handler(req, res) {
   // Only allow POST requests

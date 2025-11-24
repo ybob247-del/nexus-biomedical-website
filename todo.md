@@ -1064,12 +1064,12 @@
 - [ ] Confirm www.nexusbiomedical.ai shows EDC acronym spelled out
 
 ## 🚨 CRITICAL PRIORITY 1: SIGNUP BROKEN (BLOCKING ALL REVENUE)
-- [x] DIAGNOSED: Vercel serverless functions failing with FUNCTION_INVOCATION_FAILED - ES module issue
-- [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
-- [x] FIXED: Updated all import statements to reference .mjs files
-- [x] FIXED: Updated vercel.json to recognize .mjs files as serverless functions
-- [x] FIXED: "Passwords do not match" error - added whitespace trimming to password fields
-- [x] FIXED: Added debug logging to identify password comparison issues
+- [x] DIAGNOSED: Vercel serverless functions failing - ES module/CommonJS mismatch
+- [x] ATTEMPT 1 FAILED: Renamed files to .mjs - caused 3 deployment failures
+- [x] ATTEMPT 2 IN PROGRESS: Proper solution - add package.json in /api with {"type": "module"}
+- [x] Reverted all .mjs files back to .js
+- [x] Created /api/package.json with ES module configuration
+- [x] Reverted vercel.json to original .js pattern
 - [ ] Deploy and test signup end-to-end with real account creation
 
 ## 🚨 PREVIOUS SIGNUP DEBUGGING (RESOLVED):

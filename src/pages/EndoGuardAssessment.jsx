@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
 import FDADisclaimer from '../components/FDADisclaimer';
-import ScreenshotBugWidget from '../components/ScreenshotBugWidget';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
@@ -139,8 +138,6 @@ export default function EndoGuardAssessment() {
   };
 
   return (
-    <>
-      <ScreenshotBugWidget />
       <div className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -518,6 +515,5 @@ export default function EndoGuardAssessment() {
         )}
       </div>
       </div>
-    </>
   );
 }

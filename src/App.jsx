@@ -150,7 +150,6 @@ function Homepage() {
         <FAQ />
         <Footer />
       </div>
-      <ScreenshotBugWidget />
     </>
   )
 }
@@ -160,6 +159,7 @@ function App() {
   return (
     <>
       <StarryBackground />
+      <ScreenshotBugWidget />
       <Routes>
       {/* Compliance Pages Routes */}
       <Route 

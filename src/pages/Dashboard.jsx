@@ -6,7 +6,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import ScreenshotBugWidget from '../components/ScreenshotBugWidget';
 
 const Dashboard = () => {
   const { user, logout, token, isAuthenticated, loading: authLoading } = useAuth();
@@ -79,9 +78,7 @@ const Dashboard = () => {
   }
 
   return (
-    <>
-      <ScreenshotBugWidget />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8">
         <div className="flex justify-between items-center">
@@ -186,7 +183,6 @@ const Dashboard = () => {
         </Link>
       </div>
     </div>
-    </>
   );
 };
 

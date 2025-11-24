@@ -43,6 +43,7 @@ const MyAssessments = lazy(() => import('./pages/MyAssessments'))
 const WaitlistAdmin = lazy(() => import('./pages/WaitlistAdmin'))
 const NotifyWaitlist = lazy(() => import('./pages/NotifyWaitlist'))
 const Analytics = lazy(() => import('./pages/Analytics'))
+const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -259,6 +260,18 @@ function App() {
       <Route path="/pedicalc" element={<PlatformPage />} />
       <Route path="/skinscan" element={<PlatformPage />} />
       <Route path="/endoguard" element={<PlatformPage />} />
+
+      {/* Dashboard Route */}
+      <Route 
+        path="/dashboard" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          </Suspense>
+        } 
+      />
 
       {/* Authentication Routes */}
       <Route 

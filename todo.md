@@ -1174,3 +1174,4 @@
 
 - [x] CRITICAL: Login API returns 500 Internal Server Error - Fixed by disabling audit_log insert
 - [x] CRITICAL: /api/auth/me returns 500 error - Fixed by making subscriptions query optional (graceful fallback)
+- [x] CRITICAL: /dashboard route missing from App.jsx - Added Dashboard import and route with ProtectedRoute wrapper

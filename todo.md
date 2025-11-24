@@ -1114,3 +1114,11 @@
 - [x] Fixed vercel.json to serve static files before catch-all rule
 - [x] Verified sitemap.xml serves correctly as XML on live site
 - [ ] Deploy updated robots.txt and test with NotebookLM, Gemini, and other AI tools
+
+## 🌐 Content Platform & Automation Tool Support (2025-11-23):
+- [x] Added social media crawlers (Twitter, Facebook, LinkedIn, Slack, WhatsApp, Telegram, Discord)
+- [x] Added automation tools (n8n, Zapier, Make, IFTTT)
+- [x] Added content tools (Notion, Airtable)
+- [x] Added email marketing (ConvertKit/Kit, Mailchimp)
+- [ ] Research and add: Riverside, Pomelo (need to find correct user-agent names)
+- [ ] Deploy and verify link previews work on social platforms

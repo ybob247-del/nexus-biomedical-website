@@ -61,6 +61,58 @@ Allow: /
 User-agent: AI2Bot
 Allow: /
 
+# Content Platforms & Social Media
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# Automation & Integration Tools
+User-agent: n8n
+Allow: /
+
+User-agent: Zapier
+Allow: /
+
+User-agent: Make
+Allow: /
+
+User-agent: IFTTT
+Allow: /
+
+# Content Creation Tools
+User-agent: NotionBot
+Allow: /
+
+User-agent: Notion-Crawler
+Allow: /
+
+User-agent: AirtableBot
+Allow: /
+
+# Email Marketing
+User-agent: ConvertKit
+Allow: /
+
+User-agent: Mailchimp
+Allow: /
+
 # Sitemap
 Sitemap: https://nexusbiomedical.ai/sitemap.xml
 Sitemap: https://nexusbiomedical.ai/ai-sitemap.json

@@ -11,6 +11,7 @@ const Dashboard = () => {
   const { user, logout, token, isAuthenticated, loading: authLoading } = useAuth();
   const [subscriptions, setSubscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activatingTrial, setActivatingTrial] = useState(null);
   const navigate = useNavigate();
 
   // DEBUG: Log component mount
@@ -67,12 +68,12 @@ const Dashboard = () => {
   }, [isAuthenticated, token, navigate, authLoading]);
 
   const platforms = [
-    { name: 'RxGuard', description: 'Medication safety and drug interaction checker', url: '/rxguard' },
-    { name: 'ReguReady', description: 'Regulatory compliance and documentation', url: '/reguready' },
-    { name: 'ClinicalIQ', description: 'Clinical decision support system', url: '/clinicaliq' },
-    { name: 'PediCalc Pro', description: 'Pediatric medication dosing calculator', url: '/pedicalc' },
-    { name: 'SkinSense AI', description: 'Skin cancer detection and analysis', url: '/skinsense' },
-    { name: 'DiagnoVision', description: 'Medical image analysis and diagnosis', url: '/diagnovision' },
+    { id: 'rxguard', name: 'RxGuard', description: 'Medication safety and drug interaction checker', url: '/rxguard' },
+    { id: 'reguready', name: 'ReguReady', description: 'Regulatory compliance and documentation', url: '/reguready' },
+    { id: 'clinicaliq', name: 'ClinicalIQ', description: 'Clinical decision support system', url: '/clinicaliq' },
+    { id: 'pedicalcpro', name: 'PediCalc Pro', description: 'Pediatric medication dosing calculator', url: '/pedicalc' },
+    { id: 'skinsenseai', name: 'SkinSense AI', description: 'Skin cancer detection and analysis', url: '/skinsense' },
+    { id: 'diagnovision', name: 'DiagnoVision', description: 'Medical image analysis and diagnosis', url: '/diagnovision' },
   ];
 
   const hasAccessToPlatform = (platformName) => {
@@ -84,6 +85,42 @@ const Dashboard = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleStartTrial = async (platformId) => {
+    setActivatingTrial(platformId);
+    
+    try {
+      const response = await fetch('/api/trials/activate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ platform: platformId }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert(`🎉 ${data.trialDays}-day free trial activated for ${platformId}!\n\nYou now have access until ${new Date(data.trialEnd).toLocaleDateString()}`);
+        // Refresh subscriptions to show new trial
+        window.location.reload();
+      } else if (data.alreadyUsedTrial) {
+        alert('You have already used your free trial for this platform. Please subscribe to continue.');
+        navigate('/pricing');
+      } else if (data.hasAccess) {
+        alert('You already have active access to this platform!');
+        window.location.reload();
+      } else {
+        alert(data.error || 'Failed to activate trial. Please try again.');
+      }
+    } catch (error) {
+      console.error('Trial activation error:', error);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setActivatingTrial(null);
+    }
   };
 
   // Show loading spinner while auth or data is loading
@@ -189,12 +226,21 @@ const Dashboard = () => {
                     Launch Platform
                   </Link>
                 ) : (
-                  <Link
-                    to="/pricing"
-                    className="inline-block w-full text-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-semibold transition-all"
-                  >
-                    Subscribe
-                  </Link>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => handleStartTrial(platform.id)}
+                      disabled={activatingTrial === platform.id}
+                      className="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {activatingTrial === platform.id ? 'Activating...' : 'Start Free Trial'}
+                    </button>
+                    <Link
+                      to="/pricing"
+                      className="inline-block w-full text-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-semibold transition-all"
+                    >
+                      Subscribe
+                    </Link>
+                  </div>
                 )}
               </div>
             );

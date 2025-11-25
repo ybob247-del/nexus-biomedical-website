@@ -42,15 +42,28 @@ module.exports = async (req, res) => {
     }
 
     // Check if user has active access to the platform
-    const result = await query(
-      `SELECT pa.is_active, pa.access_expires_at, s.status, s.cancel_at_period_end
-       FROM platform_access pa
-       JOIN subscriptions s ON pa.subscription_id = s.id
-       WHERE pa.user_id = $1 AND pa.platform = $2 AND pa.is_active = true
-       ORDER BY pa.access_expires_at DESC
-       LIMIT 1`,
-      [decoded.userId, platform]
-    );
+    // Wrap in try-catch to handle missing tables gracefully
+    let result;
+    try {
+      result = await query(
+        `SELECT pa.is_active, pa.access_expires_at, s.status, s.cancel_at_period_end
+         FROM platform_access pa
+         JOIN subscriptions s ON pa.subscription_id = s.id
+         WHERE pa.user_id = $1 AND pa.platform = $2 AND pa.is_active = true
+         ORDER BY pa.access_expires_at DESC
+         LIMIT 1`,
+        [decoded.userId, platform]
+      );
+    } catch (dbError) {
+      console.warn('Database query failed (tables may not exist):', dbError.message);
+      // Tables don't exist yet - deny access and redirect to pricing
+      return res.status(403).json({
+        hasAccess: false,
+        error: 'No active subscription found for this platform',
+        redirectTo: '/pricing',
+        platform,
+      });
+    }
 
     if (result.rows.length === 0) {
       return res.status(403).json({

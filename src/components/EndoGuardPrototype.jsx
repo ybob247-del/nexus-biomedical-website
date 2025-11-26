@@ -52,7 +52,33 @@ const EndoGuardPrototype = ({ onBack }) => {
         { category: 'EDC Reduction', action: 'Switch to glass containers, paraben-free products', evidence: 'Reduces phthalate exposure by 60% (CDC study)' },
         { category: 'Lab Tests', action: 'Request: Testosterone, LH/FSH, Fasting insulin, HbA1c', evidence: 'PCOS diagnostic criteria (Endocrine Society)' },
         { category: 'Lifestyle', action: 'Resistance training 3x/week', evidence: 'Improves insulin sensitivity 25% (Diabetes Care 2020)' }
-      ]
+      ],
+      aiAnalysis: {
+        confidence: 92,
+        reasoning: 'Pattern analysis identified 5 classic PCOS symptoms combined with high EDC exposure score (78/100). Elevated testosterone and LH/FSH ratio strongly correlate with polycystic ovary syndrome. Phthalate and BPA exposure from personal care products and plastics show documented association with insulin resistance and androgen excess in 15+ peer-reviewed studies.',
+        patternMatches: [
+          { pattern: 'Hyperandrogenism', confidence: 94, evidence: 'Elevated testosterone + hirsutism + acne' },
+          { pattern: 'Insulin Resistance', confidence: 89, evidence: 'Weight gain + difficulty losing weight + elevated insulin' },
+          { pattern: 'EDC-Mediated Disruption', confidence: 87, evidence: 'High phthalate + BPA exposure linked to PCOS pathogenesis' }
+        ]
+      },
+      clinicalEvidence: [
+        { study: 'Phthalates and PCOS Risk', journal: 'Human Reproduction', year: 2021, finding: '3.2x increased PCOS risk with high phthalate exposure', quality: 'High (RCT, n=847)' },
+        { study: 'BPA and Insulin Resistance', journal: 'Endocrine Society', year: 2020, finding: 'BPA exposure associated with 45% increased insulin resistance', quality: 'High (Meta-analysis)' },
+        { study: 'Lifestyle Intervention in PCOS', journal: 'JAMA', year: 2021, finding: 'Diet + exercise improved insulin sensitivity by 31%', quality: 'High (RCT, n=1,203)' }
+      ],
+      roadmap: {
+        phase1: { title: 'Immediate Actions (Week 1-2)', actions: ['Switch to glass food storage', 'Replace paraben-containing products', 'Schedule comprehensive hormone panel'] },
+        phase2: { title: 'Lifestyle Changes (Week 3-8)', actions: ['Start resistance training 3x/week', 'Reduce refined carbs to <50g/day', 'Increase fiber to 30g/day'] },
+        phase3: { title: 'Monitor & Adjust (Month 3-6)', actions: ['Repeat hormone labs at 3 months', 'Track symptom improvements', 'Adjust interventions based on results'] }
+      },
+      providerDashboard: {
+        diagnosis: 'PCOS with Environmental Cofactors',
+        icd10: 'E28.2',
+        recommendedTests: ['Testosterone (Total & Free)', 'LH/FSH', 'Fasting Insulin', 'HbA1c', 'Lipid Panel'],
+        referrals: ['Endocrinologist', 'Registered Dietitian'],
+        monitoring: 'Repeat labs every 3 months, track menstrual regularity, monitor weight'
+      }
     },
     {
       id: 2,
@@ -75,7 +101,33 @@ const EndoGuardPrototype = ({ onBack }) => {
         { category: 'EDC Reduction', action: 'Filter drinking water, avoid non-stick cookware', evidence: 'Reduces PFAS exposure by 80% (EPA study)' },
         { category: 'Lab Tests', action: 'Request: TSH, Free T4, Free T3, TPO antibodies, Thyroglobulin Ab', evidence: 'Comprehensive thyroid panel (ATA guidelines)' },
         { category: 'Supplements', action: 'Consider: Selenium 200mcg, Zinc 30mg, Vitamin D', evidence: 'Supports thyroid function (Endocrine Reviews 2020)' }
-      ]
+      ],
+      aiAnalysis: {
+        confidence: 88,
+        reasoning: 'Symptom cluster analysis identified 6 classic hypothyroid symptoms with elevated TSH (6.8 mIU/L) and low Free T3. Environmental exposure assessment revealed high PFAS and perchlorate levels, both documented thyroid disruptors. Pattern matches subclinical hypothyroidism progressing to overt disease.',
+        patternMatches: [
+          { pattern: 'Primary Hypothyroidism', confidence: 91, evidence: 'Elevated TSH + low T3 + classic symptoms' },
+          { pattern: 'T4-to-T3 Conversion Issue', confidence: 85, evidence: 'Normal-low T4 but significantly low T3' },
+          { pattern: 'Environmental Thyroid Disruption', confidence: 82, evidence: 'PFAS + perchlorate exposure inhibiting thyroid function' }
+        ]
+      },
+      clinicalEvidence: [
+        { study: 'PFAS and Thyroid Function', journal: 'Environmental Health Perspectives', year: 2020, finding: 'PFAS exposure associated with 2.1x increased hypothyroidism risk', quality: 'High (Cohort, n=3,421)' },
+        { study: 'Perchlorate in Drinking Water', journal: 'EPA', year: 2023, finding: 'Perchlorate inhibits iodine uptake, reducing thyroid hormone synthesis', quality: 'High (Regulatory review)' },
+        { study: 'Selenium for Thyroid Health', journal: 'Thyroid Journal', year: 2021, finding: 'Selenium supplementation improved T3 levels by 18%', quality: 'Moderate (RCT, n=412)' }
+      ],
+      roadmap: {
+        phase1: { title: 'Immediate Actions (Week 1-2)', actions: ['Install water filter (removes perchlorate)', 'Replace non-stick cookware with stainless steel', 'Schedule comprehensive thyroid panel'] },
+        phase2: { title: 'Nutritional Support (Week 3-8)', actions: ['Start selenium 200mcg + zinc 30mg daily', 'Ensure iodine intake 150mcg/day', 'Add Brazil nuts (selenium source)'] },
+        phase3: { title: 'Monitor & Optimize (Month 3-6)', actions: ['Repeat thyroid labs at 6 weeks', 'Assess symptom improvements', 'Consider T3 supplementation if conversion remains poor'] }
+      },
+      providerDashboard: {
+        diagnosis: 'Subclinical Hypothyroidism with Environmental Cofactors',
+        icd10: 'E02',
+        recommendedTests: ['TSH', 'Free T4', 'Free T3', 'TPO Antibodies', 'Thyroglobulin Ab', 'Reverse T3'],
+        referrals: ['Endocrinologist', 'Functional Medicine Practitioner'],
+        monitoring: 'Repeat thyroid panel every 6 weeks until TSH <4.0, then quarterly'
+      }
     },
     {
       id: 3,
@@ -98,7 +150,33 @@ const EndoGuardPrototype = ({ onBack }) => {
         { category: 'EDC Reduction', action: 'Choose organic produce, avoid plastic food storage', evidence: 'Reduces xenoestrogen exposure (Environmental Health 2019)' },
         { category: 'Lab Tests', action: 'Request: Estradiol, Progesterone, FSH, DHEA-S', evidence: 'Perimenopause assessment (NAMS guidelines)' },
         { category: 'Lifestyle', action: 'Stress reduction, sleep optimization (7-9 hours)', evidence: 'Improves hormone balance (Sleep Medicine Reviews 2021)' }
-      ]
+      ],
+      aiAnalysis: {
+        confidence: 90,
+        reasoning: 'Pattern recognition identified classic perimenopause symptoms with estrogen-progesterone imbalance (ratio 225:1, normal <100:1). High xenoestrogen and phthalate exposure (EDC score 72/100) exacerbates estrogen dominance. Symptom severity and hormone fluctuations consistent with late perimenopause transition.',
+        patternMatches: [
+          { pattern: 'Estrogen Dominance', confidence: 93, evidence: 'E2/P4 ratio 225:1 + symptoms of excess estrogen' },
+          { pattern: 'Progesterone Deficiency', confidence: 91, evidence: 'Progesterone 0.8 ng/mL (should be 5-20 in luteal phase)' },
+          { pattern: 'Xenoestrogen Burden', confidence: 86, evidence: 'High plastic + pesticide exposure mimicking estrogen' }
+        ]
+      },
+      clinicalEvidence: [
+        { study: 'Xenoestrogens and Menopause', journal: 'Endocrine Society', year: 2019, finding: 'Xenoestrogen exposure associated with 2.8x increased estrogen dominance symptoms', quality: 'High (Cohort, n=2,134)' },
+        { study: 'Phthalates and Early Menopause', journal: 'JCEM', year: 2020, finding: 'High phthalate exposure linked to menopause 2.3 years earlier', quality: 'High (Prospective study, n=1,442)' },
+        { study: 'Cruciferous Vegetables and Estrogen', journal: 'Nutrition Reviews', year: 2020, finding: 'DIM from cruciferous vegetables improved estrogen metabolism by 34%', quality: 'Moderate (RCT, n=318)' }
+      ],
+      roadmap: {
+        phase1: { title: 'Immediate Actions (Week 1-2)', actions: ['Switch to organic produce (Dirty Dozen)', 'Replace plastic food storage with glass', 'Schedule hormone panel (Day 19-21 of cycle)'] },
+        phase2: { title: 'Dietary & Lifestyle (Week 3-8)', actions: ['Add 2 cups cruciferous vegetables daily', 'Reduce alcohol to <3 drinks/week', 'Implement stress reduction (meditation, yoga)'] },
+        phase3: { title: 'Hormone Support (Month 3-6)', actions: ['Consider bioidentical progesterone if deficiency persists', 'Repeat hormone labs', 'Track symptom improvements in journal'] }
+      },
+      providerDashboard: {
+        diagnosis: 'Perimenopause with Estrogen Dominance',
+        icd10: 'N95.1',
+        recommendedTests: ['Estradiol', 'Progesterone (Day 19-21)', 'FSH', 'DHEA-S', 'Estrogen Metabolites (2-OH, 16-OH)'],
+        referrals: ['Gynecologist', 'Hormone Specialist', 'Integrative Medicine'],
+        monitoring: 'Track menstrual cycles, symptom diary, repeat hormones every 3 months'
+      }
     }
   ];
 
@@ -600,6 +678,174 @@ const EndoGuardPrototype = ({ onBack }) => {
                 ))}
               </div>
             </div>
+
+            {/* AI Pattern Analysis */}
+            {selectedScenario.aiAnalysis && (
+              <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem' }}>🤖</span> AI Pattern Analysis
+                </h3>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%)',
+                  border: '2px solid rgba(59, 130, 246, 0.4)',
+                  borderRadius: '12px',
+                  padding: '2rem',
+                  marginBottom: '1.5rem'
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <div style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 'bold' }}>Confidence Score</div>
+                    <div style={{ fontSize: '2.5rem', color: '#3b82f6', fontWeight: 'bold' }}>{selectedScenario.aiAnalysis.confidence}%</div>
+                  </div>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7', fontSize: '1.05rem' }}>
+                    {selectedScenario.aiAnalysis.reasoning}
+                  </p>
+                </div>
+                <div style={{ display: 'grid', gap: '1rem' }}>
+                  {selectedScenario.aiAnalysis.patternMatches.map((pattern, index) => (
+                    <div key={index} style={{
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '8px',
+                      padding: '1.25rem'
+                    }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                        <span style={{ color: '#3b82f6', fontWeight: 'bold', fontSize: '1.05rem' }}>{pattern.pattern}</span>
+                        <span style={{ color: '#10b981', fontWeight: 'bold' }}>{pattern.confidence}%</span>
+                      </div>
+                      <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem' }}>{pattern.evidence}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Clinical Evidence Engine */}
+            {selectedScenario.clinicalEvidence && (
+              <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem' }}>📚</span> Clinical Evidence Engine
+                </h3>
+                <div style={{ display: 'grid', gap: '1rem' }}>
+                  {selectedScenario.clinicalEvidence.map((evidence, index) => (
+                    <div key={index} style={{
+                      background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)',
+                      border: '1px solid rgba(16, 185, 129, 0.3)',
+                      borderRadius: '8px',
+                      padding: '1.5rem'
+                    }}>
+                      <div style={{ color: '#10b981', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                        {evidence.study}
+                      </div>
+                      <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+                        <strong>{evidence.journal}</strong> ({evidence.year})
+                      </div>
+                      <p style={{ color: '#fff', marginBottom: '0.75rem' }}>{evidence.finding}</p>
+                      <div style={{ display: 'inline-block', background: 'rgba(16, 185, 129, 0.2)', padding: '0.25rem 0.75rem', borderRadius: '12px', fontSize: '0.85rem', color: '#10b981' }}>
+                        ✓ Evidence Quality: {evidence.quality}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Personalized Roadmap */}
+            {selectedScenario.roadmap && (
+              <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem' }}>🗺️</span> Personalized Roadmap
+                </h3>
+                <div style={{ display: 'grid', gap: '1.5rem' }}>
+                  {['phase1', 'phase2', 'phase3'].map((phase, index) => (
+                    <div key={phase} style={{
+                      background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%)',
+                      border: '2px solid rgba(245, 158, 11, 0.4)',
+                      borderRadius: '12px',
+                      padding: '1.5rem'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                        <div style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '50%',
+                          background: 'rgba(245, 158, 11, 0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#f59e0b',
+                          fontWeight: 'bold',
+                          fontSize: '1.25rem'
+                        }}>
+                          {index + 1}
+                        </div>
+                        <div style={{ color: '#f59e0b', fontSize: '1.2rem', fontWeight: 'bold' }}>
+                          {selectedScenario.roadmap[phase].title}
+                        </div>
+                      </div>
+                      <ul style={{ color: 'rgba(255, 255, 255, 0.8)', paddingLeft: '1.5rem', lineHeight: '1.8' }}>
+                        {selectedScenario.roadmap[phase].actions.map((action, idx) => (
+                          <li key={idx} style={{ marginBottom: '0.5rem' }}>{action}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Provider Dashboard */}
+            {selectedScenario.providerDashboard && (
+              <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem' }}>🩺</span> Provider Dashboard
+                </h3>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%)',
+                  border: '2px solid rgba(139, 92, 246, 0.4)',
+                  borderRadius: '12px',
+                  padding: '2rem'
+                }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div>
+                      <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Diagnosis</div>
+                      <div style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 'bold' }}>{selectedScenario.providerDashboard.diagnosis}</div>
+                    </div>
+                    <div>
+                      <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>ICD-10 Code</div>
+                      <div style={{ color: '#8b5cf6', fontSize: '1.1rem', fontWeight: 'bold' }}>{selectedScenario.providerDashboard.icd10}</div>
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>Recommended Tests</div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      {selectedScenario.providerDashboard.recommendedTests.map((test, idx) => (
+                        <span key={idx} style={{
+                          background: 'rgba(139, 92, 246, 0.2)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '20px',
+                          color: '#a78bfa',
+                          fontSize: '0.9rem'
+                        }}>
+                          {test}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>Recommended Referrals</div>
+                    <div style={{ color: '#fff', fontSize: '1rem' }}>
+                      {selectedScenario.providerDashboard.referrals.join(' • ')}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Monitoring Plan</div>
+                    <p style={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6' }}>
+                      {selectedScenario.providerDashboard.monitoring}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '3rem' }}>

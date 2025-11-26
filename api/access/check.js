@@ -2,6 +2,7 @@
  * Check Platform Access API Endpoint
  * POST /api/access/check
  * Verifies if a user has access to a specific platform
+ * Updated: Nov 25, 2025 - Fixed database error handling
  */
 
 const { query } = require('../utils/db');

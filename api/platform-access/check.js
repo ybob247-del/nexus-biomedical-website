@@ -34,17 +34,28 @@ module.exports = async (req, res) => {
     }
 
     // Check if user has active subscription
-    const subscriptionResult = await query(
-      `SELECT s.id, s.status, s.current_period_end
-       FROM subscriptions s
-       JOIN platform_access pa ON pa.subscription_id = s.id
-       WHERE pa.user_id = $1 
-         AND pa.platform = $2 
-         AND pa.is_active = TRUE
-         AND s.status = 'active'
-       LIMIT 1`,
-      [userId, platform]
-    );
+    let subscriptionResult;
+    try {
+      subscriptionResult = await query(
+        `SELECT s.id, s.status, s.current_period_end
+         FROM subscriptions s
+         JOIN platform_access pa ON pa.subscription_id = s.id
+         WHERE pa.user_id = $1 
+           AND pa.platform = $2 
+           AND pa.is_active = TRUE
+           AND s.status = 'active'
+         LIMIT 1`,
+        [userId, platform]
+      );
+    } catch (dbError) {
+      console.warn('Database query failed (tables may not exist):', dbError.message);
+      // Tables don't exist - return no access gracefully
+      return res.status(200).json({
+        hasAccess: false,
+        accessType: 'none',
+        message: 'No active trial or subscription found. Please start a free trial or subscribe.'
+      });
+    }
 
     if (subscriptionResult.rows.length > 0) {
       return res.status(200).json({
@@ -56,13 +67,24 @@ module.exports = async (req, res) => {
     }
 
     // Check if user has active trial
-    const trialResult = await query(
-      `SELECT id, trial_start_date, trial_end_date, trial_status
-       FROM platform_trials
-       WHERE user_id = $1 AND platform = $2
-       LIMIT 1`,
-      [userId, platform]
-    );
+    let trialResult;
+    try {
+      trialResult = await query(
+        `SELECT id, trial_start_date, trial_end_date, trial_status
+         FROM platform_trials
+         WHERE user_id = $1 AND platform = $2
+         LIMIT 1`,
+        [userId, platform]
+      );
+    } catch (dbError) {
+      console.warn('Database query failed (tables may not exist):', dbError.message);
+      // Tables don't exist - return no access gracefully
+      return res.status(200).json({
+        hasAccess: false,
+        accessType: 'none',
+        message: 'No active trial or subscription found. Please start a free trial or subscribe.'
+      });
+    }
 
     if (trialResult.rows.length > 0) {
       const trial = trialResult.rows[0];

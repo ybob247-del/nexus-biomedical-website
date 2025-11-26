@@ -1216,7 +1216,7 @@
 **Priority:** CRITICAL - Blocking user experience
 
 - [x] PDF export failing - Fixed by adding id="rxguard-results" and id="endoguard-results" to containers
-- [ ] Dashboard still shows "Access Denied" on production - /api/access/check 500 error persists
+- [ ] Dashboard still shows "Access Denied" on production - Fixed /api/platform-access/check error handling, needs deployment
 - [x] Stripe webhook setup guide - Created comprehensive guide at /docs/setup/STRIPE_WEBHOOK_SETUP.md matching current Stripe UI
 
 ## 📚 DOCUMENTATION TASKS

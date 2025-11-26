@@ -976,7 +976,7 @@ const RxGuardPrototype = ({ onBack }) => {
     console.log('Interactions:', interactions);
     
     return (
-      <div style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)', padding: '5rem 2rem'}}>
+      <div id="rxguard-results" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #cffafe 50%, #a5f3fc 100%)', padding: '5rem 2rem'}}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Back Button */}
           <button

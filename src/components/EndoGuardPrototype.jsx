@@ -225,7 +225,7 @@ const EndoGuardPrototype = ({ onBack }) => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #0a1b3d 0%, #1a2f5a 100%)', padding: '2rem' }}>
+    <div id="endoguard-results" style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #0a1b3d 0%, #1a2f5a 100%)', padding: '2rem' }}>
       <BetaDisclaimer />
       <div style={{ maxWidth: '1200px', margin: '0 auto 2rem' }}>
         <DemoDisclaimer platformName="EndoGuard™" dashboardUrl="/endoguard/assessment" />

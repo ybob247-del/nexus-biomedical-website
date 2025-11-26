@@ -1211,3 +1211,15 @@
 - [x] Add Clinical Evidence Engine - Displays peer-reviewed studies with journal, year, findings, quality ratings
 - [x] Add Personalized Roadmap - 3-phase timeline (Immediate/Week 1-2, Lifestyle/Week 3-8, Monitor/Month 3-6)
 - [x] Add Provider Dashboard - ICD-10 codes, recommended tests, referrals, monitoring plans for all 3 scenarios
+
+## 🚨 URGENT BUGS (Nov 26, 2025)
+**Priority:** CRITICAL - Blocking user experience
+
+- [x] PDF export failing - Fixed by adding id="rxguard-results" and id="endoguard-results" to containers
+- [ ] Dashboard still shows "Access Denied" on production - /api/access/check 500 error persists
+- [x] Stripe webhook setup guide - Created comprehensive guide at /docs/setup/STRIPE_WEBHOOK_SETUP.md matching current Stripe UI
+
+## 📚 DOCUMENTATION TASKS
+- [ ] Organize all documentation into /docs folder with proper structure
+- [ ] Move TESTING_GUIDE.md to /docs/testing/
+- [ ] Create version history for documentation files

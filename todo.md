@@ -1203,8 +1203,8 @@
 
 ### RxGuard Enhancements
 - [x] Add Assumptions section to Cost Calculator - Shows 85% detection rate (CDSS benchmark), cost sources (JAMA, FDA FAERS), implementation basis ($50K for 500-1000 bed facility)
-- [ ] Add PDF export for analysis results - Download comprehensive reports
-- [ ] Integrate FDA OpenFDA API - Real-time drug database search
+- [x] Add PDF export for analysis results - Download PDF Report buttons added to RxGuard and EndoGuard with jsPDF + html2canvas
+- [x] Integrate FDA OpenFDA API - Real-time drug database search with 100,000+ medications, autocomplete, fallback to static list
 
 ### EndoGuard Enhancements  
 - [x] Add AI Pattern Analysis section - Shows 88-92% confidence scores with pattern matching (PCOS, hypothyroidism, perimenopause)

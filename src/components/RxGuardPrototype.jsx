@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { exportRxGuardPDF } from '../utils/pdfExport';
+import { searchDrugs, formatDrugName } from '../services/fdaService';
 import BetaDisclaimer from './BetaDisclaimer';
 import DemoDisclaimer from './DemoDisclaimer';
 
@@ -12,6 +14,8 @@ const RxGuardPrototype = ({ onBack }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedScenario, setSelectedScenario] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [fdaDrugs, setFdaDrugs] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
   
   const handleGetFullAccess = () => {
     navigate('/login?redirect=/rxguard/dashboard');
@@ -330,10 +334,13 @@ const RxGuardPrototype = ({ onBack }) => {
     };
   };
 
-  const filteredMedications = medicationDatabase.filter(med =>
-    med.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    !medications.includes(med)
-  );
+  // Use FDA drug results if available, otherwise fallback to static database
+  const displayDrugs = fdaDrugs.length > 0 
+    ? fdaDrugs.filter(drug => !medications.includes(formatDrugName(drug)))
+    : medicationDatabase.filter(med =>
+        med.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        !medications.includes(med)
+      );
 
   // ======================
   // WELCOME SCREEN
@@ -694,9 +701,26 @@ const RxGuardPrototype = ({ onBack }) => {
                 <input
                   type="text"
                   value={searchTerm}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                    setShowDropdown(e.target.value.length > 0);
+                  onChange={async (e) => {
+                    const value = e.target.value;
+                    setSearchTerm(value);
+                    setShowDropdown(value.length > 0);
+                    
+                    // Search FDA database if search term is long enough
+                    if (value.length >= 2) {
+                      setIsSearching(true);
+                      try {
+                        const results = await searchDrugs(value, 10);
+                        setFdaDrugs(results);
+                      } catch (error) {
+                        console.error('FDA search error:', error);
+                        setFdaDrugs([]);
+                      } finally {
+                        setIsSearching(false);
+                      }
+                    } else {
+                      setFdaDrugs([]);
+                    }
                   }}
                   onFocus={() => setShowDropdown(searchTerm.length > 0)}
                   placeholder="Type medication name (e.g., Warfarin, Aspirin)..."
@@ -712,7 +736,7 @@ const RxGuardPrototype = ({ onBack }) => {
                 />
                 
                 {/* Dropdown */}
-                {showDropdown && filteredMedications.length > 0 && (
+                {showDropdown && (displayDrugs.length > 0 || isSearching) && (
                   <div style={{
                     position: 'absolute',
                     zIndex: 10,
@@ -725,24 +749,55 @@ const RxGuardPrototype = ({ onBack }) => {
                     maxHeight: '16rem',
                     overflowY: 'auto'
                   }}>
-                    {filteredMedications.slice(0, 10).map((med, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => addMedication(med)}
-                        style={{
-                          padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 1.75rem)',
-                          cursor: 'pointer',
-                          transition: 'background 0.2s ease',
-                          borderBottom: '1px solid #f1f5f9',
-                          fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
-                          minHeight: '3rem'
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = '#ecfeff'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
-                      >
-                        {med}
+                    {isSearching && (
+                      <div style={{
+                        padding: '1rem 1.5rem',
+                        color: '#64748b',
+                        fontSize: '1rem',
+                        textAlign: 'center'
+                      }}>
+                        Searching FDA database...
                       </div>
-                    ))}
+                    )}
+                    {!isSearching && displayDrugs.slice(0, 10).map((item, idx) => {
+                      const displayName = typeof item === 'string' ? item : formatDrugName(item);
+                      const genericName = typeof item === 'object' ? item.genericName : '';
+                      
+                      return (
+                        <div
+                          key={idx}
+                          onClick={() => addMedication(displayName)}
+                          style={{
+                            padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+                            cursor: 'pointer',
+                            transition: 'background 0.2s ease',
+                            borderBottom: '1px solid #f1f5f9',
+                            minHeight: '3rem'
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.background = '#ecfeff'}
+                          onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                        >
+                          <div style={{ fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', fontWeight: 600, color: '#1e293b' }}>
+                            {displayName}
+                          </div>
+                          {genericName && displayName !== genericName && (
+                            <div style={{ fontSize: 'clamp(0.85rem, 2vw, 0.95rem)', color: '#64748b', marginTop: '0.25rem' }}>
+                              {genericName}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                    {!isSearching && displayDrugs.length === 0 && searchTerm.length >= 2 && (
+                      <div style={{
+                        padding: '1rem 1.5rem',
+                        color: '#64748b',
+                        fontSize: '1rem',
+                        textAlign: 'center'
+                      }}>
+                        No medications found. Try a different search term.
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -1412,26 +1467,57 @@ const RxGuardPrototype = ({ onBack }) => {
                 <p style={{ color: '#64748b', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.7' }}>
                   Start your free trial and see results in minutes • No credit card required
                 </p>
-                <button 
-                  onClick={() => navigate('/pricing/rxguard')}
-                  style={{
-                    width: '100%',
-                    background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-                    color: 'white',
-                    fontWeight: 700,
-                    padding: '1.25rem 1.5rem',
-                    borderRadius: '12px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '1.1rem',
-                    boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                  Start Free Trial →
-                </button>
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                  <button 
+                    onClick={() => exportRxGuardPDF(selectedScenario)}
+                    style={{
+                      flex: 1,
+                      background: 'white',
+                      color: '#00A8CC',
+                      fontWeight: 600,
+                      padding: '1.25rem 1.5rem',
+                      borderRadius: '12px',
+                      border: '2px solid #00A8CC',
+                      cursor: 'pointer',
+                      fontSize: '1.1rem',
+                      transition: 'all 0.3s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.5rem'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#f0f9ff';
+                      e.currentTarget.style.transform = 'scale(1.02)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'white';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    📄 Download PDF Report
+                  </button>
+                  <button 
+                    onClick={() => navigate('/pricing/rxguard')}
+                    style={{
+                      flex: 1,
+                      background: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
+                      color: 'white',
+                      fontWeight: 700,
+                      padding: '1.25rem 1.5rem',
+                      borderRadius: '12px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '1.1rem',
+                      boxShadow: '0 4px 12px rgba(0, 168, 204, 0.3)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  >
+                    Start Free Trial →
+                  </button>
+                </div>
               </motion.div>
             </div>
           </div>

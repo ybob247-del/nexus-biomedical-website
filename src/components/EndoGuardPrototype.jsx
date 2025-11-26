@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { exportEndoGuardPDF } from '../utils/pdfExport';
 import BetaDisclaimer from './BetaDisclaimer';
 import DemoDisclaimer from './DemoDisclaimer';
 
@@ -848,7 +849,27 @@ const EndoGuardPrototype = ({ onBack }) => {
             )}
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '3rem' }}>
+               <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => exportEndoGuardPDF(selectedScenario)}
+                style={{
+                  flex: '1 1 200px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '2px solid #D946EF',
+                  color: '#D946EF',
+                  padding: '1rem 2rem',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 'bold',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                📄 Download PDF Report
+              </button>
               <button
                 onClick={() => {
                   setCurrentStep('welcome');
@@ -857,6 +878,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                   setSelectedScenario(null);
                 }}
                 style={{
+                  flex: '1 1 200px',
                   background: 'rgba(255, 255, 255, 0.1)',
                   border: '1px solid rgba(255, 255, 255, 0.3)',
                   color: '#fff',
@@ -871,6 +893,7 @@ const EndoGuardPrototype = ({ onBack }) => {
               <button
                 onClick={() => navigate('/pricing/endoguard')}
                 style={{
+                  flex: '1 1 200px',
                   background: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
                   border: 'none',
                   color: '#fff',
@@ -879,7 +902,7 @@ const EndoGuardPrototype = ({ onBack }) => {
                   cursor: 'pointer',
                   fontSize: '1rem',
                   fontWeight: 'bold',
-                  boxShadow: '0 4px 15px rgba(0, 206, 209, 0.3)'
+                  boxShadow: '0 4px 15px rgba(217, 70, 239, 0.3)'
                 }}
               >
                 Get Started

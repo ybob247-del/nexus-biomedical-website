@@ -50,7 +50,7 @@ export const platformsData = {
       { q: 'How accurate is RxGuard™ compared to other drug interaction checkers?', a: 'RxGuard™ uses ensemble machine learning trained on clinical evidence from thousands of drug interaction studies. Published research shows AI-powered drug interaction checkers achieve 87-100% sensitivity and 80-90% specificity (Kheshti et al., 2016). The system is continuously updated with new interaction evidence from FDA safety communications and peer-reviewed literature.' },
       { q: 'Does RxGuard™ replace clinical judgment?', a: 'No. RxGuard™ is a clinical decision support tool designed to assist healthcare providers, not replace their professional judgment.' },
       { q: 'How often is the drug database updated?', a: 'RxGuard™\'s drug database is updated weekly with new drug approvals, emerging interaction evidence, and safety alerts from the FDA.' },
-      { q: 'Is RxGuard™ HIPAA compliant?', a: 'Yes. RxGuard™ is fully HIPAA compliant with AES-256 encryption, comprehensive audit logging, and Business Associate Agreements for all healthcare customers.' },
+      { q: 'Is RxGuard™ HIPAA compliant?', a: 'RxGuard™ is HIPAA-ready with enterprise-grade security features including AES-256 encryption and comprehensive audit logging. As a pseudonymous platform that does not collect PHI (Protected Health Information), RxGuard™ does not require Business Associate Agreements. Healthcare organizations can use RxGuard™ as a clinical decision support tool without HIPAA compliance obligations.' },
       { q: 'What is RxGuard™\'s regulatory status?', a: 'RxGuard™ is a clinical decision support tool that provides recommendations to healthcare professionals. Under the FDA\'s 21st Century Cures Act, clinical decision support software that assists healthcare providers in making clinical decisions is not regulated as a medical device. RxGuard™ is intended to support, not replace, clinical judgment.' }
     ]
   },
@@ -210,7 +210,7 @@ export const platformsData = {
     faqs: [
       { q: 'How accurate is ElderWatch™\'s fall prediction?', a: 'ElderWatch™ uses AI trained on published fall prediction research and real-world elderly care data. Studies show predictive fall models can reduce falls by 30-40% in elderly populations (Seaman et al., BMC Geriatrics 2022). The system analyzes gait patterns, activity levels, medication changes, and vital signs to identify early warning signs of increased fall risk.' },
       { q: 'What devices are required?', a: 'ElderWatch™ works with standard wearable devices (smartwatches, fitness trackers) and optional smart home sensors for comprehensive monitoring.' },
-      { q: 'Is ElderWatch™ HIPAA compliant?', a: 'Yes. ElderWatch™ is fully HIPAA compliant with encrypted data transmission, secure cloud storage, and comprehensive audit logging.' },
+      { q: 'Is ElderWatch™ HIPAA compliant?', a: 'ElderWatch™ is HIPAA-ready with enterprise-grade security including AES-256 encrypted data transmission, secure cloud storage, and comprehensive audit logging. As a pseudonymous monitoring platform that does not collect PHI (Protected Health Information), ElderWatch™ does not require Business Associate Agreements for standard consumer use.' },
       { q: 'How does ElderWatch™ handle false alarms?', a: 'The AI learns each senior\'s unique patterns to minimize false alarms while maintaining high sensitivity for genuine health concerns.' }
     ]
   },

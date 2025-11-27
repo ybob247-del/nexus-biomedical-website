@@ -111,6 +111,12 @@ const Header = () => {
           <button onClick={() => navigate('/about')} className="nav-link">
             {t('nav.about')}
           </button>
+          <button onClick={() => navigate('/compare')} className="nav-link">
+            Compare
+          </button>
+          <button onClick={() => navigate('/testimonials')} className="nav-link">
+            Testimonials
+          </button>
           <button onClick={() => handleNavClick('faq')} className="nav-link">
             FAQ
           </button>
@@ -212,8 +218,14 @@ const Header = () => {
             </div>
           )}
         </div>
-        <button onClick={() => navigate('/about')} className="nav-link">
+        <button onClick={() => { navigate('/about'); setIsMobileMenuOpen(false); }} className="nav-link">
           {t('nav.about')}
+        </button>
+        <button onClick={() => { navigate('/compare'); setIsMobileMenuOpen(false); }} className="nav-link">
+          Compare
+        </button>
+        <button onClick={() => { navigate('/testimonials'); setIsMobileMenuOpen(false); }} className="nav-link">
+          Testimonials
         </button>
         <button onClick={() => handleNavClick('faq')} className="nav-link">
           FAQ

@@ -1236,3 +1236,10 @@
 - [x] URGENT: Dashboard incorrectly removed 5 platforms - Restored all 7 platforms with correct info
 - [x] CRITICAL: Start Free Trial button leads to blank page - Added Coming Soon badges and disabled trial activation for platforms under development
 - [x] Platform order - EndoGuard is already first in the list (flagship platform)
+
+## Current Tasks - End-to-End Testing & Stripe Integration
+- [ ] Test trial activation end-to-end for EndoGuard and RxGuard
+- [x] CRITICAL: Coming Soon platform landing pages - Added comingSoon: true flag to 5 platforms (ElderWatch, PediCalc Pro, ClinicalIQ, ReguReady, SkinScan Pro) to show waitlist page
+- [ ] Active platforms (EndoGuard, RxGuard) need plan selection page before trial activation
+- [ ] Complete Stripe payment integration for active platforms
+- [ ] Verify entire subscription flow works correctly

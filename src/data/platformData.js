@@ -5,6 +5,7 @@ export const platformsData = {
     color: '#00A8CC',
     gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
     badge: 'AI-POWERED MEDICATION SAFETY',
+    comingSoon: false,
     hero: {
       title: 'RxGuard™ Medication Interaction Predictor',
       subtitle: 'Protect Your Patients with AI-Powered Drug Safety - Detect dangerous interactions before they harm patients'
@@ -59,6 +60,7 @@ export const platformsData = {
     color: '#B794F4',
     gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
     badge: 'AI-POWERED REGULATORY INTELLIGENCE',
+    comingSoon: true,
     hero: {
       title: 'ReguReady™ FDA Regulatory Guidance',
       subtitle: 'Navigate FDA Approval Faster - AI-powered regulatory intelligence that accelerates medical device approvals'
@@ -113,6 +115,7 @@ export const platformsData = {
     color: '#00D084',
     gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
     badge: 'AI-POWERED CLINICAL TRIAL INTELLIGENCE',
+    comingSoon: true,
     hero: {
       title: 'ClinicalIQ™ Clinical Trial Optimization',
       subtitle: 'Increase Trial Success Rates - AI-driven insights that optimize protocol design and patient recruitment'
@@ -166,6 +169,7 @@ export const platformsData = {
     color: '#FB923C',
     gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
     badge: 'AI-POWERED PREDICTIVE HEALTH ANALYTICS',
+    comingSoon: true,
     hero: {
       title: 'ElderWatch™ Senior Health Monitoring',
       subtitle: 'Predict Health Decline Before It Happens - AI-powered monitoring that enables proactive intervention for seniors'
@@ -219,6 +223,7 @@ export const platformsData = {
     color: '#FDA4AF',
     gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
     badge: 'AI-ENHANCED PEDIATRIC DOSING',
+    comingSoon: true,
     hero: {
       title: 'PediCalc Pro™ Pediatric Dosing Calculator',
       subtitle: 'Eliminate Pediatric Medication Errors - AI-powered dosing with built-in safety verification for children'
@@ -272,6 +277,7 @@ export const platformsData = {
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
     badge: 'AI-POWERED SKIN ANALYSIS',
+    comingSoon: true,
     hero: {
       title: 'SkinScan Pro™ AI Skin Cancer Detection',
       subtitle: 'Detect Melanoma Early with Clinical-Grade AI - Analyze skin lesions using computer vision to assist early identification'

@@ -1225,3 +1225,8 @@
 - [ ] Create version history for documentation files
 
 - [x] Module system mismatch in ALL API files - Converted 13 files from CommonJS to ES6 modules
+
+## Urgent Bugs - Nov 26, 2025
+
+- [x] Platforms dropdown in header disappears before user can click on submenu items - Fixed gap between button and dropdown
+- [x] Header now shows Login/Logout button and user email to indicate authentication state clearly

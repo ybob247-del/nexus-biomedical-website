@@ -414,7 +414,7 @@ body {
 
 .desktop-dropdown {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: 100%;
   left: 0;
   background: rgba(15, 23, 42, 0.98);
   backdrop-filter: blur(12px);
@@ -463,4 +463,16 @@ body {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+}
+
+/* User Email Display */
+.nav-user-email {
+  color: rgba(0, 217, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }

@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../context/AuthContext'
 import '../styles/header.css'
 import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 import LanguageToggle from './LanguageToggle'
 
 const Header = () => {
   const { t } = useTranslation()
+  const { user, logout } = useAuth()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false)
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
@@ -34,7 +36,17 @@ const Header = () => {
   }
 
   const handleGetStartedClick = () => {
-    navigate('/platforms');
+    if (user) {
+      navigate('/platforms');
+    } else {
+      navigate('/login');
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
     setIsMobileMenuOpen(false);
   };
 
@@ -101,12 +113,24 @@ const Header = () => {
           <button onClick={() => handleNavClick('faq')} className="nav-link">
             FAQ
           </button>
-          <button 
-            onClick={handleGetStartedClick} 
-            className="nav-link nav-cta"
-          >
-            {t('auth.getStarted')}
-          </button>
+          {user ? (
+            <>
+              <span className="nav-link nav-user-email">{user.email}</span>
+              <button 
+                onClick={handleLogout} 
+                className="nav-link nav-cta"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <button 
+              onClick={handleGetStartedClick} 
+              className="nav-link nav-cta"
+            >
+              Login
+            </button>
+          )}
           <LanguageToggle />
         </nav>
 

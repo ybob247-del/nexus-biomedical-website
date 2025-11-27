@@ -1230,3 +1230,4 @@
 
 - [x] Platforms dropdown in header disappears before user can click on submenu items - Fixed gap between button and dropdown
 - [x] Header now shows Login/Logout button and user email to indicate authentication state clearly
+- [x] Dashboard route shows "Access Denied - Platform name is required" error after login - Made platform parameter optional in ProtectedRoute

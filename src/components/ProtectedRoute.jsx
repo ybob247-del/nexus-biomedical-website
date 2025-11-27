@@ -26,6 +26,13 @@ const ProtectedRoute = ({ children, platform }) => {
         return;
       }
 
+      // If no platform specified, just check authentication (for general dashboard)
+      if (!platform) {
+        setHasAccess(true);
+        setChecking(false);
+        return;
+      }
+
       // Check platform access
       const result = await checkPlatformAccess(platform);
 

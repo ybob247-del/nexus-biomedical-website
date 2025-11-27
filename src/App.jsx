@@ -14,6 +14,7 @@ import LanguageToggle from './components/LanguageToggle'
 import EarlyAdopterBanner from './components/EarlyAdopterBanner'
 import ProtectedRoute from './components/ProtectedRoute'
 import { platformsData } from './data/platformData'
+import { StructuredData, organizationSchema, websiteSchema } from './components/StructuredData'
 
 // Lazy load demo components for better performance
 const RxGuardPrototype = lazy(() => import('./components/RxGuardPrototype'))
@@ -44,6 +45,7 @@ const WaitlistAdmin = lazy(() => import('./pages/WaitlistAdmin'))
 const NotifyWaitlist = lazy(() => import('./pages/NotifyWaitlist'))
 const Analytics = lazy(() => import('./pages/Analytics'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
+const PlatformComparison = lazy(() => import('./pages/PlatformComparison'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -141,6 +143,8 @@ function Homepage() {
 
   return (
     <>
+      <StructuredData data={organizationSchema} />
+      <StructuredData data={websiteSchema} />
       <Header />
       <div className="nexus-app">
         <Hero />
@@ -206,6 +210,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <PlatformsPage />
+          </Suspense>
+        } 
+      />
+      
+      {/* Platform Comparison Page */}
+      <Route 
+        path="/compare" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <PlatformComparison />
           </Suspense>
         } 
       />

@@ -1447,3 +1447,21 @@ Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deplo
 - [x] Verified robots.txt allows all AI crawlers (ChatGPT, Gemini, Claude, etc.)
 - [x] Added structured content for AI assistants to understand platforms
 - [x] Ready for deployment and AI assistant testing
+
+
+## 🔍 SEO & COMPARISON FEATURES (Nov 27, 2025)
+**Priority:** HIGH - Improve discoverability and user experience
+
+- [x] Add schema.org JSON-LD structured data to homepage
+- [x] Add Product schema to RxGuard platform page
+- [x] Add Product schema to EndoGuard platform page
+- [x] Add Organization schema with contact info
+- [x] Add FAQPage schema generator utility
+- [x] Add WebSite schema with search action
+- [x] Create platform comparison page (/compare)
+- [x] Add side-by-side feature comparison with 7 platforms
+- [x] Add pricing comparison with trial periods
+- [x] Add use-case recommendations ("Best For" section)
+- [x] Add category filters (medication, procedures, monitoring, etc.)
+- [x] Add comparison FAQ section
+- [ ] Test structured data with Google Rich Results Test (requires deployment)

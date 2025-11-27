@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
 import FDADisclaimer from '../components/FDADisclaimer';
 import TrialExpirationBanner from '../components/TrialExpirationBanner';
+import UsageStatsDashboard from '../components/UsageStatsDashboard';
+import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
@@ -12,6 +14,7 @@ const API_BASE = 'http://localhost:3008/api/endoguard';
 export default function EndoGuardAssessment() {
   const navigate = useNavigate();
   const { user, token } = useAuth();
+  const { trackAction } = useAnalytics('endoguard');
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     // Demographics
@@ -129,6 +132,12 @@ export default function EndoGuardAssessment() {
       if (data.success) {
         setResults(data.assessment);
         setStep(7); // Results step
+        trackAction('complete_assessment', { 
+          age: formData.age,
+          biologicalSex: formData.biologicalSex,
+          symptomCount: formData.symptoms?.length || 0,
+          riskLevel: data.assessment?.riskLevel || 'unknown'
+        });
       }
     } catch (error) {
       console.error('Assessment error:', error);
@@ -168,7 +177,12 @@ export default function EndoGuardAssessment() {
         </div>
         <p>Discover your Endocrine Disrupting Chemical (EDC) exposure risk and get personalized recommendations</p>
         <FDADisclaimer />
-        
+      </div>
+
+      {/* Usage Statistics Dashboard */}
+      {user && <UsageStatsDashboard platform="endoguard" />}
+
+      <div className="assessment-header">
         {/* Progress Bar */}
         <div className="progress-bar">
           <div 

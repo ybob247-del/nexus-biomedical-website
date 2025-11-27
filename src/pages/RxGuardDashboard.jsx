@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
 import TrialExpirationBanner from '../components/TrialExpirationBanner';
+import UsageStatsDashboard from '../components/UsageStatsDashboard';
+import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/rxguard-dashboard.css';
 
 const API_BASE = 'http://localhost:3007/api/rxguard';
@@ -11,6 +13,7 @@ const API_BASE = 'http://localhost:3007/api/rxguard';
 export default function RxGuardDashboard() {
   const navigate = useNavigate();
   const { user, token } = useAuth();
+  const { trackAction } = useAnalytics('rxguard');
   const [medications, setMedications] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -64,6 +67,7 @@ export default function RxGuardDashboard() {
       });
       const data = await response.json();
       if (data.success) {
+        trackAction('save_medication_list', { medicationCount: medications.length });
         alert('Medication list saved successfully!');
       }
     } catch (error) {
@@ -88,6 +92,7 @@ export default function RxGuardDashboard() {
       
       if (data.success) {
         setSearchResults(data.results);
+        trackAction('medication_search', { query, resultCount: data.results.length });
       }
     } catch (error) {
       console.error('Search error:', error);
@@ -153,6 +158,7 @@ export default function RxGuardDashboard() {
       
       if (data.success) {
         setAnalysis(data.analysis);
+        trackAction('analyze_interactions', { medicationCount: medications.length, interactionCount: data.analysis?.interactions?.length || 0 });
       }
     } catch (error) {
       console.error('Analysis error:', error);
@@ -182,6 +188,9 @@ export default function RxGuardDashboard() {
         <p>Add your medications to check for potential interactions</p>
         <FDADisclaimer />
       </div>
+
+      {/* Usage Statistics Dashboard */}
+      <UsageStatsDashboard platform="rxguard" />
 
       {/* Drug Search */}
       <div className="drug-search-section">

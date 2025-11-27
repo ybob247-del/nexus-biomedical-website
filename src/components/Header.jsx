@@ -12,6 +12,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false)
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -114,15 +115,35 @@ const Header = () => {
             FAQ
           </button>
           {user ? (
-            <>
-              <span className="nav-link nav-user-email">{user.email}</span>
-              <button 
-                onClick={handleLogout} 
-                className="nav-link nav-cta"
-              >
-                Logout
+            <div 
+              className="desktop-dropdown-container"
+              onMouseEnter={() => setIsUserMenuOpen(true)}
+              onMouseLeave={() => setIsUserMenuOpen(false)}
+            >
+              <button className="nav-link nav-dropdown-toggle">
+                {user.email}
+                <svg 
+                  width="12" 
+                  height="12" 
+                  viewBox="0 0 16 16" 
+                  fill="currentColor"
+                  style={{ 
+                    marginLeft: '6px', 
+                    transform: isUserMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.3s ease'
+                  }}
+                >
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none" />
+                </svg>
               </button>
-            </>
+              {isUserMenuOpen && (
+                <div className="desktop-dropdown">
+                  <button onClick={() => navigate('/account/subscription')} className="desktop-dropdown-link">My Subscriptions</button>
+                  <button onClick={() => navigate('/dashboard')} className="desktop-dropdown-link">Dashboard</button>
+                  <button onClick={handleLogout} className="desktop-dropdown-link">Logout</button>
+                </div>
+              )}
+            </div>
           ) : (
             <button 
               onClick={handleGetStartedClick} 
@@ -197,12 +218,26 @@ const Header = () => {
         <button onClick={() => handleNavClick('faq')} className="nav-link">
           FAQ
         </button>
-        <button 
-          onClick={handleGetStartedClick} 
-          className="nav-link nav-cta"
-        >
-          {t('auth.getStarted')}
-        </button>
+        {user ? (
+          <>
+            <button onClick={() => { navigate('/dashboard'); setIsMobileMenuOpen(false); }} className="nav-link">
+              Dashboard
+            </button>
+            <button onClick={() => { navigate('/account/subscription'); setIsMobileMenuOpen(false); }} className="nav-link">
+              My Subscriptions
+            </button>
+            <button onClick={handleLogout} className="nav-link nav-cta">
+              Logout
+            </button>
+          </>
+        ) : (
+          <button 
+            onClick={handleGetStartedClick} 
+            className="nav-link nav-cta"
+          >
+            {t('auth.getStarted')}
+          </button>
+        )}
         <div style={{ padding: '1rem 0', borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '1rem' }}>
           <LanguageToggle />
         </div>

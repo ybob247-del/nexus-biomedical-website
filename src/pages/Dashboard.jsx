@@ -6,12 +6,15 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import PlanSelection from '../components/PlanSelection';
+import { platformsData } from '../data/platformData';
 
 const Dashboard = () => {
   const { user, logout, token, isAuthenticated, loading: authLoading } = useAuth();
   const [subscriptions, setSubscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activatingTrial, setActivatingTrial] = useState(null);
+  const [showPlanSelection, setShowPlanSelection] = useState(null); // stores platform object
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -125,7 +128,17 @@ const Dashboard = () => {
     navigate('/');
   };
 
-  const handleStartTrial = async (platformId) => {
+  const handleShowPlanSelection = (platformId) => {
+    // Get platform data from platformsData
+    const platformName = platforms.find(p => p.id === platformId)?.name;
+    const platformData = platformsData[platformName];
+    if (platformData) {
+      setShowPlanSelection(platformData);
+    }
+  };
+
+  const handleSelectPlan = async (selectedPlan) => {
+    const platformId = showPlanSelection.name.toLowerCase().replace('™', '').replace(' ', '');
     setActivatingTrial(platformId);
     
     try {
@@ -135,16 +148,21 @@ const Dashboard = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ platform: platformId }),
+        body: JSON.stringify({ 
+          platform: platformId,
+          selectedPlan: selectedPlan 
+        }),
       });
 
       const data = await response.json();
 
       if (data.success) {
-        alert(`🎉 ${data.trialDays}-day free trial activated for ${platformId}!\n\nYou now have access until ${new Date(data.trialEnd).toLocaleDateString()}`);
+        alert(`🎉 ${data.trialDays}-day free trial activated for ${showPlanSelection.name}!\n\nYou now have access until ${new Date(data.trialEnd).toLocaleDateString()}`);
+        setShowPlanSelection(null);
         window.location.reload();
       } else if (data.alreadyUsedTrial) {
         alert('You have already used your free trial for this platform. Please subscribe to continue.');
+        setShowPlanSelection(null);
         navigate('/pricing');
       } else if (data.hasAccess) {
         alert('You already have active access to this platform!');
@@ -311,7 +329,7 @@ const Dashboard = () => {
                   ) : (
                     <div className="space-y-3">
                       <button
-                        onClick={() => handleStartTrial(platform.id)}
+                        onClick={() => handleShowPlanSelection(platform.id)}
                         disabled={activatingTrial === platform.id}
                         className="w-full px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
                       >
@@ -348,6 +366,15 @@ const Dashboard = () => {
           </Link>
         </div>
       </div>
+
+      {/* Plan Selection Modal */}
+      {showPlanSelection && (
+        <PlanSelection
+          platform={showPlanSelection}
+          onSelectPlan={handleSelectPlan}
+          onClose={() => setShowPlanSelection(null)}
+        />
+      )}
     </div>
   );
 };

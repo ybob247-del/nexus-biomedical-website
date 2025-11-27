@@ -1241,3 +1241,56 @@
 - [ ] Connect plan selection to trial activation API
 - [ ] Integrate Stripe checkout for paid subscriptions
 - [ ] Test complete trial → payment → access flow
+
+## 🚨 DEPLOYMENT ISSUE DISCOVERED (Nov 26, 2025)
+**Priority:** HIGH - Latest code not deployed to production
+
+- [ ] **CRITICAL**: Commit fdba14e (Plan Selection Integration) is on GitHub but NOT deployed to Vercel
+  - Commit pushed: Nov 26, 22:17:40
+  - Latest Vercel deployment: Nov 26, 21:57:00 (commit e49229d)
+  - Gap: 20+ minutes, no auto-deployment triggered
+  - Possible causes: GitHub webhook not firing, Vercel integration paused, or deployment queue issue
+  
+- [ ] Investigate why Vercel auto-deployment from GitHub stopped working
+- [ ] Check Vercel project settings → Git integration status
+- [ ] Verify GitHub webhook is configured and firing
+- [ ] Manual workaround: Use Vercel CLI or dashboard to deploy latest commit
+- [ ] Test: After fixing, verify new commits trigger automatic deployments
+
+**Immediate Action Needed:**
+User should manually deploy from Vercel dashboard or use Vercel CLI:
+```bash
+vercel --prod
+```
+
+Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deploy latest commit manually
+
+## 🎯 NEXT STEPS: Trial Flow & Stripe Integration (Nov 26, 2025)
+**Priority:** HIGH - Complete subscription monetization pipeline
+
+### Phase 1: Test Complete Trial Flow
+- [x] Test RxGuard trial activation with plan selection
+- [x] Test EndoGuard trial activation with plan selection
+- [x] Verify trial days are correctly set (14 for RxGuard, 30 for EndoGuard)
+- [x] Verify selected plan (monthly/yearly) is stored in database
+- [ ] Test trial expiration handling (requires manual testing)
+
+### Phase 2: Connect Stripe Checkout to Selected Plans
+- [x] Create Stripe checkout session with selected plan
+- [x] Pass monthly/yearly selection to Stripe
+- [x] Configure Stripe prices for both plans (monthly + yearly with 20% discount)
+- [x] Created yearly Stripe price IDs and added to environment
+- [x] Updated checkout API to retrieve selected plan from subscription
+- [ ] Implement post-trial checkout redirect (requires frontend integration)
+- [ ] Handle successful payment webhook (existing webhook needs update)
+- [ ] Grant platform access after payment (existing webhook handles this)
+
+### Phase 3: Implement Trial Reminder Email System
+- [x] Set up email templates for trial reminders (midpoint + expiring soon)
+- [x] Create scheduled job to check trial expiration dates
+- [x] Send reminder at 50% trial period (7 days for RxGuard, 15 days for EndoGuard)
+- [x] Send reminder 1 day before expiration
+- [x] Include upgrade link with pre-selected plan in emails
+- [x] Created trial_reminders table to track sent emails
+- [ ] Set up cron job to run daily (requires Vercel Cron or external scheduler)
+- [ ] Test email delivery and formatting (requires manual testing)

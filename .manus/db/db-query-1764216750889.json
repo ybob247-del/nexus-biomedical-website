@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS trial_reminders (\n  id SERIAL PRIMARY KEY,\n  subscription_id INTEGER NOT NULL REFERENCES subscriptions(id) ON DELETE CASCADE,\n  reminder_type VARCHAR(50) NOT NULL,\n  sent_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  created_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  UNIQUE(subscription_id, reminder_type)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS trial_reminders (\n  id SERIAL PRIMARY KEY,\n  subscription_id INTEGER NOT NULL REFERENCES subscriptions(id) ON DELETE CASCADE,\n  reminder_type VARCHAR(50) NOT NULL,\n  sent_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  created_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  UNIQUE(subscription_id, reminder_type)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 924
+}

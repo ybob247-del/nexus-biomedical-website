@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { platform } = req.body;
+    const { platform, selectedPlan } = req.body;
 
     if (!platform) {
       return res.status(400).json({ error: 'Platform is required' });
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
     const trialEnd = new Date();
     trialEnd.setDate(trialEnd.getDate() + trialDays);
 
-    // Create subscription record with trial status
+    // Create subscription record with trial status and selected plan
     const subscriptionResult = await query(
       `INSERT INTO subscriptions (
         user_id,
@@ -86,11 +86,12 @@ export default async function handler(req, res) {
         status,
         trial_start,
         trial_end,
+        selected_plan,
         created_at,
         updated_at
-      ) VALUES ($1, $2, 'trialing', $3, $4, NOW(), NOW())
+      ) VALUES ($1, $2, 'trialing', $3, $4, $5, NOW(), NOW())
       RETURNING id`,
-      [userId, platform, trialStart, trialEnd]
+      [userId, platform, trialStart, trialEnd, selectedPlan || 'monthly']
     );
 
     const subscriptionId = subscriptionResult.rows[0].id;
@@ -116,7 +117,8 @@ export default async function handler(req, res) {
       trialStart,
       trialEnd,
       trialDays,
-      platform
+      platform,
+      selectedPlan: selectedPlan || 'monthly'
     });
 
   } catch (error) {

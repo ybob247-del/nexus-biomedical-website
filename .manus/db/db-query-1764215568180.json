@@ -1,0 +1,74 @@
+{
+  "query": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'subscriptions' ORDER BY ordinal_position;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'subscriptions' ORDER BY ordinal_position;",
+  "rows": [
+    {
+      "column_name": "id",
+      "data_type": "int"
+    },
+    {
+      "column_name": "user_id",
+      "data_type": "int"
+    },
+    {
+      "column_name": "platform_id",
+      "data_type": "int"
+    },
+    {
+      "column_name": "stripe_customer_id",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "stripe_subscription_id",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "stripe_price_id",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "status",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "current_period_start",
+      "data_type": "timestamp"
+    },
+    {
+      "column_name": "current_period_end",
+      "data_type": "timestamp"
+    },
+    {
+      "column_name": "cancel_at_period_end",
+      "data_type": "tinyint"
+    },
+    {
+      "column_name": "cancelled_at",
+      "data_type": "timestamp"
+    },
+    {
+      "column_name": "amount",
+      "data_type": "decimal"
+    },
+    {
+      "column_name": "currency",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "interval_type",
+      "data_type": "varchar"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp"
+    },
+    {
+      "column_name": "updated_at",
+      "data_type": "timestamp"
+    }
+  ],
+  "messages": [],
+  "stdout": "column_name\tdata_type\nid\tint\nuser_id\tint\nplatform_id\tint\nstripe_customer_id\tvarchar\nstripe_subscription_id\tvarchar\nstripe_price_id\tvarchar\nstatus\tvarchar\ncurrent_period_start\ttimestamp\ncurrent_period_end\ttimestamp\ncancel_at_period_end\ttinyint\ncancelled_at\ttimestamp\namount\tdecimal\ncurrency\tvarchar\ninterval_type\tvarchar\ncreated_at\ttimestamp\nupdated_at\ttimestamp\n",
+  "stderr": "",
+  "execution_time_ms": 681
+}

@@ -4,10 +4,10 @@
  * Checks if user has access to a specific platform (trial or subscription)
  */
 
-const { query } = require('../utils/db');
-const jwt = require('jsonwebtoken');
+import { query } from '../utils/db.js';
+import jwt from 'jsonwebtoken';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -123,4 +123,4 @@ module.exports = async (req, res) => {
       message: error.message
     });
   }
-};
+}

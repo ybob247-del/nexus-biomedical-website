@@ -1223,3 +1223,5 @@
 - [ ] Organize all documentation into /docs folder with proper structure
 - [ ] Move TESTING_GUIDE.md to /docs/testing/
 - [ ] Create version history for documentation files
+
+- [ ] Module system mismatch in /api/platform-access/check.js - Fixed CommonJS require to ES6 import

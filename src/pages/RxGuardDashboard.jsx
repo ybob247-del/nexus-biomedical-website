@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
+import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import '../styles/rxguard-dashboard.css';
 
 const API_BASE = 'http://localhost:3007/api/rxguard';
@@ -174,6 +175,7 @@ export default function RxGuardDashboard() {
 
   return (
     <TrialGate platform="RxGuard">
+      <TrialExpirationBanner platform="rxguard" />
       <div className="rxguard-dashboard">
       <div className="dashboard-header">
         <h1>RxGuard™ Drug Interaction Checker</h1>

@@ -1307,3 +1307,21 @@ Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deplo
 - [ ] Test complete user journey from trial to payment (requires manual testing)
 - [ ] Verify email reminders are sent correctly (requires manual testing)
 - [ ] Deploy and test in production
+
+
+## 🎨 SUBSCRIPTION ENHANCEMENTS (Nov 26, 2025)
+**Priority:** MEDIUM - Improve user experience and conversion
+
+- [x] Add trial expiration banner to RxGuard dashboard
+- [x] Add trial expiration banner to EndoGuard assessment page
+- [x] Create subscription management page (/account/subscription)
+- [x] Display current plan and billing information
+- [x] Add ability to switch between monthly/yearly plans
+- [x] Show billing history and invoices
+- [x] Implement usage analytics tracking
+- [x] Create analytics dashboard for trial users
+- [x] Track feature usage during trial
+- [x] Display usage stats to encourage conversion
+- [x] Created useAnalytics hook for easy tracking
+- [x] Built UsageStatsDashboard component
+- [x] Added subscription management APIs (my-subscriptions, change-plan, cancel)

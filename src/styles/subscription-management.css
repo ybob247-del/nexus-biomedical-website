@@ -1,0 +1,386 @@
+.subscription-management {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #00A8CC;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #00A8CC 0%, #0088aa 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,168,204,0.3);
+}
+
+/* Subscriptions Grid */
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Subscription Card */
+.subscription-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.subscription-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.card-header {
+  padding: 24px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.platform-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.platform-icon {
+  font-size: 40px;
+}
+
+.platform-info h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.platform-info p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 24px;
+}
+
+.info-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-section p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #666;
+}
+
+.info-section p strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Plan Details */
+.plan-details {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.period {
+  font-size: 18px;
+  color: #666;
+  margin-left: 4px;
+}
+
+.annual-price {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.plan-type {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Trial Info */
+.trial-info {
+  background: #fff3cd;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ffc107;
+}
+
+.trial-note {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #856404;
+  font-weight: 500;
+}
+
+.cancel-note {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fff3cd;
+  border-left: 4px solid #ff6b6b;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #856404;
+}
+
+/* Card Actions */
+.card-actions {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.plan-switch {
+  margin-bottom: 20px;
+}
+
+.plan-switch h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.plan-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.plan-option {
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.plan-option:hover:not(:disabled) {
+  border-color: #00A8CC;
+  background: #f0f9fb;
+}
+
+.plan-option.active {
+  border-color: #00A8CC;
+  background: #e6f7fa;
+}
+
+.plan-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.option-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.option-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00A8CC;
+  margin-bottom: 4px;
+}
+
+.option-savings {
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 600;
+}
+
+.cancel-button {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ff6b6b;
+  background: white;
+  color: #ff6b6b;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Help Section */
+.help-section {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.help-section h3 {
+  font-size: 20px;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+}
+
+.help-section p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.help-section a {
+  color: #00A8CC;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.help-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subscriptions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .plan-options {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1233,3 +1233,6 @@
 - [x] Dashboard route shows "Access Denied - Platform name is required" error after login - Made platform parameter optional in ProtectedRoute
 - [x] Dashboard shows incorrect platforms - Removed 4 fake platforms, now only shows RxGuard and EndoGuard
 - [x] Dashboard styling doesn't match site theme - Completely redesigned with cyan/purple gradients, modern cards, and animations
+- [x] URGENT: Dashboard incorrectly removed 5 platforms - Restored all 7 platforms with correct info
+- [x] CRITICAL: Start Free Trial button leads to blank page - Added Coming Soon badges and disabled trial activation for platforms under development
+- [x] Platform order - EndoGuard is already first in the list (flagship platform)

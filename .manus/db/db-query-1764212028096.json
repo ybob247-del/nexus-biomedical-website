@@ -1,0 +1,90 @@
+{
+  "query": "SELECT column_name, data_type, is_nullable \nFROM information_schema.columns \nWHERE table_name = 'subscriptions' \nORDER BY ordinal_position;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT column_name, data_type, is_nullable \nFROM information_schema.columns \nWHERE table_name = 'subscriptions' \nORDER BY ordinal_position;",
+  "rows": [
+    {
+      "column_name": "id",
+      "data_type": "int",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "user_id",
+      "data_type": "int",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "platform_id",
+      "data_type": "int",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "stripe_customer_id",
+      "data_type": "varchar",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "stripe_subscription_id",
+      "data_type": "varchar",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "stripe_price_id",
+      "data_type": "varchar",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "status",
+      "data_type": "varchar",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "current_period_start",
+      "data_type": "timestamp",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "current_period_end",
+      "data_type": "timestamp",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "cancel_at_period_end",
+      "data_type": "tinyint",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "cancelled_at",
+      "data_type": "timestamp",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "amount",
+      "data_type": "decimal",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "currency",
+      "data_type": "varchar",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "interval_type",
+      "data_type": "varchar",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "updated_at",
+      "data_type": "timestamp",
+      "is_nullable": "YES"
+    }
+  ],
+  "messages": [],
+  "stdout": "column_name\tdata_type\tis_nullable\nid\tint\tNO\nuser_id\tint\tNO\nplatform_id\tint\tNO\nstripe_customer_id\tvarchar\tYES\nstripe_subscription_id\tvarchar\tYES\nstripe_price_id\tvarchar\tYES\nstatus\tvarchar\tNO\ncurrent_period_start\ttimestamp\tYES\ncurrent_period_end\ttimestamp\tYES\ncancel_at_period_end\ttinyint\tYES\ncancelled_at\ttimestamp\tYES\namount\tdecimal\tNO\ncurrency\tvarchar\tYES\ninterval_type\tvarchar\tYES\ncreated_at\ttimestamp\tYES\nupdated_at\ttimestamp\tYES\n",
+  "stderr": "",
+  "execution_time_ms": 98
+}

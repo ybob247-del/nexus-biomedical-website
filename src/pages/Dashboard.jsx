@@ -50,20 +50,67 @@ const Dashboard = () => {
 
   const platforms = [
     { 
-      id: 'rxguard', 
-      name: 'RxGuard™', 
-      description: 'AI-powered medication safety and drug interaction analysis',
-      icon: '💊',
-      gradient: 'from-cyan-500 to-blue-600',
-      url: '/rxguard' 
-    },
-    { 
       id: 'endoguard', 
       name: 'EndoGuard™', 
-      description: 'Advanced endoscopy image analysis and polyp detection',
+      description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics and endocrine-disrupting chemicals',
       icon: '🔬',
-      gradient: 'from-purple-500 to-pink-600',
-      url: '/endoguard' 
+      gradient: 'from-fuchsia-500 to-purple-600',
+      url: '/endoguard',
+      comingSoon: false
+    },
+    { 
+      id: 'rxguard', 
+      name: 'RxGuard™', 
+      description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations',
+      icon: '💊',
+      gradient: 'from-cyan-500 to-blue-600',
+      url: '/rxguard',
+      comingSoon: false
+    },
+    { 
+      id: 'elderwatch', 
+      name: 'ElderWatch™', 
+      description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge',
+      icon: '👴',
+      gradient: 'from-orange-400 to-orange-600',
+      url: '/elderwatch',
+      comingSoon: true
+    },
+    { 
+      id: 'pedicalcpro', 
+      name: 'PediCalc Pro™', 
+      description: 'AI-enhanced pediatric medication dosing calculator with precise, weight-based dosing recommendations',
+      icon: '👶',
+      gradient: 'from-pink-400 to-rose-500',
+      url: '/pedicalc',
+      comingSoon: true
+    },
+    { 
+      id: 'clinicaliq', 
+      name: 'ClinicalIQ™', 
+      description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations',
+      icon: '🧠',
+      gradient: 'from-emerald-400 to-green-600',
+      url: '/clinicaliq',
+      comingSoon: true
+    },
+    { 
+      id: 'reguready', 
+      name: 'ReguReady™', 
+      description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways',
+      icon: '📋',
+      gradient: 'from-purple-400 to-indigo-500',
+      url: '/reguready',
+      comingSoon: true
+    },
+    { 
+      id: 'skinscanpro', 
+      name: 'SkinScan Pro™', 
+      description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision for early melanoma identification',
+      icon: '🔍',
+      gradient: 'from-teal-400 to-cyan-600',
+      url: '/skinscan',
+      comingSoon: true
     },
   ];
 
@@ -224,6 +271,13 @@ const Dashboard = () => {
                   key={platform.name}
                   className="group relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-cyan-500/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-[1.02]"
                 >
+                  {/* Coming Soon Badge */}
+                  {platform.comingSoon && (
+                    <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
+                      Coming Soon
+                    </div>
+                  )}
+                  
                   {/* Platform icon */}
                   <div className="text-6xl mb-4">{platform.icon}</div>
                   
@@ -239,6 +293,21 @@ const Dashboard = () => {
                     >
                       Launch Platform →
                     </Link>
+                  ) : platform.comingSoon ? (
+                    <div className="space-y-3">
+                      <button
+                        disabled
+                        className="w-full px-6 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-xl font-bold text-lg opacity-60 cursor-not-allowed"
+                      >
+                        🚧 Platform Under Development
+                      </button>
+                      <Link
+                        to="/pricing"
+                        className="inline-block w-full text-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold transition-all border border-white/20 hover:border-white/30"
+                      >
+                        Learn More
+                      </Link>
+                    </div>
                   ) : (
                     <div className="space-y-3">
                       <button

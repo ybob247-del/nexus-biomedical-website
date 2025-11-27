@@ -3,6 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  
+  // SSR configuration
+  ssr: {
+    noExternal: ['react-router-dom']
+  },
+  
   server: {
     host: '0.0.0.0',
     port: 3006,

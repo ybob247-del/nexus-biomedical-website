@@ -1390,3 +1390,37 @@ Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deplo
 - [ ] Create referral leaderboard - Future enhancement
 - [ ] Send referral milestone emails - Future enhancement
 - [ ] Add referral analytics to admin dashboard - Future enhancement
+
+
+## 🌐 SERVER-SIDE RENDERING (SSR) IMPLEMENTATION (Nov 27, 2025)
+**Priority:** CRITICAL - Make website visible to AI assistants and improve SEO
+
+### Issue
+- Website uses client-side rendering (Vite + React)
+- AI assistants (ChatGPT, Gemini) only see empty HTML shell
+- Content loads after JavaScript executes
+- Search engines and scrapers cannot index content properly
+
+### Solution: Implement SSR
+- [ ] Analyze current Vite + React setup
+- [ ] Configure Vite for SSR mode
+- [ ] Create server entry point for SSR
+- [ ] Update Express server to handle SSR requests
+- [ ] Pre-render HTML with actual content
+- [ ] Hydrate React on client-side
+- [ ] Test with curl/wget to verify HTML content
+- [ ] Verify AI assistants can now see content
+- [ ] Check SEO improvements
+
+
+## 🌐 AI VISIBILITY FIX (Nov 27, 2025)
+**Priority:** CRITICAL - Make website visible to AI assistants (ChatGPT, Gemini)
+
+- [x] Analyzed current Vite + React setup (client-side rendering issue)
+- [x] Added static HTML content to index.html for AI visibility
+- [x] Included all 7 platforms with descriptions and pricing
+- [x] Made AuthContext SSR-safe (fixed localStorage for future SSR)
+- [x] Tested with curl - content now visible in HTML source
+- [x] Verified all platform information is accessible to AI assistants
+- [ ] Deploy to production and test with ChatGPT/Gemini
+- [ ] Monitor AI assistant responses to confirm visibility

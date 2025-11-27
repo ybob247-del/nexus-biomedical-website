@@ -18,7 +18,8 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  // Check if we're in a browser environment before accessing localStorage
+  const [token, setToken] = useState(typeof window !== 'undefined' ? localStorage.getItem('token') : null);
 
   // Fetch current user on mount
   useEffect(() => {
@@ -40,7 +41,9 @@ export const AuthProvider = ({ children }) => {
           setUser(data.user);
         } else {
           // Token is invalid
-          localStorage.removeItem('token');
+          if (typeof window !== 'undefined') {
+            localStorage.removeItem('token');
+          }
           setToken(null);
         }
       } catch (error) {
@@ -70,7 +73,9 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Store token
-      localStorage.setItem('token', data.token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', data.token);
+      }
       setToken(data.token);
       setUser(data.user);
 
@@ -103,7 +108,9 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Store token
-      localStorage.setItem('token', data.token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', data.token);
+      }
       setToken(data.token);
       setUser(data.user);
 
@@ -115,7 +122,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+    }
     setToken(null);
     setUser(null);
   };

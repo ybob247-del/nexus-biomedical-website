@@ -4,11 +4,11 @@
  * Sends launch announcement emails to all users on a platform's waitlist
  */
 
-const { query } = require('../utils/db');
+import { query } from '../utils/db.js';
 const { verifyToken } = require('../utils/auth');
 const { sendPlatformLaunchEmail } = require('../utils/emailService');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -123,4 +123,4 @@ module.exports = async (req, res) => {
       message: error.message
     });
   }
-};
+}

@@ -4,9 +4,9 @@
  * Adds user to waitlist for coming soon platforms
  */
 
-const { query } = require('../utils/db');
+import { query } from '../utils/db.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -92,4 +92,4 @@ module.exports = async (req, res) => {
       message: error.message
     });
   }
-};
+}

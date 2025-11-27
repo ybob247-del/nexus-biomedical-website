@@ -5,10 +5,10 @@
  * Updated: Nov 25, 2025 - Fixed database error handling
  */
 
-const { query } = require('../utils/db');
-const { extractToken, verifyToken } = require('../utils/auth');
+import { query } from '../utils/db.js';
+import { extractToken, verifyToken } from '../utils/auth.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -114,5 +114,5 @@ module.exports = async (req, res) => {
       message: error.message,
     });
   }
-};
+}
 

@@ -4,10 +4,10 @@
  * Grants free trial access to a platform without payment method
  */
 
-const { query } = require('../utils/db');
-const { extractToken, verifyToken } = require('../utils/auth');
+import { query } from '../utils/db.js';
+import { extractToken, verifyToken } from '../utils/auth.js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -126,4 +126,4 @@ module.exports = async (req, res) => {
       message: error.message
     });
   }
-};
+}

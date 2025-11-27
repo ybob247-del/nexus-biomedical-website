@@ -4,10 +4,10 @@
  * Returns key business metrics and statistics
  */
 
-const { query } = require('../utils/db');
+import { query } from '../utils/db.js';
 const { verifyToken } = require('../utils/auth');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -129,4 +129,4 @@ module.exports = async (req, res) => {
       message: error.message
     });
   }
-};
+}

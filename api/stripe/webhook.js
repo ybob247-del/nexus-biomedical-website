@@ -83,7 +83,7 @@ export default async function handler(req, res) {
  */
 async function handleCheckoutCompleted(session) {
   const { customer, subscription: subscriptionId, metadata } = session;
-  const { userId, platform } = metadata;
+  const { userId, platform, selectedPlan } = metadata;
 
   if (!userId || !platform) {
     console.error('Missing userId or platform in checkout session metadata');
@@ -96,7 +96,7 @@ async function handleCheckoutCompleted(session) {
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);
 
   // Create or update subscription record
-  await upsertSubscription(userId, platform, customer, subscription);
+  await upsertSubscription(userId, platform, customer, subscription, selectedPlan);
 
   // Grant platform access
   await grantPlatformAccess(userId, platform, subscription);
@@ -108,7 +108,7 @@ async function handleCheckoutCompleted(session) {
  */
 async function handleSubscriptionUpdated(subscription) {
   const { customer, metadata } = subscription;
-  const { userId, platform } = metadata;
+  const { userId, platform, selectedPlan } = metadata;
 
   if (!userId || !platform) {
     console.log('Missing userId or platform in subscription metadata');
@@ -118,7 +118,7 @@ async function handleSubscriptionUpdated(subscription) {
   console.log(`Subscription updated for user ${userId}, platform ${platform}`);
 
   // Update subscription record
-  await upsertSubscription(userId, platform, customer, subscription);
+  await upsertSubscription(userId, platform, customer, subscription, selectedPlan);
 
   // Update platform access based on subscription status
   if (subscription.status === 'active' || subscription.status === 'trialing') {
@@ -175,7 +175,8 @@ async function handlePaymentSucceeded(invoice) {
   console.log(`Payment succeeded for user ${userId}, platform ${platform}`);
 
   // Ensure subscription is active
-  await upsertSubscription(userId, platform, customer, subscription);
+  const { selectedPlan } = subscription.metadata;
+  await upsertSubscription(userId, platform, customer, subscription, selectedPlan);
   await grantPlatformAccess(userId, platform, subscription);
 }
 
@@ -197,7 +198,8 @@ async function handlePaymentFailed(invoice) {
   console.log(`Payment failed for user ${userId}, platform ${platform}`);
 
   // Update subscription status
-  await upsertSubscription(userId, platform, customer, subscription);
+  const { selectedPlan } = subscription.metadata;
+  await upsertSubscription(userId, platform, customer, subscription, selectedPlan);
 
   // If subscription is past_due or unpaid, revoke access
   if (subscription.status === 'past_due' || subscription.status === 'unpaid') {
@@ -208,7 +210,7 @@ async function handlePaymentFailed(invoice) {
 /**
  * Create or update subscription record in database
  */
-async function upsertSubscription(userId, platform, customerId, subscription) {
+async function upsertSubscription(userId, platform, customerId, subscription, selectedPlan) {
   try {
     await query(
       `INSERT INTO subscriptions (
@@ -223,9 +225,10 @@ async function upsertSubscription(userId, platform, customerId, subscription) {
         trial_end,
         cancel_at_period_end,
         canceled_at,
+        selected_plan,
         created_at,
         updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, NOW(), NOW())
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, NOW(), NOW())
       ON CONFLICT (user_id, platform) 
       DO UPDATE SET
         stripe_subscription_id = $3,
@@ -237,6 +240,7 @@ async function upsertSubscription(userId, platform, customerId, subscription) {
         trial_end = $9,
         cancel_at_period_end = $10,
         canceled_at = $11,
+        selected_plan = $12,
         updated_at = NOW()`,
       [
         userId,
@@ -250,6 +254,7 @@ async function upsertSubscription(userId, platform, customerId, subscription) {
         subscription.trial_end ? new Date(subscription.trial_end * 1000) : null,
         subscription.cancel_at_period_end,
         subscription.canceled_at ? new Date(subscription.canceled_at * 1000) : null,
+        selectedPlan || 'monthly',
       ]
     );
     console.log(`Subscription upserted for user ${userId}, platform ${platform}`);

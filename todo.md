@@ -12,6 +12,17 @@
 ## 🚨 CURRENT BUGS TO FIX (Nov 28, 2025)
 **Priority:** URGENT - Blocking user experience
 
+### EndoGuard UX Improvements (User Feedback - Nov 28)
+- [x] CRITICAL: Fix "Failed to complete assessment" API error - serverless function not working in production - FIXED: Added Vite plugin for local dev, Vercel handles production
+- [x] Add gender selection (Step 1) to customize symptom display (male vs female reproductive symptoms) - DONE: Added male-specific symptoms (erectile dysfunction, low testosterone, etc.) and female-specific symptoms
+- [x] Add clear "FREE Assessment - No Credit Card Required" messaging to EndoGuard landing page - DONE: Added prominent green banner with free trial messaging
+- [x] Add "Back to Home" button to EndoGuard assessment page - DONE: Added fixed position BackToHomeButton component
+- [x] Add "Back to Home" button to EndoGuard results page - DONE: Added to MyAssessments page
+- [ ] Add "Back to Home" button to all platform pages (RxGuard, ElderWatch, etc.) - PARTIAL: Need to add to RxGuard and other platforms
+- [ ] Review all reproductive symptoms and mark which are gender-specific
+- [ ] Consider adding male-specific symptoms (low testosterone, erectile dysfunction, etc.)
+
+### Previously Reported Issues
 - [x] CRITICAL: EndoGuard assessment failing - "Failed to complete assessment" error when clicking Get Results - FIXED: Changed API endpoint from localhost:3008 to /api/endoguard
 - [x] Dashboard shows "Welcome Back!" for brand new accounts - FIXED: Now shows "Welcome!" for accounts <24hrs old
 - [x] Create EndoGuard algorithm documentation (how risk scores are calculated) - COMPLETED: Comprehensive 15-page technical documentation

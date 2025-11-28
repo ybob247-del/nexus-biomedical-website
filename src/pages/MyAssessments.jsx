@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import BackToHomeButton from '../components/BackToHomeButton';
 import { Line } from 'react-chartjs-2';
 import { jsPDF } from 'jspdf';
 import {
@@ -217,6 +218,8 @@ export default function MyAssessments() {
   }
 
   return (
+    <>
+    <BackToHomeButton />
     <div style={{
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
@@ -564,5 +567,6 @@ export default function MyAssessments() {
         }
       `}</style>
     </div>
+    </>
   );
 }

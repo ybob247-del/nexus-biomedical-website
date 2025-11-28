@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
@@ -6,6 +6,7 @@ import FDADisclaimer from '../components/FDADisclaimer';
 import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import UsageStatsDashboard from '../components/UsageStatsDashboard';
 import { useAnalytics } from '../hooks/useAnalytics';
+import BackToHomeButton from '../components/BackToHomeButton';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
@@ -54,40 +55,74 @@ export default function EndoGuardAssessment() {
   // (Authentication check removed to enable try-before-signup flow)
 
   // Symptom options organized by hormone system
-  const symptomOptions = {
-    thyroid: [
-      'Unexplained weight gain or loss',
-      'Fatigue or low energy',
-      'Hair loss or thinning',
-      'Cold intolerance',
-      'Dry skin',
-      'Brain fog or difficulty concentrating'
-    ],
-    reproductive: [
-      'Irregular menstrual cycles',
-      'Heavy or painful periods',
-      'PMS symptoms',
-      'Low libido',
-      'Fertility issues',
-      'Hot flashes or night sweats'
-    ],
-    adrenal: [
-      'Chronic stress or anxiety',
-      'Difficulty waking up',
-      'Afternoon energy crashes',
-      'Salt cravings',
-      'Difficulty handling stress',
-      'Mood swings'
-    ],
-    metabolic: [
-      'Blood sugar imbalances',
-      'Increased belly fat',
-      'Sugar cravings',
-      'Difficulty losing weight',
-      'Insulin resistance',
-      'PCOS symptoms'
-    ]
+  // Filter symptoms based on biological sex
+  const getSymptomOptions = () => {
+    const baseSymptoms = {
+      thyroid: [
+        'Unexplained weight gain or loss',
+        'Fatigue or low energy',
+        'Hair loss or thinning',
+        'Cold intolerance',
+        'Dry skin',
+        'Brain fog or difficulty concentrating'
+      ],
+      reproductive: {
+        female: [
+          'Irregular menstrual cycles',
+          'Heavy or painful periods',
+          'PMS symptoms',
+          'Low libido',
+          'Fertility issues',
+          'Hot flashes or night sweats',
+          'Vaginal dryness',
+          'Breast tenderness'
+        ],
+        male: [
+          'Low libido',
+          'Erectile dysfunction',
+          'Fertility issues',
+          'Decreased muscle mass',
+          'Gynecomastia (breast development)',
+          'Testicular atrophy'
+        ],
+        other: [
+          'Low libido',
+          'Fertility issues',
+          'Hot flashes or night sweats'
+        ]
+      },
+      adrenal: [
+        'Chronic stress or anxiety',
+        'Difficulty waking up',
+        'Afternoon energy crashes',
+        'Salt cravings',
+        'Difficulty handling stress',
+        'Mood swings'
+      ],
+      metabolic: [
+        'Blood sugar imbalances',
+        'Increased belly fat',
+        'Sugar cravings',
+        'Difficulty losing weight',
+        'Insulin resistance',
+        formData.biologicalSex === 'female' ? 'PCOS symptoms' : null
+      ].filter(Boolean)
+    };
+
+    // Get gender-specific reproductive symptoms
+    const reproductiveSymptoms = formData.biologicalSex 
+      ? baseSymptoms.reproductive[formData.biologicalSex] || baseSymptoms.reproductive.other
+      : baseSymptoms.reproductive.other;
+
+    return {
+      thyroid: baseSymptoms.thyroid,
+      reproductive: reproductiveSymptoms,
+      adrenal: baseSymptoms.adrenal,
+      metabolic: baseSymptoms.metabolic
+    };
   };
+
+  const symptomOptions = getSymptomOptions();
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -215,6 +250,7 @@ export default function EndoGuardAssessment() {
 
   return (
       <>
+      <BackToHomeButton />
       {user && <TrialExpirationBanner platform="endoguard" />}
       <div className="endoguard-assessment">
       <div className="assessment-header">
@@ -242,6 +278,23 @@ export default function EndoGuardAssessment() {
           )}
         </div>
         <p>Discover your Endocrine Disrupting Chemical (EDC) exposure risk and get personalized recommendations</p>
+        <div style={{
+          background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+          padding: '1rem 1.5rem',
+          borderRadius: '12px',
+          marginTop: '1rem',
+          marginBottom: '1rem',
+          textAlign: 'center',
+          border: '2px solid rgba(16, 185, 129, 0.3)',
+          boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)'
+        }}>
+          <div style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+            ✨ FREE Assessment - No Credit Card Required
+          </div>
+          <div style={{ fontSize: '0.95rem', opacity: 0.95 }}>
+            Get instant personalized hormone health insights • 100% confidential • Takes 5 minutes
+          </div>
+        </div>
         <FDADisclaimer />
       </div>
 
@@ -320,21 +373,23 @@ export default function EndoGuardAssessment() {
             <p>Select all symptoms you're currently experiencing:</p>
 
             {Object.entries(symptomOptions).map(([system, symptoms]) => (
-              <div key={system} className="symptom-category">
-                <h3>{system.charAt(0).toUpperCase() + system.slice(1)} System</h3>
-                <div className="checkbox-grid">
-                  {symptoms.map(symptom => (
-                    <label key={symptom} className="checkbox-label">
-                      <input
-                        type="checkbox"
-                        checked={formData.symptoms.includes(symptom)}
-                        onChange={() => handleArrayToggle('symptoms', symptom)}
-                      />
-                      <span>{symptom}</span>
-                    </label>
-                  ))}
+              symptoms.length > 0 && (
+                <div key={system} className="symptom-category">
+                  <h3>{system.charAt(0).toUpperCase() + system.slice(1)} System</h3>
+                  <div className="checkbox-grid">
+                    {symptoms.map(symptom => (
+                      <label key={symptom} className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          checked={formData.symptoms.includes(symptom)}
+                          onChange={() => handleArrayToggle('symptoms', symptom)}
+                        />
+                        <span>{symptom}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )
             ))}
 
             {formData.symptoms.length > 0 && (

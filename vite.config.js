@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import apiPlugin from './vite-plugin-api.js'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), apiPlugin()],
   
   // SSR configuration
   ssr: {
@@ -17,18 +18,6 @@ export default defineConfig({
       'localhost',
       '127.0.0.1'
     ],
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3006',
-        changeOrigin: true,
-        configure: (proxy, options) => {
-          // Handle API routes by importing and executing the serverless functions
-          proxy.on('proxyReq', (proxyReq, req, res) => {
-            // This will be handled by the middleware below
-          });
-        }
-      }
-    },
     middlewareMode: false
   },
   build: {

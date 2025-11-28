@@ -191,47 +191,48 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-fuchsia-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
-      <div className="relative z-10 p-6 md:p-8 lg:p-12">
-        {/* Header */}
-        <div className="max-w-7xl mx-auto mb-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-cyan-500/20 shadow-2xl">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+      <div className="relative z-10 p-4 md:p-8 lg:p-12">
+        {/* Header - Enhanced with better spacing */}
+        <div className="max-w-7xl mx-auto mb-8 md:mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
                 Welcome Back!
               </h1>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl md:text-2xl text-gray-200 font-semibold">
                 {user?.firstName || user?.email?.split('@')[0] || 'User'}
               </p>
-              <p className="text-sm text-gray-400 mt-1">{user?.email}</p>
+              <p className="text-sm md:text-base text-gray-400 mt-1">{user?.email}</p>
             </div>
             <button
               onClick={handleLogout}
-              className="px-6 py-3 bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/30 hover:to-pink-500/30 text-white rounded-xl font-semibold transition-all border border-red-500/30 hover:border-red-400/50 hover:shadow-lg hover:shadow-red-500/20"
+              className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/30 hover:to-pink-500/30 text-white rounded-2xl font-semibold transition-all border border-red-500/40 hover:border-red-400/60 hover:shadow-xl hover:shadow-red-500/30 text-lg"
             >
               Logout
             </button>
           </div>
         </div>
 
-        {/* Active Subscriptions */}
-        <div className="max-w-7xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
+        {/* Active Subscriptions - Enhanced cards */}
+        <div className="max-w-7xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">
             Your Subscriptions
           </h2>
           {subscriptions.length === 0 ? (
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-12 text-center border border-purple-500/20 shadow-2xl">
-              <div className="text-6xl mb-4">📋</div>
-              <p className="text-gray-300 text-lg mb-6">You don't have any active subscriptions yet.</p>
-              <p className="text-gray-400 mb-8">Start a free trial or subscribe to access our AI-powered platforms</p>
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-16 text-center border border-purple-500/30 shadow-2xl shadow-purple-500/20">
+              <div className="text-7xl md:text-8xl mb-6">📋</div>
+              <p className="text-gray-200 text-xl md:text-2xl mb-4 font-semibold">You don't have any active subscriptions yet.</p>
+              <p className="text-gray-400 text-lg md:text-xl mb-10">Start a free trial or subscribe to access our AI-powered platforms</p>
               <Link
                 to="/pricing"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105"
+                className="inline-block px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105"
               >
                 View Pricing Plans
               </Link>
@@ -239,34 +240,34 @@ const Dashboard = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {subscriptions.map((sub, index) => (
-                <div key={index} className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-cyan-500/20 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-white">{sub.platform}</h3>
+                <div key={index} className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-cyan-500/30 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all transform hover:scale-105">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white">{sub.platform}</h3>
                     <span
-                      className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide ${
+                      className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide ${
                         sub.status === 'active'
-                          ? 'bg-green-500/20 text-green-300 border border-green-500/30'
+                          ? 'bg-green-500/30 text-green-200 border-2 border-green-400/50'
                           : sub.status === 'trialing'
-                          ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-                          : 'bg-gray-500/20 text-gray-300 border border-gray-500/30'
+                          ? 'bg-blue-500/30 text-blue-200 border-2 border-blue-400/50'
+                          : 'bg-gray-500/30 text-gray-200 border-2 border-gray-400/50'
                       }`}
                     >
                       {sub.status}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-400 mb-4">
+                  <p className="text-base text-gray-300 mb-6">
                     {sub.trial_end
                       ? `Trial ends: ${new Date(sub.trial_end).toLocaleDateString()}`
                       : `Renews: ${new Date(sub.current_period_end).toLocaleDateString()}`}
                   </p>
                   {sub.cancel_at_period_end && (
-                    <p className="text-sm text-yellow-400 mb-4 flex items-center gap-2">
+                    <p className="text-sm text-yellow-300 mb-6 flex items-center gap-2 font-semibold">
                       <span>⚠️</span> Cancels at period end
                     </p>
                   )}
                   <Link
                     to={`/${sub.platform.toLowerCase()}`}
-                    className="inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+                    className="inline-block w-full text-center px-6 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105"
                   >
                     Launch Platform →
                   </Link>
@@ -276,66 +277,66 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Platform Access */}
-        <div className="max-w-7xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
+        {/* Platform Access - Enhanced with better mobile layout */}
+        <div className="max-w-7xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">
             Available Platforms
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {platforms.map((platform) => {
               const hasAccess = hasAccessToPlatform(platform.name);
               return (
                 <div
                   key={platform.name}
-                  className="group relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-cyan-500/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-[1.02]"
+                  className="group relative bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/40 transition-all hover:scale-[1.02] transform"
                 >
                   {/* Coming Soon Badge */}
                   {platform.comingSoon && (
-                    <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
+                    <div className="absolute top-4 right-4 px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm md:text-base font-bold rounded-full shadow-lg">
                       Coming Soon
                     </div>
                   )}
                   
-                  {/* Platform icon */}
-                  <div className="text-6xl mb-4">{platform.icon}</div>
+                  {/* Platform icon - Larger on mobile */}
+                  <div className="text-7xl md:text-8xl mb-6">{platform.icon}</div>
                   
                   {/* Platform info */}
-                  <h3 className="text-2xl font-bold text-white mb-3">{platform.name}</h3>
-                  <p className="text-gray-300 mb-6 text-base leading-relaxed">{platform.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{platform.name}</h3>
+                  <p className="text-gray-300 mb-8 text-base md:text-lg leading-relaxed">{platform.description}</p>
                   
-                  {/* Action buttons */}
+                  {/* Action buttons - Better touch targets */}
                   {hasAccess ? (
                     <Link
                       to={platform.url}
-                      className={`inline-block w-full text-center px-6 py-4 bg-gradient-to-r ${platform.gradient} text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105`}
+                      className={`inline-block w-full text-center px-8 py-5 bg-gradient-to-r ${platform.gradient} text-white rounded-2xl font-bold text-lg md:text-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105`}
                     >
                       Launch Platform →
                     </Link>
                   ) : platform.comingSoon ? (
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <button
                         disabled
-                        className="w-full px-6 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-xl font-bold text-lg opacity-60 cursor-not-allowed"
+                        className="w-full px-8 py-5 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-2xl font-bold text-lg md:text-xl opacity-60 cursor-not-allowed"
                       >
                         🚧 Platform Under Development
                       </button>
                       <Link
                         to="/pricing"
-                        className="inline-block w-full text-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold transition-all border border-white/20 hover:border-white/30"
+                        className="inline-block w-full text-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all border-2 border-white/30 hover:border-white/50"
                       >
                         Learn More
                       </Link>
                     </div>
                   ) : (
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <button
                         onClick={() => handleShowPlanSelection(platform.id)}
                         disabled={activatingTrial === platform.id}
-                        className="w-full px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
+                        className="w-full px-8 py-5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-2xl font-bold text-lg md:text-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
                       >
                         {activatingTrial === platform.id ? (
-                          <span className="flex items-center justify-center gap-2">
-                            <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+                          <span className="flex items-center justify-center gap-3">
+                            <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-white"></div>
                             Activating...
                           </span>
                         ) : (
@@ -344,7 +345,7 @@ const Dashboard = () => {
                       </button>
                       <Link
                         to="/pricing"
-                        className="inline-block w-full text-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold transition-all border border-white/20 hover:border-white/30"
+                        className="inline-block w-full text-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all border-2 border-white/30 hover:border-white/50"
                       >
                         View Pricing
                       </Link>
@@ -357,10 +358,10 @@ const Dashboard = () => {
         </div>
 
         {/* Back to Home */}
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center pb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-all text-lg font-semibold"
+            className="inline-flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-all text-lg md:text-xl font-semibold"
           >
             <span>←</span> Back to Homepage
           </Link>

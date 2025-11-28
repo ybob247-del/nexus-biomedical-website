@@ -373,7 +373,9 @@ export default function PlatformsPage() {
                 }
               }}
             >
-              {platform.comingSoon ? 'Join Waitlist →' : 'Start Free Trial →'}
+              {platform.comingSoon ? 'Join Waitlist →' : 
+               platform.name === 'EndoGuard™' ? 'Start Free Assessment →' : 
+               'Start Free Trial →'}
             </button>
           </motion.div>
         ))}

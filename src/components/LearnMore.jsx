@@ -504,7 +504,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={handleStartTrial}
             >
-              Start Free Trial
+              {platform.name === 'EndoGuard™' ? 'Start Free Assessment' : 'Start Free Trial'}
             </button>
 
           </div>
@@ -745,7 +745,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={handleStartTrial}
             >
-              Start Free Trial
+              {platform.name === 'EndoGuard™' ? 'Start Free Assessment' : 'Start Free Trial'}
             </button>
 
           </div>

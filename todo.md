@@ -12,6 +12,12 @@
 ## 🚨 CURRENT BUGS TO FIX (Nov 28, 2025)
 **Priority:** URGENT - Blocking user experience
 
+### EndoGuard Messaging & Deployment (Nov 28 - URGENT)
+- [x] Change "Start Free Trial" button to "Start Free Assessment" for EndoGuard - DONE: Updated PlatformsPage and LearnMore
+- [x] Update all EndoGuard CTAs to emphasize FREE assessment (not trial) - DONE: All EndoGuard buttons now say "Start Free Assessment"
+- [ ] Verify deployment to Vercel production (changes not showing on live site)
+- [ ] Test gender-specific symptoms on production site
+
 ### EndoGuard UX Improvements (User Feedback - Nov 28)
 - [x] CRITICAL: Fix "Failed to complete assessment" API error - serverless function not working in production - FIXED: Added Vite plugin for local dev, Vercel handles production
 - [x] Add gender selection (Step 1) to customize symptom display (male vs female reproductive symptoms) - DONE: Added male-specific symptoms (erectile dysfunction, low testosterone, etc.) and female-specific symptoms

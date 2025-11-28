@@ -59,8 +59,7 @@ const Dashboard = () => {
       icon: '🔬',
       gradient: 'from-fuchsia-500 to-purple-600',
       url: '/endoguard',
-      comingSoon: false,
-      preview: '/images/platform-previews/health-analytics.jpg'
+      comingSoon: false
     },
     { 
       id: 'rxguard', 
@@ -69,8 +68,7 @@ const Dashboard = () => {
       icon: '💊',
       gradient: 'from-cyan-500 to-blue-600',
       url: '/rxguard',
-      comingSoon: false,
-      preview: '/images/platform-previews/medical-dashboard.jpg'
+      comingSoon: false
     },
     { 
       id: 'elderwatch', 

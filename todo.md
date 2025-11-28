@@ -689,3 +689,10 @@
 - [x] Improve responsive spacing in header navigation (reduced gap from 2rem → 0.75rem)
 - [x] Add max-width to user email dropdown to prevent overflow (200px with ellipsis)
 - [ ] Test at various zoom levels and screen widths on production
+
+## New Tasks (Nov 28, 2025 - 2:30 PM)
+- [x] Fix Testimonials page deployment issue - changes not appearing on production
+- [x] Create actual screenshots from RxGuard platform dashboard - DECIDED: Removed preview images instead
+- [x] Create actual screenshots from EndoGuard assessment platform - DECIDED: Removed preview images instead
+- [x] Replace Adobe Stock preview images with real platform screenshots - DECIDED: Removed preview images for beta transparency
+- [x] Add UI preview disclaimers to Dashboard preview images - DECIDED: Removed preview images instead

@@ -46,7 +46,7 @@ const Login = () => {
 
         {/* Login Form */}
         <div className="auth-card">
-          <h2>{t('auth.welcomeBack')}</h2>
+          <h2>{t('auth.signIn')}</h2>
 
           {error && (
             <div className="auth-error">

@@ -1465,3 +1465,13 @@ Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deplo
 - [x] Add category filters (medication, procedures, monitoring, etc.)
 - [x] Add comparison FAQ section
 - [ ] Test structured data with Google Rich Results Test (requires deployment)
+
+## 🚨 CRITICAL BUGS - User Testing (Nov 27, 2025)
+**Priority:** URGENT - Blocking production launch
+
+- [ ] BUG: Interface looks bad after login (mobile)
+- [ ] BUG: "Welcome back" message appears when creating NEW account with ybob email (should show signup form)
+- [ ] BUG: "Start Free Trial" button navigates to blank page
+- [ ] BUG: "Learn More" → "Start Free Trial" shows message that immediately disappears
+- [ ] INVESTIGATE: Possible Vercel deployment issue - mobile-specific problems
+- [ ] TEST: Verify all fixes work on mobile devices (iOS/Android)

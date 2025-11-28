@@ -1,0 +1,9 @@
+{
+  "query": "CREATE INDEX IF NOT EXISTS idx_platform_access_user_id ON platform_access(user_id);\nCREATE INDEX IF NOT EXISTS idx_platform_access_platform ON platform_access(platform);\nCREATE INDEX IF NOT EXISTS idx_platform_access_is_active ON platform_access(is_active);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE INDEX IF NOT EXISTS idx_platform_access_user_id ON platform_access(user_id);\nCREATE INDEX IF NOT EXISTS idx_platform_access_platform ON platform_access(platform);\nCREATE INDEX IF NOT EXISTS idx_platform_access_is_active ON platform_access(is_active);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1628
+}

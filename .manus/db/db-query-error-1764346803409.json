@@ -1,0 +1,8 @@
+{
+  "query": "CREATE INDEX IF NOT EXISTS idx_subscriptions_user_id ON subscriptions(user_id);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_platform ON subscriptions(platform);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_status ON subscriptions(status);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_user_platform ON subscriptions(user_id, platform);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE INDEX IF NOT EXISTS idx_subscriptions_user_id ON subscriptions(user_id);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_platform ON subscriptions(platform);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_status ON subscriptions(status);\nCREATE INDEX IF NOT EXISTS idx_subscriptions_user_platform ON subscriptions(user_id, platform);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1072 (42000) at line 2: column does not exist: platform"
+  ]
+}

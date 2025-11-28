@@ -696,3 +696,16 @@
 - [x] Create actual screenshots from EndoGuard assessment platform - DECIDED: Removed preview images instead
 - [x] Replace Adobe Stock preview images with real platform screenshots - DECIDED: Removed preview images for beta transparency
 - [x] Add UI preview disclaimers to Dashboard preview images - DECIDED: Removed preview images instead
+
+## 🚨 CRITICAL BUG (Nov 28, 2025 - 3:15 PM)
+- [ ] Fix Testimonials page JavaScript errors (138 errors) - InvalidCharacterError with btoa encoding
+- [ ] Investigate why updated Testimonials content not showing on production
+- [ ] Test Testimonials page in clean browser environment (no extensions)
+
+## 🚨 CRITICAL PLATFORM BUGS (Nov 28, 2025 - 3:20 PM)
+**Priority:** EMERGENCY - Platforms completely broken for users
+
+- [x] CRITICAL: RxGuard "Access Denied" - Trial not activating when clicking "Start Free Trial" - FIXED: Auto-activate trial in ProtectedRoute
+- [x] CRITICAL: RxGuard blank page after "Redirecting you in a moment..." message - FIXED: Auto-activate trial prevents redirect
+- [x] CRITICAL: EndoGuard assessment "Failed to complete assessment" - 500 Internal Server Error - FIXED: Created serverless API route
+- [x] CRITICAL: EndoGuard backend connection ECONNREFUSED (localhost:3008 not running) - FIXED: Serverless function replaces backend server

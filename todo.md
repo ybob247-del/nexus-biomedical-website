@@ -12,7 +12,11 @@
 ## 🚨 CURRENT BUGS TO FIX (Nov 28, 2025)
 **Priority:** URGENT - Blocking user experience
 
-- [x] Fix RxGuard "Access Denied" message appearing briefly before redirect (automatic trial activation not working) - FIXED: Keep checking=true during trial activation
+- [x] CRITICAL: EndoGuard assessment failing - "Failed to complete assessment" error when clicking Get Results - FIXED: Changed API endpoint from localhost:3008 to /api/endoguard
+- [x] Dashboard shows "Welcome Back!" for brand new accounts - FIXED: Now shows "Welcome!" for accounts <24hrs old
+- [ ] Create EndoGuard algorithm documentation (how risk scores are calculated)
+- [ ] CRITICAL: RxGuard trial activation failing - "Failed to activate trial" error, redirects to pricing page - FIXED: Added missing database columns
+- [x] Fix RxGuard "Access Denied" message appearing briefly before redirect (automatic trial activation not working) - FIXED: Keep checking=true during trial activation (but trial activation itself is still failing)
 
 ## 🚨 RESOLVED BUGS (Nov 24, 2025)
 **Priority:** URGENT - Blocking user experience

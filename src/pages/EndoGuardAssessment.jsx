@@ -9,7 +9,7 @@ import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-assessment.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
-const API_BASE = 'http://localhost:3008/api/endoguard';
+const API_BASE = '/api/endoguard';
 
 export default function EndoGuardAssessment() {
   const navigate = useNavigate();

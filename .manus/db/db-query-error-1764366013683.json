@@ -1,0 +1,8 @@
+{
+  "query": "SELECT u.email, s.platform, s.status, s.trial_start, s.trial_end, s.selected_plan, s.created_at\nFROM subscriptions s\nJOIN users u ON s.user_id = u.id\nWHERE u.email = 'comeeconomics@gmail.com' AND s.platform = 'rxguard'\nORDER BY s.created_at DESC\nLIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT u.email, s.platform, s.status, s.trial_start, s.trial_end, s.selected_plan, s.created_at\nFROM subscriptions s\nJOIN users u ON s.user_id = u.id\nWHERE u.email = 'comeeconomics@gmail.com' AND s.platform = 'rxguard'\nORDER BY s.created_at DESC\nLIMIT 5;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 's.platform' in 'where clause'"
+  ]
+}

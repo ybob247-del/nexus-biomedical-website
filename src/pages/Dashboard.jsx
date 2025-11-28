@@ -17,6 +17,10 @@ const Dashboard = () => {
   const [showPlanSelection, setShowPlanSelection] = useState(null); // stores platform object
   const navigate = useNavigate();
 
+  // Check if user is new (account created less than 24 hours ago)
+  const isNewUser = user?.createdAt ? 
+    (Date.now() - new Date(user.createdAt).getTime()) < 24 * 60 * 60 * 1000 : false;
+
   useEffect(() => {
     if (authLoading) {
       return;
@@ -204,7 +208,7 @@ const Dashboard = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
             <div className="flex-1">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
-                Welcome Back!
+                {isNewUser ? 'Welcome!' : 'Welcome Back!'}
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 font-semibold">
                 {user?.firstName || user?.email?.split('@')[0] || 'User'}

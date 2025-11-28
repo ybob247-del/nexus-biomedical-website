@@ -727,3 +727,12 @@
 - [ ] Gate detailed test recommendations behind subscription modal
 - [ ] Apply subscription modal across ALL platforms (RxGuard, ElderWatch, etc.)
 - [ ] Fix EndoGuard assessment API hanging on "Analyzing..." button
+- [ ] Deploy checkpoint 0147de77 to production
+- [ ] Replace manual severity slider with automatic calculation (better UX)
+- [x] Remove confusing 1-10 severity scale that users don't understand
+- [x] Improve severity calculation to use ALL assessment data (symptoms, duration, lifestyle, EDC exposure, stress) - COMPLETED: 5-domain weighted algorithm (40% symptoms, 20% duration, 15% stress, 15% lifestyle, 10% EDC)
+- [x] Add guidance text for stress slider (e.g., "1=Very relaxed, 5=Moderate, 10=Overwhelming") - COMPLETED
+- [x] Update ENDOGUARD_ALGORITHM_DOCUMENTATION.md with new comprehensive severity calculation - COMPLETED: 20-page technical documentation
+- [x] Fix API endpoint issue properly (serverless function integration) - COMPLETED: Added export default to assess.js
+- [x] Create demo results page to showcase subscription modal - COMPLETED: /endoguard/demo route
+- [ ] Production deployment will eliminate dev server restart issues - NOTE: Vercel serverless functions work perfectly in production

@@ -24,7 +24,6 @@ export default function EndoGuardAssessment() {
     
     // Symptoms
     symptoms: [],
-    symptomSeverity: 5,
     symptomDuration: '',
     
     // Lifestyle
@@ -114,17 +113,84 @@ export default function EndoGuardAssessment() {
     setStep(prev => Math.max(prev - 1, 1));
   };
 
+  // Calculate symptom severity automatically using comprehensive assessment data
+  const calculateSymptomSeverity = () => {
+    let totalScore = 0;
+    let maxScore = 0;
+    
+    // 1. Symptom Count & Severity (40% weight)
+    const symptomCount = formData.symptoms?.length || 0;
+    const symptomScore = Math.min(40, symptomCount * 4); // Max 10 symptoms = 40 points
+    totalScore += symptomScore;
+    maxScore += 40;
+    
+    // 2. Symptom Duration (20% weight)
+    const durationScores = {
+      'less_than_month': 4,
+      '1_3_months': 8,
+      '3_6_months': 12,
+      '6_12_months': 16,
+      '1_2_years': 18,
+      'over_2_years': 20
+    };
+    totalScore += durationScores[formData.symptomDuration] || 0;
+    maxScore += 20;
+    
+    // 3. Stress Level (15% weight)
+    const stressScore = (formData.stressLevel || 5) * 1.5;
+    totalScore += stressScore;
+    maxScore += 15;
+    
+    // 4. Lifestyle Factors (15% weight)
+    const lifestyleScores = {
+      dietQuality: { 'poor': 5, 'fair': 3, 'good': 1, 'excellent': 0 },
+      exerciseFrequency: { 'rarely': 4, 'occasional': 2, 'regular': 1, 'daily': 0 },
+      sleepQuality: { 'poor': 6, 'fair': 3, 'good': 1, 'excellent': 0 }
+    };
+    const dietScore = lifestyleScores.dietQuality[formData.dietQuality] || 0;
+    const exerciseScore = lifestyleScores.exerciseFrequency[formData.exerciseFrequency] || 0;
+    const sleepScore = lifestyleScores.sleepQuality[formData.sleepQuality] || 0;
+    totalScore += dietScore + exerciseScore + sleepScore;
+    maxScore += 15;
+    
+    // 5. EDC Exposure (10% weight)
+    const edcScores = {
+      plasticUseFrequency: { 'high': 4, 'moderate': 2, 'low': 1, 'minimal': 0 },
+      processedFoodFrequency: { 'daily': 3, 'several_times_week': 2, 'occasionally': 1, 'rarely': 0 },
+      waterSource: { 'tap_unfiltered': 3, 'bottled': 2, 'tap_filtered': 1, 'well': 1, 'ro_filtered': 0 }
+    };
+    const plasticScore = edcScores.plasticUseFrequency[formData.plasticUseFrequency] || 0;
+    const foodScore = edcScores.processedFoodFrequency[formData.processedFoodFrequency] || 0;
+    const waterScore = edcScores.waterSource[formData.waterSource] || 0;
+    const occupationalExposure = formData.occupationalExposure ? 3 : 0;
+    totalScore += plasticScore + foodScore + waterScore + occupationalExposure;
+    maxScore += 10;
+    
+    // Calculate final severity (1-10 scale)
+    const percentage = (totalScore / maxScore) * 100;
+    const severity = Math.ceil((percentage / 100) * 10);
+    
+    return Math.min(10, Math.max(1, severity));
+  };
+
   const submitAssessment = async () => {
     setIsAnalyzing(true);
     
     try {
+      // Calculate severity automatically
+      const calculatedSeverity = calculateSymptomSeverity();
+      const assessmentData = {
+        ...formData,
+        symptomSeverity: calculatedSeverity
+      };
+      
       const response = await fetch(`${API_BASE}/assess`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(assessmentData)
       });
 
       const data = await response.json();
@@ -274,18 +340,6 @@ export default function EndoGuardAssessment() {
             {formData.symptoms.length > 0 && (
               <>
                 <div className="form-group">
-                  <label>Overall Symptom Severity (1-10)</label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.symptomSeverity}
-                    onChange={(e) => handleInputChange('symptomSeverity', parseInt(e.target.value))}
-                  />
-                  <div className="range-value">{formData.symptomSeverity}</div>
-                </div>
-
-                <div className="form-group">
                   <label>How long have you had these symptoms?</label>
                   <select
                     value={formData.symptomDuration}
@@ -359,6 +413,7 @@ export default function EndoGuardAssessment() {
 
             <div className="form-group">
               <label>Stress Level (1-10)</label>
+              <p className="field-guidance">Rate your typical daily stress: 1 = Very relaxed, 5 = Moderate stress, 10 = Overwhelming/chronic stress</p>
               <input
                 type="range"
                 min="1"
@@ -495,7 +550,7 @@ export default function EndoGuardAssessment() {
                 <strong>Symptoms Selected:</strong> {formData.symptoms.length}
               </div>
               <div className="summary-item">
-                <strong>Symptom Severity:</strong> {formData.symptomSeverity}/10
+                <strong>Calculated Severity:</strong> {calculateSymptomSeverity()}/10 (auto-calculated)
               </div>
               <div className="summary-item">
                 <strong>Stress Level:</strong> {formData.stressLevel}/10

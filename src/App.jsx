@@ -36,6 +36,7 @@ const PricingPage = lazy(() => import('./pages/PricingPage'))
 const ProviderPricing = lazy(() => import('./pages/ProviderPricing'))
 const RxGuardDashboard = lazy(() => import('./pages/RxGuardDashboard'))
 const EndoGuardAssessment = lazy(() => import('./pages/EndoGuardAssessment'))
+const EndoGuardDemo = lazy(() => import('./pages/EndoGuardDemo'))
 const Login = lazy(() => import('./pages/Login'))
 const Signup = lazy(() => import('./pages/Signup'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
@@ -273,6 +274,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <EndoGuardAssessment />
+          </Suspense>
+        } 
+      />
+      
+      {/* EndoGuard Demo Results Route */}
+      <Route 
+        path="/endoguard/demo" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <EndoGuardDemo />
           </Suspense>
         } 
       />

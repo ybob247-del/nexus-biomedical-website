@@ -12,6 +12,17 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
+// API Routes - Import handlers dynamically
+app.post('/api/endoguard/assess', async (req, res) => {
+  try {
+    const { default: handler } = await import('./api/endoguard/assess.js');
+    await handler(req, res);
+  } catch (error) {
+    console.error('EndoGuard assess error:', error);
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
+});
+
 // Serve static files from dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 

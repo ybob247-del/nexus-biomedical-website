@@ -136,6 +136,14 @@
   margin-top: 10px;
 }
 
+.field-guidance {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0.5rem 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 /* Symptom Categories */
 .symptom-category {
   margin-bottom: 30px;

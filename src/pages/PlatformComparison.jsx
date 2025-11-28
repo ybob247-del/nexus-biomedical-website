@@ -28,16 +28,16 @@ const PlatformComparison = () => {
     {
       name: 'EndoGuard™',
       category: 'procedures',
-      tagline: 'Hormone Health Intelligence',
-      price: '$49-$199/month',
+      tagline: 'Endoscopy Quality Assurance',
+      price: '$97/month',
       trialDays: 30,
-      bestFor: 'Individuals concerned about hormone health, healthcare providers, wellness practitioners',
+      bestFor: 'Gastroenterologists, endoscopy centers, GI departments',
       keyFeatures: [
-        'Comprehensive EDC exposure assessment',
-        'Personalized hormone health roadmap',
-        'AI predictive modeling',
-        'Evidence-based recommendations',
-        'Lab test guidance and interpretation'
+        'Quality metrics tracking',
+        'Adverse event prediction',
+        'Procedure analytics dashboard',
+        'Compliance reporting',
+        'Patient risk assessment'
       ],
       url: '/endoguard'
     },

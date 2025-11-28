@@ -32,12 +32,8 @@ const Header = () => {
   }
 
   const handleLogoClick = () => {
-    // Always scroll to top first
+    navigate('/')
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    // Then navigate if not already on homepage
-    if (location.pathname !== '/') {
-      navigate('/')
-    }
   }
 
   const handleGetStartedClick = () => {

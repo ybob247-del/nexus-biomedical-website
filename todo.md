@@ -676,3 +676,10 @@
 - [x] Add platform preview images/screenshots to dashboard cards (EndoGuard, RxGuard)
 - [x] Create comprehensive production testing checklist document (PRODUCTION_TESTING_CHECKLIST.md)
 - [ ] Test all fixes on production after publish
+
+## Deployment & AI Crawler Tasks (Nov 28, 2025)
+- [x] Push latest checkpoint (f87d4646) to GitHub
+- [ ] Verify Vercel deployment completes successfully
+- [x] Verify AI crawler meta tags (Gemini, ChatGPT, Claude) are implemented - CONFIRMED: Comprehensive robots.txt already exists
+- [x] Update sitemap.xml with latest dates (Nov 28, 2025)
+- [ ] Test production site after deployment

@@ -683,3 +683,9 @@
 - [x] Verify AI crawler meta tags (Gemini, ChatGPT, Claude) are implemented - CONFIRMED: Comprehensive robots.txt already exists
 - [x] Update sitemap.xml with latest dates (Nov 28, 2025)
 - [ ] Test production site after deployment
+
+## Header Layout Bug (Nov 28, 2025)
+- [x] Fix header overlap: user email and language toggle (EN | ES) colliding at 100% zoom
+- [x] Improve responsive spacing in header navigation (reduced gap from 2rem → 0.75rem)
+- [x] Add max-width to user email dropdown to prevent overflow (200px with ellipsis)
+- [ ] Test at various zoom levels and screen widths on production

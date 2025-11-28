@@ -7,6 +7,7 @@
 - [x] Add timeout + error handling to login.js (same as signup.js) - DONE
 - [x] Investigate DATABASE_URL on production - Added comprehensive logging
 - [x] Verify all auth APIs return JSON even on errors - DONE: Always returns JSON now
+- [x] CRITICAL: Vercel function timeout too short (10s) - FIXED: Increased to 30s in vercel.json
 
 ## 🚨 CURRENT BUGS TO FIX (Nov 24, 2025)
 **Priority:** URGENT - Blocking user experience

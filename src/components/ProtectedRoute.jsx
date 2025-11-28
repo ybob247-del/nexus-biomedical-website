@@ -45,6 +45,7 @@ const ProtectedRoute = ({ children, platform }) => {
         // No access found - try to auto-activate free trial
         console.log('No access found, attempting to activate free trial for', platform);
         setActivatingTrial(true);
+        // Keep checking=true so loading spinner continues (don't show Access Denied yet)
         
         try {
           const activateResponse = await fetch('/api/trials/activate', {
@@ -71,6 +72,7 @@ const ProtectedRoute = ({ children, platform }) => {
             // Trial activation failed (maybe already used trial)
             console.error('Trial activation failed:', activateData);
             setError(activateData.error || 'Unable to activate free trial');
+            setHasAccess(false); // Now we can show Access Denied
             setChecking(false);
             setActivatingTrial(false);
             
@@ -82,6 +84,7 @@ const ProtectedRoute = ({ children, platform }) => {
         } catch (activateError) {
           console.error('Trial activation error:', activateError);
           setError('Failed to activate free trial. Please try again.');
+          setHasAccess(false); // Now we can show Access Denied
           setChecking(false);
           setActivatingTrial(false);
           

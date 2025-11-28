@@ -9,7 +9,12 @@
 - [x] Verify all auth APIs return JSON even on errors - DONE: Always returns JSON now
 - [x] CRITICAL: Vercel function timeout too short (10s) - FIXED: Increased to 30s in vercel.json
 
-## 🚨 CURRENT BUGS TO FIX (Nov 24, 2025)
+## 🚨 CURRENT BUGS TO FIX (Nov 28, 2025)
+**Priority:** URGENT - Blocking user experience
+
+- [x] Fix RxGuard "Access Denied" message appearing briefly before redirect (automatic trial activation not working) - FIXED: Keep checking=true during trial activation
+
+## 🚨 RESOLVED BUGS (Nov 24, 2025)
 **Priority:** URGENT - Blocking user experience
 
 - [x] CRITICAL: Dashboard blank screen after signup (only shows background, language toggle, Report Bug button) - Fixed by adding /dashboard route and removing ProtectedRoute wrapper

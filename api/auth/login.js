@@ -8,12 +8,27 @@ import { query } from '../utils/db.js';
 import { comparePassword, generateToken, isValidEmail } from '../utils/auth.js';
 
 export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  // Set timeout to prevent hanging
+  const timeout = setTimeout(() => {
+    if (!res.headersSent) {
+      console.error('Login API timeout - request took too long');
+      return res.status(504).json({ 
+        error: 'Request timeout', 
+        message: 'The server took too long to respond. Please try again.' 
+      });
+    }
+  }, 25000); // 25 second timeout
 
   try {
+    // Debug logging for DATABASE_URL
+    console.log('LOGIN - DATABASE_URL exists:', !!process.env.DATABASE_URL);
+    console.log('LOGIN - DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
+    
+    // Only allow POST requests
+    if (req.method !== 'POST') {
+      clearTimeout(timeout);
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
     const { email, password } = req.body;
 
     // Validate input
@@ -64,6 +79,9 @@ export default async function handler(req, res) {
     );
     */
 
+    // Clear timeout before responding
+    clearTimeout(timeout);
+    
     // Return user data and token
     return res.status(200).json({
       success: true,
@@ -78,10 +96,16 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
+    clearTimeout(timeout);
     console.error('Login error:', error);
+    console.error('Login error stack:', error.stack);
+    console.error('Login error details:', JSON.stringify(error, null, 2));
+    
+    // Always return JSON, never HTML
     return res.status(500).json({
       error: 'Login failed',
-      message: error.message,
+      message: error.message || 'Unknown error occurred',
+      details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
     });
   }
 };

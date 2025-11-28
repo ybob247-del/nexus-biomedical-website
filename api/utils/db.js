@@ -13,8 +13,28 @@ const pool = new Pool({
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
   max: 10, // Maximum number of clients in the pool
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 10000, // Increased from 2s to 10s for production
+  query_timeout: 20000, // 20 second query timeout
 });
+
+// Log pool errors
+pool.on('error', (err, client) => {
+  console.error('Unexpected error on idle client', err);
+  console.error('Client details:', client);
+});
+
+// Log successful connections
+pool.on('connect', (client) => {
+  console.log('New database connection established');
+});
+
+// Debug: Log DATABASE_URL status on module load
+console.log('=== DATABASE CONNECTION INIT ===');
+console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+console.log('DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('SSL enabled:', process.env.NODE_ENV === 'production');
+console.log('================================');
 
 /**
  * Execute a SQL query

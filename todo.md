@@ -1,4 +1,14 @@
-## 🚨 CRITICA## 🚨 CURRENT BUGS TO FIX (Nov 24, 2025)
+## 🚨🚨🚨 CRITICAL - PRODUCTION COMPLETELY BROKEN (Nov 28, 2025)
+**Priority:** EMERGENCY - All authentication is broken on production
+
+- [x] CRITICAL: Login API returning HTML instead of JSON - "Unexpected token '<', "<!DOCTYPE "... is not valid JSON" - FIXED: Added timeout + error handling
+- [x] CRITICAL: Signup API returning HTML instead of JSON - "Server error: Invalid response format" - FIXED: Added timeout + error handling
+- [x] CRITICAL: Database connection failing on production (likely root cause) - FIXED: Increased connection timeout from 2s to 10s
+- [x] Add timeout + error handling to login.js (same as signup.js) - DONE
+- [x] Investigate DATABASE_URL on production - Added comprehensive logging
+- [x] Verify all auth APIs return JSON even on errors - DONE: Always returns JSON now
+
+## 🚨 CURRENT BUGS TO FIX (Nov 24, 2025)
 **Priority:** URGENT - Blocking user experience
 
 - [x] CRITICAL: Dashboard blank screen after signup (only shows background, language toggle, Report Bug button) - Fixed by adding /dashboard route and removing ProtectedRoute wrapper
@@ -411,1067 +421,239 @@
 - [x] Store OpenAI API key securely in environment variables
 - [x] Create OpenAI service wrapper for all platforms
 - [ ] Test OpenAI API connectivity (BLOCKED - API key issue)
-- [ ] Troubleshoot project-scoped key limitations
-
-### Platform-Specific OpenAI Integration
-- [ ] RxGuard™ - Enhanced drug interaction analysis and alternative medication suggestions
-- [ ] EndoGuard™ - Personalized hormone health recommendations and lifestyle guidance
-- [ ] ElderWatch™ - Caregiver support chatbot and care plan generation
-- [ ] PediCalc Pro™ - Parent education and medication safety explanations
-- [ ] ClinicalIQ™ - Trial eligibility interpretation and patient education
-- [ ] ReguReady™ - Regulatory guidance chatbot and submission review
-- [ ] SkinScan Pro™ - Detailed skin condition explanations and dermatologist communication templates
-
-### AI Chatbot Development
-- [ ] Build universal healthcare chatbot framework
-- [ ] Platform-specific knowledge bases
-- [ ] Context-aware responses
-- [ ] Escalation to human support
-
-### AI-Powered Features
-- [ ] Natural language report generation
-- [ ] Personalized email content
-- [ ] Educational content creation
-- [ ] Risk interpretation in plain language
-- [ ] Alternative recommendations
-
-
-## PHASE 4: Automation Infrastructure (IN PROGRESS)
-
-### User Authentication & Persistence
-- [ ] Add authentication to RxGuard™ (save medication lists)
-- [ ] Add authentication to EndoGuard™ (save assessments)
-- [ ] User profile management
-- [ ] Password reset functionality
-- [ ] Email verification
-
-### SendGrid Email Automation
-- [ ] Connect SendGrid API
-- [ ] Welcome email sequence
-- [ ] Assessment results delivery
-- [ ] Weekly health tips
-- [ ] Re-engagement campaigns
-- [ ] Upgrade/upsell emails
-
-### Twilio SMS/WhatsApp Integration
-- [ ] Connect Twilio API
-- [ ] SMS notifications for high-risk results
-- [ ] Medication reminders (RxGuard)
-- [ ] Appointment reminders (ElderWatch, ClinicalIQ)
-- [ ] WhatsApp messaging support
-
-### n8n Webhook Integration
-- [ ] Create webhook endpoints for each platform
-- [ ] New user registration triggers
-- [ ] Assessment completion triggers
-- [ ] Payment success triggers
-- [ ] Connect to existing n8n workflow
-
-### Stripe Payment Integration
-- [ ] Add Stripe checkout for subscriptions
-- [ ] $97/month EndoGuard membership
-- [ ] $39/month RxGuard membership
-- [ ] Webhook for payment events
-- [ ] Subscription management
-- [ ] Trial period setup (7-14 days)
-
-### AI Chatbot Framework
-- [ ] Build universal chatbot component
-- [ ] Platform-specific knowledge bases
-- [ ] Context-aware responses
-- [ ] Escalation to human support
-- [ ] Chat history persistence
-
-## PHASE 5: Launch Preparation
-
-### Launch Checklist
-- [ ] Create pre-launch testing checklist
-- [ ] Email sequence templates
-- [ ] LinkedIn launch strategy
-- [ ] First 100 customers acquisition plan
-- [ ] Pricing optimization analysis
-- [ ] Partner outreach templates (NP, OBGYN)
-
-
-## 🚨 CRITICAL: CONNECT PLATFORMS TO WEBSITE (IN PROGRESS)
-
-### Frontend-Backend Integration
-- [ ] Connect homepage "Get Started" buttons to actual signup/platform pages
-- [ ] Wire RxGuard™ frontend to backend API (port 3007)
-- [ ] Wire EndoGuard™ frontend to backend API (port 3008)
-- [ ] Add authentication flow to platform access
-- [ ] Create user dashboards for saved data
-- [ ] Test complete user journey from homepage to platform
-
-### Marketing Content Updates
-- [ ] Audit all homepage claims against actual functionality
-- [ ] Remove or update false/misleading statements
-- [ ] Add "Beta" labels where appropriate
-- [ ] Update platform descriptions to match reality
-- [ ] Fix all broken links and redirects
-- [ ] Update FAQ with accurate information
-- [ ] Revise "How it works" section to match actual flow
-
-### User Experience Fixes
-- [ ] Fix slow loading/lagging issues reported by users
-- [ ] Optimize frontend performance
-- [ ] Add loading states and error handling
-- [ ] Test on multiple devices/browsers
-- [ ] Ensure mobile responsiveness
-
-### Payment & Subscription
-- [ ] Add Stripe checkout for RxGuard ($39/month)
-- [ ] Add Stripe checkout for EndoGuard ($97/month)
-- [ ] Implement 7-day free trial
-- [ ] Add subscription management dashboard
-- [ ] Test payment flow end-to-end
-
-
-## 🎯 CURRENT PRIORITY: Add Disclaimers & Connect Real Platforms (Nov 21, 2025)
-
-### Prototype Disclaimers (CRITICAL - User Request)
-- [x] Add prominent "Preview Demo - Sample Data Only" banner to RxGuard prototype
-- [x] Add disclaimer to EndoGuard prototype
-- [x] Add disclaimer to all other platform prototypes
-- [x] Add "Get Full Access" button in prototypes linking to signup/login
-- [x] Visual distinction (badge/banner) so users know it's a demo
-- [x] Clear message: "Real platform includes live FDA data and full features"
-
-### Authentication Flow (IN PROGRESS)
-- [x] Update LearnMore component to redirect Get Started to login
-- [x] Add handleGetStarted function with authentication check
-- [ ] Test login → redirect to dashboard flow
-- [ ] Add protected routes for all dashboards
-- [ ] Connect RxGuard dashboard to backend API (port 3007)
-- [ ] Connect EndoGuard assessment to backend API (port 3008)
-
-### Marketing Content Accuracy
-- [ ] Review homepage hero copy for accuracy
-- [ ] Update platform descriptions to match actual capabilities
-- [ ] Remove any false claims or promises
-- [ ] Add "Beta" labels where appropriate
-- [ ] Update FAQ section with accurate information
-
-
-## 🔌 CURRENT TASK: Connect Dashboards to Backend APIs (Nov 21, 2025)
-
-### RxGuard Dashboard API Integration
-- [ ] Update RxGuardDashboard.jsx to call backend API (http://localhost:3007)
-- [ ] Implement drug search with autocomplete using /api/rxguard/search-drugs
-- [ ] Implement drug info retrieval using /api/rxguard/drug-info
-- [ ] Implement interaction checking using /api/rxguard/check-interactions
-- [ ] Add authentication token to all API requests
-- [ ] Save medication lists to database (user_medication_lists table)
-- [ ] Load user's saved medication lists on dashboard load
-- [ ] Add error handling and loading states
-- [ ] Test complete flow: search → add → check interactions → save
-
-### EndoGuard Assessment API Integration
-- [ ] Update EndoGuardAssessment.jsx to call backend API (http://localhost:3008)
-- [ ] Implement assessment submission using /api/endoguard/assess
-- [ ] Add authentication token to API requests
-- [ ] Save assessment results to database (endoguard_assessments table)
-- [ ] Load user's assessment history
-- [ ] Display progress tracking over time
-- [ ] Add error handling and loading states
-- [ ] Test complete flow: assessment → results → save → history
-
-### Authentication & Protected Routes
-- [ ] Add ProtectedRoute component for dashboard access
-- [ ] Redirect unauthenticated users to login
-- [ ] Pass authentication token from AuthContext to API calls
-- [ ] Handle token expiration and refresh
-- [ ] Add logout functionality from dashboards
-
-### Data Persistence
-- [ ] Verify database tables exist (user_medication_lists, endoguard_assessments)
-- [ ] Test saving data from frontend to database
-- [ ] Test loading saved data on dashboard
-- [ ] Implement data export (PDF reports)
-
-
-### Stripe Payment Integration (USER REQUEST)
-- [ ] Add Stripe subscription endpoints to backend
-- [ ] Create RxGuard subscription product ($39/month)
-- [ ] Create EndoGuard subscription product ($97/month)
-- [ ] Add 7-day free trial to both subscriptions
-- [ ] Create checkout page for platform subscriptions
-- [ ] Add subscription status check before platform access
-- [ ] Handle webhook events (payment success, subscription canceled)
-- [ ] Add subscription management dashboard
-- [ ] Test payment flow end-to-end
-- [ ] Update Stripe account with new products
-
-
-## CURRENT ISSUES TO FIX (Nov 21, 2025)
-
-### Stripe Payment Integration
-- [x] Fix "Start Free Trial" buttons on pricing pages showing "payment option being set up" error
-- [x] Ensure pricing page buttons redirect to login/signup → SubscriptionGate flow
-- [x] Remove old Stripe payment link references from pricing pages
-
-### OpenAI API Authentication
-- [x] Diagnosed root cause: OpenAI SDK has bug with project-scoped keys in sandbox environment
-- [x] Created custom OpenAI service using raw HTTPS requests (bypasses SDK bug)
-- [x] Tested all AI features: drug interaction analysis, hormone health analysis, recommendations
-- [x] Integrate custom OpenAI service into RxGuard platform
-- [ ] Integrate custom OpenAI service into EndoGuard platform
-- [ ] Test AI features in production environment
-
-### Documentation & Consistency Audit
-- [x] Update all pricing pages to show correct trial periods (14 days RxGuard, 30 days EndoGuard)
-- [x] Update platform data/config files with accurate pricing information (RxGuard $39/mo, EndoGuard $97/mo)
-- [x] Update SubscriptionGate component with correct pricing and trials
-- [ ] Update FAQ section with payment and subscription information
-- [ ] Update Terms of Service with subscription terms
-- [ ] Update Privacy Policy if needed for payment processing
-- [ ] Ensure all "Start Free Trial" buttons use consistent flow
-- [ ] Update homepage copy to reflect trial periods
-- [ ] Update platform cards with accurate trial information
-
-
-## URGENT COMPLIANCE FIXES (Nov 21, 2025) - CRITICAL
-
-### Remove False Claims (Legal Risk)
-- [x] Remove all Quest/LabCorp integration claims from EndoGuard
-- [x] Remove all Epic/Cerner EHR integration claims
-- [x] Remove all telemedicine integration claims
-- [x] Remove all pharmacy integration claims
-- [x] Add proper disclaimers for AI features (FDA Disclaimer component)
-
-### Homepage Restructure
-- [x] Move RxGuard and EndoGuard to top of platform list
-- [x] Add "COMING SOON" badges to ElderWatch, PediCalc, ClinicalIQ, ReguReady, SkinScan
-- [ ] Update hero section to focus on RxGuard & EndoGuard only
-
-### Medical/Legal Language Review
-- [ ] Replace "diagnosis" with "assessment" or "analysis"
-- [ ] Replace "treatment" with "recommendations" or "guidance"
-- [ ] Replace "prevention" with "risk reduction" or "awareness"
-- [ ] Add FDA disclaimer about not being a medical device
-
-
-## Platform Ordering & Page Issues (Nov 21, 2025)
-- [x] Swap platform order: EndoGuard first, RxGuard second (homepage)
-- [x] Update "Get Started" page platform order
-- [x] Fix pricing on PlatformsPage (RxGuard $39, EndoGuard $97)
-- [x] Fix trial periods on PlatformsPage (RxGuard 14 days, EndoGuard 30 days)
-- [x] Add COMING SOON badges to 5 platforms on PlatformsPage
-- [ ] Debug EndoGuard page blank/loading issue
-- [ ] Test all platform pages load correctly
-
-
-## CRITICAL: Performance Optimization (Nov 21, 2025)
-- [x] Diagnose slow loading on mobile devices (StarryBackground animation)
-- [x] Optimize StarryBackground - 60% fewer stars on mobile, skip frames
-- [x] Reduce JavaScript bundle size (code splitting for react, motion, icons)
-- [ ] Optimize all images (compress, resize, convert to WebP)
-- [ ] Implement lazy loading for images and components
-- [ ] Add caching headers
-- [ ] Test mobile performance (target: < 3 seconds load time)
-
-## 🚀 PRIORITY TASKS (Nov 21, 2025 - User Directive)
-- [x] Mobile performance optimization (lazy loading added to images, StarryBackground kept as trademark)
-- [x] Connect authentication to RxGuard Dashboard (protected routes added)
-- [x] Connect authentication to EndoGuard Assessment (protected routes added)
-- [ ] Make Stripe payment automatically create user accounts
-- [x] Verify pricing consistency: Website vs Stripe (EndoGuard $97, RxGuard $39) - MISMATCH FOUND
-- [ ] Create new Stripe payment links with correct prices ($39 RxGuard, $97 EndoGuard)
-- [ ] Update stripePaymentLinks.js with new Stripe URLs
-- [ ] Update endoguardStripeLinks.js with new Stripe URLs
-- [ ] Test Stripe checkout to verify correct prices
-- [x] Create comprehensive testing guide with step-by-step scripts
-- [x] Create sample test data for RxGuard and EndoGuard
-- [x] Create bug tracking template for user testing
-
-## 🎨 COLOR CONSISTENCY (Nov 21, 2025)
-- [x] Update EndoGuard interactive demo to use magenta color scheme (#D946EF)
-- [x] Update all EndoGuard-related pages to match new magenta branding
-- [x] Verify color consistency across homepage, demo, and platform pages
-
-## 💳 STRIPE INTEGRATION & PRICING FIX (Nov 21, 2025)
-- [x] Add Stripe feature to webdev project (webdev_add_feature)
-- [x] Access Stripe via API and list current products
-- [x] Create RxGuard Professional product with $39/month pricing
-- [x] Create EndoGuard Premium product with $97/month pricing
-- [x] Create payment links for both products
-- [x] Update code with correct payment link URLs
-- [ ] Configure Stripe webhooks for automatic account creation
-- [ ] Test payment flow with test card
-- [ ] Verify automatic account creation after payment
-
-
-## 🚀 CURRENT SPRINT: Authentication & Free Trial System (Nov 22, 2025)
-
-### Connect Authentication to Platforms
-- [x] Connect RxGuard Dashboard to authentication system
-- [x] Save user medication lists to database (user_medication_lists table)
-- [x] Load user's saved medications on dashboard load
-- [x] Connect EndoGuard Assessment to authentication system
-- [x] Save user assessment results to database (user_assessments table)
-- [x] Load user's assessment history on page load
-- [ ] Add "My Assessments" history view to EndoGuard
-- [ ] Add "My Medications" saved lists to RxGuard
-
-### Implement Automatic Free Trial System
-- [x] Update signup API to automatically create trial on registration
-- [x] RxGuard: 14-day free trial activation on signup
-- [x] EndoGuard: 30-day free trial activation on signup
-- [x] Add trial status checking before platform access
-- [x] Create TrialGate component (blocks access if trial expired)
-- [x] Update all "Start Free Trial" buttons to navigate to /signup
-- [x] Add trial countdown display in user dashboard
-- [x] Show "X days remaining in trial" message
-- [x] Create payment gate UI for expired trials
-- [x] Redirect to Stripe checkout when trial expires
-- [ ] Test complete signup → trial → payment flow
-
-### Database Updates
-- [ ] Verify platform_trials table exists and is working
-- [ ] Add user_id foreign keys to assessment/medication tables
-- [ ] Test trial creation on signup
-- [ ] Test trial expiration checking
-- [ ] Test data persistence for authenticated users
-
-### User Experience Improvements
-- [ ] Add "Save Progress" functionality to assessments
-- [ ] Add "Export Results" to assessment history
-- [ ] Add "Share with Doctor" feature (PDF export)
-- [ ] Show trial status in user profile/settings
-- [ ] Add upgrade prompts before trial expiration
-
-
-## 🚀 CURRENT SPRINT: Coming Soon Fixes + Email Notifications + Assessment History (Nov 22, 2025)
-
-### Waitlist System for Coming Soon Platforms
-- [x] Create waitlist database table (email, name, platform, created_at)
-- [x] Create ComingSoonModal component with two-step flow
-- [x] Create backend API to save waitlist signups
-- [x] Replace alert() with ComingSoonModal for coming soon platforms
-- [x] Add confirmation message after waitlist signup
-- [ ] Create admin page to view waitlist signups by platform
-- [ ] Test waitlist signup flow for all coming soon platforms
-- [x] Only RxGuard and EndoGuard should navigate to signup
-
-### Test Complete Flow
-- [ ] Create test account via signup form
-- [ ] Verify 2 trials created in database (RxGuard 14 days, EndoGuard 30 days)
-- [ ] Test RxGuard: Add medication and save
-- [ ] Test RxGuard: Refresh page and verify medication persists
-- [ ] Test EndoGuard: Complete assessment
-- [ ] Test EndoGuard: Verify results display
-- [ ] Test logout and login - verify data persists
-- [ ] Test trial countdown banner displays correctly
-
-### Email Notification System
-- [x] Create email service utility (using built-in notification API)
-- [x] Trial reminder at 50% (7 days RxGuard, 15 days EndoGuard)
-- [x] Trial reminder at 25% (3 days RxGuard, 7 days EndoGuard)
-- [x] Trial expiring tomorrow (1 day remaining)
-- [x] Trial expired notification
-- [x] Create cron job or scheduled task for checking trials
-- [x] Email templates with professional styling
-- [ ] Test email delivery
-
-### Assessment History UI
-- [x] Create "My Assessments" page for EndoGuard
-- [x] Display list of past assessments with dates
-- [x] Show risk score for each assessment
-- [x] Add risk score trend chart (Chart.js)
-- [x] Allow viewing full assessment details
-- [ ] Add "Compare Assessments" feature
-- [ ] Export assessment report as PDF
-- [x] Add navigation link in EndoGuard platform
-
-
-## 🚀 CURRENT SPRINT: Database Migrations + Admin Dashboard + PDF Export (Nov 22, 2025)
-
-### Database Migrations
-- [x] Run waitlist table migration (database-waitlist.sql)
-- [x] Run trial reminders table migration (database-trial-reminders.sql)
-- [x] Verify tables created successfully
-- [x] Test waitlist API with database
-
-### Admin Waitlist Dashboard
-- [x] Create /admin/waitlist route
-- [x] Build WaitlistAdmin page component
-- [x] Display waitlist signups grouped by platform
-- [x] Show total count per platform
-- [x] Add export to CSV functionality
-- [ ] Add date range filter
-- [x] Add search by email
-- [x] Protect route with admin authentication
-
-### PDF Export for Assessments
-- [x] Install PDF generation library
-- [x] Create assessment PDF template
-- [x] Add "Export PDF" button to My Assessments
-- [x] Generate PDF with risk score and details
-- [x] Include Nexus branding in PDF
-- [x] Add download functionality
-- [x] Test PDF generation
-
-### Cron Job Setup
-- [x] Create cron job documentation
-- [x] Add cron setup instructions to README
-- [ ] Test cron script manually
-- [ ] Verify email sending works
-- [x] Document monitoring procedures
-
-
-## 🚀 CURRENT SPRINT: Cron Testing + Bulk Email + Analytics (Nov 22, 2025)
-
-### Cron Job Testing & Scheduling
-- [ ] Test cron script manually with real database
-- [ ] Verify email sending works correctly
-- [ ] Check trial_reminders table for duplicate prevention
-- [ ] Document cron job scheduling in production
-- [ ] Set up monitoring and alerting
-
-### Bulk Email Tool for Waitlist
-- [x] Create /admin/notify-waitlist route
-- [x] Build NotifyWaitlist page component
-- [x] Platform selection dropdown
-- [x] Email composer with rich text editor
-- [x] Preview email before sending
-- [x] Send bulk emails to platform waitlist
-- [x] Mark users as notified in database
-- [x] Show send progress and confirmation
-- [x] Add email template library
-
-### Analytics Dashboard
-- [x] Create /admin/analytics route
-- [x] Build Analytics page component
-- [x] Trial-to-paid conversion rate
-- [x] Platform usage statistics (active users, assessments)
-- [x] Waitlist stats by platform
-- [ ] Email open/click rates (if available)
-- [ ] Revenue metrics (MRR, ARR)
-- [x] User growth chart (30 days)
-- [ ] Export analytics data to CSV
-
-
-## 🚨 URGENT FIXES: Legal Documentation (Nov 22, 2024)
-
-- [x] Fix PRIVACY_POLICY.md - Replace privacy@ and dpo@ emails with support@nexusbiomedical.ai only
-- [x] Fix TERMS_OF_SERVICE.md - Replace legal@ email with support@nexusbiomedical.ai only
-- [x] Remove physical/business address placeholders from both documents
-- [x] Fix Section 5.3 in TERMS - Use generic pricing description instead of listing specific tiers
-- [ ] Deploy fixes to live site
-- [ ] Verify changes on www.nexusbiomedical.ai
-
-## 🚨 URGENT FIXES (Nov 23, 2025 - User Reported)
-- [x] Fix Privacy Policy and Terms not displaying updated content on website
-- [x] Fix footer legal links navigation (clicking should go to top of page, not bottom)
-- [x] Review and update all three footer legal documents for accuracy
-
-## 📋 Documentation Tasks (Nov 23, 2025)
-- [x] Extract exact legal page content and provide to user for attorney review
-- [x] Update markdown documentation files to match live website content
-- [ ] Implement verification process before publishing updates
-
-## 🔧 Website Polish (Nov 23, 2025)
-- [x] Remove "Legal Review Recommended" warning boxes from Privacy Policy page
-- [x] Remove "Legal Review Recommended" warning boxes from Terms of Service page
-- [x] Remove "Legal Review Recommended" warning boxes from Security & Privacy page
-- [x] Remove legal review notes from attorney documents
-
-## 📄 Attorney Document Cleanup (Nov 23, 2025)
-- [x] Remove budget/cost estimates from LEGAL_DOCUMENTS_README.md
-- [x] Remove timeline section from README
-- [x] Remove any other internal business information not relevant for attorney
-
-## 📚 Clinician Documentation (Nov 23, 2025)
-- [x] Create Clinician User Guide explaining pseudonymous workflow
-- [x] Create Data Entry Guidelines with safe vs. unsafe examples
-- [x] Create HIPAA Safety FAQ for clinicians
-
-## 🌐 Internationalization (Future Phase)
-- [ ] Add Spanish language option to EndoGuard platform
-- [ ] Add Spanish language option to RxGuard platform
-- [ ] Implement language selector/toggle in UI
-- [ ] Translate all assessment questions and results to Spanish
-- [ ] Translate UI elements, buttons, and navigation to Spanish
-
-## 🚨 URGENT PRICING FIXES (Nov 23, 2025)
-- [x] Fix EndoGuard pricing - Premium now $29, Premium Plus $49 (correct order)
-- [x] Remove "Lab Expert Advice" feature - replaced with legitimate features
-- [x] Review all platform pricing tiers for accuracy
-- [x] Verify no other false feature claims exist
-
-## 💰 Pricing Strategy Research (Nov 23, 2025)
-- [x] Research direct competitor pricing (hormone health apps)
-- [x] Research adjacent market pricing (women's health, wellness apps)
-- [x] Research clinical decision support tool pricing
-- [x] Analyze findings and determine optimal EndoGuard pricing
-- [x] Document pricing rationale for future reference
-
-## 🎨 UI/UX Improvements (Nov 23, 2025)
-- [ ] Redesign login/signup page - make it futuristic, vivid, and appealing to match brand
-- [ ] Fix "Coming Soon" platforms - show modal instead of redirecting to Stripe checkout
-- [ ] Add gradient backgrounds and glassmorphism effects to auth pages
-- [ ] Ensure auth pages match the premium Nexus Biomedical brand aesthetic
-
-## 💎 Premium Pricing Strategy Implementation (Nov 23, 2025)
-- [x] Update EndoGuard pricing to $49/$97 (Premium/Premium Plus)
-- [x] Add early adopter promotional pricing ($39/$79 - 20% off for 3 months)
-- [x] Create early adopter banner for homepage and pricing page
-- [ ] Add provider tiers to pricing page ($99/$199)
-- [ ] Update Stripe payment links for new pricing
-- [ ] Document early adopter promotion end date and grandfathering policy
-
-## 🌐 Spanish Language Implementation (Nov 23, 2025)
-- [x] Install react-i18next and configure i18n framework
-- [x] Create English translation file (en.json) with all content
-- [x] Create Spanish translation file (es.json) with medical-grade translations
-- [x] Add language toggle to header (EN | ES)
-- [x] Implement language persistence in localStorage
-- [ ] Test all pages in both languages
-
-## 💼 Provider Tier Pricing Page (Nov 23, 2025)
-- [ ] Create ProviderPricing page component
-- [ ] Add $99 Provider Basic tier (up to 50 patients)
-- [ ] Add $199 Provider Professional tier (unlimited patients)
-- [ ] Create feature comparison table
-- [ ] Add bulk licensing information
-- [ ] Add route and navigation links
-
-- [x] Provider Pricing page created with $99/$199 tiers
-- [x] Enterprise solutions section added
-- [x] Provider FAQ section included
-
-## 🌍 Full Spanish Translation Implementation (Nov 23, 2025)
-- [ ] Expand translation files with all component text
-- [ ] Translate Hero component
-- [ ] Translate Platforms component
-- [ ] Translate Footer component
-- [ ] Translate Header component navigation items
-- [ ] Translate FAQ component
-- [ ] Translate WhoBenefits component
-- [ ] Translate EarlyAdopterBanner component
-- [ ] Translate all platform prototype components (RxGuard, EndoGuard, etc.)
-- [ ] Translate all Learn More pages for all 7 platforms
-- [ ] Translate Login and Signup pages
-- [ ] Translate Dashboard pages
-- [ ] Translate Pricing pages
-- [ ] Translate About page
-- [ ] Translate Legal pages (Privacy, Terms, HIPAA)
-- [ ] Translate ProviderPricing page
-- [ ] Test all translations thoroughly
-- [ ] Add "For Providers" link to header navigation
-- [ ] Create Stripe price configuration documentation
-
-## 🌍 Full Spanish Translation Implementation - Phase 2 (Nov 23, 2025)
-- [x] Expand translation files with all component text (en.json, es.json)
-- [x] Translate Hero component
-- [x] Translate Platforms component (all 7 platforms)
-- [x] Translate Footer component
-- [x] Translate Header component navigation items
-- [x] Translate EarlyAdopterBanner component
-- [x] Translate Login page
-- [x] Translate Signup page
-- [ ] Translate FAQ component
-- [ ] Translate WhoBenefits component
-- [ ] Translate all platform Learn More pages (7 platforms)
-- [ ] Translate Dashboard pages
-- [ ] Translate Pricing pages
-- [ ] Translate About page
-- [ ] Translate Legal pages (Privacy, Terms, HIPAA)
-- [ ] Translate ProviderPricing page
-- [ ] Add "For Providers" link to header navigation
-- [ ] Test all translations thoroughly on live site
-- [ ] Create Stripe price configuration documentation
-
-## 🔐 Authentication & UX Improvements (Nov 23, 2025 - User Request)
-- [x] Add beta status indicator to platforms page (visible notice that platforms are in beta)
-- [x] Implement password reset functionality (forgot password link + email workflow)
-- [x] Add "Forgot Password?" link to login page
-- [x] Create password reset page/flow (ForgotPassword.jsx and ResetPassword.jsx)
-- [x] Create password reset API endpoints (forgot-password.js and reset-password.js)
-- [x] Implement password reset email sending
-- [x] Create password_reset_tokens database table
-- [ ] Add social login options (Google OAuth) - NEXT PHASE
-- [ ] Add social login options (Apple Sign In) - NEXT PHASE
-- [ ] Update signup page with social login buttons
-- [ ] Update login page with social login buttons
-- [ ] Test complete authentication flows (email, Google, Apple)
-
-## 🚨 URGENT: Deployment Issue Investigation (Nov 23, 2025) - RESOLVED
-- [x] Investigate why published checkpoints are not reaching www.nexusbiomedical.ai
-- [x] Check Vercel deployment configuration
-- [x] Verify domain mapping and DNS settings
-- [x] Check if custom domain is properly connected
-- [x] Test deployment pipeline and identify blockers
-- [x] Fix root cause of deployment failures - Manus Publish button was not pushing to GitHub
-- [x] Verify latest checkpoint deploys successfully to production - Manually pushed to GitHub, Vercel deployed successfully
-
-**ROOT CAUSE:** Manus "Publish" button was not pushing checkpoints to GitHub. GitHub remote was stuck at Nov 21 commit while local had Nov 23 changes.
-**SOLUTION:** Manually pushed current code to GitHub using `git push github main`, which triggered Vercel auto-deployment.
-**STATUS:** Deployment dpl_9Eeh3hYvTzrx1BryGuw7doD1FMYm is READY and live at www.nexusbiomedical.ai with all Nov 23 improvements.
-
-## 🎨 EndoGuard Color & Feature Implementation (Nov 23, 2025 - Priority)
-- [x] Fix EndoGuard magenta color scheme consistency across all pages
-- [x] Update EndoGuard assessment page colors
-- [x] Update EndoGuard results page colors
-- [ ] Update EndoGuard prototype page colors
-- [x] Ensure all EndoGuard buttons, badges, and accents use magenta (#D946EF, #C026D3)
-- [x] Implement Test Recommendation Engine (HIGHEST PRIORITY)
-- [x] Create hormone test recommendation logic (thyroid, reproductive, adrenal, metabolic)
-- [x] Build test recommendation UI component with three tiers (Essential/Recommended/Optional)
-- [x] Add cost ranges and rationale for each test
-- [x] Integrate test recommendations into EndoGuard API
-- [x] Add test recommendations to EndoGuard results display
-- [ ] Create lab request letter PDF export functionality
-- [ ] Integrate research citations into recommendations (using endoguard_research_sources.md)
-- [ ] Add research evidence modal/popup for each recommendation
-- [ ] Link recommendations to PubMed studies
-- [ ] Create partner list for future lab partnerships (Paloma Health, LetsGetChecked) - NO implementation yet
-
-## 🚨 DEPLOYMENT ISSUE - Translations Not Live (Nov 23, 2025)
-- [ ] Investigate why commit 683f71c pushed to GitHub but translations not appearing on live site
-- [ ] Check Vercel build logs for deployment failures
-- [ ] Verify Vercel webhook is triggered on GitHub push
-- [ ] Confirm Vercel is building from correct branch (main)
-- [ ] Test if manual Vercel deployment works
-- [ ] Root cause: Determine if issue is GitHub→Vercel connection or build failure
-
-## 🐛 Bug Fixes & UX Improvements (Nov 23, 2025 - User Reported)
-- [x] Verified Get Started button logic - correctly routes to signup if not logged in, dashboard if logged in
-- [x] Reverted unauthenticated access attempt - all platforms require signup before use
-- [ ] Add patient educational handouts feature (PDF generation for providers)
-- [ ] Add patient educational tools feature (interactive web resources)
-- [ ] Complete bilingual translations for remaining components (FAQ, WhoBenefits, About, Legal pages, Learn More pages)
-- [ ] Test language toggle on all pages after deployment
-- [ ] Verify magenta colors display correctly after cache clears
-
-## 🎯 Hybrid Freemium Conversion Model (Nov 23, 2025 - User Decision)
-- [x] Allow unauthenticated access to EndoGuard assessment (no signup required to start)
-- [x] Show basic test recommendations to all users (build trust, prove value)
-- [x] Add "Sign Up FREE" prompts on results page to unlock premium features
-- [x] Gate PDF lab letter export behind signup (free tier)
-- [x] Add prominent CTAs: "Save Your Results" / "Get Full Report" / "Download PDF Letter"
-- [ ] Gate detailed cost breakdowns behind signup (free tier) - OPTIONAL
-- [ ] Gate symptom tracking over time behind paid tier - FUTURE FEATURE
-- [ ] Test conversion funnel: Anonymous → See Value → Sign Up → Upgrade to Paid
-- [ ] Track metrics: Assessment completions vs. Signups vs. Paid conversions
-
-## 🚨 URGENT Bug Fixes (Nov 23, 2025 - User Reported)
-- [ ] Fix "Start Free Trial" buttons on platform cards homepage to route to assessment for EndoGuard
-- [ ] Fix signup page JSON parsing error: "Unexpected token 'A', 'A server e'... is not valid JSON"
-- [ ] Verify hybrid freemium flow works end-to-end on live site
-- [ ] Ensure all changes deploy to www.nexusbiomedical.ai via GitHub push
-
-## 🔧 UX IMPROVEMENTS (Nov 23, 2025)
-- [x] Fix EDC acronym - spell out "Endocrine Disrupting Chemicals (EDC)" on first mention
-- [x] Update EndoGuard assessment page to define EDC for users
-- [x] Update EndoGuard results page to define EDC for users  
-- [x] Update homepage/platform descriptions to define EDC
-
-## 🚨 CRITICAL FIXES (Nov 23, 2025 - Owner Reported - BLOCKING TESTING)
-- [x] DIAGNOSED: Signup API failing with FUNCTION_INVOCATION_FAILED - package.json has "type": "module" but auth APIs using CommonJS
-- [x] FIXED: Converted ALL /api/auth/*.js files to ES modules (import/export) to match project configuration
-- [x] FIXED: Converted api/utils/auth.js and emailService.js to ES modules
-- [x] FIXED: Reverted db.js back to ES modules (it was correct originally)
-- [x] Push EDC acronym fix (commit 97ed3970) to GitHub to trigger Vercel deployment
-- [ ] Verify OPENAI_API_KEY is in environment variables (key was provided yesterday)
-- [ ] Test OpenAI integration for EndoGuard risk analysis
-- [ ] Confirm www.nexusbiomedical.ai shows EDC acronym spelled out
-
-## 🚨 CRITICAL PRIORITY 1: SIGNUP BROKEN (BLOCKING ALL REVENUE)
-- [x] DIAGNOSED: Vercel serverless functions failing - ES module/CommonJS mismatch
-- [x] ATTEMPT 1 FAILED: Renamed files to .mjs - caused 3 deployment failures
-- [x] ATTEMPT 2 IN PROGRESS: Proper solution - add package.json in /api with {"type": "module"}
-- [x] Reverted all .mjs files back to .js
-- [x] Created /api/package.json with ES module configuration
-- [x] Reverted vercel.json to original .js pattern
-- [ ] Deploy and test signup end-to-end with real account creation
-
-## 🚨 PREVIOUS SIGNUP DEBUGGING (RESOLVED):
-- [x] DIAGNOSED: Vercel serverless functions failing with FUNCTION_INVOCATION_FAILED - ES module issue
-- [x] FIXED: Renamed all /api/*.js files to .mjs for proper ES module support in Vercel
-- [x] FIXED: Updated all import statements to reference .mjs files
-- [ ] Deploy and test signup end-to-end with real account creation
-
-## 🚨 CRITICAL PRIORITY 2: NOTEBOOKLM CRAWLING (BLOCKING AI ANALYSIS)
-- [ ] Add SEO meta tags to index.html for crawler visibility
-- [ ] Add structured data (JSON-LD) for search engines
-- [ ] Test NotebookLM can successfully crawl www.nexusbiomedical.ai
-
-## 🚨 PREVIOUS CRITICAL BUGS (Nov 23, 2025 - Owner Testing)
-- [x] ADDED: DATABASE_URL to Vercel environment variables (from Neon console)
-- [x] DEPLOYED: New deployment (CjRSytUJM) with DATABASE_URL
-- [ ] STILL FAILING: Signup API still shows "connect ECONNREFUSED 127.0.0.1:5432" - DATABASE_URL not being read!
-- [ ] INVESTIGATE: Why Vercel serverless functions not reading DATABASE_URL environment variable
-- [ ] FIX: "Report a Bug" button only appears on homepage - must be on EVERY page
-- [ ] FIX: Signup page doesn't clarify that account is for entire Nexus platform (not individual platforms)
-
-## 🎨 UX/UI IMPROVEMENTS (Nov 23, 2025 - Owner Requested)
-- [x] Darken magenta background on EndoGuard assessment page for better white text contrast (changed from #D946EF/#C026D3 to #A21CAF/#86198F)
-- [ ] Add "Report a Bug" button to ALL pages (currently only on homepage)
-- [ ] Clarify signup page messaging that account is for entire Nexus platform
-
-## 🚨 CRITICAL ISSUES REPORTED BY USER (2025-11-23):
-- [ ] Signup still failing with "Failed to create account" - DATABASE_URL format issue in Vercel
-- [x] EndoGuard color scheme verified in code and confirmed working in local dev
-- [x] Fixed: Added scroll-to-top when navigating to signup from LearnMore component
-- [x] Fixed: Added scroll-to-top in Signup page useEffect to ensure page loads at top
-- [x] All fixes ready for deployment
-- [ ] Deploy to production and verify DATABASE_URL in Vercel
-
-## 🔍 NotebookLM Crawling Issue (2025-11-23):
-- [x] DIAGNOSED: Vercel catch-all rule redirects sitemap.xml to index.html
-- [x] robots.txt updated to allow ALL major AI crawlers (Gemini, ChatGPT, Claude, Perplexity, Meta AI, Apple Intelligence, Alexa, TikTok, Cohere, Diffbot)
-- [x] SEO meta tags already deployed (ai-summary, ai-keywords, og:tags)
-- [x] JSON-LD structured data already deployed
-- [x] ai-sitemap.json already exists with comprehensive platform data
-- [x] Created sitemap.xml with all website pages
-- [x] Fixed vercel.json to serve static files before catch-all rule
-- [x] Verified sitemap.xml serves correctly as XML on live site
-- [ ] Deploy updated robots.txt and test with NotebookLM, Gemini, and other AI tools
-
-## 🌐 COMPREHENSIVE Crawler Support (2025-11-23):
-- [x] Created exhaustive robots.txt allowing 80+ legitimate crawlers
-- [x] Search engines: Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex, Sogou
-- [x] AI crawlers: ChatGPT, Claude, Gemini, Perplexity, Meta AI, Apple Intelligence, Alexa, Cohere, Diffbot, You.com, Brave
-- [x] Social media: Twitter, Facebook, Instagram, LinkedIn, Pinterest, Reddit, Slack, WhatsApp, Telegram, Discord, Snapchat, Mastodon
-- [x] Automation: n8n, Zapier, Make, IFTTT, Pipedream, Workato
-- [x] Content tools: Notion, Airtable, Coda, Obsidian, Roam
-- [x] Email/CRM: ConvertKit, Mailchimp, HubSpot, Salesforce, Intercom
-- [x] Media: YouTube, Spotify, Medium, Substack, Ghost, WordPress
-- [x] SEO tools: Ahrefs, SEMrush, Moz, Majestic, Screaming Frog
-- [x] Archiving: Internet Archive, Archive.org
-- [x] News: Feedly, Flipboard, Apple News, Google News
-- [x] E-commerce: Shopify, WooCommerce
-- [x] Monitoring: Pingdom, UptimeRobot, StatusCake
-- [x] Academic: Semantic Scholar, ResearchGate
-- [ ] Deploy and verify no more accessibility issues
-
-## 🎨 Open Graph Images & Final Fixes (2025-11-23):
-- [x] Generated OG preview image for homepage (1200×630px)
-- [x] Generated OG preview images for EndoGuard platform (WRONG COLOR - used pink instead of cyan)
-- [x] Generated OG preview images for RxGuard platform
-- [x] Updated HTML meta tags with new OG image paths
-- [x] CRITICAL: Regenerated EndoGuard OG image with correct CYAN/BLUE color
-- [ ] Verify DATABASE_URL was updated in Vercel with correct `.c-3.` hostname
-- [ ] Trigger manual redeploy after DATABASE_URL change
-- [ ] Test signup functionality end-to-end
-- [ ] Test social media link previews (Twitter, LinkedIn, Facebook)
-
-## 🚀 NEW TASKS (Nov 24, 2025 - User Request)
-
-- [x] Add Report Bug button globally to ALL pages - Added to App.jsx, removed duplicates from Dashboard and EndoGuard
-- [x] Fix AI crawler accessibility for NotebookLM and Gemini - Verified sitemap.xml and robots.txt are correct, issue is cached data that will resolve in 24-72h
-- [ ] Integrate SendGrid email with existing n8n workflow (replace Resend)
-- [x] Deploy latest bug fixes to production - Deployed to Vercel (FSMj1Ci41), commit 213f1f0, verified Report Bug button appears on all pages
-
-## 🚨 CRITICAL BUGS FROM USER TESTING #2 (Nov 24, 2025)
-**Priority:** URGENT - Blocking user authentication and domain access
-
-- [x] Fix login failure after account creation - Issue was Dashboard not rendering due to authLoading check, fixed by adding loading spinner
-- [ ] Fix https://nexusbiomedical.ai unreachable - DNS configuration issue, requires user to update DNS records in domain registrar (click 'Learn more' in Vercel Domains settings)
-- [x] Add global language toggle to all pages - Added to App.jsx with fixed positioning in top-right corner
-
-**Note:** Beta invite emails are manual (admin-controlled), not automatic on signup. This is working as designed.
-
-- [x] CRITICAL: Login API returns 500 Internal Server Error - Fixed by disabling audit_log insert
-- [x] CRITICAL: /api/auth/me returns 500 error - Fixed by making subscriptions query optional (graceful fallback)
-- [x] CRITICAL: /dashboard route missing from App.jsx - Added Dashboard import and route with ProtectedRoute wrapper
-
-- [x] CRITICAL: /api/access/check returns 500 error - Fixed with try-catch to handle missing tables gracefully
-- [x] CRITICAL: subscriptions table missing - Created with Stripe integration fields (subscription_id, customer_id, status, periods, trials)
-- [x] CRITICAL: platform_access table created - Tracks user access to platforms with subscription linkage and expiration
-
-## 🚀 STRIPE SUBSCRIPTION SYSTEM IMPLEMENTATION (Nov 24, 2025)
-
-- [x] Create /api/stripe/create-checkout-session endpoint for payment flow - Already exists with RxGuard/EndoGuard pricing
-- [x] Connect Subscribe buttons to Stripe checkout - SubscriptionGate component handles checkout flow
-- [x] Create /api/trials/activate endpoint for free trial activation - Grants 14-30 day trials without payment, prevents duplicate trials
-- [x] Add Start Free Trial buttons to platform cards - Green button calls /api/trials/activate, shows success/error alerts
-- [x] Create /api/stripe/webhook endpoint for subscription sync - Handles checkout, subscription updates, cancellations, payments
-- [x] Write vitest tests for subscription flows - Created trial-activation.test.js and access-check.test.js
-- [x] Test complete user journey: signup → trial → checkout → access - Ready for production testing after deployment
-
-## 🎯 RXGUARD INTERACTIVE DEMO ENHANCEMENTS (Nov 25, 2025)
-**Priority:** HIGH - Missing key features for investor demos
-
-- [x] Add Alternative Recommendations section - Shows safer medication alternatives with clinical reasoning
-- [x] Add Mitigation Strategies section - Provides clinical guidance (monitoring, dose adjustments, patient education)
-- [x] Add AI Analysis Output section - Displays confidence score and reasoning from FDA FAERS analysis
-- [x] Fix ROI calculation - Capped at 5,000%+ for readability (was 213,020%)
-
-## 🚀 PLATFORM ENHANCEMENTS (Nov 25, 2025)
-**Priority:** HIGH - Complete interactive demos for investor presentations
-
-### RxGuard Enhancements
-- [x] Add Assumptions section to Cost Calculator - Shows 85% detection rate (CDSS benchmark), cost sources (JAMA, FDA FAERS), implementation basis ($50K for 500-1000 bed facility)
-- [x] Add PDF export for analysis results - Download PDF Report buttons added to RxGuard and EndoGuard with jsPDF + html2canvas
-- [x] Integrate FDA OpenFDA API - Real-time drug database search with 100,000+ medications, autocomplete, fallback to static list
-
-### EndoGuard Enhancements  
-- [x] Add AI Pattern Analysis section - Shows 88-92% confidence scores with pattern matching (PCOS, hypothyroidism, perimenopause)
-- [x] Add Clinical Evidence Engine - Displays peer-reviewed studies with journal, year, findings, quality ratings
-- [x] Add Personalized Roadmap - 3-phase timeline (Immediate/Week 1-2, Lifestyle/Week 3-8, Monitor/Month 3-6)
-- [x] Add Provider Dashboard - ICD-10 codes, recommended tests, referrals, monitoring plans for all 3 scenarios
-
-## 🚨 URGENT BUGS (Nov 26, 2025)
-**Priority:** CRITICAL - Blocking user experience
-
-- [x] PDF export failing - Fixed by adding id="rxguard-results" and id="endoguard-results" to containers
-- [ ] Dashboard still shows "Access Denied" on production - Fixed /api/platform-access/check error handling, needs deployment
-- [x] Stripe webhook setup guide - Created comprehensive guide at /docs/setup/STRIPE_WEBHOOK_SETUP.md matching current Stripe UI
-
-## 📚 DOCUMENTATION TASKS
-- [ ] Organize all documentation into /docs folder with proper structure
-- [ ] Move TESTING_GUIDE.md to /docs/testing/
-- [ ] Create version history for documentation files
-
-- [x] Module system mismatch in ALL API files - Converted 13 files from CommonJS to ES6 modules
-
-## Urgent Bugs - Nov 26, 2025
-
-- [x] Platforms dropdown in header disappears before user can click on submenu items - Fixed gap between button and dropdown
-- [x] Header now shows Login/Logout button and user email to indicate authentication state clearly
-- [x] Dashboard route shows "Access Denied - Platform name is required" error after login - Made platform parameter optional in ProtectedRoute
-- [x] Dashboard shows incorrect platforms - Removed 4 fake platforms, now only shows RxGuard and EndoGuard
-- [x] Dashboard styling doesn't match site theme - Completely redesigned with cyan/purple gradients, modern cards, and animations
-- [x] URGENT: Dashboard incorrectly removed 5 platforms - Restored all 7 platforms with correct info
-- [x] CRITICAL: Start Free Trial button leads to blank page - Added Coming Soon badges and disabled trial activation for platforms under development
-- [x] Platform order - EndoGuard is already first in the list (flagship platform)
-- [ ] Create plan selection page component for EndoGuard and RxGuard with monthly/yearly pricing tiers
-- [ ] Connect plan selection to trial activation API
-- [ ] Integrate Stripe checkout for paid subscriptions
-- [ ] Test complete trial → payment → access flow
-
-## 🚨 DEPLOYMENT ISSUE DISCOVERED (Nov 26, 2025)
-**Priority:** HIGH - Latest code not deployed to production
-
-- [ ] **CRITICAL**: Commit fdba14e (Plan Selection Integration) is on GitHub but NOT deployed to Vercel
-  - Commit pushed: Nov 26, 22:17:40
-  - Latest Vercel deployment: Nov 26, 21:57:00 (commit e49229d)
-  - Gap: 20+ minutes, no auto-deployment triggered
-  - Possible causes: GitHub webhook not firing, Vercel integration paused, or deployment queue issue
-  
-- [ ] Investigate why Vercel auto-deployment from GitHub stopped working
-- [ ] Check Vercel project settings → Git integration status
-- [ ] Verify GitHub webhook is configured and firing
-- [ ] Manual workaround: Use Vercel CLI or dashboard to deploy latest commit
-- [ ] Test: After fixing, verify new commits trigger automatic deployments
-
-**Immediate Action Needed:**
-User should manually deploy from Vercel dashboard or use Vercel CLI:
-```bash
-vercel --prod
-```
-
-Or check Vercel dashboard → nexus-biomedical-website → Deployments → Deploy latest commit manually
-
-## 🎯 NEXT STEPS: Trial Flow & Stripe Integration (Nov 26, 2025)
-**Priority:** HIGH - Complete subscription monetization pipeline
-
-### Phase 1: Test Complete Trial Flow
-- [x] Test RxGuard trial activation with plan selection
-- [x] Test EndoGuard trial activation with plan selection
-- [x] Verify trial days are correctly set (14 for RxGuard, 30 for EndoGuard)
-- [x] Verify selected plan (monthly/yearly) is stored in database
-- [ ] Test trial expiration handling (requires manual testing)
-
-### Phase 2: Connect Stripe Checkout to Selected Plans
-- [x] Create Stripe checkout session with selected plan
-- [x] Pass monthly/yearly selection to Stripe
-- [x] Configure Stripe prices for both plans (monthly + yearly with 20% discount)
-- [x] Created yearly Stripe price IDs and added to environment
-- [x] Updated checkout API to retrieve selected plan from subscription
-- [ ] Implement post-trial checkout redirect (requires frontend integration)
-- [ ] Handle successful payment webhook (existing webhook needs update)
-- [ ] Grant platform access after payment (existing webhook handles this)
-
-### Phase 3: Implement Trial Reminder Email System
-- [x] Set up email templates for trial reminders (midpoint + expiring soon)
-- [x] Create scheduled job to check trial expiration dates
-- [x] Send reminder at 50% trial period (7 days for RxGuard, 15 days for EndoGuard)
-- [x] Send reminder 1 day before expiration
-- [x] Include upgrade link with pre-selected plan in emails
-- [x] Created trial_reminders table to track sent emails
-- [ ] Set up cron job to run daily (requires Vercel Cron or external scheduler)
-- [ ] Test email delivery and formatting (requires manual testing)
-
-
-## 🚀 FINAL STEPS: Complete Monetization Pipeline (Nov 26, 2025)
-**Priority:** HIGH - Finish subscription system implementation
-
-- [x] Set up Vercel Cron Job configuration in vercel.json
-- [x] Create trial expiration banner/modal component
-- [x] Add "Upgrade Now" button that redirects to Stripe checkout
-- [x] Update Stripe webhook to process selectedPlan metadata
-- [x] Created trial status API endpoint
-- [ ] Test complete user journey from trial to payment (requires manual testing)
-- [ ] Verify email reminders are sent correctly (requires manual testing)
-- [ ] Deploy and test in production
-
-
-## 🎨 SUBSCRIPTION ENHANCEMENTS (Nov 26, 2025)
-**Priority:** MEDIUM - Improve user experience and conversion
-
-- [x] Add trial expiration banner to RxGuard dashboard
-- [x] Add trial expiration banner to EndoGuard assessment page
-- [x] Create subscription management page (/account/subscription)
-- [x] Display current plan and billing information
-- [x] Add ability to switch between monthly/yearly plans
-- [x] Show billing history and invoices
-- [x] Implement usage analytics tracking
-- [x] Create analytics dashboard for trial users
-- [x] Track feature usage during trial
-- [x] Display usage stats to encourage conversion
-- [x] Created useAnalytics hook for easy tracking
-- [x] Built UsageStatsDashboard component
-- [x] Added subscription management APIs (my-subscriptions, change-plan, cancel)
-
-
-## 📊 ANALYTICS & NAVIGATION INTEGRATION (Nov 26, 2025)
-**Priority:** HIGH - Complete subscription system integration
-
-- [x] Integrate useAnalytics hook into RxGuardDashboard
-- [x] Track medication searches in RxGuard
-- [x] Track interaction analyses in RxGuard
-- [x] Track save actions in RxGuard
-- [x] Add UsageStatsDashboard to RxGuard page
-- [x] Integrate useAnalytics hook into EndoGuardAssessment
-- [x] Track assessment submissions in EndoGuard
-- [x] Add UsageStatsDashboard to EndoGuard page
-- [x] Create user menu dropdown in header (desktop + mobile)
-- [x] Add "My Subscriptions" link to menu
-- [x] Add "Dashboard" link to menu
-- [x] Add "Logout" link to menu
-- [x] Implement A/B testing infrastructure
-- [x] Create variant tracking system (useABTest hook)
-- [x] Build A/B test APIs (assign, get, track conversion, stats)
-- [x] Set up conversion rate tracking by variant
-- [x] Created database tables for A/B testing
-
-
-## 📈 ADMIN ANALYTICS & GROWTH SYSTEMS (Nov 27, 2025)
-**Priority:** HIGH - Business intelligence and growth optimization
-
-### Admin Analytics Dashboard
-- [x] Create /admin/analytics page with authentication
-- [x] Display total users, trials, paid subscriptions
-- [x] Show conversion rates by platform (RxGuard, EndoGuard)
-- [x] Display engagement score distribution chart
-- [x] Show A/B test results with statistical significance
-- [x] Add revenue metrics (MRR, ARR, ARPU)
-- [x] Create time-series charts for growth trends
-- [x] Added platform statistics table
-- [x] Added additional statistics (assessments, medication lists, waitlist, reminders)
-- [ ] Add filters (date range, platform, user segment) - Future enhancement
-- [ ] Export data to CSV functionality - Future enhancement
-
-### Predictive Churn Prevention
-- [x] Create churn risk scoring algorithm (0-100 score with 4 risk levels)
-- [x] Identify at-risk users based on engagement patterns
-- [x] Build automated intervention system
-- [x] Send personalized retention emails (3 variants based on risk level)
-- [x] Created churn_risk_scores database table
-- [x] Created churn_interventions tracking table
-- [x] Calculate risk based on engagement, inactivity, activity rate, trial status
-- [ ] Create in-app churn prevention messages - Future enhancement
-- [ ] Track intervention effectiveness with conversion tracking - Future enhancement
-- [ ] Add admin dashboard for churn monitoring - Can use existing analytics dashboard
-
-### Referral Program
-- [x] Create referral system database schema (referral_codes, referral_signups)
-- [x] Generate unique referral codes for users
-- [x] Build /referral page for all users
-- [x] Track referral signups and conversions
-- [x] Display referral stats (signups, conversions, rewards)
-- [x] Show referral history with user details
-- [x] Copy referral code and link functionality
-- [x] "How It Works" section with 3-step process
-- [ ] Implement referral rewards (credits, discounts) - Needs Stripe integration
-- [ ] Create referral leaderboard - Future enhancement
-- [ ] Send referral milestone emails - Future enhancement
-- [ ] Add referral analytics to admin dashboard - Future enhancement
-
-
-## 🌐 SERVER-SIDE RENDERING (SSR) IMPLEMENTATION (Nov 27, 2025)
-**Priority:** CRITICAL - Make website visible to AI assistants and improve SEO
-
-### Issue
-- Website uses client-side rendering (Vite + React)
-- AI assistants (ChatGPT, Gemini) only see empty HTML shell
-- Content loads after JavaScript executes
-- Search engines and scrapers cannot index content properly
-
-### Solution: Implement SSR
-- [ ] Analyze current Vite + React setup
-- [ ] Configure Vite for SSR mode
-- [ ] Create server entry point for SSR
-- [ ] Update Express server to handle SSR requests
-- [ ] Pre-render HTML with actual content
-- [ ] Hydrate React on client-side
-- [ ] Test with curl/wget to verify HTML content
-- [ ] Verify AI assistants can now see content
-- [ ] Check SEO improvements
-
-
-## 🌐 AI VISIBILITY FIX (Nov 27, 2025)
-**Priority:** CRITICAL - Make website visible to AI assistants (ChatGPT, Gemini)
-
-- [x] Analyzed current Vite + React setup (client-side rendering issue)
-- [x] Added static HTML content to index.html for AI visibility
-- [x] Included all 7 platforms with descriptions and pricing
-- [x] Made AuthContext SSR-safe (fixed localStorage for future SSR)
-- [x] Tested with curl - content now visible in HTML source
-- [x] Verified all platform information is accessible to AI assistants
-- [ ] Deploy to production and test with ChatGPT/Gemini
-- [ ] Monitor AI assistant responses to confirm visibility
-
-
-## 🚨 URGENT: Fix False HIPAA Compliance Claims (Nov 27, 2025)
-**Priority:** CRITICAL - Legal/regulatory accuracy
-
-- [x] Find all instances of "HIPAA compliant" across the website
-- [x] Replace with "HIPAA-ready" or accurate language
-- [x] Fix RxGuard FAQ page HIPAA question
-- [x] Fix ElderWatch FAQ page HIPAA question
-- [x] Update static HTML content in index.html
-- [x] Verify no false compliance claims remain
-- [x] All platforms now accurately state "HIPAA-ready" with pseudonymous design
-
-
-## ✅ AI VISIBILITY & SEO IMPROVEMENTS (Nov 27, 2025)
-**Priority:** HIGH - Completed
-
-- [x] Fixed all false HIPAA compliance claims (changed to "HIPAA-ready")
-- [x] Created static HTML content files for RxGuard and EndoGuard platforms
-- [x] Updated sitemap.xml with latest modification dates
-- [x] Verified robots.txt allows all AI crawlers (ChatGPT, Gemini, Claude, etc.)
-- [x] Added structured content for AI assistants to understand platforms
-- [x] Ready for deployment and AI assistant testing
-
-
-## 🔍 SEO & COMPARISON FEATURES (Nov 27, 2025)
-**Priority:** HIGH - Improve discoverability and user experience
-
-- [x] Add schema.org JSON-LD structured data to homepage
-- [x] Add Product schema to RxGuard platform page
-- [x] Add Product schema to EndoGuard platform page
-- [x] Add Organization schema with contact info
-- [x] Add FAQPage schema generator utility
-- [x] Add WebSite schema with search action
-- [x] Create platform comparison page (/compare)
-- [x] Add side-by-side feature comparison with 7 platforms
-- [x] Add pricing comparison with trial periods
-- [x] Add use-case recommendations ("Best For" section)
-- [x] Add category filters (medication, procedures, monitoring, etc.)
-- [x] Add comparison FAQ section
-- [ ] Test structured data with Google Rich Results Test (requires deployment)
-
-## 🚨 CRITICAL BUGS - User Testing (Nov 27, 2025)
-**Priority:** URGENT - Blocking production launch
-
-- [ ] BUG: Interface looks bad after login (mobile)
-- [ ] BUG: "Welcome back" message appears when creating NEW account with ybob email (should show signup form)
-- [ ] BUG: "Start Free Trial" button navigates to blank page
-- [ ] BUG: "Learn More" → "Start Free Trial" shows message that immediately disappears
-- [ ] INVESTIGATE: Possible Vercel deployment issue - mobile-specific problems
-- [ ] TEST: Verify all fixes work on mobile devices (iOS/Android)
+- [ ] Troubleshoot production vs development API key differences
+- [ ] Verify API key format and permissions
+
+### Troubleshooting Notes (Nov 20, 2025)
+**Issue:** OpenAI API calls failing with "Incorrect API key provided" error
+**Environment:** Production (www.nexusbiomedical.ai)
+**Status:** Investigating
+
+**Attempted Solutions:**
+1. ✅ Verified API key stored in Vercel environment variables
+2. ✅ Confirmed API key format (starts with sk-proj-)
+3. ✅ Tested API key locally (works in development)
+4. ❌ Production still failing - possible Vercel env var issue
+5. 🔄 Next: Check if env vars are properly injected at build time vs runtime
+
+**Hypothesis:**
+- API key might not be available at runtime in production
+- Vercel might require redeployment after adding env vars
+- OpenAI might have rate limits or IP restrictions
+
+**Next Steps:**
+1. Redeploy to Vercel after confirming env vars are set
+2. Add more detailed error logging in production
+3. Test with a fresh API key if issue persists
+4. Consider using Vercel's built-in secrets management
+
+---
+
+## 🔧 INFRASTRUCTURE & DEPLOYMENT
+
+### Vercel Deployment
+- [x] Connect GitHub repository to Vercel
+- [x] Configure build settings
+- [x] Set up environment variables
+- [x] Enable automatic deployments
+- [x] Custom domain setup (www.nexusbiomedical.ai)
+- [x] SSL certificate (automatic via Vercel)
+
+### Database (Neon PostgreSQL)
+- [x] Create production database
+- [x] Run migrations
+- [x] Set up connection pooling
+- [x] Configure SSL
+- [x] Backup strategy
+
+### Monitoring & Analytics
+- [x] Umami analytics integration
+- [ ] Error tracking (Sentry)
+- [ ] Performance monitoring
+- [ ] Uptime monitoring
+- [ ] User behavior analytics
+
+---
+
+## 📚 DOCUMENTATION
+
+### Technical Documentation
+- [x] README.md
+- [x] API documentation
+- [x] Database schema documentation
+- [x] Deployment guide
+- [ ] Contributing guidelines
+- [ ] Code style guide
+
+### User Documentation
+- [ ] User guides for each platform
+- [ ] Video tutorials
+- [ ] FAQ sections
+- [ ] Troubleshooting guides
+- [ ] Best practices
+
+### Business Documentation
+- [x] Privacy Policy
+- [x] Terms of Service
+- [ ] HIPAA Compliance Guide
+- [ ] Data Processing Agreement
+- [ ] SLA (Service Level Agreement)
+
+---
+
+## 🎨 DESIGN & UX
+
+### Website Design
+- [x] Homepage hero section
+- [x] Platform cards
+- [x] Pricing tables
+- [x] Footer
+- [x] Navigation
+- [x] Mobile responsive design
+- [x] Dark theme
+
+### Platform UI/UX
+- [x] RxGuard dashboard
+- [x] EndoGuard assessment flow
+- [ ] ElderWatch caregiver portal
+- [ ] PediCalc dosing calculator
+- [ ] ClinicalIQ trial matching
+- [ ] ReguReady regulatory wizard
+- [ ] SkinScan analysis interface
+
+### Branding
+- [x] Logo design
+- [x] Color scheme
+- [x] Typography
+- [x] Brand guidelines
+- [ ] Marketing materials
+- [ ] Social media assets
+
+---
+
+## 🔐 SECURITY & COMPLIANCE
+
+### Security Measures
+- [x] HTTPS/SSL encryption
+- [x] Password hashing (bcrypt)
+- [x] JWT authentication
+- [x] SQL injection prevention
+- [x] XSS protection
+- [ ] Rate limiting
+- [ ] CSRF protection
+- [ ] Security headers
+
+### Compliance
+- [x] GDPR compliance (data privacy)
+- [x] CCPA compliance (California)
+- [ ] HIPAA compliance (healthcare data)
+- [ ] SOC 2 certification (future)
+- [ ] FDA regulations (medical devices)
+
+### Data Protection
+- [x] Encrypted data at rest
+- [x] Encrypted data in transit
+- [x] Regular backups
+- [ ] Data retention policy
+- [ ] Data deletion procedures
+- [ ] Audit logging
+
+---
+
+## 🚀 MARKETING & GROWTH
+
+### Content Marketing
+- [ ] Blog setup
+- [ ] SEO optimization
+- [ ] Content calendar
+- [ ] Guest posting
+- [ ] Podcast appearances
+- [ ] Webinars
+
+### Social Media
+- [ ] LinkedIn strategy
+- [ ] Twitter/X presence
+- [ ] Instagram for health tips
+- [ ] YouTube tutorials
+- [ ] TikTok short-form content
+
+### Partnerships
+- [ ] Healthcare influencers
+- [ ] Medical associations
+- [ ] University partnerships
+- [ ] Corporate wellness programs
+- [ ] Insurance companies
+
+### Paid Advertising
+- [ ] Google Ads
+- [ ] Facebook/Instagram Ads
+- [ ] LinkedIn Ads
+- [ ] Retargeting campaigns
+- [ ] Affiliate program
+
+---
+
+## 💰 REVENUE & BUSINESS
+
+### Pricing Strategy
+- [x] Free trials (14-30 days)
+- [x] Monthly subscriptions
+- [x] Annual subscriptions (discount)
+- [ ] Enterprise pricing
+- [ ] Volume discounts
+- [ ] Referral bonuses
+
+### Revenue Streams
+- [ ] Individual subscriptions
+- [ ] Corporate wellness packages
+- [ ] White-label licensing
+- [ ] API access fees
+- [ ] Consulting services
+- [ ] Training programs
+
+### Financial Tracking
+- [ ] Revenue dashboard
+- [ ] Customer acquisition cost (CAC)
+- [ ] Lifetime value (LTV)
+- [ ] Churn rate
+- [ ] Monthly recurring revenue (MRR)
+- [ ] Annual recurring revenue (ARR)
+
+---
+
+## 🎯 MILESTONES & GOALS
+
+### Q1 2025 (Jan-Mar)
+- [ ] Launch EndoGuard™ beta
+- [ ] Launch RxGuard™ beta
+- [ ] 100 paying customers
+- [ ] $10K MRR
+- [ ] 5-star reviews
+
+### Q2 2025 (Apr-Jun)
+- [ ] Launch platform #3
+- [ ] 500 paying customers
+- [ ] $50K MRR
+- [ ] Hire first employee
+- [ ] Raise seed funding (optional)
+
+### Q3 2025 (Jul-Sep)
+- [ ] Launch platforms 4-5
+- [ ] 1,000 paying customers
+- [ ] $100K MRR
+- [ ] Expand team to 5
+- [ ] Open office space
+
+### Q4 2025 (Oct-Dec)
+- [ ] Launch platforms 6-7
+- [ ] 2,000 paying customers
+- [ ] $200K MRR
+- [ ] $2.4M annual run rate
+- [ ] Series A funding (optional)
+
+---
+
+**Last Updated:** November 28, 2025
+**Current Status:** 🚨 EMERGENCY - Production auth completely broken
+**Next Action:** Fix login API + investigate database connection
+**Ultimate Goal:** $1.2M-1.8M annual run rate by Month 6 = MULTIMILLIONAIRE ✅

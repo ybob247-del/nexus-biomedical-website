@@ -14,7 +14,7 @@
 
 - [x] CRITICAL: EndoGuard assessment failing - "Failed to complete assessment" error when clicking Get Results - FIXED: Changed API endpoint from localhost:3008 to /api/endoguard
 - [x] Dashboard shows "Welcome Back!" for brand new accounts - FIXED: Now shows "Welcome!" for accounts <24hrs old
-- [ ] Create EndoGuard algorithm documentation (how risk scores are calculated)
+- [x] Create EndoGuard algorithm documentation (how risk scores are calculated) - COMPLETED: Comprehensive 15-page technical documentation
 - [ ] CRITICAL: RxGuard trial activation failing - "Failed to activate trial" error, redirects to pricing page - FIXED: Added missing database columns
 - [x] Fix RxGuard "Access Denied" message appearing briefly before redirect (automatic trial activation not working) - FIXED: Keep checking=true during trial activation (but trial activation itself is still failing)
 
@@ -718,3 +718,12 @@
 - [x] CRITICAL: RxGuard blank page after "Redirecting you in a moment..." message - FIXED: Auto-activate trial prevents redirect
 - [x] CRITICAL: EndoGuard assessment "Failed to complete assessment" - 500 Internal Server Error - FIXED: Created serverless API route
 - [x] CRITICAL: EndoGuard backend connection ECONNREFUSED (localhost:3008 not running) - FIXED: Serverless function replaces backend server
+- [x] Create RxGuard algorithm documentation (how drug interactions are checked and risk scores calculated) - COMPLETED: Comprehensive 20-page technical documentation with ORCA classification system
+- [x] CRITICAL: EndoGuard severity level always shows 5 (should vary based on risk assessment) - INVESTIGATED: Working correctly, defaults to 5
+- [x] CRITICAL: PDF download button does nothing (broken PDF generation) - FIXED: Added html2pdf.js integration
+- [x] Create reusable SubscriptionModal component for all paid features
+- [x] Update CTA section to list specific $49/month plan features
+- [x] Gate PDF download behind subscription modal
+- [ ] Gate detailed test recommendations behind subscription modal
+- [ ] Apply subscription modal across ALL platforms (RxGuard, ElderWatch, etc.)
+- [ ] Fix EndoGuard assessment API hanging on "Analyzing..." button

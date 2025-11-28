@@ -1,12 +1,38 @@
-import React from 'react';
+import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import TestRecommendations from './TestRecommendations';
 import SignupPrompt from './SignupPrompt';
+import SubscriptionModal from './SubscriptionModal';
 import '../styles/endoguard-results.css';
 
 export default function EndoGuardResults({ results }) {
   if (!results) return null;
 
+  const { user } = useAuth();
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
+  const [modalFeature, setModalFeature] = useState('');
   const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps } = results;
+
+  const handleDownloadPDF = async () => {
+    // Check if user has active subscription
+    // For now, show subscription modal for all users
+    setModalFeature('PDF report download');
+    setShowSubscriptionModal(true);
+    
+    // TODO: After user subscribes, generate PDF:
+    // setIsGeneratingPDF(true);
+    // const element = document.querySelector('.endoguard-results');
+    // const opt = { ... };
+    // const html2pdf = (await import('html2pdf.js')).default;
+    // await html2pdf().set(opt).from(element).save();
+    // setIsGeneratingPDF(false);
+  };
+
+  const handlePremiumFeatureClick = (featureName) => {
+    setModalFeature(featureName);
+    setShowSubscriptionModal(true);
+  };
 
   return (
     <div className="endoguard-results">
@@ -131,13 +157,62 @@ export default function EndoGuardResults({ results }) {
 
       {/* Call to Action */}
       <div className="cta-section">
-        <h3>Ready to Take Control of Your Hormone Health?</h3>
-        <p>Get ongoing support, track your progress, and access our complete hormone wellness program.</p>
-        <div className="cta-buttons">
-          <button className="btn-primary">Start Your Journey ($49/month)</button>
-          <button className="btn-secondary">Download Full Report (PDF)</button>
+        <h3>🚀 Unlock Your Complete Hormone Health Program</h3>
+        <p className="cta-subtitle">Get personalized guidance, professional reports, and ongoing support for just <strong>$49/month</strong></p>
+        
+        <div className="premium-features-list">
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Unlimited assessments & progress tracking</span>
+          </div>
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Detailed test recommendations with lab letters</span>
+          </div>
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Personalized 30/60/90 day action plans</span>
+          </div>
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Provider referrals & supplement recommendations</span>
+          </div>
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Professional PDF reports & progress charts</span>
+          </div>
+          <div className="premium-feature">
+            <span className="feature-check">✅</span>
+            <span>Priority email support from health coaches</span>
+          </div>
         </div>
+
+        <div className="cta-buttons">
+          <button 
+            className="btn-primary" 
+            onClick={() => handlePremiumFeatureClick('full premium access')}
+          >
+            Upgrade to Premium - $49/month
+          </button>
+          <button 
+            className="btn-secondary" 
+            onClick={handleDownloadPDF}
+            disabled={isGeneratingPDF}
+          >
+            📄 Download PDF Report
+          </button>
+        </div>
+        
+        <p className="cta-guarantee">✨ 14-day money-back guarantee • Cancel anytime</p>
       </div>
+
+      {/* Subscription Modal */}
+      <SubscriptionModal 
+        isOpen={showSubscriptionModal}
+        onClose={() => setShowSubscriptionModal(false)}
+        feature={modalFeature}
+        platform="EndoGuard"
+      />
 
       {/* Medical Disclaimer */}
       <div className="medical-disclaimer">

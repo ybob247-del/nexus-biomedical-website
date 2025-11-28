@@ -351,6 +351,50 @@
   opacity: 0.95;
 }
 
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+}
+
+.premium-features-list {
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.premium-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.premium-feature:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(5px);
+}
+
+.feature-check {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.cta-guarantee {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
 .cta-buttons {
   display: flex;
   gap: 15px;

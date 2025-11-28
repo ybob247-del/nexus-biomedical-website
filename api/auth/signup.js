@@ -8,17 +8,29 @@ import { query } from '../utils/db.js';
 import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.js';
 
 export default async function handler(req, res) {
-  // Debug logging for DATABASE_URL
-  console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
-  console.log('DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
-  console.log('DATABASE_URL starts with postgresql:', process.env.DATABASE_URL?.startsWith('postgresql://'));
-  
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  // Set timeout to prevent hanging
+  const timeout = setTimeout(() => {
+    if (!res.headersSent) {
+      console.error('Signup API timeout - request took too long');
+      return res.status(504).json({ 
+        error: 'Request timeout', 
+        message: 'The server took too long to respond. Please try again.' 
+      });
+    }
+  }, 25000); // 25 second timeout
 
   try {
+    // Debug logging for DATABASE_URL
+    console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+    console.log('DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
+    console.log('DATABASE_URL starts with postgresql:', process.env.DATABASE_URL?.startsWith('postgresql://'));
+    
+    // Only allow POST requests
+    if (req.method !== 'POST') {
+      clearTimeout(timeout);
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+
     const { email, password, firstName, lastName } = req.body;
 
     // Validate input
@@ -104,6 +116,9 @@ export default async function handler(req, res) {
     */
     console.log(`User ${user.id} created successfully. Audit log and trials temporarily disabled.`);
 
+    // Clear timeout before responding
+    clearTimeout(timeout);
+    
     // Return user data and token
     return res.status(201).json({
       success: true,
@@ -119,10 +134,16 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
+    clearTimeout(timeout);
     console.error('Signup error:', error);
+    console.error('Error stack:', error.stack);
+    console.error('Error details:', JSON.stringify(error, null, 2));
+    
+    // Always return JSON, never HTML
     return res.status(500).json({
       error: 'Failed to create account',
-      message: error.message,
+      message: error.message || 'Unknown error occurred',
+      details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
     });
   }
 };

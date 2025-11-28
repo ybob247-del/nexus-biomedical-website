@@ -55,6 +55,35 @@ const Testimonials = () => {
       {/* Hero Section */}
       <section className="testimonials-hero">
         <div className="testimonials-hero-content">
+          <button 
+            onClick={() => window.location.href = '/'} 
+            className="back-to-home-btn"
+            style={{
+              position: 'absolute',
+              top: '20px',
+              left: '20px',
+              padding: '12px 24px',
+              background: 'rgba(0, 217, 255, 0.1)',
+              border: '1px solid rgba(0, 217, 255, 0.3)',
+              borderRadius: '8px',
+              color: '#00D9FF',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              backdropFilter: 'blur(12px)'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background = 'rgba(0, 217, 255, 0.2)';
+              e.target.style.borderColor = 'rgba(0, 217, 255, 0.5)';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.background = 'rgba(0, 217, 255, 0.1)';
+              e.target.style.borderColor = 'rgba(0, 217, 255, 0.3)';
+            }}
+          >
+            ← Back to Home
+          </button>
           <h1 className="testimonials-title">
             Trusted by Healthcare
             <span className="gradient-text"> Professionals Worldwide</span>

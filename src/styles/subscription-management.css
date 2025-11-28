@@ -13,13 +13,14 @@
 .page-header h1 {
   font-size: 36px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
   margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
 }
 
 .page-header p {
   font-size: 18px;
-  color: #666;
+  color: #cbd5e1;
 }
 
 /* Loading State */
@@ -49,9 +50,11 @@
 .empty-state {
   text-align: center;
   padding: 80px 20px;
-  background: white;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .empty-icon {
@@ -61,13 +64,13 @@
 
 .empty-state h2 {
   font-size: 24px;
-  color: #1a1a1a;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .empty-state p {
   font-size: 16px;
-  color: #666;
+  color: #cbd5e1;
   margin-bottom: 30px;
 }
 
@@ -98,11 +101,12 @@
 
 /* Subscription Card */
 .subscription-card {
-  background: white;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  border: 2px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 217, 255, 0.2);
   transition: all 0.3s;
 }
 
@@ -159,7 +163,7 @@
 .info-section {
   margin-bottom: 24px;
   padding-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .info-section:last-child {
@@ -171,7 +175,7 @@
 .info-section h3 {
   font-size: 16px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #00D9FF;
   margin: 0 0 16px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -180,17 +184,18 @@
 .info-section p {
   margin: 8px 0;
   font-size: 15px;
-  color: #666;
+  color: #cbd5e1;
 }
 
 .info-section p strong {
-  color: #1a1a1a;
+  color: #ffffff;
   font-weight: 600;
 }
 
 /* Plan Details */
 .plan-details {
-  background: #f8f9fa;
+  background: rgba(0, 217, 255, 0.05);
+  border: 1px solid rgba(0, 217, 255, 0.2);
   padding: 20px;
   border-radius: 8px;
 }
@@ -204,12 +209,12 @@
 .price {
   font-size: 32px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .period {
   font-size: 18px;
-  color: #666;
+  color: #94a3b8;
   margin-left: 4px;
 }
 
@@ -222,7 +227,7 @@
 
 .plan-type {
   font-size: 14px;
-  color: #666;
+  color: #cbd5e1;
   font-weight: 500;
 }
 

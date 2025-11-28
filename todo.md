@@ -671,3 +671,8 @@
 - [x] Add premium styling to subscription cards - DONE: Larger cards, better gradients, improved badges
 - [x] Improve platform cards layout and design - DONE: Larger icons, better touch targets, enhanced buttons
 - [x] Test all dashboard links and buttons - DONE: Dev server preview shows improved design
+
+## Dashboard Visual Enhancements (Nov 28, 2025 - Part 2)
+- [x] Add platform preview images/screenshots to dashboard cards (EndoGuard, RxGuard)
+- [x] Create comprehensive production testing checklist document (PRODUCTION_TESTING_CHECKLIST.md)
+- [ ] Test all fixes on production after publish

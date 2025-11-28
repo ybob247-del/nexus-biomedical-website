@@ -59,7 +59,8 @@ const Dashboard = () => {
       icon: '🔬',
       gradient: 'from-fuchsia-500 to-purple-600',
       url: '/endoguard',
-      comingSoon: false
+      comingSoon: false,
+      preview: '/images/platform-previews/health-analytics.jpg'
     },
     { 
       id: 'rxguard', 
@@ -68,7 +69,8 @@ const Dashboard = () => {
       icon: '💊',
       gradient: 'from-cyan-500 to-blue-600',
       url: '/rxguard',
-      comingSoon: false
+      comingSoon: false,
+      preview: '/images/platform-previews/medical-dashboard.jpg'
     },
     { 
       id: 'elderwatch', 
@@ -297,8 +299,19 @@ const Dashboard = () => {
                     </div>
                   )}
                   
+                  {/* Platform preview image */}
+                  {platform.preview && (
+                    <div className="mb-6 rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl">
+                      <img 
+                        src={platform.preview} 
+                        alt={`${platform.name} preview`}
+                        className="w-full h-48 object-cover object-top"
+                      />
+                    </div>
+                  )}
+                  
                   {/* Platform icon - Larger on mobile */}
-                  <div className="text-7xl md:text-8xl mb-6">{platform.icon}</div>
+                  <div className="text-5xl md:text-6xl mb-4">{platform.icon}</div>
                   
                   {/* Platform info */}
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{platform.name}</h3>

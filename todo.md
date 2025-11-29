@@ -773,3 +773,13 @@
 - [x] Add SMS settings to Dashboard (button in header linking to /settings/sms)
 - [x] Add phone number validation (E.164 format) and TCPA/GDPR compliance messaging
 - [x] Create SMS Settings page with authentication protection and navigation
+
+### SMS Message History Feature (Nov 29 - COMPLETED)
+- [x] Add Twilio credentials to environment variables (TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER)
+- [x] Validate Twilio credentials with test API endpoint
+- [x] Create sms_message_history database table with indexes
+- [x] Build API endpoint to retrieve user's SMS message history (/api/user/sms-history)
+- [x] Create SMS History page component (/settings/sms-history)
+- [x] Add navigation link from SMS Settings to SMS History
+- [x] Add route protection with ProtectedRoute wrapper
+- [x] Design responsive UI with message cards, status badges, and pagination

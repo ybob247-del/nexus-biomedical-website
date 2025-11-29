@@ -766,3 +766,10 @@
 - [x] Set up Vercel Cron job for automated email drip campaigns (daily at 9 AM) - DONE
 - [x] Integrate Twilio SMS notifications for assessment reminders and critical alerts - DONE
 - [x] Create referral rewards program with tracking and free premium month incentives - DONE
+
+### SMS Notification Settings UI (Nov 28 - COMPLETED)
+- [x] Create SMSNotificationSettings component with phone number input and opt-in/opt-out toggle
+- [x] Build API endpoint to update user phone number and SMS preferences (GET /api/user/sms-settings, POST /api/user/update-sms-settings)
+- [x] Add SMS settings to Dashboard (button in header linking to /settings/sms)
+- [x] Add phone number validation (E.164 format) and TCPA/GDPR compliance messaging
+- [x] Create SMS Settings page with authentication protection and navigation

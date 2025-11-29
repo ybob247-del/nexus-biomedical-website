@@ -1,0 +1,349 @@
+/* SMS Notification Settings Styles */
+
+.sms-settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.sms-settings-loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.sms-settings-header {
+  margin-bottom: 2rem;
+}
+
+.sms-settings-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.sms-settings-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.sms-settings-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.sms-setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sms-setting-row:last-of-type {
+  border-bottom: none;
+}
+
+.sms-setting-info {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.sms-setting-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sms-setting-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Toggle Switch */
+.sms-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.sms-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sms-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.sms-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.sms-toggle input:checked + .sms-toggle-slider {
+  background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  border-color: transparent;
+}
+
+.sms-toggle input:checked + .sms-toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* Phone Input */
+.sms-phone-input {
+  width: 250px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.sms-phone-input:focus {
+  outline: none;
+  border-color: #06b6d4;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sms-phone-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Privacy Notice */
+.sms-privacy-notice {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 0.75rem;
+}
+
+.sms-privacy-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sms-privacy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sms-privacy-list li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.sms-privacy-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #8b5cf6;
+  font-weight: bold;
+}
+
+/* Message Types */
+.sms-message-types {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 0.75rem;
+}
+
+.sms-message-types-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sms-message-types-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sms-message-types-list li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+}
+
+/* Status Messages */
+.sms-message {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.sms-message-success {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+.sms-message-error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* Save Button */
+.sms-save-button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.sms-save-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.sms-save-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.sms-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Help Section */
+.sms-help-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+}
+
+.sms-help-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sms-help-section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.sms-help-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.sms-help-section ul li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.sms-help-section ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #06b6d4;
+  font-weight: bold;
+}
+
+.sms-help-section a {
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sms-help-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sms-settings-container {
+    padding: 1rem;
+  }
+
+  .sms-settings-card {
+    padding: 1.5rem;
+  }
+
+  .sms-setting-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sms-setting-info {
+    margin-right: 0;
+  }
+
+  .sms-phone-input {
+    width: 100%;
+  }
+
+  .sms-toggle {
+    align-self: flex-end;
+  }
+}

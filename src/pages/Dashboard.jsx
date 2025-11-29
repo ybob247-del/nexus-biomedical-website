@@ -215,12 +215,20 @@ const Dashboard = () => {
               </p>
               <p className="text-sm md:text-base text-gray-400 mt-1">{user?.email}</p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/30 hover:to-pink-500/30 text-white rounded-2xl font-semibold transition-all border border-red-500/40 hover:border-red-400/60 hover:shadow-xl hover:shadow-red-500/30 text-lg"
-            >
-              Logout
-            </button>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Link
+                to="/settings/sms"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 text-white rounded-2xl font-semibold transition-all border border-purple-500/40 hover:border-purple-400/60 hover:shadow-xl hover:shadow-purple-500/30 text-lg text-center flex items-center justify-center gap-2"
+              >
+                <span>📱</span> SMS Settings
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/30 hover:to-pink-500/30 text-white rounded-2xl font-semibold transition-all border border-red-500/40 hover:border-red-400/60 hover:shadow-xl hover:shadow-red-500/30 text-lg"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
 

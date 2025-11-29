@@ -50,6 +50,7 @@ const Dashboard = lazy(() => import('./pages/Dashboard'))
 const PlatformComparison = lazy(() => import('./pages/PlatformComparison'))
 const ReferralDashboard = lazy(() => import('./components/ReferralDashboard'))
 const Testimonials = lazy(() => import('./pages/Testimonials'))
+const SMSSettings = lazy(() => import('./pages/SMSSettings'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -440,6 +441,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <HIPAACompliance />
+          </Suspense>
+        } 
+      />
+
+      {/* SMS Settings Route */}
+      <Route 
+        path="/settings/sms" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <SMSSettings />
           </Suspense>
         } 
       />

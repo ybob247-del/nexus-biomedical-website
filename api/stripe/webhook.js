@@ -6,6 +6,7 @@
 
 import Stripe from 'stripe';
 import { query } from '../utils/db.js';
+import { sendSMSToUser } from '../utils/smsHelper.js';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -305,6 +306,20 @@ async function grantPlatformAccess(userId, platform, subscription) {
     );
 
     console.log(`Platform access granted for user ${userId}, platform ${platform}`);
+
+    // Send SMS notification for subscription activation
+    try {
+      const userResult = await query(
+        'SELECT first_name FROM users WHERE id = $1',
+        [userId]
+      );
+      const userName = userResult.rows[0]?.first_name || 'there';
+      
+      await sendSMSToUser(userId, 'subscriptionActivated', [userName, platform]);
+    } catch (smsError) {
+      // Don't fail if SMS fails
+      console.error('Failed to send subscription activation SMS:', smsError);
+    }
   } catch (error) {
     console.error('Error granting platform access:', error);
     throw error;

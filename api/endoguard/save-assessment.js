@@ -6,6 +6,7 @@
 
 import { query } from '../utils/db.js';
 import jwt from 'jsonwebtoken';
+import { sendSMSToUser } from '../utils/smsHelper.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -56,6 +57,28 @@ export default async function handler(req, res) {
     );
 
     const assessment = result.rows[0];
+
+    // Get user info for SMS
+    const userResult = await query(
+      'SELECT first_name, email FROM users WHERE id = $1',
+      [userId]
+    );
+    const userName = userResult.rows[0]?.first_name || 'there';
+    const riskScore = results.overallRisk || 0;
+
+    // Send SMS notification for assessment completion
+    try {
+      // Always send completion SMS
+      await sendSMSToUser(userId, 'assessmentCompleted', [userName, riskScore]);
+
+      // Send high-risk alert if risk score >= 70
+      if (riskScore >= 70) {
+        await sendSMSToUser(userId, 'highRiskAlert', [userName, riskScore]);
+      }
+    } catch (smsError) {
+      // Don't fail the request if SMS fails
+      console.error('Failed to send SMS notification:', smsError);
+    }
 
     return res.status(201).json({
       success: true,

@@ -783,3 +783,37 @@
 - [x] Add navigation link from SMS Settings to SMS History
 - [x] Add route protection with ProtectedRoute wrapper
 - [x] Design responsive UI with message cards, status badges, and pagination
+
+## 📱 SMS NOTIFICATION ENHANCEMENTS (Nov 29, 2025)
+**Priority:** HIGH - Enhance SMS system with triggers, preferences, and campaigns
+
+### Phase 1: SMS Triggers for Existing Workflows
+- [x] Integrate SMS notification when EndoGuard assessment is completed (high-risk alerts)
+- [x] Add SMS notification for subscription expiring (3 days before)
+- [x] Add SMS notification for trial expiring (3 days, 1 day before)
+- [x] Create SMS notification for successful subscription activation
+- [x] Create Vercel Cron job for daily expiration checks (runs at 8am daily)
+- [ ] Test all SMS triggers end-to-end with Twilio
+
+### Phase 2: SMS Notification Preferences Customization
+- [x] Add notification_preferences JSON column to users table
+- [x] Create SMS preferences UI with individual toggles for each notification type
+- [x] Update SMS Settings page with granular preference controls
+- [x] Create API endpoint to save/retrieve notification preferences
+- [x] Update SMS sending logic to check preferences before sending
+- [ ] Add "Manage Preferences" link to all SMS messages
+- [ ] Run database migration to add notification_preferences column
+
+### Phase 3: Automated SMS Campaigns
+- [x] Create sms_campaigns database table (campaign_id, name, message_template, schedule)
+- [x] Create sms_campaign_sends table (tracking sent messages per campaign)
+- [x] Create sms_health_tips table with 10 seeded health tips
+- [x] Build Vercel Cron job for scheduled SMS campaigns (/api/cron/send-sms-campaigns)
+- [x] Create weekly health tips SMS campaign (every Monday at 11am)
+- [x] Create monthly assessment reminder SMS campaign (1st of month at 11am)
+- [x] Create 7/14/30-day assessment reminder campaigns
+- [x] Configure Vercel Cron schedule for SMS campaigns (runs daily at 11am)
+- [x] Add SMS templates for campaigns to smsHelper
+- [ ] Run database migration to create campaign tables
+- [ ] Test automated SMS campaigns with test phone numbers
+- [ ] Add campaign management UI for admin (future enhancement)

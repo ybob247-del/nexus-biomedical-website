@@ -6,7 +6,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import SMSNotificationSettings from '../components/SMSNotificationSettings';
+import SMSNotificationSettingsEnhanced from '../components/SMSNotificationSettingsEnhanced';
 import StarryBackground from '../components/StarryBackground';
 
 const SMSSettings = () => {
@@ -66,7 +66,7 @@ const SMSSettings = () => {
 
       {/* SMS Settings Component */}
       <div className="relative z-10">
-        <SMSNotificationSettings />
+        <SMSNotificationSettingsEnhanced />
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import TestRecommendations from './TestRecommendations';
 import SignupPrompt from './SignupPrompt';
 import SubscriptionModal from './SubscriptionModal';
+import ShareableResultCard from './ShareableResultCard';
 import '../styles/endoguard-results.css';
 
 export default function EndoGuardResults({ results }) {
@@ -11,6 +12,7 @@ export default function EndoGuardResults({ results }) {
   const { user } = useAuth();
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
   const [modalFeature, setModalFeature] = useState('');
   const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps } = results;
 
@@ -213,6 +215,14 @@ export default function EndoGuardResults({ results }) {
         feature={modalFeature}
         platform="EndoGuard"
       />
+
+      {/* Share Results Modal */}
+      {showShareModal && (
+        <ShareableResultCard 
+          results={results}
+          onClose={() => setShowShareModal(false)}
+        />
+      )}
 
       {/* Medical Disclaimer */}
       <div className="medical-disclaimer">

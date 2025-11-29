@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import BackToHomeButton from '../components/BackToHomeButton';
+import AssessmentComparison from '../components/AssessmentComparison';
 import { Line } from 'react-chartjs-2';
 import { jsPDF } from 'jspdf';
 import {
@@ -314,6 +315,13 @@ export default function MyAssessments() {
           </div>
         ) : (
           <>
+            {/* Assessment Comparison Feature */}
+            {assessments.length >= 2 && (
+              <div style={{ marginBottom: '2rem' }}>
+                <AssessmentComparison />
+              </div>
+            )}
+
             {/* Risk Score Trend Chart */}
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',

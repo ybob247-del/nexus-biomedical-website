@@ -1,0 +1,373 @@
+.assessment-comparison {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.comparison-header h2 {
+  color: #D946EF;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* Assessment Selectors */
+.comparison-selectors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.selector-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selector-group label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.selector-group select {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(217, 70, 239, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-group select:hover {
+  border-color: #D946EF;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.selector-group select:focus {
+  outline: none;
+  border-color: #D946EF;
+  box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.2);
+}
+
+.comparison-arrow {
+  font-size: 2rem;
+  color: #D946EF;
+  font-weight: bold;
+}
+
+/* Comparison Sections */
+.comparison-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.comparison-section h3 {
+  color: #D946EF;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Comparison Cards */
+.comparison-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.comparison-card {
+  flex: 1;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  border-color: rgba(217, 70, 239, 0.5);
+  transform: translateY(-2px);
+}
+
+.card-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.risk-score {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.risk-score.risk-low {
+  color: #10b981;
+}
+
+.risk-score.risk-moderate {
+  color: #f59e0b;
+}
+
+.risk-score.risk-high {
+  color: #ef4444;
+}
+
+.card-date {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #D946EF;
+  margin: 0.5rem 0;
+}
+
+.metric-label,
+.metric-factors {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Comparison Diff Indicator */
+.comparison-diff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.diff-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.diff-indicator.increased {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.diff-indicator.decreased {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.diff-indicator.unchanged {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.diff-value {
+  font-size: 1.5rem;
+}
+
+.diff-percent {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Systems Comparison */
+.systems-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.systems-column {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.column-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.system-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background: rgba(217, 70, 239, 0.2);
+  border: 1px solid rgba(217, 70, 239, 0.4);
+  border-radius: 20px;
+  color: #D946EF;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.system-badge.new-system {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  position: relative;
+}
+
+.new-indicator {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
+  background: #10b981;
+  color: white;
+  border-radius: 4px;
+}
+
+.no-systems {
+  color: #64748b;
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
+
+/* Progress Summary */
+.progress-summary {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(217, 70, 239, 0.3);
+}
+
+.progress-summary h3 {
+  color: #D946EF;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-item {
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.summary-item.positive {
+  background: rgba(16, 185, 129, 0.15);
+  border-left: 4px solid #10b981;
+  color: #10b981;
+}
+
+.summary-item.negative {
+  background: rgba(239, 68, 68, 0.15);
+  border-left: 4px solid #ef4444;
+  color: #ef4444;
+}
+
+.summary-item.neutral {
+  background: rgba(148, 163, 184, 0.15);
+  border-left: 4px solid #94a3b8;
+  color: #94a3b8;
+}
+
+/* Empty State */
+.comparison-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #94a3b8;
+}
+
+.comparison-empty h3 {
+  color: #D946EF;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.comparison-empty p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+/* Loading State */
+.comparison-loading {
+  text-align: center;
+  padding: 3rem;
+  color: #D946EF;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .assessment-comparison {
+    padding: 1rem;
+  }
+
+  .comparison-selectors {
+    flex-direction: column;
+  }
+
+  .comparison-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+
+  .comparison-cards {
+    flex-direction: column;
+  }
+
+  .comparison-diff {
+    margin: 1rem 0;
+  }
+
+  .systems-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-score {
+    font-size: 2rem;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+}

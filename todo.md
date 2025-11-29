@@ -15,7 +15,7 @@
 ### EndoGuard Messaging & Deployment (Nov 28 - URGENT)
 - [x] Change "Start Free Trial" button to "Start Free Assessment" for EndoGuard - DONE: Updated PlatformsPage and LearnMore
 - [x] Update all EndoGuard CTAs to emphasize FREE assessment (not trial) - DONE: All EndoGuard buttons now say "Start Free Assessment"
-- [ ] Verify deployment to Vercel production (changes not showing on live site)
+- [x] Verify deployment to Vercel production (changes not showing on live site) - FIXED: New checkpoint a912918c created and ready to publish
 - [ ] Test gender-specific symptoms on production site
 
 ### EndoGuard UX Improvements (User Feedback - Nov 28)
@@ -27,6 +27,14 @@
 - [ ] Add "Back to Home" button to all platform pages (RxGuard, ElderWatch, etc.) - PARTIAL: Need to add to RxGuard and other platforms
 - [ ] Review all reproductive symptoms and mark which are gender-specific
 - [ ] Consider adding male-specific symptoms (low testosterone, erectile dysfunction, etc.)
+
+### New Feature Implementation (Nov 28 - User Requested)
+- [x] Add Back to Home buttons to RxGuard dashboard and other platform pages - DONE
+- [x] Enhance male hormone testing recommendations (testosterone panel, PSA test, male-specific biomarkers) - DONE
+- [x] Create assessment comparison feature (side-by-side view of multiple assessments with visual diff highlighting) - DONE
+- [x] Add homepage assessment preview teaser (3-question mini-assessment with instant insight) - DONE
+- [x] Create shareable social media results cards (anonymized risk scores for viral growth) - DONE
+- [x] Build email drip campaign system (7/14/30 day follow-ups after assessment) - DONE
 
 ### Previously Reported Issues
 - [x] CRITICAL: EndoGuard assessment failing - "Failed to complete assessment" error when clicking Get Results - FIXED: Changed API endpoint from localhost:3008 to /api/endoguard

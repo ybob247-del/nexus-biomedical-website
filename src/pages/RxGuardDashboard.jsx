@@ -5,6 +5,7 @@ import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
 import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import UsageStatsDashboard from '../components/UsageStatsDashboard';
+import BackToHomeButton from '../components/BackToHomeButton';
 import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/rxguard-dashboard.css';
 
@@ -182,6 +183,7 @@ export default function RxGuardDashboard() {
   return (
     <TrialGate platform="RxGuard">
       <TrialExpirationBanner platform="rxguard" />
+      <BackToHomeButton />
       <div className="rxguard-dashboard">
       <div className="dashboard-header">
         <h1>RxGuard™ Drug Interaction Checker</h1>

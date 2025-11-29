@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
 import LanguageToggle from './components/LanguageToggle'
 import EarlyAdopterBanner from './components/EarlyAdopterBanner'
+import AssessmentPreview from './components/AssessmentPreview'
 import ProtectedRoute from './components/ProtectedRoute'
 import { platformsData } from './data/platformData'
 import { StructuredData, organizationSchema, websiteSchema } from './components/StructuredData'
@@ -153,6 +154,7 @@ function Homepage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
           <EarlyAdopterBanner />
         </div>
+        <AssessmentPreview />
         <Platforms onLearnMore={handleLearnMore} />
         <WhoBenefits />
         <FAQ />

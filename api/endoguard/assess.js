@@ -208,7 +208,7 @@ function analyzeSymptoms(symptoms, severity) {
 /**
  * Generate test recommendations
  */
-function generateTestRecommendations(symptoms, hormoneSystemsAffected) {
+function generateTestRecommendations(symptoms, hormoneSystemsAffected, gender) {
   const tests = [];
 
   if (hormoneSystemsAffected.includes('Thyroid')) {
@@ -221,12 +221,27 @@ function generateTestRecommendations(symptoms, hormoneSystemsAffected) {
   }
 
   if (hormoneSystemsAffected.includes('Reproductive')) {
-    tests.push({
-      testName: 'Sex Hormone Panel',
-      markers: ['Estradiol', 'Progesterone', 'Testosterone', 'DHEA-S', 'FSH', 'LH'],
-      rationale: 'Evaluate reproductive hormone balance',
-      priority: 'high'
-    });
+    if (gender === 'male') {
+      tests.push({
+        testName: 'Male Hormone Panel',
+        markers: ['Total Testosterone', 'Free Testosterone', 'SHBG', 'Estradiol', 'DHT', 'LH', 'FSH'],
+        rationale: 'Comprehensive male reproductive hormone assessment including testosterone metabolism',
+        priority: 'high'
+      });
+      tests.push({
+        testName: 'Prostate Health Markers',
+        markers: ['PSA (Prostate-Specific Antigen)', 'Free PSA', 'PSA Ratio'],
+        rationale: 'Screen for prostate health issues, especially important for men over 40',
+        priority: 'high'
+      });
+    } else {
+      tests.push({
+        testName: 'Female Sex Hormone Panel',
+        markers: ['Estradiol', 'Progesterone', 'Testosterone', 'DHEA-S', 'FSH', 'LH'],
+        rationale: 'Evaluate female reproductive hormone balance',
+        priority: 'high'
+      });
+    }
   }
 
   if (hormoneSystemsAffected.includes('Adrenal')) {
@@ -249,12 +264,37 @@ function generateTestRecommendations(symptoms, hormoneSystemsAffected) {
 
   // Always recommend basic hormone panel
   if (tests.length === 0) {
-    tests.push({
-      testName: 'Basic Hormone Panel',
-      markers: ['TSH', 'Free T4', 'Estradiol', 'Progesterone', 'Testosterone', 'Cortisol'],
-      rationale: 'Baseline hormone assessment',
-      priority: 'medium'
-    });
+    if (gender === 'male') {
+      tests.push({
+        testName: 'Basic Male Hormone Panel',
+        markers: ['TSH', 'Free T4', 'Total Testosterone', 'Free Testosterone', 'Estradiol', 'Cortisol', 'DHEA-S'],
+        rationale: 'Baseline male hormone assessment',
+        priority: 'medium'
+      });
+    } else {
+      tests.push({
+        testName: 'Basic Female Hormone Panel',
+        markers: ['TSH', 'Free T4', 'Estradiol', 'Progesterone', 'Testosterone', 'Cortisol'],
+        rationale: 'Baseline female hormone assessment',
+        priority: 'medium'
+      });
+    }
+  }
+
+  // Add male-specific biomarkers if symptoms indicate
+  if (gender === 'male') {
+    const maleSymptoms = symptoms.filter(s => 
+      ['erectile_dysfunction', 'decreased_libido', 'decreased_muscle_mass', 'gynecomastia', 'testicular_atrophy'].includes(s)
+    );
+    
+    if (maleSymptoms.length > 0) {
+      tests.push({
+        testName: 'Advanced Male Biomarkers',
+        markers: ['Prolactin', 'IGF-1', 'Vitamin D', 'Zinc', 'Magnesium'],
+        rationale: 'Additional markers that affect male hormone production and sexual function',
+        priority: 'medium'
+      });
+    }
   }
 
   return tests;
@@ -381,7 +421,8 @@ async function handler(req, res) {
       // Test recommendations
       testRecommendations: generateTestRecommendations(
         formData.symptoms || [],
-        symptomAnalysis.hormoneSystemsAffected
+        symptomAnalysis.hormoneSystemsAffected,
+        formData.gender || 'female'
       ),
 
       // Next steps
@@ -404,6 +445,27 @@ async function handler(req, res) {
         }
       ]
     };
+
+    // Enroll user in email drip campaign (non-blocking)
+    if (formData.email) {
+      try {
+        await fetch(`${process.env.VITE_OAUTH_PORTAL_URL || 'http://localhost:3006'}/api/email/enroll-campaign`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: formData.email,
+            userName: formData.name || null,
+            assessmentDate: new Date().toISOString(),
+            riskScore: assessment.overallRisk.score,
+            campaignType: 'endoguard_drip'
+          })
+        });
+        console.log(`[EndoGuard] Enrolled ${formData.email} in drip campaign`);
+      } catch (enrollError) {
+        // Don't fail assessment if enrollment fails
+        console.error('[EndoGuard] Campaign enrollment failed:', enrollError);
+      }
+    }
 
     return res.status(200).json({
       success: true,

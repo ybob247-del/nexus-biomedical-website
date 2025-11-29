@@ -403,7 +403,8 @@
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-share {
   padding: 15px 30px;
   border: none;
   border-radius: 8px;
@@ -431,6 +432,17 @@
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-share {
+  background: linear-gradient(135deg, #D946EF 0%, #10b981 100%);
+  color: white;
+  border: none;
+}
+
+.btn-share:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217, 70, 239, 0.4);
 }
 
 /* Medical Disclaimer */
@@ -482,7 +494,8 @@
   }
 
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .btn-share {
     width: 100%;
   }
 }

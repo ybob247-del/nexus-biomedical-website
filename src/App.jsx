@@ -48,6 +48,7 @@ const NotifyWaitlist = lazy(() => import('./pages/NotifyWaitlist'))
 const Analytics = lazy(() => import('./pages/Analytics'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const PlatformComparison = lazy(() => import('./pages/PlatformComparison'))
+const ReferralDashboard = lazy(() => import('./components/ReferralDashboard'))
 const Testimonials = lazy(() => import('./pages/Testimonials'))
 
 const LoadingFallback = () => (
@@ -371,6 +372,18 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <MyAssessments />
+          </Suspense>
+        } 
+      />
+
+      {/* Referral Dashboard Route */}
+      <Route 
+        path="/referrals" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <ReferralDashboard />
+            </ProtectedRoute>
           </Suspense>
         } 
       />

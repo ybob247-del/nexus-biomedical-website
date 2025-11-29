@@ -761,3 +761,8 @@
 - [x] Fix API endpoint issue properly (serverless function integration) - COMPLETED: Added export default to assess.js
 - [x] Create demo results page to showcase subscription modal - COMPLETED: /endoguard/demo route
 - [ ] Production deployment will eliminate dev server restart issues - NOTE: Vercel serverless functions work perfectly in production
+
+### Advanced Features - Next Steps (Nov 28 - User Requested)
+- [x] Set up Vercel Cron job for automated email drip campaigns (daily at 9 AM) - DONE
+- [x] Integrate Twilio SMS notifications for assessment reminders and critical alerts - DONE
+- [x] Create referral rewards program with tracking and free premium month incentives - DONE

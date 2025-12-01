@@ -61,7 +61,7 @@ async function sendWeeklyHealthTips(results) {
   try {
     // Get a random health tip that hasn't been sent recently
     const tipResult = await query(`
-      SELECT id, tip_content
+      SELECT id, tip_content, citation, source_journal, publication_year
       FROM sms_health_tips
       WHERE is_active = true
       AND (last_sent_at IS NULL OR last_sent_at < NOW() - INTERVAL '30 days')
@@ -89,7 +89,15 @@ async function sendWeeklyHealthTips(results) {
 
     for (const user of usersResult.rows) {
       try {
-        const message = `Hi ${user.first_name || 'there'}! 💡 Weekly Health Tip: ${tip.tip_content} Stay proactive about your hormone health! ${process.env.VITE_OAUTH_PORTAL_URL}/dashboard`;
+        // Build message with optional citation
+        let message = `Hi ${user.first_name || 'there'}! 💡 Weekly Health Tip: ${tip.tip_content}`;
+        
+        // Add short citation if available (optional - can be toggled via env var)
+        if (process.env.SMS_INCLUDE_CITATIONS === 'true' && tip.source_journal && tip.publication_year) {
+          message += ` (Source: ${tip.source_journal}, ${tip.publication_year})`;
+        }
+        
+        message += ` Stay proactive about your hormone health! ${process.env.VITE_OAUTH_PORTAL_URL}/dashboard`;
 
         await sendSMS(user.id, user.phone_number, 'weeklyTips', [user.first_name || 'there']);
         

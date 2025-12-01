@@ -854,3 +854,14 @@
 - [ ] Run database migration to create campaign tables
 - [ ] Test automated SMS campaigns with test phone numbers
 - [ ] Add campaign management UI for admin (future enhancement)
+
+## 📚 SMS Health Tips - Scientific Citations Enhancement (Nov 30, 2025)
+**Priority:** MEDIUM - Enhance credibility with peer-reviewed research
+
+- [x] Add scientific citations to existing 10 health tips
+- [x] Research and compile 20 additional evidence-based tips with journal references
+- [x] Add citation field to sms_health_tips database table
+- [x] Update migration script with citations for all 30 tips
+- [x] Update SMS campaign system to optionally include citations in messages
+- [ ] Test citation display in SMS messages
+

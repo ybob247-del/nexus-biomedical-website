@@ -1,0 +1,20 @@
+{
+  "query": "-- Add notification_preferences column (JSONB for flexibility)\nALTER TABLE users \nADD COLUMN IF NOT EXISTS notification_preferences JSONB DEFAULT '{\n  \"sms_enabled\": true,\n  \"assessment_completed\": true,\n  \"high_risk_alert\": true,\n  \"trial_expiring\": true,\n  \"subscription_expiring\": true,\n  \"subscription_activated\": true,\n  \"assessment_reminder\": true,\n  \"lab_reminder\": true,\n  \"improvement_celebration\": true,\n  \"weekly_tips\": true,\n  \"monthly_reminder\": true\n}'::jsonb;\n\n-- Add index for faster queries\nCREATE INDEX IF NOT EXISTS idx_users_notification_preferences \nON users USING gin(notification_preferences);\n\n-- Update existing users to have default preferences\nUPDATE users \nSET notification_preferences = '{\n  \"sms_enabled\": true,\n  \"assessment_completed\": true,\n  \"high_risk_alert\": true,\n  \"trial_expiring\": true,\n  \"subscription_expiring\": true,\n  \"subscription_activated\": true,\n  \"assessment_reminder\": true,\n  \"lab_reminder\": true,\n  \"improvement_celebration\": true,\n  \"weekly_tips\": true,\n  \"monthly_reminder\": true\n}'::jsonb\nWHERE notification_preferences IS NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute -- Add notification_preferences column (JSONB for flexibility)\nALTER TABLE users \nADD COLUMN IF NOT EXISTS notification_preferences JSONB DEFAULT '{\n  \"sms_enabled\": true,\n  \"assessment_completed\": true,\n  \"high_risk_alert\": true,\n  \"trial_expiring\": true,\n  \"subscription_expiring\": true,\n  \"subscription_activated\": true,\n  \"assessment_reminder\": true,\n  \"lab_reminder\": true,\n  \"improvement_celebration\": true,\n  \"weekly_tips\": true,\n  \"monthly_reminder\": true\n}'::jsonb;\n\n-- Add index for faster queries\nCREATE INDEX IF NOT EXISTS idx_users_notification_preferences \nON users USING gin(notification_preferences);\n\n-- Update existing users to have default preferences\nUPDATE users \nSET notification_preferences = '{\n  \"sms_enabled\": true,\n  \"assessment_completed\": true,\n  \"high_risk_alert\": true,\n  \"trial_expiring\": true,\n  \"subscription_expiring\": true,\n  \"subscription_activated\": true,\n  \"assessment_reminder\": true,\n  \"lab_reminder\": true,\n  \"improvement_celebration\": true,\n  \"weekly_tips\": true,\n  \"monthly_reminder\": true\n}'::jsonb\nWHERE notification_preferences IS NULL;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1064 (42000) at line 2: You have an error in your SQL syntax; check the manual that corresponds to your TiDB version for the right syntax to use line 2 column 56 near \"JSONB DEFAULT '{",
+    "  \"sms_enabled\": true,",
+    "  \"assessment_completed\": true,",
+    "  \"high_risk_alert\": true,",
+    "  \"trial_expiring\": true,",
+    "  \"subscription_expiring\": true,",
+    "  \"subscription_activated\": true,",
+    "  \"assessment_reminder\": true,",
+    "  \"lab_reminder\": true,",
+    "  \"improvement_celebration\": true,",
+    "  \"weekly_tips\": true,",
+    "  \"monthly_reminder\": true",
+    "}'::jsonb\""
+  ]
+}

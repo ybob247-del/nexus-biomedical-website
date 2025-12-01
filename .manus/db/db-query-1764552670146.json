@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS sms_campaign_sends (\n  id SERIAL PRIMARY KEY,\n  campaign_id INTEGER REFERENCES sms_campaigns(id) ON DELETE CASCADE,\n  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n  phone_number VARCHAR(20) NOT NULL,\n  message_content TEXT NOT NULL,\n  status VARCHAR(50) DEFAULT 'pending',\n  twilio_sid VARCHAR(255),\n  error_message TEXT,\n  sent_at TIMESTAMP,\n  created_at TIMESTAMP DEFAULT NOW()\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS sms_campaign_sends (\n  id SERIAL PRIMARY KEY,\n  campaign_id INTEGER REFERENCES sms_campaigns(id) ON DELETE CASCADE,\n  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n  phone_number VARCHAR(20) NOT NULL,\n  message_content TEXT NOT NULL,\n  status VARCHAR(50) DEFAULT 'pending',\n  twilio_sid VARCHAR(255),\n  error_message TEXT,\n  sent_at TIMESTAMP,\n  created_at TIMESTAMP DEFAULT NOW()\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 188
+}

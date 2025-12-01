@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
 import LanguageToggle from './components/LanguageToggle'
 import EarlyAdopterBanner from './components/EarlyAdopterBanner'
+import AIChatbot from './components/AIChatbot'
 import AssessmentPreview from './components/AssessmentPreview'
 import ProtectedRoute from './components/ProtectedRoute'
 import { platformsData } from './data/platformData'
@@ -174,6 +175,7 @@ function App() {
       <StarryBackground />
       <ScreenshotBugWidget />
       <LanguageToggle />
+      <AIChatbot />
       <Routes>
       {/* Compliance Pages Routes */}
       <Route 

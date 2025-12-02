@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
@@ -55,8 +55,8 @@ export default function EndoGuardAssessment() {
   // (Authentication check removed to enable try-before-signup flow)
 
   // Symptom options organized by hormone system
-  // Filter symptoms based on biological sex
-  const getSymptomOptions = () => {
+  // Filter symptoms based on biological sex - use useMemo to recalculate when biologicalSex changes
+  const symptomOptions = useMemo(() => {
     const baseSymptoms = {
       thyroid: [
         'Unexplained weight gain or loss',
@@ -120,9 +120,7 @@ export default function EndoGuardAssessment() {
       adrenal: baseSymptoms.adrenal,
       metabolic: baseSymptoms.metabolic
     };
-  };
-
-  const symptomOptions = getSymptomOptions();
+  }, [formData.biologicalSex]); // Recalculate when biologicalSex changes
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({

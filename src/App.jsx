@@ -53,6 +53,7 @@ const ReferralDashboard = lazy(() => import('./components/ReferralDashboard'))
 const Testimonials = lazy(() => import('./pages/Testimonials'))
 const SMSSettings = lazy(() => import('./pages/SMSSettings'))
 const SMSHistory = lazy(() => import('./pages/SMSHistory'))
+const AdminSMSAnalytics = lazy(() => import('./pages/AdminSMSAnalytics'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -466,6 +467,16 @@ function App() {
             <ProtectedRoute>
               <SMSHistory />
             </ProtectedRoute>
+          </Suspense>
+        } 
+      />
+
+      {/* Admin SMS Analytics Route */}
+      <Route 
+        path="/admin/sms-analytics" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminSMSAnalytics />
           </Suspense>
         } 
       />

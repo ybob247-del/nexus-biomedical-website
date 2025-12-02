@@ -46,7 +46,14 @@
 - [x] Verify all auth APIs return JSON even on errors - DONE: Always returns JSON now
 - [x] CRITICAL: Vercel function timeout too short (10s) - FIXED: Increased to 30s in vercel.json
 
-## 🚨 CURRENT BUGS TO FIX (Nov 28, 2025)
+## 🚨 CURRENT BUGS TO FIX (Dec 1, 2025)
+**Priority:** URGENT - Blocking user experience
+
+### Header UI Issues (Dec 1 - User Reported)
+- [x] CRITICAL: Language toggle (ES|EN) and Login button overlapping at 100% zoom - FIXED: Increased gap from 0.75rem to 1.25rem
+- [ ] Add direct SMS Analytics link in admin navigation menu for easier access
+
+## 🚨 PREVIOUS BUGS (Nov 28, 2025)
 **Priority:** URGENT - Blocking user experience
 
 ### EndoGuard Messaging & Deployment (Nov 28 - URGENT)
@@ -962,3 +969,14 @@
 - [x] Mobile-responsive design
 - [x] FAQ database with 100+ Q&A entries
 - [x] Contextual enhancement based on conversation history
+
+
+## 🚨 CRITICAL BUG - Gender-Specific Symptoms (Dec 1, 2025)
+**Priority:** EMERGENCY - Blocking physician demo credibility
+
+- [ ] Fix EndoGuard assessment - male and female showing identical reproductive symptoms
+- [ ] Add proper female-specific symptoms (menstrual irregularities, PCOS, endometriosis, vaginal dryness, breast tenderness, PMS)
+- [ ] Add proper male-specific symptoms (erectile dysfunction, low testosterone, reduced muscle mass, gynecomastia, prostate issues)
+- [ ] Test female symptom display on production
+- [ ] Test male symptom display on production
+- [ ] Verify "Other" gender shows neutral symptoms

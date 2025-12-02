@@ -93,7 +93,7 @@ This documentation is updated automatically at key milestones:
 | Guides | 🟡 In Progress | Dec 1, 2025 | 5 |
 | Marketing | 🟡 In Progress | Dec 1, 2025 | 4 |
 | Technical | 🟢 Complete | Dec 1, 2025 | 8 |
-| Admin | 🟢 Complete | Nov 30, 2025 | 3 |
+| Admin | 🟢 Complete | Dec 1, 2025 | 4 |
 | FAQ | 🟡 In Progress | Dec 1, 2025 | 3 |
 
 **Legend:**
@@ -122,8 +122,9 @@ This documentation is updated automatically at key milestones:
 
 ### For Administrators
 1. Follow [Admin Panel Guide](guides/ADMIN_GUIDE.md) for platform management
-2. Use [Database Schema](technical/DATABASE_SCHEMA.md) for data queries
-3. Reference [Architecture Overview](technical/ARCHITECTURE.md) for system understanding
+2. Review [SMS System Architecture](admin/SMS_SYSTEM_ARCHITECTURE.md) for SMS management
+3. Use [Database Schema](technical/DATABASE_SCHEMA.md) for data queries
+4. Reference [Architecture Overview](technical/ARCHITECTURE.md) for system understanding
 
 ---
 

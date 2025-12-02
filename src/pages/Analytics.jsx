@@ -225,21 +225,38 @@ export default function Analytics() {
               </p>
             </div>
 
-            <button
-              onClick={loadAnalytics}
-              style={{
-                padding: '0.75rem 1.5rem',
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '10px',
-                color: '#FFFFFF',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                fontWeight: 600
-              }}
-            >
-              🔄 Refresh
-            </button>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <button
+                onClick={() => navigate('/admin/sms-analytics')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  border: 'none',
+                  borderRadius: '10px',
+                  color: '#FFFFFF',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 600
+                }}
+              >
+                📱 SMS Analytics
+              </button>
+              <button
+                onClick={loadAnalytics}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '10px',
+                  color: '#FFFFFF',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 600
+                }}
+              >
+                🔄 Refresh
+              </button>
+            </div>
           </div>
         </div>
 

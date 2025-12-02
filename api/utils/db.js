@@ -10,7 +10,7 @@ const { Pool } = pg;
 // Environment will provide DATABASE_URL environment variable
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  ssl: { rejectUnauthorized: false }, // TiDB Cloud requires SSL in all environments
   max: 10, // Maximum number of clients in the pool
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 10000, // Increased from 2s to 10s for production
@@ -33,7 +33,7 @@ console.log('=== DATABASE CONNECTION INIT ===');
 console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
 console.log('DATABASE_URL length:', process.env.DATABASE_URL?.length || 0);
 console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('SSL enabled:', process.env.NODE_ENV === 'production');
+console.log('SSL enabled: true (TiDB Cloud requirement)');
 console.log('================================');
 
 /**

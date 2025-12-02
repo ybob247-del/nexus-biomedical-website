@@ -1,0 +1,73 @@
+{
+  "query": "SHOW TABLES",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SHOW TABLES",
+  "rows": [
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "ab_test_assignments"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "churn_interventions"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "churn_risk_scores"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "email_campaigns"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "email_notifications"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "password_reset_tokens"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "platform_access"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "platform_trials"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "platforms"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "referral_codes"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "referral_program"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "referral_signups"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "sms_campaign_sends"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "sms_campaigns"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "sms_health_tips"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "sms_message_history"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "subscriptions"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "trial_reminders"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "usage_tracking"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "users"
+    },
+    {
+      "Tables_in_3gcYftfyZmb2335Uoynmho": "waitlist"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_3gcYftfyZmb2335Uoynmho\nab_test_assignments\nchurn_interventions\nchurn_risk_scores\nemail_campaigns\nemail_notifications\npassword_reset_tokens\nplatform_access\nplatform_trials\nplatforms\nreferral_codes\nreferral_program\nreferral_signups\nsms_campaign_sends\nsms_campaigns\nsms_health_tips\nsms_message_history\nsubscriptions\ntrial_reminders\nusage_tracking\nusers\nwaitlist\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}

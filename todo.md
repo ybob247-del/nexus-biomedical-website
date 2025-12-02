@@ -2,11 +2,11 @@
 **Priority:** HIGH - Complete SMS system deployment
 
 ### Database Migrations
-- [ ] Run notification_preferences migration (add JSONB column to users table)
-- [ ] Create sms_campaigns table
-- [ ] Create sms_campaign_sends table  
-- [ ] Create sms_health_tips table with seeded data
-- [ ] Verify all indexes are created
+- [x] Run notification_preferences migration (add JSONB column to users table)
+- [x] Create sms_campaigns table
+- [x] Create sms_campaign_sends table  
+- [x] Create sms_health_tips table with seeded data (60 tips with scientific citations)
+- [x] Verify all indexes are created
 
 ### SMS Workflow Testing
 - [ ] Test assessment completion SMS trigger
@@ -48,6 +48,14 @@
 
 ## 🚨 CURRENT BUGS TO FIX (Dec 1, 2025)
 **Priority:** URGENT - Blocking user experience
+
+### Database Connection Issues (Dec 1 - CRITICAL)
+- [x] Investigate login hanging issue
+- [x] Identified Node.js SSL/TLS connection timeout to TiDB Cloud
+- [x] Tested both pg and mysql2 drivers - both timeout
+- [x] Verified MySQL CLI works perfectly
+- [ ] Test database connection on production/Vercel deployment
+- [ ] Implement MySQL CLI bridge workaround if production fails
 
 ### Header UI Issues (Dec 1 - User Reported)
 - [x] CRITICAL: Language toggle (ES|EN) and Login button overlapping at 100% zoom - FIXED: Increased gap from 0.75rem to 1.25rem
@@ -974,9 +982,14 @@
 ## 🚨 CRITICAL BUG - Gender-Specific Symptoms (Dec 1, 2025)
 **Priority:** EMERGENCY - Blocking physician demo credibility
 
-- [ ] Fix EndoGuard assessment - male and female showing identical reproductive symptoms
-- [ ] Add proper female-specific symptoms (menstrual irregularities, PCOS, endometriosis, vaginal dryness, breast tenderness, PMS)
-- [ ] Add proper male-specific symptoms (erectile dysfunction, low testosterone, reduced muscle mass, gynecomastia, prostate issues)
+- [x] Fix EndoGuard assessment - male and female showing identical reproductive symptoms
+- [x] Add proper female-specific symptoms (menstrual irregularities, PCOS, endometriosis, vaginal dryness, breast tenderness, PMS)
+- [x] Add proper male-specific symptoms (erectile dysfunction, low testosterone, reduced muscle mass, gynecomastia, prostate issues)
 - [ ] Test female symptom display on production
 - [ ] Test male symptom display on production
 - [ ] Verify "Other" gender shows neutral symptoms
+
+### Trial Activation Critical Bug (Dec 1, 2025)
+- [x] CRITICAL: Trial activation failing with 500 error - Fixed by adding missing trial_end column to subscriptions table
+- [x] Fix /api/trials/activate.js to use MySQL-compatible query syntax - Not needed, issue was missing trial_end column
+- [ ] Test trial activation on production after fix - Login is hanging, needs investigation

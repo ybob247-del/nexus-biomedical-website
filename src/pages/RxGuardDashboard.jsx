@@ -7,7 +7,10 @@ import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import UsageStatsDashboard from '../components/UsageStatsDashboard';
 import BackToHomeButton from '../components/BackToHomeButton';
 import { useAnalytics } from '../hooks/useAnalytics';
+import OnboardingTour from '../components/OnboardingTour';
+import { rxGuardDashboardTour } from '../config/tours';
 import '../styles/rxguard-dashboard.css';
+import '../styles/tour.css';
 
 const API_BASE = 'http://localhost:3007/api/rxguard';
 
@@ -182,6 +185,11 @@ export default function RxGuardDashboard() {
 
   return (
     <TrialGate platform="RxGuard">
+      <OnboardingTour 
+        tourId={rxGuardDashboardTour.tourId}
+        steps={rxGuardDashboardTour.steps}
+        autoStart={true}
+      />
       <TrialExpirationBanner platform="rxguard" />
       <BackToHomeButton />
       <div className="rxguard-dashboard">
@@ -203,6 +211,7 @@ export default function RxGuardDashboard() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="drug-search-input"
+            data-tour="medication-search"
           />
           {isSearching && <div className="search-spinner">Searching...</div>}
         </div>
@@ -233,7 +242,7 @@ export default function RxGuardDashboard() {
             <p>No medications added yet. Search and add medications above.</p>
           </div>
         ) : (
-          <div className="medication-list">
+          <div className="medication-list" data-tour="medication-list">
             {medications.map((med) => (
               <div key={med.rxcui} className="medication-card">
                 <div className="med-header">
@@ -279,7 +288,7 @@ export default function RxGuardDashboard() {
 
       {/* Analysis Results */}
       {analysis && (
-        <div className="analysis-section">
+        <div className="analysis-section" data-tour="interaction-analysis">
           <h2>Interaction Analysis Results</h2>
           
           {/* Risk Assessment */}
@@ -334,8 +343,8 @@ export default function RxGuardDashboard() {
               {analysis.interactions.major.map((interaction, index) => (
                 <div key={index} className="interaction-card major">
                   <h4>{interaction.drug1.name} + {interaction.drug2.name}</h4>
-                  <p className="severity">Severity: {interaction.severity}</p>
-                  <p className="description">{interaction.description}</p>
+                  <p className="severity" data-tour="severity-badge">Severity: {interaction.severity}</p>
+                  <p className="description" data-tour="clinical-guidance">{interaction.description}</p>
                   <p className="source">Source: {interaction.source}</p>
                 </div>
               ))}
@@ -349,8 +358,8 @@ export default function RxGuardDashboard() {
               {analysis.interactions.moderate.map((interaction, index) => (
                 <div key={index} className="interaction-card moderate">
                   <h4>{interaction.drug1.name} + {interaction.drug2.name}</h4>
-                  <p className="severity">Severity: {interaction.severity}</p>
-                  <p className="description">{interaction.description}</p>
+                  <p className="severity" data-tour="severity-badge">Severity: {interaction.severity}</p>
+                  <p className="description" data-tour="clinical-guidance">{interaction.description}</p>
                   <p className="source">Source: {interaction.source}</p>
                 </div>
               ))}

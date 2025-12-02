@@ -7,7 +7,10 @@ import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import UsageStatsDashboard from '../components/UsageStatsDashboard';
 import { useAnalytics } from '../hooks/useAnalytics';
 import BackToHomeButton from '../components/BackToHomeButton';
+import OnboardingTour from '../components/OnboardingTour';
+import { endoGuardAssessmentTour } from '../config/tours';
 import '../styles/endoguard-assessment.css';
+import '../styles/tour.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 
 const API_BASE = '/api/endoguard';
@@ -248,6 +251,11 @@ export default function EndoGuardAssessment() {
 
   return (
       <>
+      <OnboardingTour 
+        tourId={endoGuardAssessmentTour.tourId}
+        steps={endoGuardAssessmentTour.steps}
+        autoStart={step === 1}
+      />
       <BackToHomeButton />
       {user && <TrialExpirationBanner platform="endoguard" />}
       <div className="endoguard-assessment">
@@ -293,7 +301,9 @@ export default function EndoGuardAssessment() {
             Get instant personalized hormone health insights • 100% confidential • Takes 5 minutes
           </div>
         </div>
-        <FDADisclaimer />
+        <div data-tour="disclaimer">
+          <FDADisclaimer />
+        </div>
       </div>
 
       {/* Usage Statistics Dashboard */}
@@ -307,7 +317,7 @@ export default function EndoGuardAssessment() {
             style={{ width: `${(step / 7) * 100}%` }}
           />
         </div>
-        <div className="step-indicator">Step {step} of 6</div>
+        <div className="step-indicator" data-tour="step-indicator">Step {step} of 6</div>
       </div>
 
       <div className="assessment-content">
@@ -325,6 +335,7 @@ export default function EndoGuardAssessment() {
                 placeholder="Enter your age"
                 min="18"
                 max="100"
+                data-tour="age-input"
               />
             </div>
 
@@ -360,7 +371,7 @@ export default function EndoGuardAssessment() {
               </div>
             )}
 
-            <button onClick={nextStep} className="next-btn">Next</button>
+            <button onClick={nextStep} className="next-btn" data-tour="next-button">Next</button>
           </div>
         )}
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import OnboardingTour, { resetTour } from './OnboardingTour';
+import { smsSettingsTour } from '../config/tours';
 import '../styles/sms-notification-settings.css';
+import '../styles/tour.css';
 
 const SMSNotificationSettingsEnhanced = () => {
   const { user } = useAuth();
@@ -250,9 +253,38 @@ const SMSNotificationSettingsEnhanced = () => {
   ];
 
   return (
+    <>
+    <OnboardingTour 
+      tourId={smsSettingsTour.tourId}
+      steps={smsSettingsTour.steps}
+      autoStart={true}
+    />
     <div className="sms-settings-container">
       <div className="sms-settings-header">
-        <h2>📱 SMS Notification Preferences</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <h2 style={{ margin: 0 }}>📱 SMS Notification Preferences</h2>
+          <button
+            onClick={() => {
+              resetTour(smsSettingsTour.tourId);
+              window.location.reload();
+            }}
+            style={{
+              background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+              color: 'white',
+              border: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            🎯 Show Tour Again
+          </button>
+        </div>
         <p className="sms-settings-subtitle">
           Customize which text message notifications you want to receive
         </p>
@@ -292,6 +324,7 @@ const SMSNotificationSettingsEnhanced = () => {
             type="tel"
             className="sms-phone-input"
             placeholder="+1 (555) 123-4567"
+            data-tour="phone-input"
             value={phoneNumber}
             onChange={handlePhoneChange}
             disabled={!smsEnabled}
@@ -340,10 +373,10 @@ const SMSNotificationSettingsEnhanced = () => {
                       {type.description}
                     </p>
                   </div>
-                  <label className="sms-toggle">
+                  <label className="sms-toggle" data-tour="notification-toggles">
                     <input
                       type="checkbox"
-                      checked={preferences[type.key] !== false}
+                      checked={preferences[type.key]}
                       onChange={() => handlePreferenceToggle(type.key)}
                     />
                     <span className="sms-toggle-slider"></span>
@@ -401,6 +434,7 @@ const SMSNotificationSettingsEnhanced = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

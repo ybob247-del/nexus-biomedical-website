@@ -8,6 +8,9 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import PlanSelection from '../components/PlanSelection';
 import { platformsData } from '../data/platformData';
+import OnboardingTour from '../components/OnboardingTour';
+import { mainDashboardTour } from '../config/tours';
+import '../styles/tour.css';
 
 const Dashboard = () => {
   const { user, logout, token, isAuthenticated, loading: authLoading } = useAuth();
@@ -194,6 +197,12 @@ const Dashboard = () => {
   }
 
   return (
+    <>
+    <OnboardingTour 
+      tourId={mainDashboardTour.tourId}
+      steps={mainDashboardTour.steps}
+      autoStart={true}
+    />
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -219,6 +228,7 @@ const Dashboard = () => {
               <Link
                 to="/settings/sms"
                 className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 text-white rounded-2xl font-semibold transition-all border border-purple-500/40 hover:border-purple-400/60 hover:shadow-xl hover:shadow-purple-500/30 text-lg text-center flex items-center justify-center gap-2"
+                data-tour="settings-link"
               >
                 <span>📱</span> SMS Settings
               </Link>
@@ -234,8 +244,8 @@ const Dashboard = () => {
 
         {/* Active Subscriptions - Enhanced cards */}
         <div className="max-w-7xl mx-auto mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">
-            Your Subscriptions
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2" data-tour="subscription-status">
+            Active Subscriptions
           </h2>
           {subscriptions.length === 0 ? (
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-16 text-center border border-purple-500/30 shadow-2xl shadow-purple-500/20">
@@ -294,11 +304,14 @@ const Dashboard = () => {
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">
             Available Platforms
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" data-tour="platform-cards">
             {platforms.map((platform) => {
               const hasAccess = hasAccessToPlatform(platform.name);
+              const tourAttr = platform.id === 'endoguard' ? { 'data-tour': 'endoguard-card' } : 
+                               platform.id === 'rxguard' ? { 'data-tour': 'rxguard-card' } : {};
               return (
                 <div
+                  {...tourAttr}
                   key={platform.id}
                   className="group relative"
                   style={{
@@ -507,6 +520,7 @@ const Dashboard = () => {
         />
       )}
     </div>
+    </>
   );
 };
 

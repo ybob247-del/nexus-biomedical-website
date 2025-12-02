@@ -146,6 +146,11 @@ const Header = () => {
                 <div className="desktop-dropdown">
                   <button onClick={() => navigate('/account/subscription')} className="desktop-dropdown-link">My Subscriptions</button>
                   <button onClick={() => navigate('/dashboard')} className="desktop-dropdown-link">Dashboard</button>
+                  {user?.role === 'admin' && (
+                    <button onClick={() => navigate('/admin/sms-analytics')} className="desktop-dropdown-link">
+                      📊 SMS Analytics
+                    </button>
+                  )}
                   <button onClick={handleLogout} className="desktop-dropdown-link">Logout</button>
                 </div>
               )}

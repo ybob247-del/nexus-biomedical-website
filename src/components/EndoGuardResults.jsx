@@ -4,7 +4,10 @@ import TestRecommendations from './TestRecommendations';
 import SignupPrompt from './SignupPrompt';
 import SubscriptionModal from './SubscriptionModal';
 import ShareableResultCard from './ShareableResultCard';
+import OnboardingTour from './OnboardingTour';
+import { endoGuardResultsTour } from '../config/tours';
 import '../styles/endoguard-results.css';
+import '../styles/tour.css';
 
 export default function EndoGuardResults({ results }) {
   if (!results) return null;
@@ -37,9 +40,15 @@ export default function EndoGuardResults({ results }) {
   };
 
   return (
+    <>
+    <OnboardingTour 
+      tourId={endoGuardResultsTour.tourId}
+      steps={endoGuardResultsTour.steps}
+      autoStart={true}
+    />
     <div className="endoguard-results">
       {/* Overall Risk Card */}
-      <div className={`overall-risk-card risk-${overallRisk.level.toLowerCase()}`}>
+      <div className={`overall-risk-card risk-${overallRisk.level.toLowerCase()}`} data-tour="risk-score">
         <div className="risk-header">
           <h2>Your Overall Risk Level: {overallRisk.level}</h2>
           <div className="risk-score-large">{overallRisk.score}/100</div>
@@ -61,7 +70,7 @@ export default function EndoGuardResults({ results }) {
             <div className={`stat-value risk-${edcExposure.riskLevel.toLowerCase()}`}>
               {edcExposure.riskScore}/100
             </div>
-            <div className="stat-level">{edcExposure.riskLevel} RISK</div>
+            <div className="stat-level" data-tour="risk-level">{edcExposure.riskLevel} RISK</div>
           </div>
         </div>
 
@@ -119,7 +128,7 @@ export default function EndoGuardResults({ results }) {
       )}
 
       {/* Recommendations Section */}
-      <div className="results-section">
+      <div className="results-section" data-tour="recommendations">
         <h3>💡 Personalized Recommendations</h3>
         
         {recommendations && recommendations.length > 0 ? (
@@ -200,6 +209,7 @@ export default function EndoGuardResults({ results }) {
             className="btn-secondary" 
             onClick={handleDownloadPDF}
             disabled={isGeneratingPDF}
+            data-tour="pdf-download"
           >
             📄 Download PDF Report
           </button>
@@ -235,5 +245,6 @@ export default function EndoGuardResults({ results }) {
         </p>
       </div>
     </div>
+    </>
   );
 }

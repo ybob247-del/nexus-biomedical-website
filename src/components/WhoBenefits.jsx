@@ -1,61 +1,64 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export default function WhoBenefits() {
+  const { t } = useTranslation()
+
   const beneficiaries = [
     {
       icon: '🏥',
-      title: 'Small Clinics & Private Practices',
-      description: 'Access enterprise-grade clinical decision support without enterprise costs. Reduce medical errors, streamline workflows, and compete with larger systems.',
-      benefits: ['Affordable AI tools', 'Reduced liability risk', 'Better patient outcomes']
+      titleKey: 'whoBenefits.smallClinics.title',
+      descKey: 'whoBenefits.smallClinics.description',
+      benefitKeys: ['whoBenefits.smallClinics.benefit1', 'whoBenefits.smallClinics.benefit2', 'whoBenefits.smallClinics.benefit3']
     },
     {
       icon: '🏢',
-      title: 'Hospitals & Health Systems',
-      description: 'Scale clinical excellence across all departments. Standardize care protocols, reduce adverse events, and improve quality metrics while cutting administrative burden.',
-      benefits: ['System-wide standardization', 'Quality metric improvement', 'Cost reduction']
+      titleKey: 'whoBenefits.hospitals.title',
+      descKey: 'whoBenefits.hospitals.description',
+      benefitKeys: ['whoBenefits.hospitals.benefit1', 'whoBenefits.hospitals.benefit2', 'whoBenefits.hospitals.benefit3']
     },
     {
       icon: '🛡️',
-      title: 'Insurance Companies & Payers',
-      description: 'Reduce claims costs through proactive risk identification. Prevent adverse drug events, hospital readmissions, and medication errors before they happen.',
-      benefits: ['Lower claims costs', 'Risk prevention', 'Member safety']
+      titleKey: 'whoBenefits.insurance.title',
+      descKey: 'whoBenefits.insurance.description',
+      benefitKeys: ['whoBenefits.insurance.benefit1', 'whoBenefits.insurance.benefit2', 'whoBenefits.insurance.benefit3']
     },
     {
       icon: '🔬',
-      title: 'Medical Device Manufacturers',
-      description: 'Navigate FDA pathways faster with ReguReady™. Reduce regulatory delays, optimize compliance strategies, and accelerate time-to-market.',
-      benefits: ['Faster FDA approval', 'Compliance optimization', 'Reduced regulatory costs']
+      titleKey: 'whoBenefits.medicalDevice.title',
+      descKey: 'whoBenefits.medicalDevice.description',
+      benefitKeys: ['whoBenefits.medicalDevice.benefit1', 'whoBenefits.medicalDevice.benefit2', 'whoBenefits.medicalDevice.benefit3']
     },
     {
       icon: '💊',
-      title: 'Pharmaceutical Companies',
-      description: 'Optimize clinical trial design and drug safety monitoring. Identify interaction risks early, improve trial enrollment, and strengthen post-market surveillance.',
-      benefits: ['Better trial design', 'Drug safety insights', 'Faster development']
+      titleKey: 'whoBenefits.pharma.title',
+      descKey: 'whoBenefits.pharma.description',
+      benefitKeys: ['whoBenefits.pharma.benefit1', 'whoBenefits.pharma.benefit2', 'whoBenefits.pharma.benefit3']
     },
     {
       icon: '📊',
-      title: 'Clinical Research Organizations',
-      description: 'Design better trials with ClinicalIQ™. Improve protocol feasibility, optimize patient selection, and reduce trial failures through AI-powered insights.',
-      benefits: ['Protocol optimization', 'Patient recruitment', 'Trial success rates']
+      titleKey: 'whoBenefits.cro.title',
+      descKey: 'whoBenefits.cro.description',
+      benefitKeys: ['whoBenefits.cro.benefit1', 'whoBenefits.cro.benefit2', 'whoBenefits.cro.benefit3']
     },
     {
       icon: '🏡',
-      title: 'Long-Term Care Facilities',
-      description: 'Protect vulnerable populations with ElderWatch™. Prevent falls, optimize geriatric medication management, and improve quality of life for residents.',
-      benefits: ['Fall prevention', 'Medication safety', 'Quality improvement']
+      titleKey: 'whoBenefits.longTermCare.title',
+      descKey: 'whoBenefits.longTermCare.description',
+      benefitKeys: ['whoBenefits.longTermCare.benefit1', 'whoBenefits.longTermCare.benefit2', 'whoBenefits.longTermCare.benefit3']
     },
     {
       icon: '📱',
-      title: 'Telemedicine Providers',
-      description: 'Deliver safer remote care with real-time clinical decision support. Screen for drug interactions, assess pediatric dosing, and triage dermatological concerns confidently.',
-      benefits: ['Remote safety checks', 'Confident prescribing', 'Better triage']
+      titleKey: 'whoBenefits.telemedicine.title',
+      descKey: 'whoBenefits.telemedicine.description',
+      benefitKeys: ['whoBenefits.telemedicine.benefit1', 'whoBenefits.telemedicine.benefit2', 'whoBenefits.telemedicine.benefit3']
     },
     {
       icon: '🧘',
-      title: 'Individuals & Patients',
-      description: 'Take control of your hormone health with EndoGuard™. Understand EDC exposures, track symptoms for PCOS/thyroid/perimenopause, and get evidence-based guidance from trusted sources.',
-      benefits: ['EDC exposure assessment', 'Symptom tracking', 'Evidence-based insights']
+      titleKey: 'whoBenefits.individuals.title',
+      descKey: 'whoBenefits.individuals.description',
+      benefitKeys: ['whoBenefits.individuals.benefit1', 'whoBenefits.individuals.benefit2', 'whoBenefits.individuals.benefit3']
     }
   ]
 
@@ -76,7 +79,7 @@ export default function WhoBenefits() {
             WebkitTextFillColor: 'transparent',
             marginBottom: '1.5rem'
           }}>
-            Who Benefits from Nexus?
+            {t('whoBenefits.title', 'Who Benefits from Nexus?')}
           </h2>
           <p style={{
             fontSize: '1.25rem',
@@ -85,7 +88,7 @@ export default function WhoBenefits() {
             margin: '0 auto',
             lineHeight: 1.8
           }}>
-            Our AI-powered platforms serve diverse stakeholders across the healthcare ecosystem
+            {t('whoBenefits.subtitle', 'Our AI-powered platforms serve diverse stakeholders across the healthcare ecosystem')}
           </p>
         </div>
 
@@ -134,7 +137,7 @@ export default function WhoBenefits() {
                 marginBottom: '1rem',
                 textAlign: 'center'
               }}>
-                {beneficiary.title}
+                {t(beneficiary.titleKey)}
               </h3>
 
               {/* Description */}
@@ -145,7 +148,7 @@ export default function WhoBenefits() {
                 marginBottom: '1.5rem',
                 textAlign: 'center'
               }}>
-                {beneficiary.description}
+                {t(beneficiary.descKey)}
               </p>
 
               {/* Benefits List */}
@@ -161,14 +164,14 @@ export default function WhoBenefits() {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
-                  Key Benefits:
+                  {t('whoBenefits.keyBenefits', 'Key Benefits:')}
                 </p>
                 <ul style={{
                   listStyle: 'none',
                   padding: 0,
                   margin: 0
                 }}>
-                  {beneficiary.benefits.map((benefit, i) => (
+                  {beneficiary.benefitKeys.map((benefitKey, i) => (
                     <li key={i} style={{
                       fontSize: '0.95rem',
                       color: '#B8D4E8',
@@ -181,7 +184,7 @@ export default function WhoBenefits() {
                         left: 0,
                         color: '#00A8CC'
                       }}>✓</span>
-                      {benefit}
+                      {t(benefitKey)}
                     </li>
                   ))}
                 </ul>
@@ -200,7 +203,7 @@ export default function WhoBenefits() {
             color: '#FFFFFF',
             marginBottom: '2rem'
           }}>
-            Ready to see how Nexus can transform your organization?
+            {t('whoBenefits.cta', 'Ready to see how Nexus can transform your organization?')}
           </p>
           <button
             onClick={() => window.location.href = '/platforms'}
@@ -225,7 +228,7 @@ export default function WhoBenefits() {
               e.target.style.boxShadow = '0 4px 15px rgba(96, 165, 250, 0.3)'
             }}
           >
-            Get Started
+            {t('whoBenefits.getStarted', 'Get Started')}
           </button>
         </div>
       </div>

@@ -429,174 +429,6 @@
       "compareAssessments": "Comparar Evaluaciones"
     }
   },
-  "rxguardDashboard": {
-    "title": "Verificador de Interacciones Medicamentosas RxGuard™",
-    "subtitle": "Agregue sus medicamentos para verificar posibles interacciones",
-    "search": {
-      "placeholder": "Buscar medicamentos...",
-      "searching": "Buscando...",
-      "noResults": "No se encontraron medicamentos",
-      "addMedication": "Agregar Medicamento"
-    },
-    "medications": {
-      "title": "Sus Medicamentos",
-      "empty": "No se han agregado medicamentos aún. Busque y agregue medicamentos arriba.",
-      "remove": "Eliminar",
-      "analyzing": "Analizando interacciones..."
-    },
-    "interactions": {
-      "title": "Análisis de Interacciones",
-      "noInteractions": "No se detectaron interacciones",
-      "severity": {
-        "high": "Riesgo Alto",
-        "moderate": "Riesgo Moderado",
-        "low": "Riesgo Bajo"
-      },
-      "description": "Descripción",
-      "recommendation": "Recomendación"
-    },
-    "actions": {
-      "checkInteractions": "Verificar Interacciones",
-      "saveList": "Guardar Lista de Medicamentos",
-      "clearAll": "Limpiar Todo",
-      "exportPDF": "Exportar Informe PDF"
-    },
-    "messages": {
-      "saved": "Lista de medicamentos guardada exitosamente",
-      "cleared": "Todos los medicamentos eliminados",
-      "error": "Ocurrió un error. Por favor intente nuevamente."
-    }
-  },
-  "platformsPage": {
-    "title": "Nuestras Plataformas de IA en Salud",
-    "subtitle": "Elija la plataforma que se ajuste a sus necesidades",
-    "betaBanner": "Pruebas Beta en Progreso - ¡EndoGuard™ y RxGuard™ están disponibles para adoptadores tempranos!",
-    "startFreeTrial": "Iniciar Prueba Gratuita",
-    "startFreeAssessment": "Iniciar Evaluación Gratuita",
-    "learnMore": "Más Información"
-  },
-  "about": {
-    "title": "Acerca de Nexus Biomedical Intelligence",
-    "subtitle": "Inteligencia en salud impulsada por IA para clínicos, pacientes y organizaciones",
-    "mission": "Nuestra Misión",
-    "missionText": "Empoderar a los profesionales de la salud con herramientas de IA inteligentes y confiables que mejoren la toma de decisiones clínicas, mejoren la seguridad del paciente y reduzcan la carga de la complejidad administrativa, sin reemplazar el elemento humano irreemplazable de la atención.",
-    "story": "Nuestra Historia",
-    "storyText1": "Nexus Biomedical Intelligence nació de una observación simple: los profesionales de la salud se están ahogando en datos pero hambrientos de información accionable. Cada día, los clínicos enfrentan decisiones imposibles: equilibrar la seguridad del paciente, el cumplimiento regulatorio y la eficiencia operativa mientras navegan sistemas fragmentados y sobrecarga de información.",
-    "storyText2": "Creemos que la IA debe amplificar la experiencia humana, no reemplazarla. Nuestras plataformas están diseñadas por profesionales de la salud, para profesionales de la salud, combinando inteligencia artificial de vanguardia con conocimiento profundo del dominio para ofrecer apoyo en decisiones que sea transparente, confiable y verdaderamente útil.",
-    "whatWeDo": "Lo Que Hacemos",
-    "whatWeDoText": "Construimos plataformas de IA especializadas que abordan los puntos críticos más importantes en la atención médica:",
-    "platforms": {
-      "rxguard": "Detección de interacciones medicamentosas en tiempo real y evaluación de riesgo de polifarmacia",
-      "reguready": "Navegación de cumplimiento de la FDA y optimización de vías regulatorias",
-      "clinicaliq": "Diseño de ensayos clínicos y optimización de protocolos",
-      "elderwatch": "Optimización de atención geriátrica y prevención de caídas",
-      "pedicalc": "Cálculos de dosificación pediátrica y verificaciones de seguridad",
-      "skinscan": "Evaluación dermatológica y apoyo en triaje",
-      "endoguard": "Plataforma de salud ambiental y bienestar hormonal con evaluación de exposición a EDC"
-    },
-    "values": "Nuestros Valores",
-    "valuesItems": {
-      "transparency": {
-        "title": "Transparencia",
-        "description": "Cada recomendación incluye contexto visible y datos de origen. Sin cajas negras."
-      },
-      "safety": {
-        "title": "Seguridad Primero",
-        "description": "La seguridad del paciente es innegociable. Nuestros sistemas están diseñados para detectar lo que los humanos podrían pasar por alto."
-      },
-      "clinician": {
-        "title": "Centrado en el Clínico",
-        "description": "Aumentamos la experiencia, nunca la reemplazamos. Usted mantiene el control, siempre."
-      },
-      "privacy": {
-        "title": "Privacidad y Seguridad",
-        "description": "Infraestructura lista para HIPAA. Sus datos son suyos: nunca los vendemos, compartimos o entrenamos con ellos."
-      }
-    }
-  },
-  "dashboard": {
-    "welcome": "Bienvenido de nuevo, {{name}}",
-    "welcomeNew": "Bienvenido, {{name}}",
-    "yourPlatforms": "Sus Plataformas",
-    "accessPlatform": "Acceder a Plataforma",
-    "startFreeTrial": "Iniciar Prueba Gratuita",
-    "comingSoon": "Próximamente",
-    "trialActive": "Prueba Activa",
-    "subscribed": "Suscrito"
-  },
-  "pricing": {
-    "title": "Elija Su Plan",
-    "subtitle": "Precios flexibles para individuos y proveedores de atención médica",
-    "monthly": "Mensual",
-    "annually": "Anual",
-    "save": "Ahorre {{percent}}%",
-    "perMonth": "/mes",
-    "perYear": "/año",
-    "freeTrial": "Prueba gratuita de {{days}} días",
-    "selectPlan": "Seleccionar Plan",
-    "currentPlan": "Plan Actual"
-  },
-  "subscription": {
-    "title": "Gestión de Suscripción",
-    "currentPlan": "Plan Actual",
-    "billingCycle": "Ciclo de Facturación",
-    "nextBilling": "Próxima Fecha de Facturación",
-    "changePlan": "Cambiar Plan",
-    "cancelSubscription": "Cancelar Suscripción",
-    "reactivate": "Reactivar Suscripción"
-  },
-  "faq": {
-    "title": "Respuestas Honestas a Preguntas Difíciles",
-    "subtitle": "Porque el cambio real comienza con conversaciones reales.",
-    "questions": [
-      {
-        "question": "¿La IA reemplazará a médicos, farmacéuticos o clínicos?",
-        "answer": "No. La IA no puede reemplazar el juicio clínico, la empatía o la experiencia humana, y no debería. Las plataformas Nexus están diseñadas para amplificar a los profesionales, no para reemplazarlos. Nuestros sistemas automatizan verificaciones repetitivas, cruzan miles de puntos de datos instantáneamente y muestran información, pero la decisión final siempre le pertenece a usted."
-      },
-      {
-        "question": "¿Qué pasa si la IA se equivoca? ¿Quién es responsable?",
-        "answer": "Usted siempre tiene el control. Las herramientas Nexus son sistemas de apoyo a decisiones, no tomadores de decisiones. Señalan problemas potenciales y recomiendan acciones, pero cada recomendación incluye contexto visible, datos de origen y su capacidad de anular o verificar. Nuestro objetivo es hacerle más rápido y seguro, no quitarle el control."
-      },
-      {
-        "question": "¿Cómo sé que los datos de mis pacientes están seguros?",
-        "answer": "Tomamos la seguridad de datos y el cumplimiento tan en serio como usted. Todas las plataformas Nexus están construidas listas para HIPAA con cifrado de extremo a extremo y operan dentro de entornos seguros y aislados. Nunca vendemos, compartimos o entrenamos con sus datos privados. Usted retiene la propiedad y el control total, siempre."
-      },
-      {
-        "question": "No soy experto en tecnología. ¿Esto hará mi trabajo más difícil?",
-        "answer": "Absolutamente no. Nuestra filosofía de diseño es \"claridad sobre complejidad\". Cada interfaz es intuitiva, limpia y construida pensando en los flujos de trabajo clínicos. Si puede usar su HCE, puede usar Nexus. La mayoría de los usuarios dominan nuestras plataformas en unas pocas horas, no semanas."
-      },
-      {
-        "question": "¿Qué pasa si el liderazgo usa IA para recortar personal?",
-        "answer": "Las herramientas Nexus están construidas para reducir el agotamiento, no para reemplazar personas. Los equipos que usan IA efectivamente experimentan menos errores de medicación, menor responsabilidad y mayor retención. La IA crea espacio para que los humanos hagan lo que mejor saben hacer: pensar, escuchar y cuidar."
-      },
-      {
-        "question": "¿Qué tan transparente es la IA? ¿Puedo ver cómo llega a conclusiones?",
-        "answer": "Sí. Cada decisión en Nexus viene con una capa de explicación. Verá qué fuentes de datos, niveles de evidencia y caminos lógicos se usaron. Sin \"cajas negras\". Solo razonamiento transparente y verificable en el que puede confiar y auditar."
-      },
-      {
-        "question": "¿Qué pasa con la aprobación regulatoria? ¿Estos sistemas están autorizados?",
-        "answer": "Nexus opera bajo el marco de herramientas de Apoyo a Decisiones Clínicas (CDS), lo que significa que empoderamos a los clínicos sin automatizar el juicio clínico. Nuestra plataforma ReguReady™ ayuda a agilizar el cumplimiento, y cada módulo Nexus está diseñado con estándares de la FDA, ISO y CE en mente."
-      },
-      {
-        "question": "¿Cómo se integra Nexus con los sistemas existentes?",
-        "answer": "Sin problemas. Nexus se conecta a las principales plataformas de HCE, farmacia y laboratorio a través de API seguras e interoperabilidad basada en FHIR. Ya sea que use Epic, Cerner o software personalizado, la integración es rápida, segura y aprobada por TI."
-      },
-      {
-        "question": "¿Es costoso implementar IA?",
-        "answer": "No tiene que serlo. Nexus fue construido para democratizar el acceso a la innovación en salud, no para restringirlo. Nuestro modelo de precios escalonado va desde suscripciones para pequeñas prácticas hasta paquetes empresariales, para que clínicas de cualquier tamaño puedan comenzar de manera segura y escalar de forma sostenible."
-      },
-      {
-        "question": "¿Qué pasa con la empatía cuando las máquinas entran en la atención médica?",
-        "answer": "La empatía crece. Cuando la tecnología maneja las tareas repetitivas, los clínicos pueden pasar más tiempo con sus pacientes: escuchando, conectando y cuidando. La IA nunca debe reemplazar la compasión; debe darle el tiempo y la claridad para expresarla completamente."
-      }
-    ],
-    "promise": {
-      "title": "Nuestra Promesa",
-      "text": "Nexus Biomedical Intelligence existe para hacer que la atención médica sea más segura, más simple y más humana. Creemos que la transparencia genera confianza, y la confianza salva vidas.",
-      "contactUs": "Contáctenos",
-      "explorePlatforms": "Explorar Plataformas"
-    }
-  },
   "footer": {
     "tagline": "Transformando la Atención Médica a Través de la Innovación en IA",
     "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",
@@ -614,5 +446,141 @@
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "security": "Seguridad y Privacidad"
+  },
+  "whoBenefits": {
+    "title": "¿Quién se Beneficia de Nexus?",
+    "subtitle": "Nuestras plataformas impulsadas por IA sirven a diversos actores en todo el ecosistema de atención médica",
+    "keyBenefits": "Beneficios Clave:",
+    "cta": "¿Listo para ver cómo Nexus puede transformar su organización?",
+    "getStarted": "Comenzar",
+    "smallClinics": {
+      "title": "Clínicas Pequeñas y Consultorios Privados",
+      "description": "Acceda a apoyo de decisiones clínicas de nivel empresarial sin costos empresariales. Reduzca errores médicos, optimice flujos de trabajo y compita con sistemas más grandes.",
+      "benefit1": "Herramientas de IA asequibles",
+      "benefit2": "Riesgo de responsabilidad reducido",
+      "benefit3": "Mejores resultados para pacientes"
+    },
+    "hospitals": {
+      "title": "Hospitales y Sistemas de Salud",
+      "description": "Escale la excelencia clínica en todos los departamentos. Estandarice protocolos de atención, reduzca eventos adversos y mejore métricas de calidad mientras reduce la carga administrativa.",
+      "benefit1": "Estandarización en todo el sistema",
+      "benefit2": "Mejora de métricas de calidad",
+      "benefit3": "Reducción de costos"
+    },
+    "insurance": {
+      "title": "Compañías de Seguros y Pagadores",
+      "description": "Reduzca costos de reclamos mediante identificación proactiva de riesgos. Prevenga eventos adversos de medicamentos, readmisiones hospitalarias y errores de medicación antes de que ocurran.",
+      "benefit1": "Menores costos de reclamos",
+      "benefit2": "Prevención de riesgos",
+      "benefit3": "Seguridad de miembros"
+    },
+    "medicalDevice": {
+      "title": "Fabricantes de Dispositivos Médicos",
+      "description": "Navegue las vías de la FDA más rápido con ReguReady™. Reduzca retrasos regulatorios, optimice estrategias de cumplimiento y acelere el tiempo de comercialización.",
+      "benefit1": "Aprobación FDA más rápida",
+      "benefit2": "Optimización de cumplimiento",
+      "benefit3": "Costos regulatorios reducidos"
+    },
+    "pharma": {
+      "title": "Compañías Farmacéuticas",
+      "description": "Optimice el diseño de ensayos clínicos y el monitoreo de seguridad de medicamentos. Identifique riesgos de interacción temprano, mejore la inscripción de ensayos y fortalezca la vigilancia post-comercialización.",
+      "benefit1": "Mejor diseño de ensayos",
+      "benefit2": "Información sobre seguridad de medicamentos",
+      "benefit3": "Desarrollo más rápido"
+    },
+    "cro": {
+      "title": "Organizaciones de Investigación Clínica",
+      "description": "Diseñe mejores ensayos con ClinicalIQ™. Mejore la viabilidad del protocolo, optimice la selección de pacientes y reduzca fallas de ensayos mediante información impulsada por IA.",
+      "benefit1": "Optimización de protocolos",
+      "benefit2": "Reclutamiento de pacientes",
+      "benefit3": "Tasas de éxito de ensayos"
+    },
+    "longTermCare": {
+      "title": "Instalaciones de Cuidado a Largo Plazo",
+      "description": "Proteja poblaciones vulnerables con ElderWatch™. Prevenga caídas, optimice la gestión de medicamentos geriátricos y mejore la calidad de vida de los residentes.",
+      "benefit1": "Prevención de caídas",
+      "benefit2": "Seguridad de medicamentos",
+      "benefit3": "Mejora de calidad"
+    },
+    "telemedicine": {
+      "title": "Proveedores de Telemedicina",
+      "description": "Brinde atención remota más segura con apoyo de decisiones clínicas en tiempo real. Detecte interacciones de medicamentos, evalúe dosificación pediátrica y clasifique preocupaciones dermatológicas con confianza.",
+      "benefit1": "Verificaciones de seguridad remotas",
+      "benefit2": "Prescripción confiada",
+      "benefit3": "Mejor clasificación"
+    },
+    "individuals": {
+      "title": "Individuos y Pacientes",
+      "description": "Tome control de su salud hormonal con EndoGuard™. Comprenda exposiciones a EDC, rastree síntomas de PCOS/tiroides/perimenopausia y obtenga orientación basada en evidencia de fuentes confiables.",
+      "benefit1": "Evaluación de exposición a EDC",
+      "benefit2": "Seguimiento de síntomas",
+      "benefit3": "Información basada en evidencia"
+    }
+  },
+  "compare": {
+    "title": "Compare Nuestras Plataformas",
+    "subtitle": "Encuentre la solución de atención médica impulsada por IA perfecta para sus necesidades",
+    "trial": "Prueba gratuita de {{days}} días",
+    "bestFor": "Mejor Para:",
+    "keyFeatures": "Características Clave:",
+    "learnMore": "Más Información",
+    "categories": {
+      "all": "Todas las Plataformas",
+      "medication": "Seguridad de Medicamentos",
+      "procedures": "Procedimientos y Calidad",
+      "monitoring": "Monitoreo de Salud",
+      "research": "Investigación y Ensayos",
+      "regulatory": "Cumplimiento Regulatorio",
+      "diagnostics": "Diagnóstico y Detección"
+    }
+  },
+  "testimonials": {
+    "backToHome": "← Volver al Inicio",
+    "betaBadge": "🚀 Beta de Acceso Temprano",
+    "together": "Juntos",
+    "beta": {
+      "title": "Ayúdenos a Construir Algo Increíble",
+      "subtitle": "Estamos en acceso temprano y recopilando comentarios reales de profesionales de la salud como usted",
+      "message": "¡Su experiencia importa! Como adoptador temprano, sus ideas darán forma al futuro de la inteligencia de atención médica impulsada por IA."
+    },
+    "yourStory": {
+      "title": "Su Historia Podría Estar Aquí",
+      "subtitle": "Sea uno de los primeros en compartir su experiencia con nuestras plataformas de atención médica impulsadas por IA"
+    },
+    "submitTestimonial": "→ Enviar Su Testimonio",
+    "share": {
+      "title": "Comparta Su Experiencia",
+      "description": "Estamos recopilando activamente testimonios de nuestros usuarios de acceso temprano. Sus comentarios nos ayudan a mejorar e inspiran a otros profesionales de la salud a unirse a nuestra misión."
+    },
+    "readyToShare": "¿Listo para compartir su historia?",
+    "submitButton": "Enviar Su Testimonio",
+    "cta": {
+      "title": "Únase a Nuestra Comunidad de Acceso Temprano",
+      "subtitle": "Sea parte del futuro de la inteligencia de atención médica impulsada por IA",
+      "explorePlatforms": "Explorar Plataformas",
+      "startTrial": "Comenzar Prueba Gratuita"
+    }
+  },
+  "legal": {
+    "backToHome": "← Volver al Inicio",
+    "privacy": {
+      "title": "Política de Privacidad",
+      "effectiveDate": "Fecha de Vigencia: {{date}}",
+      "lastUpdated": "Última Actualización: {{date}}",
+      "summary": "Esta política de privacidad describe cómo Nexus Biomedical Intelligence recopila, usa y protege su información personal. El documento completo en inglés a continuación es legalmente vinculante."
+    },
+    "terms": {
+      "title": "Términos de Servicio",
+      "effectiveDate": "Fecha de Vigencia: {{date}}",
+      "lastUpdated": "Última Actualización: {{date}}",
+      "summary": "Estos términos rigen su uso de las plataformas de Nexus Biomedical Intelligence. El documento completo en inglés a continuación es legalmente vinculante."
+    },
+    "hipaa": {
+      "title": "Cumplimiento HIPAA",
+      "effectiveDate": "Fecha de Vigencia: {{date}}",
+      "lastUpdated": "Última Actualización: {{date}}",
+      "summary": "Información sobre cómo Nexus Biomedical Intelligence cumple con las regulaciones HIPAA para proteger la información de salud. El documento completo en inglés a continuación es legalmente vinculante."
+    },
+    "legalNotice": "Nota Legal: La versión en inglés de este documento es la versión legalmente vinculante. Esta traducción se proporciona solo para conveniencia."
   }
 }

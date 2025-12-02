@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function About() {
-  const { t } = useTranslation();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,7 +30,7 @@ export default function About() {
             WebkitTextFillColor: 'transparent',
             marginBottom: '1.5rem'
           }}>
-            {t('about.title')}
+            About Nexus Biomedical Intelligence
           </h1>
           <p style={{
             fontSize: '1.25rem',
@@ -42,7 +39,7 @@ export default function About() {
             margin: '0 auto',
             lineHeight: 1.8
           }}>
-            {t('about.subtitle')}
+            AI-powered healthcare intelligence for clinicians, patients, and organizations
           </p>
         </div>
 
@@ -61,7 +58,7 @@ export default function About() {
             color: '#60A5FA',
             marginBottom: '1.5rem'
           }}>
-            {t('about.mission')}
+            Our Mission
           </h2>
           <p style={{
             fontSize: '1.125rem',
@@ -69,7 +66,7 @@ export default function About() {
             lineHeight: 1.8,
             marginBottom: '1rem'
           }}>
-            {t('about.missionText')}
+            To empower healthcare professionals with intelligent, trustworthy AI tools that enhance clinical decision-making, improve patient safety, and reduce the burden of administrative complexity—without replacing the irreplaceable human element of care.
           </p>
         </section>
 
@@ -88,7 +85,7 @@ export default function About() {
             color: '#60A5FA',
             marginBottom: '1.5rem'
           }}>
-            {t('about.story')}
+            Our Story
           </h2>
           <p style={{
             fontSize: '1.125rem',
@@ -96,7 +93,7 @@ export default function About() {
             lineHeight: 1.8,
             marginBottom: '1rem'
           }}>
-            {t('about.storyText1')}
+            Nexus Biomedical Intelligence was born from a simple observation: healthcare professionals are drowning in data but starving for actionable insights. Every day, clinicians face impossible choices—balancing patient safety, regulatory compliance, and operational efficiency while navigating fragmented systems and information overload.
           </p>
           <p style={{
             fontSize: '1.125rem',
@@ -104,7 +101,7 @@ export default function About() {
             lineHeight: 1.8,
             marginBottom: '1rem'
           }}>
-            {t('about.storyText2')}
+            We believe AI should amplify human expertise, not replace it. Our platforms are designed by healthcare professionals, for healthcare professionals—combining cutting-edge artificial intelligence with deep domain knowledge to deliver decision support that's transparent, trustworthy, and truly useful.
           </p>
         </section>
 
@@ -123,7 +120,7 @@ export default function About() {
             color: '#60A5FA',
             marginBottom: '1.5rem'
           }}>
-            {t('about.whatWeDo')}
+            What We Do
           </h2>
           <p style={{
             fontSize: '1.125rem',
@@ -131,7 +128,7 @@ export default function About() {
             lineHeight: 1.8,
             marginBottom: '1.5rem'
           }}>
-            {t('about.whatWeDoText')}
+            We build specialized AI platforms that address the most critical pain points in healthcare:
           </p>
           <div style={{
             display: 'grid',
@@ -139,13 +136,34 @@ export default function About() {
             gap: '2rem'
           }}>
             {[
-              { title: 'RxGuard™', key: 'rxguard' },
-              { title: 'ReguReady™', key: 'reguready' },
-              { title: 'ClinicalIQ™', key: 'clinicaliq' },
-              { title: 'ElderWatch™', key: 'elderwatch' },
-              { title: 'PediCalc Pro™', key: 'pedicalc' },
-              { title: 'SkinScan Pro™', key: 'skinscan' },
-              { title: 'EndoGuard™', key: 'endoguard' }
+              {
+                title: 'RxGuard™',
+                description: 'Real-time medication interaction detection and polypharmacy risk assessment'
+              },
+              {
+                title: 'ReguReady™',
+                description: 'FDA compliance navigation and regulatory pathway optimization'
+              },
+              {
+                title: 'ClinicalIQ™',
+                description: 'Clinical trial design and protocol optimization'
+              },
+              {
+                title: 'ElderWatch™',
+                description: 'Geriatric care optimization and fall risk prevention'
+              },
+              {
+                title: 'PediCalc Pro™',
+                description: 'Pediatric dosing calculations and safety checks'
+              },
+              {
+                title: 'SkinScan Pro™',
+                description: 'Dermatological assessment and triage support'
+              },
+              {
+                title: 'EndoGuard™',
+                description: 'Environmental health and hormone wellness platform with EDC exposure assessment'
+              }
             ].map((platform, index) => (
               <div key={index} style={{
                 background: 'rgba(96, 165, 250, 0.1)',
@@ -166,7 +184,7 @@ export default function About() {
                   color: '#B8D4E8',
                   lineHeight: 1.6
                 }}>
-                  {t(`about.platforms.${platform.key}`)}
+                  {platform.description}
                 </p>
               </div>
             ))}
@@ -188,7 +206,7 @@ export default function About() {
             color: '#60A5FA',
             marginBottom: '1.5rem'
           }}>
-            {t('about.values')}
+            Our Values
           </h2>
           <div style={{
             display: 'grid',
@@ -196,10 +214,22 @@ export default function About() {
             gap: '2rem'
           }}>
             {[
-              { key: 'transparency' },
-              { key: 'safety' },
-              { key: 'clinician' },
-              { key: 'privacy' }
+              {
+                title: 'Transparency',
+                description: 'Every recommendation includes visible context and source data. No black boxes.'
+              },
+              {
+                title: 'Safety First',
+                description: 'Patient safety is non-negotiable. Our systems are designed to catch what humans might miss.'
+              },
+              {
+                title: 'Clinician-Centric',
+                description: 'We augment expertise, never replace it. You stay in control, always.'
+              },
+              {
+                title: 'Privacy & Security',
+                description: 'HIPAA-ready infrastructure. Your data is yours—we never sell, share, or train on it.'
+              }
             ].map((value, index) => (
               <div key={index}>
                 <h3 style={{
@@ -208,14 +238,14 @@ export default function About() {
                   color: '#00A8CC',
                   marginBottom: '0.75rem'
                 }}>
-                  {t(`about.valuesItems.${value.key}.title`)}
+                  {value.title}
                 </h3>
                 <p style={{
                   fontSize: '1rem',
                   color: '#B8D4E8',
                   lineHeight: 1.6
                 }}>
-                  {t(`about.valuesItems.${value.key}.description`)}
+                  {value.description}
                 </p>
               </div>
             ))}

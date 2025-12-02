@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": "endoguard-hormone-health-hispanic-women",
+      "slug": {
+        "en": "endoguard-hormone-health-hispanic-women",
+        "es": "endoguard-salud-hormonal-hispanas"
+      },
+      "title": {
+        "en": "EndoGuard™: Revolutionizing Hormone Health for Hispanic Women",
+        "es": "EndoGuard™: Revolucionando la Salud Hormonal para Mujeres Hispanas"
+      },
+      "excerpt": {
+        "en": "Discover how EndoGuard™ is empowering Hispanic women to take control of their hormone health through AI-powered assessments, symptom tracking, and evidence-based guidance.",
+        "es": "Descubra cómo EndoGuard™ está empoderando a las mujeres hispanas para tomar control de su salud hormonal a través de evaluaciones impulsadas por IA, seguimiento de síntomas y orientación basada en evidencia."
+      },
+      "author": {
+        "en": "Nexus Biomedical Intelligence Team",
+        "es": "Equipo de Nexus Biomedical Intelligence"
+      },
+      "publishDate": "2025-12-02",
+      "category": {
+        "en": "Women's Health",
+        "es": "Salud de la Mujer"
+      },
+      "tags": {
+        "en": ["hormone health", "PCOS", "thyroid", "perimenopause", "Hispanic women", "EndoGuard"],
+        "es": ["salud hormonal", "SOP", "tiroides", "perimenopausia", "mujeres hispanas", "EndoGuard"]
+      },
+      "readTime": {
+        "en": "12 min read",
+        "es": "12 min de lectura"
+      },
+      "featured": true,
+      "image": "/images/blog/endoguard-hormone-health.jpg",
+      "seo": {
+        "en": {
+          "metaTitle": "EndoGuard™ for Hispanic Women | Hormone Health AI Platform",
+          "metaDescription": "Learn how EndoGuard™ helps Hispanic women manage PCOS, thyroid issues, and perimenopause through AI-powered hormone health tracking and personalized guidance.",
+          "keywords": "EndoGuard, hormone health, Hispanic women, PCOS, thyroid, perimenopause, AI healthcare, women's health"
+        },
+        "es": {
+          "metaTitle": "EndoGuard™ para Mujeres Hispanas | Plataforma de IA para Salud Hormonal",
+          "metaDescription": "Aprenda cómo EndoGuard™ ayuda a mujeres hispanas a manejar SOP, problemas de tiroides y perimenopausia a través de seguimiento de salud hormonal impulsado por IA y orientación personalizada.",
+          "keywords": "EndoGuard, salud hormonal, mujeres hispanas, SOP, tiroides, perimenopausia, IA en salud, salud de la mujer"
+        }
+      }
+    }
+  ],
+  "categories": {
+    "en": [
+      "Women's Health",
+      "Medical Technology",
+      "Hormone Health",
+      "Clinical Decision Support",
+      "Healthcare AI"
+    ],
+    "es": [
+      "Salud de la Mujer",
+      "Tecnología Médica",
+      "Salud Hormonal",
+      "Apoyo a Decisiones Clínicas",
+      "IA en Salud"
+    ]
+  },
+  "metadata": {
+    "lastUpdated": "2025-12-02",
+    "totalPosts": 1,
+    "languages": ["en", "es"]
+  }
+}

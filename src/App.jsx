@@ -1,10 +1,9 @@
-import React, { Suspense, lazy, useState, useEffect } from 'react'
+import { useState, lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './styles/nexus.css'
-import './styles/rtl.css' // RTL support
 import './i18n' // Initialize i18n
-import { updateDocumentDirection } from './utils/rtl'
+import { initializeSEO } from './utils/seo'
 import StarryBackground from './components/StarryBackground'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -179,9 +178,18 @@ function Homepage() {
 function App() {
   const { i18n } = useTranslation();
 
-  // Update document direction when language changes
+  // Update SEO meta tags when language changes
   useEffect(() => {
-    updateDocumentDirection(i18n.language);
+    // Determine current page from URL path
+    const path = window.location.pathname;
+    let currentPage = 'home';
+    
+    if (path.includes('/about')) currentPage = 'about';
+    else if (path.includes('/platforms') || path.includes('/rxguard') || path.includes('/endoguard') || path.includes('/elderwatch') || path.includes('/pedicalc') || path.includes('/clinicaliq') || path.includes('/reguready') || path.includes('/skinscan')) currentPage = 'platforms';
+    else if (path.includes('/pricing')) currentPage = 'pricing';
+    
+    // Initialize SEO for current page and language
+    initializeSEO(currentPage, i18n.language);
   }, [i18n.language]);
 
   return (

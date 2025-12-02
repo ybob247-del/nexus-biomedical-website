@@ -1,0 +1,9 @@
+{
+  "query": "\nCREATE TABLE IF NOT EXISTS tour_ab_assignments (\n  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n  test_id BIGINT UNSIGNED NOT NULL,\n  user_id VARCHAR(255) NOT NULL COMMENT 'User ID or anonymous session ID',\n  variant ENUM('A', 'B') NOT NULL,\n  assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (test_id) REFERENCES tour_ab_tests(id) ON DELETE CASCADE,\n  UNIQUE KEY unique_user_test (test_id, user_id),\n  INDEX idx_user_id (user_id),\n  INDEX idx_variant (variant)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='User assignments to A/B test variants';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute \nCREATE TABLE IF NOT EXISTS tour_ab_assignments (\n  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n  test_id BIGINT UNSIGNED NOT NULL,\n  user_id VARCHAR(255) NOT NULL COMMENT 'User ID or anonymous session ID',\n  variant ENUM('A', 'B') NOT NULL,\n  assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (test_id) REFERENCES tour_ab_tests(id) ON DELETE CASCADE,\n  UNIQUE KEY unique_user_test (test_id, user_id),\n  INDEX idx_user_id (user_id),\n  INDEX idx_variant (variant)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='User assignments to A/B test variants';\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 274
+}

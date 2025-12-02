@@ -43,7 +43,7 @@ The dual-system architecture serves different purposes:
 | **Primary User** | Administrators | End Users |
 | **Purpose** | Campaign management & analytics | User preferences & notifications |
 | **Access Method** | Password-protected standalone app | OAuth login required |
-| **Key Features** | Analytics, health tips, A/B testing | SMS settings, notification history |
+| **Key Features** | SMS analytics, health tips management, A/B testing | SMS settings, notification history |
 | **Deployment** | Vercel (separate domain) | Main Nexus website |
 
 ### System Integration
@@ -686,6 +686,11 @@ Citations: 287
 ---
 
 ## Changelog
+
+### Version 2.1 (December 2, 2025)
+- ✅ Added A/B Testing tab to admin panel
+- ✅ Integrated A/B testing management UI
+- ✅ Created comprehensive A/B testing documentation
 
 ### Version 2.0 (December 1, 2025)
 - ✅ Documented dual SMS system architecture

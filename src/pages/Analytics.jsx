@@ -242,6 +242,21 @@ export default function Analytics() {
                 📱 SMS Analytics
               </button>
               <button
+                onClick={() => navigate('/admin/ab-tests')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+                  border: 'none',
+                  borderRadius: '10px',
+                  color: '#FFFFFF',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 600
+                }}
+              >
+                🧪 A/B Tests
+              </button>
+              <button
                 onClick={loadAnalytics}
                 style={{
                   padding: '0.75rem 1.5rem',

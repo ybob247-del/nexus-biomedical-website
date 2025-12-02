@@ -1,7 +1,10 @@
-import { useState, lazy, Suspense, useEffect } from 'react'
+import React, { Suspense, lazy, useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './styles/nexus.css'
+import './styles/rtl.css' // RTL support
 import './i18n' // Initialize i18n
+import { updateDocumentDirection } from './utils/rtl'
 import StarryBackground from './components/StarryBackground'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -174,6 +177,13 @@ function Homepage() {
 
 // Force Vercel redeploy - URL routing fix
 function App() {
+  const { i18n } = useTranslation();
+
+  // Update document direction when language changes
+  useEffect(() => {
+    updateDocumentDirection(i18n.language);
+  }, [i18n.language]);
+
   return (
     <>
       <StarryBackground />

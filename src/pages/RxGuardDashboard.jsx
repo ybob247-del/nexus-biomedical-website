@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
@@ -15,6 +16,7 @@ import '../styles/tour.css';
 const API_BASE = 'http://localhost:3007/api/rxguard';
 
 export default function RxGuardDashboard() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { user, token } = useAuth();
   const { trackAction } = useAnalytics('rxguard');
@@ -72,11 +74,11 @@ export default function RxGuardDashboard() {
       const data = await response.json();
       if (data.success) {
         trackAction('save_medication_list', { medicationCount: medications.length });
-        alert('Medication list saved successfully!');
+        alert(t('rxguardDashboard.messages.saved'));
       }
     } catch (error) {
       console.error('Error saving medications:', error);
-      alert('Failed to save medication list.');
+      alert(t('rxguardDashboard.messages.error'));
     } finally {
       setIsSaving(false);
     }
@@ -194,8 +196,8 @@ export default function RxGuardDashboard() {
       <BackToHomeButton />
       <div className="rxguard-dashboard">
       <div className="dashboard-header">
-        <h1>RxGuard™ Drug Interaction Checker</h1>
-        <p>Add your medications to check for potential interactions</p>
+        <h1>{t('rxguardDashboard.title')}</h1>
+        <p>{t('rxguardDashboard.subtitle')}</p>
         <FDADisclaimer />
       </div>
 
@@ -207,13 +209,13 @@ export default function RxGuardDashboard() {
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search for medications (e.g., Lipitor, Aspirin)..."
+            placeholder={t('rxguardDashboard.search.placeholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="drug-search-input"
             data-tour="medication-search"
           />
-          {isSearching && <div className="search-spinner">Searching...</div>}
+          {isSearching && <div className="search-spinner">{t('rxguardDashboard.search.searching')}</div>}
         </div>
 
         {/* Search Results */}
@@ -235,11 +237,11 @@ export default function RxGuardDashboard() {
 
       {/* Medication List */}
       <div className="medication-list-section">
-        <h2>Your Medications ({medications.length})</h2>
+        <h2>{t('rxguardDashboard.medications.title')} ({medications.length})</h2>
         
         {medications.length === 0 ? (
           <div className="empty-state">
-            <p>No medications added yet. Search and add medications above.</p>
+            <p>{t('rxguardDashboard.medications.empty')}</p>
           </div>
         ) : (
           <div className="medication-list" data-tour="medication-list">
@@ -251,7 +253,7 @@ export default function RxGuardDashboard() {
                     onClick={() => removeMedication(med.rxcui)}
                     className="remove-btn"
                   >
-                    Remove
+                    {t('rxguardDashboard.medications.remove')}
                   </button>
                 </div>
                 <div className="med-details">
@@ -271,7 +273,7 @@ export default function RxGuardDashboard() {
               disabled={isSaving}
               className="save-btn"
             >
-              {isSaving ? 'Saving...' : '💾 Save Medication List'}
+              {isSaving ? t('common.loading') : `💾 ${t('rxguardDashboard.actions.saveList')}`}
             </button>
             {medications.length >= 2 && (
               <button
@@ -279,7 +281,7 @@ export default function RxGuardDashboard() {
                 disabled={isAnalyzing}
                 className="check-interactions-btn"
               >
-                {isAnalyzing ? 'Analyzing...' : '🔍 Check for Interactions'}
+                {isAnalyzing ? t('rxguardDashboard.medications.analyzing') : `🔍 ${t('rxguardDashboard.actions.checkInteractions')}`}
               </button>
             )}
           </div>
@@ -289,7 +291,7 @@ export default function RxGuardDashboard() {
       {/* Analysis Results */}
       {analysis && (
         <div className="analysis-section" data-tour="interaction-analysis">
-          <h2>Interaction Analysis Results</h2>
+          <h2>{t('rxguardDashboard.interactions.title')}</h2>
           
           {/* Risk Assessment */}
           <div className={`risk-card risk-${analysis.riskAssessment.riskLevel.toLowerCase()}`}>

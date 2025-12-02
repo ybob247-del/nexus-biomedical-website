@@ -429,6 +429,90 @@
       "compareAssessments": "Compare Assessments"
     }
   },
+  "rxguardDashboard": {
+    "title": "RxGuard™ Drug Interaction Checker",
+    "subtitle": "Add your medications to check for potential interactions",
+    "search": {
+      "placeholder": "Search medications...",
+      "searching": "Searching...",
+      "noResults": "No medications found",
+      "addMedication": "Add Medication"
+    },
+    "medications": {
+      "title": "Your Medications",
+      "empty": "No medications added yet. Search and add medications above.",
+      "remove": "Remove",
+      "analyzing": "Analyzing interactions..."
+    },
+    "interactions": {
+      "title": "Interaction Analysis",
+      "noInteractions": "No interactions detected",
+      "severity": {
+        "high": "High Risk",
+        "moderate": "Moderate Risk",
+        "low": "Low Risk"
+      },
+      "description": "Description",
+      "recommendation": "Recommendation"
+    },
+    "actions": {
+      "checkInteractions": "Check Interactions",
+      "saveList": "Save Medication List",
+      "clearAll": "Clear All",
+      "exportPDF": "Export PDF Report"
+    },
+    "messages": {
+      "saved": "Medication list saved successfully",
+      "cleared": "All medications cleared",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}",
+    "welcomeNew": "Welcome, {{name}}",
+    "yourPlatforms": "Your Platforms",
+    "accessPlatform": "Access Platform",
+    "startFreeTrial": "Start Free Trial",
+    "comingSoon": "Coming Soon",
+    "trialActive": "Trial Active",
+    "subscribed": "Subscribed"
+  },
+  "platformsPage": {
+    "title": "Our AI Healthcare Platforms",
+    "subtitle": "Choose the platform that fits your needs",
+    "betaBanner": "Beta Testing in Progress - EndoGuard™ and RxGuard™ are live for early adopters!",
+    "startFreeTrial": "Start Free Trial",
+    "startFreeAssessment": "Start Free Assessment",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About Nexus Biomedical Intelligence",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "team": "Our Team",
+    "values": "Our Values"
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Flexible pricing for individuals and healthcare providers",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "save": "Save {{percent}}%",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "freeTrial": "{{days}}-day free trial",
+    "selectPlan": "Select Plan",
+    "currentPlan": "Current Plan"
+  },
+  "subscription": {
+    "title": "Subscription Management",
+    "currentPlan": "Current Plan",
+    "billingCycle": "Billing Cycle",
+    "nextBilling": "Next Billing Date",
+    "changePlan": "Change Plan",
+    "cancelSubscription": "Cancel Subscription",
+    "reactivate": "Reactivate Subscription"
+  },
   "footer": {
     "tagline": "Transforming Healthcare Through AI Innovation",
     "copyright": "© {{year}} Nexus Biomedical Intelligence. All rights reserved.",

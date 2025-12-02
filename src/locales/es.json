@@ -429,6 +429,68 @@
       "compareAssessments": "Comparar Evaluaciones"
     }
   },
+  "rxguardDashboard": {
+    "title": "Verificador de Interacciones Medicamentosas RxGuard™",
+    "subtitle": "Agregue sus medicamentos para verificar posibles interacciones",
+    "search": {
+      "placeholder": "Buscar medicamentos...",
+      "searching": "Buscando...",
+      "noResults": "No se encontraron medicamentos",
+      "addMedication": "Agregar Medicamento"
+    },
+    "medications": {
+      "title": "Sus Medicamentos",
+      "empty": "No se han agregado medicamentos aún. Busque y agregue medicamentos arriba.",
+      "remove": "Eliminar",
+      "analyzing": "Analizando interacciones..."
+    },
+    "interactions": {
+      "title": "Análisis de Interacciones",
+      "noInteractions": "No se detectaron interacciones",
+      "severity": {
+        "high": "Riesgo Alto",
+        "moderate": "Riesgo Moderado",
+        "low": "Riesgo Bajo"
+      },
+      "description": "Descripción",
+      "recommendation": "Recomendación"
+    },
+    "actions": {
+      "checkInteractions": "Verificar Interacciones",
+      "saveList": "Guardar Lista de Medicamentos",
+      "clearAll": "Limpiar Todo",
+      "exportPDF": "Exportar Informe PDF"
+    },
+    "messages": {
+      "saved": "Lista de medicamentos guardada exitosamente",
+      "cleared": "Todos los medicamentos eliminados",
+      "error": "Ocurrió un error. Por favor intente nuevamente."
+    }
+  },
+  "platformsPage": {
+    "title": "Nuestras Plataformas de IA en Salud",
+    "subtitle": "Elija la plataforma que se ajuste a sus necesidades",
+    "betaBanner": "Pruebas Beta en Progreso - ¡EndoGuard™ y RxGuard™ están disponibles para adoptadores tempranos!",
+    "startFreeTrial": "Iniciar Prueba Gratuita",
+    "startFreeAssessment": "Iniciar Evaluación Gratuita",
+    "learnMore": "Más Información"
+  },
+  "about": {
+    "title": "Acerca de Nexus Biomedical Intelligence",
+    "mission": "Nuestra Misión",
+    "vision": "Nuestra Visión",
+    "team": "Nuestro Equipo",
+    "values": "Nuestros Valores"
+  },
+  "subscription": {
+    "title": "Gestión de Suscripción",
+    "currentPlan": "Plan Actual",
+    "billingCycle": "Ciclo de Facturación",
+    "nextBilling": "Próxima Fecha de Facturación",
+    "changePlan": "Cambiar Plan",
+    "cancelSubscription": "Cancelar Suscripción",
+    "reactivate": "Reactivar Suscripción"
+  },
   "footer": {
     "tagline": "Transformando la Atención Médica a Través de la Innovación en IA",
     "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",

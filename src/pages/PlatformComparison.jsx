@@ -1,136 +1,96 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/platform-comparison.css';
 
 const PlatformComparison = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const platforms = [
     {
-      name: 'RxGuard™',
+      name: t('platformComparison.platforms.rxguard.name'),
       category: 'medication',
-      tagline: 'Medication Interaction Predictor',
-      price: '$39/month',
-      trialDays: 14,
-      bestFor: 'Healthcare providers, pharmacists, patients with multiple medications',
-      keyFeatures: [
-        'Real-time drug interaction analysis',
-        'AI-powered risk scoring',
-        'Alternative medication suggestions',
-        'Clinical mitigation strategies',
-        '10,000+ medication database'
-      ],
+      tagline: t('platformComparison.platforms.rxguard.tagline'),
+      price: t('platformComparison.platforms.rxguard.price'),
+      trialDays: t('platformComparison.platforms.rxguard.trialDays'),
+      bestFor: t('platformComparison.platforms.rxguard.bestFor'),
+      keyFeatures: t('platformComparison.platforms.rxguard.features', { returnObjects: true }),
       url: '/rxguard'
     },
     {
-      name: 'EndoGuard™',
+      name: t('platformComparison.platforms.endoguard.name'),
       category: 'procedures',
-      tagline: 'Endoscopy Quality Assurance',
-      price: '$97/month',
-      trialDays: 30,
-      bestFor: 'Gastroenterologists, endoscopy centers, GI departments',
-      keyFeatures: [
-        'Quality metrics tracking',
-        'Adverse event prediction',
-        'Procedure analytics dashboard',
-        'Compliance reporting',
-        'Patient risk assessment'
-      ],
+      tagline: t('platformComparison.platforms.endoguard.tagline'),
+      price: t('platformComparison.platforms.endoguard.price'),
+      trialDays: t('platformComparison.platforms.endoguard.trialDays'),
+      bestFor: t('platformComparison.platforms.endoguard.bestFor'),
+      keyFeatures: t('platformComparison.platforms.endoguard.features', { returnObjects: true }),
       url: '/endoguard'
     },
     {
-      name: 'ElderWatch™',
+      name: t('platformComparison.platforms.elderwatch.name'),
       category: 'monitoring',
-      tagline: 'Senior Health Monitoring',
-      price: '$49-$199/month',
-      trialDays: 14,
-      bestFor: 'Caregivers, families, senior living facilities',
-      keyFeatures: [
-        'Fall risk prediction',
-        'Medication reminder system',
-        'Vital signs monitoring',
-        'Emergency alert system',
-        'Family portal for updates'
-      ],
+      tagline: t('platformComparison.platforms.elderwatch.tagline'),
+      price: t('platformComparison.platforms.elderwatch.price'),
+      trialDays: t('platformComparison.platforms.elderwatch.trialDays'),
+      bestFor: t('platformComparison.platforms.elderwatch.bestFor'),
+      keyFeatures: t('platformComparison.platforms.elderwatch.features', { returnObjects: true }),
       url: '/elderwatch'
     },
     {
-      name: 'PediCalc Pro™',
+      name: t('platformComparison.platforms.pedicalc.name'),
       category: 'medication',
-      tagline: 'Pediatric Dosing Calculator',
-      price: '$14.99-$19.99/month',
-      trialDays: 7,
-      bestFor: 'Pediatricians, parents, pediatric nurses',
-      keyFeatures: [
-        'Weight-based dosing calculator',
-        'Age-appropriate medication safety',
-        'Growth chart tracking',
-        'Vaccination schedule',
-        'Parent education library'
-      ],
+      tagline: t('platformComparison.platforms.pedicalc.tagline'),
+      price: t('platformComparison.platforms.pedicalc.price'),
+      trialDays: t('platformComparison.platforms.pedicalc.trialDays'),
+      bestFor: t('platformComparison.platforms.pedicalc.bestFor'),
+      keyFeatures: t('platformComparison.platforms.pedicalc.features', { returnObjects: true }),
       url: '/pedicalc'
     },
     {
-      name: 'ClinicalIQ™',
+      name: t('platformComparison.platforms.clinicaliq.name'),
       category: 'research',
-      tagline: 'Clinical Trial Optimization',
-      price: '$299-$699/month',
-      trialDays: 14,
-      bestFor: 'Pharmaceutical companies, CROs, research institutions',
-      keyFeatures: [
-        'Protocol success prediction',
-        'Patient recruitment forecasting',
-        'Site selection intelligence',
-        'Competitive trial tracking',
-        'Endpoint optimization'
-      ],
+      tagline: t('platformComparison.platforms.clinicaliq.tagline'),
+      price: t('platformComparison.platforms.clinicaliq.price'),
+      trialDays: t('platformComparison.platforms.clinicaliq.trialDays'),
+      bestFor: t('platformComparison.platforms.clinicaliq.bestFor'),
+      keyFeatures: t('platformComparison.platforms.clinicaliq.features', { returnObjects: true }),
       url: '/clinicaliq'
     },
     {
-      name: 'ReguReady™',
+      name: t('platformComparison.platforms.reguready.name'),
       category: 'regulatory',
-      tagline: 'FDA Regulatory Guidance',
-      price: '$199-$399/month',
-      trialDays: 7,
-      bestFor: 'Medical device companies, startups, regulatory consultants',
-      keyFeatures: [
-        'Regulatory pathway recommendation',
-        'Predicate device intelligence',
-        'Gap analysis & compliance checking',
-        'Document generation',
-        'International regulatory guidance'
-      ],
+      tagline: t('platformComparison.platforms.reguready.tagline'),
+      price: t('platformComparison.platforms.reguready.price'),
+      trialDays: t('platformComparison.platforms.reguready.trialDays'),
+      bestFor: t('platformComparison.platforms.reguready.bestFor'),
+      keyFeatures: t('platformComparison.platforms.reguready.features', { returnObjects: true }),
       url: '/reguready'
     },
     {
-      name: 'SkinScan Pro™',
+      name: t('platformComparison.platforms.skinscan.name'),
       category: 'diagnostics',
-      tagline: 'Skin Cancer Detection',
-      price: '$49-$59/month',
-      trialDays: 14,
-      bestFor: 'Dermatologists, primary care physicians, patients',
-      keyFeatures: [
-        'AI skin condition detection',
-        'ABCDE criteria analysis',
-        'Melanoma risk scoring',
-        'Lesion tracking over time',
-        'Dermatologist referral system'
-      ],
+      tagline: t('platformComparison.platforms.skinscan.tagline'),
+      price: t('platformComparison.platforms.skinscan.price'),
+      trialDays: t('platformComparison.platforms.skinscan.trialDays'),
+      bestFor: t('platformComparison.platforms.skinscan.bestFor'),
+      keyFeatures: t('platformComparison.platforms.skinscan.features', { returnObjects: true }),
       url: '/skinscan'
     }
   ];
 
   const categories = [
-    { id: 'all', label: 'All Platforms' },
-    { id: 'medication', label: 'Medication Safety' },
-    { id: 'procedures', label: 'Procedures & Quality' },
-    { id: 'monitoring', label: 'Health Monitoring' },
-    { id: 'research', label: 'Research & Trials' },
-    { id: 'regulatory', label: 'Regulatory Compliance' },
-    { id: 'diagnostics', label: 'Diagnostics & Screening' }
+    { id: 'all', label: t('platformComparison.categories.all') },
+    { id: 'medication', label: t('platformComparison.categories.medication') },
+    { id: 'procedures', label: t('platformComparison.categories.procedures') },
+    { id: 'monitoring', label: t('platformComparison.categories.monitoring') },
+    { id: 'research', label: t('platformComparison.categories.research') },
+    { id: 'regulatory', label: t('platformComparison.categories.regulatory') },
+    { id: 'diagnostics', label: t('platformComparison.categories.diagnostics') }
   ];
 
   const filteredPlatforms = selectedCategory === 'all' 
@@ -146,8 +106,8 @@ const PlatformComparison = () => {
       <Header />
       <div className="comparison-page">
         <div className="comparison-hero">
-          <h1>Compare Our Platforms</h1>
-          <p>Find the perfect AI-powered healthcare solution for your needs</p>
+          <h1>{t('platformComparison.hero.title')}</h1>
+          <p>{t('platformComparison.hero.subtitle')}</p>
         </div>
 
         <div className="comparison-filters">
@@ -172,16 +132,16 @@ const PlatformComparison = () => {
 
               <div className="card-pricing">
                 <div className="price">{platform.price}</div>
-                <div className="trial">{platform.trialDays}-day free trial</div>
+                <div className="trial">{platform.trialDays} {t('platformComparison.card.trialDays')}</div>
               </div>
 
               <div className="card-best-for">
-                <h3>Best For:</h3>
+                <h3>{t('platformComparison.card.bestFor')}</h3>
                 <p>{platform.bestFor}</p>
               </div>
 
               <div className="card-features">
-                <h3>Key Features:</h3>
+                <h3>{t('platformComparison.card.keyFeatures')}</h3>
                 <ul>
                   {platform.keyFeatures.map((feature, idx) => (
                     <li key={idx}>✓ {feature}</li>
@@ -193,46 +153,46 @@ const PlatformComparison = () => {
                 className="select-btn"
                 onClick={() => handleSelectPlatform(platform.url)}
               >
-                Learn More
+                {t('platformComparison.card.learnMore')}
               </button>
             </div>
           ))}
         </div>
 
         <div className="comparison-help">
-          <h2>Need Help Choosing?</h2>
-          <p>Not sure which platform is right for you? Our team can help you find the perfect solution.</p>
+          <h2>{t('platformComparison.help.title')}</h2>
+          <p>{t('platformComparison.help.description')}</p>
           <button className="contact-btn" onClick={() => navigate('/contact')}>
-            Contact Sales
+            {t('platformComparison.help.contactSales')}
           </button>
         </div>
 
         <div className="comparison-faq">
-          <h2>Frequently Asked Questions</h2>
+          <h2>{t('platformComparison.faq.title')}</h2>
           
           <div className="faq-item">
-            <h3>Can I use multiple platforms?</h3>
-            <p>Yes! Many customers use multiple platforms. Contact us for bundle pricing and multi-platform discounts.</p>
+            <h3>{t('platformComparison.faq.questions.multiplePlatforms.question')}</h3>
+            <p>{t('platformComparison.faq.questions.multiplePlatforms.answer')}</p>
           </div>
 
           <div className="faq-item">
-            <h3>What's included in the free trial?</h3>
-            <p>All free trials include full access to Professional tier features with no credit card required. Trial lengths vary by platform (7-30 days).</p>
+            <h3>{t('platformComparison.faq.questions.freeTrial.question')}</h3>
+            <p>{t('platformComparison.faq.questions.freeTrial.answer')}</p>
           </div>
 
           <div className="faq-item">
-            <h3>Can I switch platforms after signing up?</h3>
-            <p>Yes, you can switch or add platforms at any time. Contact support for assistance with platform changes.</p>
+            <h3>{t('platformComparison.faq.questions.switchPlatforms.question')}</h3>
+            <p>{t('platformComparison.faq.questions.switchPlatforms.answer')}</p>
           </div>
 
           <div className="faq-item">
-            <h3>Do you offer enterprise pricing?</h3>
-            <p>Yes, we offer custom enterprise pricing for organizations with multiple users or specific requirements. Contact sales for a quote.</p>
+            <h3>{t('platformComparison.faq.questions.enterprisePricing.question')}</h3>
+            <p>{t('platformComparison.faq.questions.enterprisePricing.answer')}</p>
           </div>
 
           <div className="faq-item">
-            <h3>Are the platforms HIPAA compliant?</h3>
-            <p>All platforms are HIPAA-ready with enterprise-grade security including AES-256 encryption and comprehensive audit logging. As pseudonymous platforms that do not collect PHI in standard use, they do not require Business Associate Agreements.</p>
+            <h3>{t('platformComparison.faq.questions.hipaaCompliance.question')}</h3>
+            <p>{t('platformComparison.faq.questions.hipaaCompliance.answer')}</p>
           </div>
         </div>
 

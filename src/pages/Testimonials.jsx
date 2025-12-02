@@ -1,45 +1,48 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/testimonials.css';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
+
   // Beta phase - inviting real testimonials
   const betaInvitation = {
-    title: "Help Us Build Something Amazing",
-    subtitle: "We're in early access and collecting real feedback from healthcare professionals like you",
-    message: "Your experience matters! As an early adopter, your insights will shape the future of AI-powered healthcare intelligence."
+    title: t('testimonials.beta.title'),
+    subtitle: t('testimonials.beta.subtitle'),
+    message: t('testimonials.beta.message')
   };
 
   // Placeholder for future testimonials
   const testimonials = [
     {
       id: 1,
-      name: "Your Name Here",
-      role: "Healthcare Professional",
-      organization: "Your Organization",
-      platform: "RxGuard™ or EndoGuard™",
-      quote: "Share your experience with our platforms. We'd love to hear how AI-powered healthcare intelligence is helping you and your patients.",
+      name: t('testimonials.placeholders.name'),
+      role: t('testimonials.placeholders.role'),
+      organization: t('testimonials.placeholders.organization'),
+      platform: t('testimonials.placeholders.platform'),
+      quote: t('testimonials.placeholders.quote1'),
       rating: 5,
       image: null,
       isPlaceholder: true
     },
     {
       id: 2,
-      name: "Your Name Here",
-      role: "Healthcare Professional",
-      organization: "Your Organization",
-      platform: "RxGuard™ or EndoGuard™",
-      quote: "Your testimonial could inspire other healthcare professionals to join our mission of transforming patient care through AI.",
+      name: t('testimonials.placeholders.name'),
+      role: t('testimonials.placeholders.role'),
+      organization: t('testimonials.placeholders.organization'),
+      platform: t('testimonials.placeholders.platform'),
+      quote: t('testimonials.placeholders.quote2'),
       rating: 5,
       image: null,
       isPlaceholder: true
     },
     {
       id: 3,
-      name: "Your Name Here",
-      role: "Healthcare Professional",
-      organization: "Your Organization",
-      platform: "RxGuard™ or EndoGuard™",
-      quote: "Be among the first to share your success story. Your feedback helps us build better tools for the healthcare community.",
+      name: t('testimonials.placeholders.name'),
+      role: t('testimonials.placeholders.role'),
+      organization: t('testimonials.placeholders.organization'),
+      platform: t('testimonials.placeholders.platform'),
+      quote: t('testimonials.placeholders.quote3'),
       rating: 5,
       image: null,
       isPlaceholder: true
@@ -48,10 +51,10 @@ const Testimonials = () => {
 
   // Beta stats - realistic for early access phase
   const stats = [
-    { value: "Early Access", label: "Beta Testing Phase" },
-    { value: "2 Platforms", label: "Currently Live" },
-    { value: "Growing", label: "Community of Testers" },
-    { value: "Your Feedback", label: "Shapes Our Future" }
+    { value: t('testimonials.stats.earlyAccess'), label: t('testimonials.stats.betaPhase') },
+    { value: t('testimonials.stats.platforms'), label: t('testimonials.stats.currentlyLive') },
+    { value: t('testimonials.stats.growing'), label: t('testimonials.stats.communityTesters') },
+    { value: t('testimonials.stats.yourFeedback'), label: t('testimonials.stats.shapeFuture') }
   ];
 
   return (
@@ -93,7 +96,7 @@ const Testimonials = () => {
               e.target.style.borderColor = 'rgba(0, 217, 255, 0.3)';
             }}
           >
-            ← Back to Home
+            {t('testimonials.backToHome')}
           </button>
           
           {/* Beta Badge */}
@@ -109,12 +112,12 @@ const Testimonials = () => {
             marginBottom: '20px',
             backdropFilter: 'blur(12px)'
           }}>
-            🚀 Early Access Beta
+            {t('testimonials.betaBadge')}
           </div>
           
           <h1 className="testimonials-title">
             {betaInvitation.title}
-            <span className="gradient-text"> Together</span>
+            <span className="gradient-text"> {t('testimonials.together')}</span>
           </h1>
           <p className="testimonials-subtitle">
             {betaInvitation.subtitle}
@@ -146,8 +149,8 @@ const Testimonials = () => {
       {/* Testimonials Grid - Placeholder with CTA */}
       <section className="testimonials-section">
         <div className="section-header">
-          <h2 className="section-title">Your Story Could Be Here</h2>
-          <p className="section-subtitle">Be among the first to share your experience with our AI-powered healthcare platforms</p>
+          <h2 className="section-title">{t('testimonials.yourStory.title')}</h2>
+          <p className="section-subtitle">{t('testimonials.yourStory.subtitle')}</p>
         </div>
 
         <div className="testimonials-grid">
@@ -211,7 +214,7 @@ const Testimonials = () => {
                   fontSize: '0.95rem',
                   fontWeight: '600'
                 }}>
-                  → Submit Your Testimonial
+                  {t('testimonials.submitTestimonial')}
                 </a>
               </div>
             </div>
@@ -222,10 +225,10 @@ const Testimonials = () => {
       {/* How to Share Section */}
       <section className="coming-soon-section">
         <div className="coming-soon-card">
-          <div className="coming-soon-icon">💬</div>
-          <h2 className="coming-soon-title">Share Your Experience</h2>
+          <div className="coming-soon-icon">{t('testimonials.share.icon')}</div>
+          <h2 className="coming-soon-title">{t('testimonials.share.title')}</h2>
           <p className="coming-soon-text">
-            We're actively collecting testimonials from our early access users. Your feedback helps us improve and inspires other healthcare professionals to join our mission.
+            {t('testimonials.share.description')}
           </p>
           
           <div style={{
@@ -240,7 +243,7 @@ const Testimonials = () => {
               color: '#00D9FF',
               marginBottom: '15px'
             }}>
-              What to Include:
+              {t('testimonials.share.whatToInclude')}
             </h3>
             <ul style={{
               textAlign: 'left',
@@ -250,18 +253,16 @@ const Testimonials = () => {
               fontSize: '1rem',
               lineHeight: '1.8'
             }}>
-              <li>Which platform you're using (RxGuard™ or EndoGuard™)</li>
-              <li>How it's helping your practice or patients</li>
-              <li>Specific features you find most valuable</li>
-              <li>Any suggestions for improvement</li>
-              <li>Your name, role, and organization (optional)</li>
+              {t('testimonials.share.items', { returnObjects: true }).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
           
           <div className="coming-soon-cta" style={{ marginTop: '30px' }}>
-            <p style={{ fontSize: '1.1rem', marginBottom: '15px' }}>Ready to share your story?</p>
+            <p style={{ fontSize: '1.1rem', marginBottom: '15px' }}>{t('testimonials.readyToShare')}</p>
             <a href="mailto:support@nexusbiomedical.ai?subject=Testimonial Submission&body=Platform Used: [RxGuard or EndoGuard]%0D%0A%0D%0AMy Experience:%0D%0A%0D%0AHow It's Helping:%0D%0A%0D%0AFavorite Features:%0D%0A%0D%0ASuggestions:%0D%0A%0D%0AName:%0D%0ARole:%0D%0AOrganization:" className="cta-button">
-              Submit Your Testimonial
+              {t('testimonials.submitButton')}
             </a>
           </div>
         </div>
@@ -270,14 +271,14 @@ const Testimonials = () => {
       {/* Video Testimonials Coming Soon */}
       <section className="coming-soon-section" style={{ paddingTop: '40px' }}>
         <div className="coming-soon-card">
-          <div className="coming-soon-icon">🎬</div>
-          <h2 className="coming-soon-title">Video Testimonials Coming Soon</h2>
+          <div className="coming-soon-icon">{t('testimonials.video.icon')}</div>
+          <h2 className="coming-soon-title">{t('testimonials.video.title')}</h2>
           <p className="coming-soon-text">
-            We're planning to feature video testimonials from healthcare professionals. If you'd like to be featured in a video interview about your experience, let us know!
+            {t('testimonials.video.description')}
           </p>
           <div className="coming-soon-cta">
             <a href="mailto:support@nexusbiomedical.ai?subject=Video Testimonial Interest" className="cta-button">
-              Express Interest
+              {t('testimonials.video.expressInterest')}
             </a>
           </div>
         </div>
@@ -286,14 +287,14 @@ const Testimonials = () => {
       {/* CTA Section */}
       <section className="testimonials-cta">
         <div className="cta-content">
-          <h2 className="cta-title">Join Our Early Access Community</h2>
-          <p className="cta-subtitle">Be part of the future of AI-powered healthcare intelligence</p>
+          <h2 className="cta-title">{t('testimonials.cta.title')}</h2>
+          <p className="cta-subtitle">{t('testimonials.cta.subtitle')}</p>
           <div className="cta-buttons">
             <a href="/platforms" className="cta-button primary">
-              Explore Platforms
+              {t('testimonials.cta.explorePlatforms')}
             </a>
             <a href="/signup" className="cta-button secondary">
-              Start Free Trial
+              {t('testimonials.cta.startTrial')}
             </a>
           </div>
         </div>

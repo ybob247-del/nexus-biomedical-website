@@ -32,6 +32,158 @@
     "pricing": "Precios",
     "forProviders": "Para Proveedores"
   },
+  "platformComparison": {
+    "hero": {
+      "title": "Compare Nuestras Plataformas",
+      "subtitle": "Encuentre la solución de atención médica impulsada por IA perfecta para sus necesidades"
+    },
+    "categories": {
+      "all": "Todas las Plataformas",
+      "medication": "Seguridad de Medicamentos",
+      "procedures": "Procedimientos y Calidad",
+      "monitoring": "Monitoreo de Salud",
+      "research": "Investigación y Ensayos",
+      "regulatory": "Cumplimiento Regulatorio",
+      "diagnostics": "Diagnósticos y Detección"
+    },
+    "card": {
+      "price": "precio",
+      "trialDays": "días de prueba gratuita",
+      "bestFor": "Mejor Para:",
+      "keyFeatures": "Características Clave:",
+      "learnMore": "Más Información"
+    },
+    "platforms": {
+      "rxguard": {
+        "name": "RxGuard™",
+        "tagline": "Predictor de Interacciones Medicamentosas",
+        "price": "$39/mes",
+        "trialDays": "14",
+        "bestFor": "Proveedores de atención médica, farmacéuticos, pacientes con múltiples medicamentos",
+        "features": [
+          "Análisis de interacciones medicamentosas en tiempo real",
+          "Puntuación de riesgo impulsada por IA",
+          "Sugerencias de medicamentos alternativos",
+          "Estrategias de mitigación clínica",
+          "Base de datos de más de 10,000 medicamentos"
+        ]
+      },
+      "endoguard": {
+        "name": "EndoGuard™",
+        "tagline": "Aseguramiento de Calidad de Endoscopia",
+        "price": "$97/mes",
+        "trialDays": "30",
+        "bestFor": "Gastroenterólogos, centros de endoscopia, departamentos de GI",
+        "features": [
+          "Seguimiento de métricas de calidad",
+          "Predicción de eventos adversos",
+          "Panel de análisis de procedimientos",
+          "Informes de cumplimiento",
+          "Evaluación de riesgo del paciente"
+        ]
+      },
+      "elderwatch": {
+        "name": "ElderWatch™",
+        "tagline": "Monitoreo de Salud para Adultos Mayores",
+        "price": "$49-$199/mes",
+        "trialDays": "14",
+        "bestFor": "Cuidadores, familias, instalaciones de vida asistida",
+        "features": [
+          "Predicción de riesgo de caídas",
+          "Sistema de recordatorio de medicamentos",
+          "Monitoreo de signos vitales",
+          "Sistema de alerta de emergencia",
+          "Portal familiar para actualizaciones"
+        ]
+      },
+      "pedicalc": {
+        "name": "PediCalc Pro™",
+        "tagline": "Calculadora de Dosificación Pediátrica",
+        "price": "$14.99-$19.99/mes",
+        "trialDays": "7",
+        "bestFor": "Pediatras, padres, enfermeras pediátricas",
+        "features": [
+          "Calculadora de dosificación basada en peso",
+          "Seguridad de medicamentos apropiada para la edad",
+          "Seguimiento de gráficos de crecimiento",
+          "Calendario de vacunación",
+          "Biblioteca de educación para padres"
+        ]
+      },
+      "clinicaliq": {
+        "name": "ClinicalIQ™",
+        "tagline": "Optimización de Ensayos Clínicos",
+        "price": "$299-$699/mes",
+        "trialDays": "14",
+        "bestFor": "Compañías farmacéuticas, CROs, instituciones de investigación",
+        "features": [
+          "Predicción de éxito de protocolos",
+          "Pronóstico de reclutamiento de pacientes",
+          "Inteligencia de selección de sitios",
+          "Seguimiento de ensayos competitivos",
+          "Optimización de puntos finales"
+        ]
+      },
+      "reguready": {
+        "name": "ReguReady™",
+        "tagline": "Orientación Regulatoria de la FDA",
+        "price": "$199-$399/mes",
+        "trialDays": "7",
+        "bestFor": "Empresas de dispositivos médicos, startups, consultores regulatorios",
+        "features": [
+          "Recomendación de vía regulatoria",
+          "Inteligencia de dispositivos predicados",
+          "Análisis de brechas y verificación de cumplimiento",
+          "Generación de documentos",
+          "Orientación regulatoria internacional"
+        ]
+      },
+      "skinscan": {
+        "name": "SkinScan Pro™",
+        "tagline": "Detección de Cáncer de Piel",
+        "price": "$49-$59/mes",
+        "trialDays": "14",
+        "bestFor": "Dermatólogos, médicos de atención primaria, pacientes",
+        "features": [
+          "Detección de condiciones de piel con IA",
+          "Análisis de criterios ABCDE",
+          "Puntuación de riesgo de melanoma",
+          "Seguimiento de lesiones a lo largo del tiempo",
+          "Sistema de referencia a dermatólogos"
+        ]
+      }
+    },
+    "help": {
+      "title": "¿Necesita Ayuda para Elegir?",
+      "description": "¿No está seguro de qué plataforma es adecuada para usted? Nuestro equipo puede ayudarle a encontrar la solución perfecta.",
+      "contactSales": "Contactar Ventas"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "questions": {
+        "multiplePlatforms": {
+          "question": "¿Puedo usar múltiples plataformas?",
+          "answer": "¡Sí! Muchos clientes usan múltiples plataformas. Contáctenos para precios de paquetes y descuentos de múltiples plataformas."
+        },
+        "freeTrial": {
+          "question": "¿Qué incluye la prueba gratuita?",
+          "answer": "Todas las pruebas gratuitas incluyen acceso completo a las características del nivel Profesional sin requerir tarjeta de crédito. La duración de las pruebas varía según la plataforma (7-30 días)."
+        },
+        "switchPlatforms": {
+          "question": "¿Puedo cambiar de plataforma después de registrarme?",
+          "answer": "Sí, puede cambiar o agregar plataformas en cualquier momento. Contacte al soporte para obtener ayuda con cambios de plataforma."
+        },
+        "enterprisePricing": {
+          "question": "¿Ofrecen precios empresariales?",
+          "answer": "Sí, ofrecemos precios empresariales personalizados para organizaciones con múltiples usuarios o requisitos específicos. Contacte a ventas para obtener una cotización."
+        },
+        "hipaaCompliance": {
+          "question": "¿Las plataformas cumplen con HIPAA?",
+          "answer": "Todas las plataformas están listas para HIPAA con seguridad de nivel empresarial que incluye cifrado AES-256 y registro de auditoría completo. Como plataformas seudónimas que no recopilan PHI en uso estándar, no requieren Acuerdos de Asociado Comercial."
+        }
+      }
+    }
+  },
   "hero": {
     "title": "Nexus Biomedical Intelligence",
     "subtitle": "Revolucionando la Atención Médica a Través de Inteligencia Artificial",
@@ -389,149 +541,22 @@
         "symptomsReported": "Síntomas Reportados",
         "severityLevel": "Nivel de Severidad",
         "systemsAffected": "Sistemas Afectados",
-        "systemsShowing": "Sistemas Hormonales con Síntomas:"
+        "symptomPattern": "Patrón de Síntomas",
+        "clinicalSignificance": "Significancia Clínica"
       },
       "recommendations": {
-        "title": "💡 Recomendaciones Personalizadas",
-        "noRecommendations": "¡No hay recomendaciones específicas en este momento. Continúe con hábitos saludables!",
-        "why": "Por qué:"
+        "title": "📋 Recomendaciones Personalizadas",
+        "immediate": "Acciones Inmediatas",
+        "lifestyle": "Modificaciones de Estilo de Vida",
+        "testing": "Pruebas Recomendadas",
+        "followUp": "Seguimiento"
       },
-      "nextSteps": {
-        "title": "🎯 Próximos Pasos"
-      },
-      "cta": {
-        "title": "🚀 Desbloquee Su Programa Completo de Salud Hormonal",
-        "subtitle": "Obtenga orientación personalizada, informes profesionales y soporte continuo por solo",
-        "perMonth": "$49/mes",
-        "features": {
-          "unlimited": "Evaluaciones ilimitadas y seguimiento de progreso",
-          "testRecommendations": "Recomendaciones de pruebas detalladas con cartas de laboratorio",
-          "actionPlans": "Planes de acción personalizados de 30/60/90 días",
-          "referrals": "Referencias de proveedores y recomendaciones de suplementos",
-          "reports": "Informes PDF profesionales y gráficos de progreso",
-          "support": "Soporte prioritario por correo electrónico de entrenadores de salud"
-        },
-        "upgradeToPremium": "Actualizar a Premium - $49/mes",
-        "compareAssessments": "📊 Comparar Mis Evaluaciones",
-        "downloadPDF": "📄 Descargar Informe PDF",
-        "guarantee": "✨ Garantía de devolución de dinero de 14 días • Cancele en cualquier momento"
-      },
-      "disclaimer": {
-        "title": "⚕️ Descargo de Responsabilidad Médica Importante",
-        "text1": "Esta evaluación es solo para fines educativos e informativos. No está destinada a diagnosticar, tratar, curar o prevenir ninguna enfermedad o condición médica. La información proporcionada no debe usarse como sustituto del consejo, diagnóstico o tratamiento médico profesional. Siempre busque el consejo de su médico u otro proveedor de atención médica calificado con cualquier pregunta que pueda tener sobre una condición médica. Nunca ignore el consejo médico profesional ni demore en buscarlo debido a la información de esta evaluación.",
-        "text2": "Si está experimentando síntomas graves o una emergencia médica, busque atención médica inmediata."
-      },
-      "downloadReport": "Descargar Informe",
-      "shareResults": "Compartir Resultados",
-      "retakeAssessment": "Repetir Evaluación",
-      "consultProvider": "Consultar con Proveedor",
-      "viewHistory": "Ver Historial",
-      "compareAssessments": "Comparar Evaluaciones"
-    }
-  },
-  "footer": {
-    "tagline": "Transformando la Atención Médica a Través de la Innovación en IA",
-    "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",
-    "company": "Empresa",
-    "aboutUs": "Acerca de Nosotros",
-    "careers": "Carreras",
-    "contact": "Contacto",
-    "blog": "Blog",
-    "resources": "Recursos",
-    "documentation": "Documentación",
-    "apiDocs": "Documentación de API",
-    "support": "Soporte",
-    "caseStudies": "Casos de Estudio",
-    "legal": "Legal",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio",
-    "security": "Seguridad y Privacidad"
-  },
-  "whoBenefits": {
-    "title": "¿Quién se Beneficia de Nexus?",
-    "subtitle": "Nuestras plataformas impulsadas por IA sirven a diversos actores en todo el ecosistema de atención médica",
-    "keyBenefits": "Beneficios Clave:",
-    "cta": "¿Listo para ver cómo Nexus puede transformar su organización?",
-    "getStarted": "Comenzar",
-    "smallClinics": {
-      "title": "Clínicas Pequeñas y Consultorios Privados",
-      "description": "Acceda a apoyo de decisiones clínicas de nivel empresarial sin costos empresariales. Reduzca errores médicos, optimice flujos de trabajo y compita con sistemas más grandes.",
-      "benefit1": "Herramientas de IA asequibles",
-      "benefit2": "Riesgo de responsabilidad reducido",
-      "benefit3": "Mejores resultados para pacientes"
-    },
-    "hospitals": {
-      "title": "Hospitales y Sistemas de Salud",
-      "description": "Escale la excelencia clínica en todos los departamentos. Estandarice protocolos de atención, reduzca eventos adversos y mejore métricas de calidad mientras reduce la carga administrativa.",
-      "benefit1": "Estandarización en todo el sistema",
-      "benefit2": "Mejora de métricas de calidad",
-      "benefit3": "Reducción de costos"
-    },
-    "insurance": {
-      "title": "Compañías de Seguros y Pagadores",
-      "description": "Reduzca costos de reclamos mediante identificación proactiva de riesgos. Prevenga eventos adversos de medicamentos, readmisiones hospitalarias y errores de medicación antes de que ocurran.",
-      "benefit1": "Menores costos de reclamos",
-      "benefit2": "Prevención de riesgos",
-      "benefit3": "Seguridad de miembros"
-    },
-    "medicalDevice": {
-      "title": "Fabricantes de Dispositivos Médicos",
-      "description": "Navegue las vías de la FDA más rápido con ReguReady™. Reduzca retrasos regulatorios, optimice estrategias de cumplimiento y acelere el tiempo de comercialización.",
-      "benefit1": "Aprobación FDA más rápida",
-      "benefit2": "Optimización de cumplimiento",
-      "benefit3": "Costos regulatorios reducidos"
-    },
-    "pharma": {
-      "title": "Compañías Farmacéuticas",
-      "description": "Optimice el diseño de ensayos clínicos y el monitoreo de seguridad de medicamentos. Identifique riesgos de interacción temprano, mejore la inscripción de ensayos y fortalezca la vigilancia post-comercialización.",
-      "benefit1": "Mejor diseño de ensayos",
-      "benefit2": "Información sobre seguridad de medicamentos",
-      "benefit3": "Desarrollo más rápido"
-    },
-    "cro": {
-      "title": "Organizaciones de Investigación Clínica",
-      "description": "Diseñe mejores ensayos con ClinicalIQ™. Mejore la viabilidad del protocolo, optimice la selección de pacientes y reduzca fallas de ensayos mediante información impulsada por IA.",
-      "benefit1": "Optimización de protocolos",
-      "benefit2": "Reclutamiento de pacientes",
-      "benefit3": "Tasas de éxito de ensayos"
-    },
-    "longTermCare": {
-      "title": "Instalaciones de Cuidado a Largo Plazo",
-      "description": "Proteja poblaciones vulnerables con ElderWatch™. Prevenga caídas, optimice la gestión de medicamentos geriátricos y mejore la calidad de vida de los residentes.",
-      "benefit1": "Prevención de caídas",
-      "benefit2": "Seguridad de medicamentos",
-      "benefit3": "Mejora de calidad"
-    },
-    "telemedicine": {
-      "title": "Proveedores de Telemedicina",
-      "description": "Brinde atención remota más segura con apoyo de decisiones clínicas en tiempo real. Detecte interacciones de medicamentos, evalúe dosificación pediátrica y clasifique preocupaciones dermatológicas con confianza.",
-      "benefit1": "Verificaciones de seguridad remotas",
-      "benefit2": "Prescripción confiada",
-      "benefit3": "Mejor clasificación"
-    },
-    "individuals": {
-      "title": "Individuos y Pacientes",
-      "description": "Tome control de su salud hormonal con EndoGuard™. Comprenda exposiciones a EDC, rastree síntomas de PCOS/tiroides/perimenopausia y obtenga orientación basada en evidencia de fuentes confiables.",
-      "benefit1": "Evaluación de exposición a EDC",
-      "benefit2": "Seguimiento de síntomas",
-      "benefit3": "Información basada en evidencia"
-    }
-  },
-  "compare": {
-    "title": "Compare Nuestras Plataformas",
-    "subtitle": "Encuentre la solución de atención médica impulsada por IA perfecta para sus necesidades",
-    "trial": "Prueba gratuita de {{days}} días",
-    "bestFor": "Mejor Para:",
-    "keyFeatures": "Características Clave:",
-    "learnMore": "Más Información",
-    "categories": {
-      "all": "Todas las Plataformas",
-      "medication": "Seguridad de Medicamentos",
-      "procedures": "Procedimientos y Calidad",
-      "monitoring": "Monitoreo de Salud",
-      "research": "Investigación y Ensayos",
-      "regulatory": "Cumplimiento Regulatorio",
-      "diagnostics": "Diagnóstico y Detección"
+      "actions": {
+        "downloadPDF": "Descargar Informe PDF",
+        "shareWithDoctor": "Compartir con Médico",
+        "retakeAssessment": "Volver a Realizar Evaluación",
+        "viewHistory": "Ver Historial"
+      }
     }
   },
   "testimonials": {
@@ -543,17 +568,51 @@
       "subtitle": "Estamos en acceso temprano y recopilando comentarios reales de profesionales de la salud como usted",
       "message": "¡Su experiencia importa! Como adoptador temprano, sus ideas darán forma al futuro de la inteligencia de atención médica impulsada por IA."
     },
+    "stats": {
+      "earlyAccess": "Acceso Temprano",
+      "betaPhase": "Fase de Prueba Beta",
+      "platforms": "2 Plataformas",
+      "currentlyLive": "Actualmente en Vivo",
+      "growing": "Creciendo",
+      "communityTesters": "Comunidad de Probadores",
+      "yourFeedback": "Sus Comentarios",
+      "shapeFuture": "Dan Forma a Nuestro Futuro"
+    },
     "yourStory": {
       "title": "Su Historia Podría Estar Aquí",
       "subtitle": "Sea uno de los primeros en compartir su experiencia con nuestras plataformas de atención médica impulsadas por IA"
     },
+    "placeholders": {
+      "name": "Su Nombre Aquí",
+      "role": "Profesional de la Salud",
+      "organization": "Su Organización",
+      "platform": "RxGuard™ o EndoGuard™",
+      "quote1": "Comparta su experiencia con nuestras plataformas. Nos encantaría saber cómo la inteligencia de atención médica impulsada por IA le está ayudando a usted y a sus pacientes.",
+      "quote2": "Su testimonio podría inspirar a otros profesionales de la salud a unirse a nuestra misión de transformar la atención al paciente a través de IA.",
+      "quote3": "Sea uno de los primeros en compartir su historia de éxito. Sus comentarios nos ayudan a construir mejores herramientas para la comunidad de atención médica."
+    },
     "submitTestimonial": "→ Enviar Su Testimonio",
     "share": {
+      "icon": "💬",
       "title": "Comparta Su Experiencia",
-      "description": "Estamos recopilando activamente testimonios de nuestros usuarios de acceso temprano. Sus comentarios nos ayudan a mejorar e inspiran a otros profesionales de la salud a unirse a nuestra misión."
+      "description": "Estamos recopilando activamente testimonios de nuestros usuarios de acceso temprano. Sus comentarios nos ayudan a mejorar e inspiran a otros profesionales de la salud a unirse a nuestra misión.",
+      "whatToInclude": "Qué Incluir:",
+      "items": [
+        "Qué plataforma está usando (RxGuard™ o EndoGuard™)",
+        "Cómo está ayudando a su práctica o pacientes",
+        "Características específicas que encuentra más valiosas",
+        "Cualquier sugerencia de mejora",
+        "Su nombre, rol y organización (opcional)"
+      ]
     },
     "readyToShare": "¿Listo para compartir su historia?",
     "submitButton": "Enviar Su Testimonio",
+    "video": {
+      "icon": "🎬",
+      "title": "Testimonios en Video Próximamente",
+      "description": "Estamos planeando presentar testimonios en video de profesionales de la salud. Si desea aparecer en una entrevista en video sobre su experiencia, ¡háganoslo saber!",
+      "expressInterest": "Expresar Interés"
+    },
     "cta": {
       "title": "Únase a Nuestra Comunidad de Acceso Temprano",
       "subtitle": "Sea parte del futuro de la inteligencia de atención médica impulsada por IA",

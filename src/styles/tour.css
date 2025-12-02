@@ -139,3 +139,65 @@
 .driver-popover {
   animation: slideIn 0.3s ease-out !important;
 }
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .driver-popover {
+    max-width: 90vw !important;
+    margin: 0 1rem !important;
+  }
+  
+  .driver-popover-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .driver-popover-description {
+    font-size: 0.9rem !important;
+  }
+  
+  .driver-popover-next-btn,
+  .driver-popover-prev-btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .driver-popover-progress-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .driver-popover {
+    max-width: 95vw !important;
+    margin: 0 0.5rem !important;
+  }
+  
+  .driver-popover-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .driver-popover-description {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .driver-popover-footer {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  
+  .driver-popover-next-btn,
+  .driver-popover-prev-btn {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .driver-popover-progress-text {
+    order: -1 !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+}

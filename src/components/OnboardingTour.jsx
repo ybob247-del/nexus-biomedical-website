@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
+import { trackTourEvent } from '../utils/tourAnalytics';
 
 /**
  * OnboardingTour Component
@@ -22,8 +23,16 @@ export function OnboardingTour({ tourId, steps, autoStart = true, onComplete }) 
       return;
     }
 
+    // Track tour start
+    trackTourEvent(tourId, 'started', {
+      total_steps: steps.length,
+      auto_start: autoStart
+    });
+
     // Small delay to ensure DOM is fully loaded
     const timer = setTimeout(() => {
+      let currentStepIndex = 0;
+      
       const driverObj = driver({
         showProgress: true,
         showButtons: ['next', 'previous', 'close'],
@@ -37,13 +46,55 @@ export function OnboardingTour({ tourId, steps, autoStart = true, onComplete }) 
             ...step.popover
           }
         })),
-        onDestroyStarted: () => {
-          // Mark tour as completed when user closes it
+        onNextClick: () => {
+          currentStepIndex++;
+          trackTourEvent(tourId, 'step_viewed', {
+            step_index: currentStepIndex,
+            step_title: steps[currentStepIndex]?.title,
+            total_steps: steps.length,
+            progress_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+          });
+          driverObj.moveNext();
+        },
+        onPrevClick: () => {
+          currentStepIndex--;
+          trackTourEvent(tourId, 'step_back', {
+            step_index: currentStepIndex,
+            step_title: steps[currentStepIndex]?.title
+          });
+          driverObj.movePrevious();
+        },
+        onCloseClick: () => {
+          const wasCompleted = currentStepIndex >= steps.length - 1;
+          
+          trackTourEvent(tourId, wasCompleted ? 'completed' : 'skipped', {
+            last_step_index: currentStepIndex,
+            total_steps: steps.length,
+            completion_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+          });
+          
           localStorage.setItem(`tour-completed-${tourId}`, 'true');
           if (onComplete) {
             onComplete();
           }
           driverObj.destroy();
+        },
+        onDestroyStarted: () => {
+          // Prevent default destroy behavior - we handle it in onCloseClick
+          if (!driverObj.isDestroyed) {
+            const wasCompleted = currentStepIndex >= steps.length - 1;
+            
+            trackTourEvent(tourId, wasCompleted ? 'completed' : 'skipped', {
+              last_step_index: currentStepIndex,
+              total_steps: steps.length,
+              completion_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+            });
+            
+            localStorage.setItem(`tour-completed-${tourId}`, 'true');
+            if (onComplete) {
+              onComplete();
+            }
+          }
         },
         // Custom styling to match Nexus Biomedical theme
         popoverClass: 'nexus-tour-popover',
@@ -88,6 +139,13 @@ export function isTourCompleted(tourId) {
  * Manually trigger a tour (useful for "Show Tour Again" buttons)
  */
 export function startTour(tourId, steps, onComplete) {
+  // Track manual tour start
+  trackTourEvent(tourId, 'manual_start', {
+    total_steps: steps.length
+  });
+  
+  let currentStepIndex = 0;
+  
   const driverObj = driver({
     showProgress: true,
     showButtons: ['next', 'previous', 'close'],
@@ -101,12 +159,54 @@ export function startTour(tourId, steps, onComplete) {
         ...step.popover
       }
     })),
-    onDestroyStarted: () => {
+    onNextClick: () => {
+      currentStepIndex++;
+      trackTourEvent(tourId, 'step_viewed', {
+        step_index: currentStepIndex,
+        step_title: steps[currentStepIndex]?.title,
+        total_steps: steps.length,
+        progress_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+      });
+      driverObj.moveNext();
+    },
+    onPrevClick: () => {
+      currentStepIndex--;
+      trackTourEvent(tourId, 'step_back', {
+        step_index: currentStepIndex,
+        step_title: steps[currentStepIndex]?.title
+      });
+      driverObj.movePrevious();
+    },
+    onCloseClick: () => {
+      const wasCompleted = currentStepIndex >= steps.length - 1;
+      
+      trackTourEvent(tourId, wasCompleted ? 'completed' : 'skipped', {
+        last_step_index: currentStepIndex,
+        total_steps: steps.length,
+        completion_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+      });
+      
       localStorage.setItem(`tour-completed-${tourId}`, 'true');
       if (onComplete) {
         onComplete();
       }
       driverObj.destroy();
+    },
+    onDestroyStarted: () => {
+      if (!driverObj.isDestroyed) {
+        const wasCompleted = currentStepIndex >= steps.length - 1;
+        
+        trackTourEvent(tourId, wasCompleted ? 'completed' : 'skipped', {
+          last_step_index: currentStepIndex,
+          total_steps: steps.length,
+          completion_percentage: ((currentStepIndex + 1) / steps.length * 100).toFixed(1)
+        });
+        
+        localStorage.setItem(`tour-completed-${tourId}`, 'true');
+        if (onComplete) {
+          onComplete();
+        }
+      }
     },
     popoverClass: 'nexus-tour-popover',
   });

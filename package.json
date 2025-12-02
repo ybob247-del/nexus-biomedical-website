@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build && cp server-for-dist.js dist/index.js",
     "preview": "vite preview",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "keywords": [
     "healthcare",
@@ -19,9 +22,12 @@
   "packageManager": "pnpm@10.18.0",
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/ui": "^4.0.14",
+    "jsdom": "^27.2.0",
     "terser": "^5.44.0",
     "vercel": "^48.10.4",
-    "vite": "^7.1.11"
+    "vite": "^7.1.11",
+    "vitest": "^4.0.14"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.2.0",

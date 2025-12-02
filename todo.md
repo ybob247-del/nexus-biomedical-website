@@ -239,6 +239,61 @@
 - **Production-ready with comprehensive documentation**
 
 
+## 🎯 PRIORITY ROADMAP (Dec 2, 2025)
+**4 Priority Features + Owner QA System**
+
+### 1. EndoGuard Assessment Comparison & Progress Tracking
+- [x] Add route /compare-assessments to App.jsx
+- [x] Add navigation links from Dashboard and EndoGuard results
+- [x] Build timeline chart showing risk score trends over time
+- [x] Add Chart.js visualization for progress tracking
+- [ ] Implement PDF export for comparison reports
+- [ ] Test complete flow end-to-end
+
+### 2. RxGuard Assessment Integration
+- [ ] Research drug interaction API (FDA, RxNorm, or similar)
+- [ ] Design RxGuard assessment flow (medication input)
+- [ ] Build drug interaction checker algorithm
+- [ ] Create results page with interaction warnings
+- [ ] Add to platforms page and dashboard
+- [ ] Test with real medication data
+
+### 3. User Dashboard Enhancement
+- [ ] Add personalized health insights based on assessments
+- [ ] Create health score summary widget
+- [ ] Add recent activity timeline
+- [ ] Build recommendations engine
+- [ ] Add quick actions for retaking assessments
+- [ ] Improve visual design and layout
+
+### 4. SMS Automation Verification
+- [ ] Verify all SMS triggers are working
+- [ ] Test A/B testing campaigns
+- [ ] Check SMS analytics dashboard
+- [ ] Confirm opt-out functionality
+- [ ] Review cost monitoring
+
+### 5. Owner QA Testing Infrastructure (NEW)
+- [ ] Create /admin/qa-testing owner dashboard
+- [ ] Build tier switcher (Free/Basic/Premium) without subscribing
+- [ ] Create feature checklist by tier with live verification
+- [ ] Add test scenario generator with step-by-step instructions
+- [ ] Build bug reporting interface with screenshots
+- [ ] Create tier comparison matrix (visual table)
+- [ ] Generate test accounts for each tier
+- [ ] Add feature flag toggles for edge case testing
+- [ ] Create direct links to all features/pages
+- [ ] Build expected vs actual results tracker
+
+### 6. QA Documentation
+- [ ] Write comprehensive owner testing guide
+- [ ] Document all features by tier (Free/Basic/Premium)
+- [ ] Create test scenarios for each feature
+- [ ] Build bug reporting template
+- [ ] Add troubleshooting guide
+
+---
+
 ## 🔧 A/B TESTING ARCHITECTURE CORRECTION (Dec 2, 2025)
 **Priority:** HIGH - Fix incorrect implementation placement
 
@@ -262,3 +317,81 @@
 - **Tables:** ab_tests, ab_test_participants (already exist in main website database)
 - **Access:** SMS Management → A/B Testing tab
 
+
+
+---
+
+## 💊 RXGUARD RULE-BASED DRUG INTERACTION SYSTEM (Dec 2, 2025)
+**Priority:** HIGH - Build comprehensive drug interaction checking system
+
+### Research & Planning
+- [x] Research commercial API partners (DrugBank, FDB, Medi-Span, etc.)
+- [x] Document API pricing and features
+- [x] Create comprehensive API partners document with cost analysis
+
+### Database Schema Design
+- [ ] Design drug_interactions table schema
+- [ ] Design medications table with RxNorm/NDC codes
+- [ ] Design user_medications table for patient medication lists
+- [ ] Design interaction_rules table for custom rules
+- [ ] Create database migration files
+- [ ] Add indexes for performance optimization
+
+### Rules Engine Development
+- [ ] Build interaction detection algorithm
+- [ ] Implement severity classification (minor/moderate/major/contraindicated)
+- [ ] Create mechanism description generator
+- [ ] Build management recommendation system
+- [ ] Add drug-drug interaction checking
+- [ ] Add drug-food interaction checking
+- [ ] Add drug-allergy interaction checking
+- [ ] Implement batch checking for multiple medications
+
+### Frontend Interface
+- [ ] Create medication input interface with autocomplete
+- [ ] Build interaction results display component
+- [ ] Add severity-based visual indicators (color coding)
+- [ ] Create detailed interaction modal with mechanism/management
+- [ ] Build medication list management (add/remove/edit)
+- [ ] Add print/export functionality for results
+- [ ] Implement mobile-responsive design
+
+### API Integration (Future Phase)
+- [ ] Evaluate DrugBank API trial access
+- [ ] Compare rule-based vs API-based accuracy
+- [ ] Implement hybrid approach (rules + API fallback)
+- [ ] Add API call caching and rate limiting
+
+### Testing & Validation
+- [ ] Create test cases with known interactions
+- [ ] Validate against reference standards
+- [ ] Test with common medication combinations
+- [ ] Measure false positive/negative rates
+- [ ] User acceptance testing with healthcare professionals
+
+### Documentation
+- [ ] Document interaction rules and sources
+- [ ] Create user guide for RxGuard system
+- [ ] Write API documentation for developers
+- [ ] Document validation methodology
+
+
+## 🌐 INCOMPLETE SPANISH TRANSLATION - ENDOGUARD (Dec 2, 2025)
+**Priority:** HIGH - Spanish speakers cannot use EndoGuard beyond first page
+
+### Translation Tasks
+- [ ] Complete Spanish translation for all EndoGuard assessment pages (currently only first page is translated)
+- [ ] Ensure language toggle (ES|EN) works across all EndoGuard pages
+- [ ] Test full EndoGuard flow in Spanish from start to results
+- [ ] Verify all error messages and validation text are translated
+
+## 🧠 RULE-BASED CLINICAL DECISION SUPPORT - RXGUARD (Dec 2, 2025)
+**Priority:** HIGH - Core feature for medication safety
+
+### Implementation Tasks
+- [x] Design rule-based system architecture for drug interactions
+- [x] Create drug interaction rules database/configuration
+- [x] Implement rule engine for checking medication combinations
+- [x] Add clinical decision support alerts and warnings
+- [x] Test rule-based system with common medication scenarios - 38 tests passing
+- [x] Document rule-based system logic and maintenance procedures

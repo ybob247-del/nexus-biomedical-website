@@ -56,6 +56,7 @@ const SMSHistory = lazy(() => import('./pages/SMSHistory'))
 const AdminSMSAnalytics = lazy(() => import('./pages/AdminSMSAnalytics'))
 const AdminTourAnalytics = lazy(() => import('./pages/AdminTourAnalytics'))
 const AdminABTests = lazy(() => import('./pages/AdminABTests'))
+const AssessmentComparison = lazy(() => import('./components/AssessmentComparison'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -489,6 +490,18 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminTourAnalytics />
+          </Suspense>
+        } 
+      />
+
+      {/* Assessment Comparison Route */}
+      <Route 
+        path="/compare-assessments" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <AssessmentComparison />
+            </ProtectedRoute>
           </Suspense>
         } 
       />

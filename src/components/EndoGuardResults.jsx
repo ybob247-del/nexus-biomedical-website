@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import TestRecommendations from './TestRecommendations';
 import SignupPrompt from './SignupPrompt';
 import SubscriptionModal from './SubscriptionModal';
@@ -13,6 +14,7 @@ export default function EndoGuardResults({ results }) {
   if (!results) return null;
 
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
@@ -205,6 +207,15 @@ export default function EndoGuardResults({ results }) {
           >
             Upgrade to Premium - $49/month
           </button>
+          {user && (
+            <button 
+              className="btn-secondary" 
+              onClick={() => navigate('/compare-assessments')}
+              style={{ background: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)', border: 'none' }}
+            >
+              📊 Compare My Assessments
+            </button>
+          )}
           <button 
             className="btn-secondary" 
             onClick={handleDownloadPDF}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import AssessmentTimeline from './AssessmentTimeline';
 import '../styles/assessment-comparison.css';
 
 export default function AssessmentComparison() {
@@ -78,6 +79,11 @@ export default function AssessmentComparison() {
         <h2>📊 Compare Your Progress</h2>
         <p>Track changes in your hormone health over time</p>
       </div>
+
+      {/* Timeline Chart */}
+      {assessments.length >= 2 && (
+        <AssessmentTimeline assessments={assessments} />
+      )}
 
       {/* Assessment Selectors */}
       <div className="comparison-selectors">

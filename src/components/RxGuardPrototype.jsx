@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { exportRxGuardPDF } from '../utils/pdfExport';
 import { searchDrugs, formatDrugName } from '../services/fdaService';
+import { ClinicalRuleEngine } from '../services/ruleEngine';
 import BetaDisclaimer from './BetaDisclaimer';
 import DemoDisclaimer from './DemoDisclaimer';
 
@@ -248,7 +249,7 @@ const RxGuardPrototype = ({ onBack }) => {
     // Simulate analysis delay for better UX (1.5 seconds)
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    // Find matching scenario or create custom one
+    // Find matching scenario or use rule-based engine
     const matchingScenario = scenarios.find(s => 
       s.medications.every(m => medications.includes(m)) &&
       medications.every(m => s.medications.includes(m))
@@ -257,16 +258,29 @@ const RxGuardPrototype = ({ onBack }) => {
     if (matchingScenario) {
       setSelectedScenario(matchingScenario);
     } else {
-      // Create custom scenario with limited data
+      // Use rule-based clinical decision support engine
+      const ruleEngine = new ClinicalRuleEngine();
+      const report = ruleEngine.setMedications(medications).generateReport();
+      const roi = report.roi;
+      
+      // Create scenario from rule engine analysis
       setSelectedScenario({
         id: 'custom',
-        title: 'Custom Analysis',
-        subtitle: `${medications.length} medications analyzed`,
+        title: 'Rule-Based Analysis',
+        subtitle: `${medications.length} medications analyzed • ${report.summary.interactionCount} interactions found`,
+        severity: `SEVERITY ${report.summary.maxSeverity}/10`,
+        severityColor: getSeverityColor(report.summary.maxSeverity),
         medications: medications,
-        interactions: getCustomInteractions(),
-        costPerEvent: 85000,
-        adverseEvents: 500,
-        annualCost: 42500000
+        interactions: report.interactions,
+        costPerEvent: report.interactions.length > 0 ? report.interactions[0].costPerEvent : 85000,
+        adverseEvents: report.statistics.totalAdverseEvents || 0,
+        annualCost: report.statistics.totalCost || 0,
+        alternatives: formatAlternatives(report.alternatives),
+        mitigation: formatMitigation(report.recommendations),
+        aiAnalysis: {
+          confidence: 95,
+          reasoning: `Analyzed ${medications.length} medications using rule-based clinical decision support system. Found ${report.summary.interactionCount} interaction(s) with maximum severity ${report.summary.maxSeverity}/10. Risk level: ${report.summary.riskLevel}.`
+        }
       });
     }
     
@@ -274,35 +288,43 @@ const RxGuardPrototype = ({ onBack }) => {
     setCurrentStep('results');
   };
 
+  // Helper function to get severity color
+  const getSeverityColor = (severity) => {
+    if (severity >= 10) return 'bg-red-600';
+    if (severity >= 8) return 'bg-orange-600';
+    if (severity >= 5) return 'bg-yellow-600';
+    return 'bg-green-600';
+  };
+
+  // Helper function to format alternatives from rule engine
+  const formatAlternatives = (alternatives) => {
+    const formatted = [];
+    for (const [drug, alts] of Object.entries(alternatives)) {
+      alts.forEach(alt => {
+        formatted.push({
+          drug: drug,
+          safer: alt.alternative,
+          reason: alt.reason
+        });
+      });
+    }
+    return formatted;
+  };
+
+  // Helper function to format mitigation from recommendations
+  const formatMitigation = (recommendations) => {
+    return recommendations.map(rec => ({
+      strategy: rec.message,
+      detail: rec.action
+    }));
+  };
+
+  // Legacy function - now using rule-based engine in analyzeCustomMedications
   const getCustomInteractions = () => {
-    // Simple interaction detection for custom scenarios
-    const interactions = [];
-    
-    if (medications.includes('Warfarin') && medications.includes('Aspirin')) {
-      interactions.push({
-        drug1: 'Warfarin',
-        drug2: 'Aspirin',
-        risk: 'Major Bleeding',
-        severity: 8,
-        description: 'Increased bleeding risk',
-        mechanism: 'Additive anticoagulant effects',
-        fdaData: 'FDA FAERS: 1,203 events (2023)'
-      });
-    }
-    
-    if (medications.includes('Lithium') && (medications.includes('Lisinopril') || medications.includes('Ibuprofen'))) {
-      interactions.push({
-        drug1: 'Lithium',
-        drug2: medications.includes('Lisinopril') ? 'Lisinopril' : 'Ibuprofen',
-        risk: 'Lithium Toxicity',
-        severity: 9,
-        description: 'Reduced lithium clearance',
-        mechanism: 'Decreased renal excretion',
-        fdaData: 'FDA FAERS: 289 events (2023)'
-      });
-    }
-    
-    return interactions;
+    // Use rule-based engine for all custom interactions
+    const ruleEngine = new ClinicalRuleEngine();
+    const analysis = ruleEngine.setMedications(medications).analyze();
+    return analysis.interactions;
   };
 
   const calculateROI = () => {

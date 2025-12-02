@@ -61,6 +61,12 @@
 - [x] CRITICAL: Language toggle (ES|EN) and Login button overlapping at 100% zoom - FIXED: Increased gap from 0.75rem to 1.25rem
 - [ ] Add direct SMS Analytics link in admin navigation menu for easier access
 
+### Dashboard UI Redesign (Dec 1 - User Requested)
+- [x] Redesign Dashboard platform cards to match homepage framed layout
+- [x] Add platform icons/images like homepage
+- [x] Improve visual hierarchy and spacing
+- [x] Make cards more modern and professional
+
 ## 🚨 PREVIOUS BUGS (Nov 28, 2025)
 **Priority:** URGENT - Blocking user experience
 

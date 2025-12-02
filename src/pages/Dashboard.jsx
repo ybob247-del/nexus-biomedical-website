@@ -59,71 +59,79 @@ const Dashboard = () => {
     { 
       id: 'endoguard', 
       name: 'EndoGuard™', 
+      tagline: 'Hormone Intelligence Platform',
       description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics and endocrine-disrupting chemicals',
-      icon: '🔬',
-      gradient: 'from-fuchsia-500 to-purple-600',
+      color: '#D946EF',
+      gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
       url: '/endoguard',
       comingSoon: false
     },
     { 
       id: 'rxguard', 
       name: 'RxGuard™', 
+      tagline: 'Medication Safety Intelligence',
       description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations',
-      icon: '💊',
-      gradient: 'from-cyan-500 to-blue-600',
+      color: '#00A8CC',
+      gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
       url: '/rxguard',
       comingSoon: false
     },
     { 
       id: 'elderwatch', 
       name: 'ElderWatch™', 
+      tagline: 'Predictive Senior Care',
       description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge',
-      icon: '👴',
-      gradient: 'from-orange-400 to-orange-600',
+      color: '#FB923C',
+      gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
       url: '/elderwatch',
       comingSoon: true
     },
     { 
       id: 'pedicalcpro', 
       name: 'PediCalc Pro™', 
+      tagline: 'Pediatric Dosing Intelligence',
       description: 'AI-enhanced pediatric medication dosing calculator with precise, weight-based dosing recommendations',
-      icon: '👶',
-      gradient: 'from-pink-400 to-rose-500',
+      color: '#FDA4AF',
+      gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
       url: '/pedicalc',
       comingSoon: true
     },
     { 
       id: 'clinicaliq', 
       name: 'ClinicalIQ™', 
+      tagline: 'Clinical Decision Support',
       description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations',
-      icon: '🧠',
-      gradient: 'from-emerald-400 to-green-600',
+      color: '#00D084',
+      gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
       url: '/clinicaliq',
       comingSoon: true
     },
     { 
       id: 'reguready', 
       name: 'ReguReady™', 
-      description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways',
-      icon: '📋',
-      gradient: 'from-purple-400 to-indigo-500',
+      tagline: 'FDA Regulatory Intelligence',
+      description: 'Streamlined FDA regulatory compliance platform that guides medical device manufacturers through the 510(k) clearance process',
+      color: '#B794F4',
+      gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
       url: '/reguready',
       comingSoon: true
     },
     { 
-      id: 'skinscanpro', 
+      id: 'skinscan', 
       name: 'SkinScan Pro™', 
-      description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision for early melanoma identification',
-      icon: '🔍',
-      gradient: 'from-teal-400 to-cyan-600',
+      tagline: 'Dermatology AI Analysis',
+      description: 'AI-powered skin lesion analysis platform that helps detect potential melanoma and other skin conditions early',
+      color: '#14B8A6',
+      gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
       url: '/skinscan',
       comingSoon: true
-    },
+    }
   ];
 
   const hasAccessToPlatform = (platformName) => {
     return subscriptions.some(
-      (sub) => sub.platform === platformName && (sub.status === 'active' || sub.status === 'trialing')
+      (sub) => sub.platform.toLowerCase() === platformName.toLowerCase().replace('™', '') &&
+               (sub.status === 'active' || sub.status === 'trialing')
     );
   };
 
@@ -132,19 +140,22 @@ const Dashboard = () => {
     navigate('/');
   };
 
-  const handleShowPlanSelection = (platformId) => {
-    // Get platform data from platformsData
-    const platformName = platforms.find(p => p.id === platformId)?.name;
-    const platformData = platformsData[platformName];
-    if (platformData) {
-      setShowPlanSelection(platformData);
+  const handleStartTrial = async (platform) => {
+    if (platform.comingSoon) {
+      return;
     }
+
+    // Show plan selection modal
+    setShowPlanSelection(platform);
   };
 
-  const handleSelectPlan = async (selectedPlan) => {
-    const platformId = showPlanSelection.name.toLowerCase().replace('™', '').replace(' ', '');
-    setActivatingTrial(platformId);
-    
+  const handlePlanSelected = async (billingInterval) => {
+    if (!showPlanSelection) return;
+
+    const platform = showPlanSelection;
+    setActivatingTrial(platform.id);
+    setShowPlanSelection(null);
+
     try {
       const response = await fetch('/api/trials/activate', {
         method: 'POST',
@@ -152,31 +163,23 @@ const Dashboard = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ 
-          platform: platformId,
-          selectedPlan: selectedPlan 
+        body: JSON.stringify({
+          platformId: platform.id,
+          billingInterval,
         }),
       });
 
-      const data = await response.json();
-
-      if (data.success) {
-        alert(`🎉 ${data.trialDays}-day free trial activated for ${showPlanSelection.name}!\n\nYou now have access until ${new Date(data.trialEnd).toLocaleDateString()}`);
-        setShowPlanSelection(null);
-        window.location.reload();
-      } else if (data.alreadyUsedTrial) {
-        alert('You have already used your free trial for this platform. Please subscribe to continue.');
-        setShowPlanSelection(null);
-        navigate('/pricing');
-      } else if (data.hasAccess) {
-        alert('You already have active access to this platform!');
-        window.location.reload();
-      } else {
-        alert(data.error || 'Failed to activate trial. Please try again.');
+      if (!response.ok) {
+        throw new Error('Failed to activate trial');
       }
+
+      const data = await response.json();
+      
+      // Navigate to the platform
+      navigate(platform.url);
     } catch (error) {
-      console.error('Trial activation error:', error);
-      alert('An error occurred. Please try again.');
+      console.error('Error activating trial:', error);
+      alert('Failed to activate trial. Please try again.');
     } finally {
       setActivatingTrial(null);
     }
@@ -184,20 +187,17 @@ const Dashboard = () => {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-cyan-400 mb-4"></div>
-          <p className="text-white text-xl font-semibold">Loading your dashboard...</p>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Enhanced animated background elements */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-fuchsia-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
@@ -289,105 +289,212 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Platform Access - Enhanced with better mobile layout */}
+        {/* Available Platforms - Homepage-style framed cards */}
         <div className="max-w-7xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">
             Available Platforms
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {platforms.map((platform) => {
               const hasAccess = hasAccessToPlatform(platform.name);
               return (
                 <div
-                  key={platform.name}
-                  className="group relative bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/40 transition-all hover:scale-[1.02] transform"
+                  key={platform.id}
+                  className="group relative"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '20px',
+                    padding: '2.5rem',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px)';
+                    e.currentTarget.style.boxShadow = `0 20px 40px ${platform.color}40`;
+                    e.currentTarget.style.borderColor = platform.color;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  }}
                 >
-                  {/* Coming Soon Badge */}
-                  {platform.comingSoon && (
-                    <div className="absolute top-4 right-4 px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm md:text-base font-bold rounded-full shadow-lg">
-                      Coming Soon
-                    </div>
-                  )}
-                  
-                  {/* Platform preview image */}
-                  {platform.preview && (
-                    <div className="mb-6 rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl">
-                      <img 
-                        src={platform.preview} 
-                        alt={`${platform.name} preview`}
-                        className="w-full h-48 object-cover object-top"
-                      />
-                    </div>
-                  )}
-                  
-                  {/* Platform icon - Larger on mobile */}
-                  <div className="text-5xl md:text-6xl mb-4">{platform.icon}</div>
-                  
-                  {/* Platform info */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{platform.name}</h3>
-                  <p className="text-gray-300 mb-8 text-base md:text-lg leading-relaxed">{platform.description}</p>
-                  
-                  {/* Action buttons - Better touch targets */}
+                  {/* Gradient accent bar */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '6px',
+                    background: platform.gradient,
+                    boxShadow: `0 0 20px ${platform.color}, 0 4px 10px ${platform.color}80`
+                  }}></div>
+
+                  {/* Platform Logo */}
+                  <div style={{
+                    width: '120px',
+                    height: '120px',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '1.5rem',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                    padding: '1rem'
+                  }}>
+                    <img 
+                      src={`/logos/${platform.name.replace('™', '').replace(' ', '_')}_Logo_White_BG.png`}
+                      alt={`${platform.name} Logo`}
+                      loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
+                  </div>
+
+                  {/* Platform header */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+                    <h3 style={{
+                      fontSize: '1.75rem',
+                      fontWeight: 700,
+                      margin: 0,
+                      color: '#FFFFFF',
+                      letterSpacing: '-0.5px'
+                    }}>
+                      {platform.name}
+                    </h3>
+                    {platform.comingSoon && (
+                      <span style={{
+                        background: 'linear-gradient(135deg, #FFB800 0%, #FF4757 100%)',
+                        color: 'white',
+                        padding: '0.4rem 0.9rem',
+                        borderRadius: '20px',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px',
+                        boxShadow: '0 4px 10px rgba(255, 71, 87, 0.3)',
+                        whiteSpace: 'nowrap',
+                        flexShrink: 0
+                      }}>
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Tagline */}
+                  <p style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    color: platform.color,
+                    marginBottom: '1.25rem',
+                    letterSpacing: '0.3px',
+                    textShadow: `0 0 20px ${platform.color}80, 0 2px 4px rgba(0, 0, 0, 0.5)`,
+                    filter: 'brightness(1.3)'
+                  }}>
+                    {platform.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p style={{
+                    fontSize: '0.95rem',
+                    color: '#B8D4E8',
+                    lineHeight: 1.7,
+                    marginBottom: '2rem'
+                  }}>
+                    {platform.description}
+                  </p>
+
+                  {/* CTA Button */}
                   {hasAccess ? (
                     <Link
                       to={platform.url}
-                      className={`inline-block w-full text-center px-8 py-5 bg-gradient-to-r ${platform.gradient} text-white rounded-2xl font-bold text-lg md:text-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105`}
+                      style={{
+                        display: 'block',
+                        background: platform.gradient,
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '30px',
+                        padding: '0.85rem 2rem',
+                        fontSize: '0.95rem',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        textDecoration: 'none',
+                        transition: 'all 0.3s ease',
+                        boxShadow: `0 4px 15px ${platform.color}40`,
+                        width: '100%',
+                        letterSpacing: '0.5px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.05)';
+                        e.currentTarget.style.boxShadow = `0 6px 20px ${platform.color}60`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.boxShadow = `0 4px 15px ${platform.color}40`;
+                      }}
                     >
                       Launch Platform →
                     </Link>
                   ) : platform.comingSoon ? (
-                    <div className="space-y-4">
-                      <button
-                        disabled
-                        className="w-full px-8 py-5 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-2xl font-bold text-lg md:text-xl opacity-60 cursor-not-allowed"
-                      >
-                        🚧 Platform Under Development
-                      </button>
-                      <Link
-                        to="/pricing"
-                        className="inline-block w-full text-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all border-2 border-white/30 hover:border-white/50"
-                      >
-                        Learn More
-                      </Link>
-                    </div>
+                    <button
+                      disabled
+                      style={{
+                        background: 'linear-gradient(135deg, #6B7280 0%, #4B5563 100%)',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '30px',
+                        padding: '0.85rem 2rem',
+                        fontSize: '0.95rem',
+                        fontWeight: 600,
+                        cursor: 'not-allowed',
+                        opacity: 0.6,
+                        width: '100%',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      🚧 Coming Soon
+                    </button>
                   ) : (
-                    <div className="space-y-4">
-                      <button
-                        onClick={() => handleShowPlanSelection(platform.id)}
-                        disabled={activatingTrial === platform.id}
-                        className="w-full px-8 py-5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-2xl font-bold text-lg md:text-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
-                      >
-                        {activatingTrial === platform.id ? (
-                          <span className="flex items-center justify-center gap-3">
-                            <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-white"></div>
-                            Activating...
-                          </span>
-                        ) : (
-                          '🎁 Start 14-Day Free Trial'
-                        )}
-                      </button>
-                      <Link
-                        to="/pricing"
-                        className="inline-block w-full text-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all border-2 border-white/30 hover:border-white/50"
-                      >
-                        View Pricing
-                      </Link>
-                    </div>
+                    <button
+                      onClick={() => handleStartTrial(platform)}
+                      disabled={activatingTrial === platform.id}
+                      style={{
+                        background: platform.gradient,
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '30px',
+                        padding: '0.85rem 2rem',
+                        fontSize: '0.95rem',
+                        fontWeight: 600,
+                        cursor: activatingTrial === platform.id ? 'wait' : 'pointer',
+                        transition: 'all 0.3s ease',
+                        boxShadow: `0 4px 15px ${platform.color}40`,
+                        width: '100%',
+                        letterSpacing: '0.5px'
+                      }}
+                      onMouseEnter={(e) => {
+                        if (activatingTrial !== platform.id) {
+                          e.currentTarget.style.transform = 'scale(1.05)';
+                          e.currentTarget.style.boxShadow = `0 6px 20px ${platform.color}60`;
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.boxShadow = `0 4px 15px ${platform.color}40`;
+                      }}
+                    >
+                      {activatingTrial === platform.id ? 'Starting...' : 
+                       platform.id === 'endoguard' ? 'Start Free Assessment →' : 'Start 14-Day Free Trial →'}
+                    </button>
                   )}
                 </div>
               );
             })}
           </div>
-        </div>
-
-        {/* Back to Home */}
-        <div className="max-w-7xl mx-auto text-center pb-8">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-all text-lg md:text-xl font-semibold"
-          >
-            <span>←</span> Back to Homepage
-          </Link>
         </div>
       </div>
 
@@ -395,8 +502,8 @@ const Dashboard = () => {
       {showPlanSelection && (
         <PlanSelection
           platform={showPlanSelection}
-          onSelectPlan={handleSelectPlan}
           onClose={() => setShowPlanSelection(null)}
+          onSelectPlan={handlePlanSelected}
         />
       )}
     </div>

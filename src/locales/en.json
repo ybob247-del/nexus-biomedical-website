@@ -157,6 +157,278 @@
     "viewReports": "View Reports",
     "settings": "Settings"
   },
+  "endoguard": {
+    "assessment": {
+      "title": "EndoGuard™ Hormone Health Assessment",
+      "description": "Discover your Endocrine Disrupting Chemical (EDC) exposure risk and get personalized recommendations",
+      "freeAssessmentBanner": "✨ FREE Assessment - No Credit Card Required",
+      "freeAssessmentDetails": "Get instant personalized hormone health insights • 100% confidential • Takes 5 minutes",
+      "myAssessments": "📊 My Assessments",
+      "stepIndicator": "Step {{current}} of {{total}}",
+      "analyzing": "Analyzing your assessment...",
+      "getResults": "Get My Results"
+    },
+    "steps": {
+      "demographics": {
+        "title": "About You",
+        "age": "Age",
+        "agePlaceholder": "Enter your age",
+        "biologicalSex": "Biological Sex",
+        "selectOption": "Select...",
+        "female": "Female",
+        "male": "Male",
+        "other": "Other",
+        "menstrualStatus": "Menstrual Status",
+        "menstrualOptions": {
+          "regular": "Regular cycles",
+          "irregular": "Irregular cycles",
+          "perimenopause": "Perimenopause",
+          "menopause": "Menopause",
+          "postmenopause": "Postmenopause",
+          "pregnant": "Pregnant",
+          "breastfeeding": "Breastfeeding"
+        }
+      },
+      "symptoms": {
+        "title": "Symptoms",
+        "description": "Select all symptoms you're currently experiencing:",
+        "systems": {
+          "thyroid": "Thyroid System",
+          "reproductive": "Reproductive System",
+          "adrenal": "Adrenal System",
+          "metabolic": "Metabolic System"
+        },
+        "thyroid": {
+          "weightChange": "Unexplained weight gain or loss",
+          "fatigue": "Fatigue or low energy",
+          "hairLoss": "Hair loss or thinning",
+          "coldIntolerance": "Cold intolerance",
+          "drySkin": "Dry skin",
+          "brainFog": "Brain fog or difficulty concentrating"
+        },
+        "reproductive": {
+          "female": {
+            "irregularCycles": "Irregular menstrual cycles",
+            "heavyPeriods": "Heavy or painful periods",
+            "pms": "PMS symptoms",
+            "lowLibido": "Low libido",
+            "fertility": "Fertility issues",
+            "hotFlashes": "Hot flashes or night sweats",
+            "vaginalDryness": "Vaginal dryness",
+            "breastTenderness": "Breast tenderness"
+          },
+          "male": {
+            "lowLibido": "Low libido",
+            "erectileDysfunction": "Erectile dysfunction",
+            "fertility": "Fertility issues",
+            "muscleLoss": "Decreased muscle mass",
+            "gynecomastia": "Gynecomastia (breast development)",
+            "testicularAtrophy": "Testicular atrophy"
+          },
+          "other": {
+            "lowLibido": "Low libido",
+            "fertility": "Fertility issues",
+            "hotFlashes": "Hot flashes or night sweats"
+          }
+        },
+        "adrenal": {
+          "stress": "Chronic stress or anxiety",
+          "wakingDifficulty": "Difficulty waking up",
+          "energyCrashes": "Afternoon energy crashes",
+          "saltCravings": "Salt cravings",
+          "stressHandling": "Difficulty handling stress",
+          "moodSwings": "Mood swings"
+        },
+        "metabolic": {
+          "bloodSugar": "Blood sugar imbalances",
+          "bellyFat": "Increased belly fat",
+          "sugarCravings": "Sugar cravings",
+          "weightLoss": "Difficulty losing weight",
+          "insulinResistance": "Insulin resistance",
+          "pcos": "PCOS symptoms"
+        },
+        "duration": "How long have you had these symptoms?",
+        "durationOptions": {
+          "lessThanMonth": "Less than 1 month",
+          "oneToThree": "1-3 months",
+          "threeToSix": "3-6 months",
+          "sixToTwelve": "6-12 months",
+          "oneToTwo": "1-2 years",
+          "overTwo": "Over 2 years"
+        }
+      },
+      "lifestyle": {
+        "title": "Lifestyle Factors",
+        "dietQuality": "Diet Quality",
+        "dietOptions": {
+          "excellent": "Excellent (mostly whole foods, organic)",
+          "good": "Good (balanced, some processed foods)",
+          "fair": "Fair (mix of healthy and unhealthy)",
+          "poor": "Poor (mostly processed/fast food)"
+        },
+        "exerciseFrequency": "Exercise Frequency",
+        "exerciseOptions": {
+          "daily": "Daily (5-7 days/week)",
+          "regular": "Regular (3-4 days/week)",
+          "occasional": "Occasional (1-2 days/week)",
+          "rarely": "Rarely or never"
+        },
+        "sleepQuality": "Sleep Quality",
+        "sleepOptions": {
+          "excellent": "Excellent (7-9 hours, restful)",
+          "good": "Good (6-7 hours, mostly restful)",
+          "fair": "Fair (5-6 hours or interrupted)",
+          "poor": "Poor (less than 5 hours or very poor quality)"
+        },
+        "stressLevel": "Stress Level (1-10)",
+        "stressGuidance": "Rate your typical daily stress: 1 = Very relaxed, 5 = Moderate stress, 10 = Overwhelming/chronic stress"
+      },
+      "exposure": {
+        "title": "EDC Exposure Assessment",
+        "description": "Help us understand your exposure to endocrine disrupting chemicals:",
+        "plasticUse": "Plastic Use Frequency",
+        "plasticOptions": {
+          "minimal": "Minimal (avoid plastics, use glass/stainless steel)",
+          "low": "Low (mostly glass/stainless steel)",
+          "moderate": "Moderate (occasional plastic use)",
+          "high": "High (daily plastic containers, bottles, packaging)"
+        },
+        "processedFood": "Processed Food Frequency",
+        "processedOptions": {
+          "rarely": "Rarely (mostly whole foods, home cooked)",
+          "occasionally": "Occasionally (1-2 times/week)",
+          "several": "Several times per week",
+          "daily": "Daily"
+        },
+        "waterSource": "Water Source",
+        "waterOptions": {
+          "roFiltered": "Reverse osmosis filtered",
+          "tapFiltered": "Tap water (filtered)",
+          "tapUnfiltered": "Tap water (unfiltered)",
+          "bottled": "Bottled water",
+          "well": "Well water"
+        },
+        "personalCare": "Personal Care Products (select all that apply)",
+        "personalCareOptions": {
+          "conventional": "Conventional beauty/skincare products",
+          "fragranced": "Fragranced products (perfumes, lotions)",
+          "haircare": "Hair chemicals (dyes, straighteners)",
+          "nailPolish": "Nail polish/nail products",
+          "sunscreen": "Conventional sunscreen",
+          "organic": "Mostly organic/natural products"
+        },
+        "household": "Household Products (select all that apply)",
+        "householdOptions": {
+          "cleaners": "Conventional cleaners",
+          "airFresheners": "Air fresheners",
+          "pesticides": "Pesticides/herbicides",
+          "plasticContainers": "Plastic food storage containers",
+          "nonStick": "Non-stick cookware",
+          "natural": "Mostly natural/eco-friendly products"
+        },
+        "occupational": "I have occupational exposure to chemicals (manufacturing, agriculture, cleaning, beauty industry, etc.)"
+      },
+      "health": {
+        "title": "Health History",
+        "conditions": "Existing Health Conditions (optional)",
+        "conditionsPlaceholder": "e.g., PCOS, hypothyroidism, endometriosis (separate with commas)",
+        "medications": "Current Medications (optional)",
+        "medicationsPlaceholder": "List any medications you're taking (separate with commas)",
+        "supplements": "Current Supplements (optional)",
+        "supplementsPlaceholder": "List any supplements you're taking (separate with commas)"
+      },
+      "review": {
+        "title": "Review Your Assessment",
+        "demographics": "Demographics",
+        "age": "Age",
+        "biologicalSex": "Biological Sex",
+        "menstrualStatus": "Menstrual Status",
+        "symptoms": "Symptoms",
+        "selectedSymptoms": "{{count}} symptoms selected",
+        "duration": "Duration",
+        "lifestyle": "Lifestyle",
+        "dietQuality": "Diet Quality",
+        "exercise": "Exercise",
+        "sleep": "Sleep",
+        "stress": "Stress Level",
+        "exposure": "EDC Exposure",
+        "plasticUse": "Plastic Use",
+        "processedFood": "Processed Food",
+        "waterSource": "Water Source",
+        "occupational": "Occupational Exposure",
+        "disclaimer": "Important Disclaimer",
+        "disclaimerText": "This assessment is for educational purposes only and does not constitute medical advice. Results should not be used to diagnose or treat any medical condition. Always consult with a qualified healthcare provider before making any health decisions."
+      }
+    },
+    "results": {
+      "title": "Your EndoGuard™ Results",
+      "overallRiskLevel": "Your Overall Risk Level",
+      "riskScore": "Risk Score",
+      "riskLevel": "Risk Level",
+      "riskLevels": {
+        "low": "LOW",
+        "moderate": "MODERATE",
+        "high": "HIGH",
+        "veryHigh": "VERY HIGH"
+      },
+      "riskDescriptions": {
+        "HIGH": "Your assessment indicates significant hormone disruption risk. Immediate action recommended.",
+        "MODERATE": "Your assessment shows moderate risk factors. Lifestyle changes can make a significant difference.",
+        "LOW": "Your assessment shows relatively low risk. Continue healthy habits and stay informed."
+      },
+      "edcExposure": {
+        "title": "🧪 EDC Exposure Assessment",
+        "exposureRiskScore": "Exposure Risk Score",
+        "risk": "RISK",
+        "keyRiskFactors": "Key Risk Factors Identified:",
+        "impact": "Impact:",
+        "action": "Action:"
+      },
+      "hormoneHealth": {
+        "title": "🩺 Hormone Health Analysis",
+        "symptomsReported": "Symptoms Reported",
+        "severityLevel": "Severity Level",
+        "systemsAffected": "Systems Affected",
+        "systemsShowing": "Hormone Systems Showing Symptoms:"
+      },
+      "recommendations": {
+        "title": "💡 Personalized Recommendations",
+        "noRecommendations": "No specific recommendations at this time. Continue healthy habits!",
+        "why": "Why:"
+      },
+      "nextSteps": {
+        "title": "🎯 Next Steps"
+      },
+      "cta": {
+        "title": "🚀 Unlock Your Complete Hormone Health Program",
+        "subtitle": "Get personalized guidance, professional reports, and ongoing support for just",
+        "perMonth": "$49/month",
+        "features": {
+          "unlimited": "Unlimited assessments & progress tracking",
+          "testRecommendations": "Detailed test recommendations with lab letters",
+          "actionPlans": "Personalized 30/60/90 day action plans",
+          "referrals": "Provider referrals & supplement recommendations",
+          "reports": "Professional PDF reports & progress charts",
+          "support": "Priority email support from health coaches"
+        },
+        "upgradeToPremium": "Upgrade to Premium - $49/month",
+        "compareAssessments": "📊 Compare My Assessments",
+        "downloadPDF": "📄 Download PDF Report",
+        "guarantee": "✨ 14-day money-back guarantee • Cancel anytime"
+      },
+      "disclaimer": {
+        "title": "⚕️ Important Medical Disclaimer",
+        "text1": "This assessment is for educational and informational purposes only. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. The information provided should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of information from this assessment.",
+        "text2": "If you are experiencing severe symptoms or a medical emergency, seek immediate medical attention."
+      },
+      "downloadReport": "Download Report",
+      "shareResults": "Share Results",
+      "retakeAssessment": "Retake Assessment",
+      "consultProvider": "Consult with Provider",
+      "viewHistory": "View History",
+      "compareAssessments": "Compare Assessments"
+    }
+  },
   "footer": {
     "tagline": "Transforming Healthcare Through AI Innovation",
     "copyright": "© {{year}} Nexus Biomedical Intelligence. All rights reserved.",

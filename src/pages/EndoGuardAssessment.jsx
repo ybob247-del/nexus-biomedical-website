@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
 import FDADisclaimer from '../components/FDADisclaimer';
@@ -18,6 +19,7 @@ const API_BASE = '/api/endoguard';
 export default function EndoGuardAssessment() {
   const navigate = useNavigate();
   const { user, token } = useAuth();
+  const { t } = useTranslation();
   const { trackAction } = useAnalytics('endoguard');
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -62,53 +64,53 @@ export default function EndoGuardAssessment() {
   const symptomOptions = useMemo(() => {
     const baseSymptoms = {
       thyroid: [
-        'Unexplained weight gain or loss',
-        'Fatigue or low energy',
-        'Hair loss or thinning',
-        'Cold intolerance',
-        'Dry skin',
-        'Brain fog or difficulty concentrating'
+        t('endoguard.steps.symptoms.thyroid.weightChange'),
+        t('endoguard.steps.symptoms.thyroid.fatigue'),
+        t('endoguard.steps.symptoms.thyroid.hairLoss'),
+        t('endoguard.steps.symptoms.thyroid.coldIntolerance'),
+        t('endoguard.steps.symptoms.thyroid.drySkin'),
+        t('endoguard.steps.symptoms.thyroid.brainFog')
       ],
       reproductive: {
         female: [
-          'Irregular menstrual cycles',
-          'Heavy or painful periods',
-          'PMS symptoms',
-          'Low libido',
-          'Fertility issues',
-          'Hot flashes or night sweats',
-          'Vaginal dryness',
-          'Breast tenderness'
+          t('endoguard.steps.symptoms.reproductive.female.irregularCycles'),
+          t('endoguard.steps.symptoms.reproductive.female.heavyPeriods'),
+          t('endoguard.steps.symptoms.reproductive.female.pms'),
+          t('endoguard.steps.symptoms.reproductive.female.lowLibido'),
+          t('endoguard.steps.symptoms.reproductive.female.fertility'),
+          t('endoguard.steps.symptoms.reproductive.female.hotFlashes'),
+          t('endoguard.steps.symptoms.reproductive.female.vaginalDryness'),
+          t('endoguard.steps.symptoms.reproductive.female.breastTenderness')
         ],
         male: [
-          'Low libido',
-          'Erectile dysfunction',
-          'Fertility issues',
-          'Decreased muscle mass',
-          'Gynecomastia (breast development)',
-          'Testicular atrophy'
+          t('endoguard.steps.symptoms.reproductive.male.lowLibido'),
+          t('endoguard.steps.symptoms.reproductive.male.erectileDysfunction'),
+          t('endoguard.steps.symptoms.reproductive.male.fertility'),
+          t('endoguard.steps.symptoms.reproductive.male.muscleLoss'),
+          t('endoguard.steps.symptoms.reproductive.male.gynecomastia'),
+          t('endoguard.steps.symptoms.reproductive.male.testicularAtrophy')
         ],
         other: [
-          'Low libido',
-          'Fertility issues',
-          'Hot flashes or night sweats'
+          t('endoguard.steps.symptoms.reproductive.other.lowLibido'),
+          t('endoguard.steps.symptoms.reproductive.other.fertility'),
+          t('endoguard.steps.symptoms.reproductive.other.hotFlashes')
         ]
       },
       adrenal: [
-        'Chronic stress or anxiety',
-        'Difficulty waking up',
-        'Afternoon energy crashes',
-        'Salt cravings',
-        'Difficulty handling stress',
-        'Mood swings'
+        t('endoguard.steps.symptoms.adrenal.stress'),
+        t('endoguard.steps.symptoms.adrenal.wakingDifficulty'),
+        t('endoguard.steps.symptoms.adrenal.energyCrashes'),
+        t('endoguard.steps.symptoms.adrenal.saltCravings'),
+        t('endoguard.steps.symptoms.adrenal.stressHandling'),
+        t('endoguard.steps.symptoms.adrenal.moodSwings')
       ],
       metabolic: [
-        'Blood sugar imbalances',
-        'Increased belly fat',
-        'Sugar cravings',
-        'Difficulty losing weight',
-        'Insulin resistance',
-        formData.biologicalSex === 'female' ? 'PCOS symptoms' : null
+        t('endoguard.steps.symptoms.metabolic.bloodSugar'),
+        t('endoguard.steps.symptoms.metabolic.bellyFat'),
+        t('endoguard.steps.symptoms.metabolic.sugarCravings'),
+        t('endoguard.steps.symptoms.metabolic.weightLoss'),
+        t('endoguard.steps.symptoms.metabolic.insulinResistance'),
+        formData.biologicalSex === 'female' ? t('endoguard.steps.symptoms.metabolic.pcos') : null
       ].filter(Boolean)
     };
 
@@ -123,7 +125,7 @@ export default function EndoGuardAssessment() {
       adrenal: baseSymptoms.adrenal,
       metabolic: baseSymptoms.metabolic
     };
-  }, [formData.biologicalSex]); // Recalculate when biologicalSex changes
+  }, [formData.biologicalSex, t]); // Recalculate when biologicalSex or language changes
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -261,7 +263,7 @@ export default function EndoGuardAssessment() {
       <div className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <h1 style={{ margin: 0 }}>EndoGuard™ Hormone Health Assessment</h1>
+          <h1 style={{ margin: 0 }}>{t('endoguard.assessment.title')}</h1>
           {user && (
             <button
               onClick={() => navigate('/my-assessments')}
@@ -279,11 +281,11 @@ export default function EndoGuardAssessment() {
               onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
             >
-              📊 My Assessments
+              {t('endoguard.assessment.myAssessments')}
             </button>
           )}
         </div>
-        <p>Discover your Endocrine Disrupting Chemical (EDC) exposure risk and get personalized recommendations</p>
+        <p>{t('endoguard.assessment.description')}</p>
         <div style={{
           background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
           padding: '1rem 1.5rem',
@@ -295,10 +297,10 @@ export default function EndoGuardAssessment() {
           boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)'
         }}>
           <div style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            ✨ FREE Assessment - No Credit Card Required
+            {t('endoguard.assessment.freeAssessmentBanner')}
           </div>
           <div style={{ fontSize: '0.95rem', opacity: 0.95 }}>
-            Get instant personalized hormone health insights • 100% confidential • Takes 5 minutes
+            {t('endoguard.assessment.freeAssessmentDetails')}
           </div>
         </div>
         <div data-tour="disclaimer">
@@ -317,22 +319,24 @@ export default function EndoGuardAssessment() {
             style={{ width: `${(step / 7) * 100}%` }}
           />
         </div>
-        <div className="step-indicator" data-tour="step-indicator">Step {step} of 6</div>
+        <div className="step-indicator" data-tour="step-indicator">
+          {t('endoguard.assessment.stepIndicator', { current: step, total: 6 })}
+        </div>
       </div>
 
       <div className="assessment-content">
         {/* Step 1: Demographics */}
         {step === 1 && (
           <div className="step-section">
-            <h2>About You</h2>
+            <h2>{t('endoguard.steps.demographics.title')}</h2>
             
             <div className="form-group">
-              <label>Age</label>
+              <label>{t('endoguard.steps.demographics.age')}</label>
               <input
                 type="number"
                 value={formData.age}
                 onChange={(e) => handleInputChange('age', e.target.value)}
-                placeholder="Enter your age"
+                placeholder={t('endoguard.steps.demographics.agePlaceholder')}
                 min="18"
                 max="100"
                 data-tour="age-input"
@@ -340,51 +344,53 @@ export default function EndoGuardAssessment() {
             </div>
 
             <div className="form-group">
-              <label>Biological Sex</label>
+              <label>{t('endoguard.steps.demographics.biologicalSex')}</label>
               <select
                 value={formData.biologicalSex}
                 onChange={(e) => handleInputChange('biologicalSex', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="other">Other</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="female">{t('endoguard.steps.demographics.female')}</option>
+                <option value="male">{t('endoguard.steps.demographics.male')}</option>
+                <option value="other">{t('endoguard.steps.demographics.other')}</option>
               </select>
             </div>
 
             {formData.biologicalSex === 'female' && (
               <div className="form-group">
-                <label>Menstrual Status</label>
+                <label>{t('endoguard.steps.demographics.menstrualStatus')}</label>
                 <select
                   value={formData.menstrualStatus}
                   onChange={(e) => handleInputChange('menstrualStatus', e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="regular">Regular cycles</option>
-                  <option value="irregular">Irregular cycles</option>
-                  <option value="perimenopause">Perimenopause</option>
-                  <option value="menopause">Menopause</option>
-                  <option value="postmenopause">Postmenopause</option>
-                  <option value="pregnant">Pregnant</option>
-                  <option value="breastfeeding">Breastfeeding</option>
+                  <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                  <option value="regular">{t('endoguard.steps.demographics.menstrualOptions.regular')}</option>
+                  <option value="irregular">{t('endoguard.steps.demographics.menstrualOptions.irregular')}</option>
+                  <option value="perimenopause">{t('endoguard.steps.demographics.menstrualOptions.perimenopause')}</option>
+                  <option value="menopause">{t('endoguard.steps.demographics.menstrualOptions.menopause')}</option>
+                  <option value="postmenopause">{t('endoguard.steps.demographics.menstrualOptions.postmenopause')}</option>
+                  <option value="pregnant">{t('endoguard.steps.demographics.menstrualOptions.pregnant')}</option>
+                  <option value="breastfeeding">{t('endoguard.steps.demographics.menstrualOptions.breastfeeding')}</option>
                 </select>
               </div>
             )}
 
-            <button onClick={nextStep} className="next-btn" data-tour="next-button">Next</button>
+            <button onClick={nextStep} className="next-btn" data-tour="next-button">
+              {t('common.next')}
+            </button>
           </div>
         )}
 
         {/* Step 2: Symptoms */}
         {step === 2 && (
           <div className="step-section">
-            <h2>Symptoms</h2>
-            <p>Select all symptoms you're currently experiencing:</p>
+            <h2>{t('endoguard.steps.symptoms.title')}</h2>
+            <p>{t('endoguard.steps.symptoms.description')}</p>
 
             {Object.entries(symptomOptions).map(([system, symptoms]) => (
               symptoms.length > 0 && (
                 <div key={system} className="symptom-category">
-                  <h3>{system.charAt(0).toUpperCase() + system.slice(1)} System</h3>
+                  <h3>{t(`endoguard.steps.symptoms.systems.${system}`)}</h3>
                   <div className="checkbox-grid">
                     {symptoms.map(symptom => (
                       <label key={symptom} className="checkbox-label">
@@ -404,26 +410,26 @@ export default function EndoGuardAssessment() {
             {formData.symptoms.length > 0 && (
               <>
                 <div className="form-group">
-                  <label>How long have you had these symptoms?</label>
+                  <label>{t('endoguard.steps.symptoms.duration')}</label>
                   <select
                     value={formData.symptomDuration}
                     onChange={(e) => handleInputChange('symptomDuration', e.target.value)}
                   >
-                    <option value="">Select...</option>
-                    <option value="less_than_month">Less than 1 month</option>
-                    <option value="1_3_months">1-3 months</option>
-                    <option value="3_6_months">3-6 months</option>
-                    <option value="6_12_months">6-12 months</option>
-                    <option value="1_2_years">1-2 years</option>
-                    <option value="over_2_years">Over 2 years</option>
+                    <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                    <option value="less_than_month">{t('endoguard.steps.symptoms.durationOptions.lessThanMonth')}</option>
+                    <option value="1_3_months">{t('endoguard.steps.symptoms.durationOptions.oneToThree')}</option>
+                    <option value="3_6_months">{t('endoguard.steps.symptoms.durationOptions.threeToSix')}</option>
+                    <option value="6_12_months">{t('endoguard.steps.symptoms.durationOptions.sixToTwelve')}</option>
+                    <option value="1_2_years">{t('endoguard.steps.symptoms.durationOptions.oneToTwo')}</option>
+                    <option value="over_2_years">{t('endoguard.steps.symptoms.durationOptions.overTwo')}</option>
                   </select>
                 </div>
               </>
             )}
 
             <div className="button-group">
-              <button onClick={prevStep} className="prev-btn">Previous</button>
-              <button onClick={nextStep} className="next-btn">Next</button>
+              <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
+              <button onClick={nextStep} className="next-btn">{t('common.next')}</button>
             </div>
           </div>
         )}
@@ -431,53 +437,53 @@ export default function EndoGuardAssessment() {
         {/* Step 3: Lifestyle */}
         {step === 3 && (
           <div className="step-section">
-            <h2>Lifestyle Factors</h2>
+            <h2>{t('endoguard.steps.lifestyle.title')}</h2>
 
             <div className="form-group">
-              <label>Diet Quality</label>
+              <label>{t('endoguard.steps.lifestyle.dietQuality')}</label>
               <select
                 value={formData.dietQuality}
                 onChange={(e) => handleInputChange('dietQuality', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="excellent">Excellent (mostly whole foods, organic)</option>
-                <option value="good">Good (balanced, some processed foods)</option>
-                <option value="fair">Fair (mix of healthy and unhealthy)</option>
-                <option value="poor">Poor (mostly processed/fast food)</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="excellent">{t('endoguard.steps.lifestyle.dietOptions.excellent')}</option>
+                <option value="good">{t('endoguard.steps.lifestyle.dietOptions.good')}</option>
+                <option value="fair">{t('endoguard.steps.lifestyle.dietOptions.fair')}</option>
+                <option value="poor">{t('endoguard.steps.lifestyle.dietOptions.poor')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label>Exercise Frequency</label>
+              <label>{t('endoguard.steps.lifestyle.exerciseFrequency')}</label>
               <select
                 value={formData.exerciseFrequency}
                 onChange={(e) => handleInputChange('exerciseFrequency', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="daily">Daily (5-7 days/week)</option>
-                <option value="regular">Regular (3-4 days/week)</option>
-                <option value="occasional">Occasional (1-2 days/week)</option>
-                <option value="rarely">Rarely or never</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="daily">{t('endoguard.steps.lifestyle.exerciseOptions.daily')}</option>
+                <option value="regular">{t('endoguard.steps.lifestyle.exerciseOptions.regular')}</option>
+                <option value="occasional">{t('endoguard.steps.lifestyle.exerciseOptions.occasional')}</option>
+                <option value="rarely">{t('endoguard.steps.lifestyle.exerciseOptions.rarely')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label>Sleep Quality</label>
+              <label>{t('endoguard.steps.lifestyle.sleepQuality')}</label>
               <select
                 value={formData.sleepQuality}
                 onChange={(e) => handleInputChange('sleepQuality', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="excellent">Excellent (7-9 hours, restful)</option>
-                <option value="good">Good (6-7 hours, mostly restful)</option>
-                <option value="fair">Fair (5-6 hours or interrupted)</option>
-                <option value="poor">Poor (less than 5 hours or very poor quality)</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="excellent">{t('endoguard.steps.lifestyle.sleepOptions.excellent')}</option>
+                <option value="good">{t('endoguard.steps.lifestyle.sleepOptions.good')}</option>
+                <option value="fair">{t('endoguard.steps.lifestyle.sleepOptions.fair')}</option>
+                <option value="poor">{t('endoguard.steps.lifestyle.sleepOptions.poor')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label>Stress Level (1-10)</label>
-              <p className="field-guidance">Rate your typical daily stress: 1 = Very relaxed, 5 = Moderate stress, 10 = Overwhelming/chronic stress</p>
+              <label>{t('endoguard.steps.lifestyle.stressLevel')}</label>
+              <p className="field-guidance">{t('endoguard.steps.lifestyle.stressGuidance')}</p>
               <input
                 type="range"
                 min="1"
@@ -489,8 +495,8 @@ export default function EndoGuardAssessment() {
             </div>
 
             <div className="button-group">
-              <button onClick={prevStep} className="prev-btn">Previous</button>
-              <button onClick={nextStep} className="next-btn">Next</button>
+              <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
+              <button onClick={nextStep} className="next-btn">{t('common.next')}</button>
             </div>
           </div>
         )}
@@ -498,49 +504,49 @@ export default function EndoGuardAssessment() {
         {/* Step 4: EDC Exposure */}
         {step === 4 && (
           <div className="step-section">
-            <h2>EDC Exposure Assessment</h2>
-            <p>Help us understand your exposure to endocrine disrupting chemicals:</p>
+            <h2>{t('endoguard.steps.exposure.title')}</h2>
+            <p>{t('endoguard.steps.exposure.description')}</p>
 
             <div className="form-group">
-              <label>Plastic Use Frequency</label>
+              <label>{t('endoguard.steps.exposure.plasticUse')}</label>
               <select
                 value={formData.plasticUseFrequency}
                 onChange={(e) => handleInputChange('plasticUseFrequency', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="high">High (daily plastic containers, bottles, packaging)</option>
-                <option value="moderate">Moderate (occasional plastic use)</option>
-                <option value="low">Low (mostly glass/stainless steel)</option>
-                <option value="minimal">Minimal (actively avoid plastics)</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="high">{t('endoguard.steps.exposure.plasticOptions.high')}</option>
+                <option value="moderate">{t('endoguard.steps.exposure.plasticOptions.moderate')}</option>
+                <option value="low">{t('endoguard.steps.exposure.plasticOptions.low')}</option>
+                <option value="minimal">{t('endoguard.steps.exposure.plasticOptions.minimal')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label>Processed Food Frequency</label>
+              <label>{t('endoguard.steps.exposure.processedFood')}</label>
               <select
                 value={formData.processedFoodFrequency}
                 onChange={(e) => handleInputChange('processedFoodFrequency', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="daily">Daily</option>
-                <option value="several_times_week">Several times per week</option>
-                <option value="occasionally">Occasionally</option>
-                <option value="rarely">Rarely or never</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="daily">{t('endoguard.steps.exposure.processedOptions.daily')}</option>
+                <option value="several_times_week">{t('endoguard.steps.exposure.processedOptions.several')}</option>
+                <option value="occasionally">{t('endoguard.steps.exposure.processedOptions.occasionally')}</option>
+                <option value="rarely">{t('endoguard.steps.exposure.processedOptions.rarely')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label>Water Source</label>
+              <label>{t('endoguard.steps.exposure.waterSource')}</label>
               <select
                 value={formData.waterSource}
                 onChange={(e) => handleInputChange('waterSource', e.target.value)}
               >
-                <option value="">Select...</option>
-                <option value="tap_unfiltered">Tap water (unfiltered)</option>
-                <option value="tap_filtered">Tap water (filtered)</option>
-                <option value="bottled">Bottled water</option>
-                <option value="well">Well water</option>
-                <option value="reverse_osmosis">Reverse osmosis filtered</option>
+                <option value="">{t('endoguard.steps.demographics.selectOption')}</option>
+                <option value="tap_unfiltered">{t('endoguard.steps.exposure.waterOptions.tapUnfiltered')}</option>
+                <option value="tap_filtered">{t('endoguard.steps.exposure.waterOptions.tapFiltered')}</option>
+                <option value="bottled">{t('endoguard.steps.exposure.waterOptions.bottled')}</option>
+                <option value="well">{t('endoguard.steps.exposure.waterOptions.well')}</option>
+                <option value="reverse_osmosis">{t('endoguard.steps.exposure.waterOptions.roFiltered')}</option>
               </select>
             </div>
 
@@ -551,13 +557,13 @@ export default function EndoGuardAssessment() {
                   checked={formData.occupationalExposure}
                   onChange={(e) => handleInputChange('occupationalExposure', e.target.checked)}
                 />
-                <span>I have occupational exposure to chemicals (manufacturing, agriculture, cleaning, beauty industry, etc.)</span>
+                <span>{t('endoguard.steps.exposure.occupational')}</span>
               </label>
             </div>
 
             <div className="button-group">
-              <button onClick={prevStep} className="prev-btn">Previous</button>
-              <button onClick={nextStep} className="next-btn">Next</button>
+              <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
+              <button onClick={nextStep} className="next-btn">{t('common.next')}</button>
             </div>
           </div>
         )}
@@ -565,41 +571,41 @@ export default function EndoGuardAssessment() {
         {/* Step 5: Health History */}
         {step === 5 && (
           <div className="step-section">
-            <h2>Health History</h2>
+            <h2>{t('endoguard.steps.health.title')}</h2>
 
             <div className="form-group">
-              <label>Existing Health Conditions (optional)</label>
+              <label>{t('endoguard.steps.health.conditions')}</label>
               <textarea
                 value={formData.existingConditions}
                 onChange={(e) => handleInputChange('existingConditions', e.target.value)}
-                placeholder="e.g., PCOS, hypothyroidism, endometriosis (separate with commas)"
+                placeholder={t('endoguard.steps.health.conditionsPlaceholder')}
                 rows="3"
               />
             </div>
 
             <div className="form-group">
-              <label>Current Medications (optional)</label>
+              <label>{t('endoguard.steps.health.medications')}</label>
               <textarea
                 value={formData.medications}
                 onChange={(e) => handleInputChange('medications', e.target.value)}
-                placeholder="List any medications you're taking (separate with commas)"
+                placeholder={t('endoguard.steps.health.medicationsPlaceholder')}
                 rows="3"
               />
             </div>
 
             <div className="form-group">
-              <label>Current Supplements (optional)</label>
+              <label>{t('endoguard.steps.health.supplements')}</label>
               <textarea
                 value={formData.supplements}
                 onChange={(e) => handleInputChange('supplements', e.target.value)}
-                placeholder="List any supplements you're taking (separate with commas)"
+                placeholder={t('endoguard.steps.health.supplementsPlaceholder')}
                 rows="3"
               />
             </div>
 
             <div className="button-group">
-              <button onClick={prevStep} className="prev-btn">Previous</button>
-              <button onClick={nextStep} className="next-btn">Next</button>
+              <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
+              <button onClick={nextStep} className="next-btn">{t('common.next')}</button>
             </div>
           </div>
         )}
@@ -607,39 +613,39 @@ export default function EndoGuardAssessment() {
         {/* Step 6: Review & Submit */}
         {step === 6 && (
           <div className="step-section">
-            <h2>Review Your Assessment</h2>
+            <h2>{t('endoguard.steps.review.title')}</h2>
             
             <div className="review-summary">
               <div className="summary-item">
-                <strong>Symptoms Selected:</strong> {formData.symptoms.length}
+                <strong>{t('endoguard.steps.review.symptoms')}:</strong> {t('endoguard.steps.review.selectedSymptoms', { count: formData.symptoms.length })}
               </div>
               <div className="summary-item">
                 <strong>Calculated Severity:</strong> {calculateSymptomSeverity()}/10 (auto-calculated)
               </div>
               <div className="summary-item">
-                <strong>Stress Level:</strong> {formData.stressLevel}/10
+                <strong>{t('endoguard.steps.review.stress')}:</strong> {formData.stressLevel}/10
               </div>
               <div className="summary-item">
-                <strong>Diet Quality:</strong> {formData.dietQuality || 'Not specified'}
+                <strong>{t('endoguard.steps.review.dietQuality')}:</strong> {formData.dietQuality || 'Not specified'}
               </div>
               <div className="summary-item">
-                <strong>Plastic Use:</strong> {formData.plasticUseFrequency || 'Not specified'}
+                <strong>{t('endoguard.steps.review.plasticUse')}:</strong> {formData.plasticUseFrequency || 'Not specified'}
               </div>
             </div>
 
             <div className="disclaimer-box">
-              <h3>Important Disclaimer</h3>
-              <p>This assessment is for educational purposes only and does not constitute medical advice. Results should not be used to diagnose or treat any medical condition. Always consult with a qualified healthcare provider before making any health decisions.</p>
+              <h3>{t('endoguard.steps.review.disclaimer')}</h3>
+              <p>{t('endoguard.steps.review.disclaimerText')}</p>
             </div>
 
             <div className="button-group">
-              <button onClick={prevStep} className="prev-btn">Previous</button>
+              <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
               <button 
                 onClick={submitAssessment} 
                 disabled={isAnalyzing}
                 className="submit-btn"
               >
-                {isAnalyzing ? 'Analyzing...' : 'Get My Results'}
+                {isAnalyzing ? t('endoguard.assessment.analyzing') : t('endoguard.assessment.getResults')}
               </button>
             </div>
           </div>

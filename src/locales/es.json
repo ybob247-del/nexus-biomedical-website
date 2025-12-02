@@ -157,6 +157,278 @@
     "viewReports": "Ver Informes",
     "settings": "Configuración"
   },
+  "endoguard": {
+    "assessment": {
+      "title": "Evaluación de Salud Hormonal EndoGuard™",
+      "description": "Descubra su riesgo de exposición a Químicos Disruptores Endocrinos (EDC) y obtenga recomendaciones personalizadas",
+      "freeAssessmentBanner": "✨ Evaluación GRATUITA - No Se Requiere Tarjeta de Crédito",
+      "freeAssessmentDetails": "Obtenga información personalizada instantánea sobre salud hormonal • 100% confidencial • Toma 5 minutos",
+      "myAssessments": "📊 Mis Evaluaciones",
+      "stepIndicator": "Paso {{current}} de {{total}}",
+      "analyzing": "Analizando su evaluación...",
+      "getResults": "Obtener Resultados"
+    },
+    "steps": {
+      "demographics": {
+        "title": "Acerca de Usted",
+        "age": "Edad",
+        "agePlaceholder": "Ingrese su edad",
+        "biologicalSex": "Sexo Biológico",
+        "selectOption": "Seleccionar...",
+        "female": "Femenino",
+        "male": "Masculino",
+        "other": "Otro",
+        "menstrualStatus": "Estado Menstrual",
+        "menstrualOptions": {
+          "regular": "Ciclos regulares",
+          "irregular": "Ciclos irregulares",
+          "perimenopause": "Perimenopausia",
+          "menopause": "Menopausia",
+          "postmenopause": "Postmenopausia",
+          "pregnant": "Embarazada",
+          "breastfeeding": "Lactancia"
+        }
+      },
+      "symptoms": {
+        "title": "Síntomas",
+        "description": "Seleccione todos los síntomas que está experimentando actualmente:",
+        "systems": {
+          "thyroid": "Sistema Tiroideo",
+          "reproductive": "Sistema Reproductivo",
+          "adrenal": "Sistema Adrenal",
+          "metabolic": "Sistema Metabólico"
+        },
+        "thyroid": {
+          "weightChange": "Aumento o pérdida de peso inexplicable",
+          "fatigue": "Fatiga o baja energía",
+          "hairLoss": "Pérdida o adelgazamiento del cabello",
+          "coldIntolerance": "Intolerancia al frío",
+          "drySkin": "Piel seca",
+          "brainFog": "Confusión mental o dificultad para concentrarse"
+        },
+        "reproductive": {
+          "female": {
+            "irregularCycles": "Ciclos menstruales irregulares",
+            "heavyPeriods": "Períodos abundantes o dolorosos",
+            "pms": "Síntomas de SPM",
+            "lowLibido": "Bajo deseo sexual",
+            "fertility": "Problemas de fertilidad",
+            "hotFlashes": "Sofocos o sudores nocturnos",
+            "vaginalDryness": "Sequedad vaginal",
+            "breastTenderness": "Sensibilidad en los senos"
+          },
+          "male": {
+            "lowLibido": "Bajo deseo sexual",
+            "erectileDysfunction": "Disfunción eréctil",
+            "fertility": "Problemas de fertilidad",
+            "muscleLoss": "Disminución de masa muscular",
+            "gynecomastia": "Ginecomastia (desarrollo de senos)",
+            "testicularAtrophy": "Atrofia testicular"
+          },
+          "other": {
+            "lowLibido": "Bajo deseo sexual",
+            "fertility": "Problemas de fertilidad",
+            "hotFlashes": "Sofocos o sudores nocturnos"
+          }
+        },
+        "adrenal": {
+          "stress": "Estrés crónico o ansiedad",
+          "wakingDifficulty": "Dificultad para despertar",
+          "energyCrashes": "Caídas de energía por la tarde",
+          "saltCravings": "Antojos de sal",
+          "stressHandling": "Dificultad para manejar el estrés",
+          "moodSwings": "Cambios de humor"
+        },
+        "metabolic": {
+          "bloodSugar": "Desequilibrios de azúcar en sangre",
+          "bellyFat": "Aumento de grasa abdominal",
+          "sugarCravings": "Antojos de azúcar",
+          "weightLoss": "Dificultad para perder peso",
+          "insulinResistance": "Resistencia a la insulina",
+          "pcos": "Síntomas de SOP"
+        },
+        "duration": "¿Cuánto tiempo ha tenido estos síntomas?",
+        "durationOptions": {
+          "lessThanMonth": "Menos de 1 mes",
+          "oneToThree": "1-3 meses",
+          "threeToSix": "3-6 meses",
+          "sixToTwelve": "6-12 meses",
+          "oneToTwo": "1-2 años",
+          "overTwo": "Más de 2 años"
+        }
+      },
+      "lifestyle": {
+        "title": "Factores de Estilo de Vida",
+        "dietQuality": "Calidad de la Dieta",
+        "dietOptions": {
+          "excellent": "Excelente (principalmente alimentos integrales, orgánicos)",
+          "good": "Buena (equilibrada, algunos alimentos procesados)",
+          "fair": "Regular (mezcla de saludable y no saludable)",
+          "poor": "Pobre (principalmente alimentos procesados/comida rápida)"
+        },
+        "exerciseFrequency": "Frecuencia de Ejercicio",
+        "exerciseOptions": {
+          "daily": "Diario (5-7 días/semana)",
+          "regular": "Regular (3-4 días/semana)",
+          "occasional": "Ocasional (1-2 días/semana)",
+          "rarely": "Raramente o nunca"
+        },
+        "sleepQuality": "Calidad del Sueño",
+        "sleepOptions": {
+          "excellent": "Excelente (7-9 horas, reparador)",
+          "good": "Buena (6-7 horas, mayormente reparador)",
+          "fair": "Regular (5-6 horas o interrumpido)",
+          "poor": "Pobre (menos de 5 horas o muy mala calidad)"
+        },
+        "stressLevel": "Nivel de Estrés (1-10)",
+        "stressGuidance": "Califique su estrés diario típico: 1 = Muy relajado, 5 = Estrés moderado, 10 = Estrés abrumador/crónico"
+      },
+      "exposure": {
+        "title": "Evaluación de Exposición a EDC",
+        "description": "Ayúdenos a entender su exposición a químicos disruptores endocrinos:",
+        "plasticUse": "Frecuencia de Uso de Plástico",
+        "plasticOptions": {
+          "minimal": "Mínimo (evito plásticos, uso vidrio/acero inoxidable)",
+          "low": "Bajo (mayormente vidrio/acero inoxidable)",
+          "moderate": "Moderado (uso ocasional de plástico)",
+          "high": "Alto (contenedores de plástico diarios, botellas, empaques)"
+        },
+        "processedFood": "Frecuencia de Alimentos Procesados",
+        "processedOptions": {
+          "rarely": "Raramente (principalmente alimentos integrales caseros)",
+          "occasionally": "Ocasionalmente (1-2 veces/semana)",
+          "several": "Varias veces por semana",
+          "daily": "Diariamente"
+        },
+        "waterSource": "Fuente de Agua",
+        "waterOptions": {
+          "roFiltered": "Filtrada por ósmosis inversa",
+          "tapFiltered": "Agua del grifo filtrada",
+          "tapUnfiltered": "Agua del grifo sin filtrar",
+          "bottled": "Agua embotellada",
+          "well": "Agua de pozo"
+        },
+        "personalCare": "Productos de Cuidado Personal (seleccione todos los que apliquen)",
+        "personalCareOptions": {
+          "conventional": "Productos convencionales de belleza/cuidado de la piel",
+          "fragranced": "Productos perfumados (perfumes, lociones)",
+          "haircare": "Productos químicos para el cabello (tintes, alisadores)",
+          "nailPolish": "Esmalte de uñas/productos de uñas",
+          "sunscreen": "Protector solar convencional",
+          "organic": "Principalmente productos orgánicos/naturales"
+        },
+        "household": "Productos del Hogar (seleccione todos los que apliquen)",
+        "householdOptions": {
+          "cleaners": "Limpiadores convencionales",
+          "airFresheners": "Ambientadores",
+          "pesticides": "Pesticidas/herbicidas",
+          "plasticContainers": "Contenedores de plástico para almacenamiento de alimentos",
+          "nonStick": "Utensilios de cocina antiadherentes",
+          "natural": "Principalmente productos naturales/ecológicos"
+        },
+        "occupational": "Tengo exposición ocupacional a químicos (manufactura, agricultura, limpieza, industria de belleza, etc.)"
+      },
+      "health": {
+        "title": "Historial de Salud",
+        "conditions": "Condiciones de Salud Existentes (opcional)",
+        "conditionsPlaceholder": "Por ejemplo: diabetes, tiroides, SOP, etc.",
+        "medications": "Medicamentos Actuales (opcional)",
+        "medicationsPlaceholder": "Enumere cualquier medicamento que esté tomando",
+        "supplements": "Suplementos Actuales (opcional)",
+        "supplementsPlaceholder": "Enumere cualquier vitamina o suplemento"
+      },
+      "review": {
+        "title": "Revise Su Evaluación",
+        "demographics": "Datos Demográficos",
+        "age": "Edad",
+        "biologicalSex": "Sexo Biológico",
+        "menstrualStatus": "Estado Menstrual",
+        "symptoms": "Síntomas",
+        "selectedSymptoms": "{{count}} síntomas seleccionados",
+        "duration": "Duración",
+        "lifestyle": "Estilo de Vida",
+        "dietQuality": "Calidad de la Dieta",
+        "exercise": "Ejercicio",
+        "sleep": "Sueño",
+        "stress": "Nivel de Estrés",
+        "exposure": "Exposición a EDC",
+        "plasticUse": "Uso de Plástico",
+        "processedFood": "Alimentos Procesados",
+        "waterSource": "Fuente de Agua",
+        "occupational": "Exposición Ocupacional",
+        "disclaimer": "Descargo de Responsabilidad Importante",
+        "disclaimerText": "Esta evaluación es solo para fines educativos y no constituye consejo médico. Los resultados no deben usarse para diagnosticar o tratar ninguna condición médica. Siempre consulte con un proveedor de atención médica calificado antes de tomar cualquier decisión de salud."
+      }
+    },
+    "results": {
+      "title": "Sus Resultados de EndoGuard™",
+      "overallRiskLevel": "Su Nivel de Riesgo General",
+      "riskScore": "Puntuación de Riesgo",
+      "riskLevel": "Nivel de Riesgo",
+      "riskLevels": {
+        "low": "BAJO",
+        "moderate": "MODERADO",
+        "high": "ALTO",
+        "veryHigh": "MUY ALTO"
+      },
+      "riskDescriptions": {
+        "HIGH": "Su evaluación indica un riesgo significativo de disrupción hormonal. Se recomienda acción inmediata.",
+        "MODERATE": "Su evaluación muestra factores de riesgo moderados. Los cambios en el estilo de vida pueden hacer una diferencia significativa.",
+        "LOW": "Su evaluación muestra un riesgo relativamente bajo. Continúe con hábitos saludables y manténgase informado."
+      },
+      "edcExposure": {
+        "title": "🧪 Evaluación de Exposición a EDC",
+        "exposureRiskScore": "Puntuación de Riesgo de Exposición",
+        "risk": "RIESGO",
+        "keyRiskFactors": "Factores de Riesgo Clave Identificados:",
+        "impact": "Impacto:",
+        "action": "Acción:"
+      },
+      "hormoneHealth": {
+        "title": "🩺 Análisis de Salud Hormonal",
+        "symptomsReported": "Síntomas Reportados",
+        "severityLevel": "Nivel de Severidad",
+        "systemsAffected": "Sistemas Afectados",
+        "systemsShowing": "Sistemas Hormonales con Síntomas:"
+      },
+      "recommendations": {
+        "title": "💡 Recomendaciones Personalizadas",
+        "noRecommendations": "¡No hay recomendaciones específicas en este momento. Continúe con hábitos saludables!",
+        "why": "Por qué:"
+      },
+      "nextSteps": {
+        "title": "🎯 Próximos Pasos"
+      },
+      "cta": {
+        "title": "🚀 Desbloquee Su Programa Completo de Salud Hormonal",
+        "subtitle": "Obtenga orientación personalizada, informes profesionales y soporte continuo por solo",
+        "perMonth": "$49/mes",
+        "features": {
+          "unlimited": "Evaluaciones ilimitadas y seguimiento de progreso",
+          "testRecommendations": "Recomendaciones de pruebas detalladas con cartas de laboratorio",
+          "actionPlans": "Planes de acción personalizados de 30/60/90 días",
+          "referrals": "Referencias de proveedores y recomendaciones de suplementos",
+          "reports": "Informes PDF profesionales y gráficos de progreso",
+          "support": "Soporte prioritario por correo electrónico de entrenadores de salud"
+        },
+        "upgradeToPremium": "Actualizar a Premium - $49/mes",
+        "compareAssessments": "📊 Comparar Mis Evaluaciones",
+        "downloadPDF": "📄 Descargar Informe PDF",
+        "guarantee": "✨ Garantía de devolución de dinero de 14 días • Cancele en cualquier momento"
+      },
+      "disclaimer": {
+        "title": "⚕️ Descargo de Responsabilidad Médica Importante",
+        "text1": "Esta evaluación es solo para fines educativos e informativos. No está destinada a diagnosticar, tratar, curar o prevenir ninguna enfermedad o condición médica. La información proporcionada no debe usarse como sustituto del consejo, diagnóstico o tratamiento médico profesional. Siempre busque el consejo de su médico u otro proveedor de atención médica calificado con cualquier pregunta que pueda tener sobre una condición médica. Nunca ignore el consejo médico profesional ni demore en buscarlo debido a la información de esta evaluación.",
+        "text2": "Si está experimentando síntomas graves o una emergencia médica, busque atención médica inmediata."
+      },
+      "downloadReport": "Descargar Informe",
+      "shareResults": "Compartir Resultados",
+      "retakeAssessment": "Repetir Evaluación",
+      "consultProvider": "Consultar con Proveedor",
+      "viewHistory": "Ver Historial",
+      "compareAssessments": "Comparar Evaluaciones"
+    }
+  },
   "footer": {
     "tagline": "Transformando la Atención Médica a Través de la Innovación en IA",
     "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",

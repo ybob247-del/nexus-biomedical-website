@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import TestRecommendations from './TestRecommendations';
@@ -14,6 +15,7 @@ export default function EndoGuardResults({ results }) {
   if (!results) return null;
 
   const { user } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
@@ -52,38 +54,36 @@ export default function EndoGuardResults({ results }) {
       {/* Overall Risk Card */}
       <div className={`overall-risk-card risk-${overallRisk.level.toLowerCase()}`} data-tour="risk-score">
         <div className="risk-header">
-          <h2>Your Overall Risk Level: {overallRisk.level}</h2>
+          <h2>{t('endoguard.results.overallRiskLevel')}: {overallRisk.level}</h2>
           <div className="risk-score-large">{overallRisk.score}/100</div>
         </div>
         <p className="risk-description">
-          {overallRisk.level === 'HIGH' && 'Your assessment indicates significant hormone disruption risk. Immediate action recommended.'}
-          {overallRisk.level === 'MODERATE' && 'Your assessment shows moderate risk factors. Lifestyle changes can make a significant difference.'}
-          {overallRisk.level === 'LOW' && 'Your assessment shows relatively low risk. Continue healthy habits and stay informed.'}
+          {t(`endoguard.results.riskDescriptions.${overallRisk.level}`)}
         </p>
       </div>
 
       {/* EDC Exposure Section */}
       <div className="results-section">
-        <h3>🧪 EDC Exposure Assessment</h3>
+        <h3>{t('endoguard.results.edcExposure.title')}</h3>
         
         <div className="exposure-summary">
           <div className="summary-stat">
-            <div className="stat-label">Exposure Risk Score</div>
+            <div className="stat-label">{t('endoguard.results.edcExposure.exposureRiskScore')}</div>
             <div className={`stat-value risk-${edcExposure.riskLevel.toLowerCase()}`}>
               {edcExposure.riskScore}/100
             </div>
-            <div className="stat-level" data-tour="risk-level">{edcExposure.riskLevel} RISK</div>
+            <div className="stat-level" data-tour="risk-level">{edcExposure.riskLevel} {t('endoguard.results.edcExposure.risk')}</div>
           </div>
         </div>
 
         {edcExposure.riskFactors && edcExposure.riskFactors.length > 0 && (
           <div className="risk-factors">
-            <h4>Key Risk Factors Identified:</h4>
+            <h4>{t('endoguard.results.edcExposure.keyRiskFactors')}</h4>
             {edcExposure.riskFactors.map((factor, index) => (
               <div key={index} className="risk-factor-card">
                 <div className="factor-title">⚠️ {factor.factor}</div>
-                <div className="factor-impact"><strong>Impact:</strong> {factor.impact}</div>
-                <div className="factor-recommendation"><strong>Action:</strong> {factor.recommendation}</div>
+                <div className="factor-impact"><strong>{t('endoguard.results.edcExposure.impact')}</strong> {factor.impact}</div>
+                <div className="factor-recommendation"><strong>{t('endoguard.results.edcExposure.action')}</strong> {factor.recommendation}</div>
               </div>
             ))}
           </div>
@@ -92,26 +92,26 @@ export default function EndoGuardResults({ results }) {
 
       {/* Hormone Health Section */}
       <div className="results-section">
-        <h3>🩺 Hormone Health Analysis</h3>
+        <h3>{t('endoguard.results.hormoneHealth.title')}</h3>
         
         <div className="hormone-stats">
           <div className="stat-box">
             <div className="stat-number">{hormoneHealth.symptomCount}</div>
-            <div className="stat-label">Symptoms Reported</div>
+            <div className="stat-label">{t('endoguard.results.hormoneHealth.symptomsReported')}</div>
           </div>
           <div className="stat-box">
             <div className="stat-number">{hormoneHealth.symptomSeverity}/10</div>
-            <div className="stat-label">Severity Level</div>
+            <div className="stat-label">{t('endoguard.results.hormoneHealth.severityLevel')}</div>
           </div>
           <div className="stat-box">
             <div className="stat-number">{hormoneHealth.systemsAffected?.length || 0}</div>
-            <div className="stat-label">Systems Affected</div>
+            <div className="stat-label">{t('endoguard.results.hormoneHealth.systemsAffected')}</div>
           </div>
         </div>
 
         {hormoneHealth.systemsAffected && hormoneHealth.systemsAffected.length > 0 && (
           <div className="systems-affected">
-            <h4>Hormone Systems Showing Symptoms:</h4>
+            <h4>{t('endoguard.results.hormoneHealth.systemsShowing')}</h4>
             <div className="systems-grid">
               {hormoneHealth.systemsAffected.map((system, index) => (
                 <div key={index} className="system-badge">{system}</div>
@@ -131,7 +131,7 @@ export default function EndoGuardResults({ results }) {
 
       {/* Recommendations Section */}
       <div className="results-section" data-tour="recommendations">
-        <h3>💡 Personalized Recommendations</h3>
+        <h3>{t('endoguard.results.recommendations.title')}</h3>
         
         {recommendations && recommendations.length > 0 ? (
           <div className="recommendations-list">
@@ -142,18 +142,18 @@ export default function EndoGuardResults({ results }) {
                   <span className={`rec-priority priority-${rec.priority}`}>{rec.priority}</span>
                 </div>
                 <div className="rec-text">{rec.text}</div>
-                {rec.rationale && <div className="rec-rationale">Why: {rec.rationale}</div>}
+                {rec.rationale && <div className="rec-rationale">{t('endoguard.results.recommendations.why')} {rec.rationale}</div>}
               </div>
             ))}
           </div>
         ) : (
-          <p>No specific recommendations at this time. Continue healthy habits!</p>
+          <p>{t('endoguard.results.recommendations.noRecommendations')}</p>
         )}
       </div>
 
       {/* Next Steps Section */}
       <div className="results-section next-steps-section">
-        <h3>🎯 Next Steps</h3>
+        <h3>{t('endoguard.results.nextSteps.title')}</h3>
         
         <div className="next-steps-list">
           {nextSteps && nextSteps.map((step, index) => (
@@ -170,33 +170,35 @@ export default function EndoGuardResults({ results }) {
 
       {/* Call to Action */}
       <div className="cta-section">
-        <h3>🚀 Unlock Your Complete Hormone Health Program</h3>
-        <p className="cta-subtitle">Get personalized guidance, professional reports, and ongoing support for just <strong>$49/month</strong></p>
+        <h3>{t('endoguard.results.cta.title')}</h3>
+        <p className="cta-subtitle">
+          {t('endoguard.results.cta.subtitle')} <strong>{t('endoguard.results.cta.perMonth')}</strong>
+        </p>
         
         <div className="premium-features-list">
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Unlimited assessments & progress tracking</span>
+            <span>{t('endoguard.results.cta.features.unlimited')}</span>
           </div>
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Detailed test recommendations with lab letters</span>
+            <span>{t('endoguard.results.cta.features.testRecommendations')}</span>
           </div>
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Personalized 30/60/90 day action plans</span>
+            <span>{t('endoguard.results.cta.features.actionPlans')}</span>
           </div>
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Provider referrals & supplement recommendations</span>
+            <span>{t('endoguard.results.cta.features.referrals')}</span>
           </div>
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Professional PDF reports & progress charts</span>
+            <span>{t('endoguard.results.cta.features.reports')}</span>
           </div>
           <div className="premium-feature">
             <span className="feature-check">✅</span>
-            <span>Priority email support from health coaches</span>
+            <span>{t('endoguard.results.cta.features.support')}</span>
           </div>
         </div>
 
@@ -205,7 +207,7 @@ export default function EndoGuardResults({ results }) {
             className="btn-primary" 
             onClick={() => handlePremiumFeatureClick('full premium access')}
           >
-            Upgrade to Premium - $49/month
+            {t('endoguard.results.cta.upgradeToPremium')}
           </button>
           {user && (
             <button 
@@ -213,7 +215,7 @@ export default function EndoGuardResults({ results }) {
               onClick={() => navigate('/compare-assessments')}
               style={{ background: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)', border: 'none' }}
             >
-              📊 Compare My Assessments
+              {t('endoguard.results.cta.compareAssessments')}
             </button>
           )}
           <button 
@@ -222,11 +224,11 @@ export default function EndoGuardResults({ results }) {
             disabled={isGeneratingPDF}
             data-tour="pdf-download"
           >
-            📄 Download PDF Report
+            {t('endoguard.results.cta.downloadPDF')}
           </button>
         </div>
         
-        <p className="cta-guarantee">✨ 14-day money-back guarantee • Cancel anytime</p>
+        <p className="cta-guarantee">{t('endoguard.results.cta.guarantee')}</p>
       </div>
 
       {/* Subscription Modal */}
@@ -247,13 +249,9 @@ export default function EndoGuardResults({ results }) {
 
       {/* Medical Disclaimer */}
       <div className="medical-disclaimer">
-        <h4>⚕️ Important Medical Disclaimer</h4>
-        <p>
-          This assessment is for educational and informational purposes only. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. The information provided should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of information from this assessment.
-        </p>
-        <p>
-          <strong>If you are experiencing severe symptoms or a medical emergency, seek immediate medical attention.</strong>
-        </p>
+        <h4>{t('endoguard.results.disclaimer.title')}</h4>
+        <p>{t('endoguard.results.disclaimer.text1')}</p>
+        <p><strong>{t('endoguard.results.disclaimer.text2')}</strong></p>
       </div>
     </div>
     </>

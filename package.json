@@ -30,7 +30,9 @@
     "vitest": "^4.0.14"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^1.1.0",
     "@stripe/stripe-js": "^8.2.0",
+    "analytics": "^0.8.19",
     "bcryptjs": "^3.0.3",
     "chart.js": "^4.5.1",
     "cookie-parser": "^1.4.7",

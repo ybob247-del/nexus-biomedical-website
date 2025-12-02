@@ -5,12 +5,22 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { trackLanguageToggle } from '../utils/analytics';
+import { setLanguagePreference } from '../utils/languagePreference';
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'es' : 'en';
+    const currentLang = i18n.language;
+    const newLang = currentLang === 'en' ? 'es' : 'en';
+    
+    // Track language toggle event
+    trackLanguageToggle(currentLang, newLang);
+    
+    // Save language preference
+    setLanguagePreference(newLang);
+    
     i18n.changeLanguage(newLang);
   };
 

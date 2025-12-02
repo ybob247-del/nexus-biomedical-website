@@ -1,9 +1,11 @@
 import { useState, lazy, Suspense, useEffect } from 'react'
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './styles/nexus.css'
 import './i18n' // Initialize i18n
 import { initializeSEO } from './utils/seo'
+import { trackPageView } from './utils/analytics'
+import { initializeLanguagePreference } from './utils/languagePreference'
 import StarryBackground from './components/StarryBackground'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -57,6 +59,7 @@ const SMSSettings = lazy(() => import('./pages/SMSSettings'))
 const SMSHistory = lazy(() => import('./pages/SMSHistory'))
 const AdminSMSAnalytics = lazy(() => import('./pages/AdminSMSAnalytics'))
 const AdminTourAnalytics = lazy(() => import('./pages/AdminTourAnalytics'))
+const SpanishLanding = lazy(() => import('./pages/SpanishLanding'))
 const AdminABTests = lazy(() => import('./pages/AdminABTests'))
 const AssessmentComparison = lazy(() => import('./components/AssessmentComparison'))
 
@@ -177,6 +180,20 @@ function Homepage() {
 // Force Vercel redeploy - URL routing fix
 function App() {
   const { i18n } = useTranslation();
+  const location = useLocation();
+
+  // Initialize language preference on first load
+  useEffect(() => {
+    const preferredLanguage = initializeLanguagePreference();
+    if (preferredLanguage !== i18n.language) {
+      i18n.changeLanguage(preferredLanguage);
+    }
+  }, []);
+
+  // Track page views with language dimension
+  useEffect(() => {
+    trackPageView(location.pathname, i18n.language);
+  }, [location.pathname, i18n.language]);
 
   // Update SEO meta tags when language changes
   useEffect(() => {
@@ -378,6 +395,24 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <BetaSignup />
+          </Suspense>
+        } 
+      />
+
+      {/* Spanish Landing Page Routes */}
+      <Route 
+        path="/es" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <SpanishLanding />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/es/inicio" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <SpanishLanding />
           </Suspense>
         } 
       />

@@ -6,6 +6,8 @@
 
 import { query } from '../utils/db.js';
 import { hashPassword, generateToken, isValidEmail, validatePassword } from '../utils/auth.js';
+import { sendEmail } from '../utils/emailService.js';
+import { welcomeEmail } from '../../src/utils/emailTemplates.js';
 
 export default async function handler(req, res) {
   // Set timeout to prevent hanging
@@ -115,6 +117,23 @@ export default async function handler(req, res) {
     }
     */
     console.log(`User ${user.id} created successfully. Audit log and trials temporarily disabled.`);
+
+    // Send welcome email (don't block signup if email fails)
+    try {
+      const userLanguage = req.body.language || 'en'; // Get language from request or default to English
+      const emailTemplate = welcomeEmail[userLanguage] || welcomeEmail.en;
+      
+      await sendEmail({
+        to: user.email,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html
+      });
+      
+      console.log(`Welcome email sent to ${user.email} in ${userLanguage}`);
+    } catch (emailError) {
+      console.error('Failed to send welcome email:', emailError);
+      // Don't fail signup if email fails
+    }
 
     // Clear timeout before responding
     clearTimeout(timeout);

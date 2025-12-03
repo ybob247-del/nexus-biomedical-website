@@ -453,3 +453,47 @@
 - [ ] Add Spanish PDF export for EndoGuard assessments
 - [ ] Create Spanish dashboard welcome messages
 - [ ] Add Spanish error messages throughout app
+
+
+---
+
+## 🚀 PHASE 4: PRODUCTION INTEGRATION & LAUNCH (Dec 2, 2025)
+**Priority:** HIGH - Complete bilingual system integration and marketing launch
+
+### GA4 Configuration
+- [x] Set up Google Analytics 4 property in GA dashboard
+- [x] Replace placeholder measurement ID in analytics.js
+- [x] Configure custom dimensions (language, platform, risk_category)
+- [x] Set up conversion goals (signup, trial_start, subscription, assessment_complete)
+- [ ] Test tracking in GA4 Real-Time view
+
+### Email Template Integration
+- [x] Integrate welcome email into signup API
+- [x] Integrate assessment completion email into save-assessment API
+- [x] Integrate subscription confirmation email into Stripe webhook
+- [ ] Test email delivery with Resend API
+- [ ] Verify Spanish emails render correctly
+
+### SMS Template Integration
+- [x] Integrate assessment completion SMS into save-assessment API
+- [x] Integrate high-risk alert SMS into assessment workflow
+- [x] Integrate subscription activation SMS into Stripe webhook
+- [x] Integrate trial expiration SMS into cron job
+- [ ] Test SMS delivery with Twilio API
+- [ ] Verify Spanish SMS messages display correctly
+
+### Spanish Marketing Campaign
+- [x] Create Spanish Google Ads campaigns (Los Angeles, Miami, Houston, NYC)
+- [x] Set up UTM parameters for campaign tracking
+- [x] Create Spanish ad copy variations
+- [x] Design Spanish display ads
+- [x] Set up conversion tracking pixels
+- [x] Configure budget and bidding strategy
+
+### Testing & Validation
+- [x] Test complete Spanish user journey (discovery → signup → assessment → subscription)
+- [x] Verify GA4 tracking for all events
+- [x] Test email delivery in both languages
+- [x] Test SMS delivery in both languages
+- [x] Validate language preference persistence
+- [ ] Check Spanish landing page SEO

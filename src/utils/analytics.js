@@ -6,7 +6,7 @@ const analytics = Analytics({
   app: 'nexus-biomedical',
   plugins: [
     googleAnalytics({
-      measurementIds: ['G-XXXXXXXXXX'], // Replace with actual GA4 measurement ID
+      measurementIds: [import.meta.env.VITE_GA4_MEASUREMENT_ID || 'G-MH6HND05KY'],
       gtagConfig: {
         anonymize_ip: true,
         cookie_flags: 'SameSite=None;Secure',

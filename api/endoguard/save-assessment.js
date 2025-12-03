@@ -7,6 +7,8 @@
 import { query } from '../utils/db.js';
 import jwt from 'jsonwebtoken';
 import { sendSMSToUser } from '../utils/smsHelper.js';
+import { sendEmail } from '../utils/emailService.js';
+import { assessmentCompletionEmail } from '../../src/utils/emailTemplates.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -58,22 +60,45 @@ export default async function handler(req, res) {
 
     const assessment = result.rows[0];
 
-    // Get user info for SMS
+    // Get user info for SMS and email
     const userResult = await query(
-      'SELECT first_name, email FROM users WHERE id = $1',
+      'SELECT first_name, email, language FROM users WHERE id = $1',
       [userId]
     );
-    const userName = userResult.rows[0]?.first_name || 'there';
+    const user = userResult.rows[0];
+    const userName = user?.first_name || 'there';
+    const userEmail = user?.email;
+    const userLanguage = user?.language || 'en';
     const riskScore = results.overallRisk || 0;
+    const riskLevel = riskScore >= 70 ? 'high' : riskScore >= 40 ? 'moderate' : 'low';
+
+    // Send email notification for assessment completion
+    try {
+      const emailTemplate = assessmentCompletionEmail[userLanguage] || assessmentCompletionEmail.en;
+      const emailHtml = typeof emailTemplate.html === 'function' 
+        ? emailTemplate.html('EndoGuard', riskScore, riskLevel)
+        : emailTemplate.html;
+      
+      await sendEmail({
+        to: userEmail,
+        subject: emailTemplate.subject.replace('{platform}', 'EndoGuard'),
+        html: emailHtml
+      });
+      
+      console.log(`Assessment completion email sent to ${userEmail} in ${userLanguage}`);
+    } catch (emailError) {
+      console.error('Failed to send assessment email:', emailError);
+      // Don't fail the request if email fails
+    }
 
     // Send SMS notification for assessment completion
     try {
-      // Always send completion SMS
-      await sendSMSToUser(userId, 'assessmentCompleted', [userName, riskScore]);
+      // Always send completion SMS (platform, score)
+      await sendSMSToUser(userId, 'assessmentCompleted', ['EndoGuard', riskScore]);
 
-      // Send high-risk alert if risk score >= 70
+      // Send high-risk alert if risk score >= 70 (platform)
       if (riskScore >= 70) {
-        await sendSMSToUser(userId, 'highRiskAlert', [userName, riskScore]);
+        await sendSMSToUser(userId, 'highRiskAlert', ['EndoGuard']);
       }
     } catch (smsError) {
       // Don't fail the request if SMS fails

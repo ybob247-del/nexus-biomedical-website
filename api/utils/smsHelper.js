@@ -1,10 +1,12 @@
 /**
  * SMS Helper - Send SMS and log to database
  * Centralized SMS sending with automatic history tracking
+ * NOW WITH BILINGUAL SUPPORT (English/Spanish)
  */
 
 import twilio from 'twilio';
 import { query } from './db.js';
+import { getSMSTemplate } from '../../src/utils/smsTemplates.js';
 
 const client = twilio(
   process.env.TWILIO_ACCOUNT_SID,
@@ -12,69 +14,47 @@ const client = twilio(
 );
 
 /**
- * SMS Templates with new trigger types
+ * Get bilingual SMS template based on user language
+ * @param {string} messageType - Type of message
+ * @param {string} language - User language (en/es)
+ * @param {array} templateData - Data for template
+ * @returns {string} - Formatted SMS message
  */
-export const smsTemplates = {
-  // Assessment-related
-  assessmentCompleted: (userName, riskScore) => 
-    `Hi ${userName}! Your EndoGuard assessment is complete. Risk Score: ${riskScore}/100. View detailed results: ${process.env.VITE_OAUTH_PORTAL_URL}/my-assessments`,
+function getBilingualSMSMessage(messageType, language, templateData) {
+  // Map old message types to new template names
+  const templateMapping = {
+    'assessmentCompleted': 'assessment_completion',
+    'highRiskAlert': 'high_risk_alert',
+    'subscriptionActivated': 'subscription_activation',
+    'trialExpiring3Days': 'trial_expiration',
+    'trialExpiring1Day': 'trial_expiration',
+    'trialExpired': 'trial_expiration',
+    'assessmentReminder': 'assessment_reminder',
+    'weeklyTips': 'health_tip',
+    'welcomeSMS': 'welcome'
+  };
+
+  const templateName = templateMapping[messageType] || messageType;
   
-  highRiskAlert: (userName, riskScore) =>
-    `⚠️ ${userName}, your EndoGuard assessment shows HIGH risk (${riskScore}/100). We strongly recommend consulting a healthcare provider. View results: ${process.env.VITE_OAUTH_PORTAL_URL}/my-assessments`,
-  
-  assessmentReminder: (userName, days) => 
-    `Hi ${userName}! It's been ${days} days since your last assessment. Ready to track your progress? ${process.env.VITE_OAUTH_PORTAL_URL}/endoguard/assessment`,
-  
-  // Trial-related
-  trialExpiring3Days: (userName, platform) =>
-    `${userName}, your ${platform} trial expires in 3 days! Upgrade now to keep access: ${process.env.VITE_OAUTH_PORTAL_URL}/pricing/${platform.toLowerCase()}`,
-  
-  trialExpiring1Day: (userName, platform) =>
-    `⏰ URGENT: ${userName}, your ${platform} trial expires TOMORROW! Don't lose access - upgrade now: ${process.env.VITE_OAUTH_PORTAL_URL}/pricing/${platform.toLowerCase()}`,
-  
-  trialExpired: (userName, platform) =>
-    `${userName}, your ${platform} trial has expired. Reactivate your access: ${process.env.VITE_OAUTH_PORTAL_URL}/pricing/${platform.toLowerCase()}`,
-  
-  // Subscription-related
-  subscriptionActivated: (userName, platform) =>
-    `🎉 Welcome to ${platform} Premium, ${userName}! Your subscription is now active. Start using your platform: ${process.env.VITE_OAUTH_PORTAL_URL}/${platform.toLowerCase()}/dashboard`,
-  
-  subscriptionExpiring3Days: (userName, platform) =>
-    `${userName}, your ${platform} subscription expires in 3 days. Renew now to avoid interruption: ${process.env.VITE_OAUTH_PORTAL_URL}/subscription-management`,
-  
-  subscriptionExpiring1Day: (userName, platform) =>
-    `⚠️ ${userName}, your ${platform} subscription expires TOMORROW! Renew now: ${process.env.VITE_OAUTH_PORTAL_URL}/subscription-management`,
-  
-  subscriptionExpired: (userName, platform) =>
-    `${userName}, your ${platform} subscription has expired. Renew to regain access: ${process.env.VITE_OAUTH_PORTAL_URL}/subscription-management`,
-  
-  // Other templates
-  improvementCelebration: (userName, oldScore, newScore) =>
-    `🎉 Great news ${userName}! Your risk score improved from ${oldScore} to ${newScore}! Keep up the amazing work.`,
-  
-  labReminder: (userName) =>
-    `Hi ${userName}! Have you scheduled your recommended hormone tests? Your lab request is ready: ${process.env.VITE_OAUTH_PORTAL_URL}/my-assessments`,
-  
-  welcomeSMS: (userName) =>
-    `Welcome to Nexus Biomedical Intelligence, ${userName}! 🧬 Your health journey starts now: ${process.env.VITE_OAUTH_PORTAL_URL}/dashboard`,
-  
-  // Campaign templates
-  weeklyTips: (userName, tipContent) =>
-    `Hi ${userName}! 💡 Weekly Health Tip: ${tipContent} Stay proactive about your hormone health! ${process.env.VITE_OAUTH_PORTAL_URL}/dashboard`,
-  
-  monthlyReminder: (userName) =>
-    `Hi ${userName}! 📆 It's been a month - time for your EndoGuard check-in! Track your hormone health progress: ${process.env.VITE_OAUTH_PORTAL_URL}/endoguard/assessment`
-};
+  try {
+    return getSMSTemplate(templateName, language, ...templateData);
+  } catch (error) {
+    console.error(`Failed to get bilingual SMS template for ${messageType}:`, error);
+    // Fallback to English if template not found
+    return getSMSTemplate(templateName, 'en', ...templateData);
+  }
+}
 
 /**
  * Send SMS and log to database
  * @param {number} userId - User ID
  * @param {string} phoneNumber - E.164 formatted phone number
- * @param {string} messageType - Type of message (key from smsTemplates)
+ * @param {string} messageType - Type of message
  * @param {array} templateData - Data to pass to template function
+ * @param {string} language - User language preference (en/es)
  * @returns {Promise<object>} - Result with success status and message SID
  */
-export async function sendSMS(userId, phoneNumber, messageType, templateData = []) {
+export async function sendSMS(userId, phoneNumber, messageType, templateData = [], language = 'en') {
   try {
     // Validate phone number format (E.164)
     const phoneRegex = /^\+[1-9]\d{1,14}$/;
@@ -82,14 +62,12 @@ export async function sendSMS(userId, phoneNumber, messageType, templateData = [
       throw new Error(`Invalid phone number format: ${phoneNumber}. Must be E.164 format.`);
     }
 
-    // Get SMS template
-    const template = smsTemplates[messageType];
-    if (!template) {
-      throw new Error(`Invalid message type: ${messageType}. Available: ${Object.keys(smsTemplates).join(', ')}`);
-    }
+    // Generate bilingual message from template
+    const message = getBilingualSMSMessage(messageType, language, templateData);
 
-    // Generate message from template
-    const message = template(...templateData);
+    if (!message) {
+      throw new Error(`Failed to generate message for type: ${messageType}`);
+    }
 
     // Send SMS via Twilio
     const result = await client.messages.create({
@@ -98,7 +76,7 @@ export async function sendSMS(userId, phoneNumber, messageType, templateData = [
       to: phoneNumber
     });
 
-    console.log(`[SMS] Sent ${messageType} to ${phoneNumber}:`, result.sid);
+    console.log(`[SMS] Sent ${messageType} to ${phoneNumber} in ${language}:`, result.sid);
 
     // Log to database
     await query(
@@ -142,7 +120,7 @@ export async function sendSMS(userId, phoneNumber, messageType, templateData = [
 export async function getUserSMSSettings(userId) {
   try {
     const result = await query(
-      'SELECT phone_number, sms_notifications_enabled, notification_preferences FROM users WHERE id = $1',
+      'SELECT phone_number, sms_notifications_enabled, notification_preferences, language FROM users WHERE id = $1',
       [userId]
     );
 
@@ -160,7 +138,8 @@ export async function getUserSMSSettings(userId) {
     return {
       phoneNumber: user.phone_number,
       enabled: user.sms_notifications_enabled,
-      preferences: user.notification_preferences || {}
+      preferences: user.notification_preferences || {},
+      language: user.language || 'en' // Include language preference
     };
   } catch (error) {
     console.error('[SMS] Error getting user SMS settings:', error);
@@ -203,8 +182,14 @@ export async function sendSMSToUser(userId, messageType, templateData = []) {
     };
   }
 
-  // Send SMS
-  return await sendSMS(userId, smsSettings.phoneNumber, messageType, templateData);
+  // Send SMS with user's language preference
+  return await sendSMS(
+    userId, 
+    smsSettings.phoneNumber, 
+    messageType, 
+    templateData,
+    smsSettings.language || 'en'
+  );
 }
 
 /**

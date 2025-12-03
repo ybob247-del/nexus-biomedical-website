@@ -119,6 +119,65 @@ module.exports = async (req, res) => {
           );
           
           console.log('Access granted successfully');
+          
+          // Send subscription confirmation email
+          try {
+            const { sendEmail } = require('./utils/emailService');
+            const { subscriptionConfirmationEmail } = require('../src/utils/emailTemplates');
+            
+            // Get user language preference
+            const userLangResult = await query(
+              'SELECT first_name, language FROM users WHERE id = $1',
+              [user.id]
+            );
+            const userLanguage = userLangResult.rows[0]?.language || 'en';
+            const platform = session.metadata?.platform || 'Unknown';
+            const planName = subscription.items.data[0].price.nickname || 'Premium';
+            
+            // Define features based on platform
+            const features = {
+              en: [
+                'Unlimited assessments and health monitoring',
+                'Advanced AI-powered risk analysis',
+                'Personalized health recommendations',
+                'Priority customer support',
+                'Export reports and share with healthcare providers'
+              ],
+              es: [
+                'Evaluaciones ilimitadas y monitoreo de salud',
+                'Análisis de riesgo avanzado con IA',
+                'Recomendaciones de salud personalizadas',
+                'Soporte al cliente prioritario',
+                'Exportar informes y compartir con proveedores de atención médica'
+              ]
+            };
+            
+            const emailTemplate = subscriptionConfirmationEmail[userLanguage] || subscriptionConfirmationEmail.en;
+            const emailHtml = typeof emailTemplate.html === 'function'
+              ? emailTemplate.html(planName, features[userLanguage] || features.en)
+              : emailTemplate.html;
+            
+            await sendEmail({
+              to: session.customer_email,
+              subject: emailTemplate.subject.replace('{plan}', planName),
+              html: emailHtml
+            });
+            
+            console.log(`Subscription confirmation email sent to ${session.customer_email} in ${userLanguage}`);
+          } catch (emailError) {
+            console.error('Failed to send subscription confirmation email:', emailError);
+            // Don't fail webhook if email fails
+          }
+          
+          // Send subscription activation SMS
+          try {
+            const { sendSMSToUser } = require('./utils/smsHelper');
+            await sendSMSToUser(user.id, 'subscriptionActivated', [planName]);
+            console.log(`Subscription activation SMS sent to user ${user.id}`);
+          } catch (smsError) {
+            console.error('Failed to send subscription activation SMS:', smsError);
+            // Don't fail webhook if SMS fails
+          }
         } catch (error) {
           console.error('Error granting access:', error);
         }

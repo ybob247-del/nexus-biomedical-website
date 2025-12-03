@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         await sendSMSToUser(
           trial.user_id,
           'trialExpiring3Days',
-          [trial.first_name || 'there', trial.platform]
+          [3] // daysLeft parameter for bilingual template
         );
         results.trialExpiring3Days++;
       } catch (error) {
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
         await sendSMSToUser(
           trial.user_id,
           'trialExpiring1Day',
-          [trial.first_name || 'there', trial.platform]
+          [1] // daysLeft parameter for bilingual template
         );
         results.trialExpiring1Day++;
       } catch (error) {

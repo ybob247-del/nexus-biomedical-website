@@ -62,6 +62,7 @@ const AdminTourAnalytics = lazy(() => import('./pages/AdminTourAnalytics'))
 const SpanishLanding = lazy(() => import('./pages/SpanishLanding'))
 const AdminABTests = lazy(() => import('./pages/AdminABTests'))
 const AssessmentComparison = lazy(() => import('./components/AssessmentComparison'))
+const EndoGuardSpanishLanding = lazy(() => import('./pages/EndoGuardSpanishLanding'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -414,7 +415,15 @@ function App() {
           <Suspense fallback={<LoadingFallback />}>
             <SpanishLanding />
           </Suspense>
-        } 
+        }
+      />
+      <Route 
+        path="/es/endoguard" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <EndoGuardSpanishLanding />
+          </Suspense>
+        }
       />
 
       {/* About Page Route */}

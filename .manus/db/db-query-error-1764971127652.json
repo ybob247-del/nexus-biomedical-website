@@ -1,0 +1,8 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS faq_items (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  category VARCHAR(100) NOT NULL,\n  question TEXT NOT NULL,\n  answer TEXT NOT NULL,\n  keywords TEXT,\n  priority INT DEFAULT 0,\n  is_active BOOLEAN DEFAULT true,\n  language VARCHAR(10) DEFAULT 'en',\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_faq_category (category),\n  INDEX idx_faq_language (language),\n  INDEX idx_faq_active (is_active),\n  FULLTEXT INDEX idx_faq_fulltext (question, answer, keywords)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS faq_items (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  category VARCHAR(100) NOT NULL,\n  question TEXT NOT NULL,\n  answer TEXT NOT NULL,\n  keywords TEXT,\n  priority INT DEFAULT 0,\n  is_active BOOLEAN DEFAULT true,\n  language VARCHAR(10) DEFAULT 'en',\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_faq_category (category),\n  INDEX idx_faq_language (language),\n  INDEX idx_faq_active (is_active),\n  FULLTEXT INDEX idx_faq_fulltext (question, answer, keywords)\n)",
+  "returncode": 1,
+  "logs": [
+    "ERROR 8200 (HY000) at line 1: Unsupported FULLTEXT index"
+  ]
+}

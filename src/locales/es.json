@@ -641,5 +641,35 @@
       "summary": "Información sobre cómo Nexus Biomedical Intelligence cumple con las regulaciones HIPAA para proteger la información de salud. El documento completo en inglés a continuación es legalmente vinculante."
     },
     "legalNotice": "Nota Legal: La versión en inglés de este documento es la versión legalmente vinculante. Esta traducción se proporciona solo para conveniencia."
+  },
+  "assessmentPreview": {
+    "title": "Chequeo Rápido de Salud Hormonal",
+    "subtitle": "Responda 3 preguntas rápidas para obtener una perspectiva instantánea",
+    "questionProgress": "Pregunta {{current}} de {{total}}",
+    "questions": {
+      "fatigue": "¿Experimenta fatiga persistente o baja energía?",
+      "weight": "¿Ha notado cambios de peso inexplicables?",
+      "mood": "¿Experimenta cambios de humor o irritabilidad?"
+    },
+    "options": {
+      "never": "Nunca",
+      "occasionally": "Ocasionalmente",
+      "frequently": "Frecuentemente",
+      "always": "Siempre",
+      "no": "No",
+      "slightChanges": "Cambios leves",
+      "moderateChanges": "Cambios moderados",
+      "significantChanges": "Cambios significativos",
+      "rarely": "Raramente",
+      "often": "A menudo",
+      "veryOften": "Muy a menudo"
+    },
+    "result": {
+      "title": "Su Resultado de Evaluación Rápida",
+      "risk": "Riesgo",
+      "ctaText": "Esta es solo una vista previa rápida basada en 3 preguntas. ¡Obtenga su evaluación completa de salud hormonal con recomendaciones personalizadas!",
+      "takeFullAssessment": "Realizar Evaluación Completa (GRATIS)",
+      "tryAgain": "Intentar de Nuevo"
+    }
   }
 }

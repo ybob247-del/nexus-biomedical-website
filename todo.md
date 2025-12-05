@@ -497,3 +497,28 @@
 - [x] Test SMS delivery in both languages
 - [x] Validate language preference persistence
 - [ ] Check Spanish landing page SEO
+
+
+---
+
+## User Feedback - Dec 2, 2025 (NEW TASKS)
+
+### Translation Fixes
+- [x] Fix Quick Hormone Health Check Spanish translation on homepage
+- [x] Verify all homepage components use i18n translation system
+
+### AI Chatbot
+- [x] Verify AI chatbot is integrated and visible on website
+- [x] Test chatbot FAQ responses in both English and Spanish
+- [x] Ensure chatbot appears on all pages
+- [x] Create FAQ database table with English and Spanish content
+- [x] Build chatbot API endpoint with OpenAI integration
+- [x] Seed 29 FAQ items (20 English, 9 Spanish)
+
+### Spanish Landing Pages
+- [x] Create dedicated Spanish landing page for EndoGuard (/es/endoguard)
+- [x] Add Spanish meta tags and structured data
+- [x] Optimize for Hispanic market SEO
+- [x] Add pricing section with both Basic and Premium plans
+- [x] Include comprehensive feature descriptions in Spanish
+- [x] Add clear CTAs for starting free assessment

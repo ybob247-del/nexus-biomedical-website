@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/assessment-preview.css';
 
-const PREVIEW_QUESTIONS = [
+const getPreviewQuestions = (t) => [
   {
     id: 'fatigue',
-    question: 'Do you experience persistent fatigue or low energy?',
-    options: ['Never', 'Occasionally', 'Frequently', 'Always']
+    question: t('assessmentPreview.questions.fatigue'),
+    options: [t('assessmentPreview.options.never'), t('assessmentPreview.options.occasionally'), t('assessmentPreview.options.frequently'), t('assessmentPreview.options.always')]
   },
   {
     id: 'weight',
-    question: 'Have you noticed unexplained weight changes?',
-    options: ['No', 'Slight changes', 'Moderate changes', 'Significant changes']
+    question: t('assessmentPreview.questions.weight'),
+    options: [t('assessmentPreview.options.no'), t('assessmentPreview.options.slightChanges'), t('assessmentPreview.options.moderateChanges'), t('assessmentPreview.options.significantChanges')]
   },
   {
     id: 'mood',
-    question: 'Do you experience mood swings or irritability?',
-    options: ['Never', 'Rarely', 'Often', 'Very often']
+    question: t('assessmentPreview.questions.mood'),
+    options: [t('assessmentPreview.options.never'), t('assessmentPreview.options.rarely'), t('assessmentPreview.options.often'), t('assessmentPreview.options.veryOften')]
   }
 ];
 
 export default function AssessmentPreview() {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -74,29 +76,28 @@ export default function AssessmentPreview() {
       <div className="assessment-preview">
         <div className="preview-container">
           <div className="preview-result">
-            <h3>Your Quick Assessment Result</h3>
+            <h3>{t('assessmentPreview.result.title')}</h3>
             <div className="preview-score" style={{ borderColor: risk.color }}>
               <div className="score-value" style={{ color: risk.color }}>{riskScore}</div>
-              <div className="score-label">{risk.level} Risk</div>
+              <div className="score-label">{risk.level} {t('assessmentPreview.result.risk')}</div>
             </div>
             <p className="risk-message">{risk.message}</p>
             
             <div className="preview-cta">
               <p className="cta-text">
-                This is just a quick preview based on 3 questions. 
-                Get your complete hormone health assessment with personalized recommendations!
+                {t('assessmentPreview.result.ctaText')}
               </p>
               <button 
                 className="cta-button primary"
                 onClick={() => navigate('/endoguard/assessment')}
               >
-                Take Full Assessment (FREE)
+                {t('assessmentPreview.result.takeFullAssessment')}
               </button>
               <button 
                 className="cta-button secondary"
                 onClick={resetPreview}
               >
-                Try Again
+                {t('assessmentPreview.result.tryAgain')}
               </button>
             </div>
           </div>
@@ -105,14 +106,15 @@ export default function AssessmentPreview() {
     );
   }
 
+  const PREVIEW_QUESTIONS = getPreviewQuestions(t);
   const question = PREVIEW_QUESTIONS[currentQuestion];
 
   return (
     <div className="assessment-preview">
       <div className="preview-container">
         <div className="preview-header">
-          <h3>Quick Hormone Health Check</h3>
-          <p>Answer 3 quick questions to get an instant insight</p>
+          <h3>{t('assessmentPreview.title')}</h3>
+          <p>{t('assessmentPreview.subtitle')}</p>
           <div className="progress-bar">
             <div 
               className="progress-fill" 
@@ -120,7 +122,7 @@ export default function AssessmentPreview() {
             />
           </div>
           <div className="progress-text">
-            Question {currentQuestion + 1} of {PREVIEW_QUESTIONS.length}
+            {t('assessmentPreview.questionProgress', { current: currentQuestion + 1, total: PREVIEW_QUESTIONS.length })}
           </div>
         </div>
 

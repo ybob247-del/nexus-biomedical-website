@@ -1,0 +1,9 @@
+/* Spanish Landing Page Styles */
+
+/* All styles are inline in the component for better maintainability */
+/* This file exists to prevent import errors */
+
+/* Additional responsive styles if needed */
+@media (max-width: 768px) {
+  /* Mobile optimizations handled inline */
+}

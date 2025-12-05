@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO faq_items (category, question, answer, keywords, priority, language) VALUES ('general', 'What is Nexus Biomedical Intelligence?', 'Nexus Biomedical Intelligence is a healthcare technology company that provides AI-powered clinical decision support platforms. We offer seven revolutionary platforms including EndoGuard™ (hormone health tracking) and RxGuard™ (medication interaction checker) to help healthcare providers and patients make better-informed decisions.', 'nexus, biomedical, company, about, healthcare, AI', 100, 'en')",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute INSERT INTO faq_items (category, question, answer, keywords, priority, language) VALUES ('general', 'What is Nexus Biomedical Intelligence?', 'Nexus Biomedical Intelligence is a healthcare technology company that provides AI-powered clinical decision support platforms. We offer seven revolutionary platforms including EndoGuard™ (hormone health tracking) and RxGuard™ (medication interaction checker) to help healthcare providers and patients make better-informed decisions.', 'nexus, biomedical, company, about, healthcare, AI', 100, 'en')",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 73
+}

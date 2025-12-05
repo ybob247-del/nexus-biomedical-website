@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS chatbot_analytics (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  session_id VARCHAR(255) NOT NULL,\n  user_id INT DEFAULT NULL,\n  question TEXT NOT NULL,\n  answer TEXT NOT NULL,\n  matched_faq_id INT DEFAULT NULL,\n  language VARCHAR(10) DEFAULT 'en',\n  response_time_ms INT DEFAULT NULL,\n  user_satisfied BOOLEAN DEFAULT NULL,\n  user_feedback TEXT DEFAULT NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  \n  INDEX idx_chatbot_session (session_id),\n  INDEX idx_chatbot_user (user_id),\n  INDEX idx_chatbot_language (language),\n  INDEX idx_chatbot_created_at (created_at),\n  INDEX idx_chatbot_satisfied (user_satisfied),\n  INDEX idx_chatbot_faq (matched_faq_id)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS chatbot_analytics (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  session_id VARCHAR(255) NOT NULL,\n  user_id INT DEFAULT NULL,\n  question TEXT NOT NULL,\n  answer TEXT NOT NULL,\n  matched_faq_id INT DEFAULT NULL,\n  language VARCHAR(10) DEFAULT 'en',\n  response_time_ms INT DEFAULT NULL,\n  user_satisfied BOOLEAN DEFAULT NULL,\n  user_feedback TEXT DEFAULT NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  \n  INDEX idx_chatbot_session (session_id),\n  INDEX idx_chatbot_user (user_id),\n  INDEX idx_chatbot_language (language),\n  INDEX idx_chatbot_created_at (created_at),\n  INDEX idx_chatbot_satisfied (user_satisfied),\n  INDEX idx_chatbot_faq (matched_faq_id)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 236
+}

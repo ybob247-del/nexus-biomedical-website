@@ -257,6 +257,21 @@ export default function Analytics() {
                 🧪 A/B Tests
               </button>
               <button
+                onClick={() => navigate('/admin/chatbot-analytics')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: 'linear-gradient(135deg, #9333ea 0%, #ec4899 100%)',
+                  border: 'none',
+                  borderRadius: '10px',
+                  color: '#FFFFFF',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 600
+                }}
+              >
+                🤖 Chatbot Analytics
+              </button>
+              <button
                 onClick={loadAnalytics}
                 style={{
                   padding: '0.75rem 1.5rem',

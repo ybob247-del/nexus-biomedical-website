@@ -63,6 +63,8 @@ const SpanishLanding = lazy(() => import('./pages/SpanishLanding'))
 const AdminABTests = lazy(() => import('./pages/AdminABTests'))
 const AssessmentComparison = lazy(() => import('./components/AssessmentComparison'))
 const EndoGuardSpanishLanding = lazy(() => import('./pages/EndoGuardSpanishLanding'))
+const RxGuardSpanishLanding = lazy(() => import('./pages/RxGuardSpanishLanding'))
+const AdminChatbotAnalytics = lazy(() => import('./pages/AdminChatbotAnalytics'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -425,6 +427,14 @@ function App() {
           </Suspense>
         }
       />
+      <Route 
+        path="/es/rxguard" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <RxGuardSpanishLanding />
+          </Suspense>
+        }
+      />
 
       {/* About Page Route */}
       <Route 
@@ -552,6 +562,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminTourAnalytics />
+          </Suspense>
+        } 
+      />
+
+      {/* Admin Chatbot Analytics Route */}
+      <Route 
+        path="/admin/chatbot-analytics" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminChatbotAnalytics />
           </Suspense>
         } 
       />

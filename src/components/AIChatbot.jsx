@@ -12,6 +12,7 @@ const AIChatbot = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -58,6 +59,24 @@ const AIChatbot = () => {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
+
+      // Track analytics
+      try {
+        await fetch('/api/chatbot/analytics', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            session_id: sessionId,
+            question: inputMessage,
+            answer: data.response,
+            matched_faq_id: data.matched_faq_id || null,
+            language: navigator.language.startsWith('es') ? 'es' : 'en',
+            response_time_ms: data.response_time || null
+          })
+        });
+      } catch (analyticsError) {
+        console.error('Analytics tracking error:', analyticsError);
+      }
     } catch (error) {
       console.error('Chatbot error:', error);
       const errorMessage = {

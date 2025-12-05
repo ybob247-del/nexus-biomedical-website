@@ -1,0 +1,105 @@
+{
+  "query": "SELECT category, language, COUNT(*) as count\nFROM faq_items \nGROUP BY category, language \nORDER BY category, language;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT category, language, COUNT(*) as count\nFROM faq_items \nGROUP BY category, language \nORDER BY category, language;",
+  "rows": [
+    {
+      "category": "account",
+      "language": "en",
+      "count": "4"
+    },
+    {
+      "category": "account",
+      "language": "es",
+      "count": "4"
+    },
+    {
+      "category": "billing",
+      "language": "en",
+      "count": "6"
+    },
+    {
+      "category": "billing",
+      "language": "es",
+      "count": "6"
+    },
+    {
+      "category": "endoguard",
+      "language": "en",
+      "count": "6"
+    },
+    {
+      "category": "endoguard",
+      "language": "es",
+      "count": "4"
+    },
+    {
+      "category": "general",
+      "language": "en",
+      "count": "3"
+    },
+    {
+      "category": "general",
+      "language": "es",
+      "count": "3"
+    },
+    {
+      "category": "notifications",
+      "language": "en",
+      "count": "4"
+    },
+    {
+      "category": "notifications",
+      "language": "es",
+      "count": "1"
+    },
+    {
+      "category": "pricing",
+      "language": "en",
+      "count": "5"
+    },
+    {
+      "category": "pricing",
+      "language": "es",
+      "count": "2"
+    },
+    {
+      "category": "privacy",
+      "language": "en",
+      "count": "4"
+    },
+    {
+      "category": "privacy",
+      "language": "es",
+      "count": "4"
+    },
+    {
+      "category": "rxguard",
+      "language": "en",
+      "count": "5"
+    },
+    {
+      "category": "rxguard",
+      "language": "es",
+      "count": "3"
+    },
+    {
+      "category": "support",
+      "language": "en",
+      "count": "3"
+    },
+    {
+      "category": "support",
+      "language": "es",
+      "count": "1"
+    },
+    {
+      "category": "technical",
+      "language": "en",
+      "count": "7"
+    }
+  ],
+  "messages": [],
+  "stdout": "category\tlanguage\tcount\naccount\ten\t4\naccount\tes\t4\nbilling\ten\t6\nbilling\tes\t6\nendoguard\ten\t6\nendoguard\tes\t4\ngeneral\ten\t3\ngeneral\tes\t3\nnotifications\ten\t4\nnotifications\tes\t1\npricing\ten\t5\npricing\tes\t2\nprivacy\ten\t4\nprivacy\tes\t4\nrxguard\ten\t5\nrxguard\tes\t3\nsupport\ten\t3\nsupport\tes\t1\ntechnical\ten\t7\n",
+  "stderr": "",
+  "execution_time_ms": 70
+}

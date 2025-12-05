@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO faq_items (category, question, answer, keywords, priority, language) VALUES\n('notifications', '¿Puedo personalizar qué notificaciones recibo?', 'Sí! Vaya a Configuración > Notificaciones para personalizar qué notificaciones por correo electrónico y SMS recibe. Puede elegir entre recordatorios de evaluación, consejos de salud, actualizaciones de suscripción, anuncios de nuevas funciones y más.', 'personalizar notificaciones, preferencias de notificación, configuración de email', 70, 'es');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute INSERT INTO faq_items (category, question, answer, keywords, priority, language) VALUES\n('notifications', '¿Puedo personalizar qué notificaciones recibo?', 'Sí! Vaya a Configuración > Notificaciones para personalizar qué notificaciones por correo electrónico y SMS recibe. Puede elegir entre recordatorios de evaluación, consejos de salud, actualizaciones de suscripción, anuncios de nuevas funciones y más.', 'personalizar notificaciones, preferencias de notificación, configuración de email', 70, 'es');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 66
+}

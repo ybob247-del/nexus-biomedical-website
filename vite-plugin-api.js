@@ -86,6 +86,10 @@ export default function apiPlugin() {
             });
           } else {
             // For GET, DELETE, etc.
+            // Parse query parameters
+            const url = new URL(req.url, `http://${req.headers.host}`);
+            req.query = Object.fromEntries(url.searchParams);
+            
             await handler(req, mockRes);
           }
         } catch (error) {

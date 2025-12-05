@@ -1,0 +1,20 @@
+{
+  "query": "SELECT COUNT(*) as total_faqs, language, COUNT(DISTINCT category) as categories FROM faq_items GROUP BY language;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT COUNT(*) as total_faqs, language, COUNT(DISTINCT category) as categories FROM faq_items GROUP BY language;",
+  "rows": [
+    {
+      "total_faqs": "47",
+      "language": "en",
+      "categories": "10"
+    },
+    {
+      "total_faqs": "28",
+      "language": "es",
+      "categories": "9"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_faqs\tlanguage\tcategories\n47\ten\t10\n28\tes\t9\n",
+  "stderr": "",
+  "execution_time_ms": 1946
+}

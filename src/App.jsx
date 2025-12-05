@@ -65,6 +65,7 @@ const AssessmentComparison = lazy(() => import('./components/AssessmentCompariso
 const EndoGuardSpanishLanding = lazy(() => import('./pages/EndoGuardSpanishLanding'))
 const RxGuardSpanishLanding = lazy(() => import('./pages/RxGuardSpanishLanding'))
 const AdminChatbotAnalytics = lazy(() => import('./pages/AdminChatbotAnalytics'))
+const FAQPage = lazy(() => import('./pages/FAQPage'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -594,6 +595,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminABTests />
+          </Suspense>
+        } 
+      />
+
+      {/* FAQ Page Route */}
+      <Route 
+        path="/faq" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <FAQPage />
           </Suspense>
         } 
       />

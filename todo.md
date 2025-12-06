@@ -574,3 +574,28 @@
 - [x] Add pricing section with both Basic and Premium plans
 - [x] Include comprehensive feature descriptions in Spanish
 - [x] Add clear CTAs for starting free assessment
+
+
+---
+
+## 🚨 HIPAA LANGUAGE CORRECTIONS (Dec 5, 2025)
+**Status:** COMPLETE - All 7 instances corrected
+
+### Code Changes Completed
+- [x] src/config/tours.js:198 - Changed "HIPAA-compliant messaging" to "HIPAA-ready messaging"
+- [x] src/pages/ProviderPricing.jsx:24 - Changed "HIPAA-compliant pseudonymous design" to "HIPAA-ready pseudonymous design"
+- [x] src/pages/ProviderPricing.jsx:42 - Changed "HIPAA-compliant pseudonymous design" to "HIPAA-ready pseudonymous design"
+- [x] src/pages/SpanishLanding.jsx:165 - Changed "Cumple con HIPAA" to "Listo para HIPAA"
+- [x] src/pages/EndoGuardSpanishLanding.jsx:206 - Changed "Cumplimiento HIPAA" to "Listo para HIPAA"
+- [x] src/utils/emailTemplates.js:43 - Changed "HIPAA Compliant" to "HIPAA-Ready"
+- [x] src/utils/emailTemplates.js:81 - Changed "Cumple con HIPAA" to "Listo para HIPAA"
+
+### Legal Pages Already Correct
+- ✅ Privacy Policy correctly states "NOT a HIPAA-covered entity"
+- ✅ Terms of Service correctly explains HIPAA status
+- ✅ Security & Privacy page uses accurate language
+
+### Next Steps (After YC Application)
+- [ ] Add certification timeline messaging: "Full HIPAA compliance certification pending funding and formal audit process"
+- [ ] Update About page to clarify HIPAA-ready infrastructure vs certified compliance
+- [ ] Update Google Drive documentation to use "HIPAA-ready" language

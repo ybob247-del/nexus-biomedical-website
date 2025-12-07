@@ -21,7 +21,7 @@ export default function EndoGuardResults({ results }) {
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [modalFeature, setModalFeature] = useState('');
-  const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps } = results;
+  const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps, aiInsights } = results;
 
   const handleDownloadPDF = async () => {
     // Check if user has active subscription
@@ -89,6 +89,227 @@ export default function EndoGuardResults({ results }) {
           </div>
         )}
       </div>
+
+      {/* AI-Powered Insights Section */}
+      {aiInsights && aiInsights.symptomPattern && !aiInsights.symptomPattern.aiError && (
+        <div className="results-section ai-insights-section" style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: 'white',
+          borderRadius: '12px',
+          padding: '24px',
+          marginBottom: '24px',
+          border: '2px solid rgba(255,255,255,0.2)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+            <span style={{ fontSize: '28px' }}>🤖</span>
+            <h3 style={{ margin: 0, color: 'white' }}>AI-Powered Analysis</h3>
+            <span style={{
+              background: 'rgba(255,255,255,0.2)',
+              padding: '4px 12px',
+              borderRadius: '12px',
+              fontSize: '12px',
+              fontWeight: 'bold'
+            }}>GPT-4</span>
+          </div>
+          
+          <div style={{ 
+            background: 'rgba(255,255,255,0.1)', 
+            padding: '16px', 
+            borderRadius: '8px',
+            marginBottom: '16px'
+          }}>
+            <h4 style={{ color: 'white', marginTop: 0, fontSize: '16px' }}>Identified Pattern</h4>
+            <p style={{ fontSize: '18px', fontWeight: 'bold', margin: '8px 0' }}>
+              {aiInsights.symptomPattern.primaryPattern}
+            </p>
+            <p style={{ fontSize: '14px', lineHeight: '1.6', opacity: 0.95 }}>
+              {aiInsights.symptomPattern.clinicalReasoning}
+            </p>
+            {aiInsights.symptomPattern.confidence > 0 && (
+              <div style={{ marginTop: '12px' }}>
+                <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '4px' }}>Analysis Confidence</div>
+                <div style={{ background: 'rgba(255,255,255,0.2)', borderRadius: '8px', height: '8px', overflow: 'hidden' }}>
+                  <div style={{
+                    background: 'linear-gradient(90deg, #10b981, #34d399)',
+                    height: '100%',
+                    width: `${aiInsights.symptomPattern.confidence * 100}%`,
+                    transition: 'width 0.5s ease'
+                  }} />
+                </div>
+                <div style={{ fontSize: '12px', marginTop: '4px', opacity: 0.8 }}>
+                  {Math.round(aiInsights.symptomPattern.confidence * 100)}% confidence
+                </div>
+              </div>
+            )}
+          </div>
+
+          {aiInsights.symptomPattern.affectedSystems && aiInsights.symptomPattern.affectedSystems.length > 0 && (
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ color: 'white', fontSize: '14px', marginBottom: '8px' }}>AI-Identified Hormone Systems</h4>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {aiInsights.symptomPattern.affectedSystems.map((system, idx) => (
+                  <span key={idx} style={{
+                    background: 'rgba(255,255,255,0.25)',
+                    padding: '6px 14px',
+                    borderRadius: '20px',
+                    fontSize: '13px',
+                    fontWeight: '500'
+                  }}>
+                    {system}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {aiInsights.symptomPattern.redFlags && aiInsights.symptomPattern.redFlags.length > 0 && (
+            <div style={{
+              background: 'rgba(239, 68, 68, 0.2)',
+              border: '2px solid rgba(239, 68, 68, 0.5)',
+              padding: '12px',
+              borderRadius: '8px',
+              marginTop: '12px'
+            }}>
+              <div style={{ fontWeight: 'bold', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span>⚠️</span>
+                <span>Important Considerations</span>
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px' }}>
+                {aiInsights.symptomPattern.redFlags.map((flag, idx) => (
+                  <li key={idx} style={{ marginBottom: '4px' }}>{flag}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '16px', fontStyle: 'italic' }}>
+            {aiInsights.disclaimer}
+          </div>
+        </div>
+      )}
+
+      {/* AI-Powered Personalized Recommendations */}
+      {aiInsights && aiInsights.personalizedRecommendations && !aiInsights.personalizedRecommendations.aiError && (
+        <div className="results-section" style={{ marginBottom: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+            <span style={{ fontSize: '24px' }}>💡</span>
+            <h3 style={{ margin: 0 }}>AI-Personalized Action Plan</h3>
+          </div>
+
+          {aiInsights.personalizedRecommendations.lifestyle && aiInsights.personalizedRecommendations.lifestyle.length > 0 && (
+            <div style={{ marginBottom: '20px' }}>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>Lifestyle Recommendations</h4>
+              <div style={{ display: 'grid', gap: '12px' }}>
+                {aiInsights.personalizedRecommendations.lifestyle.map((rec, idx) => (
+                  <div key={idx} style={{
+                    background: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '8px',
+                    padding: '16px'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '8px' }}>
+                      <span style={{ fontWeight: 'bold', color: '#1e293b', textTransform: 'capitalize' }}>
+                        {rec.category}
+                      </span>
+                      <span style={{
+                        background: rec.priority === 'high' ? '#fee2e2' : rec.priority === 'medium' ? '#fef3c7' : '#dbeafe',
+                        color: rec.priority === 'high' ? '#991b1b' : rec.priority === 'medium' ? '#92400e' : '#1e40af',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        fontSize: '12px',
+                        fontWeight: '600'
+                      }}>
+                        {rec.priority}
+                      </span>
+                    </div>
+                    <p style={{ margin: '8px 0', color: '#334155' }}>{rec.recommendation}</p>
+                    <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0' }}>
+                      <strong>Why:</strong> {rec.rationale}
+                    </p>
+                    {rec.timeframe && (
+                      <p style={{ fontSize: '12px', color: '#94a3b8', margin: '4px 0', fontStyle: 'italic' }}>
+                        Expected results: {rec.timeframe}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {aiInsights.personalizedRecommendations.supplements && aiInsights.personalizedRecommendations.supplements.length > 0 && (
+            <div style={{ marginBottom: '20px' }}>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>Supplement Considerations</h4>
+              <div style={{ display: 'grid', gap: '12px' }}>
+                {aiInsights.personalizedRecommendations.supplements.map((supp, idx) => (
+                  <div key={idx} style={{
+                    background: '#fefce8',
+                    border: '1px solid #fde047',
+                    borderRadius: '8px',
+                    padding: '16px'
+                  }}>
+                    <div style={{ fontWeight: 'bold', color: '#713f12', marginBottom: '4px' }}>
+                      {supp.supplement} {supp.dosage && `- ${supp.dosage}`}
+                    </div>
+                    <p style={{ fontSize: '14px', color: '#854d0e', margin: '4px 0' }}>{supp.rationale}</p>
+                    {supp.cautions && (
+                      <p style={{ fontSize: '12px', color: '#a16207', marginTop: '8px', fontStyle: 'italic' }}>
+                        ⚠️ {supp.cautions}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {aiInsights.personalizedRecommendations.edcReduction && aiInsights.personalizedRecommendations.edcReduction.length > 0 && (
+            <div style={{ marginBottom: '20px' }}>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>EDC Exposure Reduction</h4>
+              <div style={{ display: 'grid', gap: '12px' }}>
+                {aiInsights.personalizedRecommendations.edcReduction.map((action, idx) => (
+                  <div key={idx} style={{
+                    background: '#f0fdf4',
+                    border: '1px solid #86efac',
+                    borderRadius: '8px',
+                    padding: '16px'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+                      <span style={{ fontWeight: 'bold', color: '#14532d' }}>{action.action}</span>
+                      <span style={{
+                        background: action.priority === 'high' ? '#dcfce7' : '#f0fdf4',
+                        color: '#166534',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        fontSize: '12px'
+                      }}>
+                        {action.priority}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: '13px', color: '#166534', margin: '8px 0 0 0' }}>{action.impact}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {aiInsights.personalizedRecommendations.nextSteps && aiInsights.personalizedRecommendations.nextSteps.length > 0 && (
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              borderRadius: '8px',
+              padding: '16px'
+            }}>
+              <h4 style={{ color: 'white', marginTop: 0, marginBottom: '12px' }}>Prioritized Action Steps</h4>
+              <ol style={{ margin: 0, paddingLeft: '20px' }}>
+                {aiInsights.personalizedRecommendations.nextSteps.map((step, idx) => (
+                  <li key={idx} style={{ marginBottom: '8px', fontSize: '14px' }}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Hormone Health Section */}
       <div className="results-section">

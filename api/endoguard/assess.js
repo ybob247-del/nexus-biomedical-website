@@ -1,8 +1,10 @@
 /**
  * EndoGuard™ Assessment API
  * POST /api/endoguard/assess
- * Complete hormone health assessment (serverless function)
+ * Complete hormone health assessment with AI-powered analysis (serverless function)
  */
+
+import { analyzeSymptomPatterns, generatePersonalizedRecommendations, generateTestRationale } from '../utils/aiService.js';
 
 /**
  * Calculate EDC Exposure Risk Score
@@ -369,14 +371,49 @@ async function handler(req, res) {
     // Calculate EDC exposure risk
     const { riskScore, riskFactors } = calculateEDCRisk(formData);
 
-    // Analyze symptoms
+    // Analyze symptoms with rule-based system
     const symptomAnalysis = analyzeSymptoms(
       formData.symptoms || [],
       formData.symptomSeverity || 5
     );
 
-    // Generate recommendations
-    const recommendations = generateRecommendations(formData, { riskScore, riskFactors }, symptomAnalysis);
+    // AI-POWERED ANALYSIS: Use GPT-4 to analyze symptom patterns
+    console.log('[EndoGuard] Initiating AI-powered symptom pattern analysis...');
+    const aiSymptomAnalysis = await analyzeSymptomPatterns(
+      formData.symptoms || [],
+      {
+        age: formData.age,
+        gender: formData.gender,
+        biologicalSex: formData.biologicalSex
+      }
+    );
+    console.log('[EndoGuard] AI analysis complete:', aiSymptomAnalysis.primaryPattern);
+
+    // Generate rule-based recommendations
+    const baseRecommendations = generateRecommendations(formData, { riskScore, riskFactors }, symptomAnalysis);
+
+    // AI-POWERED RECOMMENDATIONS: Use GPT-4 to generate personalized recommendations
+    console.log('[EndoGuard] Generating AI-powered personalized recommendations...');
+    const aiRecommendations = await generatePersonalizedRecommendations({
+      symptoms: formData.symptoms || [],
+      edcRisk: { riskScore, riskFactors },
+      lifestyle: {
+        sleepQuality: formData.sleepQuality,
+        exerciseFrequency: formData.exerciseFrequency,
+        dietQuality: formData.dietQuality,
+        stressLevel: formData.stressLevel
+      },
+      demographics: {
+        age: formData.age,
+        gender: formData.gender,
+        biologicalSex: formData.biologicalSex
+      },
+      hormonePattern: aiSymptomAnalysis
+    });
+    console.log('[EndoGuard] AI recommendations generated');
+
+    // Combine rule-based and AI recommendations
+    const recommendations = baseRecommendations;
 
     // Determine overall risk level
     let overallRiskLevel = 'LOW';
@@ -418,12 +455,21 @@ async function handler(req, res) {
         return priorityOrder[a.priority] - priorityOrder[b.priority];
       }),
 
-      // Test recommendations
+      // Test recommendations (rule-based)
       testRecommendations: generateTestRecommendations(
         formData.symptoms || [],
         symptomAnalysis.hormoneSystemsAffected,
         formData.gender || 'female'
       ),
+
+      // AI-POWERED INSIGHTS: GPT-4 analysis results
+      aiInsights: {
+        symptomPattern: aiSymptomAnalysis,
+        personalizedRecommendations: aiRecommendations,
+        analysisTimestamp: new Date().toISOString(),
+        model: 'gpt-4',
+        disclaimer: 'AI-generated insights for educational purposes. Not a substitute for professional medical advice.'
+      },
 
       // Next steps
       nextSteps: [

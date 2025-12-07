@@ -13,6 +13,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Message is required' });
     }
 
+    // Detect language (Spanish or English)
+    const isSpanish = detectSpanish(message);
+
     // Search FAQ database for relevant answers
     const searchTerms = message.toLowerCase().split(' ').filter(term => term.length > 3);
     
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
     // If we have relevant FAQs, use them to generate response
     if (relevantFAQs.length > 0) {
       // Use OpenAI to generate a natural response based on FAQ data
-      const response = await generateAIResponse(message, relevantFAQs, conversationHistory);
+      const response = await generateAIResponse(message, relevantFAQs, conversationHistory, isSpanish);
       
       return res.status(200).json({
         response: response.answer,
@@ -50,7 +53,7 @@ export default async function handler(req, res) {
     }
 
     // If no relevant FAQs found, use OpenAI with general context
-    const generalResponse = await generateGeneralResponse(message, conversationHistory);
+    const generalResponse = await generateGeneralResponse(message, conversationHistory, isSpanish);
     
     return res.status(200).json({
       response: generalResponse,
@@ -67,7 +70,23 @@ export default async function handler(req, res) {
   }
 }
 
-async function generateAIResponse(userMessage, faqs, conversationHistory) {
+// Detect if message is in Spanish
+function detectSpanish(text) {
+  const spanishIndicators = [
+    // Common Spanish words
+    /\b(hola|buenos|días|tardes|noches|gracias|por favor|ayuda|necesito|quiero|cómo|qué|cuál|dónde|cuándo|precio|información)\b/i,
+    // Spanish question words
+    /\b(cómo|qué|cuál|cuánto|cuándo|dónde|quién|por qué)\b/i,
+    // Spanish accented characters
+    /[áéíóúñü]/i,
+    // Common Spanish phrases
+    /\b(me puede|puedo|quisiera|me gustaría|estoy|tengo|hay)\b/i
+  ];
+  
+  return spanishIndicators.some(pattern => pattern.test(text));
+}
+
+async function generateAIResponse(userMessage, faqs, conversationHistory, isSpanish = false) {
   try {
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
     
@@ -91,7 +110,13 @@ async function generateAIResponse(userMessage, faqs, conversationHistory) {
         ).join('\n')
       : '';
 
-    const systemPrompt = `You are a helpful AI assistant for Nexus Biomedical Intelligence, a healthcare technology company. 
+    const languageInstruction = isSpanish 
+      ? 'IMPORTANT: The user is writing in Spanish. You MUST respond in Spanish (Español). Use natural, professional Spanish throughout your response.'
+      : 'Respond in English.';
+
+    const systemPrompt = `You are a helpful AI assistant for Nexus Biomedical Intelligence, a healthcare technology company.
+
+${languageInstruction} 
 
 Our platforms:
 - EndoGuard™: Clinical-grade hormone intelligence platform for tracking hormone health and EDC exposure
@@ -161,12 +186,14 @@ Provide a helpful, accurate, and conversational response. If the question is not
   }
 }
 
-async function generateGeneralResponse(userMessage, conversationHistory) {
+async function generateGeneralResponse(userMessage, conversationHistory, isSpanish = false) {
   try {
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
     
     if (!OPENAI_API_KEY) {
-      return "I'm here to help! I can answer questions about our platforms (EndoGuard™ and RxGuard™), pricing, features, and how to get started. What would you like to know?";
+      return isSpanish 
+        ? "¡Estoy aquí para ayudar! Puedo responder preguntas sobre nuestras plataformas (EndoGuard™ y RxGuard™), precios, características y cómo comenzar. ¿Qué te gustaría saber?"
+        : "I'm here to help! I can answer questions about our platforms (EndoGuard™ and RxGuard™), pricing, features, and how to get started. What would you like to know?";
     }
 
     const conversationContext = conversationHistory
@@ -175,7 +202,13 @@ async function generateGeneralResponse(userMessage, conversationHistory) {
         ).join('\n')
       : '';
 
+    const languageInstruction = isSpanish
+      ? 'IMPORTANT: The user is writing in Spanish. You MUST respond in Spanish (Español). Use natural, professional Spanish throughout your response.'
+      : 'Respond in English.';
+
     const systemPrompt = `You are a helpful AI assistant for Nexus Biomedical Intelligence. Answer questions about our healthcare AI platforms, but if you don't have specific information, politely suggest the user contact support@nexusbiomedical.ai or visit our FAQ page.
+
+${languageInstruction}
 
 Our platforms:
 - EndoGuard™: Hormone health tracking ($39-79/month, 7-day free trial)
@@ -212,6 +245,8 @@ Be helpful, professional, and concise.`;
 
   } catch (error) {
     console.error('OpenAI API error:', error);
-    return "I'm here to help! I can answer questions about our platforms, pricing, and features. For specific inquiries, please contact support@nexusbiomedical.ai or visit our FAQ page.";
+    return isSpanish
+      ? "¡Estoy aquí para ayudar! Puedo responder preguntas sobre nuestras plataformas, precios y características. Para consultas específicas, por favor contacta a support@nexusbiomedical.ai o visita nuestra página de preguntas frecuentes."
+      : "I'm here to help! I can answer questions about our platforms, pricing, and features. For specific inquiries, please contact support@nexusbiomedical.ai or visit our FAQ page.";
   }
 }

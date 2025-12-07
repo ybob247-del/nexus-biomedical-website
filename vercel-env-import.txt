@@ -1,0 +1,75 @@
+# Nexus Biomedical Intelligence - Vercel Environment Variables
+# Import this file in Vercel: Settings > Environment Variables > Import .env
+
+# ============================================
+# CRITICAL: OpenAI API Configuration
+# ============================================
+# Get your API key from: https://platform.openai.com/api-keys
+# Make sure you have added a payment method at: https://platform.openai.com/settings/organization/billing/overview
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY_HERE
+
+# ============================================
+# Database Configuration (Already configured)
+# ============================================
+# This should already be set in Vercel - DO NOT overwrite unless needed
+# DATABASE_URL=postgresql://...
+
+# ============================================
+# Stripe Payment Configuration
+# ============================================
+# Get these from: https://dashboard.stripe.com/apikeys
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY_HERE
+STRIPE_PUBLISHABLE_KEY=YOUR_STRIPE_PUBLISHABLE_KEY_HERE
+STRIPE_WEBHOOK_SECRET=YOUR_STRIPE_WEBHOOK_SECRET_HERE
+
+# Stripe Price IDs (from your Stripe Dashboard > Products)
+STRIPE_ENDOGUARD_PRICE_ID=YOUR_ENDOGUARD_MONTHLY_PRICE_ID
+STRIPE_ENDOGUARD_YEARLY_PRICE_ID=YOUR_ENDOGUARD_YEARLY_PRICE_ID
+STRIPE_RXGUARD_PRICE_ID=YOUR_RXGUARD_MONTHLY_PRICE_ID
+STRIPE_RXGUARD_YEARLY_PRICE_ID=YOUR_RXGUARD_YEARLY_PRICE_ID
+
+# ============================================
+# Twilio SMS Configuration
+# ============================================
+# Get these from: https://console.twilio.com/
+TWILIO_ACCOUNT_SID=YOUR_TWILIO_ACCOUNT_SID_HERE
+TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH_TOKEN_HERE
+TWILIO_PHONE_NUMBER=YOUR_TWILIO_PHONE_NUMBER_HERE
+
+# ============================================
+# Email Configuration (Resend)
+# ============================================
+# Get from: https://resend.com/api-keys
+RESEND_API_KEY=YOUR_RESEND_API_KEY_HERE
+
+# ============================================
+# Authentication & Security
+# ============================================
+# Generate a random string for JWT_SECRET (at least 32 characters)
+JWT_SECRET=YOUR_RANDOM_JWT_SECRET_HERE_MIN_32_CHARS
+OAUTH_SERVER_URL=https://oauth.manus.im
+OWNER_OPEN_ID=YOUR_OWNER_OPEN_ID
+
+# ============================================
+# Frontend Configuration
+# ============================================
+VITE_APP_TITLE=Nexus Biomedical Intelligence
+VITE_APP_LOGO=/logo.svg
+VITE_APP_ID=nexus-biomedical-intelligence
+VITE_OAUTH_PORTAL_URL=https://oauth.manus.im
+VITE_STRIPE_PUBLISHABLE_KEY=YOUR_STRIPE_PUBLISHABLE_KEY_HERE
+
+# ============================================
+# Analytics Configuration
+# ============================================
+VITE_ANALYTICS_WEBSITE_ID=YOUR_ANALYTICS_WEBSITE_ID
+VITE_ANALYTICS_ENDPOINT=YOUR_ANALYTICS_ENDPOINT
+VITE_GA4_MEASUREMENT_ID=YOUR_GA4_MEASUREMENT_ID
+
+# ============================================
+# Manus Forge API (if using)
+# ============================================
+BUILT_IN_FORGE_API_KEY=YOUR_FORGE_API_KEY
+BUILT_IN_FORGE_API_URL=https://forge.manus.im
+VITE_FRONTEND_FORGE_API_KEY=YOUR_FRONTEND_FORGE_KEY
+VITE_FRONTEND_FORGE_API_URL=https://forge.manus.im

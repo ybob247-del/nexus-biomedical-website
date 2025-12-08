@@ -661,3 +661,14 @@
 - [x] Verify language detection accuracy with test cases
 - [x] Create checkpoint after Spanish AI implementation
 - [x] Write comprehensive vitest tests for Spanish AI chatbot (18 tests, all passing)
+
+---
+
+## 🚨 URGENT - YC APPLICATION CRITICAL BUGS (Dec 8, 2025)
+**Priority:** EMERGENCY - Spanish translations broken on production
+
+- [x] Fix language toggle not appearing on EndoGuard assessment page
+- [x] Fix Spanish translations not working on EndoGuard assessment
+- [x] Fix "Learn More" EndoGuard page not translating to Spanish when ES selected
+- [x] Verify all Spanish translations are deployed to production
+- [x] Test complete Spanish user journey (homepage → EndoGuard → assessment)

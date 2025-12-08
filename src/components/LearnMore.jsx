@@ -1,13 +1,23 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { openPaymentLink } from '../config/stripePaymentLinks';
 import { openEndoGuardPayment } from '../config/endoguardStripeLinks';
 import { updateMetaTags, resetMetaTags } from '../config/seoMetadata';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import LanguageToggle from './LanguageToggle';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+  const { i18n } = useTranslation();
+  
+  // Redirect to Spanish landing page if language is Spanish and platform is EndoGuard
+  useEffect(() => {
+    if (i18n.language === 'es' && platform?.name === 'EndoGuard™') {
+      navigate('/es/endoguard');
+    }
+  }, [i18n.language, platform, navigate]);
   
   // Map platform names to dashboard URLs
   const platformDashboards = {
@@ -103,6 +113,16 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         >
           ← Back to Home
         </button>
+
+        {/* Language Toggle */}
+        <div style={{
+          position: 'fixed',
+          top: '2rem',
+          right: '2rem',
+          zIndex: 1001
+        }}>
+          <LanguageToggle />
+        </div>
 
         {/* Coming Soon Content */}
         <div style={{ textAlign: 'center', maxWidth: '900px', padding: '2rem' }}>
@@ -399,6 +419,16 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       >
         ← Back to Home
       </button>
+
+      {/* Language Toggle */}
+      <div style={{
+        position: 'fixed',
+        top: '2rem',
+        right: '2rem',
+        zIndex: 1001
+      }}>
+        <LanguageToggle />
+      </div>
 
       {/* Content Container */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '6rem' }}>

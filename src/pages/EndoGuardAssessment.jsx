@@ -8,6 +8,7 @@ import TrialExpirationBanner from '../components/TrialExpirationBanner';
 import UsageStatsDashboard from '../components/UsageStatsDashboard';
 import { useAnalytics } from '../hooks/useAnalytics';
 import BackToHomeButton from '../components/BackToHomeButton';
+import LanguageToggle from '../components/LanguageToggle';
 import OnboardingTour from '../components/OnboardingTour';
 import { endoGuardAssessmentTour } from '../config/tours';
 import '../styles/endoguard-assessment.css';
@@ -264,7 +265,9 @@ export default function EndoGuardAssessment() {
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h1 style={{ margin: 0 }}>{t('endoguard.assessment.title')}</h1>
-          {user && (
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <LanguageToggle />
+            {user && (
             <button
               onClick={() => navigate('/my-assessments')}
               style={{
@@ -283,7 +286,8 @@ export default function EndoGuardAssessment() {
             >
               {t('endoguard.assessment.myAssessments')}
             </button>
-          )}
+            )}
+          </div>
         </div>
         <p>{t('endoguard.assessment.description')}</p>
         <div style={{

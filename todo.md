@@ -1,3 +1,22 @@
+## 🔧 ENDOGUARD ASSESSMENT ENHANCEMENT (Dec 9, 2025)
+**Priority:** HIGH - Add height/weight fields to match demo version
+
+- [x] Add height and weight fields to EndoGuard assessment form (Step 1 - Demographics)
+- [x] Update formData state to include height and weight
+- [x] Add English translations for height/weight
+- [x] Add Spanish translations for height/weight
+- [x] Fix header overlap - login button and language toggle overlapping
+- [x] Fix Spanish translation not working in EndoGuard assessment
+- [x] Add height and weight columns to database schema
+- [x] Update API endpoint to save height/weight data
+- [x] Calculate BMI in results using height/weight data
+- [x] Add BMI category and health implications to assessment results
+- [x] Ensure all recommendations are backed by peer-reviewed research
+- [x] Test assessment form with new fields
+- [ ] Save checkpoint
+
+---
+
 ## 🤖 AI INTEGRATION - ENDOGUARD GPT-4 ANALYSIS (Dec 7, 2025)
 **Priority:** CRITICAL - Make YC application AI claims legitimate
 

@@ -1,0 +1,67 @@
+graph TB
+    subgraph "User Layer"
+        A[Web Browser]
+        B[Mobile Device]
+    end
+    
+    subgraph "Frontend - React + Vite"
+        C[Landing Pages<br/>EN/ES]
+        D[EndoGuard<br/>Assessment]
+        E[RxGuard<br/>Dashboard]
+        F[AI Chatbot]
+        G[User Profile]
+    end
+    
+    subgraph "API Layer - Vercel Serverless"
+        H[API: EndoGuard Assess]
+        I[API: RxGuard Check]
+        J[API: Authentication]
+        K[API: Chat]
+        L[API: Cron Jobs]
+    end
+    
+    subgraph "External Services"
+        M[OpenAI GPT-4<br/>Clinical Analysis]
+        N[TiDB Cloud<br/>MySQL Database]
+        O[Stripe<br/>Payments]
+        P[Resend<br/>Email]
+        Q[Twilio<br/>SMS]
+        R[Google Analytics]
+    end
+    
+    A --> C
+    B --> C
+    C --> D
+    C --> E
+    C --> F
+    C --> G
+    
+    D --> H
+    E --> I
+    F --> K
+    G --> J
+    
+    H --> M
+    H --> N
+    I --> M
+    I --> N
+    J --> N
+    K --> M
+    K --> N
+    L --> N
+    L --> P
+    L --> Q
+    
+    H --> P
+    J --> O
+    
+    C --> R
+    D --> R
+    E --> R
+    
+    style M fill:#10a37f
+    style N fill:#ff6b6b
+    style O fill:#635bff
+    style P fill:#000000
+    style Q fill:#f22f46
+    style R fill:#e37400

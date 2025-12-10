@@ -1,0 +1,48 @@
+graph LR
+    subgraph "Symptoms"
+        S1[Fatigue]
+        S2[Weight Gain]
+        S3[Irregular Cycles]
+        S4[Hair Loss]
+        S5[Brain Fog]
+        S6[Low Libido]
+        S7[Anxiety]
+        S8[Cold Intolerance]
+        S9[Insulin Resistance]
+        S10[Night Sweats]
+        S11[Muscle Loss]
+        S12[Mood Swings]
+    end
+    
+    subgraph "Hormone Systems"
+        H1[Thyroid<br/>T3, T4, TSH]
+        H2[Reproductive<br/>Estrogen, Progesterone,<br/>Testosterone]
+        H3[Adrenal<br/>Cortisol, DHEA]
+        H4[Metabolic<br/>Insulin, Leptin]
+    end
+    
+    S1 --> H1
+    S1 --> H3
+    S2 --> H1
+    S2 --> H4
+    S3 --> H2
+    S3 --> H3
+    S4 --> H1
+    S4 --> H2
+    S5 --> H1
+    S5 --> H3
+    S6 --> H2
+    S6 --> H3
+    S7 --> H3
+    S8 --> H1
+    S9 --> H4
+    S10 --> H2
+    S11 --> H2
+    S11 --> H3
+    S12 --> H2
+    S12 --> H3
+    
+    style H1 fill:#FF6B6B
+    style H2 fill:#4ECDC4
+    style H3 fill:#FFE66D
+    style H4 fill:#95E1D3

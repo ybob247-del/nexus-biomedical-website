@@ -7,6 +7,54 @@
 import { analyzeSymptomPatterns, generatePersonalizedRecommendations, generateTestRationale } from '../utils/aiService.js';
 
 /**
+ * Calculate BMI (Body Mass Index)
+ * @param {number} height - Height in centimeters
+ * @param {number} weight - Weight in kilograms
+ * @returns {number} BMI value rounded to 1 decimal place
+ */
+function calculateBMI(height, weight) {
+  if (!height || !weight || height <= 0 || weight <= 0) return null;
+  const heightInMeters = height / 100;
+  const bmi = weight / (heightInMeters * heightInMeters);
+  return Math.round(bmi * 10) / 10;
+}
+
+/**
+ * Get BMI category and health implications
+ * @param {number} bmi - BMI value
+ * @returns {object} BMI category and recommendations
+ */
+function getBMICategory(bmi) {
+  if (!bmi) return null;
+  
+  if (bmi < 18.5) {
+    return {
+      category: 'Underweight',
+      healthImplication: 'May indicate nutritional deficiency or hormonal imbalance',
+      recommendation: 'Consult healthcare provider about nutritional assessment and hormone testing'
+    };
+  } else if (bmi >= 18.5 && bmi < 25) {
+    return {
+      category: 'Normal weight',
+      healthImplication: 'Healthy weight range for most adults',
+      recommendation: 'Maintain current healthy lifestyle habits'
+    };
+  } else if (bmi >= 25 && bmi < 30) {
+    return {
+      category: 'Overweight',
+      healthImplication: 'May increase risk of hormone imbalance and metabolic issues',
+      recommendation: 'Consider lifestyle modifications: balanced diet, regular exercise, stress management'
+    };
+  } else {
+    return {
+      category: 'Obese',
+      healthImplication: 'Obesity is associated with hormonal disruption, insulin resistance, and increased EDC storage in adipose tissue',
+      recommendation: 'Strongly recommend medical evaluation for metabolic health and hormone testing'
+    };
+  }
+}
+
+/**
  * Calculate EDC Exposure Risk Score
  */
 function calculateEDCRisk(formData) {
@@ -406,7 +454,10 @@ async function handler(req, res) {
       demographics: {
         age: formData.age,
         gender: formData.gender,
-        biologicalSex: formData.biologicalSex
+        biologicalSex: formData.biologicalSex,
+        height: formData.height,
+        weight: formData.weight,
+        bmi: formData.height && formData.weight ? calculateBMI(formData.height, formData.weight) : null
       },
       hormonePattern: aiSymptomAnalysis
     });
@@ -423,11 +474,25 @@ async function handler(req, res) {
       overallRiskLevel = 'MODERATE';
     }
 
+    // Calculate BMI if height and weight provided
+    const bmi = formData.height && formData.weight ? calculateBMI(formData.height, formData.weight) : null;
+    const bmiCategory = bmi ? getBMICategory(bmi) : null;
+
     // Build assessment result
     const assessment = {
       assessmentId: Date.now().toString(),
       completedAt: new Date().toISOString(),
       
+      // Demographics with BMI
+      demographics: {
+        age: formData.age,
+        biologicalSex: formData.biologicalSex,
+        height: formData.height,
+        weight: formData.weight,
+        bmi: bmi,
+        bmiCategory: bmiCategory
+      },
+
       // Risk assessment
       edcExposure: {
         riskScore,

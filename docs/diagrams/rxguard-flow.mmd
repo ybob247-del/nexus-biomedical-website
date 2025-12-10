@@ -1,0 +1,52 @@
+graph TD
+    Start([User Adds Medications]) --> Input[Medication Input<br/>Name, Dosage, Frequency]
+    Input --> Search[Search OpenFDA Database<br/>Autocomplete]
+    Search --> Add{Add Another<br/>Medication?}
+    Add -->|Yes| Input
+    Add -->|No| Classify[Drug Class Identification]
+    
+    Classify --> Map[Map to Therapeutic Classes:<br/>- Anticoagulants<br/>- Statins<br/>- SSRIs<br/>- NSAIDs<br/>- 20+ other classes]
+    
+    Map --> Rules[Rule-Based Detection<br/>20+ Clinical Decision Rules]
+    
+    Rules --> Check1{Check Rule 1:<br/>Anticoagulant + NSAID}
+    Rules --> Check2{Check Rule 2:<br/>SSRI + MAOI}
+    Rules --> Check3{Check Rule 3:<br/>Statin + Fibrate}
+    Rules --> CheckN{Check Rules 4-20}
+    
+    Check1 -->|Match| Major1[Major Interaction:<br/>Bleeding Risk]
+    Check2 -->|Match| Major2[Major Interaction:<br/>Serotonin Syndrome]
+    Check3 -->|Match| Mod1[Moderate Interaction:<br/>Rhabdomyolysis Risk]
+    CheckN -->|Match| Others[Other Interactions]
+    
+    Check1 -->|No Match| Combine
+    Check2 -->|No Match| Combine
+    Check3 -->|No Match| Combine
+    CheckN -->|No Match| Combine
+    
+    Major1 --> Combine[Combine All Detected<br/>Interactions]
+    Major2 --> Combine
+    Mod1 --> Combine
+    Others --> Combine
+    
+    Combine --> AI[GPT-4 Enhanced Analysis]
+    
+    AI --> Interpret[AI Interpretation:<br/>- Confirm rule-based findings<br/>- Identify additional interactions<br/>- Assess clinical significance<br/>- Suggest alternatives<br/>- Monitoring recommendations]
+    
+    Interpret --> Results[Display Results:<br/>- Interaction alerts by severity<br/>- Clinical recommendations<br/>- Alternative medications<br/>- Monitoring guidance]
+    
+    Results --> Action{User Action}
+    Action -->|Modify Meds| Input
+    Action -->|View Details| Details[Detailed Interaction Info:<br/>- Mechanism<br/>- Evidence<br/>- Management]
+    Action -->|Done| End([User Reviews Plan])
+    
+    Details --> End
+    
+    style Start fill:#4CAF50
+    style Rules fill:#2196F3
+    style Major1 fill:#F44336
+    style Major2 fill:#F44336
+    style Mod1 fill:#FF9800
+    style AI fill:#10a37f
+    style Results fill:#9C27B0
+    style End fill:#4CAF50

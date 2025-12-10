@@ -1,0 +1,9 @@
+{
+  "query": "\nUPDATE users \nSET password_hash = '$2b$10$eDn0UJdDlRUCiI8JPfuOCexUzVenMRGdOfgJq3gRr/6jKvLR/ipbO',\n    first_name = 'Admin',\n    last_name = 'Owner',\n    email_verified = TRUE\nWHERE email = 'support@nexusbiomedical.ai';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute \nUPDATE users \nSET password_hash = '$2b$10$eDn0UJdDlRUCiI8JPfuOCexUzVenMRGdOfgJq3gRr/6jKvLR/ipbO',\n    first_name = 'Admin',\n    last_name = 'Owner',\n    email_verified = TRUE\nWHERE email = 'support@nexusbiomedical.ai';\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 66
+}

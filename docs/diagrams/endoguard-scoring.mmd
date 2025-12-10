@@ -1,0 +1,45 @@
+graph TD
+    Start([User Completes Assessment]) --> Demo[Step 1: Demographics<br/>Age, Sex, Location]
+    Demo --> Symptoms[Step 2: Symptom Selection<br/>Thyroid, Reproductive,<br/>Adrenal, Metabolic]
+    Symptoms --> Lifestyle[Step 3: Lifestyle Factors<br/>Diet, Exercise, Sleep]
+    Lifestyle --> EDC[Step 4: EDC Exposure<br/>Plastics, Food, Water]
+    EDC --> Duration[Step 5: Symptom Duration<br/>How long symptoms persist]
+    Duration --> Calculate{Calculate<br/>5 Domain Scores}
+    
+    Calculate --> D1[Domain 1: Symptoms<br/>40% weight<br/>Count + Multi-system bonus]
+    Calculate --> D2[Domain 2: Duration<br/>20% weight<br/>Chronicity factor]
+    Calculate --> D3[Domain 3: Stress<br/>15% weight<br/>HPA axis impact]
+    Calculate --> D4[Domain 4: Lifestyle<br/>15% weight<br/>Diet + Exercise + Sleep]
+    Calculate --> D5[Domain 5: EDC<br/>10% weight<br/>Environmental exposure]
+    
+    D1 --> Sum[Sum Weighted Scores]
+    D2 --> Sum
+    D3 --> Sum
+    D4 --> Sum
+    D5 --> Sum
+    
+    Sum --> Scale[Scale to 1-10 Range]
+    Scale --> Risk{Risk Score}
+    
+    Risk --> R1[1-2: Minimal<br/>Green]
+    Risk --> R2[3-4: Mild<br/>Yellow-Green]
+    Risk --> R3[5-6: Moderate<br/>Yellow]
+    Risk --> R4[7-8: Severe<br/>Orange]
+    Risk --> R5[9-10: Critical<br/>Red]
+    
+    R1 --> AI[GPT-4 Clinical Analysis]
+    R2 --> AI
+    R3 --> AI
+    R4 --> AI
+    R5 --> AI
+    
+    AI --> Results[Display Results:<br/>- Risk Score<br/>- Hormone Systems Affected<br/>- Lab Test Recommendations<br/>- Lifestyle Modifications<br/>- Clinical Interpretation]
+    
+    Results --> End([User Reviews Results])
+    
+    style Start fill:#4CAF50
+    style Calculate fill:#2196F3
+    style Risk fill:#FF9800
+    style AI fill:#10a37f
+    style Results fill:#9C27B0
+    style End fill:#4CAF50

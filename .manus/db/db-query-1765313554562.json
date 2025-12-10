@@ -1,0 +1,17 @@
+{
+  "query": "\n-- First, let's check if the account already exists\nSELECT id, email, first_name, last_name, created_at FROM users WHERE email = 'support@nexusbiomedical.ai';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute \n-- First, let's check if the account already exists\nSELECT id, email, first_name, last_name, created_at FROM users WHERE email = 'support@nexusbiomedical.ai';\n",
+  "rows": [
+    {
+      "id": "30001",
+      "email": "support@nexusbiomedical.ai",
+      "first_name": "Nexus",
+      "last_name": "Admin",
+      "created_at": "2025-12-08 18:51:27"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tfirst_name\tlast_name\tcreated_at\n30001\tsupport@nexusbiomedical.ai\tNexus\tAdmin\t2025-12-08 18:51:27\n",
+  "stderr": "",
+  "execution_time_ms": 790
+}

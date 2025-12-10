@@ -130,9 +130,14 @@ Provide AI-powered pattern recognition to identify the most likely hormone imbal
 export async function generatePersonalizedRecommendations(assessmentData) {
   const { symptoms, edcRisk, lifestyle, demographics, hormonePattern } = assessmentData;
   
-  const systemPrompt = `You are a functional medicine practitioner specializing in hormone health. Generate personalized, evidence-based recommendations.
+  const systemPrompt = `You are a functional medicine practitioner specializing in hormone health. Generate personalized, evidence-based recommendations backed by peer-reviewed scientific research.
 
-IMPORTANT: Respond ONLY with valid JSON. No markdown, no code blocks, no explanations outside the JSON structure.
+CRITICAL REQUIREMENTS:
+1. Every recommendation MUST be backed by peer-reviewed scientific research
+2. Include specific research citations (author, year, journal) for each recommendation
+3. Specify evidence level (strong/moderate/limited) based on research quality
+4. Only recommend interventions with documented scientific support
+5. Respond ONLY with valid JSON. No markdown, no code blocks, no explanations outside the JSON structure.
 
 Your response must be a JSON object with this exact structure:
 {
@@ -141,6 +146,8 @@ Your response must be a JSON object with this exact structure:
       "category": "string (diet/exercise/sleep/stress)",
       "recommendation": "specific actionable advice",
       "rationale": "why this helps hormone health",
+      "scientificEvidence": "peer-reviewed research citation and findings",
+      "evidenceLevel": "strong/moderate/limited",
       "priority": "high/medium/low",
       "timeframe": "when to expect results"
     }
@@ -150,6 +157,8 @@ Your response must be a JSON object with this exact structure:
       "supplement": "name",
       "dosage": "recommended amount",
       "rationale": "hormone health benefit",
+      "scientificEvidence": "peer-reviewed research citation and findings",
+      "evidenceLevel": "strong/moderate/limited",
       "cautions": "any warnings or contraindications"
     }
   ],
@@ -157,6 +166,8 @@ Your response must be a JSON object with this exact structure:
     {
       "action": "specific change to make",
       "impact": "how this reduces EDC exposure",
+      "scientificEvidence": "peer-reviewed research citation",
+      "evidenceLevel": "strong/moderate/limited",
       "priority": "high/medium/low"
     }
   ],

@@ -27,6 +27,8 @@ export default function EndoGuardAssessment() {
     // Demographics
     age: '',
     biologicalSex: '',
+    height: '',
+    weight: '',
     menstrualStatus: '',
     
     // Symptoms
@@ -358,6 +360,38 @@ export default function EndoGuardAssessment() {
                 <option value="male">{t('endoguard.steps.demographics.male')}</option>
                 <option value="other">{t('endoguard.steps.demographics.other')}</option>
               </select>
+            </div>
+
+            <div className="form-group">
+              <label>{t('endoguard.steps.demographics.height')}</label>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <input
+                  type="number"
+                  value={formData.height}
+                  onChange={(e) => handleInputChange('height', e.target.value)}
+                  placeholder={t('endoguard.steps.demographics.heightPlaceholder')}
+                  min="100"
+                  max="250"
+                  style={{ flex: 1 }}
+                />
+                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>cm</span>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>{t('endoguard.steps.demographics.weight')}</label>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <input
+                  type="number"
+                  value={formData.weight}
+                  onChange={(e) => handleInputChange('weight', e.target.value)}
+                  placeholder={t('endoguard.steps.demographics.weightPlaceholder')}
+                  min="30"
+                  max="300"
+                  style={{ flex: 1 }}
+                />
+                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>kg</span>
+              </div>
             </div>
 
             {formData.biologicalSex === 'female' && (

@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS provider_profiles (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  provider_type VARCHAR(100) NOT NULL,\n  specialty VARCHAR(200),\n  credentials VARCHAR(500),\n  license_number VARCHAR(100),\n  license_state VARCHAR(50),\n  practice_name VARCHAR(200),\n  practice_address TEXT,\n  phone_number VARCHAR(20),\n  bio TEXT,\n  profile_image_url VARCHAR(500),\n  verified BOOLEAN DEFAULT FALSE,\n  verification_date TIMESTAMP NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  UNIQUE KEY unique_user_provider (user_id)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS provider_profiles (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  provider_type VARCHAR(100) NOT NULL,\n  specialty VARCHAR(200),\n  credentials VARCHAR(500),\n  license_number VARCHAR(100),\n  license_state VARCHAR(50),\n  practice_name VARCHAR(200),\n  practice_address TEXT,\n  phone_number VARCHAR(20),\n  bio TEXT,\n  profile_image_url VARCHAR(500),\n  verified BOOLEAN DEFAULT FALSE,\n  verification_date TIMESTAMP NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  UNIQUE KEY unique_user_provider (user_id)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 4444
+}

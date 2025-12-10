@@ -68,6 +68,9 @@ const AdminChatbotAnalytics = lazy(() => import('./pages/AdminChatbotAnalytics')
 const FAQPage = lazy(() => import('./pages/FAQPage'))
 const ProgressDashboard = lazy(() => import('./pages/ProgressDashboard'))
 const GoalSetting = lazy(() => import('./components/GoalSetting'))
+const ProviderDashboard = lazy(() => import('./components/ProviderDashboard'))
+const AcceptInvitation = lazy(() => import('./pages/AcceptInvitation'))
+const PatientDetailView = lazy(() => import('./components/PatientDetailView'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -380,6 +383,40 @@ function App() {
           <Suspense fallback={<LoadingFallback />}>
             <ProtectedRoute>
               <GoalSetting />
+            </ProtectedRoute>
+          </Suspense>
+        } 
+      />
+
+      {/* Provider Portal Route */}
+      <Route 
+        path="/provider/dashboard" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <ProviderDashboard />
+            </ProtectedRoute>
+          </Suspense>
+        } 
+      />
+
+      {/* Accept Provider Invitation Route (Public) */}
+      <Route 
+        path="/accept-invitation" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <AcceptInvitation />
+          </Suspense>
+        } 
+      />
+
+      {/* Patient Detail View for Providers */}
+      <Route 
+        path="/provider/patient/:patientId" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <PatientDetailView />
             </ProtectedRoute>
           </Suspense>
         } 

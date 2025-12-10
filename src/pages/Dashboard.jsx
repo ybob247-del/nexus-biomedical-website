@@ -311,6 +311,33 @@ const Dashboard = () => {
           )}
         </div>
 
+        {/* Provider Portal Access */}
+        <div className="max-w-7xl mx-auto mb-12 md:mb-16">
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 md:p-12 border border-purple-400/30 shadow-2xl shadow-purple-500/30">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">🏥 Provider Portal</h2>
+                <p className="text-purple-100 text-lg mb-4">
+                  Manage your patients, view their EndoGuard assessments, and track their hormone health journey.
+                </p>
+                <ul className="text-purple-100 space-y-2 mb-6">
+                  <li className="flex items-center gap-2">✓ Invite patients to take assessments</li>
+                  <li className="flex items-center gap-2">✓ View patient results and progress</li>
+                  <li className="flex items-center gap-2">✓ Track risk scores over time</li>
+                </ul>
+              </div>
+              <div>
+                <Link
+                  to="/provider/dashboard"
+                  className="inline-block px-8 py-4 bg-white text-purple-600 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-white/50 transition-all transform hover:scale-105"
+                >
+                  Open Provider Portal →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Available Platforms - Homepage-style framed cards */}
         <div className="max-w-7xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6 md:mb-8 px-2">

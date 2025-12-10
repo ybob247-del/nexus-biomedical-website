@@ -7,6 +7,12 @@ export default function WhoBenefits() {
 
   const beneficiaries = [
     {
+      icon: '🧘',
+      titleKey: 'whoBenefits.individuals.title',
+      descKey: 'whoBenefits.individuals.description',
+      benefitKeys: ['whoBenefits.individuals.benefit1', 'whoBenefits.individuals.benefit2', 'whoBenefits.individuals.benefit3']
+    },
+    {
       icon: '🏥',
       titleKey: 'whoBenefits.smallClinics.title',
       descKey: 'whoBenefits.smallClinics.description',
@@ -53,12 +59,6 @@ export default function WhoBenefits() {
       titleKey: 'whoBenefits.telemedicine.title',
       descKey: 'whoBenefits.telemedicine.description',
       benefitKeys: ['whoBenefits.telemedicine.benefit1', 'whoBenefits.telemedicine.benefit2', 'whoBenefits.telemedicine.benefit3']
-    },
-    {
-      icon: '🧘',
-      titleKey: 'whoBenefits.individuals.title',
-      descKey: 'whoBenefits.individuals.description',
-      benefitKeys: ['whoBenefits.individuals.benefit1', 'whoBenefits.individuals.benefit2', 'whoBenefits.individuals.benefit3']
     }
   ]
 

@@ -8,6 +8,8 @@ import SubscriptionModal from './SubscriptionModal';
 import ShareableResultCard from './ShareableResultCard';
 import OnboardingTour from './OnboardingTour';
 import { endoGuardResultsTour } from '../config/tours';
+import BMIGauge from './BMIGauge';
+import { exportEndoGuardPDF } from '../utils/pdfExport';
 import '../styles/endoguard-results.css';
 import '../styles/tour.css';
 
@@ -24,18 +26,22 @@ export default function EndoGuardResults({ results }) {
   const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps, aiInsights } = results;
 
   const handleDownloadPDF = async () => {
-    // Check if user has active subscription
-    // For now, show subscription modal for all users
-    setModalFeature('PDF report download');
-    setShowSubscriptionModal(true);
-    
-    // TODO: After user subscribes, generate PDF:
-    // setIsGeneratingPDF(true);
-    // const element = document.querySelector('.endoguard-results');
-    // const opt = { ... };
-    // const html2pdf = (await import('html2pdf.js')).default;
-    // await html2pdf().set(opt).from(element).save();
-    // setIsGeneratingPDF(false);
+    try {
+      setIsGeneratingPDF(true);
+      
+      // Generate professional PDF report
+      const result = await exportEndoGuardPDF(results, user);
+      
+      if (result.success) {
+        // Show success message
+        console.log('PDF generated successfully:', result.fileName);
+      }
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      alert('Failed to generate PDF report. Please try again.');
+    } finally {
+      setIsGeneratingPDF(false);
+    }
   };
 
   const handlePremiumFeatureClick = (featureName) => {
@@ -306,6 +312,45 @@ export default function EndoGuardResults({ results }) {
                   <li key={idx} style={{ marginBottom: '8px', fontSize: '14px' }}>{step}</li>
                 ))}
               </ol>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* BMI Visualization Section */}
+      {results.demographics?.bmi && (
+        <div className="results-section" data-tour="bmi-indicator">
+          <h3>{t('endoguard.results.bmi.title', 'Body Mass Index (BMI)')}</h3>
+          <div className="bmi-container" style={{ padding: '24px 0' }}>
+            <BMIGauge bmi={results.demographics.bmi} />
+          </div>
+          {results.demographics.bmiCategory && (
+            <div style={{
+              marginTop: '24px',
+              padding: '20px',
+              background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+              borderRadius: '12px',
+              border: '1px solid #cbd5e1'
+            }}>
+              <h4 style={{ marginTop: 0, color: '#1e293b', fontSize: '18px' }}>
+                {t('endoguard.results.bmi.healthImplication', 'Health Implications')}
+              </h4>
+              <p style={{ color: '#475569', marginBottom: '12px', lineHeight: '1.6' }}>
+                {results.demographics.bmiCategory.healthImplication}
+              </p>
+              <div style={{
+                background: 'white',
+                padding: '16px',
+                borderRadius: '8px',
+                borderLeft: '4px solid #3b82f6'
+              }}>
+                <strong style={{ color: '#1e40af' }}>
+                  {t('endoguard.results.bmi.recommendation', 'Recommendation')}:
+                </strong>
+                <p style={{ margin: '8px 0 0 0', color: '#334155' }}>
+                  {results.demographics.bmiCategory.recommendation}
+                </p>
+              </div>
             </div>
           )}
         </div>

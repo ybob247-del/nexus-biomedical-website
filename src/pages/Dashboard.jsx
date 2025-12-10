@@ -226,6 +226,12 @@ const Dashboard = () => {
             </div>
             <div className="flex flex-col md:flex-row gap-4">
               <Link
+                to="/progress"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-green-500/20 to-emerald-500/20 hover:from-green-500/30 hover:to-emerald-500/30 text-white rounded-2xl font-semibold transition-all border border-green-500/40 hover:border-green-400/60 hover:shadow-xl hover:shadow-green-500/30 text-lg text-center flex items-center justify-center gap-2"
+              >
+                <span>📈</span> Progress Dashboard
+              </Link>
+              <Link
                 to="/compare-assessments"
                 className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-fuchsia-500/20 to-purple-500/20 hover:from-fuchsia-500/30 hover:to-purple-500/30 text-white rounded-2xl font-semibold transition-all border border-fuchsia-500/40 hover:border-fuchsia-400/60 hover:shadow-xl hover:shadow-fuchsia-500/30 text-lg text-center flex items-center justify-center gap-2"
               >

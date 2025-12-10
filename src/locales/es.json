@@ -540,6 +540,16 @@
         "impact": "Impacto:",
         "action": "Acción:"
       },
+      "bmi": {
+        "title": "📊 Índice de Masa Corporal (IMC)",
+        "label": "IMC",
+        "underweight": "Bajo peso",
+        "normal": "Normal",
+        "overweight": "Sobrepeso",
+        "obese": "Obeso",
+        "healthImplication": "Implicaciones para la Salud",
+        "recommendation": "Recomendación"
+      },
       "hormoneHealth": {
         "title": "🩺 Análisis de Salud Hormonal",
         "symptomsReported": "Síntomas Reportados",

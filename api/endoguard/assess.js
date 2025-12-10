@@ -557,6 +557,46 @@ async function handler(req, res) {
       ]
     };
 
+    // Save to assessment history for progress tracking (if user authenticated)
+    if (req.session?.userId || req.user?.id) {
+      const userId = req.session?.userId || req.user?.id;
+      try {
+        const historyQuery = `
+          INSERT INTO assessment_history (
+            user_id,
+            assessment_type,
+            results,
+            overall_risk_score,
+            overall_risk_level,
+            edc_risk_score,
+            symptom_count,
+            symptom_severity,
+            bmi,
+            completed_at
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          RETURNING id
+        `;
+        
+        await pool.query(historyQuery, [
+          userId,
+          'endoguard',
+          JSON.stringify(assessment),
+          assessment.overallRisk.score,
+          assessment.overallRisk.level,
+          assessment.edcExposure.riskScore,
+          assessment.hormoneHealth.symptomCount,
+          formData.symptomSeverity || 0,
+          bmi,
+          new Date().toISOString()
+        ]);
+        
+        console.log('[EndoGuard] Assessment saved to history for user:', userId);
+      } catch (historyError) {
+        // Don't fail the request if history save fails
+        console.error('[EndoGuard] Failed to save to assessment history:', historyError);
+      }
+    }
+
     // Enroll user in email drip campaign (non-blocking)
     if (formData.email) {
       try {

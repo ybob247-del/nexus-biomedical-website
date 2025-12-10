@@ -388,6 +388,16 @@
         "impact": "Impact:",
         "action": "Action:"
       },
+      "bmi": {
+        "title": "📊 Body Mass Index (BMI)",
+        "label": "BMI",
+        "underweight": "Underweight",
+        "normal": "Normal",
+        "overweight": "Overweight",
+        "obese": "Obese",
+        "healthImplication": "Health Implications",
+        "recommendation": "Recommendation"
+      },
       "hormoneHealth": {
         "title": "🩺 Hormone Health Analysis",
         "symptomsReported": "Symptoms Reported",

@@ -1,0 +1,23 @@
+{
+  "query": "-- Create assessment_history table to store historical assessment data\nCREATE TABLE IF NOT EXISTS assessment_history (\n  id SERIAL PRIMARY KEY,\n  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n  assessment_type VARCHAR(50) NOT NULL DEFAULT 'endoguard',\n  \n  -- Assessment results (stored as JSONB for flexibility)\n  results JSONB NOT NULL,\n  \n  -- Key metrics for quick querying\n  overall_risk_score INTEGER,\n  overall_risk_level VARCHAR(20),\n  edc_risk_score INTEGER,\n  symptom_count INTEGER,\n  symptom_severity INTEGER,\n  bmi DECIMAL(5, 2),\n  \n  -- Timestamps\n  completed_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  created_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  \n  -- Indexes for performance\n  CONSTRAINT valid_risk_score CHECK (overall_risk_score >= 0 AND overall_risk_score <= 100),\n  CONSTRAINT valid_edc_score CHECK (edc_risk_score >= 0 AND edc_risk_score <= 100),\n  CONSTRAINT valid_severity CHECK (symptom_severity >= 0 AND symptom_severity <= 10)\n);\n\n-- Create indexes for efficient querying\nCREATE INDEX IF NOT EXISTS idx_assessment_history_user_id ON assessment_history(user_id);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_completed_at ON assessment_history(completed_at DESC);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_user_completed ON assessment_history(user_id, completed_at DESC);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_type ON assessment_history(assessment_type);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute -- Create assessment_history table to store historical assessment data\nCREATE TABLE IF NOT EXISTS assessment_history (\n  id SERIAL PRIMARY KEY,\n  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n  assessment_type VARCHAR(50) NOT NULL DEFAULT 'endoguard',\n  \n  -- Assessment results (stored as JSONB for flexibility)\n  results JSONB NOT NULL,\n  \n  -- Key metrics for quick querying\n  overall_risk_score INTEGER,\n  overall_risk_level VARCHAR(20),\n  edc_risk_score INTEGER,\n  symptom_count INTEGER,\n  symptom_severity INTEGER,\n  bmi DECIMAL(5, 2),\n  \n  -- Timestamps\n  completed_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  created_at TIMESTAMP NOT NULL DEFAULT NOW(),\n  \n  -- Indexes for performance\n  CONSTRAINT valid_risk_score CHECK (overall_risk_score >= 0 AND overall_risk_score <= 100),\n  CONSTRAINT valid_edc_score CHECK (edc_risk_score >= 0 AND edc_risk_score <= 100),\n  CONSTRAINT valid_severity CHECK (symptom_severity >= 0 AND symptom_severity <= 10)\n);\n\n-- Create indexes for efficient querying\nCREATE INDEX IF NOT EXISTS idx_assessment_history_user_id ON assessment_history(user_id);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_completed_at ON assessment_history(completed_at DESC);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_user_completed ON assessment_history(user_id, completed_at DESC);\nCREATE INDEX IF NOT EXISTS idx_assessment_history_type ON assessment_history(assessment_type);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1064 (42000) at line 2: You have an error in your SQL syntax; check the manual that corresponds to your TiDB version for the right syntax to use line 7 column 16 near \"JSONB NOT NULL,",
+    "  ",
+    "  ",
+    "  overall_risk_score INTEGER,",
+    "  overall_risk_level VARCHAR(20),",
+    "  edc_risk_score INTEGER,",
+    "  symptom_count INTEGER,",
+    "  symptom_severity INTEGER,",
+    "  bmi DECIMAL(5, 2),",
+    "  ",
+    "  ",
+    "  completed_at TIMESTAMP NOT NULL DEFAULT NOW(),",
+    "  created_at TIMESTAMP NOT NULL DEFAULT NOW(),",
+    "  ",
+    "  ",
+    "  CONSTRAINT valid_risk_score CHECK (overall_risk_score >= 0 AND overall_"
+  ]
+}

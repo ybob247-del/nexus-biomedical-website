@@ -7,10 +7,19 @@ node_modules/
 # Build output  
 dist/
 
-# Environment variables
+# Environment variables - NEVER commit these!
 .env
+.env.*
 .env.local
 .env.production
+.env.development
+.env.test
+*.env
+**/VERCEL*.env
+**/READY*.env
+**/*production.env
+**/*staging.env
+**/*development.env
 
 # Logs
 *.log

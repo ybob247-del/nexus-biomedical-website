@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS goal_progress_logs (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  goal_id INT NOT NULL,\n  progress_value DECIMAL(10, 2) NOT NULL,\n  notes TEXT,\n  logged_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (goal_id) REFERENCES user_goals(id) ON DELETE CASCADE,\n  INDEX idx_goal_progress_goal_id (goal_id)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS goal_progress_logs (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  goal_id INT NOT NULL,\n  progress_value DECIMAL(10, 2) NOT NULL,\n  notes TEXT,\n  logged_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (goal_id) REFERENCES user_goals(id) ON DELETE CASCADE,\n  INDEX idx_goal_progress_goal_id (goal_id)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 443
+}

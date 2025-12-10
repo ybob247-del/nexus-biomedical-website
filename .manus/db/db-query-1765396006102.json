@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS goal_reminders (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  goal_id INT NOT NULL,\n  reminder_type VARCHAR(20) NOT NULL,\n  scheduled_for TIMESTAMP NOT NULL,\n  sent_at TIMESTAMP NULL,\n  status VARCHAR(20) NOT NULL DEFAULT 'pending',\n  error_message TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (goal_id) REFERENCES user_goals(id) ON DELETE CASCADE,\n  INDEX idx_goal_reminders_goal_id (goal_id),\n  INDEX idx_goal_reminders_scheduled (scheduled_for),\n  INDEX idx_goal_reminders_status (status)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS goal_reminders (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  goal_id INT NOT NULL,\n  reminder_type VARCHAR(20) NOT NULL,\n  scheduled_for TIMESTAMP NOT NULL,\n  sent_at TIMESTAMP NULL,\n  status VARCHAR(20) NOT NULL DEFAULT 'pending',\n  error_message TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (goal_id) REFERENCES user_goals(id) ON DELETE CASCADE,\n  INDEX idx_goal_reminders_goal_id (goal_id),\n  INDEX idx_goal_reminders_scheduled (scheduled_for),\n  INDEX idx_goal_reminders_status (status)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 328
+}

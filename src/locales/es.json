@@ -685,5 +685,75 @@
       "takeFullAssessment": "Realizar Evaluación Completa (GRATIS)",
       "tryAgain": "Intentar de Nuevo"
     }
+  },
+  "whoBenefits": {
+    "title": "¿Quién se Beneficia de Nexus?",
+    "subtitle": "Nuestras plataformas impulsadas por IA sirven a diversos actores en todo el ecosistema de atención médica",
+    "keyBenefits": "Beneficios Clave:",
+    "cta": "¿Listo para ver cómo Nexus puede transformar su organización?",
+    "getStarted": "Comenzar",
+    "smallClinics": {
+      "title": "Clínicas y Consultorios Pequeños",
+      "description": "Potencie su práctica con herramientas de IA de nivel empresarial a un precio asequible",
+      "benefit1": "Reduzca errores de medicación y responsabilidad",
+      "benefit2": "Mejore los resultados de los pacientes con información de IA",
+      "benefit3": "Ahorre tiempo en la toma de decisiones clínicas"
+    },
+    "hospitals": {
+      "title": "Hospitales y Sistemas de Salud",
+      "description": "Escale la excelencia clínica en toda su red con soporte de decisiones impulsado por IA",
+      "benefit1": "Estandarice protocolos de atención en todo el sistema",
+      "benefit2": "Reduzca eventos adversos de medicamentos hasta en un 40%",
+      "benefit3": "Mejore el cumplimiento normativo y los informes"
+    },
+    "insurance": {
+      "title": "Compañías de Seguros",
+      "description": "Reduzca los costos de reclamos y mejore los resultados de salud de los miembros mediante análisis preventivos de IA",
+      "benefit1": "Identifique pacientes de alto riesgo temprano",
+      "benefit2": "Reduzca hospitalizaciones innecesarias",
+      "benefit3": "Reduzca los costos generales de atención médica"
+    },
+    "medicalDevice": {
+      "title": "Compañías de Dispositivos Médicos",
+      "description": "Acelere la aprobación regulatoria y la vigilancia post-mercado con herramientas de cumplimiento impulsadas por IA",
+      "benefit1": "Agilice el proceso de presentación a la FDA",
+      "benefit2": "Automatice informes de eventos adversos",
+      "benefit3": "Reduzca el tiempo de comercialización en un 30%"
+    },
+    "pharma": {
+      "title": "Compañías Farmacéuticas",
+      "description": "Optimice ensayos clínicos y monitoreo de seguridad de medicamentos con análisis avanzados de IA",
+      "benefit1": "Prediga interacciones de medicamentos temprano",
+      "benefit2": "Mejore el reclutamiento de pacientes para ensayos",
+      "benefit3": "Mejore la eficiencia de farmacovigilancia"
+    },
+    "cro": {
+      "title": "Organizaciones de Investigación Clínica",
+      "description": "Mejore el diseño de ensayos, reclutamiento de pacientes y análisis de datos con información impulsada por IA",
+      "benefit1": "Optimice protocolos de ensayos con IA",
+      "benefit2": "Mejore las tasas de retención de pacientes",
+      "benefit3": "Acelere el análisis de datos y los informes"
+    },
+    "longTermCare": {
+      "title": "Instalaciones de Cuidado a Largo Plazo",
+      "description": "Proteja a los adultos mayores vulnerables con monitoreo de salud predictivo y herramientas de seguridad de medicamentos",
+      "benefit1": "Prevenga errores de medicación en ancianos",
+      "benefit2": "Detección temprana de deterioro de salud",
+      "benefit3": "Reduzca hospitalizaciones de emergencia"
+    },
+    "telemedicine": {
+      "title": "Plataformas de Telemedicina",
+      "description": "Mejore la calidad de la atención remota con soporte de decisiones clínicas impulsado por IA integrado en su plataforma",
+      "benefit1": "Mejore la precisión diagnóstica de forma remota",
+      "benefit2": "Reduzca la responsabilidad del proveedor en atención virtual",
+      "benefit3": "Integración perfecta con EHR"
+    },
+    "individuals": {
+      "title": "Individuos y Consumidores",
+      "description": "Tome el control de su salud con evaluaciones impulsadas por IA e información personalizada",
+      "benefit1": "Evaluaciones gratuitas de salud hormonal",
+      "benefit2": "Recomendaciones de salud personalizadas",
+      "benefit3": "Rastree su progreso de salud a lo largo del tiempo"
+    }
   }
 }

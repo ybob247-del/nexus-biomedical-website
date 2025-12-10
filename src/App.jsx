@@ -67,6 +67,7 @@ const RxGuardSpanishLanding = lazy(() => import('./pages/RxGuardSpanishLanding')
 const AdminChatbotAnalytics = lazy(() => import('./pages/AdminChatbotAnalytics'))
 const FAQPage = lazy(() => import('./pages/FAQPage'))
 const ProgressDashboard = lazy(() => import('./pages/ProgressDashboard'))
+const GoalSetting = lazy(() => import('./components/GoalSetting'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -367,6 +368,18 @@ function App() {
           <Suspense fallback={<LoadingFallback />}>
             <ProtectedRoute>
               <ProgressDashboard />
+            </ProtectedRoute>
+          </Suspense>
+        } 
+      />
+
+      {/* Goal Setting Route */}
+      <Route 
+        path="/goals" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <GoalSetting />
             </ProtectedRoute>
           </Suspense>
         } 

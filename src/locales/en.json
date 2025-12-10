@@ -490,5 +490,75 @@
       "takeFullAssessment": "Take Full Assessment (FREE)",
       "tryAgain": "Try Again"
     }
+  },
+  "whoBenefits": {
+    "title": "Who Benefits from Nexus?",
+    "subtitle": "Our AI-powered platforms serve diverse stakeholders across the healthcare ecosystem",
+    "keyBenefits": "Key Benefits:",
+    "cta": "Ready to see how Nexus can transform your organization?",
+    "getStarted": "Get Started",
+    "smallClinics": {
+      "title": "Small Clinics & Practices",
+      "description": "Empower your practice with enterprise-grade AI tools at an affordable price",
+      "benefit1": "Reduce medication errors and liability",
+      "benefit2": "Improve patient outcomes with AI insights",
+      "benefit3": "Save time on clinical decision-making"
+    },
+    "hospitals": {
+      "title": "Hospitals & Health Systems",
+      "description": "Scale clinical excellence across your entire network with AI-powered decision support",
+      "benefit1": "Standardize care protocols system-wide",
+      "benefit2": "Reduce adverse drug events by up to 40%",
+      "benefit3": "Improve regulatory compliance and reporting"
+    },
+    "insurance": {
+      "title": "Insurance Companies",
+      "description": "Reduce claims costs and improve member health outcomes through preventive AI analytics",
+      "benefit1": "Identify high-risk patients early",
+      "benefit2": "Reduce unnecessary hospitalizations",
+      "benefit3": "Lower overall healthcare costs"
+    },
+    "medicalDevice": {
+      "title": "Medical Device Companies",
+      "description": "Accelerate regulatory approval and post-market surveillance with AI-driven compliance tools",
+      "benefit1": "Streamline FDA submission process",
+      "benefit2": "Automate adverse event reporting",
+      "benefit3": "Reduce time-to-market by 30%"
+    },
+    "pharma": {
+      "title": "Pharmaceutical Companies",
+      "description": "Optimize clinical trials and drug safety monitoring with advanced AI analytics",
+      "benefit1": "Predict drug interactions early",
+      "benefit2": "Improve patient recruitment for trials",
+      "benefit3": "Enhance pharmacovigilance efficiency"
+    },
+    "cro": {
+      "title": "Clinical Research Organizations",
+      "description": "Enhance trial design, patient recruitment, and data analysis with AI-powered insights",
+      "benefit1": "Optimize trial protocols with AI",
+      "benefit2": "Improve patient retention rates",
+      "benefit3": "Accelerate data analysis and reporting"
+    },
+    "longTermCare": {
+      "title": "Long-Term Care Facilities",
+      "description": "Protect vulnerable seniors with predictive health monitoring and medication safety tools",
+      "benefit1": "Prevent medication errors in elderly",
+      "benefit2": "Early detection of health decline",
+      "benefit3": "Reduce emergency hospitalizations"
+    },
+    "telemedicine": {
+      "title": "Telemedicine Platforms",
+      "description": "Enhance remote care quality with AI-powered clinical decision support integrated into your platform",
+      "benefit1": "Improve diagnostic accuracy remotely",
+      "benefit2": "Reduce provider liability in virtual care",
+      "benefit3": "Seamless EHR integration"
+    },
+    "individuals": {
+      "title": "Individuals & Consumers",
+      "description": "Take control of your health with AI-powered assessments and personalized insights",
+      "benefit1": "Free hormone health assessments",
+      "benefit2": "Personalized health recommendations",
+      "benefit3": "Track your health progress over time"
+    }
   }
 }

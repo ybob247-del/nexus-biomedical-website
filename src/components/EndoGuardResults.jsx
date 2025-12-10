@@ -6,6 +6,7 @@ import TestRecommendations from './TestRecommendations';
 import SignupPrompt from './SignupPrompt';
 import SubscriptionModal from './SubscriptionModal';
 import ShareableResultCard from './ShareableResultCard';
+import EmailReportModal from './EmailReportModal';
 import OnboardingTour from './OnboardingTour';
 import { endoGuardResultsTour } from '../config/tours';
 import BMIGauge from './BMIGauge';
@@ -22,6 +23,7 @@ export default function EndoGuardResults({ results }) {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showEmailModal, setShowEmailModal] = useState(false);
   const [modalFeature, setModalFeature] = useState('');
   const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps, aiInsights } = results;
 
@@ -492,6 +494,13 @@ export default function EndoGuardResults({ results }) {
           >
             {t('endoguard.results.cta.downloadPDF')}
           </button>
+          <button 
+            className="btn-secondary" 
+            onClick={() => setShowEmailModal(true)}
+            style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white', border: 'none' }}
+          >
+            📧 Email Report
+          </button>
         </div>
         
         <p className="cta-guarantee">{t('endoguard.results.cta.guarantee')}</p>
@@ -512,6 +521,14 @@ export default function EndoGuardResults({ results }) {
           onClose={() => setShowShareModal(false)}
         />
       )}
+
+      {/* Email Report Modal */}
+      <EmailReportModal 
+        isOpen={showEmailModal}
+        onClose={() => setShowEmailModal(false)}
+        results={results}
+        user={user}
+      />
 
       {/* Medical Disclaimer */}
       <div className="medical-disclaimer">

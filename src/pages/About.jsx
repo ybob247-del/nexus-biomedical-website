@@ -137,45 +137,72 @@ export default function About() {
           }}>
             {[
               {
+                title: 'EndoGuard™',
+                description: 'AI-powered hormone health and environmental wellness platform. Comprehensive EDC (Endocrine Disrupting Chemicals) exposure assessment with personalized recommendations for PCOS, thyroid health, perimenopause, and hormone balance.',
+                isLive: true
+              },
+              {
                 title: 'RxGuard™',
-                description: 'Real-time medication interaction detection and polypharmacy risk assessment'
-              },
-              {
-                title: 'ReguReady™',
-                description: 'FDA compliance navigation and regulatory pathway optimization'
-              },
-              {
-                title: 'ClinicalIQ™',
-                description: 'Clinical trial design and protocol optimization'
+                description: 'Real-time medication interaction detection and polypharmacy risk assessment powered by FDA databases and clinical decision support algorithms.',
+                isLive: true
               },
               {
                 title: 'ElderWatch™',
-                description: 'Geriatric care optimization and fall risk prevention'
+                description: 'Geriatric care optimization and fall risk prevention',
+                isLive: false
               },
               {
                 title: 'PediCalc Pro™',
-                description: 'Pediatric dosing calculations and safety checks'
+                description: 'Pediatric dosing calculations and safety checks',
+                isLive: false
+              },
+              {
+                title: 'ClinicalIQ™',
+                description: 'Clinical trial design and protocol optimization',
+                isLive: false
+              },
+              {
+                title: 'ReguReady™',
+                description: 'FDA compliance navigation and regulatory pathway optimization',
+                isLive: false
               },
               {
                 title: 'SkinScan Pro™',
-                description: 'Dermatological assessment and triage support'
-              },
-              {
-                title: 'EndoGuard™',
-                description: 'Environmental health and hormone wellness platform with EDC exposure assessment'
+                description: 'Dermatological assessment and triage support',
+                isLive: false
               }
             ].map((platform, index) => (
               <div key={index} style={{
-                background: 'rgba(96, 165, 250, 0.1)',
+                background: platform.isLive ? 'rgba(96, 165, 250, 0.15)' : 'rgba(96, 165, 250, 0.1)',
                 padding: '1.5rem',
                 borderRadius: '12px',
-                border: '1px solid rgba(96, 165, 250, 0.2)'
+                border: platform.isLive ? '2px solid rgba(96, 165, 250, 0.4)' : '1px solid rgba(96, 165, 250, 0.2)',
+                position: 'relative'
               }}>
+                {platform.isLive && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                    color: '#FFFFFF',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '20px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    boxShadow: '0 0 20px rgba(16, 185, 129, 0.5)'
+                  }}>
+                    ✨ LIVE NOW
+                  </div>
+                )}
                 <h3 style={{
                   fontSize: '1.25rem',
                   fontWeight: 600,
-                  color: '#00A8CC',
-                  marginBottom: '0.75rem'
+                  color: platform.isLive ? '#60A5FA' : '#00A8CC',
+                  marginBottom: '0.75rem',
+                  paddingRight: platform.isLive ? '6rem' : '0'
                 }}>
                   {platform.title}
                 </h3>

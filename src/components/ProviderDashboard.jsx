@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Users, UserPlus, Search, Filter, Calendar, TrendingUp, 
-  AlertCircle, CheckCircle, Clock, Mail, X 
+  AlertCircle, CheckCircle, Clock, Mail, X, LogOut 
 } from 'lucide-react';
 
 const ProviderDashboard = () => {
@@ -23,6 +23,24 @@ const ProviderDashboard = () => {
   const [inviteLoading, setInviteLoading] = useState(false);
   const [inviteError, setInviteError] = useState('');
   const [inviteSuccess, setInviteSuccess] = useState(false);
+  const [isImpersonating, setIsImpersonating] = useState(false);
+
+  useEffect(() => {
+    // Check if admin is impersonating
+    const impersonationToken = localStorage.getItem('impersonation_token');
+    setIsImpersonating(!!impersonationToken);
+  }, []);
+
+  const handleExitImpersonation = () => {
+    // Restore original admin token
+    const originalToken = localStorage.getItem('original_token');
+    if (originalToken) {
+      localStorage.setItem('token', originalToken);
+      localStorage.removeItem('impersonation_token');
+      localStorage.removeItem('original_token');
+      navigate('/admin/providers');
+    }
+  };
 
   useEffect(() => {
     fetchPatients();
@@ -116,8 +134,21 @@ const ProviderDashboard = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Provider Portal</h1>
-          <p className="text-gray-600">Manage your patients and track their hormone health journey</p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-2">Provider Portal</h1>
+              <p className="text-gray-600">Manage your patients and track their hormone health journey</p>
+            </div>
+            {isImpersonating && (
+              <button
+                onClick={handleExitImpersonation}
+                className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                <LogOut size={20} />
+                Exit Provider View
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Summary Cards */}

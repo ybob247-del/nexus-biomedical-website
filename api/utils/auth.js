@@ -37,8 +37,9 @@ async function comparePassword(password, hash) {
  */
 function generateToken(user) {
   const payload = {
-    userId: user.id,
+    userId: user.userId || user.id,
     email: user.email,
+    ...user // Allow additional fields like isProvider, impersonatedBy
   };
   
   return jwt.sign(payload, JWT_SECRET, {

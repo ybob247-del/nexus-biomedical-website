@@ -71,6 +71,7 @@ const GoalSetting = lazy(() => import('./components/GoalSetting'))
 const ProviderDashboard = lazy(() => import('./components/ProviderDashboard'))
 const AcceptInvitation = lazy(() => import('./pages/AcceptInvitation'))
 const PatientDetailView = lazy(() => import('./components/PatientDetailView'))
+const AdminProviderManagement = lazy(() => import('./pages/AdminProviderManagement'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -658,6 +659,16 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminABTests />
+          </Suspense>
+        } 
+      />
+
+      {/* Admin Provider Management Route */}
+      <Route 
+        path="/admin/providers" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminProviderManagement />
           </Suspense>
         } 
       />

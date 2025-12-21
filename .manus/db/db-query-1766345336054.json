@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES\n('17924-92-4', 'Zearalenone', '[\"ZEN\", \"F-2 toxin\"]', 'Mycotoxin', 'confirmed', '[\"reproductive\"]', 'Potent estrogenic effects, reproductive toxicity', '[\"Contaminated grains\", \"Corn\", \"Wheat\", \"Animal feed\"]', '[\"ingestion\"]', 'low', 'FDA monitored, mycotoxin', '{}');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES\n('17924-92-4', 'Zearalenone', '[\"ZEN\", \"F-2 toxin\"]', 'Mycotoxin', 'confirmed', '[\"reproductive\"]', 'Potent estrogenic effects, reproductive toxicity', '[\"Contaminated grains\", \"Corn\", \"Wheat\", \"Animal feed\"]', '[\"ingestion\"]', 'low', 'FDA monitored, mycotoxin', '{}');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 66
+}

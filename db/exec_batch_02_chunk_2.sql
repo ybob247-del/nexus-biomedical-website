@@ -1,0 +1,6 @@
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('355-46-4', 'Perfluorohexanoic acid', '["PFHxA"]', 'PFAS', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Food packaging", "Industrial use"]', '["ingestion"]', 'high', 'Replacement chemical', '{"replacement": "PFOA substitute"}'),
+('375-85-9', 'Perfluoroheptanesulfonic acid', '["PFHpS"]', 'PFAS', 'confirmed', '["thyroid"]', 'Thyroid effects', '["Industrial processes"]', '["ingestion", "inhalation"]', 'very high', 'Emerging concern', '{}'),
+('335-76-2', 'Perfluoropentanoic acid', '["PFPeA"]', 'PFAS', 'suspected', '["thyroid"]', 'Potential thyroid effects', '["Industrial use"]', '["ingestion"]', 'moderate', 'Limited data', '{}'),
+('2706-91-4', 'Perfluorotridecanoic acid', '["PFTrDA"]', 'PFAS', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Industrial applications"]', '["ingestion"]', 'very high', 'Emerging concern', '{}'),
+('376-06-7', 'Perfluorotetradecanoic acid', '["PFTA", "PFTeDA"]', 'PFAS', 'suspected', '["thyroid"]', 'Potential thyroid effects', '["Industrial use"]', '["ingestion"]', 'very high', 'Limited data', '{}');

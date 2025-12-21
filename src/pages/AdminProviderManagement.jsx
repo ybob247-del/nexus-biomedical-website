@@ -157,10 +157,10 @@ const AdminProviderManagement = () => {
             color: '#fff',
             marginBottom: '0.5rem'
           }}>
-            Provider Management
+            Clinician Management
           </h1>
           <p style={{ color: '#94a3b8', fontSize: '1.1rem' }}>
-            Manage provider access and view provider dashboards
+            Manage clinician access and view clinician dashboards
           </p>
         </div>
 
@@ -181,7 +181,7 @@ const AdminProviderManagement = () => {
               <Users size={32} />
               <div>
                 <div style={{ fontSize: '2rem', fontWeight: 700 }}>{stats.total}</div>
-                <div style={{ opacity: 0.9 }}>Total Providers</div>
+                <div style={{ opacity: 0.9 }}>Total Clinicians</div>
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@ const AdminProviderManagement = () => {
               <CheckCircle size={32} />
               <div>
                 <div style={{ fontSize: '2rem', fontWeight: 700 }}>{stats.active}</div>
-                <div style={{ opacity: 0.9 }}>Active Providers</div>
+                <div style={{ opacity: 0.9 }}>Active Clinicians</div>
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ const AdminProviderManagement = () => {
             }}
           >
             <UserPlus size={20} />
-            Invite Provider
+            Invite Clinician
           </button>
 
           <div style={{ flex: 1, display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -278,7 +278,7 @@ const AdminProviderManagement = () => {
               />
               <input
                 type="text"
-                placeholder="Search providers..."
+                placeholder="Search clinicians..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
@@ -465,7 +465,7 @@ const AdminProviderManagement = () => {
             border: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
             <h2 style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1.5rem' }}>
-              Invite Provider
+              Invite Clinician
             </h2>
 
             {inviteSuccess ? (

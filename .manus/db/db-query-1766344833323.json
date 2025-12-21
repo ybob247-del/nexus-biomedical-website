@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE edc_chemicals \nADD COLUMN last_literature_update TIMESTAMP NULL,\nADD COLUMN literature_update_status ENUM('current', 'stale', 'never_updated') DEFAULT 'never_updated';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute ALTER TABLE edc_chemicals \nADD COLUMN last_literature_update TIMESTAMP NULL,\nADD COLUMN literature_update_status ENUM('current', 'stale', 'never_updated') DEFAULT 'never_updated';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 869
+}

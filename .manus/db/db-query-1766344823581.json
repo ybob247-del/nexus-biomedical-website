@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS edc_literature_references (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  edc_id INT NOT NULL,\n  pubmed_id VARCHAR(20),\n  doi VARCHAR(255),\n  title TEXT NOT NULL,\n  authors TEXT,\n  journal VARCHAR(500),\n  publication_date DATE,\n  abstract TEXT,\n  keywords TEXT,\n  relevance_score DECIMAL(3,2),\n  citation_count INT DEFAULT 0,\n  last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (edc_id) REFERENCES edc_chemicals(id) ON DELETE CASCADE,\n  INDEX idx_edc_id (edc_id),\n  INDEX idx_pubmed_id (pubmed_id),\n  INDEX idx_publication_date (publication_date),\n  INDEX idx_relevance_score (relevance_score)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS edc_literature_references (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  edc_id INT NOT NULL,\n  pubmed_id VARCHAR(20),\n  doi VARCHAR(255),\n  title TEXT NOT NULL,\n  authors TEXT,\n  journal VARCHAR(500),\n  publication_date DATE,\n  abstract TEXT,\n  keywords TEXT,\n  relevance_score DECIMAL(3,2),\n  citation_count INT DEFAULT 0,\n  last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (edc_id) REFERENCES edc_chemicals(id) ON DELETE CASCADE,\n  INDEX idx_edc_id (edc_id),\n  INDEX idx_pubmed_id (pubmed_id),\n  INDEX idx_publication_date (publication_date),\n  INDEX idx_relevance_score (relevance_score)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 3536
+}

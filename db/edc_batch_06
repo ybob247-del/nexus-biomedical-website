@@ -1,0 +1,8 @@
+-- BATCH 6: Flame Retardants
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('5436-43-1', 'PBDE-47', '["2,2,4,4-Tetrabromodiphenyl ether"]', 'Polybrominated diphenyl ether', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, neurodevelopmental effects, reproductive toxicity', '["Flame retardants in furniture", "Electronics", "Building materials", "House dust"]', '["ingestion", "inhalation", "dermal"]', 'very high', 'Phased out in US (2013), restricted in EU', '{"phase_out": "2013", "persistence": "Bioaccumulates in fatty tissues"}'),
+
+('60348-60-9', 'PBDE-99', '["2,2,4,4,5-Pentabromodiphenyl ether"]', 'Polybrominated diphenyl ether', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, neurodevelopmental effects, reproductive toxicity', '["Flame retardants", "Furniture foam", "Electronics", "House dust"]', '["ingestion", "inhalation", "dermal"]', 'very high', 'Phased out in US (2013), restricted in EU', '{"phase_out": "2013"}'),
+
+('79-94-7', 'Tetrabromobisphenol A', '["TBBPA"]', 'Brominated flame retardant', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, reproductive effects', '["Flame retardant in electronics", "Circuit boards", "Plastics"]', '["ingestion", "inhalation"]', 'moderate', 'Still in use, under review', '{"current_use": "Widely used in electronics"}');
+

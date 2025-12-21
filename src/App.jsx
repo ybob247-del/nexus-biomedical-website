@@ -72,6 +72,8 @@ const ProviderDashboard = lazy(() => import('./components/ProviderDashboard'))
 const AcceptInvitation = lazy(() => import('./pages/AcceptInvitation'))
 const PatientDetailView = lazy(() => import('./components/PatientDetailView'))
 const AdminProviderManagement = lazy(() => import('./pages/AdminProviderManagement'))
+const BetaSurvey = lazy(() => import('./pages/BetaSurvey'))
+const AdminBetaFeedback = lazy(() => import('./pages/AdminBetaFeedback'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -669,6 +671,28 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminProviderManagement />
+          </Suspense>
+        } 
+      />
+
+      {/* Beta Survey Route */}
+      <Route 
+        path="/beta/survey" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <ProtectedRoute>
+              <BetaSurvey />
+            </ProtectedRoute>
+          </Suspense>
+        } 
+      />
+
+      {/* Admin Beta Feedback Route */}
+      <Route 
+        path="/admin/beta-feedback" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminBetaFeedback />
           </Suspense>
         } 
       />

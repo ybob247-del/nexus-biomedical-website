@@ -1,0 +1,160 @@
+{
+  "query": "SELECT chemical_name, cas_number, chemical_class FROM edc_chemicals ORDER BY id DESC LIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT chemical_name, cas_number, chemical_class FROM edc_chemicals ORDER BY id DESC LIMIT 30;",
+  "rows": [
+    {
+      "chemical_name": "Bisphenol B",
+      "cas_number": "77-40-7",
+      "chemical_class": "Industrial chemical"
+    },
+    {
+      "chemical_name": "2-Bromo-2-nitropropane-1,3-diol",
+      "cas_number": "52-51-7",
+      "chemical_class": "Preservative"
+    },
+    {
+      "chemical_name": "Dinotefuran",
+      "cas_number": "135410-20-7",
+      "chemical_class": "Neonicotinoid insecticide"
+    },
+    {
+      "chemical_name": "Acetamiprid",
+      "cas_number": "165252-70-0",
+      "chemical_class": "Neonicotinoid insecticide"
+    },
+    {
+      "chemical_name": "Clothianidin",
+      "cas_number": "210880-92-5",
+      "chemical_class": "Neonicotinoid insecticide"
+    },
+    {
+      "chemical_name": "Thiamethoxam",
+      "cas_number": "153719-23-4",
+      "chemical_class": "Neonicotinoid insecticide"
+    },
+    {
+      "chemical_name": "Flumethrin",
+      "cas_number": "54406-48-3",
+      "chemical_class": "Pyrethroid insecticide"
+    },
+    {
+      "chemical_name": "Fenpropathrin",
+      "cas_number": "39515-41-8",
+      "chemical_class": "Pyrethroid insecticide"
+    },
+    {
+      "chemical_name": "Fenpropathrin",
+      "cas_number": "65731-84-2",
+      "chemical_class": "Pyrethroid insecticide"
+    },
+    {
+      "chemical_name": "Cyhalothrin",
+      "cas_number": "68085-85-8",
+      "chemical_class": "Pyrethroid insecticide"
+    },
+    {
+      "chemical_name": "Lambda-cyhalothrin",
+      "cas_number": "91465-08-6",
+      "chemical_class": "Pyrethroid insecticide"
+    },
+    {
+      "chemical_name": "Ethiofencarb",
+      "cas_number": "2631-40-5",
+      "chemical_class": "Carbamate insecticide"
+    },
+    {
+      "chemical_name": "Nitrapyrin",
+      "cas_number": "1929-82-4",
+      "chemical_class": "Nitrification inhibitor"
+    },
+    {
+      "chemical_name": "Benomyl",
+      "cas_number": "17804-35-2",
+      "chemical_class": "Carbamate fungicide"
+    },
+    {
+      "chemical_name": "Bendiocarb",
+      "cas_number": "22781-23-3",
+      "chemical_class": "Carbamate insecticide"
+    },
+    {
+      "chemical_name": "Propoxur",
+      "cas_number": "114-26-1",
+      "chemical_class": "Carbamate insecticide"
+    },
+    {
+      "chemical_name": "Methiocarb",
+      "cas_number": "2032-65-7",
+      "chemical_class": "Carbamate insecticide"
+    },
+    {
+      "chemical_name": "Prothoate",
+      "cas_number": "2275-18-5",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Azinphos-methyl",
+      "cas_number": "86-50-0",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Azinphos-ethyl",
+      "cas_number": "2642-71-9",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Quinalphos",
+      "cas_number": "13593-03-8",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Methamidophos",
+      "cas_number": "10265-92-6",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Methidathion",
+      "cas_number": "950-37-8",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Crotoxyphos",
+      "cas_number": "7700-17-6",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Phosphamidon",
+      "cas_number": "13171-21-6",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Carbophenothion",
+      "cas_number": "786-19-6",
+      "chemical_class": "Organophosphate insecticide"
+    },
+    {
+      "chemical_name": "Equol",
+      "cas_number": "531-95-3",
+      "chemical_class": "Phytoestrogen (isoflavone metabolite)"
+    },
+    {
+      "chemical_name": "Quercetin",
+      "cas_number": "117-39-5",
+      "chemical_class": "Phytoestrogen (flavonoid)"
+    },
+    {
+      "chemical_name": "Kaempferol",
+      "cas_number": "520-18-3",
+      "chemical_class": "Phytoestrogen (flavonoid)"
+    },
+    {
+      "chemical_name": "Daidzein",
+      "cas_number": "486-66-8",
+      "chemical_class": "Phytoestrogen (isoflavone)"
+    }
+  ],
+  "messages": [],
+  "stdout": "chemical_name\tcas_number\tchemical_class\nBisphenol B\t77-40-7\tIndustrial chemical\n2-Bromo-2-nitropropane-1,3-diol\t52-51-7\tPreservative\nDinotefuran\t135410-20-7\tNeonicotinoid insecticide\nAcetamiprid\t165252-70-0\tNeonicotinoid insecticide\nClothianidin\t210880-92-5\tNeonicotinoid insecticide\nThiamethoxam\t153719-23-4\tNeonicotinoid insecticide\nFlumethrin\t54406-48-3\tPyrethroid insecticide\nFenpropathrin\t39515-41-8\tPyrethroid insecticide\nFenpropathrin\t65731-84-2\tPyrethroid insecticide\nCyhalothrin\t68085-85-8\tPyrethroid insecticide\nLambda-cyhalothrin\t91465-08-6\tPyrethroid insecticide\nEthiofencarb\t2631-40-5\tCarbamate insecticide\nNitrapyrin\t1929-82-4\tNitrification inhibitor\nBenomyl\t17804-35-2\tCarbamate fungicide\nBendiocarb\t22781-23-3\tCarbamate insecticide\nPropoxur\t114-26-1\tCarbamate insecticide\nMethiocarb\t2032-65-7\tCarbamate insecticide\nProthoate\t2275-18-5\tOrganophosphate insecticide\nAzinphos-methyl\t86-50-0\tOrganophosphate insecticide\nAzinphos-ethyl\t2642-71-9\tOrganophosphate insecticide\nQuinalphos\t13593-03-8\tOrganophosphate insecticide\nMethamidophos\t10265-92-6\tOrganophosphate insecticide\nMethidathion\t950-37-8\tOrganophosphate insecticide\nCrotoxyphos\t7700-17-6\tOrganophosphate insecticide\nPhosphamidon\t13171-21-6\tOrganophosphate insecticide\nCarbophenothion\t786-19-6\tOrganophosphate insecticide\nEquol\t531-95-3\tPhytoestrogen (isoflavone metabolite)\nQuercetin\t117-39-5\tPhytoestrogen (flavonoid)\nKaempferol\t520-18-3\tPhytoestrogen (flavonoid)\nDaidzein\t486-66-8\tPhytoestrogen (isoflavone)\n",
+  "stderr": "",
+  "execution_time_ms": 145
+}

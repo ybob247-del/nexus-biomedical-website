@@ -1,0 +1,10 @@
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('25154-52-3', 'Nonylphenol', '["NP"]', 'Surfactant metabolite', 'confirmed', '["reproductive"]', 'Estrogenic effects, reproductive toxicity, aquatic toxicity', '["Detergent breakdown product", "Industrial cleaners", "Pesticide ingredient", "Wastewater"]', '["ingestion", "dermal"]', 'high', 'Restricted in EU, under review in US', '{"environmental_concern": "Persistent in aquatic environments"}'),
+
+('1806-26-4', 'Octylphenol', '["OP"]', 'Surfactant', 'confirmed', '["reproductive"]', 'Estrogenic effects, reproductive toxicity', '["Industrial surfactants", "Detergents", "Pesticide ingredients"]', '["ingestion", "dermal"]', 'high', 'Restricted in EU', '{}'),
+
+('100-42-5', 'Styrene', '["Vinyl benzene"]', 'Industrial chemical', 'suspected', '["reproductive"]', 'Reproductive effects, neurotoxicity, potential carcinogen', '["Polystyrene plastics", "Food containers", "Building materials", "Cigarette smoke"]', '["inhalation", "ingestion"]', 'moderate', 'Classified as possible carcinogen', '{"iarc": "Group 2B possible carcinogen"}'),
+
+('50471-44-8', 'Vinclozolin', '["Ronilan"]', 'Fungicide', 'confirmed', '["reproductive"]', 'Anti-androgenic effects, reproductive toxicity, multi-generational effects', '["Fungicide", "Agricultural use (banned in EU)"]', '["dermal", "inhalation", "ingestion"]', 'low', 'Banned in EU (2007), cancelled in US (2013)', '{"multi_generational": "Effects persist across generations", "status": "Cancelled in US 2013"}'),
+
+('32809-16-8', 'Procymidone', '["Sumisclex"]', 'Fungicide', 'confirmed', '["reproductive"]', 'Anti-androgenic effects, reproductive toxicity', '["Fungicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'low', 'Banned in EU, restricted in US', '{}');

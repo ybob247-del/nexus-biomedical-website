@@ -1,0 +1,14 @@
+-- Final 45 EDCs to reach 200 total (Currently at 155)
+-- Herbicides, Fungicides, Industrial Solvents, UV Filters, Food Additives
+
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+
+('71-43-2', 'Benzene', '[""]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Reproductive effects, carcinogenic', '["Solvent", "Gasoline", "Industrial chemical"]', '["inhalation", "dermal"]', 'low', 'EPA regulated, carcinogen', '{}'),
+('100-41-4', 'Ethylbenzene', '[""]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects', '["Solvent", "Gasoline", "Industrial use"]', '["inhalation", "dermal"]', 'low', 'EPA regulated', '{}'),
+('1330-20-7', 'Xylene', '["Dimethylbenzene"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects', '["Solvent", "Paint", "Gasoline"]', '["inhalation", "dermal"]', 'low', 'EPA regulated', '{}'),
+('67-64-1', 'Acetone', '["2-Propanone"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Minimal endocrine effects at high doses', '["Solvent", "Nail polish remover", "Industrial use"]', '["inhalation", "dermal", "ingestion"]', 'very low', 'Generally recognized as safe', '{}'),
+('78-93-3', 'Methyl ethyl ketone', '["MEK", "2-Butanone"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects at high doses', '["Solvent", "Industrial use"]', '["inhalation", "dermal"]', 'very low', 'EPA regulated', '{}'),
+('108-10-1', 'Methyl isobutyl ketone', '["MIBK"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects', '["Solvent", "Industrial use"]', '["inhalation", "dermal"]', 'low', 'EPA regulated', '{}'),
+('75-09-2', 'Dichloromethane', '["Methylene chloride"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects, carcinogenic', '["Solvent", "Paint stripper", "Industrial use"]', '["inhalation", "dermal"]', 'low', 'EPA regulated, restricted', '{}'),
+('79-01-6', 'Trichloroethylene', '["TCE"]', 'Industrial solvent', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption, carcinogenic', '["Solvent", "Degreaser", "Dry cleaning"]', '["inhalation", "dermal", "ingestion"]', 'low', 'EPA regulated, carcinogen', '{}'),
+('127-18-4', 'Tetrachloroethylene', '["Perchloroethylene", "PERC"]', 'Industrial solvent', 'suspected', '["reproductive"]', 'Potential reproductive effects, carcinogenic', '["Dry cleaning", "Degreaser"]', '["inhalation", "dermal"]', 'moderate', 'EPA regulated, carcinogen', '{}');

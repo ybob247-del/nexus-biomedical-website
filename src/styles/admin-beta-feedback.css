@@ -1,0 +1,353 @@
+.admin-beta-feedback {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 100px 2rem 4rem;
+}
+
+.feedback-header {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.feedback-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 1rem 0 0.5rem;
+}
+
+.stat-label {
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Mobile App Stats */
+.mobile-app-stats {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.mobile-app-stats h3 {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.mobile-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 168, 204, 0.1);
+  border: 2px solid rgba(0, 168, 204, 0.3);
+  border-radius: 10px;
+}
+
+.mobile-stat-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-stat-value {
+  color: #00A8CC;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+/* Controls */
+.feedback-controls {
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #00A8CC;
+}
+
+.filter-select option {
+  background: #1e293b;
+  color: #FFFFFF;
+}
+
+.export-btn {
+  background: linear-gradient(135deg, #00A8CC 0%, #5B2C87 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 168, 204, 0.4);
+}
+
+/* Feedback List */
+.feedback-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feedback-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.feedback-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feedback-user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.feedback-user strong {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+}
+
+.feedback-email {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.feedback-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.feedback-track,
+.feedback-week,
+.feedback-date {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 168, 204, 0.2);
+  border: 1px solid rgba(0, 168, 204, 0.4);
+  border-radius: 20px;
+  color: #00A8CC;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.feedback-ratings {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.rating-badge {
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 184, 0, 0.1);
+  border: 2px solid rgba(255, 184, 0, 0.3);
+  border-radius: 10px;
+  color: #FFB800;
+  font-size: 0.95rem;
+}
+
+.rating-badge strong {
+  color: #FFFFFF;
+  margin-left: 0.5rem;
+}
+
+.mobile-preference {
+  background: rgba(91, 44, 135, 0.1);
+  border-left: 4px solid #5B2C87;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #E8F4FD;
+  border-radius: 5px;
+}
+
+.mobile-preference strong {
+  color: #FFFFFF;
+}
+
+.feedback-text {
+  margin-bottom: 1.5rem;
+}
+
+.feedback-text strong {
+  color: #00A8CC;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-text p {
+  color: #E8F4FD;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feedback-testimonial {
+  background: rgba(0, 208, 132, 0.1);
+  border-left: 4px solid #00D084;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+}
+
+.feedback-testimonial strong {
+  color: #00D084;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-testimonial p {
+  color: #E8F4FD;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feedback-footer {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feedback-footer span {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.feedback-footer .positive {
+  background: rgba(0, 208, 132, 0.2);
+  color: #00D084;
+}
+
+.feedback-footer .negative {
+  background: rgba(255, 71, 87, 0.2);
+  color: #FF4757;
+}
+
+.loading,
+.no-feedback {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-beta-feedback {
+    padding: 80px 1rem 2rem;
+  }
+
+  .feedback-header h1 {
+    font-size: 2rem;
+  }
+
+  .feedback-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .export-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .feedback-header-row {
+    flex-direction: column;
+  }
+
+  .feedback-meta {
+    width: 100%;
+  }
+}

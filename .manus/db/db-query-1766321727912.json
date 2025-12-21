@@ -1,0 +1,186 @@
+{
+  "query": "SELECT chemical_class, COUNT(*) as count FROM edc_chemicals GROUP BY chemical_class ORDER BY count DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT chemical_class, COUNT(*) as count FROM edc_chemicals GROUP BY chemical_class ORDER BY count DESC;",
+  "rows": [
+    {
+      "chemical_class": "Plasticizer",
+      "count": "20"
+    },
+    {
+      "chemical_class": "Organophosphate insecticide",
+      "count": "18"
+    },
+    {
+      "chemical_class": "Fungicide",
+      "count": "12"
+    },
+    {
+      "chemical_class": "PFAS",
+      "count": "12"
+    },
+    {
+      "chemical_class": "Herbicide",
+      "count": "10"
+    },
+    {
+      "chemical_class": "Polychlorinated biphenyl",
+      "count": "10"
+    },
+    {
+      "chemical_class": "Polybrominated diphenyl ether",
+      "count": "6"
+    },
+    {
+      "chemical_class": "Industrial chemical",
+      "count": "6"
+    },
+    {
+      "chemical_class": "Organochlorine insecticide",
+      "count": "5"
+    },
+    {
+      "chemical_class": "Pyrethroid insecticide",
+      "count": "5"
+    },
+    {
+      "chemical_class": "Natural estrogen",
+      "count": "3"
+    },
+    {
+      "chemical_class": "Carbamate insecticide",
+      "count": "3"
+    },
+    {
+      "chemical_class": "Anabolic steroid",
+      "count": "3"
+    },
+    {
+      "chemical_class": "Preservative",
+      "count": "3"
+    },
+    {
+      "chemical_class": "Heavy metal",
+      "count": "3"
+    },
+    {
+      "chemical_class": "Triazine herbicide",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Phytoestrogen (isoflavone)",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Phytoestrogen (flavonoid)",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Androgen",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Synthetic estrogen",
+      "count": "2"
+    },
+    {
+      "chemical_class": "PFAS (Forever chemical)",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Antimicrobial agent",
+      "count": "2"
+    },
+    {
+      "chemical_class": "Organotin acaricide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Surfactant metabolite",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Brominated flame retardant",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Synergist",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Insecticide/Acaricide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Acaricide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Dinitroaniline herbicide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Phytoestrogen (isoflavone metabolite)",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Ketone solvent",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Neonicotinoid insecticide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Solvent",
+      "count": "1"
+    },
+    {
+      "chemical_class": "UV filter",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Insect growth regulator",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Fungicide/disinfectant",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Organochlorine fungicide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Fungicide/industrial chemical",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Thiocarbamate herbicide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Polychlorinated biphenyl mixture",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Organochlorine (DDT breakdown product)",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Surfactant",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Carbamate insecticide/nematicide",
+      "count": "1"
+    },
+    {
+      "chemical_class": "Pesticide synergist",
+      "count": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "chemical_class\tcount\nPlasticizer\t20\nOrganophosphate insecticide\t18\nFungicide\t12\nPFAS\t12\nHerbicide\t10\nPolychlorinated biphenyl\t10\nPolybrominated diphenyl ether\t6\nIndustrial chemical\t6\nOrganochlorine insecticide\t5\nPyrethroid insecticide\t5\nNatural estrogen\t3\nCarbamate insecticide\t3\nAnabolic steroid\t3\nPreservative\t3\nHeavy metal\t3\nTriazine herbicide\t2\nPhytoestrogen (isoflavone)\t2\nPhytoestrogen (flavonoid)\t2\nAndrogen\t2\nSynthetic estrogen\t2\nPFAS (Forever chemical)\t2\nAntimicrobial agent\t2\nOrganotin acaricide\t1\nSurfactant metabolite\t1\nBrominated flame retardant\t1\nSynergist\t1\nInsecticide/Acaricide\t1\nAcaricide\t1\nDinitroaniline herbicide\t1\nPhytoestrogen (isoflavone metabolite)\t1\nKetone solvent\t1\nNeonicotinoid insecticide\t1\nSolvent\t1\nUV filter\t1\nInsect growth regulator\t1\nFungicide/disinfectant\t1\nOrganochlorine fungicide\t1\nFungicide/industrial chemical\t1\nThiocarbamate herbicide\t1\nPolychlorinated biphenyl mixture\t1\nOrganochlorine (DDT breakdown product)\t1\nSurfactant\t1\nCarbamate insecticide/nematicide\t1\nPesticide synergist\t1\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

@@ -1,0 +1,110 @@
+{
+  "query": "SELECT id, cas_number, chemical_name FROM edc_chemicals ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT id, cas_number, chemical_name FROM edc_chemicals ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "cas_number": "94-75-7",
+      "chemical_name": "2,4-Dichlorophenoxyacetic acid"
+    },
+    {
+      "id": "2",
+      "cas_number": "1912-24-9",
+      "chemical_name": "Atrazine"
+    },
+    {
+      "id": "3",
+      "cas_number": "2921-88-2",
+      "chemical_name": "Chlorpyrifos"
+    },
+    {
+      "id": "4",
+      "cas_number": "63-25-2",
+      "chemical_name": "Carbaryl"
+    },
+    {
+      "id": "5",
+      "cas_number": "82657-04-3",
+      "chemical_name": "Bifenthrin"
+    },
+    {
+      "id": "6",
+      "cas_number": "71751-41-2",
+      "chemical_name": "Abamectin"
+    },
+    {
+      "id": "7",
+      "cas_number": "30560-19-1",
+      "chemical_name": "Acephate"
+    },
+    {
+      "id": "8",
+      "cas_number": "67-64-1",
+      "chemical_name": "Acetone"
+    },
+    {
+      "id": "9",
+      "cas_number": "1861-40-1",
+      "chemical_name": "Benfluralin"
+    },
+    {
+      "id": "10",
+      "cas_number": "133-06-2",
+      "chemical_name": "Captan"
+    },
+    {
+      "id": "11",
+      "cas_number": "1563-66-2",
+      "chemical_name": "Carbofuran"
+    },
+    {
+      "id": "12",
+      "cas_number": "1897-45-6",
+      "chemical_name": "Chlorothalonil"
+    },
+    {
+      "id": "13",
+      "cas_number": "68359-37-5",
+      "chemical_name": "Cyfluthrin"
+    },
+    {
+      "id": "14",
+      "cas_number": "52315-07-8",
+      "chemical_name": "Cypermethrin"
+    },
+    {
+      "id": "15",
+      "cas_number": "1861-32-1",
+      "chemical_name": "Dimethyl tetrachloroterephthalate"
+    },
+    {
+      "id": "16",
+      "cas_number": "333-41-5",
+      "chemical_name": "Diazinon"
+    },
+    {
+      "id": "17",
+      "cas_number": "1194-65-6",
+      "chemical_name": "Dichlobenil"
+    },
+    {
+      "id": "18",
+      "cas_number": "60-51-5",
+      "chemical_name": "Dimethoate"
+    },
+    {
+      "id": "19",
+      "cas_number": "759-94-4",
+      "chemical_name": "EPTC"
+    },
+    {
+      "id": "20",
+      "cas_number": "66230-04-4",
+      "chemical_name": "Esfenvalerate"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcas_number\tchemical_name\n1\t94-75-7\t2,4-Dichlorophenoxyacetic acid\n2\t1912-24-9\tAtrazine\n3\t2921-88-2\tChlorpyrifos\n4\t63-25-2\tCarbaryl\n5\t82657-04-3\tBifenthrin\n6\t71751-41-2\tAbamectin\n7\t30560-19-1\tAcephate\n8\t67-64-1\tAcetone\n9\t1861-40-1\tBenfluralin\n10\t133-06-2\tCaptan\n11\t1563-66-2\tCarbofuran\n12\t1897-45-6\tChlorothalonil\n13\t68359-37-5\tCyfluthrin\n14\t52315-07-8\tCypermethrin\n15\t1861-32-1\tDimethyl tetrachloroterephthalate\n16\t333-41-5\tDiazinon\n17\t1194-65-6\tDichlobenil\n18\t60-51-5\tDimethoate\n19\t759-94-4\tEPTC\n20\t66230-04-4\tEsfenvalerate\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

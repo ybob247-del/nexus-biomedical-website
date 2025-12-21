@@ -1,0 +1,11 @@
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('72-33-3', 'Mestranol', '[""]', 'Synthetic estrogen', 'confirmed', '["reproductive"]', 'Estrogenic effects', '["Birth control pills"]', '["ingestion"]', 'moderate', 'Pharmaceutical', '{}'),
+('57-91-0', '17α-Estradiol', '[""]', 'Estrogen isomer', 'confirmed', '["reproductive"]', 'Estrogenic effects', '["Pharmaceutical", "Research"]', '["ingestion"]', 'moderate', 'Pharmaceutical', '{}'),
+('979-32-8', 'Estradiol valerate', '[""]', 'Estrogen ester', 'confirmed', '["reproductive"]', 'Estrogenic effects', '["Hormone therapy"]', '["injection", "ingestion"]', 'moderate', 'Pharmaceutical', '{}'),
+('113-38-2', 'Estradiol benzoate', '[""]', 'Estrogen ester', 'confirmed', '["reproductive"]', 'Estrogenic effects', '["Hormone therapy", "Veterinary use"]', '["injection"]', 'moderate', 'Pharmaceutical', '{}'),
+('979-32-8', 'Estradiol cypionate', '[""]', 'Estrogen ester', 'confirmed', '["reproductive"]', 'Estrogenic effects', '["Hormone therapy"]', '["injection"]', 'moderate', 'Pharmaceutical', '{}'),
+('53-39-4', 'Oxandrolone', '["Anavar"]', 'Anabolic steroid', 'confirmed', '["reproductive"]', 'Androgenic effects', '["Pharmaceutical", "Performance enhancement"]', '["ingestion"]', 'moderate', 'Controlled substance', '{}'),
+('76-43-7', 'Fluoxymesterone', '["Halotestin"]', 'Anabolic steroid', 'confirmed', '["reproductive"]', 'Androgenic effects', '["Pharmaceutical"]', '["ingestion"]', 'moderate', 'Controlled substance', '{}'),
+('152-58-9', 'Progesterone', '[""]', 'Progestogen', 'confirmed', '["reproductive"]', 'Progestogenic effects', '["Hormone therapy", "Birth control", "Livestock"]', '["ingestion", "injection"]', 'moderate', 'Pharmaceutical', '{}'),
+('797-63-7', 'Levonorgestrel', '["Plan B"]', 'Synthetic progestogen', 'confirmed', '["reproductive"]', 'Progestogenic effects', '["Birth control", "Emergency contraception"]', '["ingestion"]', 'moderate', 'Pharmaceutical', '{}'),
+('68-22-4', 'Norethindrone', '["Norethisterone"]', 'Synthetic progestogen', 'confirmed', '["reproductive"]', 'Progestogenic effects', '["Birth control"]', '["ingestion"]', 'moderate', 'Pharmaceutical', '{}');

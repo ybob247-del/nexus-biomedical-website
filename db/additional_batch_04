@@ -1,0 +1,16 @@
+-- BATCH 4: Additional PCB Congeners (10 chemicals)
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('37680-73-2', 'PCB-101', '["2,2,4,5,5-Pentachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, reproductive toxicity, neurodevelopmental effects', '["Banned industrial chemical", "Environmental contamination", "Fish"]', '["ingestion"]', 'very high', 'Banned in US (1979), Stockholm Convention', '{}'),
+('52663-72-6', 'PCB-105', '["2,3,3,4,4-Pentachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, dioxin-like effects', '["Environmental contamination", "Fish"]', '["ingestion"]', 'very high', 'Banned, persistent', '{}'),
+('74472-37-0', 'PCB-126', '["3,3,4,4,5-Pentachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive", "immune"]', 'Highly toxic dioxin-like PCB, thyroid disruption, immune suppression', '["Environmental contamination", "Fish"]', '["ingestion"]', 'very high', 'Banned, most toxic PCB', '{"toxicity": "Dioxin-like, highly toxic"}'),
+('32598-13-3', 'PCB-77', '["3,3,4,4-Tetrachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive"]', 'Dioxin-like effects, thyroid disruption', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, persistent', '{}'),
+('70362-50-4', 'PCB-169', '["3,3,4,4,5,5-Hexachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "immune"]', 'Dioxin-like effects, immune suppression', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, highly toxic', '{}'),
+('32774-16-6', 'PCB-28', '["2,4,4-Trichlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Environmental contamination"]', '["ingestion"]', 'high', 'Banned, persistent', '{}'),
+('35693-99-3', 'PCB-52', '["2,2,5,5-Tetrachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, reproductive effects', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, persistent', '{}'),
+('33979-03-2', 'PCB-81', '["3,4,4,5-Tetrachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid"]', 'Dioxin-like effects', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, toxic', '{}'),
+('39635-31-9', 'PCB-156', '["2,3,3,4,4,5-Hexachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, dioxin-like effects', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, persistent', '{}'),
+('52663-71-5', 'PCB-157', '["2,3,3,4,4,5-Hexachlorobiphenyl"]', 'Polychlorinated biphenyl', 'confirmed', '["thyroid", "immune"]', 'Dioxin-like effects, immune suppression', '["Environmental contamination"]', '["ingestion"]', 'very high', 'Banned, toxic', '{}');
+
+-- Continue with remaining batches...
+-- (Due to length, I'll create this in parts)
+

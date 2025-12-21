@@ -1,0 +1,40 @@
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('13194-48-4', 'Ethoprop', '["Mocap"]', 'Organophosphate insecticide', 'confirmed', '["thyroid", "reproductive"]', 'Neurotoxicity, thyroid disruption, reproductive effects', '["Soil insecticide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered pesticide, restricted use', '{"docket_number": "EPA-HQ-OPP-2008-0560", "tier_1_screening": "completed"}'),
+
+('13356-08-6', 'Fenbutatin oxide', '["Vendex"]', 'Organotin acaricide', 'confirmed', '["reproductive"]', 'Reproductive toxicity', '["Acaricide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered pesticide', '{"docket_number": "EPA-HQ-OPP-2009-0841", "tier_1_screening": "completed"}'),
+
+('66332-96-5', 'Flutolanil', '["Moncut"]', 'Fungicide', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Fungicide", "Agricultural use", "Turf management"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2008-0148", "tier_1_screening": "completed"}'),
+
+('133-07-3', 'Folpet', '["Phaltan"]', 'Fungicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption, potential carcinogen', '["Fungicide", "Agricultural use", "Fruit crops"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2012-0859", "tier_1_screening": "completed"}'),
+
+('1071-83-6', 'Glyphosate', '["Roundup"]', 'Herbicide', 'confirmed', '["reproductive", "thyroid"]', 'Endocrine disruption, reproductive effects, controversial carcinogenicity', '["Herbicides", "Agricultural use", "Lawn care", "Widespread environmental contamination"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered herbicide, banned in some countries, ongoing litigation', '{"docket_number": "EPA-HQ-OPP-2009-0361", "tier_1_screening": "completed", "controversy": "IARC classified as probable carcinogen"}'),
+
+('138261-41-3', 'Imidacloprid', '["Admire", "Gaucho"]', 'Neonicotinoid insecticide', 'confirmed', '["thyroid"]', 'Thyroid disruption, neurotoxicity', '["Insecticide", "Agricultural use", "Pet flea treatments", "Lawn care"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered pesticide, restricted in EU due to bee toxicity', '{"docket_number": "EPA-HQ-OPP-2008-0844", "tier_1_screening": "completed", "environmental_concern": "Bee colony collapse"}'),
+
+('36734-19-7', 'Iprodione', '["Rovral"]', 'Fungicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption', '["Fungicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered fungicide, banned in EU', '{"docket_number": "EPA-HQ-OPP-2012-0392", "tier_1_screening": "completed"}'),
+
+('330-55-2', 'Linuron', '["Lorox"]', 'Herbicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption', '["Herbicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA cancelled registration (2020)', '{"docket_number": "EPA-HQ-OPP-2010-0228", "tier_1_screening": "completed", "status": "Cancelled in US 2020"}'),
+
+('121-75-5', 'Malathion', '["Cythion"]', 'Organophosphate insecticide', 'confirmed', '["thyroid", "reproductive"]', 'Neurotoxicity, thyroid disruption, reproductive effects', '["Insecticide", "Agricultural use", "Mosquito control", "Head lice treatment"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered pesticide', '{"docket_number": "EPA-HQ-OPP-2009-0317", "tier_1_screening": "completed"}'),
+
+('57837-19-1', 'Metalaxyl', '["Ridomil"]', 'Fungicide', 'confirmed', '["reproductive"]', 'Reproductive effects', '["Fungicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2009-0863", "tier_1_screening": "completed"}'),
+
+('16752-77-5', 'Methomyl', '["Lannate"]', 'Carbamate insecticide', 'confirmed', '["thyroid", "reproductive"]', 'Severe neurotoxicity, thyroid disruption, reproductive effects', '["Insecticide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered pesticide, restricted use', '{"docket_number": "EPA-HQ-OPP-2010-0751", "tier_1_screening": "completed"}'),
+
+('51218-45-2', 'Metolachlor', '["Dual"]', 'Herbicide', 'confirmed', '["thyroid"]', 'Thyroid disruption, potential carcinogen', '["Herbicide", "Agricultural use", "Corn and soybean crops"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered herbicide', '{"docket_number": "EPA-HQ-OPP-2014-0772", "tier_1_screening": "completed"}'),
+
+('21087-64-9', 'Metribuzin', '["Sencor"]', 'Herbicide', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Herbicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered herbicide', '{"docket_number": "EPA-HQ-OPP-2012-0487", "tier_1_screening": "completed"}'),
+
+('88671-89-0', 'Myclobutanil', '["Rally"]', 'Fungicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption', '["Fungicide", "Agricultural use", "Grapes and stone fruits"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2015-0053", "tier_1_screening": "completed"}'),
+
+('27314-13-2', 'Norflurazon', '["Zorial"]', 'Herbicide', 'confirmed', '["thyroid"]', 'Thyroid disruption', '["Herbicide", "Agricultural use", "Cotton crops"]', '["dermal", "inhalation", "ingestion"]', 'low', 'EPA registered herbicide', '{"docket_number": "EPA-HQ-OPP-2012-0565", "tier_1_screening": "completed"}'),
+
+('52645-53-1', 'Permethrin', '["Nix", "Elimite"]', 'Pyrethroid insecticide', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, reproductive effects, neurotoxicity', '["Insecticide", "Head lice treatment", "Mosquito control", "Clothing treatment"]', '["dermal", "inhalation"]', 'high', 'EPA registered pesticide, used in human medicine', '{"docket_number": "EPA-HQ-OPP-2011-0039", "tier_1_screening": "completed"}'),
+
+('51-03-6', 'Piperonyl butoxide', '["PBO"]', 'Synergist', 'confirmed', '["reproductive"]', 'Reproductive effects, enhances toxicity of other pesticides', '["Pesticide synergist", "Head lice products", "Insecticides"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered pesticide synergist', '{"docket_number": "EPA-HQ-OPP-2010-0498", "tier_1_screening": "completed"}'),
+
+('60207-90-1', 'Propiconazole', '["Tilt", "Banner"]', 'Fungicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption, developmental effects', '["Fungicide", "Agricultural use", "Turf management"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2009-0634", "tier_1_screening": "completed"}'),
+
+('122-34-9', 'Simazine', '["Princep"]', 'Triazine herbicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption, similar to atrazine', '["Herbicide", "Agricultural use", "Aquatic weed control"]', '["ingestion", "dermal", "inhalation"]', 'moderate', 'EPA registered herbicide', '{"docket_number": "EPA-HQ-OPP-2013-0251", "tier_1_screening": "completed"}'),
+
+('107534-96-3', 'Tebuconazole', '["Folicur"]', 'Fungicide', 'confirmed', '["reproductive", "thyroid"]', 'Reproductive toxicity, thyroid disruption, developmental effects', '["Fungicide", "Agricultural use"]', '["dermal", "inhalation", "ingestion"]', 'moderate', 'EPA registered fungicide', '{"docket_number": "EPA-HQ-OPP-2015-0634", "tier_1_screening": "completed"}');

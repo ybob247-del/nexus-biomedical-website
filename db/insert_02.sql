@@ -1,0 +1,16 @@
+INSERT INTO edc_chemicals (cas_number, chemical_name, common_names, chemical_class, edc_category, hormone_systems_affected, health_effects, common_sources, exposure_routes, bioaccumulation_potential, regulatory_status, epa_data) VALUES
+('85-68-7', 'Butyl benzyl phthalate', '["BBP"]', 'Plasticizer', 'confirmed', '["reproductive"]', 'Reproductive toxicity, anti-androgenic effects', '["Vinyl flooring", "Adhesives", "Sealants", "Car care products"]', '["dermal", "ingestion", "inhalation"]', 'moderate', 'Banned in children toys (US, EU)', '{"regulatory_actions": "CPSC ban in toys 2008"}'),
+
+('84-66-2', 'Diethyl phthalate', '["DEP"]', 'Plasticizer', 'confirmed', '["reproductive"]', 'Reproductive effects', '["Personal care products", "Fragrances", "Cosmetics", "Plastics"]', '["dermal", "ingestion"]', 'low', 'Widely used, minimal restrictions', '{"ubiquitous_exposure": "Found in >75% of population"}'),
+
+('131-11-3', 'Dimethyl phthalate', '["DMP"]', 'Plasticizer', 'confirmed', '["reproductive"]', 'Reproductive effects', '["Insect repellents", "Plastics", "Cosmetics"]', '["dermal", "ingestion", "inhalation"]', 'low', 'Widely used', '{}'),
+
+('101-20-2', 'Triclocarban', '["TCC"]', 'Antimicrobial agent', 'confirmed', '["thyroid", "reproductive"]', 'Thyroid disruption, reproductive effects, bioaccumulation', '["Antibacterial soap", "Deodorants", "Cleaning products"]', '["dermal"]', 'high', 'Banned in US antibacterial soaps (2016)', '{"fda_ban": "2016 in consumer soaps"}'),
+
+('94-26-8', 'Butylparaben', '["Butyl parahydroxybenzoate"]', 'Preservative', 'suspected', '["reproductive"]', 'Estrogenic activity, reproductive concerns', '["Cosmetics", "Personal care products"]', '["dermal", "ingestion"]', 'low', 'Banned in EU cosmetics', '{"eu_ban": "2014"}'),
+
+('131-57-7', 'Benzophenone-3', '["Oxybenzone", "BP-3"]', 'UV filter', 'confirmed', '["reproductive", "thyroid"]', 'Estrogenic activity, thyroid disruption, reproductive effects', '["Sunscreen", "Cosmetics", "Hair products"]', '["dermal"]', 'moderate', 'Banned in Hawaii and some jurisdictions (coral reef protection)', '{"hawaii_ban": "2021", "environmental_concern": "Coral bleaching"}'),
+
+('375-95-1', 'Perfluorononanoic acid', '["PFNA"]', 'PFAS', 'confirmed', '["reproductive", "thyroid", "immune"]', 'Thyroid disruption, reproductive effects, immune suppression', '["Food packaging", "Non-stick cookware", "Contaminated water"]', '["ingestion"]', 'very high', 'EPA health advisory issued', '{"persistence": "Extremely persistent in environment and humans"}'),
+
+('355-46-4', 'Perfluorohexanesulfonic acid', '["PFHxS"]', 'PFAS', 'confirmed', '["thyroid", "immune"]', 'Thyroid disruption, immune effects', '["Firefighting foam", "Stain-resistant products", "Contaminated water"]', '["ingestion", "inhalation"]', 'very high', 'Under EPA review', '{"persistence": "Does not degrade"}');

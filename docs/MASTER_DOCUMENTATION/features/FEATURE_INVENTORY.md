@@ -1,7 +1,7 @@
 # Nexus Biomedical Intelligence - Complete Feature Inventory
 
-**Last Updated:** December 1, 2025  
-**Version:** 2.0
+**Last Updated:** December 22, 2025  
+**Version:** 2.1
 
 This document catalogs every feature implemented and planned for the Nexus Biomedical Intelligence platform.
 
@@ -29,6 +29,7 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 | Alternative Medications | ✅ Complete | Safer medication suggestions | Reduce risk while maintaining efficacy |
 | Mitigation Strategies | ✅ Complete | Monitoring, dosing, patient education guidance | Safe co-administration when necessary |
 | AI Analysis Output | ✅ Complete | Confidence scores and reasoning based on FDA FAERS data | Transparent AI decision-making |
+| Spanish Landing Page | ✅ Complete | Full Spanish translation of RxGuard platform | Bilingual accessibility |
 | Cost Calculator | ✅ Complete | ROI analysis for healthcare systems | Quantify financial impact of preventing ADEs |
 | PDF Export | ✅ Complete | Downloadable analysis reports | Share with doctors and pharmacists |
 | Medication List Persistence | ✅ Complete | Save and load medication lists | Track patient medications over time |
@@ -72,6 +73,11 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 | Assessment Comparison | ✅ Complete | Side-by-side comparison with visual diff highlighting | See improvements/declines clearly |
 | PDF Export | ✅ Complete | Downloadable assessment reports | Share with healthcare providers |
 | Social Media Cards | ✅ Complete | Shareable anonymized results for viral growth | Drive organic user acquisition |
+| BMI Visualization | ✅ Complete | Animated gauge with color-coded ranges (Underweight, Normal, Overweight, Obese) | Visual health indicator |
+| Progress Tracking Dashboard | ✅ Complete | BMI trend charts, symptom comparison, timeline visualization | Monitor health improvements over time |
+| GPT-4 AI Integration | ✅ Complete | Advanced symptom pattern analysis with 88-92% confidence scores | Transparent AI-powered clinical insights |
+| AI Personalized Recommendations | ✅ Complete | Lifestyle, supplement, and EDC reduction strategies | Contextual health guidance |
+| AI Test Rationale | ✅ Complete | Evidence-based justification for recommended tests | Clinical decision support |
 
 ### Freemium Model ✅
 
@@ -95,10 +101,10 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 
 ### Pricing ✅
 
-- **Premium:** $49/month (14-day trial)
-- **Premium Plus:** $97/month (14-day trial)
-- **Yearly:** 20% savings on both tiers
-- **Early Adopter:** $39/month for first 3 months (limited time)
+- **Premium:** $49/month or $470/year (20% savings)
+- **Premium Plus:** $97/month or $931/year (20% savings)
+- **Trial:** 14 days free, no credit card required
+- **Stripe Integration:** Test sandbox configured
 
 ---
 
@@ -249,7 +255,7 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 | Twilio Integration | ✅ Complete | SMS delivery infrastructure |
 | User Opt-In System | ✅ Complete | TCPA/GDPR compliant preferences |
 | 11 Notification Types | ✅ Complete | Granular preference controls |
-| Weekly Health Tips | ✅ Complete | 30 evidence-based tips with scientific citations |
+| Weekly Health Tips | ✅ Complete | 60 evidence-based tips with scientific citations |
 | Assessment Reminders | ✅ Complete | 7/14/30-day engagement campaigns |
 | Trial Expiration Alerts | ✅ Complete | 3-day and 1-day SMS warnings |
 | High-Risk Alerts | ✅ Complete | Immediate SMS for scores ≥70 |
@@ -266,13 +272,26 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 | Referral Dashboard | ✅ Complete | Stats and history |
 | Social Sharing | ✅ Complete | Twitter, Facebook, LinkedIn, Email |
 
+### Onboarding & User Experience ✅
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Guided Tours | ✅ Complete | Driver.js integration with 6-step walkthroughs |
+| Tour Analytics | ✅ Complete | Track tour completion, skip rates, step-by-step engagement |
+| A/B Testing Infrastructure | ✅ Complete | Test tour variants with statistical significance testing |
+| Mobile-Optimized Tours | ✅ Complete | Responsive popover design for mobile devices |
+| LocalStorage Tracking | ✅ Complete | Show tours once per user, "Show Again" option |
+
 ### Admin Panel ✅
 
 | Feature | Status | Description |
 |---------|--------|-------------|
 | Analytics Dashboard | ✅ Complete | User growth, revenue, engagement metrics |
 | SMS Management | ✅ Complete | Manage health tips and campaigns |
-| A/B Testing Framework | ✅ Complete | Test variants and track conversions |
+| SMS Analytics | ✅ Complete | Delivery rates, opt-out tracking, cost monitoring |
+| Tour Analytics Dashboard | ✅ Complete | Completion rates, drop-off analysis, date range filtering |
+| A/B Testing Management | ✅ Complete | Create/stop tests, view results with chi-square significance |
+| Chatbot Analytics | ✅ Complete | Popular questions, satisfaction scores, response times |
 | Waitlist Management | ✅ Complete | Coming Soon platform signups |
 | Bulk Email Tool | ✅ Complete | Launch announcements |
 
@@ -292,10 +311,12 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 ## 🔮 FUTURE FEATURES (Not Yet Scheduled)
 
 ### AI Enhancements
-- [ ] OpenAI GPT-4 integration for enhanced analysis
+- [x] OpenAI GPT-4 integration for enhanced analysis (EndoGuard - COMPLETE)
 - [ ] Claude integration for medical reasoning
 - [ ] Custom AI models trained on medical data
-- [ ] Real-time AI chat support
+- [x] Real-time AI chat support (FAQ chatbot - COMPLETE)
+- [ ] Expand GPT-4 integration to RxGuard platform
+- [ ] Multi-modal AI analysis (image + text)
 
 ### Integration Opportunities
 - [ ] Epic EHR integration
@@ -344,7 +365,7 @@ This document catalogs every feature implemented and planned for the Nexus Biome
 | SMS Notifications | 9 | 0 | 0 | 9 |
 | Admin Tools | 5 | 0 | 0 | 5 |
 | Legal & Compliance | 6 | 0 | 0 | 6 |
-| **TOTAL** | **76** | **5** | **30** | **111** |
+| **TOTAL** | **91** | **5** | **30** | **126** |
 
 ---
 

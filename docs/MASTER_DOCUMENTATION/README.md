@@ -1,7 +1,7 @@
 # Nexus Biomedical Intelligence - Master Documentation Hub
 
-**Last Updated:** December 1, 2025  
-**Version:** 2.0  
+**Last Updated:** December 22, 2025  
+**Version:** 2.1  
 **Purpose:** Comprehensive documentation system for all features, guides, marketing materials, and technical specifications
 
 ---
@@ -57,12 +57,13 @@ docs/MASTER_DOCUMENTATION/
 ## 📦 Downloadable Packages
 
 ### Latest Export
-- **File:** [Nexus_Documentation_Package_v2.0_Dec01_2025.zip](exports/Nexus_Documentation_Package_v2.0_Dec01_2025.zip)
-- **Date:** December 1, 2025
-- **Contents:** All documentation organized in folder structure
+- **File:** [Nexus_Documentation_Package_v2.1_Dec22_2025.zip](exports/Nexus_Documentation_Package_v2.1_Dec22_2025.zip)
+- **Date:** December 22, 2025
+- **Contents:** All documentation organized in folder structure including AI integration, BMI enhancements, tour system
 - **Size:** TBD
 
 ### Export History
+- v2.1 (Dec 22, 2025) - AI integration (GPT-4), BMI enhancements, tour analytics, A/B testing, bilingual expansion
 - v2.0 (Dec 1, 2025) - SMS Notification System V2.0 complete
 - v1.9 (Nov 30, 2025) - Health tips with scientific citations added
 - v1.8 (Nov 28, 2025) - Authentication and trial system complete
@@ -89,12 +90,12 @@ This documentation is updated automatically at key milestones:
 
 | Category | Status | Last Updated | Files |
 |----------|--------|--------------|-------|
-| Features | 🟢 Complete | Dec 1, 2025 | 3 |
-| Guides | 🟡 In Progress | Dec 1, 2025 | 5 |
-| Marketing | 🟡 In Progress | Dec 1, 2025 | 4 |
-| Technical | 🟢 Complete | Dec 1, 2025 | 8 |
-| Admin | 🟢 Complete | Dec 1, 2025 | 4 |
-| FAQ | 🟡 In Progress | Dec 1, 2025 | 3 |
+| Features | 🟢 Complete | Dec 22, 2025 | 3 |
+| Guides | 🟡 In Progress | Dec 22, 2025 | 5 |
+| Marketing | 🟡 In Progress | Dec 22, 2025 | 4 |
+| Technical | 🟢 Complete | Dec 22, 2025 | 11 |
+| Admin | 🟢 Complete | Dec 22, 2025 | 6 |
+| FAQ | 🟢 Complete | Dec 22, 2025 | 3 |
 
 **Legend:**
 - 🟢 Complete - Fully documented and up-to-date

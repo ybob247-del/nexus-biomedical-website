@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS progress_milestones (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  milestone_date DATE NOT NULL,\n  milestone_type ENUM('symptom_improvement', 'lab_improvement', 'lifestyle_achievement', 'protocol_completion', 'other') NOT NULL,\n  title VARCHAR(255) NOT NULL,\n  description TEXT,\n  metric_name VARCHAR(100),\n  before_value VARCHAR(50),\n  after_value VARCHAR(50),\n  protocol_id INT,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE SET NULL,\n  INDEX idx_user_milestones (user_id, milestone_date)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS progress_milestones (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  milestone_date DATE NOT NULL,\n  milestone_type ENUM('symptom_improvement', 'lab_improvement', 'lifestyle_achievement', 'protocol_completion', 'other') NOT NULL,\n  title VARCHAR(255) NOT NULL,\n  description TEXT,\n  metric_name VARCHAR(100),\n  before_value VARCHAR(50),\n  after_value VARCHAR(50),\n  protocol_id INT,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE SET NULL,\n  INDEX idx_user_milestones (user_id, milestone_date)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 273
+}

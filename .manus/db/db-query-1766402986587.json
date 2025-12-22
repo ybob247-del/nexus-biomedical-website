@@ -1,0 +1,13 @@
+{
+  "query": "SELECT COUNT(*) as total_articles FROM edc_literature_references",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT COUNT(*) as total_articles FROM edc_literature_references",
+  "rows": [
+    {
+      "total_articles": "648"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_articles\n648\n",
+  "stderr": "",
+  "execution_time_ms": 892
+}

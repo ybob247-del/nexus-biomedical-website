@@ -18,6 +18,53 @@ const PUBMED_SUMMARY_URL = `${PUBMED_BASE_URL}/esummary.fcgi`;
 const RATE_LIMIT_MS = 350; // ~3 requests/second
 
 /**
+ * Parse PubMed date string to MySQL DATE format (YYYY-MM-DD)
+ * Handles various PubMed date formats:
+ * - "2025 Nov 27" → "2025-11-27"
+ * - "2026 Jan" → "2026-01-01"
+ * - "2025" → "2025-01-01"
+ * - "2025 Sep 11" → "2025-09-11"
+ */
+function parsePubMedDate(dateStr) {
+  if (!dateStr) return null;
+  
+  const monthMap = {
+    'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
+    'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
+    'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+  };
+  
+  // Clean up the string
+  dateStr = dateStr.trim();
+  
+  // Try to match "YYYY Mon DD" format
+  const fullMatch = dateStr.match(/(\d{4})\s+(\w{3})\s+(\d{1,2})/);
+  if (fullMatch) {
+    const [, year, month, day] = fullMatch;
+    const monthNum = monthMap[month] || '01';
+    const dayPadded = day.padStart(2, '0');
+    return `${year}-${monthNum}-${dayPadded}`;
+  }
+  
+  // Try to match "YYYY Mon" format
+  const monthMatch = dateStr.match(/(\d{4})\s+(\w{3})/);
+  if (monthMatch) {
+    const [, year, month] = monthMatch;
+    const monthNum = monthMap[month] || '01';
+    return `${year}-${monthNum}-01`;
+  }
+  
+  // Try to match "YYYY" format
+  const yearMatch = dateStr.match(/^(\d{4})$/);
+  if (yearMatch) {
+    return `${yearMatch[1]}-01-01`;
+  }
+  
+  // If all else fails, return null
+  return null;
+}
+
+/**
  * Search PubMed for articles related to a specific chemical
  * @param {string} chemicalName - Name of the chemical
  * @param {string} casNumber - CAS registry number
@@ -98,7 +145,7 @@ export async function fetchArticleDetails(pmids) {
         title: article.title || 'No title available',
         authors: article.authors?.map(a => a.name).join(', ') || 'Unknown',
         journal: article.fulljournalname || article.source || 'Unknown',
-        publication_date: article.pubdate || null,
+        publication_date: parsePubMedDate(article.pubdate),
         doi: article.elocationid?.replace('doi: ', '') || article.articleids?.find(id => id.idtype === 'doi')?.value || null,
         citation_count: 0 // Would need separate API for citation counts
       });

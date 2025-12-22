@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS patient_progress_tracking (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  assessment_id INT,\n  tracking_date DATE NOT NULL,\n  symptoms_data JSON NOT NULL,\n  overall_wellness_score INT,\n  sleep_hours DECIMAL(3,1),\n  stress_level INT,\n  exercise_minutes INT,\n  water_intake_oz INT,\n  protocol_id INT,\n  adherence_percentage INT,\n  adherence_notes TEXT,\n  patient_notes TEXT,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE SET NULL,\n  INDEX idx_user_tracking (user_id, tracking_date)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS patient_progress_tracking (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  assessment_id INT,\n  tracking_date DATE NOT NULL,\n  symptoms_data JSON NOT NULL,\n  overall_wellness_score INT,\n  sleep_hours DECIMAL(3,1),\n  stress_level INT,\n  exercise_minutes INT,\n  water_intake_oz INT,\n  protocol_id INT,\n  adherence_percentage INT,\n  adherence_notes TEXT,\n  patient_notes TEXT,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE SET NULL,\n  INDEX idx_user_tracking (user_id, tracking_date)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 304
+}

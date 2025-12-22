@@ -1,0 +1,15 @@
+{
+  "query": "SELECT \n  (SELECT COUNT(*) FROM edc_literature_references) as total_articles,\n  (SELECT COUNT(DISTINCT edc_id) FROM edc_literature_references) as edcs_with_articles,\n  (SELECT COUNT(*) FROM edc_chemicals) as total_edcs",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute SELECT \n  (SELECT COUNT(*) FROM edc_literature_references) as total_articles,\n  (SELECT COUNT(DISTINCT edc_id) FROM edc_literature_references) as edcs_with_articles,\n  (SELECT COUNT(*) FROM edc_chemicals) as total_edcs",
+  "rows": [
+    {
+      "total_articles": "648",
+      "edcs_with_articles": "120",
+      "total_edcs": "200"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_articles\tedcs_with_articles\ttotal_edcs\n648\t120\t200\n",
+  "stderr": "",
+  "execution_time_ms": 179
+}

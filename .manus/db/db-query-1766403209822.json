@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS patient_protocol_assignments (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  protocol_id INT NOT NULL,\n  provider_id INT,\n  start_date DATE NOT NULL,\n  end_date DATE,\n  status ENUM('active', 'completed', 'discontinued', 'paused') DEFAULT 'active',\n  custom_instructions TEXT,\n  target_outcomes JSON,\n  outcome_summary TEXT,\n  effectiveness_rating INT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE CASCADE,\n  INDEX idx_user_protocols (user_id, status)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS patient_protocol_assignments (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  protocol_id INT NOT NULL,\n  provider_id INT,\n  start_date DATE NOT NULL,\n  end_date DATE,\n  status ENUM('active', 'completed', 'discontinued', 'paused') DEFAULT 'active',\n  custom_instructions TEXT,\n  target_outcomes JSON,\n  outcome_summary TEXT,\n  effectiveness_rating INT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (protocol_id) REFERENCES treatment_protocols(id) ON DELETE CASCADE,\n  INDEX idx_user_protocols (user_id, status)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 307
+}

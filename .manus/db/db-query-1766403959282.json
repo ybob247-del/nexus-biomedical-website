@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS patient_profile_matches (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  assessment_id INT,\n  profile_id INT NOT NULL,\n  match_score DECIMAL(5,2) NOT NULL,\n  matching_symptoms JSON NOT NULL,\n  matching_labs JSON,\n  match_date DATE NOT NULL,\n  provider_confirmed BOOLEAN DEFAULT FALSE,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (profile_id) REFERENCES hormone_dysfunction_profiles(id) ON DELETE CASCADE,\n  INDEX idx_user_matches (user_id, match_score DESC)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS patient_profile_matches (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  user_id INT NOT NULL,\n  assessment_id INT,\n  profile_id INT NOT NULL,\n  match_score DECIMAL(5,2) NOT NULL,\n  matching_symptoms JSON NOT NULL,\n  matching_labs JSON,\n  match_date DATE NOT NULL,\n  provider_confirmed BOOLEAN DEFAULT FALSE,\n  provider_notes TEXT,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (profile_id) REFERENCES hormone_dysfunction_profiles(id) ON DELETE CASCADE,\n  INDEX idx_user_matches (user_id, match_score DESC)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 335
+}

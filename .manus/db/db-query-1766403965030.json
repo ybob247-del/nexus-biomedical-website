@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS profile_symptom_mapping (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  profile_id INT NOT NULL,\n  symptom_name VARCHAR(255) NOT NULL,\n  symptom_category VARCHAR(100),\n  weight DECIMAL(3,2) NOT NULL,\n  typical_severity ENUM('mild', 'moderate', 'severe', 'variable') DEFAULT 'variable',\n  frequency ENUM('constant', 'intermittent', 'cyclical', 'variable') DEFAULT 'variable',\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (profile_id) REFERENCES hormone_dysfunction_profiles(id) ON DELETE CASCADE,\n  INDEX idx_profile_symptoms (profile_id, weight DESC),\n  UNIQUE KEY unique_profile_symptom (profile_id, symptom_name)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS profile_symptom_mapping (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  profile_id INT NOT NULL,\n  symptom_name VARCHAR(255) NOT NULL,\n  symptom_category VARCHAR(100),\n  weight DECIMAL(3,2) NOT NULL,\n  typical_severity ENUM('mild', 'moderate', 'severe', 'variable') DEFAULT 'variable',\n  frequency ENUM('constant', 'intermittent', 'cyclical', 'variable') DEFAULT 'variable',\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (profile_id) REFERENCES hormone_dysfunction_profiles(id) ON DELETE CASCADE,\n  INDEX idx_profile_symptoms (profile_id, weight DESC),\n  UNIQUE KEY unique_profile_symptom (profile_id, symptom_name)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 280
+}

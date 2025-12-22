@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS alert_rules (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  rule_name VARCHAR(255) NOT NULL,\n  alert_type VARCHAR(100) NOT NULL,\n  alert_priority VARCHAR(50) NOT NULL,\n  condition_type ENUM('time_based', 'symptom_based', 'lab_based', 'adherence_based', 'outcome_based') NOT NULL,\n  condition_criteria JSON NOT NULL,\n  alert_title_template VARCHAR(255) NOT NULL,\n  alert_description_template TEXT NOT NULL,\n  recommended_actions_template JSON,\n  is_active BOOLEAN DEFAULT TRUE,\n  check_frequency_days INT DEFAULT 1,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_active_rules (is_active, condition_type),\n  UNIQUE KEY unique_rule_name (rule_name)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS alert_rules (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  rule_name VARCHAR(255) NOT NULL,\n  alert_type VARCHAR(100) NOT NULL,\n  alert_priority VARCHAR(50) NOT NULL,\n  condition_type ENUM('time_based', 'symptom_based', 'lab_based', 'adherence_based', 'outcome_based') NOT NULL,\n  condition_criteria JSON NOT NULL,\n  alert_title_template VARCHAR(255) NOT NULL,\n  alert_description_template TEXT NOT NULL,\n  recommended_actions_template JSON,\n  is_active BOOLEAN DEFAULT TRUE,\n  check_frequency_days INT DEFAULT 1,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_active_rules (is_active, condition_type),\n  UNIQUE KEY unique_rule_name (rule_name)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 196
+}

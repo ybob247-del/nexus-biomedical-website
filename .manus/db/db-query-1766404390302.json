@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS population_health_metrics (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  metric_period_start DATE NOT NULL,\n  metric_period_end DATE NOT NULL,\n  total_users INT DEFAULT 0,\n  active_users INT DEFAULT 0,\n  condition_prevalence JSON,\n  top_edc_exposures JSON,\n  avg_symptom_improvement DECIMAL(5,2),\n  avg_qol_improvement DECIMAL(5,2),\n  treatment_success_rate DECIMAL(5,2),\n  protocol_effectiveness_rankings JSON,\n  age_distribution JSON,\n  gender_distribution JSON,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  INDEX idx_period (metric_period_start, metric_period_end)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS population_health_metrics (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  metric_period_start DATE NOT NULL,\n  metric_period_end DATE NOT NULL,\n  total_users INT DEFAULT 0,\n  active_users INT DEFAULT 0,\n  condition_prevalence JSON,\n  top_edc_exposures JSON,\n  avg_symptom_improvement DECIMAL(5,2),\n  avg_qol_improvement DECIMAL(5,2),\n  treatment_success_rate DECIMAL(5,2),\n  protocol_effectiveness_rankings JSON,\n  age_distribution JSON,\n  gender_distribution JSON,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  INDEX idx_period (metric_period_start, metric_period_end)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 202
+}

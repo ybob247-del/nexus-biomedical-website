@@ -373,5 +373,5 @@ Allow: /
 # ============================================
 # SITEMAPS
 # ============================================
-Sitemap: https://www.nexusbiomedical.ai/sitemap.xml
-Sitemap: https://www.nexusbiomedical.ai/ai-sitemap.json
+Sitemap: https://nexusbiomedical.ai/sitemap.xml
+Sitemap: https://nexusbiomedical.ai/ai-sitemap.json

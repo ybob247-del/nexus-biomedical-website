@@ -1099,3 +1099,41 @@
 - [ ] Create demo data for all new features
 - [ ] Deploy to production
 - [ ] Save checkpoint after all databases built
+
+---
+
+## 🔍 SEO OPTIMIZATION & GOOGLE INDEXING (Dec 23, 2025)
+**Priority:** CRITICAL - Website not appearing in Google search results
+
+### Phase 1: Fix Sitemap and Submit to Google
+- [x] Fix sitemap.xml - remove "www." from all URLs (change www.nexusbiomedical.ai to nexusbiomedical.ai)
+- [x] Fix robots.txt - update sitemap reference to remove "www."
+- [ ] Set up Google Search Console account
+- [ ] Verify domain ownership in Google Search Console
+- [ ] Submit corrected sitemap to Google Search Console
+- [ ] Request indexing for homepage and key pages
+- [ ] Set up Bing Webmaster Tools
+- [ ] Submit sitemap to Bing
+
+### Phase 2: Improve Discoverability
+- [ ] Create LinkedIn company page with link to website
+- [ ] Submit company to Crunchbase
+- [ ] Submit company to AngelList
+- [ ] Create Google Business Profile
+- [ ] Submit to healthcare AI directories
+- [ ] Implement IndexNow for instant indexing (Bing/Yandex)
+
+### Phase 3: Content & Backlinks
+- [ ] Write blog post about EndoGuard features and benefits
+- [ ] Write blog post about AI in gastroenterology
+- [ ] Create case study or white paper
+- [ ] Guest post on healthcare technology blogs
+- [ ] Submit press release to PR distribution service
+
+### Phase 4: Technical SEO Monitoring
+- [ ] Monitor Google Search Console for indexing progress
+- [ ] Check Core Web Vitals scores
+- [ ] Verify mobile-friendliness
+- [ ] Set up Google Analytics 4 tracking
+- [ ] Monitor backlink acquisition
+- [ ] Track keyword rankings for branded searches

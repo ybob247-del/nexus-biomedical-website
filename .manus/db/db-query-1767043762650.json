@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS blog_posts (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  title VARCHAR(255) NOT NULL,\n  slug VARCHAR(255) NOT NULL UNIQUE,\n  content LONGTEXT NOT NULL,\n  excerpt TEXT,\n  author VARCHAR(255),\n  category VARCHAR(100),\n  tags JSON,\n  featured_image VARCHAR(500),\n  published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  INDEX idx_slug (slug),\n  INDEX idx_category (category),\n  INDEX idx_published_at (published_at)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS blog_posts (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  title VARCHAR(255) NOT NULL,\n  slug VARCHAR(255) NOT NULL UNIQUE,\n  content LONGTEXT NOT NULL,\n  excerpt TEXT,\n  author VARCHAR(255),\n  category VARCHAR(100),\n  tags JSON,\n  featured_image VARCHAR(500),\n  published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  INDEX idx_slug (slug),\n  INDEX idx_category (category),\n  INDEX idx_published_at (published_at)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2230
+}

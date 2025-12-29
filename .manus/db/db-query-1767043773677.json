@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS newsletter_emails (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  subject VARCHAR(255) NOT NULL,\n  content LONGTEXT NOT NULL,\n  html_content LONGTEXT,\n  sent_at TIMESTAMP NULL,\n  open_rate DECIMAL(5,2) DEFAULT 0,\n  click_rate DECIMAL(5,2) DEFAULT 0,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_sent_at (sent_at)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS newsletter_emails (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  subject VARCHAR(255) NOT NULL,\n  content LONGTEXT NOT NULL,\n  html_content LONGTEXT,\n  sent_at TIMESTAMP NULL,\n  open_rate DECIMAL(5,2) DEFAULT 0,\n  click_rate DECIMAL(5,2) DEFAULT 0,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  INDEX idx_sent_at (sent_at)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 182
+}

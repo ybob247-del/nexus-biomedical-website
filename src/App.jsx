@@ -74,6 +74,8 @@ const PatientDetailView = lazy(() => import('./components/PatientDetailView'))
 const AdminProviderManagement = lazy(() => import('./pages/AdminProviderManagement'))
 const BetaSurvey = lazy(() => import('./pages/BetaSurvey'))
 const AdminBetaFeedback = lazy(() => import('./pages/AdminBetaFeedback'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'))
 
 const LoadingFallback = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
@@ -693,6 +695,24 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <AdminBetaFeedback />
+          </Suspense>
+        } 
+      />
+
+      {/* Blog Routes */}
+      <Route 
+        path="/blog" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <BlogPage />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/blog/:slug" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <BlogDetailPage />
           </Suspense>
         } 
       />

@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS newsletter_email_logs (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  email_id BIGINT NOT NULL,\n  subscriber_id BIGINT NOT NULL,\n  status ENUM('sent', 'opened', 'clicked', 'bounced', 'failed') DEFAULT 'sent',\n  opened_at TIMESTAMP NULL,\n  clicked_at TIMESTAMP NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (email_id) REFERENCES newsletter_emails(id) ON DELETE CASCADE,\n  FOREIGN KEY (subscriber_id) REFERENCES newsletter_subscribers(id) ON DELETE CASCADE,\n  INDEX idx_email_id (email_id),\n  INDEX idx_subscriber_id (subscriber_id),\n  INDEX idx_status (status)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute CREATE TABLE IF NOT EXISTS newsletter_email_logs (\n  id BIGINT PRIMARY KEY AUTO_INCREMENT,\n  email_id BIGINT NOT NULL,\n  subscriber_id BIGINT NOT NULL,\n  status ENUM('sent', 'opened', 'clicked', 'bounced', 'failed') DEFAULT 'sent',\n  opened_at TIMESTAMP NULL,\n  clicked_at TIMESTAMP NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (email_id) REFERENCES newsletter_emails(id) ON DELETE CASCADE,\n  FOREIGN KEY (subscriber_id) REFERENCES newsletter_subscribers(id) ON DELETE CASCADE,\n  INDEX idx_email_id (email_id),\n  INDEX idx_subscriber_id (subscriber_id),\n  INDEX idx_status (status)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 266
+}

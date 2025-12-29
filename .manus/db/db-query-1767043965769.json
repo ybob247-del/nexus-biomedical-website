@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO blog_categories (name, slug, description) VALUES \n('Hormone Health', 'hormone-health', 'Articles about hormone balance and endocrine health'),\n('Clinical Research', 'clinical-research', 'Latest clinical studies and research findings'),\n('Patient Stories', 'patient-stories', 'Real patient experiences and testimonials'),\n('Platform Updates', 'platform-updates', 'New features and platform improvements'),\n('Health Tips', 'health-tips', 'Practical health and wellness tips')\nON DUPLICATE KEY UPDATE name=VALUES(name);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2bdzn41uM6mMWcv.97707ddd6929 --database 3gcYftfyZmb2335Uoynmho --execute INSERT INTO blog_categories (name, slug, description) VALUES \n('Hormone Health', 'hormone-health', 'Articles about hormone balance and endocrine health'),\n('Clinical Research', 'clinical-research', 'Latest clinical studies and research findings'),\n('Patient Stories', 'patient-stories', 'Real patient experiences and testimonials'),\n('Platform Updates', 'platform-updates', 'New features and platform improvements'),\n('Health Tips', 'health-tips', 'Practical health and wellness tips')\nON DUPLICATE KEY UPDATE name=VALUES(name);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 167
+}

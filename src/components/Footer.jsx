@@ -40,9 +40,9 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <span className="footer-link footer-link-disabled">
-{t('footer.blog')}<br />({t('platforms.comingSoon')})
-              </span>
+              <button onClick={() => navigate('/blog')} className="footer-link">
+                {t('footer.blog')}
+              </button>
             </li>
           </ul>
         </div>

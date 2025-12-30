@@ -43,15 +43,18 @@ export default async function handler(req, res) {
 
     // Find user by email
     const result = await query(
-      'SELECT id, email, password_hash, first_name, last_name FROM users WHERE email = $1',
+      'SELECT id, email, password_hash, first_name, last_name FROM users WHERE email = ?',
       [email.toLowerCase()]
     );
 
-    if (result.rows.length === 0) {
+    // MySQL returns result as [rows, fields]
+    const rows = Array.isArray(result) ? result[0] : result.rows;
+    
+    if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    const user = result.rows[0];
+    const user = rows[0];
 
     // Verify password
     const isPasswordValid = await comparePassword(password, user.password_hash);

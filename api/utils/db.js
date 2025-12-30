@@ -1,134 +1,116 @@
 /**
  * Database Connection Utility
  * MySQL connection for serverless functions using TiDB Cloud
+ * Uses LAZY initialization to ensure DATABASE_URL is available at query time
  */
 
 import mysql from 'mysql2/promise';
 
-// Debug: Log DATABASE_URL status on module load
-console.log('=== DATABASE CONNECTION INIT ===');
-console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
-if (!process.env.DATABASE_URL) {
-  console.error('ERROR: DATABASE_URL environment variable is not set!');
-  console.error('Available env vars:', Object.keys(process.env).filter(k => k.includes('DATABASE') || k.includes('DB')));
-}
-console.log('================================');
-
-// Create a connection pool
-// Environment will provide DATABASE_URL environment variable
-// TiDB Cloud uses MySQL protocol
-let pool;
-
-try {
-  const connectionString = process.env.DATABASE_URL
-    ?.replace('?ssl={"rejectUnauthorized":true}', '') || process.env.DATABASE_URL;
-  
-  if (!connectionString) {
-    throw new Error('DATABASE_URL is not defined');
-  }
-  
-  // Parse the connection string
-  const url = new URL(connectionString);
-  const poolConfig = {
-    host: url.hostname,
-    port: parseInt(url.port) || 4000,
-    user: url.username,
-    password: url.password,
-    database: url.pathname.slice(1), // Remove leading slash
-    ssl: {
-      rejectUnauthorized: false, // TiDB Cloud requires SSL
-    },
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    connectTimeout: 10000, // 10 second connection timeout
-  };
-  
-  console.log('Creating pool with config:');
-  console.log('  Host:', poolConfig.host);
-  console.log('  Port:', poolConfig.port);
-  console.log('  Database:', poolConfig.database);
-  console.log('  SSL enabled: true (TiDB Cloud requirement)');
-  
-  pool = mysql.createPool(poolConfig);
-  console.log('Pool created successfully');
-} catch (error) {
-  console.error('FATAL: Failed to create database pool:', error.message);
-  console.error('Stack:', error.stack);
-  // Create a dummy pool that will fail with a clear error
-  pool = {
-    execute: async () => {
-      throw new Error(`Database connection not initialized: ${error.message}`);
-    },
-    getConnection: async () => {
-      throw new Error(`Database connection not initialized: ${error.message}`);
-    }
-  };
-}
+// Lazy-initialized pool - will be created on first query
+let pool = null;
+let poolInitialized = false;
+let poolInitError = null;
 
 /**
- * Execute a SQL query
- * @param {string} text - SQL query string (use ? for parameters in MySQL)
- * @param {Array} params - Query parameters
- * @returns {Promise} Query result
+ * Initialize the database pool
+ * This is called lazily on first query to ensure DATABASE_URL is available
  */
-export async function query(text, params) {
-  const start = Date.now();
+function initializePool() {
+  if (poolInitialized) {
+    if (poolInitError) {
+      throw poolInitError;
+    }
+    return pool;
+  }
+
+  console.log('=== LAZY DATABASE POOL INITIALIZATION ===');
+  console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+  
   try {
-    // Convert PostgreSQL-style $1, $2 to MySQL-style ?
-    let mysqlQuery = text;
-    if (text.includes('$')) {
-      // Replace $1, $2, etc. with ? in order
-      let paramIndex = 1;
-      mysqlQuery = text.replace(/\$\d+/g, () => {
-        paramIndex++;
-        return '?';
-      });
+    const connectionString = process.env.DATABASE_URL;
+    
+    if (!connectionString) {
+      throw new Error('DATABASE_URL environment variable is not set');
     }
     
-    const [rows] = await pool.execute(mysqlQuery, params || []);
-    const duration = Date.now() - start;
-    console.log('Executed query', { text: mysqlQuery, duration, rowCount: Array.isArray(rows) ? rows.length : 0 });
+    console.log('DATABASE_URL found, length:', connectionString.length);
     
-    // Return in PostgreSQL-compatible format
-    return {
-      rows: Array.isArray(rows) ? rows : [rows],
-      rowCount: Array.isArray(rows) ? rows.length : 1,
+    // Parse the connection string
+    const url = new URL(connectionString);
+    const poolConfig = {
+      host: url.hostname,
+      port: parseInt(url.port) || 4000,
+      user: url.username,
+      password: url.password,
+      database: url.pathname.slice(1), // Remove leading slash
+      ssl: {
+        rejectUnauthorized: false, // TiDB Cloud requires SSL
+      },
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
+      connectTimeout: 10000, // 10 second connection timeout
     };
+    
+    console.log('Creating pool with config:');
+    console.log('  Host:', poolConfig.host);
+    console.log('  Port:', poolConfig.port);
+    console.log('  Database:', poolConfig.database);
+    console.log('  SSL enabled: true (TiDB Cloud requirement)');
+    
+    pool = mysql.createPool(poolConfig);
+    poolInitialized = true;
+    console.log('✓ Pool created successfully');
+    console.log('========================================');
+    
+    return pool;
   } catch (error) {
-    console.error('Database query error:', error);
+    poolInitialized = true;
+    poolInitError = error;
+    console.error('✗ FATAL: Failed to create database pool');
+    console.error('  Error:', error.message);
+    console.error('  Stack:', error.stack);
+    console.log('========================================');
     throw error;
   }
 }
 
 /**
- * Get a client from the pool for transactions
- * @returns {Promise} Database client
+ * Execute a database query
+ * @param {string} sql - SQL query string
+ * @param {array} params - Query parameters
+ * @returns {Promise} Query result
  */
-export async function getClient() {
-  const connection = await pool.getConnection();
-  
-  // Wrap the connection to match PostgreSQL client interface
-  const client = {
-    query: async (text, params) => {
-      // Convert PostgreSQL-style $1, $2 to MySQL-style ?
-      let mysqlQuery = text;
-      if (text.includes('$')) {
-        mysqlQuery = text.replace(/\$\d+/g, () => '?');
-      }
-      
-      const [rows] = await connection.execute(mysqlQuery, params || []);
-      return {
-        rows: Array.isArray(rows) ? rows : [rows],
-        rowCount: Array.isArray(rows) ? rows.length : 1,
-      };
-    },
-    release: () => {
-      connection.release();
-    },
-  };
-  
-  return client;
+export async function query(sql, params = []) {
+  try {
+    // Initialize pool on first query
+    const activePool = initializePool();
+    
+    console.log('Executing query:', sql.substring(0, 100) + '...');
+    const result = await activePool.execute(sql, params);
+    return result;
+  } catch (error) {
+    console.error('Query execution failed:', error.message);
+    console.error('SQL:', sql);
+    console.error('Params:', params);
+    throw error;
+  }
 }
 
-export { pool };
+/**
+ * Get the connection pool (for advanced usage)
+ */
+export function getPool() {
+  return initializePool();
+}
+
+/**
+ * Close the pool (useful for cleanup)
+ */
+export async function closePool() {
+  if (pool) {
+    await pool.end();
+    pool = null;
+    poolInitialized = false;
+  }
+}

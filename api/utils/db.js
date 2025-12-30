@@ -49,7 +49,7 @@ function initializePool() {
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
-      connectTimeout: 10000, // 10 second connection timeout
+      connectTimeout: 30000, // 30 second connection timeout for Vercel
     };
     
     console.log('Creating pool with config:');

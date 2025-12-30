@@ -5,39 +5,66 @@
 
 import mysql from 'mysql2/promise';
 
-// Create a connection pool
-// Environment will provide DATABASE_URL environment variable
-// TiDB Cloud uses MySQL protocol
-const connectionString = process.env.DATABASE_URL
-  ?.replace('?ssl={"rejectUnauthorized":true}', '') || process.env.DATABASE_URL;
-
-// Parse the connection string
-const url = new URL(connectionString);
-const poolConfig = {
-  host: url.hostname,
-  port: parseInt(url.port) || 4000,
-  user: url.username,
-  password: url.password,
-  database: url.pathname.slice(1), // Remove leading slash
-  ssl: {
-    rejectUnauthorized: false, // TiDB Cloud requires SSL
-  },
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  connectTimeout: 10000, // 10 second connection timeout
-};
-
-const pool = mysql.createPool(poolConfig);
-
 // Debug: Log DATABASE_URL status on module load
 console.log('=== DATABASE CONNECTION INIT ===');
 console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
-console.log('Host:', poolConfig.host);
-console.log('Port:', poolConfig.port);
-console.log('Database:', poolConfig.database);
-console.log('SSL enabled: true (TiDB Cloud requirement)');
+if (!process.env.DATABASE_URL) {
+  console.error('ERROR: DATABASE_URL environment variable is not set!');
+  console.error('Available env vars:', Object.keys(process.env).filter(k => k.includes('DATABASE') || k.includes('DB')));
+}
 console.log('================================');
+
+// Create a connection pool
+// Environment will provide DATABASE_URL environment variable
+// TiDB Cloud uses MySQL protocol
+let pool;
+
+try {
+  const connectionString = process.env.DATABASE_URL
+    ?.replace('?ssl={"rejectUnauthorized":true}', '') || process.env.DATABASE_URL;
+  
+  if (!connectionString) {
+    throw new Error('DATABASE_URL is not defined');
+  }
+  
+  // Parse the connection string
+  const url = new URL(connectionString);
+  const poolConfig = {
+    host: url.hostname,
+    port: parseInt(url.port) || 4000,
+    user: url.username,
+    password: url.password,
+    database: url.pathname.slice(1), // Remove leading slash
+    ssl: {
+      rejectUnauthorized: false, // TiDB Cloud requires SSL
+    },
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    connectTimeout: 10000, // 10 second connection timeout
+  };
+  
+  console.log('Creating pool with config:');
+  console.log('  Host:', poolConfig.host);
+  console.log('  Port:', poolConfig.port);
+  console.log('  Database:', poolConfig.database);
+  console.log('  SSL enabled: true (TiDB Cloud requirement)');
+  
+  pool = mysql.createPool(poolConfig);
+  console.log('Pool created successfully');
+} catch (error) {
+  console.error('FATAL: Failed to create database pool:', error.message);
+  console.error('Stack:', error.stack);
+  // Create a dummy pool that will fail with a clear error
+  pool = {
+    execute: async () => {
+      throw new Error(`Database connection not initialized: ${error.message}`);
+    },
+    getConnection: async () => {
+      throw new Error(`Database connection not initialized: ${error.message}`);
+    }
+  };
+}
 
 /**
  * Execute a SQL query

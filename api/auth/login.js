@@ -100,15 +100,21 @@ export default async function handler(req, res) {
 
   } catch (error) {
     clearTimeout(timeout);
-    console.error('Login error:', error);
-    console.error('Login error stack:', error.stack);
-    console.error('Login error details:', JSON.stringify(error, null, 2));
+    console.error('=== LOGIN ERROR ===');
+    console.error('Error message:', error.message);
+    console.error('Error type:', error.constructor.name);
+    console.error('Error stack:', error.stack);
+    console.error('DATABASE_URL available:', !!process.env.DATABASE_URL);
+    console.error('NODE_ENV:', process.env.NODE_ENV);
+    console.error('==================');
     
     // Always return JSON, never HTML
     return res.status(500).json({
       error: 'Login failed',
       message: error.message || 'Unknown error occurred',
-      details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      errorType: error.constructor.name,
+      databaseUrlAvailable: !!process.env.DATABASE_URL,
+      nodeEnv: process.env.NODE_ENV,
     });
   }
 };

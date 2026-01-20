@@ -46,9 +46,8 @@ export default function EndoGuardPhase1ConversionLayer() {
     subheadline: "EndoGuard™ is a preventive hormone risk stratification report designed to help you and your primary care provider identify early hormone-related risk — before years of confusion, misdiagnosis, or delayed care.",
     valueBullets: [
       "Personalized hormone risk tier: Low / Moderate / High",
-      "Clear next-step guidance backed by peer-reviewed evidence",
-      "PCP-ready summary you can bring to your doctor",
-      "Preventive, non-diagnostic, designed for real-world care"
+      "Top 5 drivers behind your risk",
+      "One clear next step"
     ],
     ctaButtonText: "Get My Hormone Risk Report",
     secondaryLine: "Not a diagnosis. No subscriptions. One clear report — built to support primary care–led evaluation.",
@@ -61,9 +60,8 @@ export default function EndoGuardPhase1ConversionLayer() {
     subheadline: "EndoGuard™ es un informe de estratificación del riesgo hormonal preventivo diseñado para ayudarte a ti y a tu médico de atención primaria a identificar el riesgo hormonal temprano — antes de años de confusión, diagnóstico erróneo o atención retrasada.",
     valueBullets: [
       "Nivel de riesgo hormonal personalizado: Bajo / Moderado / Alto",
-      "Orientación clara del próximo paso respaldada por evidencia revisada por pares",
-      "Resumen listo para el médico de atención primaria que puedes llevar a tu doctor",
-      "Preventivo, no diagnóstico, diseñado para la atención del mundo real"
+      "5 factores principales detrás de tu riesgo",
+      "Un siguiente paso claro"
     ],
     ctaButtonText: "Obtén Mi Informe de Riesgo Hormonal",
     secondaryLine: "No es un diagnóstico. Sin suscripciones. Un informe claro — construido para apoyar la evaluación dirigida por atención primaria.",

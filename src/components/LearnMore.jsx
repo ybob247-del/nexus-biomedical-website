@@ -6,6 +6,7 @@ import { updateMetaTags, resetMetaTags } from '../config/seoMetadata';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import LanguageToggle from './LanguageToggle';
+import EndoGuardPhase1ConversionLayer from './EndoGuardPhase1ConversionLayer';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
   const navigate = useNavigate();
@@ -287,6 +288,12 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   };
 
   // Handle pricing card button clicks
+  // Handle CTA navigation for Phase 1 Conversion Layer
+  const handlePhase1CTA = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/endoguard/assessment');
+  };
+
   const handlePricingClick = (plan) => {
     // For functional platforms, redirect to login/dashboard
     if (['RxGuard™', 'EndoGuard™'].includes(platform.name)) {
@@ -429,6 +436,9 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }}>
         <LanguageToggle />
       </div>
+
+      {/* Phase 1 Conversion Layer for EndoGuard - Mounted at top of landing page */}
+      {platform.name === 'EndoGuard™' && <EndoGuardPhase1ConversionLayer />}
 
       {/* Content Container */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '6rem' }}>

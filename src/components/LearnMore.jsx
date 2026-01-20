@@ -496,6 +496,29 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           }}>
             {platform.hero.subtitle}
           </p>
+          {platform.name === 'EndoGuard™' && (
+            <>
+              <p style={{
+                fontSize: '1rem',
+                color: '#B8D4E8',
+                maxWidth: '700px',
+                margin: '0 auto 1.5rem',
+                fontWeight: 500
+              }}>
+                Designed to support primary care–led evaluation.
+              </p>
+              <p style={{
+                fontSize: '0.95rem',
+                color: '#B8D4E8',
+                maxWidth: '700px',
+                margin: '0 auto 2rem',
+                fontStyle: 'italic',
+                opacity: 0.85
+              }}>
+                If you’ve been told “your labs are normal” but you still don’t feel normal — start here.
+              </p>
+            </>
+          )}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             {/* Show Try Demo button for all platforms */}
             {onTryDemo && (
@@ -542,9 +565,15 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={handleStartTrial}
+            onClick={() => {
+              if (platform.name === 'EndoGuard™') {
+                handleGetStarted();
+              } else {
+                handleStartTrial();
+              }
+            }}
             >
-              {platform.name === 'EndoGuard™' ? 'Start Free Assessment' : 'Start Free Trial'}
+              {platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial'}
             </button>
 
           </div>
@@ -665,7 +694,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           )}
         </section>
 
-        {/* Pricing */}
+        {/* Pricing - Hidden for EndoGuard Phase 1, shown for other platforms */}
+        {platform.name !== 'EndoGuard™' && (
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
             Pricing
@@ -732,6 +762,27 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             ))}
           </div>
         </section>
+        )}
+
+        {/* Phase 2 Coming Later - Only for EndoGuard */}
+        {platform.name === 'EndoGuard™' && (
+        <section style={{ marginBottom: '4rem' }}>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '20px',
+            padding: '2rem'
+          }}>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem', color: '#B8D4E8' }}>
+              Phase 2 (Provider/Enterprise) - Coming Later
+            </h3>
+            <p style={{ color: '#B8D4E8', fontSize: '0.95rem', opacity: 0.8 }}>
+              Provider dashboards, enterprise pricing, and clinical decision support tools will be available in Phase 2. Phase 1 focuses on your personalized hormone risk report.
+            </p>
+          </div>
+        </section>
+        )}
 
         {/* FAQs */}
         <section style={{ marginBottom: '4rem' }}>
@@ -783,9 +834,15 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={handleStartTrial}
+            onClick={() => {
+              if (platform.name === 'EndoGuard™') {
+                handleGetStarted();
+              } else {
+                handleStartTrial();
+              }
+            }}
             >
-              {platform.name === 'EndoGuard™' ? 'Start Free Assessment' : 'Start Free Trial'}
+              {platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial'}
             </button>
 
           </div>

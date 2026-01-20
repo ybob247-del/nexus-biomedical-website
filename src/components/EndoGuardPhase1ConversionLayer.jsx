@@ -33,8 +33,8 @@ export default function EndoGuardPhase1ConversionLayer() {
       timestamp: new Date().toISOString()
     });
     
-    // Scroll to assessment section
-    const assessmentSection = document.querySelector('.endoguard-assessment');
+    // Scroll to assessment section using ID selector
+    const assessmentSection = document.querySelector('#endoguard-assessment');
     if (assessmentSection) {
       assessmentSection.scrollIntoView({ behavior: 'smooth' });
     }

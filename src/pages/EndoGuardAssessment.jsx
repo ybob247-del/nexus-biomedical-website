@@ -266,7 +266,7 @@ export default function EndoGuardAssessment() {
       {user && <TrialExpirationBanner platform="endoguard" />}
       {/* Phase 1 Conversion Layer - Added above existing assessment page */}
       <EndoGuardPhase1ConversionLayer />
-      <div className="endoguard-assessment">
+      <div id="endoguard-assessment" className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h1 style={{ margin: 0 }}>{t('endoguard.assessment.title')}</h1>

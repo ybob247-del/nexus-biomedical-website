@@ -1,0 +1,261 @@
+/**
+ * EndoGuard Phase 1 Conversion Layer Styles
+ * 
+ * This CSS file styles the Phase 1 conversion layer component.
+ * It is designed to be visually distinct from the assessment page
+ * while maintaining design consistency with the Nexus brand.
+ * 
+ * Structure:
+ * - Hero section with headline and subheadline
+ * - Value bullets (4 items)
+ * - Primary CTA button
+ * - Secondary reassurance line
+ * - Footer disclaimer
+ */
+
+.endoguard-phase1-conversion-layer {
+  background: linear-gradient(135deg, #A21CAF 0%, #86198F 100%);
+  padding: 80px 20px;
+  text-align: center;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.conversion-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.conversion-hero {
+  margin-bottom: 50px;
+}
+
+.conversion-headline {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.conversion-subheadline {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Value Bullets Section */
+.conversion-value-section {
+  margin: 50px 0;
+}
+
+.value-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.value-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.value-bullet-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(5px);
+}
+
+.bullet-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bullet-text {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* CTA Section */
+.conversion-cta-section {
+  margin: 50px 0 30px 0;
+}
+
+.conversion-cta-button {
+  background: white;
+  color: #A21CAF;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+}
+
+.conversion-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: #f5f5f5;
+}
+
+.conversion-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.conversion-cta-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Secondary Reassurance Line */
+.conversion-secondary-line {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin: 20px 0 30px 0;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Footer Disclaimer */
+.conversion-footer-disclaimer {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .endoguard-phase1-conversion-layer {
+    padding: 60px 15px;
+  }
+
+  .conversion-headline {
+    font-size: 2rem;
+  }
+
+  .conversion-subheadline {
+    font-size: 1rem;
+  }
+
+  .value-bullets {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .conversion-cta-button {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+
+  .bullet-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .endoguard-phase1-conversion-layer {
+    padding: 40px 12px;
+  }
+
+  .conversion-headline {
+    font-size: 1.6rem;
+  }
+
+  .conversion-subheadline {
+    font-size: 0.95rem;
+  }
+
+  .value-bullet-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .bullet-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+
+  .bullet-text {
+    font-size: 0.9rem;
+  }
+
+  .conversion-cta-button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .conversion-secondary-line {
+    font-size: 0.85rem;
+  }
+
+  .conversion-footer-disclaimer {
+    font-size: 0.75rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .value-bullet-item,
+  .conversion-cta-button {
+    transition: none;
+  }
+
+  .value-bullet-item:hover {
+    transform: none;
+  }
+
+  .conversion-cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support (if implemented) */
+@media (prefers-color-scheme: dark) {
+  .conversion-cta-button {
+    background: #f0f0f0;
+    color: #A21CAF;
+  }
+
+  .conversion-cta-button:hover {
+    background: #e8e8e8;
+  }
+}

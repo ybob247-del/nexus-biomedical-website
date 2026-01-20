@@ -14,6 +14,7 @@ import { endoGuardAssessmentTour } from '../config/tours';
 import '../styles/endoguard-assessment.css';
 import '../styles/tour.css';
 import EndoGuardResults from '../components/EndoGuardResults';
+import EndoGuardPhase1ConversionLayer from '../components/EndoGuardPhase1ConversionLayer';
 
 const API_BASE = '/api/endoguard';
 
@@ -263,6 +264,8 @@ export default function EndoGuardAssessment() {
       />
       <BackToHomeButton />
       {user && <TrialExpirationBanner platform="endoguard" />}
+      {/* Phase 1 Conversion Layer - Added above existing assessment page */}
+      <EndoGuardPhase1ConversionLayer />
       <div className="endoguard-assessment">
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>

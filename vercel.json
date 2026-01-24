@@ -54,9 +54,7 @@
       "includeFiles": "**"
     }
   },
-  "env": {
-    "DATABASE_URL": "@database_url"
-  },
+
   "headers": [
     {
       "source": "/(.*)",

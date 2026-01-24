@@ -11,6 +11,7 @@ import OnboardingTour from './OnboardingTour';
 import { endoGuardResultsTour } from '../config/tours';
 import BMIGauge from './BMIGauge';
 import { exportEndoGuardPDF } from '../utils/pdfExport';
+import EndoGuardPhase1Paywall from './EndoGuardPhase1Paywall';
 import '../styles/endoguard-results.css';
 import '../styles/tour.css';
 
@@ -69,6 +70,9 @@ export default function EndoGuardResults({ results }) {
           {t(`endoguard.results.riskDescriptions.${overallRisk.level}`)}
         </p>
       </div>
+
+      {/* Phase 1 Paywall - Unlock Full Report */}
+      <EndoGuardPhase1Paywall />
 
       {/* EDC Exposure Section */}
       <div className="results-section">

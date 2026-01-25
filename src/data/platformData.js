@@ -337,25 +337,25 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Hormonal dysregulation impacts women and men across all age groups, yet most clinicians are not fully trained to recognize the early signs, interconnected pathways, or compounding effects of these disruptions. This leaves millions suffering from symptoms that remain untreated, misdiagnosed, or dismissed.',
-        'The silent, often-overlooked imbalances are driven by microplastics, Endocrine Disrupting Chemicals (EDCs), environmental estrogens, and modern dietary exposures. EndoGuard™ is the first clinical-grade platform to integrate environmental exposures, microplastics, EDC datasets, and clinical decision support—filling a major medical gap that no competitor addresses.'
+        'You\'ve been experiencing symptoms—fatigue, weight changes, mood shifts, brain fog—but your doctor says "your labs are normal." The truth is, hormonal imbalances often develop silently, driven by everyday exposures to endocrine-disrupting chemicals (EDCs) in plastics, personal care products, and food packaging.',
+        'EndoGuard™ is the first consumer-grade hormone risk assessment that integrates environmental exposure data with clinical science. Get clarity on your hormone health and understand what to discuss with your doctor—before it becomes a diagnosis.'
       ]
     },
     howItWorks: [
-      { step: 1, title: 'Symptom Input', desc: 'Enter symptoms and health history. Our AI maps symptoms to endocrine pathways using validated hormone dysfunction profiles.' },
-      { step: 2, title: 'EDC Exposure Assessment', desc: 'Comprehensive evaluation of Endocrine Disrupting Chemical (EDC) exposure from personal care products, plastics, food packaging, and environment using FDA EDKB and EPA CompTox databases.' },
-      { step: 3, title: 'AI Pattern Analysis', desc: 'Knowledge graph links hormones, symptoms, chemicals, and treatments. NLP processes 10,000+ peer-reviewed studies from PubMed and Endocrine Society guidelines.' },
-      { step: 4, title: 'Clinical Evidence Engine', desc: 'Every insight is traceable to PubMed, ClinicalTrials.gov, Endocrine Society guidelines, and peer-reviewed literature.' },
-      { step: 5, title: 'Personalized Roadmap', desc: 'Receive actionable guidance on diet, lifestyle modifications, lab tests to request, and clinical discussion points for your healthcare provider.' },
-      { step: 6, title: 'Provider Dashboard', desc: 'Clinicians access advanced search, decision support, and cutting-edge research insights from ClinicalTrials.gov integration.' }
+      { step: 1, title: 'Share Your Symptoms & History', desc: 'Tell us about your symptoms, health history, and lifestyle. Our AI analyzes this data against validated hormone dysfunction profiles.' },
+      { step: 2, title: 'Assess Your EDC Exposure', desc: 'We evaluate your exposure to endocrine-disrupting chemicals (EDCs) from products you use daily—plastics, personal care items, food packaging—using FDA and EPA databases.' },
+      { step: 3, title: 'Calculate Your Risk Tier', desc: 'Our algorithm stratifies your hormone risk into clear tiers (Low, Moderate, High) based on your symptoms and exposures.' },
+      { step: 4, title: 'Identify Your Top 5 Drivers', desc: 'Discover the top factors contributing to your hormone risk—whether symptoms, EDC exposures, or lifestyle factors.' },
+      { step: 5, title: 'Get Your Next Step', desc: 'Receive a personalized summary with actionable next steps: lab tests to request, lifestyle changes, and talking points for your doctor.' },
+      { step: 6, title: 'Provider Summary (Included)', desc: 'Your report includes a clinical summary designed to facilitate informed conversations with your healthcare provider.' }
     ],
     features: [
-      { title: 'Hormone Pattern Analyzer', desc: 'AI-driven inference engine maps symptoms to endocrine pathways using machine learning trained on validated hormone dysfunction profiles.' },
-      { title: 'Endocrine Disruptor Exposure Assessment', desc: 'Unique focus on microplastics, Endocrine Disrupting Chemicals (EDCs), and environmental factors using FDA EDKB and EPA CompTox databases. No competitor offers this integration.' },
-      { title: 'Clinical Evidence Engine', desc: 'Every insight traceable to PubMed, Endocrine Society guidelines, and peer-reviewed literature. Zero speculation—only evidence-based recommendations.' },
-      { title: 'Personalized Hormone Health Roadmap', desc: 'Actionable guidance on diet, lifestyle, lab tests to request, and clinical discussion points tailored to your unique profile.' },
-      { title: 'Provider Dashboard', desc: 'Clinical-grade decision support for physicians, nurse practitioners, and health coaches with advanced search and research integration.' },
-      { title: 'Clinical Trials Module', desc: 'Integration of cutting-edge research from ClinicalTrials.gov, providing access to latest hormone health studies and emerging treatments.' }
+      { title: 'Your Risk Tier', desc: 'Clear, easy-to-understand risk stratification (Low, Moderate, High) based on your unique symptom and exposure profile.' },
+      { title: 'Top 5 Drivers', desc: 'Identify the top factors contributing to your hormone risk—whether specific symptoms, EDC exposures, or lifestyle factors.' },
+      { title: 'Your Next Step', desc: 'Personalized recommendations including lab tests to request, lifestyle modifications, and key talking points for your doctor.' },
+      { title: 'Provider Summary', desc: 'A clinical summary included in your report designed to facilitate informed conversations with your healthcare provider.' },
+      { title: 'Evidence Transparency', desc: 'Every insight traceable to peer-reviewed research, FDA/EPA databases, and Endocrine Society guidelines—zero speculation.' },
+      { title: 'Bilingual Support', desc: 'Full support for English and Spanish, ensuring hormone health guidance is accessible to all.' }
     ],
     benefits: [
       { stat: '50+', title: 'Validated Hormone Profiles', desc: 'AI trained on validated hormone dysfunction profiles from clinical literature' },
@@ -363,21 +363,16 @@ export const platformsData = {
       { stat: '10,000+', title: 'Research Studies', desc: 'Knowledge graph built from PubMed, Endocrine Society guidelines, and peer-reviewed literature' },
       { stat: '100%', title: 'Evidence-Based', desc: 'Every recommendation traceable to authoritative medical sources—zero speculation' }
     ],
-    benefitsDisclaimer: 'Statistics based on current database size and research integration. Platform continuously updated with new evidence.',
+    benefitsDisclaimer: 'EndoGuard™ is a preventive screening tool designed to support informed conversations with your healthcare provider, not replace medical care.',
     pricing: [
-      { tier: 'Free', price: '$0', period: 'Forever free', features: ['Basic symptom analysis', 'Limited EDC exposure assessment', 'Access to educational content', 'Perfect for exploring hormone health'] },
-      { tier: 'Premium', price: '$49', period: 'per month', features: ['Unlimited symptom analysis', 'Comprehensive EDC exposure assessment', 'Personalized hormone health roadmap', 'Evidence-based recommendations', 'Lab test guidance', '14-day free trial'], highlight: true, stripeKey: 'endoguard_premium' },
-      { tier: 'Premium Plus', price: '$97', period: 'per month', features: ['All Premium features', 'Advanced AI predictive modeling', 'Supplement recommendations', 'Priority support', 'Monthly progress tracking', 'Quarterly health reports', '14-day free trial'], stripeKey: 'endoguard_premium_plus' },
-      { tier: 'Provider Basic', price: '$99', period: 'per month', features: ['Clinical decision support', 'Patient management (up to 50)', 'Research database access', 'Patient education handouts', 'Lab interpretation tools'], stripeKey: 'endoguard_provider_basic' },
-      { tier: 'Provider Professional', price: '$199', period: 'per month', features: ['All Provider Basic features', 'Unlimited patients', 'API access for data export', 'Population health analytics', 'White-label options', 'Dedicated account manager', 'Priority support'], stripeKey: 'endoguard_provider_professional' },
-      { tier: 'Enterprise / Partnership', price: 'Custom', period: 'Contact sales', features: ['All Provider Professional features', 'Custom data integrations (coming soon)', 'Advanced analytics dashboards', 'Custom branding options', 'Revenue share models available', 'Dedicated partnership manager', '24/7 priority support'] }
+      { tier: 'Hormone Risk Report', price: '$79', period: 'One-time', features: ['Complete hormone risk assessment', 'EDC exposure analysis', 'Risk tier stratification', 'Top 5 drivers identified', 'Personalized next steps', 'Provider summary included', 'Bilingual support'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],
     faqs: [
-      { q: 'How is EndoGuard™ different from other hormone health apps?', a: 'EndoGuard™ is the only platform that integrates environmental exposures, microplastics, EDC datasets, and clinical decision support. While other apps focus on cycle tracking or general wellness, we provide clinical-grade intelligence traceable to peer-reviewed research from PubMed, FDA EDKB, EPA CompTox, and Endocrine Society guidelines.' },
+      { q: 'What is the Hormone Risk Report?', a: 'The Hormone Risk Report is a one-time, comprehensive assessment that evaluates your hormone health based on your symptoms, health history, and exposure to endocrine-disrupting chemicals (EDCs). You\'ll receive a personalized risk tier, identification of your top drivers, and actionable next steps to discuss with your doctor.' },
+      { q: 'Is EndoGuard™ a replacement for my doctor?', a: 'No. EndoGuard™ is a preventive screening tool designed to empower you with insights to facilitate informed conversations with your healthcare provider. It supports, not replaces, medical care.' },
+      { q: 'How accurate is the EDC exposure assessment?', a: 'Our EDC exposure assessment uses data from the FDA Endocrine Disruptor Knowledge Base (EDKB) and EPA CompTox Dashboard—the most authoritative sources for endocrine-disrupting chemical information. Assessment accuracy depends on the completeness of information you provide about products you use and environmental exposures.' },
       { q: 'What conditions does EndoGuard™ address?', a: 'EndoGuard™ addresses hormone-related conditions including PCOS, thyroid disorders (hypothyroidism, hyperthyroidism, Hashimoto\'s), perimenopause/menopause symptoms, low testosterone, adrenal dysfunction, insulin resistance, and other hormonal imbalances influenced by environmental EDC exposure.' },
-      { q: 'Is EndoGuard™ a replacement for my doctor?', a: 'No. EndoGuard™ is a clinical decision support tool designed to empower patients and assist healthcare providers. It provides evidence-based guidance to facilitate informed discussions with your doctor, not replace medical care.' },
-      { q: 'How accurate is the EDC exposure assessment?', a: 'Our EDC exposure assessment uses data from the FDA Endocrine Disruptor Knowledge Base (EDKB) and EPA CompTox Dashboard—the most authoritative sources for endocrine-disrupting chemical information. Assessment accuracy depends on the completeness of user-provided information about product usage and environmental exposures.' },
-      { q: 'Can healthcare providers use EndoGuard™?', a: 'Yes. The Provider tier includes a clinical dashboard with advanced decision support, research search capabilities, ClinicalTrials.gov integration, and patient management tools. It\'s designed for physicians, nurse practitioners, naturopaths, and health coaches specializing in hormone health.' }
+      { q: 'What\'s included in my report?', a: 'Your report includes: your risk tier (Low/Moderate/High), your top 5 drivers, personalized recommendations for next steps, lab tests to discuss with your doctor, lifestyle modifications, and a clinical summary designed to facilitate conversations with your healthcare provider.' }
     ]
   }
 };

@@ -815,10 +815,10 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           marginBottom: '4rem'
         }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '1rem' }}>
-            Ready to Get Started?
+            {platform.name === 'EndoGuard™' ? 'Understand Your Hormone Risk' : 'Ready to Get Started?'}
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginBottom: '2rem', opacity: 0.9 }}>
-            Start your free trial today and see how {platform.name} can transform your practice.
+            {platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report for $79 (one-time).' : `Start your free trial today and see how ${platform.name} can transform your practice.`}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button style={{

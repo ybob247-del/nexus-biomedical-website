@@ -87,20 +87,34 @@ const LoadingFallback = () => (
 function PlatformPage() {
   const navigate = useNavigate()
   const [showPrototype, setShowPrototype] = useState(false)
+  const { i18n } = useTranslation()
 
   // Get platform ID from URL path
-  const platformId = window.location.pathname.replace('/', '')
+  let platformId = window.location.pathname.replace('/', '')
+  const isSpanish = platformId.startsWith('es/')
+  if (isSpanish) {
+    platformId = platformId.replace('es/', '')
+  }
 
   // Map URL params to platform data keys
   const platformMap = {
-    'rxguard': 'RxGuard™',
-    'reguready': 'ReguReady™',
-    'clinicaliq': 'ClinicalIQ™',
-    'elderwatch': 'ElderWatch™',
-    'pedicalc': 'PediCalc Pro™',
-    'skinscan': 'SkinScan Pro™',
-    'endoguard': 'EndoGuard™'
+    'rxguard': isSpanish ? 'RxGuard™ ES' : 'RxGuard™',
+    'reguready': isSpanish ? 'ReguReady™ ES' : 'ReguReady™',
+    'clinicaliq': isSpanish ? 'ClinicalIQ™ ES' : 'ClinicalIQ™',
+    'elderwatch': isSpanish ? 'ElderWatch™ ES' : 'ElderWatch™',
+    'pedicalc': isSpanish ? 'PediCalc Pro™ ES' : 'PediCalc Pro™',
+    'skinscan': isSpanish ? 'SkinScan Pro™ ES' : 'SkinScan Pro™',
+    'endoguard': isSpanish ? 'EndoGuard™ ES' : 'EndoGuard™'
   }
+
+  // Set language based on route
+  useEffect(() => {
+    if (isSpanish && i18n.language !== 'es') {
+      i18n.changeLanguage('es')
+    } else if (!isSpanish && i18n.language === 'es') {
+      i18n.changeLanguage('en')
+    }
+  }, [isSpanish, i18n])
 
   const platformName = platformMap[platformId]
   const platform = platformsData[platformName]
@@ -117,7 +131,7 @@ function PlatformPage() {
   }
 
   const handleBackToHome = () => {
-    navigate('/')
+    navigate(isSpanish ? '/es/inicio' : '/')
   }
 
   const handleTryDemo = () => {
@@ -490,19 +504,11 @@ function App() {
       />
       <Route 
         path="/es/endoguard" 
-        element={
-          <Suspense fallback={<LoadingFallback />}>
-            <EndoGuardSpanishLanding />
-          </Suspense>
-        }
+        element={<PlatformPage />}
       />
       <Route 
         path="/es/rxguard" 
-        element={
-          <Suspense fallback={<LoadingFallback />}>
-            <RxGuardSpanishLanding />
-          </Suspense>
-        }
+        element={<PlatformPage />}
       />
 
       {/* About Page Route */}

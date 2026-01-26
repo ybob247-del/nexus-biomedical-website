@@ -332,7 +332,7 @@ export const platformsData = {
     stripeConfigured: true,
     hero: {
       title: 'EndoGuard™ Hormone Intelligence Platform',
-      subtitle: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures'
+      subtitle: 'Understand Your Hormone Risk — Before Your Next Doctor's Visit'
     },
     problem: {
       title: 'The Problem We Solve',
@@ -342,11 +342,11 @@ export const platformsData = {
     },
     howItWorks: [
       { step: 1, title: 'Symptoms & History', desc: 'Share your symptoms, health history, and lifestyle. Our AI analyzes this data against validated hormone dysfunction profiles.' },
-      { step: 2, title: 'EDC Exposure Snapshot', desc: 'We evaluate your exposure to endocrine-disrupting chemicals (EDCs) from products you use daily—plastics, personal care items, food packaging—using FDA and EPA databases.' },
+      { step: 2, title: 'Exposure Assessment', desc: 'We evaluate your daily exposures from products you use—personal care items, food packaging, and household products—using FDA and EPA databases.' },
       { step: 3, title: 'Risk Stratification (Low / Moderate / High)', desc: 'Our algorithm stratifies your hormone risk into clear tiers based on your symptoms and exposures.' },
       { step: 4, title: 'Top Drivers Behind Your Risk', desc: 'Discover the top factors contributing to your hormone risk—whether symptoms, EDC exposures, or lifestyle factors.' },
       { step: 5, title: 'One Clear Next Step', desc: 'Receive a personalized summary with actionable next steps: lab tests to request, lifestyle changes, and talking points for your doctor.' },
-      { step: 6, title: 'Provider-Ready Summary (PDF)', desc: 'Your report includes a clinical summary designed to facilitate informed conversations with your healthcare provider.' }
+      { step: 6, title: 'Your Personalized Report (PDF)', desc: 'Your report includes a clear summary with your risk tier, top drivers, and talking points to discuss with your doctor.' }
     ],
     features: [
       { title: 'Personalized Risk Tier (Low / Moderate / High)', desc: 'Clear, easy-to-understand risk stratification based on your unique symptom and exposure profile.' },
@@ -370,9 +370,65 @@ export const platformsData = {
       { q: 'What is the Hormone Risk Report?', a: 'The Hormone Risk Report is a one-time, comprehensive assessment that evaluates your hormone health based on your symptoms, health history, and exposure to endocrine-disrupting chemicals (EDCs). You\'ll receive a personalized risk tier, identification of your top drivers, and actionable next steps to discuss with your doctor.' },
       { q: 'Is EndoGuard™ a replacement for my doctor?', a: 'No. EndoGuard™ is a preventive screening tool designed to empower you with insights to facilitate informed conversations with your healthcare provider. It supports, not replaces, medical care.' },
       { q: 'How accurate is the EDC exposure assessment?', a: 'Our EDC exposure assessment uses data from the FDA Endocrine Disruptor Knowledge Base (EDKB) and EPA CompTox Dashboard—the most authoritative sources for endocrine-disrupting chemical information. Assessment accuracy depends on the completeness of information you provide about products you use and environmental exposures. Results depend on completeness of your answers; they do not replace clinical testing.' },
-      { q: 'What conditions does EndoGuard™ address?', a: 'EndoGuard™ addresses hormone-related conditions including PCOS, thyroid disorders (hypothyroidism, hyperthyroidism, Hashimoto\'s), perimenopause/menopause symptoms, low testosterone, adrenal dysfunction, insulin resistance, and other hormonal imbalances influenced by environmental EDC exposure.' },
+      { q: 'What conditions does EndoGuard™ address?', a: 'EndoGuard™ evaluates hormone-related concerns including irregular cycles, fatigue, mood changes, metabolism changes, and other symptoms that may benefit from a primary-care conversation. It\'s designed for anyone concerned about their hormone health.' },
       { q: 'What\'s included in my report?', a: 'Your report includes: your risk tier (Low/Moderate/High), your top 5 drivers, personalized recommendations for next steps, lab tests to discuss with your doctor, lifestyle modifications, and a clinical summary designed to facilitate conversations with your healthcare provider.' },
-      { q: 'Can healthcare providers use EndoGuard™?', a: 'Not yet. Provider dashboards and decision-support tools will be available in Phase 2. In Phase 1, you\'ll receive a provider-ready summary to support your primary-care visit.' }
+      { q: 'Can I share my report with my doctor?', a: 'Yes. Your report is designed to be shared with your healthcare provider and includes a summary formatted for clinical conversations. It supports your discussion with your doctor about next steps.' }
+    ]
+  }
+};
+
+  'EndoGuard™ ES': {
+    name: 'EndoGuard™',
+    tagline: 'Plataforma de Inteligencia Hormonal',
+    color: '#D946EF',
+    gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
+    badge: 'INTELIGENCIA HORMONAL IMPULSADA POR IA',
+    trialDays: 30,
+    comingSoon: false,
+    stripeConfigured: true,
+    hero: {
+      title: 'EndoGuard™ Plataforma de Inteligencia Hormonal',
+      subtitle: 'Comprende Tu Riesgo Hormonal — Antes de Tu Próxima Cita Médica'
+    },
+    problem: {
+      title: 'El Problema que Resolvemos',
+      content: [
+        'Muchos problemas relacionados con las hormonas se detectan tarde porque los síntomas, exposiciones y patrones no aparecen en los análisis de sangre de inmediato. EndoGuard™ te proporciona una evaluación de riesgo clara y accesible que puedes llevar a tu cita con tu médico de atención primaria, para que tú y tu médico puedan decidir juntos si es necesaria una evaluación adicional.'
+      ]
+    },
+    howItWorks: [
+      { step: 1, title: 'Síntomas e Historial', desc: 'Comparte tus síntomas, historial de salud y estilo de vida. Nuestra IA analiza esta información contra perfiles validados de disfunción hormonal.' },
+      { step: 2, title: 'Evaluación de Exposiciones', desc: 'Evaluamos tus exposiciones diarias de productos que usas—artículos de cuidado personal, empaque de alimentos y productos del hogar—usando bases de datos de la FDA y EPA.' },
+      { step: 3, title: 'Estratificación de Riesgo (Bajo / Moderado / Alto)', desc: 'Nuestro algoritmo clasifica tu riesgo hormonal en niveles claros basado en tus síntomas y exposiciones.' },
+      { step: 4, title: 'Principales Factores de Tu Riesgo', desc: 'Descubre los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida.' },
+      { step: 5, title: 'Un Paso Claro a Seguir', desc: 'Recibe un resumen personalizado con pasos accionables: análisis de sangre para solicitar, cambios en el estilo de vida y puntos de conversación para tu médico.' },
+      { step: 6, title: 'Tu Reporte Personalizado (PDF)', desc: 'Tu reporte incluye un resumen claro con tu nivel de riesgo, principales factores y puntos de conversación para discutir con tu médico.' }
+    ],
+    features: [
+      { title: 'Nivel de Riesgo Personalizado (Bajo / Moderado / Alto)', desc: 'Clasificación de riesgo clara y fácil de entender basada en tu perfil único de síntomas y exposiciones.' },
+      { title: 'Principales 5 Factores de Tu Riesgo', desc: 'Identifica los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida.' },
+      { title: 'Un Paso Claro a Seguir', desc: 'Recomendaciones personalizadas incluyendo análisis de sangre para solicitar, modificaciones del estilo de vida y puntos clave de conversación para tu médico.' },
+      { title: 'Resumen Claro (para imprimir/compartir)', desc: 'Un resumen claro incluido en tu reporte diseñado para facilitar conversaciones informadas con tu proveedor de atención médica.' },
+      { title: 'Transparencia de Evidencia (fuentes listadas)', desc: 'Cada insight es rastreable a investigación revisada por pares, bases de datos de la FDA/EPA y directrices de la Sociedad de Endocrinología—cero especulación.' },
+      { title: 'Soporte Bilingüe (EN | ES)', desc: 'Soporte completo en inglés y español, asegurando que la orientación de salud hormonal sea accesible para todos.' }
+    ],
+    benefits: [
+      { stat: '50+', title: 'Perfiles Hormonales Validados', desc: 'IA entrenada en perfiles validados de disfunción hormonal de literatura clínica' },
+      { stat: '200+', title: 'Exposiciones Rastreadas', desc: 'Base de datos completa de exposiciones de la FDA EDKB y EPA CompTox' },
+      { stat: '10,000+', title: 'Estudios de Investigación', desc: 'Gráfico de conocimiento construido desde PubMed, directrices de la Sociedad de Endocrinología e investigación revisada por pares' },
+      { stat: '100%', title: 'Basado en Evidencia', desc: 'Cada recomendación es rastreable a fuentes médicas autorizadas—cero especulación' }
+    ],
+    benefitsDisclaimer: 'Las cifras reflejan el conjunto de entrenamiento actual del modelo e integración de literatura; se actualizan a medida que evoluciona la evidencia.',
+    pricing: [
+      { tier: 'Reporte de Riesgo Hormonal', price: '$79', period: 'Una sola vez', features: ['Evaluación completa de riesgo hormonal', 'Análisis de exposición', 'Estratificación de nivel de riesgo', 'Principales 5 factores identificados', 'Pasos personalizados', 'Resumen claro incluido', 'Soporte bilingüe'], highlight: true, stripeKey: 'endoguard_phase1' }
+    ],
+    faqs: [
+      { q: '¿Qué es el Reporte de Riesgo Hormonal?', a: 'El Reporte de Riesgo Hormonal es una evaluación única y completa que evalúa tu salud hormonal basada en tus síntomas, historial de salud y exposición a sustancias químicas disruptoras endocrinas. Recibirás un nivel de riesgo personalizado, identificación de tus principales factores y pasos accionables para discutir con tu médico.' },
+      { q: '¿Es EndoGuard™ un reemplazo para mi médico?', a: 'No. EndoGuard™ es una herramienta de evaluación preventiva diseñada para empoderarte con información para facilitar conversaciones informadas con tu proveedor de atención médica. Apoya, pero no reemplaza, la atención médica.' },
+      { q: '¿Qué tan precisa es la evaluación de exposición?', a: 'Nuestra evaluación de exposición utiliza datos de la Base de Conocimiento de Disruptores Endocrinos de la FDA (EDKB) y el Panel de CompTox de la EPA—las fuentes más autorizadas para información sobre químicos disruptores endocrinos. La precisión depende de la completitud de la información que proporciones sobre los productos que usas y tus exposiciones ambientales. Los resultados dependen de la completitud de tus respuestas; no reemplazan las pruebas clínicas.' },
+      { q: '¿Qué condiciones aborda EndoGuard™?', a: 'EndoGuard™ evalúa preocupaciones relacionadas con las hormonas incluyendo ciclos irregulares, fatiga, cambios de humor, cambios en el metabolismo y otros síntomas que podrían beneficiarse de una conversación con tu médico de atención primaria. Está diseñado para cualquiera preocupado por su salud hormonal.' },
+      { q: '¿Qué está incluido en mi reporte?', a: 'Tu reporte incluye: tu nivel de riesgo (Bajo/Moderado/Alto), tus principales 5 factores, recomendaciones personalizadas para los próximos pasos, análisis de sangre para discutir con tu médico, modificaciones del estilo de vida y un resumen claro diseñado para facilitar conversaciones con tu proveedor de atención médica.' },
+      { q: '¿Puedo compartir mi reporte con mi médico?', a: 'Sí. Tu reporte está diseñado para ser compartido con tu proveedor de atención médica e incluye un resumen formateado para conversaciones clínicas. Apoya tu conversación con tu médico sobre los próximos pasos.' }
     ]
   }
 };

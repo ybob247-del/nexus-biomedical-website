@@ -818,7 +818,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             {platform.name === 'EndoGuard™' ? 'Ready to get started?' : 'Ready to Get Started?'}
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginBottom: '2rem', opacity: 0.9 }}>
-            {platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report in minutes—built to support a primary-care–led evaluation.' : `Start your free trial today and see how ${platform.name} can transform your practice.`}
+            {platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.' : `Start your free trial today and see how ${platform.name} can transform your practice.`}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button style={{

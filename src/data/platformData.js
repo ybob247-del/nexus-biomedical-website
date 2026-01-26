@@ -332,7 +332,7 @@ export const platformsData = {
     stripeConfigured: true,
     hero: {
       title: 'EndoGuard™ Hormone Intelligence Platform',
-      subtitle: 'Understand Your Hormone Risk — Before Your Next Doctor's Visit'
+      subtitle: 'Understand Your Hormone Risk — Before Your Next Doctor\'s Visit'
     },
     problem: {
       title: 'The Problem We Solve',
@@ -374,9 +374,7 @@ export const platformsData = {
       { q: 'What\'s included in my report?', a: 'Your report includes: your risk tier (Low/Moderate/High), your top 5 drivers, personalized recommendations for next steps, lab tests to discuss with your doctor, lifestyle modifications, and a clinical summary designed to facilitate conversations with your healthcare provider.' },
       { q: 'Can I share my report with my doctor?', a: 'Yes. Your report is designed to be shared with your healthcare provider and includes a summary formatted for clinical conversations. It supports your discussion with your doctor about next steps.' }
     ]
-  }
-};
-
+  },
   'EndoGuard™ ES': {
     name: 'EndoGuard™',
     tagline: 'Plataforma de Inteligencia Hormonal',

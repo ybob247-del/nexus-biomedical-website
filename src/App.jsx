@@ -162,13 +162,13 @@ function PlatformPage() {
   }
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <div className="nexus-app">
+      <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
         <LearnMore platform={platform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
-      </div>
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
@@ -204,7 +204,6 @@ function Homepage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
           <EarlyAdopterBanner />
         </div>
-        <AssessmentPreview />
         <Platforms onLearnMore={handleLearnMore} />
         <WhoBenefits />
         <FAQ />

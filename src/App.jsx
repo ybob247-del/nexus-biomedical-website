@@ -97,14 +97,15 @@ function PlatformPage() {
   }
 
   // Map URL params to platform data keys
+  // Spanish is a language variant handled by i18n, not a separate platform
   const platformMap = {
-    'rxguard': isSpanish ? 'RxGuard™ ES' : 'RxGuard™',
-    'reguready': isSpanish ? 'ReguReady™ ES' : 'ReguReady™',
-    'clinicaliq': isSpanish ? 'ClinicalIQ™ ES' : 'ClinicalIQ™',
-    'elderwatch': isSpanish ? 'ElderWatch™ ES' : 'ElderWatch™',
-    'pedicalc': isSpanish ? 'PediCalc Pro™ ES' : 'PediCalc Pro™',
-    'skinscan': isSpanish ? 'SkinScan Pro™ ES' : 'SkinScan Pro™',
-    'endoguard': isSpanish ? 'EndoGuard™ ES' : 'EndoGuard™'
+    'rxguard': 'RxGuard™',
+    'reguready': 'ReguReady™',
+    'clinicaliq': 'ClinicalIQ™',
+    'elderwatch': 'ElderWatch™',
+    'pedicalc': 'PediCalc Pro™',
+    'skinscan': 'SkinScan Pro™',
+    'endoguard': 'EndoGuard™'
   }
 
   // Set language based on route
@@ -160,7 +161,15 @@ function PlatformPage() {
     )
   }
 
-  return <LearnMore platform={platform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
+  return (
+    <>
+      <Header />
+      <div className="nexus-app">
+        <LearnMore platform={platform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
+      </div>
+      <Footer />
+    </>
+  )
 }
 
 // Homepage Component

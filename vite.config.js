@@ -15,10 +15,12 @@ export default defineConfig({
     port: 3006,
     allowedHosts: [
       '.manusvm.computer',
+      '.manus.computer',
       'localhost',
       '127.0.0.1'
     ],
-    middlewareMode: false
+    middlewareMode: false,
+    cors: true
   },
   build: {
     // Enable code splitting

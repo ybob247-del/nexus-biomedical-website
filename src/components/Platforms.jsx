@@ -23,6 +23,22 @@ export default function Platforms({ onLearnMore }) {
       comingSoon: false
     },
     {
+      name: 'ReguReady™',
+      taglineKey: 'platforms.reguready.tagline',
+      descriptionKey: 'platforms.reguready.description',
+      color: '#B794F4',
+      gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
+      comingSoon: true
+    },
+    {
+      name: 'ClinicalIQ™',
+      taglineKey: 'platforms.clinicaliq.tagline',
+      descriptionKey: 'platforms.clinicaliq.description',
+      color: '#00D084',
+      gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
+      comingSoon: true
+    },
+    {
       name: 'ElderWatch™',
       taglineKey: 'platforms.elderwatch.tagline',
       descriptionKey: 'platforms.elderwatch.description',
@@ -36,22 +52,6 @@ export default function Platforms({ onLearnMore }) {
       descriptionKey: 'platforms.pedicalc.description',
       color: '#FDA4AF',
       gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'ClinicalIQ™',
-      taglineKey: 'platforms.clinicaliq.tagline',
-      descriptionKey: 'platforms.clinicaliq.description',
-      color: '#00D084',
-      gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'ReguReady™',
-      taglineKey: 'platforms.reguready.tagline',
-      descriptionKey: 'platforms.reguready.description',
-      color: '#B794F4',
-      gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
       comingSoon: true
     },
     {

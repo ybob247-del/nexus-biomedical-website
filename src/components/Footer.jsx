@@ -79,6 +79,11 @@ Research<br />({t('platforms.comingSoon')})
           <h4 className="footer-column-title">{t('nav.platforms')}</h4>
           <ul className="footer-links">
             <li>
+              <button onClick={() => handlePlatformClick('endoguard')} className="footer-link">
+                EndoGuard™
+              </button>
+            </li>
+            <li>
               <button onClick={() => handlePlatformClick('rxguard')} className="footer-link">
                 RxGuard™
               </button>
@@ -106,11 +111,6 @@ Research<br />({t('platforms.comingSoon')})
             <li>
               <button onClick={() => handlePlatformClick('skinscan')} className="footer-link">
                 SkinScan Pro™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('endoguard')} className="footer-link">
-                EndoGuard™
               </button>
             </li>
           </ul>

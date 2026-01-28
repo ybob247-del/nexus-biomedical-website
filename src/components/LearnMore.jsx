@@ -492,7 +492,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
                 margin: '0 auto 1.5rem',
                 fontWeight: 500
               }}>
-                Designed to support primary care–led evaluation.
+                {platform.designedFor || 'Designed to support primary care–led evaluation.'}
               </p>
               <p style={{
                 fontSize: '0.95rem',
@@ -558,7 +558,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         {/* How It Works */}
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            How {platform.name} Works
+            {platform.sectionHeadings?.howItWorks || `How ${platform.name} Works`}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {platform.howItWorks.map((item) => (
@@ -594,7 +594,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         {/* Key Features */}
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            Key Features
+            {platform.sectionHeadings?.keyFeatures || 'Key Features'}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
             {platform.features.map((feature, idx) => (
@@ -624,7 +624,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           marginBottom: '4rem'
         }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            {platform.name.includes('Clinical') ? 'Business Benefits' : 'Clinical Benefits'}
+            {platform.sectionHeadings?.clinicalBenefits || (platform.name.includes('Clinical') ? 'Business Benefits' : 'Clinical Benefits')}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
             {platform.benefits.map((benefit, idx) => (
@@ -744,7 +744,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         {/* FAQs */}
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            Frequently Asked Questions
+            {platform.sectionHeadings?.faq || 'Frequently Asked Questions'}
           </h2>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {platform.faqs.map((faq, idx) => (
@@ -772,7 +772,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           marginBottom: '4rem'
         }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '1rem' }}>
-            {platform.name === 'EndoGuard™' ? 'Ready to get started?' : 'Ready to Get Started?'}
+            {platform.sectionHeadings?.readyToStart || (platform.name === 'EndoGuard™' ? 'Ready to get started?' : 'Ready to Get Started?')}
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginBottom: '2rem', opacity: 0.9 }}>
             {platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.' : `Start your free trial today and see how ${platform.name} can transform your practice.`}
@@ -807,7 +807,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
         {/* Contact */}
         <div style={{ textAlign: 'center', paddingBottom: '4rem' }}>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 600, marginBottom: '1rem' }}>Get in Touch</h3>
+          <h3 style={{ fontSize: '1.8rem', fontWeight: 600, marginBottom: '1rem' }}>{platform.sectionHeadings?.getInTouch || 'Get in Touch'}</h3>
           <p style={{ color: '#B8D4E8', marginBottom: '1rem' }}>
             <a href="mailto:support@nexusbiomedical.ai" style={{ color: platform.color, textDecoration: 'none' }}>
               support@nexusbiomedical.ai

@@ -417,6 +417,16 @@ export const platformsData = {
       { stat: '100%', title: 'Basado en evidencia', desc: 'Cada recomendación es rastreable a fuentes médicas autorizadas — cero especulación' }
     ],
     benefitsDisclaimer: 'Las cifras reflejan el conjunto de entrenamiento del modelo actual y la integración de literatura; se actualizan a medida que evoluciona la evidencia.',
+    sectionHeadings: {
+      howItWorks: 'Cómo funciona EndoGuard™',
+      keyFeatures: 'Características principales',
+      clinicalBenefits: 'Beneficios clínicos',
+      faq: 'Preguntas frecuentes',
+      readyToStart: '¿Listo para comenzar?',
+      getInTouch: 'Ponte en contacto'
+    },
+    designedFor: 'Diseñado para apoyar la evaluación dirigida por atención primaria.',
+    phase2Info: 'Fase 2 (Proveedor/Empresa) - Próximamente',
     pricing: [
       { tier: 'Reporte de Riesgo Hormonal', price: '$79', period: 'Una sola vez', features: ['Evaluación completa de riesgo hormonal', 'Análisis de exposición', 'Estratificación de nivel de riesgo', 'Principales 5 factores identificados', 'Pasos personalizados', 'Resumen claro incluido', 'Soporte bilingüe'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],

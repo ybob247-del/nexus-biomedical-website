@@ -117,7 +117,9 @@ function PlatformPage() {
   }, [isSpanish, i18n])
 
   const platformName = platformMap[platformId]
-  const platform = platformsData[platformName]
+  // Use Spanish platform data if on Spanish route
+  const platformKey = isSpanish && platformName === 'EndoGuard™' ? 'EndoGuard™ ES' : platformName
+  const platform = platformsData[platformKey]
 
   // If invalid platform, redirect to home
   useEffect(() => {

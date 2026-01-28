@@ -13,12 +13,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   const { isAuthenticated } = useAuth();
   const { i18n } = useTranslation();
   
-  // Redirect to Spanish landing page if language is Spanish and platform is EndoGuard
-  useEffect(() => {
-    if (i18n.language === 'es' && platform?.name === 'EndoGuard™') {
-      navigate('/es/endoguard');
-    }
-  }, [i18n.language, platform, navigate]);
+  // Note: Spanish EndoGuard rendering is handled by EndoGuardSpanishLanding component
   
   // Map platform names to dashboard URLs
   const platformDashboards = {

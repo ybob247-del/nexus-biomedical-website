@@ -384,19 +384,15 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       background: 'transparent',
       color: '#FFFFFF',
       padding: '2rem 1rem',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      overflowY: 'auto',
-      zIndex: 1000
+      position: 'relative',
+      overflowY: 'visible',
+      zIndex: 1
     }}>
       {/* Back Button */}
       <button
         onClick={onBack}
         style={{
-          position: 'fixed',
+          position: 'absolute',
           top: '2rem',
           left: '2rem',
           background: 'rgba(255, 255, 255, 0.1)',
@@ -425,7 +421,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
       {/* Language Toggle */}
       <div style={{
-        position: 'fixed',
+        position: 'absolute',
         top: '2rem',
         right: '2rem',
         zIndex: 1001
@@ -516,37 +512,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             </>
           )}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {/* Show Try Demo button for all platforms */}
-            {onTryDemo && (
-              <button style={{
-                background: platform.gradient,
-                color: 'white',
-                border: 'none',
-                padding: '1rem 2.5rem',
-                borderRadius: '30px',
-                fontSize: '1.1rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: `0 4px 20px ${platform.color}40`
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              onClick={() => {
-                const demoMap = {
-                  'RxGuard™': 'rxguard',
-                  'ReguReady™': 'reguready',
-                  'ClinicalIQ™': 'clinicaliq',
-                  'ElderWatch™': 'elderwatch',
-                  'PediCalc Pro™': 'pedicalc',
-                  'SkinScan Pro™': 'skinscan'
-                };
-                onTryDemo(demoMap[platform.name]);
-              }}
-              >
-                🚀 Try Interactive Demo
-              </button>
-            )}
+            {/* Try Demo button removed - Phase 2.2 compliance */}
             <button style={{
               background: platform.gradient,
               color: 'white',

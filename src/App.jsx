@@ -216,13 +216,17 @@ function App() {
   const { i18n } = useTranslation();
   const location = useLocation();
 
-  // Initialize language preference on first load
+  // Initialize language preference on first load and when URL changes
   useEffect(() => {
-    const preferredLanguage = initializeLanguagePreference();
-    if (preferredLanguage !== i18n.language) {
-      i18n.changeLanguage(preferredLanguage);
+    // Determine language from current URL
+    const isSpanishRoute = location.pathname.startsWith('/es');
+    const urlLanguage = isSpanishRoute ? 'es' : 'en';
+    
+    // Change language to match URL
+    if (urlLanguage !== i18n.language) {
+      i18n.changeLanguage(urlLanguage);
     }
-  }, []);
+  }, [location.pathname, i18n]);
 
   // Track page views with language dimension
   useEffect(() => {

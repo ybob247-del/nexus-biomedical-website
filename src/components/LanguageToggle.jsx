@@ -36,7 +36,7 @@ const LanguageToggle = () => {
       // Switch to Spanish: add /es/ prefix if not already there
       if (!currentPath.startsWith('/es/')) {
         if (currentPath === '/') {
-          newPath = '/es/inicio';
+          newPath = '/es';
         } else {
           newPath = `/es${currentPath}`;
         }
@@ -45,9 +45,11 @@ const LanguageToggle = () => {
       // Switch to English: remove /es/ prefix
       if (currentPath.startsWith('/es/')) {
         newPath = currentPath.replace('/es/', '/');
-        if (newPath === '/inicio') {
+        if (newPath === '/') {
           newPath = '/';
         }
+      } else if (currentPath === '/es') {
+        newPath = '/';
       }
     }
     

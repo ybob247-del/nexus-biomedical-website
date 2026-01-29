@@ -6,6 +6,15 @@ import '../styles/header.css'
 import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 import LanguageToggle from './LanguageToggle'
 
+// Helper function to preserve language when navigating
+const getLocalizedPath = (path, currentPath) => {
+  const isSpanish = currentPath.startsWith('/es');
+  if (isSpanish && !path.startsWith('/es')) {
+    return path === '/' ? '/es' : `/es${path}`;
+  }
+  return path;
+}
+
 const Header = () => {
   const { t } = useTranslation()
   const { user, logout } = useAuth()
@@ -17,9 +26,11 @@ const Header = () => {
   const location = useLocation()
 
   const handleNavClick = (sectionId) => {
+    const isSpanish = location.pathname.startsWith('/es');
+    const homePath = isSpanish ? '/es' : '/';
     // If not on homepage, navigate to homepage first
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (location.pathname !== homePath) {
+      navigate(homePath)
       setTimeout(() => {
         const element = document.getElementById(sectionId)
         element?.scrollIntoView({ behavior: 'smooth' })
@@ -32,7 +43,9 @@ const Header = () => {
   }
 
   const handleLogoClick = () => {
-    navigate('/')
+    const isSpanish = location.pathname.startsWith('/es');
+    const homePath = isSpanish ? '/es' : '/';
+    navigate(homePath)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -98,20 +111,20 @@ const Header = () => {
             </button>
             {isDesktopDropdownOpen && (
               <div className="desktop-dropdown">
-                <button onClick={() => navigate('/endoguard')} className="desktop-dropdown-link">EndoGuard™</button>
-                <button onClick={() => navigate('/rxguard')} className="desktop-dropdown-link">RxGuard™</button>
-                <button onClick={() => navigate('/reguready')} className="desktop-dropdown-link">ReguReady™</button>
-                <button onClick={() => navigate('/clinicaliq')} className="desktop-dropdown-link">ClinicalIQ™</button>
-                <button onClick={() => navigate('/elderwatch')} className="desktop-dropdown-link">ElderWatch™</button>
-                <button onClick={() => navigate('/pedicalc')} className="desktop-dropdown-link">PediCalc Pro™</button>
-                <button onClick={() => navigate('/skinscan')} className="desktop-dropdown-link">SkinScan Pro™</button>
+                <button onClick={() => navigate(getLocalizedPath('/endoguard', location.pathname))} className="desktop-dropdown-link">EndoGuard™</button>
+                <button onClick={() => navigate(getLocalizedPath('/rxguard', location.pathname))} className="desktop-dropdown-link">RxGuard™</button>
+                <button onClick={() => navigate(getLocalizedPath('/reguready', location.pathname))} className="desktop-dropdown-link">ReguReady™</button>
+                <button onClick={() => navigate(getLocalizedPath('/clinicaliq', location.pathname))} className="desktop-dropdown-link">ClinicalIQ™</button>
+                <button onClick={() => navigate(getLocalizedPath('/elderwatch', location.pathname))} className="desktop-dropdown-link">ElderWatch™</button>
+                <button onClick={() => navigate(getLocalizedPath('/pedicalc', location.pathname))} className="desktop-dropdown-link">PediCalc Pro™</button>
+                <button onClick={() => navigate(getLocalizedPath('/skinscan', location.pathname))} className="desktop-dropdown-link">SkinScan Pro™</button>
               </div>
             )}
           </div>
-          <button onClick={() => navigate('/about')} className="nav-link">
+          <button onClick={() => navigate(getLocalizedPath('/about', location.pathname))} className="nav-link">
             {t('nav.about')}
           </button>
-          <button onClick={() => navigate('/blog')} className="nav-link">
+          <button onClick={() => navigate(getLocalizedPath('/blog', location.pathname))} className="nav-link">
             Blog
           </button>
           <button onClick={() => handleNavClick('faq')} className="nav-link">
@@ -215,20 +228,20 @@ const Header = () => {
           </button>
           {isPlatformsDropdownOpen && (
             <div className="mobile-dropdown">
-              <button onClick={() => { navigate('/endoguard'); setIsMobileMenuOpen(false); }} className="dropdown-link">EndoGuard™</button>
-              <button onClick={() => { navigate('/rxguard'); setIsMobileMenuOpen(false); }} className="dropdown-link">RxGuard™</button>
-              <button onClick={() => { navigate('/reguready'); setIsMobileMenuOpen(false); }} className="dropdown-link">ReguReady™</button>
-              <button onClick={() => { navigate('/clinicaliq'); setIsMobileMenuOpen(false); }} className="dropdown-link">ClinicalIQ™</button>
-              <button onClick={() => { navigate('/elderwatch'); setIsMobileMenuOpen(false); }} className="dropdown-link">ElderWatch™</button>
-              <button onClick={() => { navigate('/pedicalc'); setIsMobileMenuOpen(false); }} className="dropdown-link">PediCalc Pro™</button>
-              <button onClick={() => { navigate('/skinscan'); setIsMobileMenuOpen(false); }} className="dropdown-link">SkinScan Pro™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/endoguard', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">EndoGuard™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/rxguard', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">RxGuard™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/reguready', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">ReguReady™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/clinicaliq', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">ClinicalIQ™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/elderwatch', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">ElderWatch™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/pedicalc', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">PediCalc Pro™</button>
+              <button onClick={() => { navigate(getLocalizedPath('/skinscan', location.pathname)); setIsMobileMenuOpen(false); }} className="dropdown-link">SkinScan Pro™</button>
             </div>
           )}
         </div>
-        <button onClick={() => { navigate('/about'); setIsMobileMenuOpen(false); }} className="nav-link">
+        <button onClick={() => { navigate(getLocalizedPath('/about', location.pathname)); setIsMobileMenuOpen(false); }} className="nav-link">
           {t('nav.about')}
         </button>
-        <button onClick={() => { navigate('/blog'); setIsMobileMenuOpen(false); }} className="nav-link">
+        <button onClick={() => { navigate(getLocalizedPath('/blog', location.pathname)); setIsMobileMenuOpen(false); }} className="nav-link">
           Blog
         </button>
         <button onClick={() => handleNavClick('faq')} className="nav-link">

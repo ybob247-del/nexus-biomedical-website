@@ -133,7 +133,7 @@ function PlatformPage() {
   }
 
   const handleBackToHome = () => {
-    navigate(isSpanish ? '/es/inicio' : '/')
+    navigate(isSpanish ? '/es' : '/')
   }
 
   const handleTryDemo = () => {
@@ -500,14 +500,7 @@ function App() {
           </Suspense>
         } 
       />
-      <Route 
-        path="/es/inicio" 
-        element={
-          <Suspense fallback={<LoadingFallback />}>
-            <SpanishLanding />
-          </Suspense>
-        }
-      />
+
       <Route 
         path="/es/endoguard" 
         element={<EndoGuardSpanishLanding />}

@@ -363,6 +363,18 @@ export const platformsData = {
       { stat: '100%', title: 'Evidence-Based', desc: 'Every recommendation traceable to authoritative medical sources—zero speculation' }
     ],
     benefitsDisclaimer: 'Figures reflect current model training set and literature integration; updated as evidence evolves.',
+    sectionHeadings: {
+      howItWorks: 'How EndoGuard™ Works',
+      keyFeatures: 'Key Features',
+      clinicalBenefits: 'Clinical Benefits',
+      faq: 'Frequently Asked Questions',
+      readyToStart: 'Ready to get started?',
+      getInTouch: 'Get in Touch'
+    },
+    designedFor: 'Designed to support primary care–led evaluation.',
+    phase2Info: 'Phase 2 (Provider/Enterprise) - Coming Later',
+    ctaButtonText: 'Get My Hormone Risk Report',
+    ctaDescription: 'Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.',
     pricing: [
       { tier: 'Hormone Risk Report', price: '$79', period: 'One-time', features: ['Complete hormone risk assessment', 'EDC exposure analysis', 'Risk tier stratification', 'Top 5 drivers identified', 'Personalized next steps', 'Provider summary included', 'Bilingual support'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],

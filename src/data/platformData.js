@@ -426,6 +426,7 @@ export const platformsData = {
       getInTouch: 'Ponte en contacto'
     },
     designedFor: 'Diseñado para apoyar la evaluación dirigida por atención primaria.',
+    phase2Info: 'Fase 2 (Proveedor/Empresa) - Próximamente',
     ctaButtonText: 'Obtén Mi Informe de Riesgo Hormonal',
     ctaDescription: 'Obtén tu informe personalizado de riesgo hormonal en minutos—diseñado para apoyar la evaluación dirigida por atención primaria.',
     pricing: [

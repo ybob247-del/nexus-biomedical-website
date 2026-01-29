@@ -530,7 +530,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
               }
             }}
             >
-              {platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial'}
+              {platform.ctaButtonText || (platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial')}
             </button>
 
           </div>
@@ -732,7 +732,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             padding: '2rem'
           }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem', color: '#B8D4E8' }}>
-              Phase 2 (Provider/Enterprise) - Coming Later
+              {platform.phase2Info || 'Phase 2 (Provider/Enterprise) - Coming Later'}
             </h3>
             <p style={{ color: '#B8D4E8', fontSize: '0.95rem', opacity: 0.8 }}>
               Provider dashboards and enterprise tools arrive in Phase 2. Phase 1 focuses on your personalized hormone risk report.
@@ -775,7 +775,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             {platform.sectionHeadings?.readyToStart || (platform.name === 'EndoGuard™' ? 'Ready to get started?' : 'Ready to Get Started?')}
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginBottom: '2rem', opacity: 0.9 }}>
-            {platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.' : `Start your free trial today and see how ${platform.name} can transform your practice.`}
+            {platform.ctaDescription || (platform.name === 'EndoGuard™' ? 'Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.' : `Start your free trial today and see how ${platform.name} can transform your practice.`)}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button style={{
@@ -799,7 +799,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
               }
             }}
             >
-              {platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial'}
+              {platform.ctaButtonText || (platform.name === 'EndoGuard™' ? 'Get My Hormone Risk Report' : 'Start Free Trial')}
             </button>
 
           </div>

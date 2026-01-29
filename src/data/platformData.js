@@ -426,7 +426,8 @@ export const platformsData = {
       getInTouch: 'Ponte en contacto'
     },
     designedFor: 'Diseñado para apoyar la evaluación dirigida por atención primaria.',
-    phase2Info: 'Fase 2 (Proveedor/Empresa) - Próximamente',
+    ctaButtonText: 'Obtén Mi Informe de Riesgo Hormonal',
+    ctaDescription: 'Obtén tu informe personalizado de riesgo hormonal en minutos—diseñado para apoyar la evaluación dirigida por atención primaria.',
     pricing: [
       { tier: 'Reporte de Riesgo Hormonal', price: '$79', period: 'Una sola vez', features: ['Evaluación completa de riesgo hormonal', 'Análisis de exposición', 'Estratificación de nivel de riesgo', 'Principales 5 factores identificados', 'Pasos personalizados', 'Resumen claro incluido', 'Soporte bilingüe'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],

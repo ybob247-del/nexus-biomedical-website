@@ -507,7 +507,7 @@ function App() {
 
       <Route 
         path="/es/endoguard" 
-        element={<EndoGuardSpanishLanding />}
+        element={<PlatformPage />}
       />
       <Route 
         path="/es/rxguard" 

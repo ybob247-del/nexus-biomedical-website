@@ -750,3 +750,4 @@ export default App
 // Force deployment
 // Deployment trigger: Tue Jan 27 13:42:26 EST 2026
 // Vercel deployment trigger Tue Jan 27 17:33:11 EST 2026
+// Force rebuild for Phase 2.3.1

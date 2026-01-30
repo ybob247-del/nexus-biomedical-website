@@ -224,7 +224,7 @@ function App() {
     if (preferredLanguage !== i18n.language) {
       i18n.changeLanguage(preferredLanguage);
     }
-  }, [location.pathname, i18n]);
+  }, [location.pathname, i18n.language]);
 
   // Track page views with language dimension
   useEffect(() => {

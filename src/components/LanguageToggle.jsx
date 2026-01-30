@@ -25,9 +25,6 @@ const LanguageToggle = () => {
     // Save language preference
     setLanguagePreference(newLang);
     
-    // Change language
-    i18n.changeLanguage(newLang);
-    
     // Preserve route when switching languages
     const currentPath = location.pathname;
     let newPath = currentPath;
@@ -54,10 +51,13 @@ const LanguageToggle = () => {
       }
     }
     
-    // Navigate to new path if it changed
+    // Navigate to new path FIRST
     if (newPath !== currentPath) {
       navigate(newPath);
     }
+    
+    // Change language AFTER navigation to prevent blank page
+    i18n.changeLanguage(newLang);
   };
 
   // Determine current language for visual state

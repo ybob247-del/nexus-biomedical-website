@@ -51,13 +51,10 @@ const LanguageToggle = () => {
       }
     }
     
-    // Navigate to new path FIRST
+    // Navigate to new path - App.jsx useEffect will handle language change based on URL
     if (newPath !== currentPath) {
       navigate(newPath);
     }
-    
-    // Change language AFTER navigation to prevent blank page
-    i18n.changeLanguage(newLang);
   };
 
   // Determine current language for visual state

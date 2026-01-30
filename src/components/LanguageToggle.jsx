@@ -33,20 +33,23 @@ const LanguageToggle = () => {
     let newPath = currentPath;
     
     if (newLang === 'es') {
-      // Switch to Spanish: add /es/ prefix if not already there
-      if (!currentPath.startsWith('/es/')) {
+      // Switch to Spanish: add /es prefix if not already there
+      if (!currentPath.startsWith('/es')) {
         if (currentPath === '/') {
-          newPath = '/es/inicio';
+          newPath = '/es';
         } else {
           newPath = `/es${currentPath}`;
         }
       }
     } else {
-      // Switch to English: remove /es/ prefix
-      if (currentPath.startsWith('/es/')) {
-        newPath = currentPath.replace('/es/', '/');
-        if (newPath === '/inicio') {
+      // Switch to English: remove /es prefix
+      if (currentPath.startsWith('/es')) {
+        // Handle /es (homepage) -> /
+        if (currentPath === '/es') {
           newPath = '/';
+        } else {
+          // Handle /es/path -> /path
+          newPath = currentPath.replace('/es', '');
         }
       }
     }

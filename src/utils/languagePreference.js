@@ -81,6 +81,12 @@ export const detectBrowserLanguage = () => {
  * @returns {string} Language code (en/es)
  */
 export const initializeLanguagePreference = () => {
+  // Check URL first - URL takes precedence
+  const currentPath = window.location.pathname;
+  if (currentPath.startsWith('/es')) {
+    return 'es';
+  }
+  
   // Check saved preference
   const savedPreference = getLanguagePreference();
   if (savedPreference) {

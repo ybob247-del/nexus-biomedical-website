@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Vercel Production Deployment Fixer every 5 minutes
+Requires=vercel-deployment-fix.service
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Vercel Production Deployment Fixer
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/nexus-biomedical-website
+Environment="VERCEL_TOKEN=BDOcUkY1DxTmfEB4KslLuUe4"
+Environment="PROJECT_ID=prj_HGiyDIsgDOoKxdyfCfXIm0YmDvxk"
+Environment="LOG_FILE=/tmp/vercel-deployment-fix.log"
+ExecStart=/bin/bash /home/ubuntu/nexus-biomedical-website/scripts/ensure-production-deployment.sh
+StandardOutput=journal
+StandardError=journal

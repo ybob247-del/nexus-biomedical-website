@@ -492,6 +492,27 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           }}>
             {platform.hero.subtitle}
           </p>
+          {platform.name === 'RxGuard™' && (
+            <div style={{
+              display: 'inline-block',
+              background: 'rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              padding: '1rem 2rem',
+              borderRadius: '20px',
+              marginBottom: '2rem',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <p style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                margin: 0,
+                letterSpacing: '2px'
+              }}>
+                Coming Soon
+              </p>
+            </div>
+          )}
           {platform.name === 'EndoGuard™' && (
             <>
               <p style={{
@@ -801,6 +822,29 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             ))}
           </div>
         </section>
+
+        {/* Documentation Section */}
+        {!['EndoGuard™', 'RxGuard™'].includes(platform.name) && (
+          <section style={{ marginBottom: '4rem' }}>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '20px',
+              padding: '3rem 2rem',
+              textAlign: 'center',
+              maxWidth: '900px',
+              margin: '0 auto'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '0.5rem', color: '#B8D4E8' }}>
+                Documentation
+              </h3>
+              <p style={{ color: '#6B7280', fontSize: '1rem', margin: 0 }}>
+                Coming Soon
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* CTA Section */}
         <section style={{

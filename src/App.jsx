@@ -15,7 +15,7 @@ import WhoBenefits from './components/WhoBenefits'
 import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
 import LanguageToggle from './components/LanguageToggle'
-import EarlyAdopterBanner from './components/EarlyAdopterBanner'
+
 import AIChatbot from './components/AIChatbot'
 import AssessmentPreview from './components/AssessmentPreview'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -201,9 +201,7 @@ function Homepage() {
       <Header />
       <div className="nexus-app">
         <Hero />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
-          <EarlyAdopterBanner />
-        </div>
+
         <Platforms onLearnMore={handleLearnMore} />
         <WhoBenefits />
         <FAQ />

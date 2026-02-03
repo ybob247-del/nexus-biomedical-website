@@ -20,7 +20,7 @@ export default function Platforms({ onLearnMore }) {
       descriptionKey: 'platforms.rxguard.description',
       color: '#00A8CC',
       gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-      comingSoon: false
+      comingSoon: true
     },
     {
       name: 'ReguReady™',

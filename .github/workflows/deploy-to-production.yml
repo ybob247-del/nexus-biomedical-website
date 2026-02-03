@@ -1,0 +1,46 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        uses: vercel/action@master
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          production: true
+
+      - name: Assign Deployment to Production Domains
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          # Wait for deployment to be ready
+          sleep 10
+          
+          # Get the latest READY deployment
+          LATEST_DEPLOYMENT=$(curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
+            "https://api.vercel.com/v6/deployments?projectId=$PROJECT_ID&limit=1&state=READY" | jq -r '.deployments[0].uid')
+          
+          echo "Latest deployment: $LATEST_DEPLOYMENT"
+          
+          # Assign to all production domains
+          for domain in "www.nexusbiomedical.ai" "nexusbiomedical.ai" "nexus-biomedical-website.vercel.app"; do
+            echo "Assigning $domain to $LATEST_DEPLOYMENT"
+            curl -s -X PATCH -H "Authorization: Bearer $VERCEL_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "{\"deploymentId\":\"$LATEST_DEPLOYMENT\"}" \
+              "https://api.vercel.com/v10/projects/$PROJECT_ID/domains/$domain"
+            echo ""
+          done
+          
+          echo "Deployment complete!"

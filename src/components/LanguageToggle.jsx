@@ -25,9 +25,6 @@ const LanguageToggle = () => {
     // Save language preference
     setLanguagePreference(newLang);
     
-    // Change language
-    i18n.changeLanguage(newLang);
-    
     // Preserve route when switching languages
     const currentPath = location.pathname;
     let newPath = currentPath;
@@ -54,7 +51,7 @@ const LanguageToggle = () => {
       }
     }
     
-    // Navigate to new path if it changed
+    // Navigate to new path - App.jsx useEffect will handle language change based on URL
     if (newPath !== currentPath) {
       navigate(newPath);
     }

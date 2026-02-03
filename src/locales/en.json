@@ -58,7 +58,7 @@
     "endoguard": {
       "name": "EndoGuard™",
       "tagline": "Clinical-Grade Hormone Intelligence Platform",
-      "description": "Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.",
+      "description": "AI-powered hormone risk awareness platform designed to help individuals and clinicians prepare for more informed primary-care conversations.",
       "features": {
         "assessment": "Comprehensive hormone health assessment",
         "edc": "EDC exposure tracking and analysis",
@@ -71,7 +71,7 @@
     "rxguard": {
       "name": "RxGuard™",
       "tagline": "Medication Interaction Predictor",
-      "description": "AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.",
+      "description": "AI-assisted medication interaction analysis platform that helps surface potential drug–drug risks and safety considerations.",
       "features": {
         "checker": "Real-time interaction checking",
         "alternatives": "Safer medication alternatives",
@@ -84,27 +84,27 @@
     "elderwatch": {
       "name": "ElderWatch™",
       "tagline": "Senior Health Monitoring",
-      "description": "Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge, enabling proactive intervention."
+      "description": "AI-powered monitoring platform designed to help caregivers and care teams identify trends and potential changes in senior health status."
     },
     "pedicalc": {
       "name": "PediCalc Pro™",
       "tagline": "Pediatric Medication Dosing",
-      "description": "AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification for children."
+      "description": "AI-assisted pediatric medication calculation and reference platform designed to support dosing verification and safety checks."
     },
     "clinicaliq": {
       "name": "ClinicalIQ™",
       "tagline": "Clinical Decision Support System",
-      "description": "AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations and optimize clinical trial design."
+      "description": "AI-driven clinical trial intelligence platform supporting protocol design, feasibility assessment, and enrollment planning."
     },
     "reguready": {
       "name": "ReguReady™",
       "tagline": "FDA Regulatory Guidance Platform",
-      "description": "AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals through intelligent compliance analysis."
+      "description": "AI-powered regulatory intelligence platform supporting pathway analysis, gap identification, and compliance planning for medical products."
     },
     "skinscan": {
       "name": "SkinScan Pro™",
       "tagline": "AI Skin Cancer Detection",
-      "description": "AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist healthcare providers in early melanoma identification."
+      "description": "AI-powered skin lesion analysis platform designed to support triage and decision support using photographic inputs."
     }
   },
   "pricing": {

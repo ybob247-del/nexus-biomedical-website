@@ -164,7 +164,7 @@ function PlatformPage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+      <main style={{ flex: 1, paddingTop: '80px', position: 'relative', zIndex: 1, overflowY: 'auto' }}>
         <LearnMore platform={platform} onBack={handleBackToHome} onTryDemo={handleTryDemo} />
       </main>
       <Footer />

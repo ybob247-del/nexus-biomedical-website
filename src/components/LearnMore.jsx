@@ -84,8 +84,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         <button
           onClick={onBack}
           style={{
-            position: 'fixed',
-            top: '2rem',
+            position: 'absolute',
+            top: '100px',
             left: '2rem',
             background: 'rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(10px)',
@@ -113,8 +113,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
         {/* Language Toggle */}
         <div style={{
-          position: 'fixed',
-          top: '2rem',
+          position: 'absolute',
+          top: '100px',
           right: '2rem',
           zIndex: 1001
         }}>
@@ -380,24 +380,20 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
   return (
     <div style={{
-      minHeight: '100vh',
+      minHeight: 'auto',
       background: 'transparent',
       color: '#FFFFFF',
       padding: '2rem 1rem',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      overflowY: 'auto',
-      zIndex: 1000
+      position: 'relative',
+      overflowY: 'visible',
+      zIndex: 1
     }}>
       {/* Back Button */}
       <button
         onClick={onBack}
         style={{
-          position: 'fixed',
-          top: '2rem',
+          position: 'absolute',
+          top: '100px',
           left: '2rem',
           background: 'rgba(255, 255, 255, 0.1)',
           backdropFilter: 'blur(10px)',
@@ -425,8 +421,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
       {/* Language Toggle */}
       <div style={{
-        position: 'fixed',
-        top: '2rem',
+        position: 'absolute',
+        top: '100px',
         right: '2rem',
         zIndex: 1001
       }}>
@@ -437,7 +433,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       {platform.name === 'EndoGuard™' && <EndoGuardPhase1ConversionLayer />}
 
       {/* Content Container */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '6rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '8rem' }}>
         
         {/* Hero Section */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>

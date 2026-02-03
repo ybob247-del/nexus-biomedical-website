@@ -14,8 +14,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Medication errors kill over 100,000 Americans every year. Dangerous drug interactions are a leading cause of preventable deaths, hospitalizations, and adverse events. The average senior takes seven or more medications simultaneously, creating complex interaction risks that are difficult for even experienced healthcare providers to track.',
-        'Traditional drug interaction checkers miss critical combinations, generate excessive false alarms, and fail to provide actionable clinical guidance. Healthcare providers need a better solution—one that leverages artificial intelligence to predict dangerous interactions before they harm patients.'
+        'Medication errors contribute to over 100,000 deaths each year in the United States. Dangerous drug–drug interactions are a leading cause of preventable hospitalizations and adverse events, particularly among older adults who often take seven or more medications simultaneously.',
+        'Traditional interaction checkers rely on static rules, generate excessive false alerts, and frequently miss clinically meaningful combinations. Healthcare professionals need more intelligent tools to identify interaction risks early and prioritize follow-up before harm occurs.',
+        'RxGuard™ applies AI-driven analysis to medication data and reference sources to help surface potential drug interaction risks and safety considerations. The platform is designed to support clinicians with actionable, evidence-informed insights — not to replace clinical judgment or prescribing responsibility.'
       ]
     },
     howItWorks: [
@@ -68,8 +69,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Medical device companies spend an average of $31 million and 3-7 years navigating FDA regulatory pathways. Regulatory consultants charge $300-500 per hour, making expert guidance prohibitively expensive for startups and small companies.',
-        'ReguReady™ democratizes access to regulatory intelligence by providing AI-powered pathway recommendations, gap analysis, and compliance guidance at a fraction of traditional consulting costs.'
+        'Medical device companies spend an average of $31 million and 3–7 years navigating FDA regulatory pathways. Regulatory consultants often charge $300–500 per hour, making expert guidance inaccessible for many startups and small teams.',
+        'Regulatory strategy decisions — including pathway selection, documentation readiness, and gap identification — are complex, high-stakes, and often made with limited internal expertise.',
+        'ReguReady™ democratizes access to regulatory intelligence by providing AI-powered pathway analysis, gap identification, and compliance planning support. The platform is designed to help teams evaluate regulatory options and prepare for submissions more efficiently — without replacing regulatory consultants or guaranteeing approval outcomes.'
       ]
     },
     howItWorks: [
@@ -122,8 +124,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Ninety percent of clinical trials fail to meet enrollment timelines, and 30% of Phase III trials fail due to poor protocol design. The average cost of a failed Phase III trial exceeds $100 million.',
-        'ClinicalIQ™ uses AI to analyze 400,000+ historical trials and predict success probability, optimize inclusion/exclusion criteria, and forecast patient recruitment timelines with unprecedented accuracy.'
+        'Over 90% of clinical trials fail to meet enrollment timelines, and approximately 30% of Phase III trials fail due to poor protocol design. The cost of a failed late-stage trial can exceed $100 million, delaying innovation and increasing development risk.',
+        'Trial feasibility, inclusion/exclusion criteria, and recruitment planning are often based on limited historical insight and manual analysis.',
+        'ClinicalIQ™ uses AI to analyze large-scale historical clinical trial data to support trial design and feasibility decisions. The platform provides evidence-informed insights on enrollment risk, protocol optimization, and recruitment planning to support research and development teams — not to predict guaranteed outcomes or replace regulatory review.'
       ]
     },
     howItWorks: [
@@ -175,8 +178,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'One in four seniors falls each year, resulting in $50 billion in medical costs. Falls, medication errors, and sudden health decline are often preventable with early intervention, but traditional monitoring systems only detect problems after they occur.',
-        'ElderWatch™ uses AI to predict health decline 30-90 days before symptoms emerge, enabling proactive intervention that prevents hospitalizations, reduces falls by 40-50%, and improves quality of life for seniors.'
+        'One in four seniors experiences a fall each year, contributing to over $50 billion in annual medical costs. Medication-related issues, mobility changes, and gradual health decline often go unnoticed until after adverse events occur.',
+        'Traditional monitoring systems are reactive, detecting problems only once symptoms or emergencies arise.',
+        'ElderWatch™ applies AI-driven pattern analysis to longitudinal health, activity, and behavioral data to surface early signals associated with potential changes in senior health status. The platform is designed to support caregivers and healthcare teams in monitoring trends and prioritizing follow-up — not to diagnose conditions or guarantee outcomes.'
       ]
     },
     howItWorks: [
@@ -228,8 +232,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Pediatric medication errors are three times more common than adult errors. Children require weight-based dosing, age-appropriate formulations, and careful consideration of developmental factors. Eighty percent of medications have never been tested in children.',
-        'PediCalc Pro™ eliminates calculation errors and provides evidence-based dosing recommendations for over 500 pediatric medications with built-in safety checks and maximum dose protection.'
+        'Pediatric medication errors occur at rates up to three times higher than in adults. Children require weight-based dosing, age-specific considerations, and careful safety checks — yet over 80% of medications prescribed to children lack pediatric-specific trial data.',
+        'Manual calculations and reference checks increase the risk of dosing errors.',
+        'PediCalc Pro™ provides AI-assisted pediatric medication dosing calculations based on weight, age, and established clinical references. The platform is designed to help clinicians double-check calculations and identify safety considerations — not to replace prescribing judgment or clinical responsibility.'
       ]
     },
     howItWorks: [
@@ -281,8 +286,9 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Skin cancer is the most common cancer in the United States, with over 5 million cases diagnosed annually. Melanoma kills approximately 8,000 Americans each year. Early detection is critical—five-year survival rates exceed 99% when caught early, but drop to 27% for late-stage disease.',
-        'SkinScan Pro™ provides clinical-grade skin cancer detection using AI and smartphone cameras, enabling primary care physicians and patients to screen suspicious lesions instantly and triage high-risk cases for urgent dermatology referral.'
+        'Skin cancer is the most common cancer in the United States, with over 5 million cases diagnosed annually. Early identification is critical, yet access to dermatology specialists remains limited, and suspicious lesions are often evaluated late.',
+        'Primary care providers and patients need better tools to identify which lesions may warrant further evaluation.',
+        'SkinScan Pro™ applies AI-driven image analysis to support the identification of potentially concerning skin lesions using photographic inputs. The platform is designed to assist with triage and decision support — not to diagnose skin cancer or replace dermatologic evaluation.'
       ]
     },
     howItWorks: [
@@ -337,7 +343,8 @@ export const platformsData = {
     problem: {
       title: 'The Problem We Solve',
       content: [
-        'Many hormone-related issues are missed early because symptoms, exposures, and patterns don\'t show up on labs right away. EndoGuard™ gives you a preventive, plain-language risk snapshot you can take to your primary-care visit, so you and your clinician can decide—together—if further evaluation makes sense.'
+        'Many hormone-related conditions are missed or delayed because early symptoms, environmental exposures, and long-term patterns often do not appear on standard laboratory tests. As a result, patients may struggle to articulate concerns, and clinicians may lack sufficient context during initial evaluations.',
+        'EndoGuard™ provides a preventive, plain-language risk snapshot based on user-reported information and research-backed indicators. The output is designed to help individuals and clinicians decide — together — whether further evaluation or testing may be appropriate. EndoGuard™ does not diagnose or predict disease outcomes.'
       ]
     },
     howItWorks: [

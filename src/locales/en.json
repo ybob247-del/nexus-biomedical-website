@@ -33,9 +33,9 @@
     "forProviders": "For Providers"
   },
   "hero": {
-    "title": "Nexus Biomedical Intelligence",
-    "subtitle": "Revolutionizing Healthcare Through AI-Powered Patient Intelligence",
-    "description": "Advanced clinical decision support platforms combining cutting-edge artificial intelligence with evidence-based medicine to transform patient care and clinical outcomes.",
+    "title": "AI-Powered Clinical Decision Support",
+    "subtitle": "Evidence-informed tools designed to support healthcare professionals, researchers, and organizations in evaluating health risks, workflows, and regulatory pathways.",
+    "description": "AI-powered platforms designed to address key gaps in healthcare workflows and decision support.",
     "exploreButton": "Explore Our Platforms",
     "watchDemo": "Watch Demo",
     "viewDocumentation": "View Documentation",
@@ -49,7 +49,7 @@
   },
   "platforms": {
     "title": "Our AI Healthcare Platforms",
-    "subtitle": "Seven revolutionary platforms addressing critical gaps in healthcare delivery",
+    "subtitle": "AI-powered platforms designed to address key gaps in healthcare workflows and decision support",
     "allPlans": "All plans include a free trial with no credit card required",
     "startTrial": "Start Free Trial",
     "learnMore": "Learn More",
@@ -108,24 +108,11 @@
     }
   },
   "pricing": {
-    "title": "Choose Your Plan",
-    "subtitle": "Flexible pricing for individuals and healthcare providers",
-    "monthly": "Monthly",
-    "annually": "Annually",
-    "save": "Save {{percent}}%",
-    "perMonth": "/month",
-    "perYear": "/year",
-    "freeTrial": "{{days}}-day free trial",
-    "premium": "Premium",
-    "premiumPlus": "Premium Plus",
-    "providerBasic": "Provider Basic",
-    "providerPro": "Provider Professional",
-    "features": "Features",
-    "upTo": "Up to {{count}} patients",
-    "unlimited": "Unlimited patients",
-    "support": "Priority support",
-    "training": "Training included",
-    "bulkLicensing": "Bulk licensing available"
+    "title": "Access Coming Soon",
+    "subtitle": "Be notified when early access and pricing options become available",
+    "joinWaitlist": "Join the Waitlist",
+    "waitlistDescription": "Sign up to be among the first to access Nexus platforms when early access opens",
+    "evidenceDisclaimer": "Figures shown reflect findings from published studies of clinical decision support systems and related technologies. Nexus tools are designed to support decision-making and workflow evaluation. Individual results may vary."
   },
   "auth": {
     "signIn": "Sign In",
@@ -499,66 +486,66 @@
     "getStarted": "Get Started",
     "smallClinics": {
       "title": "Small Clinics & Practices",
-      "description": "Empower your practice with enterprise-grade AI tools at an affordable price",
-      "benefit1": "Reduce medication errors and liability",
-      "benefit2": "Improve patient outcomes with AI insights",
-      "benefit3": "Save time on clinical decision-making"
+      "description": "Empower your practice with AI-powered decision support tools",
+      "benefit1": "Support clinical decision-making workflows",
+      "benefit2": "Access AI-powered clinical insights",
+      "benefit3": "Streamline medication reference checking"
     },
     "hospitals": {
       "title": "Hospitals & Health Systems",
-      "description": "Scale clinical excellence across your entire network with AI-powered decision support",
-      "benefit1": "Standardize care protocols system-wide",
-      "benefit2": "Reduce adverse drug events by up to 40%",
-      "benefit3": "Improve regulatory compliance and reporting"
+      "description": "Integrate AI-powered decision support across your network",
+      "benefit1": "Support standardized clinical workflows",
+      "benefit2": "Access AI-powered medication reference tools",
+      "benefit3": "Enhance regulatory documentation capabilities"
     },
     "insurance": {
       "title": "Insurance Companies",
-      "description": "Reduce claims costs and improve member health outcomes through preventive AI analytics",
-      "benefit1": "Identify high-risk patients early",
-      "benefit2": "Reduce unnecessary hospitalizations",
-      "benefit3": "Lower overall healthcare costs"
+      "description": "Support member health management with AI-powered insights",
+      "benefit1": "Access AI-powered health risk assessment",
+      "benefit2": "Support preventive care workflows",
+      "benefit3": "Enhance member engagement tools"
     },
     "medicalDevice": {
       "title": "Medical Device Companies",
-      "description": "Accelerate regulatory approval and post-market surveillance with AI-driven compliance tools",
-      "benefit1": "Streamline FDA submission process",
-      "benefit2": "Automate adverse event reporting",
-      "benefit3": "Reduce time-to-market by 30%"
+      "description": "Support regulatory compliance with AI-powered tools",
+      "benefit1": "Access AI-powered compliance documentation",
+      "benefit2": "Support adverse event tracking workflows",
+      "benefit3": "Enhance regulatory submission preparation"
     },
     "pharma": {
       "title": "Pharmaceutical Companies",
-      "description": "Optimize clinical trials and drug safety monitoring with advanced AI analytics",
-      "benefit1": "Predict drug interactions early",
-      "benefit2": "Improve patient recruitment for trials",
-      "benefit3": "Enhance pharmacovigilance efficiency"
+      "description": "Support clinical trial and drug safety workflows with AI tools",
+      "benefit1": "Access AI-powered drug interaction reference",
+      "benefit2": "Support clinical trial management workflows",
+      "benefit3": "Enhance pharmacovigilance documentation"
     },
     "cro": {
       "title": "Clinical Research Organizations",
-      "description": "Enhance trial design, patient recruitment, and data analysis with AI-powered insights",
-      "benefit1": "Optimize trial protocols with AI",
-      "benefit2": "Improve patient retention rates",
-      "benefit3": "Accelerate data analysis and reporting"
+      "description": "Support clinical trial workflows with AI-powered decision support",
+      "benefit1": "Access AI-powered trial design tools",
+      "benefit2": "Support patient recruitment workflows",
+      "benefit3": "Enhance data analysis capabilities"
     },
     "longTermCare": {
       "title": "Long-Term Care Facilities",
-      "description": "Protect vulnerable seniors with predictive health monitoring and medication safety tools",
-      "benefit1": "Prevent medication errors in elderly",
-      "benefit2": "Early detection of health decline",
-      "benefit3": "Reduce emergency hospitalizations"
+      "description": "Support senior care workflows with AI-powered medication and health tools",
+      "benefit1": "Access AI-powered medication reference tools",
+      "benefit2": "Support health monitoring workflows",
+      "benefit3": "Enhance care coordination capabilities"
     },
     "telemedicine": {
       "title": "Telemedicine Platforms",
-      "description": "Enhance remote care quality with AI-powered clinical decision support integrated into your platform",
-      "benefit1": "Improve diagnostic accuracy remotely",
-      "benefit2": "Reduce provider liability in virtual care",
-      "benefit3": "Seamless EHR integration"
+      "description": "Integrate AI-powered decision support into remote care workflows",
+      "benefit1": "Support remote clinical decision-making",
+      "benefit2": "Access AI-powered clinical tools",
+      "benefit3": "Enhance provider decision support capabilities"
     },
     "individuals": {
       "title": "Individuals & Consumers",
-      "description": "Take control of your health with AI-powered assessments and personalized insights",
-      "benefit1": "Free hormone health assessments",
-      "benefit2": "Personalized health recommendations",
-      "benefit3": "Track your health progress over time"
+      "description": "Access AI-powered health assessments and personalized insights",
+      "benefit1": "AI-powered health risk assessments",
+      "benefit2": "Personalized health information",
+      "benefit3": "Track your health information over time"
     }
   }
 }

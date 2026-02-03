@@ -7,7 +7,7 @@ const platforms = [
   {
     name: 'EndoGuard™',
     tagline: 'Clinical-Grade Hormone Intelligence Platform',
-    description: 'Clinical-grade hormone intelligence addressing the silent health crisis from microplastics, endocrine-disrupting chemicals, and environmental exposures.',
+    description: 'AI-powered hormone risk assessment that helps you and your doctor identify early hormone-related concerns through personalized evaluation and evidence-based insights.',
     color: '#D946EF',
     gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
     stripeKey: 'endoguard_premium',
@@ -29,7 +29,7 @@ const platforms = [
   {
     name: 'ElderWatch™',
     tagline: 'Senior Health Monitoring',
-    description: 'Predictive health analytics platform that uses AI to monitor senior patients and predict health decline before symptoms emerge.',
+    description: 'AI-powered monitoring platform that helps caregivers and healthcare teams track senior health patterns and identify emerging concerns for proactive follow-up.',
     color: '#FB923C',
     gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
     stripeKey: null,
@@ -40,7 +40,7 @@ const platforms = [
   {
     name: 'PediCalc Pro™',
     tagline: 'Pediatric Medication Dosing',
-    description: 'AI-enhanced pediatric medication dosing calculator that provides precise, weight-based dosing recommendations with built-in safety verification.',
+    description: 'AI-assisted pediatric dosing calculator that helps clinicians verify medication calculations and identify safety considerations for pediatric patients.',
     color: '#FDA4AF',
     gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
     stripeKey: null,
@@ -51,7 +51,7 @@ const platforms = [
   {
     name: 'ClinicalIQ™',
     tagline: 'Clinical Decision Support System',
-    description: 'AI-driven clinical decision support platform that analyzes patient data to provide evidence-based treatment recommendations.',
+    description: 'AI-powered clinical trial intelligence platform that supports research teams with protocol optimization, feasibility analysis, and recruitment planning.',
     color: '#00D084',
     gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
     stripeKey: null,
@@ -73,7 +73,7 @@ const platforms = [
   {
     name: 'SkinScan Pro™',
     tagline: 'AI Skin Cancer Detection',
-    description: 'AI-powered skin cancer detection platform that analyzes skin lesions using computer vision to assist in early melanoma identification.',
+    description: 'AI-powered skin analysis tool that assists healthcare providers with lesion triage and decision support using clinical-grade image analysis.',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
     stripeKey: null,

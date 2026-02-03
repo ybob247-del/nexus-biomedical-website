@@ -26,7 +26,7 @@ export default function EndoGuardPhase1Paywall() {
 
   // LOCKED COPY — English
   const copyEN = {
-    headline: "Understand Your Hormone Risk — Before It Becomes a Diagnosis",
+    headline: "Understand Your Hormone Risk — Before Your Next Doctor's Visit",
     subheadline: "A one-time preventive hormone risk report that helps you decide whether it makes sense to talk to a doctor — and what to talk about.",
     valueBullets: [
       "Clear next step — Understand whether your symptoms and exposures suggest patterns worth medical attention",
@@ -41,7 +41,7 @@ export default function EndoGuardPhase1Paywall() {
 
   // LOCKED COPY — US-Spanish (Neutral Spanish, not Spain)
   const copyES = {
-    headline: "Comprenda su riesgo hormonal — antes de que se convierta en un diagnóstico",
+    headline: "Comprenda su riesgo hormonal — antes de su próxima visita al médico",
     subheadline: "Un informe preventivo de riesgo hormonal, de pago único, que le ayuda a decidir si conviene hablar con un médico — y sobre qué hablar.",
     valueBullets: [
       "Siguiente paso claro — Comprenda si sus síntomas y exposiciones muestran patrones que merecen atención médica",

@@ -7,7 +7,7 @@ const platforms = [
   {
     name: 'EndoGuard™',
     tagline: 'Clinical-Grade Hormone Intelligence Platform',
-    description: 'AI-powered hormone risk assessment that helps you and your doctor identify early hormone-related concerns through personalized evaluation and evidence-based insights.',
+    description: 'AI-powered hormone risk awareness platform designed to help individuals and clinicians prepare for more informed primary-care conversations.',
     color: '#D946EF',
     gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
     stripeKey: 'endoguard_premium',
@@ -18,7 +18,7 @@ const platforms = [
   {
     name: 'RxGuard™',
     tagline: 'Medication Interaction Predictor',
-    description: 'AI-powered medication interaction checker that helps healthcare providers identify dangerous drug combinations and suggest safer alternatives.',
+    description: 'AI-assisted medication interaction analysis platform that helps surface potential drug–drug risks and safety considerations.',
     color: '#00A8CC',
     gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
     stripeKey: 'rxguard_professional',
@@ -29,7 +29,7 @@ const platforms = [
   {
     name: 'ElderWatch™',
     tagline: 'Senior Health Monitoring',
-    description: 'AI-powered monitoring platform that helps caregivers and healthcare teams track senior health patterns and identify emerging concerns for proactive follow-up.',
+    description: 'AI-powered monitoring platform designed to help caregivers and care teams identify trends and potential changes in senior health status.',
     color: '#FB923C',
     gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
     stripeKey: null,
@@ -40,7 +40,7 @@ const platforms = [
   {
     name: 'PediCalc Pro™',
     tagline: 'Pediatric Medication Dosing',
-    description: 'AI-assisted pediatric dosing calculator that helps clinicians verify medication calculations and identify safety considerations for pediatric patients.',
+    description: 'AI-assisted pediatric medication calculation and reference platform designed to support dosing verification and safety checks.',
     color: '#FDA4AF',
     gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
     stripeKey: null,
@@ -51,7 +51,7 @@ const platforms = [
   {
     name: 'ClinicalIQ™',
     tagline: 'Clinical Decision Support System',
-    description: 'AI-powered clinical trial intelligence platform that supports research teams with protocol optimization, feasibility analysis, and recruitment planning.',
+    description: 'AI-driven clinical trial intelligence platform supporting protocol design, feasibility assessment, and enrollment planning.',
     color: '#00D084',
     gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
     stripeKey: null,
@@ -62,7 +62,7 @@ const platforms = [
   {
     name: 'ReguReady™',
     tagline: 'FDA Regulatory Guidance Platform',
-    description: 'AI-powered regulatory guidance platform that helps medical device companies navigate FDA pathways and accelerate product approvals.',
+    description: 'AI-powered regulatory intelligence platform supporting pathway analysis, gap identification, and compliance planning for medical products.',
     color: '#B794F4',
     gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
     stripeKey: null,
@@ -73,7 +73,7 @@ const platforms = [
   {
     name: 'SkinScan Pro™',
     tagline: 'AI Skin Cancer Detection',
-    description: 'AI-powered skin analysis tool that assists healthcare providers with lesion triage and decision support using clinical-grade image analysis.',
+    description: 'AI-powered skin lesion analysis platform designed to support triage and decision support using photographic inputs.',
     color: '#14B8A6',
     gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
     stripeKey: null,

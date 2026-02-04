@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/faq.css'
 
 const FAQ = () => {
@@ -50,6 +50,36 @@ const FAQ = () => {
       answer: "Empathy grows. When technology handles the repetitive tasks, clinicians can spend more time with their patients—listening, connecting, and caring. AI should never replace compassion; it should give you the time and clarity to express it fully."
     }
   ]
+
+  // Generate FAQ schema markup
+  useEffect(() => {
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+
+    // Create or update script tag for schema
+    let scriptTag = document.getElementById('faq-schema')
+    if (!scriptTag) {
+      scriptTag = document.createElement('script')
+      scriptTag.id = 'faq-schema'
+      scriptTag.type = 'application/ld+json'
+      document.head.appendChild(scriptTag)
+    }
+    scriptTag.textContent = JSON.stringify(schemaData)
+
+    return () => {
+      // Cleanup is optional - schema can persist
+    }
+  }, [])
 
   return (
     <section id="faq" className="faq-section">

@@ -34,11 +34,7 @@ export default function Footer() {
 {t('footer.careers')}<br />({t('platforms.comingSoon')})
               </span>
             </li>
-            <li>
-              <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
-                {t('footer.contact')}
-              </a>
-            </li>
+
             <li>
               <button onClick={() => navigate('/blog')} className="footer-link">
                 {t('footer.blog')}
@@ -68,7 +64,7 @@ Research<br />({t('platforms.comingSoon')})
             </li>
             <li>
               <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
-                {t('footer.support')}
+                Contact Us
               </a>
             </li>
           </ul>

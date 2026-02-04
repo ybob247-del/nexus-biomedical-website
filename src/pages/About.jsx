@@ -142,11 +142,6 @@ export default function About() {
                 isLive: true
               },
               {
-                title: 'RxGuard™',
-                description: 'Real-time medication interaction detection and polypharmacy risk assessment powered by FDA databases and clinical decision support algorithms.',
-                isLive: true
-              },
-              {
                 title: 'ElderWatch™',
                 description: 'Geriatric care optimization and fall risk prevention',
                 isLive: false
@@ -171,7 +166,7 @@ export default function About() {
                 description: 'Dermatological assessment and triage support',
                 isLive: false
               }
-            ].map((platform, index) => (
+            ].filter(p => p.title !== 'RxGuard™').map((platform, index) => (
               <div key={index} style={{
                 background: platform.isLive ? 'rgba(96, 165, 250, 0.15)' : 'rgba(96, 165, 250, 0.1)',
                 padding: '1.5rem',

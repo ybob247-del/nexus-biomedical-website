@@ -99,13 +99,22 @@ export default function BlogDetailPage() {
         {/* Navigation */}
         <div className="px-4 sm:px-6 lg:px-8 pt-8">
           <div className="max-w-4xl mx-auto">
-            <button
-              onClick={() => navigate('/blog')}
-              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Back to Blog</span>
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <button
+                onClick={() => navigate('/blog')}
+                className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span>Back to Blog</span>
+              </button>
+              <button
+                onClick={() => navigate('/')}
+                className="flex items-center gap-2 text-slate-400 hover:text-cyan-300 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span>Back to Home</span>
+              </button>
+            </div>
           </div>
         </div>
 

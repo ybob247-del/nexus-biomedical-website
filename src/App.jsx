@@ -190,6 +190,7 @@ function Homepage() {
     
     const platformUrl = urlMap[platformName]
     if (platformUrl) {
+      window.scrollTo(0, 0);
       navigate(`/${platformUrl}`)
     }
   }

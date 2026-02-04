@@ -533,8 +533,8 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             </>
           )}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {/* Show Try Demo button for all platforms */}
-            {onTryDemo && (
+            {/* Show Try Demo button for all platforms except EndoGuard */}
+            {onTryDemo && platform.name !== 'EndoGuard™' && (
               <button style={{
                 background: platform.gradient,
                 color: 'white',

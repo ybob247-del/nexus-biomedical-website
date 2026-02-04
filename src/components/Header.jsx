@@ -3,8 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext'
 import '../styles/header.css'
-import nexusLogoOfficial from '../assets/logos/nexus-logo-official.png'
 import LanguageToggle from './LanguageToggle'
+
+// Logo now uses CDN URL for better performance
+const nexusLogoOfficial = 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028302998/DKfTSqVxrqmtdUPk.png'
 
 const Header = () => {
   const { t } = useTranslation()

@@ -533,37 +533,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
             </>
           )}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {/* Show Try Demo button for all platforms except EndoGuard */}
-            {onTryDemo && platform.name !== 'EndoGuard™' && (
-              <button style={{
-                background: platform.gradient,
-                color: 'white',
-                border: 'none',
-                padding: '1rem 2.5rem',
-                borderRadius: '30px',
-                fontSize: '1.1rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: `0 4px 20px ${platform.color}40`
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              onClick={() => {
-                const demoMap = {
-                  'RxGuard™': 'rxguard',
-                  'ReguReady™': 'reguready',
-                  'ClinicalIQ™': 'clinicaliq',
-                  'ElderWatch™': 'elderwatch',
-                  'PediCalc Pro™': 'pedicalc',
-                  'SkinScan Pro™': 'skinscan'
-                };
-                onTryDemo(demoMap[platform.name]);
-              }}
-              >
-                🚀 Try Interactive Demo
-              </button>
-            )}
+
             <button style={{
               background: platform.gradient,
               color: 'white',

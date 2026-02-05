@@ -533,6 +533,63 @@
       "benefit1": "Support protocol feasibility assessment",
       "benefit2": "Assist enrollment planning and risk evaluation",
       "benefit3": "Organize historical trial insights for study design"
+    },
+    "longTermCare": {
+      "title": "Long-Term Care & Senior Living",
+      "description": "For care teams monitoring health of older adults",
+      "benefit1": "Support monitoring of health changes and trends",
+      "benefit2": "Assist risk identification and documentation readiness",
+      "benefit3": "Organize health intelligence and reference materials"
+    },
+    "telemedicine": {
+      "title": "Telehealth Platforms",
+      "description": "For remote care teams supporting clinical decisions",
+      "benefit1": "Support remote health risk assessment",
+      "benefit2": "Assist analysis of medication-related risk signals",
+      "benefit3": "Enable structured review of interaction and monitoring data"
+    },
+    "keyBenefits": "KEY BENEFITS:"
+  },
+  "endoguard": {
+    "learnmore": {
+      "hero": {
+        "title": "EndoGuard™ Hormone Intelligence Platform",
+        "subtitle": "Understand Your Hormone Risk — Before Your Next Doctor's Visit",
+        "disclaimer1": "Designed to support primary care–led evaluation.",
+        "disclaimer2": "If you've been told \"your labs are normal\" but you still don't feel normal — start here."
+      },
+      "problem": {
+        "title": "The Problem We Solve",
+        "p1": "Many hormone-related conditions are missed or delayed because early symptoms, environmental exposures, and long-term patterns often do not appear on standard laboratory tests. As a result, patients may struggle to articulate concerns, and clinicians may lack sufficient context during initial evaluations.",
+        "p2": "EndoGuard™ provides a preventive, plain-language risk snapshot based on user-reported information and research-backed indicators. The output is designed to help individuals and clinicians decide — together — whether further evaluation or testing may be appropriate. EndoGuard™ does not diagnose or predict disease outcomes."
+      },
+      "howItWorks": {
+        "title": "How EndoGuard™ Works",
+        "steps": [
+          { "step": 1, "title": "Symptoms & History", "desc": "Share your symptoms, health history, and lifestyle. Our AI analyzes this data against validated hormone dysfunction profiles." },
+          { "step": 2, "title": "Exposure Assessment", "desc": "We evaluate your daily exposures from products you use—personal care items, food packaging, and household products—using FDA and EPA databases." },
+          { "step": 3, "title": "Risk Stratification (Low / Moderate / High)", "desc": "Our algorithm stratifies your hormone risk into clear tiers based on your symptoms and exposures." },
+          { "step": 4, "title": "Top Drivers Behind Your Risk", "desc": "Discover the top factors contributing to your hormone risk—whether symptoms, EDC exposures, or lifestyle factors." },
+          { "step": 5, "title": "One Clear Next Step", "desc": "Receive a personalized summary with actionable next steps: lab tests to request, lifestyle changes, and talking points for your doctor." },
+          { "step": 6, "title": "Your Personalized Report (PDF)", "desc": "Your report includes a clear summary with your risk tier, top drivers, and talking points to discuss with your doctor." }
+        ]
+      },
+      "features": {
+        "title": "Key Features",
+        "items": [
+          { "title": "Personalized Risk Tier (Low / Moderate / High)", "desc": "Clear, easy-to-understand risk stratification based on your unique symptom and exposure profile." },
+          { "title": "Top 5 Drivers Behind Your Risk", "desc": "Identify the top factors contributing to your hormone risk—whether specific symptoms, EDC exposures, or lifestyle factors." },
+          { "title": "One Clear Next Step", "desc": "Personalized recommendations including lab tests to request, lifestyle modifications, and key talking points for your doctor." },
+          { "title": "Provider-Ready Summary (print/share)", "desc": "A clinical summary included in your report designed to facilitate informed conversations with your healthcare provider." },
+          { "title": "Evidence Transparency (sources listed)", "desc": "Every insight traceable to peer-reviewed research, FDA/EPA databases, and Endocrine Society guidelines—zero speculation." },
+          { "title": "Bilingual Support (EN | ES)", "desc": "Full support for English and Spanish, ensuring hormone health guidance is accessible to all." }
+        ]
+      },
+      "cta": {
+        "title": "Ready to get started?",
+        "subtitle": "Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation.",
+        "button": "Get My Hormone Risk Report"
+      }
     }
   },
   "faq": {

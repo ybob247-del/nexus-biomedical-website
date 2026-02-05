@@ -533,6 +533,63 @@
       "benefit1": "Apoyar evaluación de viabilidad del protocolo",
       "benefit2": "Asistir en planificación de inscripción y evaluación de riesgo",
       "benefit3": "Organizar información de ensayos históricos para diseño de estudios"
+    },
+    "longTermCare": {
+      "title": "Cuidado a largo plazo y asilos",
+      "description": "Para equipos de atención que monitorean la salud de adultos mayores",
+      "benefit1": "Apoyar monitoreo de cambios de salud y tendencias",
+      "benefit2": "Asistir en identificación de riesgos y preparación de documentación",
+      "benefit3": "Organizar inteligencia de salud y materiales de referencia"
+    },
+    "telemedicine": {
+      "title": "Plataformas de telemedicina",
+      "description": "Para equipos de atención remota que apoyan decisiones clínicas",
+      "benefit1": "Apoyar evaluación de riesgo de salud remota",
+      "benefit2": "Asistir en análisis de señales de riesgo relacionadas con medicamentos",
+      "benefit3": "Habilitar revisión estructurada de datos de interacción y monitoreo"
+    },
+    "keyBenefits": "BENEFICIOS CLAVE:"
+  },
+  "endoguard": {
+    "learnmore": {
+      "hero": {
+        "title": "EndoGuard™ Plataforma de Inteligencia Hormonal",
+        "subtitle": "Comprende Tu Riesgo Hormonal — Antes de Tu Próxima Cita Médica",
+        "disclaimer1": "Diseñado para apoyar la evaluación dirigida por atención primaria.",
+        "disclaimer2": "Si te han dicho \"tus análisis están normales\" pero aún no te sientes normal — comienza aquí."
+      },
+      "problem": {
+        "title": "El Problema que Resolvemos",
+        "p1": "Muchos problemas relacionados con las hormonas se detectan tarde o se pierden porque los síntomas tempranos, exposiciones ambientales y patrones a largo plazo a menudo no aparecen en los análisis de sangre estándar. Como resultado, los pacientes pueden tener dificultades para expresar sus preocupaciones, y los clínicos pueden carecer de contexto suficiente durante las evaluaciones iniciales.",
+        "p2": "EndoGuard™ proporciona una evaluación de riesgo preventiva y en lenguaje sencillo basada en información reportada por el usuario e indicadores respaldados por investigación. El resultado está diseñado para ayudar a individuos y clínicos a decidir — juntos — si una evaluación o prueba adicional puede ser apropiada. EndoGuard™ no diagnostica ni predice resultados de enfermedades."
+      },
+      "howItWorks": {
+        "title": "Cómo Funciona EndoGuard™",
+        "steps": [
+          { "step": 1, "title": "Síntomas e Historial", "desc": "Comparte tus síntomas, historial de salud y estilo de vida. Nuestra IA analiza esta información contra perfiles validados de disfunción hormonal." },
+          { "step": 2, "title": "Evaluación de Exposiciones", "desc": "Evaluamos tus exposiciones diarias de productos que usas—artículos de cuidado personal, empaque de alimentos y productos del hogar—usando bases de datos de la FDA y EPA." },
+          { "step": 3, "title": "Estratificación de Riesgo (Bajo / Moderado / Alto)", "desc": "Nuestro algoritmo clasifica tu riesgo hormonal en niveles claros basado en tus síntomas y exposiciones." },
+          { "step": 4, "title": "Principales Factores de Tu Riesgo", "desc": "Descubre los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida." },
+          { "step": 5, "title": "Un Paso Claro a Seguir", "desc": "Recibe un resumen personalizado con pasos accionables: análisis de sangre para solicitar, cambios en el estilo de vida y puntos de conversación para tu médico." },
+          { "step": 6, "title": "Tu Reporte Personalizado (PDF)", "desc": "Tu reporte incluye un resumen claro con tu nivel de riesgo, principales factores y puntos de conversación para discutir con tu médico." }
+        ]
+      },
+      "features": {
+        "title": "Características Principales",
+        "items": [
+          { "title": "Nivel de Riesgo Personalizado (Bajo / Moderado / Alto)", "desc": "Clasificación de riesgo clara y fácil de entender basada en tu perfil único de síntomas y exposiciones." },
+          { "title": "Principales 5 Factores de Tu Riesgo", "desc": "Identifica los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida." },
+          { "title": "Un Paso Claro a Seguir", "desc": "Recomendaciones personalizadas incluyendo análisis de sangre para solicitar, modificaciones del estilo de vida y puntos clave de conversación para tu médico." },
+          { "title": "Resumen Listo para Proveedores (para imprimir/compartir)", "desc": "Un resumen clínico incluido en tu reporte diseñado para facilitar conversaciones informadas con tu proveedor de atención médica." },
+          { "title": "Transparencia de Evidencia (fuentes listadas)", "desc": "Cada insight es rastreable a investigación revisada por pares, bases de datos de la FDA/EPA y directrices de la Sociedad de Endocrinología—cero especulación." },
+          { "title": "Soporte Bilingüe (EN | ES)", "desc": "Soporte completo en inglés y español, asegurando que la orientación de salud hormonal sea accesible para todos." }
+        ]
+      },
+      "cta": {
+        "title": "¿Listo para comenzar?",
+        "subtitle": "Obtén tu reporte personalizado de riesgo hormonal en minutos—diseñado para apoyar una evaluación dirigida por atención primaria.",
+        "button": "Obtener Mi Reporte de Riesgo Hormonal"
+      }
     }
   },
   "faq": {

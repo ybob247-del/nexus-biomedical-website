@@ -33,8 +33,7 @@ const RxGuardSpanishLanding = () => {
               <span className="gradient-text">Verificación Inteligente de Medicamentos</span>
             </h1>
             <p className="hero-subtitle">
-              RxGuard™ utiliza inteligencia artificial avanzada para detectar interacciones peligrosas entre medicamentos, 
-              ayudándole a evitar efectos secundarios graves y hospitalizaciones innecesarias.
+              Identifique posibles interacciones medicamentosas para discutir con su farmacéutico o proveedor de salud.
             </p>
             <div className="hero-stats">
               <div className="stat-item">

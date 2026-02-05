@@ -320,14 +320,14 @@ const SpanishLanding = () => {
               name: 'María González',
               location: 'Los Angeles, CA',
               platform: 'EndoGuard',
-              quote: 'Después de años de dolor sin diagnóstico, EndoGuard me ayudó a entender mis síntomas y hablar con mi doctora. Finalmente obtuve el tratamiento que necesitaba.',
+              quote: 'EndoGuard me ayudó a recopilar información sobre mis síntomas para compartir con mi doctora. Fue útil para nuestra conversación.',
               rating: 5
             },
             {
               name: 'Carlos Ramírez',
               location: 'Miami, FL',
               platform: 'RxGuard',
-              quote: 'Mi mamá toma 8 medicamentos diferentes. RxGuard nos alertó sobre una interacción peligrosa que ni su farmacia detectó. Salvó su vida.',
+              quote: 'RxGuard identificó una posible interacción medicamentosa que compartimos con la farmacia de mi mamá. Fue útil para asegurar su seguridad.',
               rating: 5
             },
             {

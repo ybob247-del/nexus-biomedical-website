@@ -640,42 +640,6 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           </div>
         </section>
 
-        {/* Clinical Benefits */}
-        <section style={{
-          background: `linear-gradient(135deg, ${platform.color}33 0%, ${platform.color}22 100%)`,
-          backdropFilter: 'blur(20px)',
-          border: `1px solid ${platform.color}44`,
-          borderRadius: '20px',
-          padding: 'clamp(2rem, 4vw, 3rem)',
-          marginBottom: '4rem'
-        }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            {platform.name.includes('Clinical') ? 'Business Benefits' : 'Clinical Benefits'}
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
-            {platform.benefits.map((benefit, idx) => (
-              <div key={idx} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: platform.color, marginBottom: '0.5rem' }}>
-                  {benefit.stat}
-                </div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.5rem' }}>{benefit.title}</h3>
-                <p style={{ color: '#B8D4E8' }}>{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-          {platform.benefitsDisclaimer && (
-            <p style={{ 
-              marginTop: '2rem', 
-              fontSize: '0.9rem', 
-              color: '#B8D4E8', 
-              fontStyle: 'italic', 
-              textAlign: 'center',
-              opacity: 0.8
-            }}>
-              * {platform.benefitsDisclaimer}
-            </p>
-          )}
-        </section>
 
         {/* Pricing - Hidden for EndoGuard Phase 1, shown for other platforms */}
         {platform.name !== 'EndoGuard™' && (

@@ -9,7 +9,7 @@ export const platformsData = {
     comingSoon: false,
     hero: {
       title: 'RxGuard™ Medication Interaction Predictor',
-      subtitle: 'Protect Your Patients with AI-Powered Drug Safety - Detect dangerous interactions before they harm patients'
+      subtitle: 'Identify potential medication interaction risks to support clinical decision-making.'
     },
     problem: {
       title: 'The Problem We Solve',

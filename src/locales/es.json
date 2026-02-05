@@ -16,325 +16,160 @@
     "search": "Buscar",
     "filter": "Filtrar",
     "sort": "Ordenar",
-    "selectLanguage": "Seleccionar Idioma",
-    "english": "Inglés",
+    "selectLanguage": "Seleccionar idioma",
+    "english": "English",
     "spanish": "Español"
   },
   "nav": {
     "home": "Inicio",
     "platforms": "Plataformas",
-    "about": "Acerca de",
+    "about": "Sobre nosotros",
     "contact": "Contacto",
-    "login": "Iniciar Sesión",
+    "login": "Iniciar sesión",
     "signup": "Registrarse",
-    "dashboard": "Panel",
-    "logout": "Cerrar Sesión",
+    "dashboard": "Panel de control",
+    "logout": "Cerrar sesión",
     "pricing": "Precios",
-    "forProviders": "Para Proveedores"
-  },
-  "platformComparison": {
-    "hero": {
-      "title": "Compare Nuestras Plataformas",
-      "subtitle": "Encuentre la solución de atención médica impulsada por IA perfecta para sus necesidades"
-    },
-    "categories": {
-      "all": "Todas las Plataformas",
-      "medication": "Seguridad de Medicamentos",
-      "procedures": "Procedimientos y Calidad",
-      "monitoring": "Monitoreo de Salud",
-      "research": "Investigación y Ensayos",
-      "regulatory": "Cumplimiento Regulatorio",
-      "diagnostics": "Diagnósticos y Detección"
-    },
-    "card": {
-      "price": "precio",
-      "trialDays": "días de prueba gratuita",
-      "bestFor": "Mejor Para:",
-      "keyFeatures": "Características Clave:",
-      "learnMore": "Más Información"
-    },
-    "platforms": {
-      "rxguard": {
-        "name": "RxGuard™",
-        "tagline": "Predictor de Interacciones Medicamentosas",
-        "price": "$39/mes",
-        "trialDays": "14",
-        "bestFor": "Proveedores de atención médica, farmacéuticos, pacientes con múltiples medicamentos",
-        "features": [
-          "Análisis de interacciones medicamentosas en tiempo real",
-          "Puntuación de riesgo impulsada por IA",
-          "Sugerencias de medicamentos alternativos",
-          "Estrategias de mitigación clínica",
-          "Base de datos de más de 10,000 medicamentos"
-        ]
-      },
-      "endoguard": {
-        "name": "EndoGuard™",
-        "tagline": "Aseguramiento de Calidad de Endoscopia",
-        "price": "$97/mes",
-        "trialDays": "30",
-        "bestFor": "Gastroenterólogos, centros de endoscopia, departamentos de GI",
-        "features": [
-          "Seguimiento de métricas de calidad",
-          "Predicción de eventos adversos",
-          "Panel de análisis de procedimientos",
-          "Informes de cumplimiento",
-          "Evaluación de riesgo del paciente"
-        ]
-      },
-      "elderwatch": {
-        "name": "ElderWatch™",
-        "tagline": "Monitoreo de Salud para Adultos Mayores",
-        "price": "$49-$199/mes",
-        "trialDays": "14",
-        "bestFor": "Cuidadores, familias, instalaciones de vida asistida",
-        "features": [
-          "Predicción de riesgo de caídas",
-          "Sistema de recordatorio de medicamentos",
-          "Monitoreo de signos vitales",
-          "Sistema de alerta de emergencia",
-          "Portal familiar para actualizaciones"
-        ]
-      },
-      "pedicalc": {
-        "name": "PediCalc Pro™",
-        "tagline": "Calculadora de Dosificación Pediátrica",
-        "price": "$14.99-$19.99/mes",
-        "trialDays": "7",
-        "bestFor": "Pediatras, padres, enfermeras pediátricas",
-        "features": [
-          "Calculadora de dosificación basada en peso",
-          "Seguridad de medicamentos apropiada para la edad",
-          "Seguimiento de gráficos de crecimiento",
-          "Calendario de vacunación",
-          "Biblioteca de educación para padres"
-        ]
-      },
-      "clinicaliq": {
-        "name": "ClinicalIQ™",
-        "tagline": "Optimización de Ensayos Clínicos",
-        "price": "$299-$699/mes",
-        "trialDays": "14",
-        "bestFor": "Compañías farmacéuticas, CROs, instituciones de investigación",
-        "features": [
-          "Predicción de éxito de protocolos",
-          "Pronóstico de reclutamiento de pacientes",
-          "Inteligencia de selección de sitios",
-          "Seguimiento de ensayos competitivos",
-          "Optimización de puntos finales"
-        ]
-      },
-      "reguready": {
-        "name": "ReguReady™",
-        "tagline": "Orientación Regulatoria de la FDA",
-        "price": "$199-$399/mes",
-        "trialDays": "7",
-        "bestFor": "Empresas de dispositivos médicos, startups, consultores regulatorios",
-        "features": [
-          "Recomendación de vía regulatoria",
-          "Inteligencia de dispositivos predicados",
-          "Análisis de brechas y verificación de cumplimiento",
-          "Generación de documentos",
-          "Orientación regulatoria internacional"
-        ]
-      },
-      "skinscan": {
-        "name": "SkinScan Pro™",
-        "tagline": "Detección de Cáncer de Piel",
-        "price": "$49-$59/mes",
-        "trialDays": "14",
-        "bestFor": "Dermatólogos, médicos de atención primaria, pacientes",
-        "features": [
-          "Detección de condiciones de piel con IA",
-          "Análisis de criterios ABCDE",
-          "Puntuación de riesgo de melanoma",
-          "Seguimiento de lesiones a lo largo del tiempo",
-          "Sistema de referencia a dermatólogos"
-        ]
-      }
-    },
-    "help": {
-      "title": "¿Necesita Ayuda para Elegir?",
-      "description": "¿No está seguro de qué plataforma es adecuada para usted? Nuestro equipo puede ayudarle a encontrar la solución perfecta.",
-      "contactSales": "Contactar Ventas"
-    },
-    "faq": {
-      "title": "Preguntas Frecuentes",
-      "questions": {
-        "multiplePlatforms": {
-          "question": "¿Puedo usar múltiples plataformas?",
-          "answer": "¡Sí! Muchos clientes usan múltiples plataformas. Contáctenos para precios de paquetes y descuentos de múltiples plataformas."
-        },
-        "freeTrial": {
-          "question": "¿Qué incluye la prueba gratuita?",
-          "answer": "Todas las pruebas gratuitas incluyen acceso completo a las características del nivel Profesional sin requerir tarjeta de crédito. La duración de las pruebas varía según la plataforma (7-30 días)."
-        },
-        "switchPlatforms": {
-          "question": "¿Puedo cambiar de plataforma después de registrarme?",
-          "answer": "Sí, puede cambiar o agregar plataformas en cualquier momento. Contacte al soporte para obtener ayuda con cambios de plataforma."
-        },
-        "enterprisePricing": {
-          "question": "¿Ofrecen precios empresariales?",
-          "answer": "Sí, ofrecemos precios empresariales personalizados para organizaciones con múltiples usuarios o requisitos específicos. Contacte a ventas para obtener una cotización."
-        },
-        "hipaaCompliance": {
-          "question": "¿Las plataformas cumplen con HIPAA?",
-          "answer": "Todas las plataformas están listas para HIPAA con seguridad de nivel empresarial que incluye cifrado AES-256 y registro de auditoría completo. Como plataformas seudónimas que no recopilan PHI en uso estándar, no requieren Acuerdos de Asociado Comercial."
-        }
-      }
-    }
+    "forProviders": "Para proveedores"
   },
   "hero": {
-    "title": "Nexus Biomedical Intelligence",
-    "subtitle": "Revolucionando la Atención Médica a Través de Inteligencia Artificial",
-    "description": "Plataformas avanzadas de apoyo a decisiones clínicas que combinan inteligencia artificial de vanguardia con medicina basada en evidencia para transformar la atención al paciente y los resultados clínicos.",
-    "exploreButton": "Explorar Nuestras Plataformas",
-    "watchDemo": "Ver Demostración",
-    "viewDocumentation": "Ver Documentación",
-    "contactSales": "Contactar Ventas"
+    "title": "Soporte de decisiones clínicas impulsado por IA",
+    "subtitle": "Herramientas informadas por la evidencia diseñadas para apoyar a profesionales de la salud, investigadores y organizaciones en la evaluación de riesgos de salud, flujos de trabajo y rutas regulatorias.",
+    "description": "Plataformas impulsadas por IA diseñadas para abordar brechas clave en los flujos de trabajo de atención médica y el soporte de decisiones.",
+    "exploreButton": "Explorar nuestras plataformas",
+    "watchDemo": "Ver demostración",
+    "viewDocumentation": "Ver documentación",
+    "contactSales": "Contactar a ventas"
   },
   "earlyAdopter": {
-    "title": "Oferta Especial para Adoptadores Tempranos",
-    "description": "Ahorre 20% - $39/mes (reg. $49) ¡de por vida!",
-    "cta": "Reclamar Su Descuento",
-    "limitedTime": "Oferta por Tiempo Limitado"
+    "title": "Oferta especial para adoptadores tempranos",
+    "description": "Ahorra 20% - $39/mes (reg. $49) ¡de por vida!",
+    "cta": "Reclamar tu descuento",
+    "limitedTime": "Oferta por tiempo limitado"
   },
   "platforms": {
-    "title": "Nuestras Plataformas de IA en Salud",
-    "subtitle": "Siete plataformas revolucionarias que abordan brechas críticas en la prestación de atención médica",
-    "allPlans": "Todos los planes incluyen una prueba gratuita sin tarjeta de crédito",
-    "startTrial": "Iniciar Prueba Gratuita",
-    "learnMore": "Más Información",
+    "title": "Nuestras plataformas de salud con IA",
+    "subtitle": "Plataformas impulsadas por IA diseñadas para abordar brechas clave en los flujos de trabajo de atención médica y el soporte de decisiones",
+    "allPlans": "Todos los planes incluyen una prueba gratuita sin requerir tarjeta de crédito",
+    "startTrial": "Comenzar prueba gratuita",
+    "learnMore": "Más información",
     "comingSoon": "Próximamente",
-    "joinWaitlist": "Unirse a Lista de Espera",
+    "joinWaitlist": "Unirse a la lista de espera",
     "endoguard": {
       "name": "EndoGuard™",
-      "tagline": "Plataforma de Inteligencia Hormonal de Grado Clínico",
-      "description": "Inteligencia hormonal de grado clínico que aborda la crisis de salud silenciosa causada por microplásticos, químicos disruptores endocrinos y exposiciones ambientales.",
+      "tagline": "Plataforma de inteligencia hormonal de grado clínico",
+      "description": "Plataforma de concienciación sobre el riesgo hormonal impulsada por IA, diseñada para ayudar a individuos y médicos a prepararse para conversaciones de atención primaria más informadas.",
       "features": {
-        "assessment": "Evaluación integral de salud hormonal",
+        "assessment": "Evaluación integral de la salud hormonal",
         "edc": "Seguimiento y análisis de exposición a EDC",
         "recommendations": "Recomendaciones de tratamiento basadas en evidencia",
-        "monitoring": "Monitoreo continuo de salud",
+        "monitoring": "Monitoreo continuo de la salud",
         "reports": "Informes clínicos detallados",
         "alerts": "Alertas de riesgo y notificaciones"
       }
     },
     "rxguard": {
       "name": "RxGuard™",
-      "tagline": "Predictor de Interacciones Medicamentosas",
-      "description": "Verificador de interacciones medicamentosas impulsado por IA que ayuda a los proveedores de atención médica a identificar combinaciones peligrosas de medicamentos y sugerir alternativas más seguras.",
+      "tagline": "Predictor de interacción de medicamentos",
+      "description": "Plataforma de análisis de interacción de medicamentos asistida por IA que ayuda a identificar posibles riesgos y consideraciones de seguridad entre fármacos.",
       "features": {
-        "checker": "Verificación de interacciones en tiempo real",
-        "alternatives": "Alternativas medicamentosas más seguras",
-        "alerts": "Alertas de interacciones críticas",
+        "checker": "Verificación de interacción en tiempo real",
+        "alternatives": "Alternativas de medicamentos más seguros",
+        "alerts": "Alertas de interacción crítica",
         "database": "Base de datos integral de medicamentos",
-        "reports": "Informes detallados de interacciones",
-        "integration": "Integración con HCE lista para usar"
+        "reports": "Informes detallados de interacción",
+        "integration": "Integración con EHR lista"
       }
     },
     "elderwatch": {
       "name": "ElderWatch™",
-      "tagline": "Monitoreo de Salud para Adultos Mayores",
-      "description": "Plataforma de análisis predictivo de salud que utiliza IA para monitorear pacientes de la tercera edad y predecir el deterioro de la salud antes de que aparezcan los síntomas, permitiendo intervención proactiva."
+      "tagline": "Monitoreo de salud para adultos mayores",
+      "description": "Plataforma de monitoreo impulsada por IA diseñada para ayudar a cuidadores y equipos de atención a identificar tendencias y posibles cambios en el estado de salud de los adultos mayores."
     },
     "pedicalc": {
       "name": "PediCalc Pro™",
-      "tagline": "Dosificación de Medicamentos Pediátricos",
-      "description": "Calculadora de dosificación de medicamentos pediátricos mejorada con IA que proporciona recomendaciones precisas de dosificación basadas en peso con verificación de seguridad incorporada para niños."
+      "tagline": "Dosificación de medicamentos pediátricos",
+      "description": "Plataforma de referencia y cálculo de medicación pediátrica asistida por IA, diseñada para apoyar la verificación de dosis y los controles de seguridad."
     },
     "clinicaliq": {
       "name": "ClinicalIQ™",
-      "tagline": "Sistema de Apoyo a Decisiones Clínicas",
-      "description": "Plataforma de apoyo a decisiones clínicas impulsada por IA que analiza datos de pacientes para proporcionar recomendaciones de tratamiento basadas en evidencia y optimizar el diseño de ensayos clínicos."
+      "tagline": "Sistema de soporte de decisiones clínicas",
+      "description": "Plataforma de inteligencia de ensayos clínicos impulsada por IA que respalda el diseño de protocolos, la evaluación de viabilidad y la planificación de reclutamiento."
     },
     "reguready": {
       "name": "ReguReady™",
-      "tagline": "Plataforma de Orientación Regulatoria de la FDA",
-      "description": "Plataforma de orientación regulatoria impulsada por IA que ayuda a las empresas de dispositivos médicos a navegar las vías de la FDA y acelerar las aprobaciones de productos mediante análisis inteligente de cumplimiento."
+      "tagline": "Plataforma de orientación regulatoria de la FDA",
+      "description": "Plataforma de inteligencia regulatoria impulsada por IA que respalda el análisis de rutas, la identificación de brechas y la planificación del cumplimiento para productos médicos."
     },
     "skinscan": {
       "name": "SkinScan Pro™",
-      "tagline": "Detección de Cáncer de Piel con IA",
-      "description": "Plataforma de detección de cáncer de piel impulsada por IA que analiza lesiones cutáneas utilizando visión por computadora para ayudar a los proveedores de atención médica en la identificación temprana del melanoma."
+      "tagline": "Detección de cáncer de piel con IA",
+      "description": "Plataforma de análisis de lesiones cutáneas impulsada por IA, diseñada para apoyar el triaje y el soporte de decisiones utilizando entradas fotográficas."
     }
   },
   "pricing": {
-    "title": "Elija Su Plan",
-    "subtitle": "Precios flexibles para individuos y proveedores de atención médica",
-    "monthly": "Mensual",
-    "annually": "Anual",
-    "save": "Ahorre {{percent}}%",
-    "perMonth": "/mes",
-    "perYear": "/año",
-    "freeTrial": "Prueba gratuita de {{days}} días",
-    "premium": "Premium",
-    "premiumPlus": "Premium Plus",
-    "providerBasic": "Proveedor Básico",
-    "providerPro": "Proveedor Profesional",
-    "features": "Características",
-    "upTo": "Hasta {{count}} pacientes",
-    "unlimited": "Pacientes ilimitados",
-    "support": "Soporte prioritario",
-    "training": "Capacitación incluida",
-    "bulkLicensing": "Licencias en volumen disponibles"
+    "title": "Acceso próximamente",
+    "subtitle": "Sé notificado cuando las opciones de acceso temprano y precios estén disponibles",
+    "joinWaitlist": "Unirse a la lista de espera",
+    "waitlistDescription": "Regístrate para ser uno de los primeros en acceder a las plataformas de Nexus cuando se abra el acceso temprano",
+    "evidenceDisclaimer": "Las cifras mostradas reflejan hallazgos de estudios publicados de sistemas de soporte de decisiones clínicas y tecnologías relacionadas. Las herramientas de Nexus están diseñadas para apoyar la toma de decisiones y la evaluación del flujo de trabajo. Los resultados individuales pueden variar."
   },
   "auth": {
-    "signIn": "Iniciar Sesión",
+    "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
-    "createAccount": "Crear Cuenta",
-    "welcomeBack": "Bienvenido de Nuevo",
+    "createAccount": "Crear cuenta",
+    "welcomeBack": "Bienvenido de vuelta",
     "getStarted": "Comenzar",
-    "email": "Correo Electrónico",
+    "email": "Dirección de correo electrónico",
     "password": "Contraseña",
-    "confirmPassword": "Confirmar Contraseña",
+    "confirmPassword": "Confirmar contraseña",
     "firstName": "Nombre",
     "lastName": "Apellido",
-    "forgotPassword": "¿Olvidó su contraseña?",
-    "noAccount": "¿No tiene una cuenta?",
-    "hasAccount": "¿Ya tiene una cuenta?",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?",
     "signingIn": "Iniciando sesión...",
     "creatingAccount": "Creando cuenta...",
-    "passwordRequirements": "Debe tener al menos 8 caracteres con mayúsculas, minúsculas y números",
+    "passwordRequirements": "Debe tener al menos 8 caracteres con mayúsculas, minúsculas y número",
     "passwordMismatch": "Las contraseñas no coinciden",
-    "freeTrialNotice": "¡Pruebas Gratuitas Instantáneas Incluidas!",
-    "freeTrialDetails": "RxGuard™: Prueba gratuita de 14 días • EndoGuard™: Prueba gratuita de 30 días • Se activa automáticamente al registrarse. No se requiere tarjeta de crédito."
+    "freeTrialNotice": "¡Pruebas gratuitas instantáneas incluidas!",
+    "freeTrialDetails": "RxGuard™: prueba gratuita de 14 días • EndoGuard™: prueba gratuita de 30 días • Se activa automáticamente cuando te registras. No se requiere tarjeta de crédito."
   },
   "dashboard": {
-    "welcome": "Bienvenido de nuevo, {{name}}",
-    "yourPlatforms": "Sus Plataformas",
-    "recentActivity": "Actividad Reciente",
-    "quickActions": "Acciones Rápidas",
-    "startAssessment": "Iniciar Evaluación",
-    "viewReports": "Ver Informes",
+    "welcome": "Bienvenido de vuelta, {{name}}",
+    "yourPlatforms": "Tus plataformas",
+    "recentActivity": "Actividad reciente",
+    "quickActions": "Acciones rápidas",
+    "startAssessment": "Comenzar evaluación",
+    "viewReports": "Ver informes",
     "settings": "Configuración"
   },
   "endoguard": {
     "assessment": {
-      "title": "Evaluación de Salud Hormonal EndoGuard™",
-      "description": "Descubra su riesgo de exposición a Químicos Disruptores Endocrinos (EDC) y obtenga recomendaciones personalizadas",
-      "freeAssessmentBanner": "✨ Evaluación GRATUITA - No Se Requiere Tarjeta de Crédito",
-      "freeAssessmentDetails": "Obtenga información personalizada instantánea sobre salud hormonal • 100% confidencial • Toma 5 minutos",
-      "myAssessments": "📊 Mis Evaluaciones",
+      "title": "Evaluación de salud hormonal EndoGuard™",
+      "description": "Descubre tu riesgo de exposición a químicos disruptores endocrinos (EDC) y obtén recomendaciones personalizadas",
+      "freeAssessmentBanner": "✨ Evaluación GRATUITA - Sin tarjeta de crédito requerida",
+      "freeAssessmentDetails": "Obtén información instantánea personalizada sobre salud hormonal • 100% confidencial • Toma 5 minutos",
+      "myAssessments": "📊 Mis evaluaciones",
       "stepIndicator": "Paso {{current}} de {{total}}",
-      "analyzing": "Analizando su evaluación...",
-      "getResults": "Obtener Resultados"
+      "analyzing": "Analizando tu evaluación...",
+      "getResults": "Obtener mis resultados"
     },
     "steps": {
       "demographics": {
-        "title": "Acerca de Usted",
+        "title": "Sobre ti",
         "age": "Edad",
-        "agePlaceholder": "Ingrese su edad",
-        "biologicalSex": "Sexo Biológico",
+        "agePlaceholder": "Ingresa tu edad",
+        "biologicalSex": "Sexo biológico",
         "height": "Altura",
-        "heightPlaceholder": "Ingrese su altura en cm",
+        "heightPlaceholder": "Ingresa tu altura en cm",
         "weight": "Peso",
-        "weightPlaceholder": "Ingrese su peso en kg",
+        "weightPlaceholder": "Ingresa tu peso en kg",
         "selectOption": "Seleccionar...",
-        "female": "Femenino",
-        "male": "Masculino",
+        "female": "Mujer",
+        "male": "Hombre",
         "other": "Otro",
-        "menstrualStatus": "Estado Menstrual",
+        "menstrualStatus": "Estado menstrual",
         "menstrualOptions": {
           "regular": "Ciclos regulares",
           "irregular": "Ciclos irregulares",
@@ -342,17 +177,17 @@
           "menopause": "Menopausia",
           "postmenopause": "Postmenopausia",
           "pregnant": "Embarazada",
-          "breastfeeding": "Lactancia"
+          "breastfeeding": "Amamantando"
         }
       },
       "symptoms": {
         "title": "Síntomas",
-        "description": "Seleccione todos los síntomas que está experimentando actualmente:",
+        "description": "Selecciona todos los síntomas que estás experimentando actualmente:",
         "systems": {
-          "thyroid": "Sistema Tiroideo",
-          "reproductive": "Sistema Reproductivo",
-          "adrenal": "Sistema Adrenal",
-          "metabolic": "Sistema Metabólico"
+          "thyroid": "Sistema tiroideo",
+          "reproductive": "Sistema reproductivo",
+          "adrenal": "Sistema suprarrenal",
+          "metabolic": "Sistema metabólico"
         },
         "thyroid": {
           "weightChange": "Aumento o pérdida de peso inexplicable",
@@ -377,7 +212,7 @@
             "lowLibido": "Bajo deseo sexual",
             "erectileDysfunction": "Disfunción eréctil",
             "fertility": "Problemas de fertilidad",
-            "muscleLoss": "Disminución de masa muscular",
+            "muscleLoss": "Disminución de la masa muscular",
             "gynecomastia": "Ginecomastia (desarrollo de senos)",
             "testicularAtrophy": "Atrofia testicular"
           },
@@ -389,7 +224,7 @@
         },
         "adrenal": {
           "stress": "Estrés crónico o ansiedad",
-          "wakingDifficulty": "Dificultad para despertar",
+          "wakingDifficulty": "Dificultad para despertarse",
           "energyCrashes": "Caídas de energía por la tarde",
           "saltCravings": "Antojos de sal",
           "stressHandling": "Dificultad para manejar el estrés",
@@ -403,7 +238,7 @@
           "insulinResistance": "Resistencia a la insulina",
           "pcos": "Síntomas de SOP"
         },
-        "duration": "¿Cuánto tiempo ha tenido estos síntomas?",
+        "duration": "¿Cuánto tiempo has tenido estos síntomas?",
         "durationOptions": {
           "lessThanMonth": "Menos de 1 mes",
           "oneToThree": "1-3 meses",
@@ -414,113 +249,113 @@
         }
       },
       "lifestyle": {
-        "title": "Factores de Estilo de Vida",
-        "dietQuality": "Calidad de la Dieta",
+        "title": "Factores de estilo de vida",
+        "dietQuality": "Calidad de la dieta",
         "dietOptions": {
           "excellent": "Excelente (principalmente alimentos integrales, orgánicos)",
           "good": "Buena (equilibrada, algunos alimentos procesados)",
-          "fair": "Regular (mezcla de saludable y no saludable)",
-          "poor": "Pobre (principalmente alimentos procesados/comida rápida)"
+          "fair": "Regular (mezcla de saludable e insalubre)",
+          "poor": "Pobre (principalmente comida rápida/procesada)"
         },
-        "exerciseFrequency": "Frecuencia de Ejercicio",
+        "exerciseFrequency": "Frecuencia de ejercicio",
         "exerciseOptions": {
-          "daily": "Diario (5-7 días/semana)",
+          "daily": "Diariamente (5-7 días/semana)",
           "regular": "Regular (3-4 días/semana)",
           "occasional": "Ocasional (1-2 días/semana)",
           "rarely": "Raramente o nunca"
         },
-        "sleepQuality": "Calidad del Sueño",
+        "sleepQuality": "Calidad del sueño",
         "sleepOptions": {
           "excellent": "Excelente (7-9 horas, reparador)",
           "good": "Buena (6-7 horas, mayormente reparador)",
           "fair": "Regular (5-6 horas o interrumpido)",
           "poor": "Pobre (menos de 5 horas o muy mala calidad)"
         },
-        "stressLevel": "Nivel de Estrés (1-10)",
-        "stressGuidance": "Califique su estrés diario típico: 1 = Muy relajado, 5 = Estrés moderado, 10 = Estrés abrumador/crónico"
+        "stressLevel": "Nivel de estrés (1-10)",
+        "stressGuidance": "Califica tu estrés diario típico: 1 = Muy relajado, 5 = Estrés moderado, 10 = Estrés abrumador/crónico"
       },
       "exposure": {
-        "title": "Evaluación de Exposición a EDC",
-        "description": "Ayúdenos a entender su exposición a químicos disruptores endocrinos:",
-        "plasticUse": "Frecuencia de Uso de Plástico",
+        "title": "Evaluación de exposición a EDC",
+        "description": "Ayúdanos a entender tu exposición a químicos disruptores endocrinos:",
+        "plasticUse": "Frecuencia de uso de plástico",
         "plasticOptions": {
-          "minimal": "Mínimo (evito plásticos, uso vidrio/acero inoxidable)",
-          "low": "Bajo (mayormente vidrio/acero inoxidable)",
-          "moderate": "Moderado (uso ocasional de plástico)",
-          "high": "Alto (contenedores de plástico diarios, botellas, empaques)"
+          "minimal": "Mínima (evita plásticos, usa vidrio/acero inoxidable)",
+          "low": "Baja (principalmente vidrio/acero inoxidable)",
+          "moderate": "Moderada (uso ocasional de plástico)",
+          "high": "Alta (contenedores, botellas, envases de plástico diarios)"
         },
-        "processedFood": "Frecuencia de Alimentos Procesados",
+        "processedFood": "Frecuencia de comida procesada",
         "processedOptions": {
-          "rarely": "Raramente (principalmente alimentos integrales caseros)",
+          "rarely": "Raramente (principalmente alimentos integrales, caseros)",
           "occasionally": "Ocasionalmente (1-2 veces/semana)",
           "several": "Varias veces por semana",
           "daily": "Diariamente"
         },
-        "waterSource": "Fuente de Agua",
+        "waterSource": "Fuente de agua",
         "waterOptions": {
           "roFiltered": "Filtrada por ósmosis inversa",
-          "tapFiltered": "Agua del grifo filtrada",
-          "tapUnfiltered": "Agua del grifo sin filtrar",
+          "tapFiltered": "Agua del grifo (filtrada)",
+          "tapUnfiltered": "Agua del grifo (sin filtrar)",
           "bottled": "Agua embotellada",
           "well": "Agua de pozo"
         },
-        "personalCare": "Productos de Cuidado Personal (seleccione todos los que apliquen)",
+        "personalCare": "Productos de cuidado personal (selecciona todos los que apliquen)",
         "personalCareOptions": {
-          "conventional": "Productos convencionales de belleza/cuidado de la piel",
+          "conventional": "Productos de belleza/cuidado de la piel convencionales",
           "fragranced": "Productos perfumados (perfumes, lociones)",
-          "haircare": "Productos químicos para el cabello (tintes, alisadores)",
-          "nailPolish": "Esmalte de uñas/productos de uñas",
+          "haircare": "Químicos para el cabello (tintes, alisadores)",
+          "nailPolish": "Esmalte de uñas/productos para uñas",
           "sunscreen": "Protector solar convencional",
           "organic": "Principalmente productos orgánicos/naturales"
         },
-        "household": "Productos del Hogar (seleccione todos los que apliquen)",
+        "household": "Productos para el hogar (selecciona todos los que apliquen)",
         "householdOptions": {
           "cleaners": "Limpiadores convencionales",
           "airFresheners": "Ambientadores",
           "pesticides": "Pesticidas/herbicidas",
-          "plasticContainers": "Contenedores de plástico para almacenamiento de alimentos",
+          "plasticContainers": "Contenedores de plástico para almacenar alimentos",
           "nonStick": "Utensilios de cocina antiadherentes",
           "natural": "Principalmente productos naturales/ecológicos"
         },
         "occupational": "Tengo exposición ocupacional a químicos (manufactura, agricultura, limpieza, industria de belleza, etc.)"
       },
       "health": {
-        "title": "Historial de Salud",
-        "conditions": "Condiciones de Salud Existentes (opcional)",
-        "conditionsPlaceholder": "Por ejemplo: diabetes, tiroides, SOP, etc.",
-        "medications": "Medicamentos Actuales (opcional)",
-        "medicationsPlaceholder": "Enumere cualquier medicamento que esté tomando",
-        "supplements": "Suplementos Actuales (opcional)",
-        "supplementsPlaceholder": "Enumere cualquier vitamina o suplemento"
+        "title": "Historial de salud",
+        "conditions": "Condiciones de salud existentes (opcional)",
+        "conditionsPlaceholder": "p. ej., SOP, hipotiroidismo, endometriosis (separar con comas)",
+        "medications": "Medicamentos actuales (opcional)",
+        "medicationsPlaceholder": "Enumera cualquier medicamento que estés tomando (separar con comas)",
+        "supplements": "Suplementos actuales (opcional)",
+        "supplementsPlaceholder": "Enumera cualquier suplemento que estés tomando (separar con comas)"
       },
       "review": {
-        "title": "Revise Su Evaluación",
-        "demographics": "Datos Demográficos",
+        "title": "Revisa tu evaluación",
+        "demographics": "Datos demográficos",
         "age": "Edad",
-        "biologicalSex": "Sexo Biológico",
-        "menstrualStatus": "Estado Menstrual",
+        "biologicalSex": "Sexo biológico",
+        "menstrualStatus": "Estado menstrual",
         "symptoms": "Síntomas",
         "selectedSymptoms": "{{count}} síntomas seleccionados",
         "duration": "Duración",
-        "lifestyle": "Estilo de Vida",
-        "dietQuality": "Calidad de la Dieta",
+        "lifestyle": "Estilo de vida",
+        "dietQuality": "Calidad de la dieta",
         "exercise": "Ejercicio",
         "sleep": "Sueño",
-        "stress": "Nivel de Estrés",
+        "stress": "Nivel de estrés",
         "exposure": "Exposición a EDC",
-        "plasticUse": "Uso de Plástico",
-        "processedFood": "Alimentos Procesados",
-        "waterSource": "Fuente de Agua",
-        "occupational": "Exposición Ocupacional",
-        "disclaimer": "Descargo de Responsabilidad Importante",
+        "plasticUse": "Uso de plástico",
+        "processedFood": "Comida procesada",
+        "waterSource": "Fuente de agua",
+        "occupational": "Exposición ocupacional",
+        "disclaimer": "Descargo de responsabilidad importante",
         "disclaimerText": "Esta evaluación es solo para fines educativos y no constituye consejo médico. Los resultados no deben usarse para diagnosticar o tratar ninguna condición médica. Siempre consulte con un proveedor de atención médica calificado antes de tomar cualquier decisión de salud."
       }
     },
     "results": {
-      "title": "Sus Resultados de EndoGuard™",
-      "overallRiskLevel": "Su Nivel de Riesgo General",
-      "riskScore": "Puntuación de Riesgo",
-      "riskLevel": "Nivel de Riesgo",
+      "title": "Tus resultados de EndoGuard™",
+      "overallRiskLevel": "Tu nivel de riesgo general",
+      "riskScore": "Puntuación de riesgo",
+      "riskLevel": "Nivel de riesgo",
       "riskLevels": {
         "low": "BAJO",
         "moderate": "MODERADO",
@@ -528,142 +363,99 @@
         "veryHigh": "MUY ALTO"
       },
       "riskDescriptions": {
-        "HIGH": "Su evaluación indica un riesgo significativo de disrupción hormonal. Se recomienda acción inmediata.",
-        "MODERATE": "Su evaluación muestra factores de riesgo moderados. Los cambios en el estilo de vida pueden hacer una diferencia significativa.",
-        "LOW": "Su evaluación muestra un riesgo relativamente bajo. Continúe con hábitos saludables y manténgase informado."
+        "HIGH": "Tu evaluación indica un riesgo significativo de disrupción hormonal. Se recomienda acción inmediata.",
+        "MODERATE": "Tu evaluación muestra factores de riesgo moderados. Los cambios en el estilo de vida pueden hacer una diferencia significativa.",
+        "LOW": "Tu evaluación muestra un riesgo relativamente bajo. Continúa con hábitos saludables y mantente informado."
       },
       "edcExposure": {
-        "title": "🧪 Evaluación de Exposición a EDC",
-        "exposureRiskScore": "Puntuación de Riesgo de Exposición",
+        "title": "🧪 Evaluación de exposición a EDC",
+        "exposureRiskScore": "Puntuación de riesgo de exposición",
         "risk": "RIESGO",
-        "keyRiskFactors": "Factores de Riesgo Clave Identificados:",
+        "keyRiskFactors": "Factores de riesgo clave identificados:",
         "impact": "Impacto:",
         "action": "Acción:"
       },
       "bmi": {
-        "title": "📊 Índice de Masa Corporal (IMC)",
+        "title": "📊 Índice de masa corporal (IMC)",
         "label": "IMC",
         "underweight": "Bajo peso",
         "normal": "Normal",
         "overweight": "Sobrepeso",
         "obese": "Obeso",
-        "healthImplication": "Implicaciones para la Salud",
+        "healthImplication": "Implicaciones para la salud",
         "recommendation": "Recomendación"
       },
       "hormoneHealth": {
-        "title": "🩺 Análisis de Salud Hormonal",
-        "symptomsReported": "Síntomas Reportados",
-        "severityLevel": "Nivel de Severidad",
-        "systemsAffected": "Sistemas Afectados",
-        "symptomPattern": "Patrón de Síntomas",
-        "clinicalSignificance": "Significancia Clínica"
+        "title": "🩺 Análisis de salud hormonal",
+        "symptomsReported": "Síntomas reportados",
+        "severityLevel": "Nivel de severidad",
+        "systemsAffected": "Sistemas afectados",
+        "systemsShowing": "Sistemas hormonales que muestran síntomas:"
       },
       "recommendations": {
-        "title": "📋 Recomendaciones Personalizadas",
-        "immediate": "Acciones Inmediatas",
-        "lifestyle": "Modificaciones de Estilo de Vida",
-        "testing": "Pruebas Recomendadas",
-        "followUp": "Seguimiento"
+        "title": "💡 Recomendaciones personalizadas",
+        "noRecommendations": "Sin recomendaciones específicas en este momento. ¡Continúa con hábitos saludables!",
+        "why": "Por qué:"
       },
-      "actions": {
-        "downloadPDF": "Descargar Informe PDF",
-        "shareWithDoctor": "Compartir con Médico",
-        "retakeAssessment": "Volver a Realizar Evaluación",
-        "viewHistory": "Ver Historial"
-      }
+      "nextSteps": {
+        "title": "🎯 Próximos pasos"
+      },
+      "cta": {
+        "title": "🚀 Desbloquea tu programa completo de salud hormonal",
+        "subtitle": "Obtén orientación personalizada, informes profesionales y apoyo continuo por solo",
+        "perMonth": "$49/mes",
+        "features": {
+          "unlimited": "Evaluaciones ilimitadas y seguimiento del progreso",
+          "testRecommendations": "Recomendaciones de pruebas detalladas con cartas de laboratorio",
+          "actionPlans": "Planes de acción personalizados de 30/60/90 días",
+          "referrals": "Derivaciones de proveedores y recomendaciones de suplementos",
+          "reports": "Informes PDF profesionales y gráficos de progreso",
+          "support": "Soporte por correo electrónico prioritario de entrenadores de salud"
+        },
+        "upgradeToPremium": "Actualizar a Premium - $49/mes",
+        "compareAssessments": "📊 Comparar mis evaluaciones",
+        "downloadPDF": "📄 Descargar informe PDF",
+        "guarantee": "✨ Garantía de devolución de dinero de 14 días • Cancelar en cualquier momento"
+      },
+      "disclaimer": {
+        "title": "⚕️ Descargo de responsabilidad médica importante",
+        "text1": "Esta evaluación es solo para fines educativos e informativos. No está destinada a diagnosticar, tratar, curar o prevenir ninguna enfermedad o condición médica. La información proporcionada no debe usarse como sustituto de consejo médico profesional, diagnóstico o tratamiento. Siempre busca el consejo de tu médico u otro proveedor de salud calificado con cualquier pregunta que puedas tener sobre una condición médica. Nunca ignores consejo médico profesional ni retrases en buscarlo por información de esta evaluación.",
+        "text2": "Si estás experimentando síntomas graves o una emergencia médica, busca atención médica inmediata."
+      },
+      "downloadReport": "Descargar informe",
+      "shareResults": "Compartir resultados",
+      "retakeAssessment": "Repetir evaluación",
+      "consultProvider": "Consultar con proveedor",
+      "viewHistory": "Ver historial",
+      "compareAssessments": "Comparar evaluaciones"
     }
   },
-  "testimonials": {
-    "backToHome": "← Volver al Inicio",
-    "betaBadge": "🚀 Beta de Acceso Temprano",
-    "together": "Juntos",
-    "beta": {
-      "title": "Ayúdenos a Construir Algo Increíble",
-      "subtitle": "Estamos en acceso temprano y recopilando comentarios reales de profesionales de la salud como usted",
-      "message": "¡Su experiencia importa! Como adoptador temprano, sus ideas darán forma al futuro de la inteligencia de atención médica impulsada por IA."
-    },
-    "stats": {
-      "earlyAccess": "Acceso Temprano",
-      "betaPhase": "Fase de Prueba Beta",
-      "platforms": "2 Plataformas",
-      "currentlyLive": "Actualmente en Vivo",
-      "growing": "Creciendo",
-      "communityTesters": "Comunidad de Probadores",
-      "yourFeedback": "Sus Comentarios",
-      "shapeFuture": "Dan Forma a Nuestro Futuro"
-    },
-    "yourStory": {
-      "title": "Su Historia Podría Estar Aquí",
-      "subtitle": "Sea uno de los primeros en compartir su experiencia con nuestras plataformas de atención médica impulsadas por IA"
-    },
-    "placeholders": {
-      "name": "Su Nombre Aquí",
-      "role": "Profesional de la Salud",
-      "organization": "Su Organización",
-      "platform": "RxGuard™ o EndoGuard™",
-      "quote1": "Comparta su experiencia con nuestras plataformas. Nos encantaría saber cómo la inteligencia de atención médica impulsada por IA le está ayudando a usted y a sus pacientes.",
-      "quote2": "Su testimonio podría inspirar a otros profesionales de la salud a unirse a nuestra misión de transformar la atención al paciente a través de IA.",
-      "quote3": "Sea uno de los primeros en compartir su historia de éxito. Sus comentarios nos ayudan a construir mejores herramientas para la comunidad de atención médica."
-    },
-    "submitTestimonial": "→ Enviar Su Testimonio",
-    "share": {
-      "icon": "💬",
-      "title": "Comparta Su Experiencia",
-      "description": "Estamos recopilando activamente testimonios de nuestros usuarios de acceso temprano. Sus comentarios nos ayudan a mejorar e inspiran a otros profesionales de la salud a unirse a nuestra misión.",
-      "whatToInclude": "Qué Incluir:",
-      "items": [
-        "Qué plataforma está usando (RxGuard™ o EndoGuard™)",
-        "Cómo está ayudando a su práctica o pacientes",
-        "Características específicas que encuentra más valiosas",
-        "Cualquier sugerencia de mejora",
-        "Su nombre, rol y organización (opcional)"
-      ]
-    },
-    "readyToShare": "¿Listo para compartir su historia?",
-    "submitButton": "Enviar Su Testimonio",
-    "video": {
-      "icon": "🎬",
-      "title": "Testimonios en Video Próximamente",
-      "description": "Estamos planeando presentar testimonios en video de profesionales de la salud. Si desea aparecer en una entrevista en video sobre su experiencia, ¡háganoslo saber!",
-      "expressInterest": "Expresar Interés"
-    },
-    "cta": {
-      "title": "Únase a Nuestra Comunidad de Acceso Temprano",
-      "subtitle": "Sea parte del futuro de la inteligencia de atención médica impulsada por IA",
-      "explorePlatforms": "Explorar Plataformas",
-      "startTrial": "Comenzar Prueba Gratuita"
-    }
-  },
-  "legal": {
-    "backToHome": "← Volver al Inicio",
-    "privacy": {
-      "title": "Política de Privacidad",
-      "effectiveDate": "Fecha de Vigencia: {{date}}",
-      "lastUpdated": "Última Actualización: {{date}}",
-      "summary": "Esta política de privacidad describe cómo Nexus Biomedical Intelligence recopila, usa y protege su información personal. El documento completo en inglés a continuación es legalmente vinculante."
-    },
-    "terms": {
-      "title": "Términos de Servicio",
-      "effectiveDate": "Fecha de Vigencia: {{date}}",
-      "lastUpdated": "Última Actualización: {{date}}",
-      "summary": "Estos términos rigen su uso de las plataformas de Nexus Biomedical Intelligence. El documento completo en inglés a continuación es legalmente vinculante."
-    },
-    "hipaa": {
-      "title": "Cumplimiento HIPAA",
-      "effectiveDate": "Fecha de Vigencia: {{date}}",
-      "lastUpdated": "Última Actualización: {{date}}",
-      "summary": "Información sobre cómo Nexus Biomedical Intelligence cumple con las regulaciones HIPAA para proteger la información de salud. El documento completo en inglés a continuación es legalmente vinculante."
-    },
-    "legalNotice": "Nota Legal: La versión en inglés de este documento es la versión legalmente vinculante. Esta traducción se proporciona solo para conveniencia."
+  "footer": {
+    "tagline": "Transformando la atención médica a través de la innovación en IA",
+    "copyright": "© {{year}} Nexus Biomedical Intelligence. Todos los derechos reservados.",
+    "company": "Empresa",
+    "aboutUs": "Sobre nosotros",
+    "careers": "Carreras",
+    "contact": "Contacto",
+    "blog": "Blog",
+    "resources": "Recursos",
+    "documentation": "Documentación",
+    "apiDocs": "Documentación de API",
+    "support": "Soporte",
+    "caseStudies": "Estudios de casos",
+    "legal": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "security": "Seguridad y privacidad"
   },
   "assessmentPreview": {
-    "title": "Chequeo Rápido de Salud Hormonal",
-    "subtitle": "Responda 3 preguntas rápidas para obtener una perspectiva instantánea",
+    "title": "Chequeo rápido de salud hormonal",
+    "subtitle": "Responde 3 preguntas rápidas para obtener una perspectiva instantánea",
     "questionProgress": "Pregunta {{current}} de {{total}}",
     "questions": {
-      "fatigue": "¿Experimenta fatiga persistente o baja energía?",
-      "weight": "¿Ha notado cambios de peso inexplicables?",
-      "mood": "¿Experimenta cambios de humor o irritabilidad?"
+      "fatigue": "¿Experimentas fatiga persistente o baja energía?",
+      "weight": "¿Has notado cambios de peso inexplicables?",
+      "mood": "¿Experimentas cambios de humor o irritabilidad?"
     },
     "options": {
       "never": "Nunca",
@@ -679,81 +471,68 @@
       "veryOften": "Muy a menudo"
     },
     "result": {
-      "title": "Su Resultado de Evaluación Rápida",
+      "title": "Tu resultado de evaluación rápida",
       "risk": "Riesgo",
-      "ctaText": "Esta es solo una vista previa rápida basada en 3 preguntas. ¡Obtenga su evaluación completa de salud hormonal con recomendaciones personalizadas!",
-      "takeFullAssessment": "Realizar Evaluación Completa (GRATIS)",
-      "tryAgain": "Intentar de Nuevo"
+      "ctaText": "Esta es solo una vista previa rápida basada en 3 preguntas. ¡Obtén tu evaluación completa de salud hormonal con recomendaciones personalizadas!",
+      "takeFullAssessment": "Realizar evaluación completa (GRATIS)",
+      "tryAgain": "Intentar de nuevo"
     }
   },
   "whoBenefits": {
-    "title": "¿Quién se Beneficia de Nexus?",
-    "subtitle": "Nuestras plataformas impulsadas por IA sirven a diversos actores en todo el ecosistema de atención médica",
-    "keyBenefits": "Beneficios Clave:",
-    "cta": "¿Listo para ver cómo Nexus puede transformar su organización?",
+    "title": "Quién se beneficia de Nexus",
+    "subtitle": "Herramientas de soporte de decisiones impulsadas por IA diseñadas para asistir a profesionales de la salud, investigadores y organizaciones en la evaluación de riesgos, flujos de trabajo y consideraciones regulatorias, sin reemplazar el juicio profesional ni la responsabilidad clínica.",
+    "cta": "¿Listo para ver cómo Nexus puede transformar tu organización?",
     "getStarted": "Comenzar",
+    "disclaimer": "Nexus Biomedical Intelligence proporciona solo herramientas informativas de soporte de decisiones. La plataforma no diagnostica, trata, predice resultados ni reemplaza el juicio profesional.",
+    "individuals": {
+      "title": "Individuos y consumidores",
+      "description": "Para individuos que buscan claridad antes de visitas clínicas",
+      "benefit1": "Apoyar conversaciones informadas con proveedores de atención médica",
+      "benefit2": "Organizar información de salud personal y señales de riesgo",
+      "benefit3": "Aumentar la conciencia de factores que pueden justificar una evaluación adicional",
+      "note": "(Sin diagnóstico. Sin orientación de tratamiento.)"
+    },
     "smallClinics": {
-      "title": "Clínicas y Consultorios Pequeños",
-      "description": "Potencie su práctica con herramientas de IA de nivel empresarial a un precio asequible",
-      "benefit1": "Reduzca errores de medicación y responsabilidad",
-      "benefit2": "Mejore los resultados de los pacientes con información de IA",
-      "benefit3": "Ahorre tiempo en la toma de decisiones clínicas"
+      "title": "Clínicas y consultorios pequeños",
+      "description": "Para equipos de atención que manejan decisiones complejas con tiempo limitado",
+      "benefit1": "Apoyar la revisión clínica con herramientas de referencia impulsadas por IA",
+      "benefit2": "Superficie consideraciones de seguridad e información contextual",
+      "benefit3": "Asistir en flujos de trabajo de revisión de documentación y planificación de atención"
     },
     "hospitals": {
-      "title": "Hospitales y Sistemas de Salud",
-      "description": "Escale la excelencia clínica en toda su red con soporte de decisiones impulsado por IA",
-      "benefit1": "Estandarice protocolos de atención en todo el sistema",
-      "benefit2": "Reduzca eventos adversos de medicamentos hasta en un 40%",
-      "benefit3": "Mejore el cumplimiento normativo y los informes"
+      "title": "Hospitales y sistemas de salud",
+      "description": "Para organizaciones que coordinan atención a escala",
+      "benefit1": "Apoyar flujos de trabajo de revisión de decisiones estandarizados",
+      "benefit2": "Asistir en procesos de mejora de calidad y revisión de seguridad",
+      "benefit3": "Habilitar análisis de tendencias y patrones entre equipos de atención"
     },
     "insurance": {
-      "title": "Compañías de Seguros",
-      "description": "Reduzca los costos de reclamos y mejore los resultados de salud de los miembros mediante análisis preventivos de IA",
-      "benefit1": "Identifique pacientes de alto riesgo temprano",
-      "benefit2": "Reduzca hospitalizaciones innecesarias",
-      "benefit3": "Reduzca los costos generales de atención médica"
+      "title": "Seguros y organizaciones de riesgo",
+      "description": "Para equipos que evalúan riesgos de salud a nivel poblacional",
+      "benefit1": "Apoyar estratificación de riesgo y análisis de tendencias",
+      "benefit2": "Asistir en flujos de trabajo de planificación de atención y revisión de utilización",
+      "benefit3": "Informar discusiones de estrategia preventiva"
     },
     "medicalDevice": {
-      "title": "Compañías de Dispositivos Médicos",
-      "description": "Acelere la aprobación regulatoria y la vigilancia post-mercado con herramientas de cumplimiento impulsadas por IA",
-      "benefit1": "Agilice el proceso de presentación a la FDA",
-      "benefit2": "Automatice informes de eventos adversos",
-      "benefit3": "Reduzca el tiempo de comercialización en un 30%"
+      "title": "Compañías de dispositivos médicos",
+      "description": "Para equipos de cumplimiento y regulación",
+      "benefit1": "Apoyar evaluación de ruta regulatoria",
+      "benefit2": "Asistir en identificación de brechas y preparación de documentación",
+      "benefit3": "Organizar inteligencia regulatoria y materiales de referencia"
     },
     "pharma": {
-      "title": "Compañías Farmacéuticas",
-      "description": "Optimice ensayos clínicos y monitoreo de seguridad de medicamentos con análisis avanzados de IA",
-      "benefit1": "Prediga interacciones de medicamentos temprano",
-      "benefit2": "Mejore el reclutamiento de pacientes para ensayos",
-      "benefit3": "Mejore la eficiencia de farmacovigilancia"
+      "title": "Compañías farmacéuticas",
+      "description": "Para equipos de seguridad, investigación y monitoreo",
+      "benefit1": "Apoyar flujos de trabajo de farmacovigilancia y revisión de seguridad",
+      "benefit2": "Asistir en análisis de señales de riesgo relacionadas con medicamentos",
+      "benefit3": "Habilitar revisión estructurada de datos de interacción y monitoreo"
     },
     "cro": {
-      "title": "Organizaciones de Investigación Clínica",
-      "description": "Mejore el diseño de ensayos, reclutamiento de pacientes y análisis de datos con información impulsada por IA",
-      "benefit1": "Optimice protocolos de ensayos con IA",
-      "benefit2": "Mejore las tasas de retención de pacientes",
-      "benefit3": "Acelere el análisis de datos y los informes"
-    },
-    "longTermCare": {
-      "title": "Instalaciones de Cuidado a Largo Plazo",
-      "description": "Proteja a los adultos mayores vulnerables con monitoreo de salud predictivo y herramientas de seguridad de medicamentos",
-      "benefit1": "Prevenga errores de medicación en ancianos",
-      "benefit2": "Detección temprana de deterioro de salud",
-      "benefit3": "Reduzca hospitalizaciones de emergencia"
-    },
-    "telemedicine": {
-      "title": "Plataformas de Telemedicina",
-      "description": "Mejore la calidad de la atención remota con soporte de decisiones clínicas impulsado por IA integrado en su plataforma",
-      "benefit1": "Mejore la precisión diagnóstica de forma remota",
-      "benefit2": "Reduzca la responsabilidad del proveedor en atención virtual",
-      "benefit3": "Integración perfecta con EHR"
-    },
-    "individuals": {
-      "title": "Individuos y Consumidores",
-      "description": "Tome el control de su salud con evaluaciones impulsadas por IA e información personalizada",
-      "benefit1": "Evaluaciones gratuitas de salud hormonal",
-      "benefit2": "Recomendaciones de salud personalizadas",
-      "benefit3": "Rastree su progreso de salud a lo largo del tiempo"
+      "title": "Organizaciones de investigación clínica",
+      "description": "Para equipos de investigación y planificación de ensayos",
+      "benefit1": "Apoyar evaluación de viabilidad del protocolo",
+      "benefit2": "Asistir en planificación de inscripción y evaluación de riesgo",
+      "benefit3": "Organizar información de ensayos históricos para diseño de estudios"
     }
   }
 }

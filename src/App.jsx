@@ -218,7 +218,7 @@ function SpanishHomepage() {
   
   useEffect(() => {
     i18n.changeLanguage('es')
-  }, [])
+  }, [i18n])
   
   return <Homepage />
 }

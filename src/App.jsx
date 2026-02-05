@@ -212,6 +212,17 @@ function Homepage() {
   )
 }
 
+// Spanish Homepage - Sets language to Spanish and renders Homepage
+function SpanishHomepage() {
+  const { i18n } = useTranslation()
+  
+  useEffect(() => {
+    i18n.changeLanguage('es')
+  }, [])
+  
+  return <Homepage />
+}
+
 // Force Vercel redeploy - URL routing fix
 function App() {
   const { i18n } = useTranslation();
@@ -492,21 +503,17 @@ function App() {
         } 
       />
 
-      {/* Spanish Landing Page Routes */}
+      {/* Spanish Homepage Routes - Use i18n language switching */}
       <Route 
         path="/es" 
         element={
-          <Suspense fallback={<LoadingFallback />}>
-            <SpanishLanding />
-          </Suspense>
+          <SpanishHomepage />
         } 
       />
       <Route 
         path="/es/inicio" 
         element={
-          <Suspense fallback={<LoadingFallback />}>
-            <SpanishLanding />
-          </Suspense>
+          <SpanishHomepage />
         }
       />
       <Route 

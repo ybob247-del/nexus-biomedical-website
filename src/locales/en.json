@@ -534,5 +534,58 @@
       "benefit2": "Assist enrollment planning and risk evaluation",
       "benefit3": "Organize historical trial insights for study design"
     }
+  },
+  "faq": {
+    "title": "Honest Answers to Hard Questions",
+    "subtitle": "Because real change starts with real conversations.",
+    "hardQuestionsButton": "Hard Questions Answered",
+    "promise": {
+      "title": "Our Promise",
+      "text": "Nexus Biomedical Intelligence exists to make healthcare safer, simpler, and more human. We believe transparency builds trust—and trust saves lives."
+    },
+    "cta": {
+      "contactUs": "Contact Us",
+      "explorePlatforms": "Explore Platforms"
+    },
+    "q1": {
+      "question": "Will AI replace doctors, pharmacists, or clinicians?",
+      "answer": "No. AI cannot replace clinical judgment, empathy, or human experience. Nexus platforms are designed to amplify professionals. Our systems automate repetitive checks, cross-reference data instantly, and surface insights—but the final decision always belongs to you."
+    },
+    "q2": {
+      "question": "What if the AI gets it wrong—who is responsible?",
+      "answer": "You are always in control. Nexus tools are decision support systems, not decision makers. They flag potential issues and recommend actions, but every recommendation includes visible context, source data, and your ability to override or verify it."
+    },
+    "q3": {
+      "question": "How do I know my patient data is safe?",
+      "answer": "We take data security and compliance seriously. All Nexus platforms are built HIPAA-ready with end-to-end encryption and operate within secure, isolated environments. We never sell, share, or train on your private data. You retain full ownership and control."
+    },
+    "q4": {
+      "question": "I am not tech-savvy. Will this make my job harder?",
+      "answer": "Absolutely not. Our design philosophy is clarity over complexity. Every interface is intuitive, clean, and built with clinical workflows in mind. If you can use your EHR, you can use Nexus. Most users master our platforms within a few hours."
+    },
+    "q5": {
+      "question": "What if leadership uses AI to cut staff?",
+      "answer": "Nexus tools are built to reduce burnout, not replace people. Teams that use AI effectively experience fewer medication errors, lower liability, and higher retention. AI creates breathing room for humans to do what they do best—think, listen, and care."
+    },
+    "q6": {
+      "question": "How transparent is the AI? Can I see how it reaches conclusions?",
+      "answer": "Yes. Every decision in Nexus comes with an explanation layer. You will see which data sources, evidence levels, and logic paths were used. No black boxes. Just transparent, verifiable reasoning you can trust and audit."
+    },
+    "q7": {
+      "question": "What about regulatory approval—are these systems cleared?",
+      "answer": "Nexus operates under the framework of Clinical Decision Support (CDS) tools. Our ReguReady platform helps streamline compliance, and every Nexus module is designed with FDA, ISO, and CE standards in mind."
+    },
+    "q8": {
+      "question": "How does Nexus integrate with existing systems?",
+      "answer": "Seamlessly. Nexus connects to leading EHR, pharmacy, and laboratory platforms through secure APIs and FHIR-based interoperability. Whether you use Epic, Cerner, or custom software, integration is fast, secure, and IT-approved."
+    },
+    "q9": {
+      "question": "Is AI expensive to implement?",
+      "answer": "It does not have to be. Nexus was built to democratize access to healthcare innovation. Our tiered pricing model ranges from small-practice subscriptions to enterprise packages, so clinics of any size can start safely and scale sustainably."
+    },
+    "q10": {
+      "question": "What happens to empathy when machines enter healthcare?",
+      "answer": "Empathy grows. When technology handles the repetitive tasks, clinicians can spend more time with their patients—listening, connecting, and caring. AI should never replace compassion; it should give you the time and clarity to express it fully."
+    }
   }
 }

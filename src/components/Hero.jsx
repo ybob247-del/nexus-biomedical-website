@@ -122,7 +122,7 @@ export default function Hero() {
               transition: 'all 0.3s ease'
             }}
           >
-            Hard Questions Answered
+            {t('faq.hardQuestionsButton')}
           </button>
           <button 
             className="nexus-button" 

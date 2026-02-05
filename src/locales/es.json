@@ -534,5 +534,58 @@
       "benefit2": "Asistir en planificación de inscripción y evaluación de riesgo",
       "benefit3": "Organizar información de ensayos históricos para diseño de estudios"
     }
+  },
+  "faq": {
+    "title": "Respuestas Honestas a Preguntas Difíciles",
+    "subtitle": "Porque el cambio real comienza con conversaciones reales.",
+    "hardQuestionsButton": "Respuestas a Preguntas Difíciles",
+    "promise": {
+      "title": "Nuestro Compromiso",
+      "text": "Nexus Biomedical Intelligence existe para hacer la atención médica más segura, simple y humana. Creemos que la transparencia construye confianza, y la confianza salva vidas."
+    },
+    "cta": {
+      "contactUs": "Contáctenos",
+      "explorePlatforms": "Explorar Plataformas"
+    },
+    "q1": {
+      "question": "¿La IA reemplazará a médicos, farmacéuticos o clínicos?",
+      "answer": "No. La IA no puede reemplazar el juicio clínico, la empatía o la experiencia humana. Las plataformas Nexus están diseñadas para amplificar a los profesionales. Nuestros sistemas automatizan controles repetitivos, cruzan referencias de datos instantáneamente y revelan información, pero la decisión final siempre te pertenece."
+    },
+    "q2": {
+      "question": "¿Y si la IA se equivoca, quién es responsable?",
+      "answer": "Siempre estás en control. Las herramientas Nexus son sistemas de apoyo a decisiones, no tomadores de decisiones. Señalan problemas potenciales y recomiendan acciones, pero cada recomendación incluye contexto visible, datos de origen y tu capacidad de anular o verificar."
+    },
+    "q3": {
+      "question": "¿Cómo sé que mis datos de pacientes están seguros?",
+      "answer": "Tomamos la seguridad de datos y el cumplimiento en serio. Todas las plataformas Nexus están construidas con HIPAA listo, cifrado de extremo a extremo y operan en entornos seguros e aislados. Nunca vendemos, compartimos ni entrenamos con tus datos privados. Retienes la propiedad y el control total."
+    },
+    "q4": {
+      "question": "No soy experto en tecnología. ¿Esto hará mi trabajo más difícil?",
+      "answer": "Absolutamente no. Nuestra filosofía de diseño es claridad sobre complejidad. Cada interfaz es intuitiva, limpia y construida con flujos de trabajo clínicos en mente. Si puedes usar tu EHR, puedes usar Nexus. La mayoría de usuarios dominan nuestras plataformas en pocas horas."
+    },
+    "q5": {
+      "question": "¿Y si el liderazgo usa IA para reducir personal?",
+      "answer": "Las herramientas Nexus están construidas para reducir el agotamiento, no para reemplazar personas. Los equipos que usan IA efectivamente experimentan menos errores de medicación, menor responsabilidad y mayor retención. La IA crea espacio para que los humanos hagan lo que mejor hacen: pensar, escuchar y cuidar."
+    },
+    "q6": {
+      "question": "¿Qué tan transparente es la IA? ¿Puedo ver cómo llega a conclusiones?",
+      "answer": "Sí. Cada decisión en Nexus viene con una capa de explicación. Verás qué fuentes de datos, niveles de evidencia y rutas lógicas se utilizaron. Sin cajas negras. Solo razonamiento transparente y verificable que puedes confiar y auditar."
+    },
+    "q7": {
+      "question": "¿Qué hay sobre la aprobación regulatoria? ¿Estos sistemas están autorizados?",
+      "answer": "Nexus opera bajo el marco de herramientas de Apoyo a Decisiones Clínicas (CDS). Nuestra plataforma ReguReady ayuda a optimizar el cumplimiento, y cada módulo Nexus está diseñado con estándares FDA, ISO y CE en mente."
+    },
+    "q8": {
+      "question": "¿Cómo se integra Nexus con sistemas existentes?",
+      "answer": "Sin problemas. Nexus se conecta a plataformas líderes de EHR, farmacia y laboratorio a través de APIs seguras e interoperabilidad basada en FHIR. Ya sea que uses Epic, Cerner o software personalizado, la integración es rápida, segura y aprobada por TI."
+    },
+    "q9": {
+      "question": "¿Es costoso implementar IA?",
+      "answer": "No tiene que serlo. Nexus fue construido para democratizar el acceso a la innovación en atención médica. Nuestro modelo de precios escalonado va desde suscripciones de pequeñas prácticas hasta paquetes empresariales, para que clínicas de cualquier tamaño comiencen de forma segura y escalen sosteniblemente."
+    },
+    "q10": {
+      "question": "¿Qué sucede con la empatía cuando las máquinas entran en la atención médica?",
+      "answer": "La empatía crece. Cuando la tecnología maneja tareas repetitivas, los clínicos pueden pasar más tiempo con sus pacientes: escuchando, conectando y cuidando. La IA nunca debe reemplazar la compasión; debe darte el tiempo y la claridad para expresarla plenamente."
+    }
   }
 }

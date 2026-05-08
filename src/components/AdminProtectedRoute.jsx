@@ -1,46 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
 
 export default function AdminProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [checking, setChecking] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // Check if already authenticated (stored in sessionStorage)
+  // Verify any existing token with the server on mount
   useEffect(() => {
-    console.log('AdminProtectedRoute: Checking authentication...');
-    const auth = sessionStorage.getItem('admin_authenticated');
-    console.log('AdminProtectedRoute: auth value:', auth);
-    if (auth === 'true') {
-      console.log('AdminProtectedRoute: User is authenticated');
-      setIsAuthenticated(true);
-    } else {
-      console.log('AdminProtectedRoute: User is NOT authenticated');
-    }
-    setChecking(false);
+    const verifyToken = async () => {
+      try {
+        const token = sessionStorage.getItem('admin_token');
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+        const res = await fetch('/api/admin/verify', {
+          method: 'GET',
+          credentials: 'include',
+          headers,
+        });
+        const data = await res.json();
+        setIsAuthenticated(!!data.valid);
+      } catch {
+        setIsAuthenticated(false);
+      } finally {
+        setChecking(false);
+      }
+    };
+    verifyToken();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simple password check (you can change this to your own password)
-    // For production, this should be an API call to verify credentials
-    const ADMIN_PASSWORD = 'nexus2025'; // Change this to your own secure password
-    
-    if (password === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_authenticated', 'true');
-      setIsAuthenticated(true);
-      setError('');
-    } else {
-      setError('Incorrect password');
-      setPassword('');
+    setError('');
+    setLoading(true);
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        if (data.token) {
+          sessionStorage.setItem('admin_token', data.token);
+        }
+        setIsAuthenticated(true);
+        setPassword('');
+      } else {
+        setError(data.error || 'Incorrect password');
+        setPassword('');
+      }
+    } catch (err) {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  console.log('AdminProtectedRoute: Rendering... checking:', checking, 'isAuthenticated:', isAuthenticated);
-
   if (checking) {
-    console.log('AdminProtectedRoute: Showing loading screen');
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'linear-gradient(135deg, #0A1B3D 0%, #1a2942 50%, #0A1B3D 100%)' }}>
         <div style={{ color: '#60a5fa', fontSize: '1.5rem', fontWeight: 600 }}>Loading...</div>
@@ -49,7 +71,6 @@ export default function AdminProtectedRoute({ children }) {
   }
 
   if (!isAuthenticated) {
-    console.log('AdminProtectedRoute: Showing password prompt');
     return (
       <div style={{
         minHeight: '100vh',
@@ -88,6 +109,7 @@ export default function AdminProtectedRoute({ children }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter admin password"
+              disabled={loading}
               style={{
                 width: '100%',
                 padding: '0.75rem 1rem',
@@ -115,19 +137,21 @@ export default function AdminProtectedRoute({ children }) {
             )}
             <button
               type="submit"
+              disabled={loading}
               style={{
                 width: '100%',
-                background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
+                background: loading ? '#3B82F6' : 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
                 color: 'white',
                 border: 'none',
                 padding: '0.75rem 1.5rem',
                 borderRadius: '10px',
                 fontSize: '1rem',
                 fontWeight: 600,
-                cursor: 'pointer',
+                cursor: loading ? 'wait' : 'pointer',
+                opacity: loading ? 0.7 : 1,
               }}
             >
-              Access Admin Panel
+              {loading ? 'Verifying...' : 'Access Admin Panel'}
             </button>
           </form>
         </div>
@@ -135,7 +159,5 @@ export default function AdminProtectedRoute({ children }) {
     );
   }
 
-  console.log('AdminProtectedRoute: User authenticated, rendering children');
   return children;
 }
-

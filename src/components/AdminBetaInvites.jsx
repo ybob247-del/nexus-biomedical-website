@@ -18,15 +18,34 @@ export default function AdminBetaInvites() {
 
   
   // Check authentication on mount
-  useEffect(() => {
-    console.log('AdminBetaInvites: Checking authentication...');
-    const auth = sessionStorage.getItem('admin_authenticated');
-    console.log('AdminBetaInvites: auth value:', auth);
-    if (auth === 'true') {
-      setIsAuthenticated(true);
-    }
-    setChecking(false);
+    useEffect(() => {
+    const verifyToken = async () => {
+      try {
+        const token = sessionStorage.getItem('admin_token');
+        const headers = { 'Content-Type': 'application/json' };
+
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const res = await fetch('/api/admin/verify', {
+          method: 'GET',
+          credentials: 'include',
+          headers,
+        });
+
+        const data = await res.json();
+        setIsAuthenticated(!!data.valid);
+      } catch {
+        setIsAuthenticated(false);
+      } finally {
+        setChecking(false);
+      }
+    };
+
+    verifyToken();
   }, []);
+
 
 
     // Handle password submission via secure server-side endpoint

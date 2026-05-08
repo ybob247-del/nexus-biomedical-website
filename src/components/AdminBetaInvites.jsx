@@ -22,30 +22,41 @@ export default function AdminBetaInvites() {
     const auth = sessionStorage.getItem('admin_authenticated');
     console.log('AdminBetaInvites: auth value:', auth);
     if (auth === 'true') {
-      console.log('AdminBetaInvites: User is authenticated');
-      setIsAuthenticated(true);
-    } else {
-      console.log('AdminBetaInvites: User is NOT authenticated');
+            setIsAuthenticated(true);
+    }
+
     }
     setChecking(false);
   }, []);
 
-  // Handle password submission
-  const handlePasswordSubmit = (e) => {
+    // Handle password submission via secure server-side endpoint
+  const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-    const ADMIN_PASSWORD = 'nexus2025';
-    
-    if (passwordInput === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_authenticated', 'true');
-      setIsAuthenticated(true);
-      setPasswordError('');
-      console.log('AdminBetaInvites: Password correct, authenticated');
-    } else {
-      setPasswordError('Incorrect password');
-      setPasswordInput('');
-      console.log('AdminBetaInvites: Password incorrect');
+    setPasswordError('');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: passwordInput }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        if (data.token) {
+          sessionStorage.setItem('admin_token', data.token);
+        }
+        setIsAuthenticated(true);
+        setPasswordInput('');
+      } else {
+        setPasswordError(data.error || 'Incorrect password');
+        setPasswordInput('');
+      }
+    } catch (err) {
+      setPasswordError('Network error. Please try again.');
     }
   };
+
+
 
   // Handle beta invite submission
   const handleSubmit = async (e) => {

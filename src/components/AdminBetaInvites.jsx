@@ -16,18 +16,18 @@ export default function AdminBetaInvites() {
   const [recentInvites, setRecentInvites] = useState([]);
   const navigate = useNavigate();
 
+  
   // Check authentication on mount
   useEffect(() => {
     console.log('AdminBetaInvites: Checking authentication...');
     const auth = sessionStorage.getItem('admin_authenticated');
     console.log('AdminBetaInvites: auth value:', auth);
     if (auth === 'true') {
-            setIsAuthenticated(true);
-    }
-
+      setIsAuthenticated(true);
     }
     setChecking(false);
   }, []);
+
 
     // Handle password submission via secure server-side endpoint
   const handlePasswordSubmit = async (e) => {

@@ -19,6 +19,7 @@ import LanguageToggle from './components/LanguageToggle'
 import AIChatbot from './components/AIChatbot'
 import AssessmentPreview from './components/AssessmentPreview'
 import ProtectedRoute from './components/ProtectedRoute'
+import AdminProtectedRoute from './components/AdminProtectedRoute'
 import { platformsData } from './data/platformData'
 import { StructuredData, organizationSchema, websiteSchema } from './components/StructuredData'
 
@@ -288,13 +289,15 @@ function App() {
         } 
       />
 
-      {/* Admin Panel Route */}
+      {/* Admin Panel Route - protected by password */}
       <Route 
         path="/admin/beta-invites" 
         element={
-          <Suspense fallback={<LoadingFallback />}>
-            <AdminBetaInvites />
-          </Suspense>
+          <AdminProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <AdminBetaInvites />
+            </Suspense>
+          </AdminProtectedRoute>
         } 
       />
 

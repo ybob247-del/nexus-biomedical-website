@@ -6,7 +6,7 @@ export const platformsData = {
     gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
     badge: 'AI-POWERED MEDICATION SAFETY',
     trialDays: 14,
-    comingSoon: false,
+    comingSoon: true,
     hero: {
       title: 'RxGuard™ Medication Interaction Predictor',
       subtitle: 'Identify potential medication interaction risks to support clinical decision-making.'

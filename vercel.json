@@ -7,10 +7,6 @@
       "destination": "/api/:path*"
     },
     {
-      "source": "/admin/beta-invites",
-      "destination": "/admin.html"
-    },
-    {
       "source": "/robots.txt",
       "destination": "/robots.txt"
     },

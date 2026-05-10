@@ -1,5 +1,5 @@
 import { useState, lazy, Suspense, useEffect } from 'react'
-import { Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate, useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './styles/nexus.css'
 import './i18n' // Initialize i18n
@@ -749,6 +749,12 @@ function App() {
           </Suspense>
         } 
       />
+
+      {/* Redirect /contact to home (contact is via mailto: in footer) */}
+      <Route path="/contact" element={<Navigate to="/" replace />} />
+
+      {/* Redirect /pricing (no platformId) to /platforms */}
+      <Route path="/pricing" element={<Navigate to="/platforms" replace />} />
 
       {/* Homepage Route */}
       <Route path="/" element={<Homepage />} />

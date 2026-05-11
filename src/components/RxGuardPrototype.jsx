@@ -1198,7 +1198,7 @@ const RxGuardPrototype = ({ onBack }) => {
                         <p style={{ color: '#64748b', marginBottom: '0.75rem', lineHeight: '1.7' }}>{interaction.description}</p>
                         <div style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.6' }}>
                           <p><strong>Mechanism:</strong> {interaction.mechanism}</p>
-                          <p><strong>Data Source:</strong> {interaction.fdaData}</p>
+                          <p><strong>Data Source (sample):</strong> {interaction.fdaData} — Demo scenario only; figures are illustrative, not live FDA FAERS data.</p>
                         </div>
                       </div>
                     ))}
@@ -1245,6 +1245,7 @@ const RxGuardPrototype = ({ onBack }) => {
                   <div style={{ backgroundColor: 'white', borderRadius: '12px', padding: '1.5rem' }}>
                     <div style={{ fontSize: '0.95rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 600 }}>Analysis Reasoning</div>
                     <p style={{ color: '#475569', lineHeight: '1.8', fontSize: '1.05rem' }}>{selectedScenario.aiAnalysis.reasoning}</p>
+                    <p style={{ color: '#94a3b8', lineHeight: '1.7', fontSize: '0.9rem', marginTop: '1rem', fontStyle: 'italic' }}>Note: This is a pre-programmed demo scenario using sample data. Adverse event counts and fatality figures are illustrative examples based on published literature, not live FDA FAERS queries. RxGuard™ is a clinical decision support tool and does not replace clinical judgment.</p>
                   </div>
                 </motion.div>
               )}

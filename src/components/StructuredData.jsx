@@ -77,13 +77,6 @@ export const rxGuardProductSchema = {
     "Comprehensive drug database (10,000+ medications)",
     "Patient-friendly reports"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "127",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "provider": {
     "@type": "Organization",
     "name": "Nexus Biomedical Intelligence",
@@ -97,38 +90,31 @@ export const rxGuardProductSchema = {
 export const endoGuardProductSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "EndoGuard™ - Endoscopy Quality Assurance Platform",
+  "name": "EndoGuard™ - Hormone Intelligence Platform",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web",
   "offers": {
     "@type": "Offer",
-    "name": "Professional",
-    "price": "97",
+    "name": "Hormone Risk Report",
+    "price": "79",
     "priceCurrency": "USD",
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
-      "price": "97",
+      "price": "79",
       "priceCurrency": "USD",
-      "unitText": "MONTH"
+      "unitText": "ONE_TIME"
     },
-    "description": "Quality tracking, adverse event prediction, analytics dashboard, 30-day free trial"
+    "description": "Complete hormone risk assessment, EDC exposure analysis, risk tier stratification, personalized next steps, provider summary"
   },
-  "description": "AI-powered endoscopy quality assurance and adverse event prediction platform. Helps gastroenterologists and endoscopy centers monitor procedure quality, predict potential complications, and improve patient safety.",
+  "description": "AI-powered preventive hormone risk stratification platform. Helps individuals understand hormone-related risk factors and facilitates informed conversations with healthcare providers. Not a diagnostic tool.",
   "featureList": [
-    "Quality metrics tracking for endoscopic procedures",
-    "Adverse event prediction using AI algorithms",
-    "Procedure analytics and performance dashboards",
-    "Compliance reporting for quality standards",
-    "Risk assessment for individual patients",
-    "Real-time alerts for high-risk procedures"
+    "Personalized hormone risk tier (Low / Moderate / High)",
+    "EDC exposure analysis using FDA EDKB and EPA CompTox data",
+    "Top 5 risk drivers identified",
+    "Personalized next steps and lab test recommendations",
+    "Provider-ready clinical summary",
+    "Bilingual support (English and Spanish)"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "ratingCount": "89",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "provider": {
     "@type": "Organization",
     "name": "Nexus Biomedical Intelligence",

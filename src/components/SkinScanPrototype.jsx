@@ -13,7 +13,7 @@ export default function SkinScanPrototype({ onBack }) {
       id: 'melanoma-detection',
       title: 'Melanoma Detection',
       subtitle: 'Asymmetric pigmented lesion - Right shoulder',
-      description: 'AI detected suspicious melanoma features requiring urgent dermatology referral',
+      description: 'AI identified features associated with suspicious lesion characteristics — urgent dermatology referral recommended for evaluation',
       severity: 'HIGH RISK',
       severityColor: 'bg-red-600',
       riskScore: 92,
@@ -66,7 +66,7 @@ export default function SkinScanPrototype({ onBack }) {
       id: 'basal-cell-carcinoma',
       title: 'Basal Cell Carcinoma',
       subtitle: 'Pearly nodule with telangiectasia - Left cheek',
-      description: 'AI identified basal cell carcinoma features requiring dermatology evaluation',
+      description: 'AI identified features associated with basal cell carcinoma characteristics — dermatology evaluation recommended',
       severity: 'MODERATE RISK',
       severityColor: 'bg-orange-600',
       riskScore: 78,
@@ -119,7 +119,7 @@ export default function SkinScanPrototype({ onBack }) {
       id: 'benign-nevus',
       title: 'Benign Nevus (Mole)',
       subtitle: 'Uniform pigmented lesion - Upper back',
-      description: 'AI analysis indicates benign nevus with low malignancy risk, routine monitoring recommended',
+      description: 'AI analysis indicates features consistent with benign nevus and low malignancy risk — routine monitoring recommended',
       severity: 'LOW RISK',
       severityColor: 'bg-green-600',
       riskScore: 15,
@@ -454,7 +454,7 @@ export default function SkinScanPrototype({ onBack }) {
                     Data Source
                   </h4>
                   <p style={{ fontSize: '0.95rem', color: '#78350f', lineHeight: '1.8', margin: 0 }}>
-                    Analysis based on AAD melanoma guidelines • Deep learning trained on 129,450 clinical images • Dermatologist-level accuracy (Esteva et al., Nature 2017)
+                    Demo scenarios use sample data only. Analysis based on AAD melanoma guidelines and published literature (Esteva et al., Nature 2017). Accuracy figures reflect published research on similar AI dermatology systems, not validated performance of this specific platform. SkinScan Pro™ is not FDA cleared. Always consult a board-certified dermatologist for medical evaluation.
                   </p>
                 </div>
 

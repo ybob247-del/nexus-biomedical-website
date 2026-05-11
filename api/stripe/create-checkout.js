@@ -7,6 +7,7 @@ import { query } from '../utils/db.js';
 import { extractToken, verifyToken } from '../utils/auth.js';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const APP_URL = (process.env.VITE_APP_URL || process.env.APP_URL || 'https://nexusbiomedical.ai').replace(/\/$/, '');
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -119,8 +120,8 @@ export default async function handler(req, res) {
           selectedPlan: planToUse
         }
       },
-      success_url: `${process.env.VITE_APP_URL}${product.successUrl}?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.VITE_APP_URL}/pricing?canceled=true`,
+      success_url: `${APP_URL}${product.successUrl}?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${APP_URL}/pricing?canceled=true`,
       metadata: {
         userId,
         platform,

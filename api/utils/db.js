@@ -1,98 +1,67 @@
 /**
  * Database Connection Utility
- * MySQL connection for serverless functions using TiDB Cloud
+ * PostgreSQL connection for serverless functions using Neon
  * Uses LAZY initialization to ensure DATABASE_URL is available at query time
+ *
+ * NOTE: All SQL queries in this codebase use PostgreSQL syntax ($1, $2, INTERVAL '...')
+ * and are designed for Neon PostgreSQL. The previous mysql2/TiDB implementation was
+ * incorrect — replaced with pg to match the actual query syntax and Neon env vars.
  */
 
-import mysql from 'mysql2/promise';
+import pg from 'pg';
+const { Pool } = pg;
 
 // Lazy-initialized pool - will be created on first query
 let pool = null;
-let poolInitialized = false;
-let poolInitError = null;
 
 /**
- * Initialize the database pool
- * This is called lazily on first query to ensure DATABASE_URL is available
+ * Initialize the database pool (lazy, called on first query)
  */
 function initializePool() {
-  if (poolInitialized) {
-    if (poolInitError) {
-      throw poolInitError;
-    }
-    return pool;
+  if (pool) return pool;
+
+  const connectionString = process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    throw new Error('DATABASE_URL environment variable is not set');
   }
 
   console.log('=== LAZY DATABASE POOL INITIALIZATION ===');
-  console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
-  
-  try {
-    const connectionString = process.env.DATABASE_URL;
-    
-    if (!connectionString) {
-      throw new Error('DATABASE_URL environment variable is not set');
-    }
-    
-    console.log('DATABASE_URL found, length:', connectionString.length);
-    
-    // Parse the connection string
-    const url = new URL(connectionString);
-    const poolConfig = {
-      host: url.hostname,
-      port: parseInt(url.port) || 4000,
-      user: url.username,
-      password: url.password,
-      database: url.pathname.slice(1), // Remove leading slash
-      ssl: {
-        rejectUnauthorized: false, // TiDB Cloud requires SSL
-      },
-      waitForConnections: true,
-      connectionLimit: 10,
-      queueLimit: 0,
-      connectTimeout: 30000, // 30 second connection timeout for Vercel
-    };
-    
-    console.log('Creating pool with config:');
-    console.log('  Host:', poolConfig.host);
-    console.log('  Port:', poolConfig.port);
-    console.log('  Database:', poolConfig.database);
-    console.log('  SSL enabled: true (TiDB Cloud requirement)');
-    
-    pool = mysql.createPool(poolConfig);
-    poolInitialized = true;
-    console.log('✓ Pool created successfully');
-    console.log('========================================');
-    
-    return pool;
-  } catch (error) {
-    poolInitialized = true;
-    poolInitError = error;
-    console.error('✗ FATAL: Failed to create database pool');
-    console.error('  Error:', error.message);
-    console.error('  Stack:', error.stack);
-    console.log('========================================');
-    throw error;
-  }
+  console.log('DATABASE_URL exists:', !!connectionString);
+  console.log('DATABASE_URL starts with postgresql:', connectionString.startsWith('postgresql://') || connectionString.startsWith('postgres://'));
+
+  pool = new Pool({
+    connectionString,
+    ssl: { rejectUnauthorized: false }, // Required for Neon
+    max: 10,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 10000,
+  });
+
+  pool.on('error', (err) => {
+    console.error('Unexpected error on idle pg client', err);
+  });
+
+  console.log('✓ Neon PostgreSQL pool created successfully');
+  console.log('========================================');
+
+  return pool;
 }
 
 /**
  * Execute a database query
- * @param {string} sql - SQL query string
+ * @param {string} sql - SQL query string (PostgreSQL syntax with $1, $2, ...)
  * @param {array} params - Query parameters
- * @returns {Promise} Query result
+ * @returns {Promise} Query result with .rows property
  */
 export async function query(sql, params = []) {
   try {
-    // Initialize pool on first query
     const activePool = initializePool();
-    
-    console.log('Executing query:', sql.substring(0, 100) + '...');
-    const result = await activePool.execute(sql, params);
+    const result = await activePool.query(sql, params);
     return result;
   } catch (error) {
     console.error('Query execution failed:', error.message);
-    console.error('SQL:', sql);
-    console.error('Params:', params);
+    console.error('SQL:', sql.substring(0, 200));
     throw error;
   }
 }
@@ -111,6 +80,5 @@ export async function closePool() {
   if (pool) {
     await pool.end();
     pool = null;
-    poolInitialized = false;
   }
 }

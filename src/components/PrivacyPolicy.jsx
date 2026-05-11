@@ -256,7 +256,6 @@ const PrivacyPolicy = () => {
               <p style={{ fontWeight: 600 }}>If you are a healthcare provider using our Services:</p>
               <ul style={{ marginLeft: '2rem', marginTop: '0.75rem' }}>
                 <li>Using our platforms <strong>does not create HIPAA liability</strong> for your practice</li>
-                <li>You <strong>do not need a Business Associate Agreement (BAA)</strong> with us</li>
                 <li>Our Services operate independently of your patient records and do not access PHI from your practice</li>
                 <li>We collect only information that users voluntarily enter directly into our assessment tools</li>
               </ul>

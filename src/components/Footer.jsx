@@ -131,6 +131,11 @@ Research<br />({t('platforms.comingSoon')})
                 {t('footer.security')}
               </button>
             </li>
+            <li>
+              <button onClick={() => handleLegalClick('/medical-disclaimer')} className="footer-link">
+                Medical Disclaimer
+              </button>
+            </li>
           </ul>
         </div>
       </div>

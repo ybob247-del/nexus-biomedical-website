@@ -76,7 +76,7 @@ const HIPAACompliance = () => {
                 We do not fall into any of these categories. We are an <strong>educational technology platform</strong> providing health information and clinical decision support tools. We do not provide medical treatment, process insurance claims, or operate as a healthcare clearinghouse.
               </p>
               <p style={{ marginTop: '1rem', fontWeight: 600 }}>
-                This means healthcare providers using our Services do not need a Business Associate Agreement (BAA) with us, and using our platforms does not create HIPAA liability for their practices.
+                This means using our platforms does not create HIPAA liability for healthcare practices.
               </p>
             </section>
 

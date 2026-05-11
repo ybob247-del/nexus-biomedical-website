@@ -36,6 +36,7 @@ const About = lazy(() => import('./pages/About'))
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
+const MedicalDisclaimer = lazy(() => import('./components/MedicalDisclaimer'))
 const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
@@ -285,6 +286,14 @@ function App() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <HIPAACompliance />
+          </Suspense>
+        } 
+      />
+      <Route 
+        path="/medical-disclaimer" 
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <MedicalDisclaimer />
           </Suspense>
         } 
       />

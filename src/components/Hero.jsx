@@ -90,7 +90,7 @@ export default function Hero() {
           </button>
           <button 
             className="nexus-button" 
-            onClick={() => window.open('https://calendly.com/nexusbiomedical-ai/30min', '_blank')}
+            onClick={() => window.location.href = 'mailto:support@nexusbiomedical.ai?subject=Sales%20Inquiry%20%E2%80%93%20Nexus%20Biomedical%20Intelligence&body=Hello%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20Nexus%20Biomedical%20Intelligence%20platforms%20for%20my%20organization.%0A%0APlease%20contact%20me%20to%20discuss%20options.%0A%0AThank%20you.'}
             style={{
               background: 'linear-gradient(135deg, #00A8CC 0%, #5B2C87 100%)',
               color: '#FFFFFF',

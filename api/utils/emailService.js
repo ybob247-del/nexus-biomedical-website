@@ -1,13 +1,16 @@
 /**
  * Email Service Utility
- * Uses built-in notification API to send emails
+ * Uses Resend API for transactional email delivery.
+ * Env var required: RESEND_API_KEY
+ * From address: onboarding@nexusbiomedical.ai (must be verified in Resend dashboard)
+ * Fallback from: onboarding@resend.dev (works without domain verification for testing)
  */
 
-const NOTIFICATION_API_URL = process.env.BUILT_IN_FORGE_API_URL;
-const NOTIFICATION_API_KEY = process.env.BUILT_IN_FORGE_API_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const FROM_ADDRESS = process.env.EMAIL_FROM || 'Nexus Biomedical <onboarding@resend.dev>';
 
 /**
- * Send email using built-in notification API
+ * Send email using Resend API
  * @param {Object} options - Email options
  * @param {string} options.to - Recipient email
  * @param {string} options.subject - Email subject
@@ -15,27 +18,34 @@ const NOTIFICATION_API_KEY = process.env.BUILT_IN_FORGE_API_KEY;
  * @param {string} options.text - Plain text content (optional)
  */
 async function sendEmail({ to, subject, html, text }) {
+  if (!RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY is not set — email not sent to:', to);
+    return { skipped: true, reason: 'RESEND_API_KEY not configured' };
+  }
+
   try {
-    const response = await fetch(`${NOTIFICATION_API_URL}/notifications/email`, {
+    const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${NOTIFICATION_API_KEY}`
+        'Authorization': `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        to,
+        from: FROM_ADDRESS,
+        to: [to],
         subject,
         html,
         text: text || stripHtml(html)
       })
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || 'Failed to send email');
+      throw new Error(data.message || `Resend API error: ${response.status}`);
     }
 
-    return await response.json();
+    return data;
   } catch (error) {
     console.error('Email send error:', error);
     throw error;
@@ -139,7 +149,7 @@ async function sendTrialReminderEmail({ email, firstName, platform, daysRemainin
                 <tr>
                   <td align="center">
                     <a href="https://nexusbiomedical.ai/pricing/${platform.toLowerCase()}" style="display: inline-block; color: ${color}; text-decoration: none; font-size: 14px; font-weight: 600;">
-                      View Pricing & Subscribe →
+                      View Pricing &amp; Subscribe →
                     </a>
                   </td>
                 </tr>
@@ -154,7 +164,7 @@ async function sendTrialReminderEmail({ email, firstName, platform, daysRemainin
                 Questions? Contact us at <a href="mailto:support@nexusbiomedical.ai" style="color: ${color}; text-decoration: none;">support@nexusbiomedical.ai</a>
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                © ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
+                &copy; ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
               </p>
             </td>
           </tr>
@@ -241,7 +251,7 @@ async function sendTrialExpiredEmail({ email, firstName, platform }) {
                 Questions? Contact us at <a href="mailto:support@nexusbiomedical.ai" style="color: ${color}; text-decoration: none;">support@nexusbiomedical.ai</a>
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                © ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
+                &copy; ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
               </p>
             </td>
           </tr>
@@ -261,7 +271,7 @@ async function sendTrialExpiredEmail({ email, firstName, platform }) {
  * Send platform launch notification to waitlist
  */
 async function sendPlatformLaunchEmail({ email, firstName, platform }) {
-  const subject = `${platform} is Now Live! 🎉`;
+  const subject = `${platform} is Now Live!`;
 
   const html = `
 <!DOCTYPE html>
@@ -280,7 +290,6 @@ async function sendPlatformLaunchEmail({ email, firstName, platform }) {
           <!-- Header -->
           <tr>
             <td style="background: linear-gradient(135deg, #00CED1 0%, #9F7AEA 100%); padding: 40px 30px; text-align: center;">
-              <div style="font-size: 48px; margin-bottom: 10px;">🎉</div>
               <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
                 ${platform} is Now Live!
               </h1>
@@ -322,7 +331,7 @@ async function sendPlatformLaunchEmail({ email, firstName, platform }) {
                 Questions? Contact us at <a href="mailto:support@nexusbiomedical.ai" style="color: #00CED1; text-decoration: none;">support@nexusbiomedical.ai</a>
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                © ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
+                &copy; ${new Date().getFullYear()} Nexus Biomedical Intelligence. All rights reserved.
               </p>
             </td>
           </tr>

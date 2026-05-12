@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import TrialGate from '../components/TrialGate';
 import FDADisclaimer from '../components/FDADisclaimer';
@@ -16,9 +16,20 @@ const API_BASE = 'http://localhost:3007/api/rxguard';
 
 export default function RxGuardDashboard() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const paymentSuccess = Boolean(searchParams.get('session_id'));
+  const [showSuccessBanner, setShowSuccessBanner] = useState(paymentSuccess);
   const { user, token } = useAuth();
   const { trackAction } = useAnalytics('rxguard');
   const [medications, setMedications] = useState([]);
+
+  // Auto-dismiss the payment success banner after 6 seconds
+  useEffect(() => {
+    if (showSuccessBanner) {
+      const timer = setTimeout(() => setShowSuccessBanner(false), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccessBanner]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -185,6 +196,17 @@ export default function RxGuardDashboard() {
 
   return (
     <TrialGate platform="RxGuard">
+      {showSuccessBanner && (
+        <div style={{
+          position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
+          zIndex: 9999, background: '#d4edda', border: '1px solid #28a745',
+          borderRadius: '8px', padding: '0.75rem 1.5rem', color: '#155724',
+          fontWeight: 600, boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          maxWidth: '90vw', textAlign: 'center', cursor: 'pointer'
+        }} onClick={() => setShowSuccessBanner(false)}>
+          Payment successful! Welcome to RxGuard™. Your subscription is now active. ×
+        </div>
+      )}
       <OnboardingTour 
         tourId={rxGuardDashboardTour.tourId}
         steps={rxGuardDashboardTour.steps}

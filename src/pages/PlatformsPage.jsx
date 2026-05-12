@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ComingSoonModal from '../components/ComingSoonModal';
 
@@ -85,6 +85,8 @@ const platforms = [
 
 export default function PlatformsPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const checkoutCanceled = searchParams.get('canceled') === 'true';
   const [waitlistPlatform, setWaitlistPlatform] = useState(null);
   
   const handleStartTrial = (platform) => {
@@ -106,6 +108,26 @@ export default function PlatformsPage() {
 
   return (
     <>
+    {checkoutCanceled && (
+      <div style={{
+        position: 'fixed',
+        top: '1rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 9999,
+        background: '#fff3cd',
+        border: '1px solid #ffc107',
+        borderRadius: '8px',
+        padding: '0.75rem 1.5rem',
+        color: '#856404',
+        fontWeight: 600,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        maxWidth: '90vw',
+        textAlign: 'center'
+      }}>
+        Checkout was canceled — no charge was made. You can start your free trial anytime.
+      </div>
+    )}
     <div style={{
       minHeight: '100vh',
       background: 'linear-gradient(to bottom, #0a1b3d 0%, #1a2f5a 100%)',

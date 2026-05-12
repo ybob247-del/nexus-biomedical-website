@@ -1,7 +1,8 @@
 /**
  * Cancel Subscription API
  * POST /api/subscriptions/cancel
- * Cancels user's subscription at the end of the billing period
+ * Cancels user's subscription at the end of the billing period.
+ * Handles both Stripe-backed active subscriptions and free-trial-only subscriptions.
  */
 
 import Stripe from 'stripe';
@@ -35,11 +36,12 @@ export default async function handler(req, res) {
 
     const userId = decoded.userId;
 
-    // Get current subscription
+    // Get current subscription — include both 'active' and 'trialing' statuses
     const subscriptionResult = await query(
-      `SELECT id, stripe_subscription_id
+      `SELECT id, stripe_subscription_id, status, trial_end
        FROM subscriptions
-       WHERE user_id = $1 AND platform = $2 AND status = 'active'`,
+       WHERE user_id = $1 AND platform = $2 AND status IN ('active', 'trialing')
+       ORDER BY created_at DESC LIMIT 1`,
       [userId, platform]
     );
 
@@ -49,12 +51,31 @@ export default async function handler(req, res) {
 
     const subscription = subscriptionResult.rows[0];
 
-    // Cancel subscription in Stripe (at period end)
+    // If no Stripe subscription ID (free trial only), cancel locally in DB
+    if (!subscription.stripe_subscription_id) {
+      await query(
+        `UPDATE subscriptions
+         SET cancel_at_period_end = true, updated_at = NOW()
+         WHERE id = $1`,
+        [subscription.id]
+      );
+      await query(
+        `UPDATE platform_access
+         SET is_active = false, updated_at = NOW()
+         WHERE user_id = $1 AND platform = $2`,
+        [userId, platform]
+      );
+      return res.status(200).json({
+        success: true,
+        message: 'Free trial has been canceled',
+        endsAt: subscription.trial_end
+      });
+    }
+
+    // Cancel Stripe subscription at period end
     const updatedSubscription = await stripe.subscriptions.update(
       subscription.stripe_subscription_id,
-      {
-        cancel_at_period_end: true
-      }
+      { cancel_at_period_end: true }
     );
 
     // Update database

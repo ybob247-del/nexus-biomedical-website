@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useMemo, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 // import TrialGate from '../components/TrialGate'; // Removed for hybrid freemium model
@@ -20,7 +20,18 @@ const API_BASE = '/api/endoguard';
 
 export default function EndoGuardAssessment() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const paymentSuccess = Boolean(searchParams.get('session_id'));
+  const [showSuccessBanner, setShowSuccessBanner] = useState(paymentSuccess);
   const { user, token } = useAuth();
+
+  // Auto-dismiss the payment success banner after 6 seconds
+  useEffect(() => {
+    if (showSuccessBanner) {
+      const timer = setTimeout(() => setShowSuccessBanner(false), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccessBanner]);
   const { t } = useTranslation();
   const { trackAction } = useAnalytics('endoguard');
   const [step, setStep] = useState(1);
@@ -257,6 +268,17 @@ export default function EndoGuardAssessment() {
 
   return (
       <>
+      {showSuccessBanner && (
+        <div style={{
+          position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
+          zIndex: 9999, background: '#d4edda', border: '1px solid #28a745',
+          borderRadius: '8px', padding: '0.75rem 1.5rem', color: '#155724',
+          fontWeight: 600, boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          maxWidth: '90vw', textAlign: 'center', cursor: 'pointer'
+        }} onClick={() => setShowSuccessBanner(false)}>
+          Payment successful! Welcome to EndoGuard™. Your subscription is now active. ×
+        </div>
+      )}
       <OnboardingTour 
         tourId={endoGuardAssessmentTour.tourId}
         steps={endoGuardAssessmentTour.steps}

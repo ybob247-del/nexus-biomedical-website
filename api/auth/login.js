@@ -43,12 +43,12 @@ export default async function handler(req, res) {
 
     // Find user by email
     const result = await query(
-      'SELECT id, email, password_hash, first_name, last_name FROM users WHERE email = ?',
+      'SELECT id, email, password_hash, first_name, last_name FROM users WHERE email = $1',
       [email.toLowerCase()]
     );
 
-    // MySQL returns result as [rows, fields]
-    const rows = Array.isArray(result) ? result[0] : result.rows;
+    // pg returns { rows: [...] }
+    const rows = result.rows;
     
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid email or password' });

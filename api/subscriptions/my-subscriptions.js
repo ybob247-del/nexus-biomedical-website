@@ -4,18 +4,7 @@
  * Returns all subscriptions for the authenticated user
  */
 
-import mysql from 'mysql2/promise';
-
-const pool = mysql.createPool({
-  host: process.env.DATABASE_HOST,
-  port: parseInt(process.env.DATABASE_PORT || '4000'),
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-  ssl: { rejectUnauthorized: true },
-  waitForConnections: true,
-  connectionLimit: 10,
-});
+import { query } from '../utils/db.js';
 import { extractToken, verifyToken } from '../utils/auth.js';
 
 export default async function handler(req, res) {
@@ -38,7 +27,7 @@ export default async function handler(req, res) {
     const userId = decoded.userId;
 
     // Get all subscriptions for the user
-    const [subscriptions] = await pool.execute(
+    const result = await query(
       `SELECT 
         id,
         platform,
@@ -54,14 +43,14 @@ export default async function handler(req, res) {
         canceled_at,
         created_at
        FROM subscriptions
-       WHERE user_id = ?
+       WHERE user_id = $1
        ORDER BY created_at DESC`,
       [userId]
     );
 
     return res.status(200).json({
       success: true,
-      subscriptions: subscriptions
+      subscriptions: result.rows
     });
 
   } catch (error) {

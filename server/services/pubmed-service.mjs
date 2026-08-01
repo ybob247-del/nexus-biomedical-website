@@ -7,7 +7,8 @@
  * With API key: up to 10 requests/second
  */
 
-import mysql from 'mysql2/promise';
+import pg from 'pg';
+const { Client } = pg;
 
 const PUBMED_BASE_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
 const PUBMED_SEARCH_URL = `${PUBMED_BASE_URL}/esearch.fcgi`;
@@ -18,7 +19,7 @@ const PUBMED_SUMMARY_URL = `${PUBMED_BASE_URL}/esummary.fcgi`;
 const RATE_LIMIT_MS = 350; // ~3 requests/second
 
 /**
- * Parse PubMed date string to MySQL DATE format (YYYY-MM-DD)
+ * Parse PubMed date string to PostgreSQL DATE format (YYYY-MM-DD)
  * Handles various PubMed date formats:
  * - "2025 Nov 27" → "2025-11-27"
  * - "2026 Jan" → "2026-01-01"
@@ -160,11 +161,11 @@ export async function fetchArticleDetails(pmids) {
 
 /**
  * Update literature for a single EDC
- * @param {object} connection - MySQL connection
+ * @param {object} client - PostgreSQL client
  * @param {object} edc - EDC object with id, chemical_name, cas_number
  * @returns {Promise<object>} Update result
  */
-export async function updateLiteratureForEDC(connection, edc) {
+export async function updateLiteratureForEDC(client, edc) {
   try {
     // Search PubMed
     const searchResult = await searchPubMedForChemical(
@@ -179,9 +180,9 @@ export async function updateLiteratureForEDC(connection, edc) {
     
     if (searchResult.pmids.length === 0) {
       // Log the search attempt
-      await connection.query(
+      await client.query(
         `INSERT INTO edc_literature_update_log (edc_id, articles_found, articles_added, search_query, status)
-         VALUES (?, 0, 0, ?, 'success')`,
+         VALUES ($1, 0, 0, $2, 'success')`,
         [edc.id, searchResult.query]
       );
       
@@ -205,15 +206,15 @@ export async function updateLiteratureForEDC(connection, edc) {
     // Insert articles into database
     for (const article of articles) {
       try {
-        await connection.query(
+        await client.query(
           `INSERT INTO edc_literature_references 
            (edc_id, pubmed_id, doi, title, authors, journal, publication_date, relevance_score)
-           VALUES (?, ?, ?, ?, ?, ?, ?, 0.80)
-           ON DUPLICATE KEY UPDATE
-           title = VALUES(title),
-           authors = VALUES(authors),
-           journal = VALUES(journal),
-           publication_date = VALUES(publication_date)`,
+           VALUES ($1, $2, $3, $4, $5, $6, $7, 0.80)
+           ON CONFLICT (edc_id, pubmed_id) DO UPDATE SET
+           title = EXCLUDED.title,
+           authors = EXCLUDED.authors,
+           journal = EXCLUDED.journal,
+           publication_date = EXCLUDED.publication_date`,
           [
             edc.id,
             article.pubmed_id,
@@ -231,18 +232,18 @@ export async function updateLiteratureForEDC(connection, edc) {
     }
     
     // Log the update
-    await connection.query(
+    await client.query(
       `INSERT INTO edc_literature_update_log (edc_id, articles_found, articles_added, search_query, status)
-       VALUES (?, ?, ?, ?, 'success')`,
+       VALUES ($1, $2, $3, $4, 'success')`,
       [edc.id, searchResult.count, articlesAdded, searchResult.query]
     );
     
     // Update EDC last_literature_update timestamp
-    await connection.query(
+    await client.query(
       `UPDATE edc_chemicals 
        SET last_literature_update = NOW(),
            literature_update_status = 'current'
-       WHERE id = ?`,
+       WHERE id = $1`,
       [edc.id]
     );
     
@@ -258,11 +259,15 @@ export async function updateLiteratureForEDC(connection, edc) {
     console.error(`Error updating literature for ${edc.chemical_name}:`, error);
     
     // Log the failure
-    await connection.query(
-      `INSERT INTO edc_literature_update_log (edc_id, articles_found, articles_added, search_query, status, error_message)
-       VALUES (?, 0, 0, '', 'failed', ?)`,
-      [edc.id, error.message]
-    );
+    try {
+      await client.query(
+        `INSERT INTO edc_literature_update_log (edc_id, articles_found, articles_added, search_query, status, error_message)
+         VALUES ($1, 0, 0, '', 'failed', $2)`,
+        [edc.id, error.message]
+      );
+    } catch (logErr) {
+      console.error('Error logging failure:', logErr.message);
+    }
     
     return {
       edc_id: edc.id,
@@ -281,15 +286,17 @@ export async function updateLiteratureForEDC(connection, edc) {
  * @returns {Promise<object>} Summary of update results
  */
 export async function runMonthlyLiteratureUpdate(databaseUrl) {
-  const connection = await mysql.createConnection(databaseUrl);
+  const client = new Client({ connectionString: databaseUrl });
+  await client.connect();
   
   try {
     console.log('Starting monthly literature update...');
     
     // Get all EDCs
-    const [edcs] = await connection.query(
+    const edcsResult = await client.query(
       'SELECT id, chemical_name, cas_number FROM edc_chemicals ORDER BY id'
     );
+    const edcs = edcsResult.rows;
     
     console.log(`Found ${edcs.length} EDCs to update`);
     
@@ -306,7 +313,7 @@ export async function runMonthlyLiteratureUpdate(databaseUrl) {
     for (const edc of edcs) {
       console.log(`Updating literature for: ${edc.chemical_name}`);
       
-      const result = await updateLiteratureForEDC(connection, edc);
+      const result = await updateLiteratureForEDC(client, edc);
       
       results.details.push(result);
       
@@ -319,11 +326,11 @@ export async function runMonthlyLiteratureUpdate(databaseUrl) {
       }
     }
     
-    // Mark stale EDCs (not updated in >6 months)
-    await connection.query(
+    // Mark stale EDCs (not updated in >6 months) — PostgreSQL syntax
+    await client.query(
       `UPDATE edc_chemicals 
        SET literature_update_status = 'stale'
-       WHERE last_literature_update < DATE_SUB(NOW(), INTERVAL 6 MONTH)
+       WHERE last_literature_update < NOW() - INTERVAL '6 months'
        AND literature_update_status = 'current'`
     );
     
@@ -338,25 +345,25 @@ export async function runMonthlyLiteratureUpdate(databaseUrl) {
     console.error('Error in monthly literature update:', error);
     throw error;
   } finally {
-    await connection.end();
+    await client.end();
   }
 }
 
 /**
  * Get literature references for a specific EDC
- * @param {object} connection - MySQL connection
+ * @param {object} client - PostgreSQL client
  * @param {number} edcId - EDC ID
  * @param {number} limit - Maximum number of references to return
  * @returns {Promise<Array>} Array of literature references
  */
-export async function getLiteratureForEDC(connection, edcId, limit = 10) {
-  const [references] = await connection.query(
+export async function getLiteratureForEDC(client, edcId, limit = 10) {
+  const result = await client.query(
     `SELECT * FROM edc_literature_references 
-     WHERE edc_id = ?
+     WHERE edc_id = $1
      ORDER BY publication_date DESC, relevance_score DESC
-     LIMIT ?`,
+     LIMIT $2`,
     [edcId, limit]
   );
   
-  return references;
+  return result.rows;
 }

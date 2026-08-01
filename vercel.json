@@ -49,6 +49,10 @@
     "api/**/*.js": {
       "memory": 512,
       "maxDuration": 30
+    },
+    "api/cron/monthly-pubmed-update.js": {
+      "memory": 1024,
+      "maxDuration": 300
     }
   },
   "headers": [

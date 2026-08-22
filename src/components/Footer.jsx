@@ -79,36 +79,6 @@ Research<br />({t('platforms.comingSoon')})
                 EndoGuard™
               </button>
             </li>
-            <li>
-              <button onClick={() => handlePlatformClick('rxguard')} className="footer-link">
-                RxGuard™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('reguready')} className="footer-link">
-                ReguReady™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('clinicaliq')} className="footer-link">
-                ClinicalIQ™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('elderwatch')} className="footer-link">
-                ElderWatch™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('pedicalc')} className="footer-link">
-                PediCalc Pro™
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handlePlatformClick('skinscan')} className="footer-link">
-                SkinScan Pro™
-              </button>
-            </li>
           </ul>
         </div>
 

@@ -13,54 +13,6 @@ export default function Platforms({ onLearnMore }) {
       color: '#D946EF',
       gradient: 'linear-gradient(135deg, #D946EF 0%, #C026D3 100%)',
       comingSoon: false
-    },
-    {
-      name: 'RxGuard™',
-      taglineKey: 'platforms.rxguard.tagline',
-      descriptionKey: 'platforms.rxguard.description',
-      color: '#00A8CC',
-      gradient: 'linear-gradient(135deg, #00A8CC 0%, #0086A8 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'ReguReady™',
-      taglineKey: 'platforms.reguready.tagline',
-      descriptionKey: 'platforms.reguready.description',
-      color: '#B794F4',
-      gradient: 'linear-gradient(135deg, #B794F4 0%, #9F7AEA 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'ClinicalIQ™',
-      taglineKey: 'platforms.clinicaliq.tagline',
-      descriptionKey: 'platforms.clinicaliq.description',
-      color: '#00D084',
-      gradient: 'linear-gradient(135deg, #00D084 0%, #00A86B 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'ElderWatch™',
-      taglineKey: 'platforms.elderwatch.tagline',
-      descriptionKey: 'platforms.elderwatch.description',
-      color: '#FB923C',
-      gradient: 'linear-gradient(135deg, #FB923C 0%, #F97316 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'PediCalc Pro™',
-      taglineKey: 'platforms.pedicalc.tagline',
-      descriptionKey: 'platforms.pedicalc.description',
-      color: '#FDA4AF',
-      gradient: 'linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%)',
-      comingSoon: true
-    },
-    {
-      name: 'SkinScan Pro™',
-      taglineKey: 'platforms.skinscan.tagline',
-      descriptionKey: 'platforms.skinscan.description',
-      color: '#14B8A6',
-      gradient: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
-      comingSoon: true
     }
   ]
 

@@ -21,6 +21,8 @@ export default function EndoGuardPhase1Paywall() {
   const { t, i18n } = useTranslation();
   const { trackAction } = useAnalytics('endoguard_phase1_paywall');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   
   const isSpanish = i18n.language === 'es';
 
@@ -57,7 +59,19 @@ export default function EndoGuardPhase1Paywall() {
   const copy = isSpanish ? copyES : copyEN;
 
   const handleUnlockClick = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(isSpanish ? 'Ingrese un correo electrónico válido.' : 'Please enter a valid email address.');
+      return;
+    }
+    if (!import.meta.env.VITE_ENDOGUARD_PRICE_ID) {
+      setError(isSpanish
+        ? 'El pago no está configurado todavía. Intente más tarde.'
+        : 'Checkout is not configured yet. Please try again later.');
+      return;
+    }
+
     try {
+      setError('');
       setIsProcessing(true);
       trackAction('paywall_cta_click', {
         language: i18n.language,
@@ -66,33 +80,39 @@ export default function EndoGuardPhase1Paywall() {
         timestamp: new Date().toISOString()
       });
 
-      // Call backend to create Stripe checkout session
-      const response = await fetch('/api/stripe/checkout-session', {
+      // Call backend to create Stripe checkout session.
+      // Endpoint is api/create-checkout-session.js; it requires priceId + email.
+      const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          priceId: process.env.REACT_APP_ENDOGUARD_PRICE_ID || 'price_endoguard_phase1',
-          language: i18n.language,
-          successUrl: `${window.location.origin}/endoguard/payment-success`,
-          cancelUrl: `${window.location.origin}/endoguard/assessment`
+          priceId: import.meta.env.VITE_ENDOGUARD_PRICE_ID,
+          email,
+          platform: 'endoguard',
+          language: i18n.language
         })
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create checkout session');
+        const detail = await response.json().catch(() => ({}));
+        throw new Error(detail.error || 'Failed to create checkout session');
       }
 
-      const { sessionUrl } = await response.json();
-      
-      // Redirect to Stripe checkout
-      if (sessionUrl) {
-        window.location.href = sessionUrl;
+      // The endpoint responds with { url }. Accept sessionUrl too for safety.
+      const data = await response.json();
+      const checkoutUrl = data.url || data.sessionUrl;
+
+      if (!checkoutUrl) {
+        throw new Error('No checkout URL returned');
       }
-    } catch (error) {
-      console.error('Checkout error:', error);
-      alert('Unable to process payment. Please try again.');
+      window.location.href = checkoutUrl;
+    } catch (err) {
+      console.error('Checkout error:', err);
+      setError(isSpanish
+        ? 'No pudimos iniciar el pago. Verifique su correo e intente de nuevo.'
+        : "We couldn't start checkout. Check your email address and try again.");
       setIsProcessing(false);
     }
   };
@@ -120,6 +140,20 @@ export default function EndoGuardPhase1Paywall() {
 
         {/* CTA Section */}
         <div className="paywall-cta-section">
+          <label className="paywall-email-label" htmlFor="paywall-email">
+            {isSpanish ? 'Correo electrónico (para enviarle su informe)' : 'Email address (where we send your report)'}
+          </label>
+          <input
+            id="paywall-email"
+            className="paywall-email-input"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={isSpanish ? 'nombre@ejemplo.com' : 'you@example.com'}
+            disabled={isProcessing}
+          />
+          {error && <p className="paywall-error" role="alert">{error}</p>}
           <button
             className="paywall-cta-button"
             onClick={handleUnlockClick}

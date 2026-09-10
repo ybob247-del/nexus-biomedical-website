@@ -348,34 +348,34 @@ export const platformsData = {
       ]
     },
     howItWorks: [
-      { step: 1, title: 'Symptoms & History', desc: 'Share your symptoms, health history, and lifestyle. Our AI analyzes this data against validated hormone dysfunction profiles.' },
+      { step: 1, title: 'Symptoms & History', desc: 'Share your symptoms, health history, and lifestyle. Your answers are organized against common symptom patterns described in published literature.' },
       { step: 2, title: 'Exposure Assessment', desc: 'We evaluate your daily exposures from products you use—personal care items, food packaging, and household products—using FDA and EPA databases.' },
-      { step: 3, title: 'Risk Stratification (Low / Moderate / High)', desc: 'Our algorithm stratifies your hormone risk into clear tiers based on your symptoms and exposures.' },
-      { step: 4, title: 'Top Drivers Behind Your Risk', desc: 'Discover the top factors contributing to your hormone risk—whether symptoms, EDC exposures, or lifestyle factors.' },
+      { step: 3, title: 'Your Symptom Summary', desc: 'Your answers are grouped into a clear summary of what you reported, organized so it is quick to read.' },
+      { step: 4, title: 'What To Bring Up First', desc: 'See which of the things you reported are most worth raising at your next appointment.' },
       { step: 5, title: 'One Clear Next Step', desc: 'Receive a personalized summary with actionable next steps: lab tests to request, lifestyle changes, and talking points for your doctor.' },
-      { step: 6, title: 'Your Personalized Report (PDF)', desc: 'Your report includes a clear summary with your risk tier, top drivers, and talking points to discuss with your doctor.' }
+      { step: 6, title: 'Your Personalized Report (PDF)', desc: 'Your report includes a clear summary of what you reported, what to bring up first, and questions to ask your doctor.' }
     ],
     features: [
-      { title: 'Personalized Risk Tier (Low / Moderate / High)', desc: 'Clear, easy-to-understand risk stratification based on your unique symptom and exposure profile.' },
-      { title: 'Top 5 Drivers Behind Your Risk', desc: 'Identify the top factors contributing to your hormone risk—whether specific symptoms, EDC exposures, or lifestyle factors.' },
+      { title: 'A Clear One-Page Summary', desc: 'Everything you reported, organized into a single page that is quick for you and your clinician to read.' },
+      { title: 'The Five Things To Raise First', desc: 'Of everything you reported, which items are most worth your limited appointment time.' },
       { title: 'One Clear Next Step', desc: 'Personalized recommendations including lab tests to request, lifestyle modifications, and key talking points for your doctor.' },
-      { title: 'Provider-Ready Summary (print/share)', desc: 'A clinical summary included in your report designed to facilitate informed conversations with your healthcare provider.' },
-      { title: 'Evidence Transparency (sources listed)', desc: 'Every insight traceable to peer-reviewed research, FDA/EPA databases, and Endocrine Society guidelines—zero speculation.' },
+      { title: 'Provider-Ready Summary (print/share)', desc: 'A concise summary included in your report, designed to be handed to your healthcare provider.' },
+      { title: 'Every Source Listed', desc: 'Each item we reference is listed with its citation, so you can read the original yourself.' },
       { title: 'Bilingual Support (EN | ES)', desc: 'Full support for English and Spanish, ensuring hormone health guidance is accessible to all.' }
     ],
     benefits: [
-      { stat: '50+', title: 'Validated Hormone Profiles', desc: 'AI trained on validated hormone dysfunction profiles from clinical literature' },
+      { stat: '50+', title: 'Symptom Patterns Referenced', desc: 'Common symptom patterns described in the published clinical literature' },
       { stat: '200+', title: 'EDCs Tracked', desc: 'Comprehensive database of endocrine-disrupting chemicals from FDA EDKB and EPA CompTox' },
       { stat: '10,000+', title: 'Research Studies', desc: 'Knowledge graph built from PubMed, Endocrine Society guidelines, and peer-reviewed literature' },
-      { stat: '100%', title: 'Evidence-Based', desc: 'Every recommendation traceable to authoritative medical sources—zero speculation' }
+      { title: 'Sources Listed', desc: 'Every source we reference is listed in your report with its citation' }
     ],
     benefitsDisclaimer: 'Figures reflect current model training set and literature integration; updated as evidence evolves.',
     pricing: [
-      { tier: 'Hormone Risk Report', price: '$79', period: 'One-time', features: ['Complete hormone risk assessment', 'EDC exposure analysis', 'Risk tier stratification', 'Top 5 drivers identified', 'Personalized next steps', 'Provider summary included', 'Bilingual support'], highlight: true, stripeKey: 'endoguard_phase1' }
+      { tier: 'Hormone Risk Report', price: '$79', period: 'One-time', features: ['Complete hormone health questionnaire', 'Everyday exposure summary', 'A clear one-page summary', 'The five things to raise first', 'Personalized next steps', 'Provider summary included', 'Bilingual support'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],
     faqs: [
       { q: 'What is the Hormone Risk Report?', a: 'The Hormone Risk Report is a one-time, comprehensive assessment that evaluates your hormone health based on your symptoms, health history, and exposure to endocrine-disrupting chemicals (EDCs). You\'ll receive a personalized risk tier, identification of your top drivers, and actionable next steps to discuss with your doctor.' },
-      { q: 'Is EndoGuard™ a replacement for my doctor?', a: 'No. EndoGuard™ is a preventive screening tool designed to empower you with insights to facilitate informed conversations with your healthcare provider. It supports, not replaces, medical care.' },
+      { q: 'Is EndoGuard™ a replacement for my doctor?', a: 'No. EndoGuard™ is an educational tool designed to help you organize what you have noticed to facilitate informed conversations with your healthcare provider. It supports, not replaces, medical care.' },
       { q: 'How accurate is the EDC exposure assessment?', a: 'Our EDC exposure assessment uses data from the FDA Endocrine Disruptor Knowledge Base (EDKB) and EPA CompTox Dashboard—the most authoritative sources for endocrine-disrupting chemical information. Assessment accuracy depends on the completeness of information you provide about products you use and environmental exposures. Results depend on completeness of your answers; they do not replace clinical testing.' },
       { q: 'What conditions does EndoGuard™ address?', a: 'EndoGuard™ evaluates hormone-related concerns including irregular cycles, fatigue, mood changes, metabolism changes, and other symptoms that may benefit from a primary-care conversation. It\'s designed for anyone concerned about their hormone health.' },
       { q: 'What\'s included in my report?', a: 'Your report includes: your risk tier (Low/Moderate/High), your top 5 drivers, personalized recommendations for next steps, lab tests to discuss with your doctor, lifestyle modifications, and a clinical summary designed to facilitate conversations with your healthcare provider.' },
@@ -402,30 +402,30 @@ export const platformsData = {
       ]
     },
     howItWorks: [
-      { step: 1, title: 'Síntomas e Historial', desc: 'Comparte tus síntomas, historial de salud y estilo de vida. Nuestra IA analiza esta información contra perfiles validados de disfunción hormonal.' },
+      { step: 1, title: 'Síntomas e Historial', desc: 'Comparte tus síntomas, historial de salud y estilo de vida. Tus respuestas se organizan según patrones de síntomas descritos en la literatura publicada.' },
       { step: 2, title: 'Evaluación de Exposiciones', desc: 'Evaluamos tus exposiciones diarias de productos que usas—artículos de cuidado personal, empaque de alimentos y productos del hogar—usando bases de datos de la FDA y EPA.' },
-      { step: 3, title: 'Estratificación de Riesgo (Bajo / Moderado / Alto)', desc: 'Nuestro algoritmo clasifica tu riesgo hormonal en niveles claros basado en tus síntomas y exposiciones.' },
-      { step: 4, title: 'Principales Factores de Tu Riesgo', desc: 'Descubre los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida.' },
+      { step: 3, title: 'Tu Resumen de Síntomas', desc: 'Tus respuestas se agrupan en un resumen claro de lo que reportaste, organizado para leerse rápido.' },
+      { step: 4, title: 'Qué Mencionar Primero', desc: 'Descubre cuáles de las cosas que reportaste vale más la pena mencionar en tu próxima consulta.' },
       { step: 5, title: 'Un Paso Claro a Seguir', desc: 'Recibe un resumen personalizado con pasos accionables: análisis de sangre para solicitar, cambios en el estilo de vida y puntos de conversación para tu médico.' },
-      { step: 6, title: 'Tu Reporte Personalizado (PDF)', desc: 'Tu reporte incluye un resumen claro con tu nivel de riesgo, principales factores y puntos de conversación para discutir con tu médico.' }
+      { step: 6, title: 'Tu Reporte Personalizado (PDF)', desc: 'Tu reporte incluye un resumen claro de lo que reportaste, qué mencionar primero, y preguntas para hacerle a tu médico.' }
     ],
     features: [
-      { title: 'Nivel de Riesgo Personalizado (Bajo / Moderado / Alto)', desc: 'Clasificación de riesgo clara y fácil de entender basada en tu perfil único de síntomas y exposiciones.' },
-      { title: 'Principales 5 Factores de Tu Riesgo', desc: 'Identifica los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida.' },
+      { title: 'Un Resumen Claro de Una Página', desc: 'Todo lo que reportaste, organizado en una sola página fácil de leer para ti y tu médico.' },
+      { title: 'Las Cinco Cosas Que Mencionar Primero', desc: 'De todo lo que reportaste, qué merece más el tiempo limitado de tu consulta.' },
       { title: 'Un Paso Claro a Seguir', desc: 'Recomendaciones personalizadas incluyendo análisis de sangre para solicitar, modificaciones del estilo de vida y puntos clave de conversación para tu médico.' },
       { title: 'Resumen Claro (para imprimir/compartir)', desc: 'Un resumen claro incluido en tu reporte diseñado para facilitar conversaciones informadas con tu proveedor de atención médica.' },
-      { title: 'Transparencia de Evidencia (fuentes listadas)', desc: 'Cada insight es rastreable a investigación revisada por pares, bases de datos de la FDA/EPA y directrices de la Sociedad de Endocrinología—cero especulación.' },
+      { title: 'Cada Fuente Listada', desc: 'Cada elemento que referenciamos aparece listado con su cita, para que puedas leer el original tú misma.' },
       { title: 'Soporte Bilingüe (EN | ES)', desc: 'Soporte completo en inglés y español, asegurando que la orientación de salud hormonal sea accesible para todos.' }
     ],
     benefits: [
-      { stat: '50+', title: 'Perfiles Hormonales Validados', desc: 'IA entrenada en perfiles validados de disfunción hormonal de literatura clínica' },
+      { stat: '50+', title: 'Patrones de Síntomas Referenciados', desc: 'Patrones de síntomas comunes descritos en la literatura clínica publicada' },
       { stat: '200+', title: 'Exposiciones Rastreadas', desc: 'Base de datos completa de exposiciones de la FDA EDKB y EPA CompTox' },
       { stat: '10,000+', title: 'Estudios de Investigación', desc: 'Gráfico de conocimiento construido desde PubMed, directrices de la Sociedad de Endocrinología e investigación revisada por pares' },
-      { stat: '100%', title: 'Basado en Evidencia', desc: 'Cada recomendación es rastreable a fuentes médicas autorizadas—cero especulación' }
+      { title: 'Fuentes Listadas', desc: 'Cada fuente que referenciamos aparece listada en tu reporte con su cita' }
     ],
     benefitsDisclaimer: 'Las cifras reflejan el conjunto de entrenamiento actual del modelo e integración de literatura; se actualizan a medida que evoluciona la evidencia.',
     pricing: [
-      { tier: 'Reporte de Riesgo Hormonal', price: '$79', period: 'Una sola vez', features: ['Evaluación completa de riesgo hormonal', 'Análisis de exposición', 'Estratificación de nivel de riesgo', 'Principales 5 factores identificados', 'Pasos personalizados', 'Resumen claro incluido', 'Soporte bilingüe'], highlight: true, stripeKey: 'endoguard_phase1' }
+      { tier: 'Reporte de Riesgo Hormonal', price: '$79', period: 'Una sola vez', features: ['Cuestionario completo de salud hormonal', 'Resumen de exposiciones cotidianas', 'Un resumen claro de una página', 'Las cinco cosas que mencionar primero', 'Pasos personalizados', 'Resumen claro incluido', 'Soporte bilingüe'], highlight: true, stripeKey: 'endoguard_phase1' }
     ],
     faqs: [
       { q: '¿Qué es el Reporte de Riesgo Hormonal?', a: 'El Reporte de Riesgo Hormonal es una evaluación única y completa que evalúa tu salud hormonal basada en tus síntomas, historial de salud y exposición a sustancias químicas disruptoras endocrinas. Recibirás un nivel de riesgo personalizado, identificación de tus principales factores y pasos accionables para discutir con tu médico.' },

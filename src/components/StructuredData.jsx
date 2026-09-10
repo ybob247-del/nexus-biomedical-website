@@ -106,7 +106,7 @@ export const endoGuardProductSchema = {
     },
     "description": "Complete hormone risk assessment, EDC exposure analysis, risk tier stratification, personalized next steps, provider summary"
   },
-  "description": "AI-powered preventive hormone risk stratification platform. Helps individuals understand hormone-related risk factors and facilitates informed conversations with healthcare providers. Not a diagnostic tool.",
+  "description": "An educational tool that helps you organize your symptoms and prepare for a medical appointment. Covers hormone-related factors and facilitates informed conversations with healthcare providers. Not a diagnostic tool.",
   "featureList": [
     "Personalized hormone risk tier (Low / Moderate / High)",
     "EDC exposure analysis using FDA EDKB and EPA CompTox data",

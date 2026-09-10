@@ -43,29 +43,29 @@ export default function EndoGuardPhase1ConversionLayer() {
   // Locked copy (English)
   const copyEN = {
     headline: "Understand Your Hormone Risk — Before Your Next Doctor's Visit",
-    subheadline: "EndoGuard™ is a preventive hormone risk stratification report designed to help you and your primary care provider identify early hormone-related risk. Designed to support primary care–led evaluation.",
+    subheadline: "EndoGuard™ turns what you have been noticing into a clear one-page summary you can hand to your doctor — so the appointment starts from your record, not from scratch.",
     valueBullets: [
-      "Personalized hormone risk tier: Low / Moderate / High",
-      "Top 5 drivers behind your risk",
+      "A clear one-page summary of what you reported",
+      "The five things most worth raising first",
       "One clear next step"
     ],
     ctaButtonText: "Get My Hormone Risk Report",
     secondaryLine: "Not a diagnosis. No subscriptions. One clear report — built to support primary care–led evaluation.",
-    footerDisclaimer: "EndoGuard™ is a preventive screening and education tool. It does not diagnose disease or replace medical care."
+    footerDisclaimer: "EndoGuard™ is an educational tool. It does not diagnose disease, does not tell you what treatment to have, and does not replace medical care."
   };
 
   // Locked copy (Spanish) - Parallel structure
   const copyES = {
     headline: "Comprende Tu Riesgo Hormonal — Antes de Tu Próxima Visita al Médico",
-    subheadline: "EndoGuard™ es un informe de estratificación del riesgo hormonal preventivo diseñado para ayudarte a ti y a tu médico de atención primaria a identificar el riesgo hormonal temprano. Diseñado para apoyar la evaluación dirigida por atención primaria.",
+    subheadline: "EndoGuard™ convierte lo que has estado notando en un resumen claro de una página que puedes entregar a tu médico — para que la consulta empiece desde tu registro, no desde cero.",
     valueBullets: [
-      "Nivel de riesgo hormonal personalizado: Bajo / Moderado / Alto",
-      "5 factores principales detrás de tu riesgo",
+      "Un resumen claro de una página de lo que reportaste",
+      "Las cinco cosas más importantes que mencionar primero",
       "Un siguiente paso claro"
     ],
     ctaButtonText: "Obtén Mi Informe de Riesgo Hormonal",
     secondaryLine: "No es un diagnóstico. Sin suscripciones. Un informe claro — construido para apoyar la evaluación dirigida por atención primaria.",
-    footerDisclaimer: "EndoGuard™ es una herramienta de detección preventiva y educación. No diagnostica enfermedades ni reemplaza la atención médica."
+    footerDisclaimer: "EndoGuard™ es una herramienta educativa. No diagnostica enfermedades, no indica qué tratamiento recibir, ni reemplaza la atención médica."
   };
 
   const copy = isSpanish ? copyES : copyEN;

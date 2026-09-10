@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense, useEffect } from 'react'
+import brand from './config/brand';
 import { Routes, Route, Navigate, useNavigate, useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './styles/nexus.css'
@@ -766,7 +767,11 @@ function App() {
       <Route path="/pricing" element={<Navigate to="/platforms" replace />} />
 
       {/* Homepage Route */}
-      <Route path="/" element={<Homepage />} />
+      {/* The consumer brand opens on its single product, not the platform homepage. */}
+      <Route
+        path="/"
+        element={brand.isConsumerBrand ? <Navigate to={brand.homeRoute} replace /> : <Homepage />}
+      />
       </Routes>
     </>
   )

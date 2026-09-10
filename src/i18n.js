@@ -10,6 +10,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Import translation files
 import enTranslations from './locales/en.json';
 import esTranslations from './locales/es.json';
+import { brandifyDeep } from './config/brand';
 
 i18n
   // Detect user language
@@ -20,10 +21,10 @@ i18n
   .init({
     resources: {
       en: {
-        translation: enTranslations
+        translation: brandifyDeep(enTranslations)
       },
       es: {
-        translation: esTranslations
+        translation: brandifyDeep(esTranslations)
       }
     },
     fallbackLng: 'en',

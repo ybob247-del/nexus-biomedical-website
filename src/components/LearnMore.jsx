@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import brand from '../config/brand';
 import { useTranslation } from 'react-i18next';
 import { openPaymentLink } from '../config/stripePaymentLinks';
 import { openEndoGuardPayment } from '../config/endoguardStripeLinks';
@@ -776,7 +777,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         {/* How It Works */}
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
-            How {platform.name} Works
+            {brand.isConsumerBrand ? 'How It Works' : `How ${platform.name} Works`}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {platform.howItWorks.map((item) => (

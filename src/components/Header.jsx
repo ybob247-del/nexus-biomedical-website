@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import brand from '../config/brand';
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext'
@@ -61,7 +62,7 @@ const Header = () => {
           <div className="header-logo">
             <img 
               src={nexusLogoOfficial} 
-              alt="Nexus Biomedical Intelligence" 
+              alt={brand.name} 
               className="logo-image logo-animated"
               style={{
                 height: '60px',
@@ -71,7 +72,7 @@ const Header = () => {
             />
           </div>
           <div className="header-brand-text">
-            <span className="brand-name">Nexus Biomedical Intelligence</span>
+            <span className="brand-name">{brand.name}</span>
           </div>
         </div>
 

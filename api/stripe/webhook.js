@@ -86,6 +86,16 @@ async function handleCheckoutCompleted(session) {
   const { customer, subscription: subscriptionId, metadata } = session;
   const { userId, platform, selectedPlan } = metadata;
 
+  // One-time purchases (mode 'payment') have no subscription. Access to what
+  // was bought is verified against Stripe when the buyer returns to the site,
+  // so there is nothing to record here. Returning early stops the subscription
+  // lookup below from throwing, which would fail this webhook and make Stripe
+  // retry the event.
+  if (session.mode === 'payment' || !subscriptionId) {
+    console.log('One-time purchase completed:', { sessionId: session.id, sku: metadata?.sku });
+    return;
+  }
+
   if (!userId || !platform) {
     console.error('Missing userId or platform in checkout session metadata');
     return;

@@ -11,9 +11,15 @@
  *
  * FRONTEND_URL decides where Stripe sends the buyer back. Set it per Vercel
  * project so each brand returns to its own domain.
+ *
+ * Written as an ES module. The project declares "type": "module", and the
+ * previous CommonJS version (require / module.exports) crashed on load, so
+ * this endpoint had never answered a request in production.
  */
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const FRONTEND_URL = (process.env.FRONTEND_URL || 'https://nexusbiomedical.ai').replace(/\/$/, '');
 
@@ -43,7 +49,7 @@ async function verifyPurchase(req, res) {
   }
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method === 'GET') {
     return verifyPurchase(req, res);
   }
@@ -53,7 +59,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { priceId, email, userId, platform, trialDays, sku, successPath, cancelPath } = req.body;
+    const { priceId, email, userId, platform, trialDays, sku, successPath, cancelPath } = req.body || {};
 
     if (!priceId || !email) {
       return res.status(400).json({
@@ -67,7 +73,7 @@ module.exports = async (req, res) => {
     }
 
     // The price decides the checkout mode. Stripe rejects a one-time price in a
-    // subscription checkout, which is what used to break the paid report.
+    // subscription checkout.
     const price = await stripe.prices.retrieve(priceId);
     const isOneTime = !price.recurring;
 
@@ -81,8 +87,8 @@ module.exports = async (req, res) => {
         sku: typeof sku === 'string' ? sku.slice(0, 100) : '',
         created_at: new Date().toISOString(),
       },
-      // Session expires after 24 hours
-      expires_at: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
+      // Stripe allows at most 24 hours; stay just under it.
+      expires_at: Math.floor(Date.now() / 1000) + (23 * 60 * 60),
     };
 
     const session = isOneTime
@@ -111,4 +117,4 @@ module.exports = async (req, res) => {
       message: error.message,
     });
   }
-};
+}

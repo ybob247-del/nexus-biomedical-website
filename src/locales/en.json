@@ -447,7 +447,7 @@
           {
             "step": 1,
             "title": "Symptoms & History",
-            "desc": "Share your symptoms, health history, and lifestyle. Our AI analyzes this data against validated hormone dysfunction profiles."
+            "desc": "Share your symptoms, health history, and lifestyle. Your answers are organized against common symptom patterns described in published literature."
           },
           {
             "step": 2,
@@ -456,13 +456,13 @@
           },
           {
             "step": 3,
-            "title": "Risk Stratification (Low / Moderate / High)",
-            "desc": "Our algorithm stratifies your hormone risk into clear tiers based on your symptoms and exposures."
+            "title": "Your Symptom Summary",
+            "desc": "Your answers are grouped into a clear summary of what you reported, organized so it is quick to read."
           },
           {
             "step": 4,
-            "title": "Top Drivers Behind Your Risk",
-            "desc": "Discover the top factors contributing to your hormone risk—whether symptoms, EDC exposures, or lifestyle factors."
+            "title": "What To Bring Up First",
+            "desc": "See which of the things you reported are most worth raising at your next appointment."
           },
           {
             "step": 5,
@@ -472,7 +472,7 @@
           {
             "step": 6,
             "title": "Your Personalized Report (PDF)",
-            "desc": "Your report includes a clear summary with your risk tier, top drivers, and talking points to discuss with your doctor."
+            "desc": "Your report includes a clear summary of what you reported, what to bring up first, and questions to ask your doctor."
           }
         ]
       },
@@ -480,12 +480,12 @@
         "title": "Key Features",
         "items": [
           {
-            "title": "Personalized Risk Tier (Low / Moderate / High)",
-            "desc": "Clear, easy-to-understand risk stratification based on your unique symptom and exposure profile."
+            "title": "A Clear One-Page Summary",
+            "desc": "Everything you reported, organized into a single page that is quick for you and your clinician to read."
           },
           {
-            "title": "Top 5 Drivers Behind Your Risk",
-            "desc": "Identify the top factors contributing to your hormone risk—whether specific symptoms, EDC exposures, or lifestyle factors."
+            "title": "The Five Things To Raise First",
+            "desc": "Of everything you reported, which items are most worth your limited appointment time."
           },
           {
             "title": "One Clear Next Step",
@@ -493,11 +493,11 @@
           },
           {
             "title": "Provider-Ready Summary (print/share)",
-            "desc": "A clinical summary included in your report designed to facilitate informed conversations with your healthcare provider."
+            "desc": "A concise summary included in your report, designed to be handed to your healthcare provider."
           },
           {
-            "title": "Evidence Transparency (sources listed)",
-            "desc": "Every insight traceable to peer-reviewed research, FDA/EPA databases, and Endocrine Society guidelines—zero speculation."
+            "title": "Every Source Listed",
+            "desc": "Each item we reference is listed with its citation, so you can read the original yourself."
           },
           {
             "title": "Bilingual Support (EN | ES)",

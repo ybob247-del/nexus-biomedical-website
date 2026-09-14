@@ -33,12 +33,12 @@ export default function EndoGuardPhase1Paywall() {
     valueBullets: [
       "Clear next step — Understand whether your symptoms and exposures suggest patterns worth medical attention",
       "Doctor-ready summary — Share a concise, primary-care–friendly summary at your visit",
-      "Evidence-informed — Based on peer-reviewed medical literature and preventive screening principles",
+      "Sources listed — Every source we reference is listed in your report with its citation",
       "No diagnosis, no subscriptions — One-time report designed to support informed decisions, not replace care"
     ],
     ctaButtonText: "Unlock My Hormone Risk Report — $79 (One-Time)",
     ctaSubtext: "(No subscription. No recurring charges.)",
-    disclaimer: "Important: EndoGuard™ is a preventive screening tool. It does not diagnose medical conditions or replace professional medical care. Results are based on self-reported information and are intended to support earlier, more informed conversations with a healthcare provider."
+    disclaimer: "Important: EndoGuard™ is an educational tool. It does not diagnose medical conditions, does not recommend treatment, and does not replace professional medical care. Results are based on self-reported information and are intended to support earlier, more informed conversations with a healthcare provider."
   };
 
   // LOCKED COPY — US-Spanish (Neutral Spanish, not Spain)

@@ -447,7 +447,7 @@
           {
             "step": 1,
             "title": "Síntomas e Historial",
-            "desc": "Comparte tus síntomas, historial de salud y estilo de vida. Nuestra IA analiza esta información contra perfiles validados de disfunción hormonal."
+            "desc": "Comparte tus síntomas, historial de salud y estilo de vida. Tus respuestas se organizan según patrones de síntomas descritos en la literatura publicada."
           },
           {
             "step": 2,
@@ -456,12 +456,12 @@
           },
           {
             "step": 3,
-            "title": "Estratificación de Riesgo (Bajo / Moderado / Alto)",
-            "desc": "Nuestro algoritmo clasifica tu riesgo hormonal en niveles claros basado en tus síntomas y exposiciones."
+            "title": "Tu Resumen de Síntomas",
+            "desc": "Tus respuestas se agrupan en un resumen claro de lo que reportaste, organizado para leerse rápido."
           },
           {
             "step": 4,
-            "title": "Principales Factores de Tu Riesgo",
+            "title": "Qué Mencionar Primero",
             "desc": "Descubre los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida."
           },
           {
@@ -480,11 +480,11 @@
         "title": "Características Principales",
         "items": [
           {
-            "title": "Nivel de Riesgo Personalizado (Bajo / Moderado / Alto)",
+            "title": "Un Resumen Claro de Una Página",
             "desc": "Clasificación de riesgo clara y fácil de entender basada en tu perfil único de síntomas y exposiciones."
           },
           {
-            "title": "Principales 5 Factores de Tu Riesgo",
+            "title": "Las Cinco Cosas Que Mencionar Primero",
             "desc": "Identifica los factores principales que contribuyen a tu riesgo hormonal—ya sean síntomas específicos, exposiciones o factores del estilo de vida."
           },
           {
@@ -496,8 +496,8 @@
             "desc": "Un resumen clínico incluido en tu reporte diseñado para facilitar conversaciones informadas con tu proveedor de atención médica."
           },
           {
-            "title": "Transparencia de Evidencia (fuentes listadas)",
-            "desc": "Cada insight es rastreable a investigación revisada por pares, bases de datos de la FDA/EPA y directrices de la Sociedad de Endocrinología—cero especulación."
+            "title": "Cada Fuente Listada",
+            "desc": "Cada elemento que referenciamos aparece listado con su cita, para que puedas leer el original tú misma."
           },
           {
             "title": "Soporte Bilingüe (EN | ES)",

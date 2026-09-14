@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-phase1-conversion.css';
@@ -25,6 +26,7 @@ export default function EndoGuardPhase1ConversionLayer() {
   const { t, i18n } = useTranslation();
   const { trackAction } = useAnalytics('endoguard_phase1');
   
+  const navigate = useNavigate();
   const isSpanish = i18n.language === 'es';
 
   const handleCTAClick = () => {
@@ -33,10 +35,13 @@ export default function EndoGuardPhase1ConversionLayer() {
       timestamp: new Date().toISOString()
     });
     
-    // Scroll to assessment section using ID selector
+    // If the assessment is already on this page, scroll to it.
+    // Otherwise (e.g. the /endoguard marketing page) navigate to the assessment route.
     const assessmentSection = document.querySelector('#endoguard-assessment');
     if (assessmentSection) {
       assessmentSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate(isSpanish ? '/es/endoguard/assessment' : '/endoguard/assessment');
     }
   };
 

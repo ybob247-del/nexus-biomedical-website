@@ -1,4 +1,5 @@
 import React from 'react'
+import brand from '../config/brand';
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import '../styles/footer.css'
@@ -63,7 +64,7 @@ Research<br />({t('platforms.comingSoon')})
               </span>
             </li>
             <li>
-              <a href="mailto:support@nexusbiomedical.ai" className="footer-link">
+              <a href={`mailto:${brand.supportEmail}`} className="footer-link">
                 Contact Us
               </a>
             </li>
@@ -76,7 +77,7 @@ Research<br />({t('platforms.comingSoon')})
           <ul className="footer-links">
             <li>
               <button onClick={() => handlePlatformClick('endoguard')} className="footer-link">
-                EndoGuard™
+                {brand.productName}
               </button>
             </li>
           </ul>
@@ -113,7 +114,7 @@ Research<br />({t('platforms.comingSoon')})
       {/* Footer Bottom */}
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <h3 className="footer-brand">Nexus Biomedical Intelligence</h3>
+          <h3 className="footer-brand">{brand.name}</h3>
           <p className="footer-tagline">{t('footer.tagline')}</p>
           <p className="footer-copyright">
             {t('footer.copyright', { year: new Date().getFullYear() })}

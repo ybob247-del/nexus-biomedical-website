@@ -1,4 +1,6 @@
-export const platformsData = {
+import { brandifyDeep, platformColorOverrides } from '../config/brand';
+
+const platformsDataRaw = {
   'RxGuard™': {
     name: 'RxGuard™',
     tagline: 'Medication Interaction Predictor',
@@ -437,3 +439,19 @@ export const platformsData = {
     ]
   }
 };
+
+const brandedPlatforms = brandifyDeep(platformsDataRaw);
+
+// The consumer brand repaints its own product away from the Nexus magenta.
+if (platformColorOverrides) {
+  // Entries are keyed by product name, and brandifyDeep rewrites values only,
+  // so the keys still read EndoGuard here. Routing depends on that, so it stays.
+  for (const key of Object.keys(brandedPlatforms)) {
+    if (/EndoGuard/.test(key)) {
+      Object.assign(brandedPlatforms[key], platformColorOverrides);
+    }
+  }
+}
+
+export const platformsData = brandedPlatforms;
+

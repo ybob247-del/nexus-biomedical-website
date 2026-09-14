@@ -1,0 +1,223 @@
+/**
+ * Not Imagining It — visual identity
+ *
+ * Everything here is scoped under [data-brand="notimaginingit"], which is set
+ * on <html> only when VITE_BRAND selects this brand. The Nexus site never sees
+ * a single one of these rules.
+ *
+ * The idea the design has to carry: warm about the person, exact about the
+ * evidence. Serif and warm ground for anything about her; mono and flat rules
+ * for anything about data. The contrast is the brand.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+[data-brand='notimaginingit'] {
+  /* Ground and ink — warm, not clinical. Paper, not a screen. */
+  --nii-paper: #faf7f3;
+  --nii-surface: #ffffff;
+  --nii-surface-2: #f2ece5;
+  --nii-ink: #16171c;
+  --nii-ink-2: #454750;
+  --nii-ink-3: #767681;
+  --nii-rule: #e4ddd4;
+  --nii-rule-strong: #cdc3b7;
+
+  /* Primary — a steady, measured blue. Credible without reading as hospital. */
+  --nii-primary: #2e4a6b;
+  --nii-primary-soft: #e4ebf3;
+  --nii-primary-ink: #1e3149;
+
+  /* The human accent. Used sparingly, and never on data. */
+  --nii-warm: #b85c38;
+  --nii-warm-soft: #f8ebe4;
+
+  /* Data and status. */
+  --nii-teal: #2f6b5e;
+  --nii-teal-soft: #e0eeea;
+  --nii-amber: #96661c;
+  --nii-amber-soft: #f7eeda;
+  --nii-crit: #9c2f2a;
+  --nii-crit-soft: #f8e4e2;
+
+  --nii-shadow: 0 1px 2px rgba(22, 23, 28, 0.05), 0 10px 28px -18px rgba(22, 23, 28, 0.3);
+  --nii-radius: 4px;
+
+  --nii-display: 'Petrona', Georgia, 'Times New Roman', serif;
+  --nii-body: 'Karla', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --nii-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  color-scheme: light;
+  background: var(--nii-paper);
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] body {
+  background: var(--nii-paper);
+  color: var(--nii-ink);
+  font-family: var(--nii-body);
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings carry the warmth. */
+[data-brand='notimaginingit'] h1,
+[data-brand='notimaginingit'] h2,
+[data-brand='notimaginingit'] h3 {
+  font-family: var(--nii-display);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.14;
+  text-wrap: balance;
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] h1 {
+  font-weight: 500;
+  font-size: clamp(32px, 5.5vw, 52px);
+  line-height: 1.06;
+}
+
+/* Anything that states a number or a citation is set in mono, deliberately. */
+[data-brand='notimaginingit'] .nii-data,
+[data-brand='notimaginingit'] .nii-citation {
+  font-family: var(--nii-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875em;
+  letter-spacing: 0.01em;
+  color: var(--nii-ink-3);
+}
+
+/* Buttons — one primary style, quiet secondary. No gradients. */
+[data-brand='notimaginingit'] .nii-btn,
+[data-brand='notimaginingit'] .paywall-cta-button,
+[data-brand='notimaginingit'] .phase1-cta-button {
+  background: var(--nii-primary);
+  color: #fff;
+  font-family: var(--nii-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.005em;
+  border: 1px solid var(--nii-primary);
+  border-radius: var(--nii-radius);
+  padding: 0.875rem 1.75rem;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease;
+  background-image: none;
+  box-shadow: none;
+}
+
+[data-brand='notimaginingit'] .nii-btn:hover,
+[data-brand='notimaginingit'] .paywall-cta-button:hover,
+[data-brand='notimaginingit'] .phase1-cta-button:hover {
+  background: var(--nii-primary-ink);
+  border-color: var(--nii-primary-ink);
+}
+
+[data-brand='notimaginingit'] .nii-btn:disabled,
+[data-brand='notimaginingit'] .paywall-cta-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+[data-brand='notimaginingit'] a {
+  color: var(--nii-primary);
+  text-underline-offset: 3px;
+}
+
+/* Visible focus everywhere. */
+[data-brand='notimaginingit'] :focus-visible {
+  outline: 2px solid var(--nii-primary);
+  outline-offset: 2px;
+}
+
+/* Surfaces: border and ground, no drop shadows stamped on everything. */
+[data-brand='notimaginingit'] .nii-card {
+  background: var(--nii-surface);
+  border: 1px solid var(--nii-rule);
+  border-radius: var(--nii-radius);
+  box-shadow: var(--nii-shadow);
+}
+
+/* The consumer brand runs a single product, so hide the platform chrome that
+   only makes sense on the Nexus site. Belt and braces alongside the React-side
+   showPlatformNav flag, so nothing flashes before hydration. */
+[data-brand='notimaginingit'] .platform-nav,
+[data-brand='notimaginingit'] .platforms-dropdown,
+[data-brand='notimaginingit'] .nexus-only {
+  display: none !important;
+}
+
+/* Nexus uses a purple/magenta gradient on the EndoGuard pages. Flatten it. */
+[data-brand='notimaginingit'] .endoguard-assessment,
+[data-brand='notimaginingit'] .endoguard-phase1-conversion,
+[data-brand='notimaginingit'] .endoguard-phase1-paywall {
+  background: var(--nii-paper);
+  background-image: none;
+  color: var(--nii-ink);
+  font-family: var(--nii-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand='notimaginingit'] * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- Overrides for Nexus component styles the brand tokens cannot reach ---- */
+
+/* The Nexus header is a dark navy bar. The consumer brand runs light. */
+[data-brand='notimaginingit'] .nexus-header {
+  background: rgba(250, 247, 243, 0.92) !important;
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--nii-rule);
+  box-shadow: none;
+}
+
+[data-brand='notimaginingit'] .nexus-header .brand-name {
+  color: var(--nii-ink);
+  font-family: var(--nii-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+/* One product, so the seven-platform navigation and account chrome go. */
+[data-brand='notimaginingit'] .header-nav,
+[data-brand='notimaginingit'] .desktop-nav,
+[data-brand='notimaginingit'] .mobile-menu-button,
+[data-brand='notimaginingit'] .header-actions {
+  display: none !important;
+}
+
+/* Hero headings are painted with a magenta gradient via background-clip.
+   Repaint them as solid ink. */
+[data-brand='notimaginingit'] h1,
+[data-brand='notimaginingit'] h2 {
+  background-image: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--nii-ink) !important;
+}
+
+/* The platform logo belongs to Nexus, not to this brand. */
+[data-brand='notimaginingit'] .logo-image,
+[data-brand='notimaginingit'] .header-logo {
+  display: none !important;
+}
+
+/* Section grounds that inherit the dark platform theme. */
+[data-brand='notimaginingit'] .learn-more-container,
+[data-brand='notimaginingit'] .platform-hero,
+[data-brand='notimaginingit'] main {
+  background: var(--nii-paper);
+  color: var(--nii-ink);
+}
+
+/* No logo mark yet, so the platform icon slot is empty rather than broken. */
+[data-brand='notimaginingit'] .platform-icon,
+[data-brand='notimaginingit'] .platform-logo,
+[data-brand='notimaginingit'] img[src*='_Logo_'] {
+  display: none !important;
+}

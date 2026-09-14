@@ -17,8 +17,15 @@ export default async function handler(req, res) {
 
   // Security: Verify cron secret token
   const cronSecret = req.headers['x-cron-secret'] || req.query.secret;
-  const expectedSecret = process.env.CRON_SECRET || 'default-cron-secret-change-me';
-  
+  const expectedSecret = process.env.CRON_SECRET;
+
+  // Fail closed. The fallback secret that used to be here was public in the
+  // repository, so without CRON_SECRET set anyone could trigger a run.
+  if (!expectedSecret) {
+    console.error('CRON_SECRET is not set; refusing to run');
+    return res.status(503).json({ error: 'Cron not configured' });
+  }
+
   if (cronSecret !== expectedSecret) {
     console.error('Unauthorized cron job attempt');
     return res.status(401).json({ error: 'Unauthorized' });

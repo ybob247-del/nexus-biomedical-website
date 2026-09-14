@@ -1,3 +1,4 @@
+import brand from '../config/brand';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -86,8 +87,8 @@ export const exportToPDF = async (elementId, filename, options = {}) => {
     pdf.setProperties({
       title: options.title || filename,
       subject: options.subject || 'Clinical Analysis Report',
-      author: 'Nexus Biomedical Intelligence',
-      creator: 'Nexus Biomedical Intelligence',
+      author: brand.name,
+      creator: brand.name,
       keywords: options.keywords || 'healthcare, analysis, clinical'
     });
 
@@ -180,12 +181,12 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(24);
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(56, 189, 248); // cyan-400
-  pdf.text('Nexus Biomedical Intelligence', margin, 15);
+  pdf.text(brand.name, margin, 15);
   
   pdf.setFontSize(12);
   pdf.setFont('helvetica', 'normal');
   pdf.setTextColor(148, 163, 184); // slate-400
-  pdf.text('EndoGuard™ Hormone Disruption Assessment Report', margin, 25);
+  pdf.text(brand.isConsumerBrand ? 'Appointment Prep Kit' : 'EndoGuard™ Hormone Disruption Assessment Report', margin, 25);
   
   pdf.setFontSize(9);
   pdf.text(`Generated: ${new Date().toLocaleDateString('en-US', { 
@@ -455,11 +456,11 @@ export const exportEndoGuardPDF = async (results, user) => {
     pdf.setFontSize(8);
     pdf.setTextColor(100, 100, 100);
     pdf.text(`Page ${i} of ${pageCount}`, pageWidth - margin - 20, pageHeight - 10);
-    pdf.text('© Nexus Biomedical Intelligence', margin, pageHeight - 10);
+    pdf.text('© ' + brand.name, margin, pageHeight - 10);
   }
 
   // Save PDF
-  const fileName = `EndoGuard_Report_${new Date().toISOString().split('T')[0]}.pdf`;
+  const fileName = `${brand.isConsumerBrand ? 'NotImaginingIt_Appointment_Prep_Kit' : 'EndoGuard_Report'}_${new Date().toISOString().split('T')[0]}.pdf`;
   pdf.save(fileName);
   
   return { success: true, message: 'PDF generated successfully', fileName };

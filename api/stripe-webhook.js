@@ -49,6 +49,18 @@ module.exports = async (req, res) => {
           platform: session.metadata?.platform,
         });
 
+        // One-time purchases have no subscription to look up. Access is checked
+        // against Stripe when the buyer returns to the site, so there is nothing
+        // to record here. Stopping early keeps the subscription code below from
+        // throwing, which would make Stripe retry this event repeatedly.
+        if (session.mode === 'payment') {
+          console.log('One-time purchase completed:', {
+            sessionId: session.id,
+            sku: session.metadata?.sku,
+          });
+          break;
+        }
+
         // Grant access to platform
         const { query } = require('./utils/db');
         

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { brandifyDeep } from '../config/brand';
 import { useTranslation } from 'react-i18next';
 import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-phase1-conversion.css';
@@ -73,7 +74,8 @@ export default function EndoGuardPhase1ConversionLayer() {
     footerDisclaimer: "EndoGuard™ es una herramienta educativa. No diagnostica enfermedades, no indica qué tratamiento recibir, ni reemplaza la atención médica."
   };
 
-  const copy = isSpanish ? copyES : copyEN;
+  // Copy is written with the original product name; swap it for this brand.
+  const copy = brandifyDeep(isSpanish ? copyES : copyEN);
 
   return (
     <section className="endoguard-phase1-conversion-layer">

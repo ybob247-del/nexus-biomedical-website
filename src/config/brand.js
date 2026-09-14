@@ -28,6 +28,14 @@ const nexus = {
   // Nexus shows the full platform site: header nav, all seven platforms, footer.
   showPlatformNav: true,
   isConsumerBrand: false,
+  // The paid offer shown after the free assessment. Nexus keeps its original
+  // report and does not hold any results back.
+  offer: {
+    sku: 'hormone_risk_report',
+    priceLabel: '$79',
+    amountCents: 7900,
+    gatesResults: false,
+  },
 };
 
 const notImaginingIt = {
@@ -44,6 +52,14 @@ const notImaginingIt = {
   // No seven-platform navigation. One product, one path.
   showPlatformNav: false,
   isConsumerBrand: true,
+  // The paid offer. The free assessment shows the summary; paying unlocks the
+  // rest of the results and the printable PDF.
+  offer: {
+    sku: 'appointment_kit',
+    priceLabel: '$39',
+    amountCents: 3900,
+    gatesResults: true,
+  },
 };
 
 const BRANDS = {

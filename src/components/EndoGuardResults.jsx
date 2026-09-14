@@ -12,10 +12,11 @@ import { endoGuardResultsTour } from '../config/tours';
 import BMIGauge from './BMIGauge';
 import { exportEndoGuardPDF } from '../utils/pdfExport';
 import EndoGuardPhase1Paywall from './EndoGuardPhase1Paywall';
+import brand, { brandifyDeep } from '../config/brand';
 import '../styles/endoguard-results.css';
 import '../styles/tour.css';
 
-export default function EndoGuardResults({ results }) {
+export default function EndoGuardResults({ results, unlocked = false }) {
   if (!results) return null;
 
   const { user } = useAuth();
@@ -27,6 +28,10 @@ export default function EndoGuardResults({ results }) {
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [modalFeature, setModalFeature] = useState('');
   const { edcExposure, hormoneHealth, overallRisk, recommendations, testRecommendations, nextSteps, aiInsights } = results;
+
+  // Brands that sell a paid offer hold the detailed results back until purchase.
+  // Nexus does not gate anything, so it renders exactly as before.
+  const gated = Boolean(brand.offer?.gatesResults) && !unlocked;
 
   const handleDownloadPDF = async () => {
     try {
@@ -56,7 +61,7 @@ export default function EndoGuardResults({ results }) {
     <>
     <OnboardingTour 
       tourId={endoGuardResultsTour.tourId}
-      steps={endoGuardResultsTour.steps}
+      steps={brandifyDeep(endoGuardResultsTour.steps)}
       autoStart={true}
     />
     <div className="endoguard-results">
@@ -71,9 +76,10 @@ export default function EndoGuardResults({ results }) {
         </p>
       </div>
 
-      {/* Phase 1 Paywall - Unlock Full Report */}
-      <EndoGuardPhase1Paywall />
+      {/* Paid offer. Hidden once the buyer has unlocked it. */}
+      {!unlocked && <EndoGuardPhase1Paywall results={results} />}
 
+      {!gated && (<>
       {/* EDC Exposure Section */}
       <div className="results-section">
         <h3>{t('endoguard.results.edcExposure.title')}</h3>
@@ -394,7 +400,7 @@ export default function EndoGuardResults({ results }) {
       </div>
 
       {/* Signup Prompt for Unauthenticated Users */}
-      <SignupPrompt feature="Your Complete Test Recommendations & PDF Lab Letter" />
+      {!brand.isConsumerBrand && <SignupPrompt feature="Your Complete Test Recommendations & PDF Lab Letter" />}
 
       {/* Test Recommendations Section */}
       {testRecommendations && testRecommendations.length > 0 && (
@@ -441,6 +447,20 @@ export default function EndoGuardResults({ results }) {
       </div>
 
       {/* Call to Action */}
+      {brand.isConsumerBrand ? (
+        <div className="cta-section">
+          <div className="cta-buttons">
+            <button
+              className="btn-primary"
+              onClick={handleDownloadPDF}
+              disabled={isGeneratingPDF}
+              data-tour="pdf-download"
+            >
+              {isGeneratingPDF ? '...' : t('endoguard.results.cta.downloadPDF')}
+            </button>
+          </div>
+        </div>
+      ) : (
       <div className="cta-section">
         <h3>{t('endoguard.results.cta.title')}</h3>
         <p className="cta-subtitle">
@@ -509,6 +529,9 @@ export default function EndoGuardResults({ results }) {
         
         <p className="cta-guarantee">{t('endoguard.results.cta.guarantee')}</p>
       </div>
+      )}
+
+      </>)}
 
       {/* Subscription Modal */}
       <SubscriptionModal 

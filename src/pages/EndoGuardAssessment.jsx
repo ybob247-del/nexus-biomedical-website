@@ -15,6 +15,8 @@ import '../styles/endoguard-assessment.css';
 import '../styles/tour.css';
 import EndoGuardResults from '../components/EndoGuardResults';
 import EndoGuardPhase1ConversionLayer from '../components/EndoGuardPhase1ConversionLayer';
+import { PENDING_RESULTS_KEY } from '../components/EndoGuardPhase1Paywall';
+import brand, { brandifyDeep } from '../config/brand';
 
 const API_BASE = '/api/endoguard';
 
@@ -69,6 +71,46 @@ export default function EndoGuardAssessment() {
 
   const [results, setResults] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+
+  // Returning from checkout: confirm the payment with Stripe, then restore the
+  // results that were kept on this device before the buyer left for checkout.
+  // They live only on the buyer's device and are discarded after 24 hours.
+  useEffect(() => {
+    try {
+      const stale = JSON.parse(localStorage.getItem(PENDING_RESULTS_KEY) || 'null');
+      if (stale && Date.now() - (stale.savedAt || 0) > 24 * 60 * 60 * 1000) {
+        localStorage.removeItem(PENDING_RESULTS_KEY);
+      }
+    } catch (storageError) {
+      console.warn('Could not read saved results:', storageError);
+    }
+
+    const sessionId = searchParams.get('session_id');
+    if (!sessionId || !brand.offer?.gatesResults) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        const response = await fetch(`/api/create-checkout-session?session_id=${encodeURIComponent(sessionId)}`);
+        const data = await response.json();
+        if (cancelled || !data.paid || data.sku !== brand.offer.sku) return;
+
+        const saved = JSON.parse(localStorage.getItem(PENDING_RESULTS_KEY) || 'null');
+        if (saved && saved.results) {
+          setResults(saved.results);
+          setStep(7);
+        }
+        // Stays unlocked for this visit, so a buyer on a different device can
+        // retake the assessment and still see the full results.
+        setUnlocked(true);
+      } catch (verifyError) {
+        console.error('Could not verify purchase:', verifyError);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [searchParams]);
 
   // Hybrid freemium model - allow unauthenticated access
   // Users will be prompted to sign up when viewing results
@@ -268,7 +310,7 @@ export default function EndoGuardAssessment() {
 
   return (
       <>
-      {showSuccessBanner && (
+      {showSuccessBanner && (unlocked || !brand.isConsumerBrand) && (
         <div style={{
           position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
           zIndex: 9999, background: '#d4edda', border: '1px solid #28a745',
@@ -276,12 +318,14 @@ export default function EndoGuardAssessment() {
           fontWeight: 600, boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
           maxWidth: '90vw', textAlign: 'center', cursor: 'pointer'
         }} onClick={() => setShowSuccessBanner(false)}>
-          Payment successful! Welcome to EndoGuard™. Your subscription is now active. ×
+          {brand.isConsumerBrand
+            ? 'Payment received. Your Appointment Prep Kit is unlocked below.'
+            : 'Payment successful! Welcome to EndoGuard™. Your subscription is now active.'} ×
         </div>
       )}
       <OnboardingTour 
         tourId={endoGuardAssessmentTour.tourId}
-        steps={endoGuardAssessmentTour.steps}
+        steps={brandifyDeep(endoGuardAssessmentTour.steps)}
         autoStart={step === 1}
       />
       <BackToHomeButton />
@@ -716,7 +760,7 @@ export default function EndoGuardAssessment() {
 
         {/* Step 7: Results */}
         {step === 7 && results && (
-          <EndoGuardResults results={results} />
+          <EndoGuardResults results={results} unlocked={unlocked} />
         )}
       </div>
       </div>

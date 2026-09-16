@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { brandifyDeep } from '../config/brand';
+import brand, { brandifyDeep } from '../config/brand';
 import { useTranslation } from 'react-i18next';
 import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-phase1-conversion.css';
@@ -42,7 +42,7 @@ export default function EndoGuardPhase1ConversionLayer() {
     if (assessmentSection) {
       assessmentSection.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate(isSpanish ? '/es/endoguard/assessment' : '/endoguard/assessment');
+      navigate(isSpanish ? '/es/endoguard/assessment' : brand.routes.assessment);
     }
   };
 

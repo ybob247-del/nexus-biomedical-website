@@ -1,3 +1,5 @@
+import brand from './brand';
+
 // SEO and AI Discoverability Metadata for all platforms
 export const platformSEO = {
   'RxGuard™': {
@@ -124,6 +126,9 @@ export const platformSEO = {
 
 // Helper function to update document meta tags
 export const updateMetaTags = (platformName) => {
+  // The consumer brand's head tags are set at build time (vite-plugin-brand-html);
+  // these per-platform tags are all Nexus copy.
+  if (brand.isConsumerBrand) return;
   const seo = platformSEO[platformName];
   if (!seo) return;
 
@@ -180,6 +185,7 @@ export const updateMetaTags = (platformName) => {
 
 // Helper function to reset to homepage meta tags
 export const resetMetaTags = () => {
+  if (brand.isConsumerBrand) return;
   document.title = 'Nexus Biomedical Intelligence | Revolutionary AI Healthcare Platforms';
   
   const metaDescription = document.querySelector('meta[name="description"]');

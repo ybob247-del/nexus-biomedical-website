@@ -18,6 +18,32 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // The consumer brand sells one product, so it gets a short footer: the legal
+  // pages a buyer (and Stripe) looks for, a real contact, and who runs it.
+  if (brand.isConsumerBrand) {
+    return (
+      <footer className="nii-footer">
+        <div className="nii-footer-inner">
+          <div>
+            <p className="nii-footer-brand">{brand.name}</p>
+            <p className="nii-footer-tagline">{brand.tagline}</p>
+          </div>
+          <nav className="nii-footer-links" aria-label="Legal and contact">
+            <button onClick={() => handleLegalClick('/refund-policy')}>Refund Policy</button>
+            <button onClick={() => handleLegalClick('/privacy')}>Privacy Policy</button>
+            <button onClick={() => handleLegalClick('/terms')}>Terms of Service</button>
+            <button onClick={() => handleLegalClick('/medical-disclaimer')}>Medical Disclaimer</button>
+            <a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
+          </nav>
+        </div>
+        <p className="nii-footer-fine">
+          Educational only. Not medical advice, and not a diagnosis. © {new Date().getFullYear()}{' '}
+          {brand.legalName}. {brand.name} is a brand of {brand.legalName}.
+        </p>
+      </footer>
+    )
+  }
+
   return (
     <footer className="nexus-footer">
       <div className="footer-container">

@@ -8,10 +8,11 @@
  *   VITE_BRAND unset or "nexus"   -> nexusbiomedical.ai, unchanged
  *   VITE_BRAND="notimaginingit"   -> notimaginingit.com, the consumer funnel
  *
- * Anything a visitor can read lives here. Internal identifiers (route paths,
- * component names, database tables, API endpoints) deliberately keep their
- * original "endoguard" naming: renaming those touches hundreds of files and
- * risks working code for no user-visible benefit.
+ * Anything a visitor can read lives here, including the URLs of the product's
+ * pages. Internal identifiers (component names, database tables, API
+ * endpoints, data keys) deliberately keep their original "endoguard" naming:
+ * renaming those touches hundreds of files and risks working code for no
+ * user-visible benefit.
  */
 
 const nexus = {
@@ -20,11 +21,15 @@ const nexus = {
   shortName: 'Nexus',
   tagline: 'AI-Powered Clinical Decision Support',
   domain: 'nexusbiomedical.ai',
+  legalName: 'Nexus Biomedical Intelligence',
   supportEmail: 'support@nexusbiomedical.ai',
   // What the hormone product is called to a visitor of this brand.
   productName: 'EndoGuard™',
-  // Where "/" goes.
-  homeRoute: '/',
+  // Where the product's pages live. Visitors see these in the address bar.
+  routes: {
+    landing: '/endoguard',
+    assessment: '/endoguard/assessment',
+  },
   // Nexus shows the full platform site: header nav, all seven platforms, footer.
   showPlatformNav: true,
   isConsumerBrand: false,
@@ -44,11 +49,17 @@ const notImaginingIt = {
   shortName: 'Not Imagining It',
   tagline: 'Systems, not symptoms.',
   domain: 'notimaginingit.com',
-  supportEmail: 'hello@notimaginingit.com',
+  // The company behind the brand, as registered with Stripe and on the legal pages.
+  legalName: 'Nexus Biomedical Intelligence',
+  supportEmail: 'support@notimaginingit.com',
   // On the consumer site the product is the brand, so it drops the old name.
   productName: 'Not Imagining It',
-  // The consumer brand opens on the assessment, not a platform marketing page.
-  homeRoute: '/endoguard',
+  // The product is the whole site, so its landing page is the homepage and no
+  // URL carries the old product name. The old /endoguard paths redirect here.
+  routes: {
+    landing: '/',
+    assessment: '/assessment',
+  },
   // No seven-platform navigation. One product, one path.
   showPlatformNav: false,
   isConsumerBrand: true,
@@ -96,6 +107,19 @@ const PHRASE_OVERRIDES = brand.isConsumerBrand
       [/How EndoGuard™ Works/g, 'How It Works'],
       [/How EndoGuard Works/g, 'How It Works'],
       [/¿Cómo funciona EndoGuard™\?/g, '¿Cómo funciona?'],
+      // The consumer product is an appointment prep kit, not a risk score. Name
+      // it that way, and keep "risk" and treatment-sounding advice out of the copy.
+      [/Understand Your Hormone Risk — Before Your Next Doctor['’]s Visit/g, 'Walk Into Your Next Appointment Prepared'],
+      [/Get My Hormone Risk Report/g, 'Start My Free Assessment'],
+      [/Get your personalized hormone risk report in minutes—built to support a primary-care-led evaluation\./g,
+        `Answer a few questions for free. Your full Appointment Prep Kit is ${brand.offer.priceLabel}, one time.`],
+      [/Not a diagnosis\. No subscriptions\. One clear report — built to support primary care–led evaluation\./g,
+        `Free to start. The full Appointment Prep Kit is ${brand.offer.priceLabel}, one time. No subscription. Not a diagnosis.`],
+      [/the Hormone Risk Report/gi, 'the Appointment Prep Kit'],
+      [/Hormone Risk Report/g, 'Appointment Prep Kit'],
+      [/a preventive, plain-language risk snapshot/g, 'a plain-language summary'],
+      [/lab tests to request, lifestyle (changes|modifications), and (key )?talking points for your doctor/g,
+        'questions to ask and talking points for your doctor'],
     ]
   : [];
 

@@ -120,8 +120,8 @@ export default function EndoGuardPhase1Paywall({ results }) {
           email,
           platform: 'endoguard',
           sku: offer.sku,
-          successPath: '/endoguard/assessment',
-          cancelPath: '/endoguard/assessment',
+          successPath: brand.routes.assessment,
+          cancelPath: brand.routes.assessment,
           language: i18n.language
         })
       });

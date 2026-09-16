@@ -221,3 +221,196 @@
 [data-brand='notimaginingit'] img[src*='_Logo_'] {
   display: none !important;
 }
+
+/* ---- Landing page (LearnMore's hormone layout) ---- */
+
+/* The layout was written for a dark starfield: white text, pale blue body copy
+   (#B8D4E8) and translucent white cards, all as inline styles. On paper those
+   are unreadable, so repaint them. Attribute selectors are how CSS reaches
+   inline styles; the browser serialises the hex colours as rgb(). */
+[data-brand='notimaginingit'] .endoguard-landing {
+  color: var(--nii-ink) !important;
+  padding-top: 0 !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing h3 {
+  font-family: var(--nii-display);
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='color: rgb(184, 212, 232)'],
+[data-brand='notimaginingit'] .endoguard-landing [style*='color: rgb(255, 255, 255)'] {
+  color: var(--nii-ink-2) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing section:not(.endoguard-phase1-conversion-layer) {
+  background: var(--nii-surface) !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: var(--nii-shadow);
+}
+
+/* Cards inside sections, and sections whose own grid children are cards. */
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)'] {
+  background: var(--nii-surface) !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: var(--nii-radius) !important;
+}
+
+/* Sections that only group cards should not also draw a box around them. */
+[data-brand='notimaginingit'] .endoguard-landing section[style='margin-bottom: 4rem;'] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Numbered step badges and inline buttons use the (already flat blue) gradient;
+   keep their labels white. */
+[data-brand='notimaginingit'] .endoguard-landing button,
+[data-brand='notimaginingit'] .endoguard-landing [style*='linear-gradient(180deg, rgb(46, 74, 107)'] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: none !important;
+}
+
+/* The content column starts under a fixed-header offset meant for the old hero. */
+[data-brand='notimaginingit'] .endoguard-landing > div[style*='padding-top: 8rem'] {
+  padding-top: 1rem !important;
+}
+
+/* Conversion card at the top of the landing page. The real class name is
+   endoguard-phase1-conversion-layer; the rule near the top of this file
+   targets a name that does not exist. */
+[data-brand='notimaginingit'] .endoguard-phase1-conversion-layer {
+  padding: 96px 0 32px;
+}
+
+[data-brand='notimaginingit'] .conversion-container,
+[data-brand='notimaginingit'] .conversion-container:hover {
+  background: var(--nii-surface);
+  backdrop-filter: none;
+  border: 1px solid var(--nii-rule);
+  border-radius: var(--nii-radius);
+  box-shadow: var(--nii-shadow);
+}
+
+[data-brand='notimaginingit'] .conversion-subheadline,
+[data-brand='notimaginingit'] .conversion-secondary-line,
+[data-brand='notimaginingit'] .conversion-footer-disclaimer {
+  color: var(--nii-ink-2);
+}
+
+[data-brand='notimaginingit'] .value-bullet-item,
+[data-brand='notimaginingit'] .value-bullet-item:hover {
+  background: var(--nii-surface-2);
+  border-left: 2px solid var(--nii-primary);
+  border-radius: var(--nii-radius);
+  transform: none;
+}
+
+[data-brand='notimaginingit'] .bullet-icon {
+  background: var(--nii-primary);
+  color: #fff;
+}
+
+[data-brand='notimaginingit'] .bullet-text {
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .conversion-cta-button,
+[data-brand='notimaginingit'] .conversion-cta-button:hover {
+  background: var(--nii-primary);
+  border-radius: var(--nii-radius);
+  box-shadow: none;
+  transform: none;
+}
+
+[data-brand='notimaginingit'] .conversion-cta-button:hover {
+  background: var(--nii-primary-ink);
+}
+
+/* ---- Footer ---- */
+
+[data-brand='notimaginingit'] .nii-footer {
+  border-top: 1px solid var(--nii-rule);
+  background: var(--nii-surface-2);
+  padding: 40px 24px 28px;
+  margin-top: 48px;
+}
+
+[data-brand='notimaginingit'] .nii-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+  justify-content: space-between;
+}
+
+[data-brand='notimaginingit'] .nii-footer-brand {
+  font-family: var(--nii-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+[data-brand='notimaginingit'] .nii-footer-tagline {
+  color: var(--nii-ink-3);
+  margin: 2px 0 0;
+}
+
+[data-brand='notimaginingit'] .nii-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+
+[data-brand='notimaginingit'] .nii-footer-links button,
+[data-brand='notimaginingit'] .nii-footer-links a {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--nii-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-brand='notimaginingit'] .nii-footer-fine {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  font-size: 0.85rem;
+  color: var(--nii-ink-3);
+}
+
+/* ---- Plain legal pages (refund policy) ---- */
+
+[data-brand='notimaginingit'] .nii-legal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 112px 24px 24px;
+}
+
+[data-brand='notimaginingit'] .nii-legal h1 {
+  margin-bottom: 4px;
+}
+
+[data-brand='notimaginingit'] .nii-legal h2 {
+  font-size: 1.35rem;
+  margin: 32px 0 8px;
+}
+
+[data-brand='notimaginingit'] .nii-legal p {
+  color: var(--nii-ink-2);
+}
+
+[data-brand='notimaginingit'] .nii-legal-updated {
+  font-family: var(--nii-mono);
+  font-size: 0.85rem;
+  color: var(--nii-ink-3) !important;
+}

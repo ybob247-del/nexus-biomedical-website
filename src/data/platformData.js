@@ -442,6 +442,12 @@ const platformsDataRaw = {
 
 const brandedPlatforms = brandifyDeep(platformsDataRaw);
 
+// brandifyDeep renames `name` for the consumer brand, so code must not branch
+// on it. `productKey` keeps the original product name for those checks.
+for (const key of Object.keys(brandedPlatforms)) {
+  brandedPlatforms[key].productKey = platformsDataRaw[key].name;
+}
+
 // The consumer brand repaints its own product away from the Nexus magenta.
 if (platformColorOverrides) {
   // Entries are keyed by product name, and brandifyDeep rewrites values only,

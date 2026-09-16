@@ -14,6 +14,7 @@
 
 export const config = {
   matcher: '/api/:path*',
+  runtime: 'nodejs',
 };
 
 // The only endpoints the consumer site uses. None of them stores anything:

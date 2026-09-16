@@ -81,6 +81,13 @@ export const detectBrowserLanguage = () => {
  * @returns {string} Language code (en/es)
  */
 export const initializeLanguagePreference = () => {
+  // A ?lang=es or ?lang=en link (used in emails) sets and remembers the language.
+  const requested = new URLSearchParams(window.location.search).get('lang');
+  if (requested === 'es' || requested === 'en') {
+    setLanguagePreference(requested);
+    return requested;
+  }
+
   // Check URL first - URL takes precedence
   const currentPath = window.location.pathname;
   if (currentPath.startsWith('/es')) {

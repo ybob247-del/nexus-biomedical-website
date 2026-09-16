@@ -76,6 +76,43 @@ export default function EndoGuardAssessment() {
   // Consumer brand: explicit consent before answers (consumer health data) are
   // sent anywhere. Required by health-data laws such as Washington's MHMDA.
   const [healthDataConsent, setHealthDataConsent] = useState(false);
+
+  // Height and weight: visitors pick feet/inches and pounds, or centimetres and
+  // kilograms. The form (and the server) always keep cm and kg; the imperial
+  // boxes are only what the visitor types. US browsers start on imperial.
+  // (Nexus keeps its metric-only form.)
+  const [units, setUnits] = useState(() =>
+    brand.isConsumerBrand && /-US$/i.test(typeof navigator !== 'undefined' ? navigator.language || '' : '') ? 'imperial' : 'metric'
+  );
+  const [imperial, setImperial] = useState({ ft: '', in: '', lb: '' });
+
+  const setHeightFromImperial = (ft, inches) => {
+    setImperial((prev) => ({ ...prev, ft, in: inches }));
+    const totalInches = (parseFloat(ft) || 0) * 12 + (parseFloat(inches) || 0);
+    handleInputChange('height', totalInches > 0 ? String(Math.round(totalInches * 2.54)) : '');
+  };
+
+  const setWeightFromImperial = (lb) => {
+    setImperial((prev) => ({ ...prev, lb }));
+    const pounds = parseFloat(lb);
+    handleInputChange('weight', pounds > 0 ? String(Math.round(pounds * 0.453592 * 10) / 10) : '');
+  };
+
+  const switchUnits = (next) => {
+    if (next === units) return;
+    if (next === 'imperial') {
+      // Show what was already entered in cm/kg as ft/in/lb.
+      const cm = parseFloat(formData.height);
+      const kg = parseFloat(formData.weight);
+      const totalInches = cm > 0 ? Math.round(cm / 2.54) : 0;
+      setImperial({
+        ft: totalInches ? String(Math.floor(totalInches / 12)) : '',
+        in: totalInches ? String(totalInches % 12) : '',
+        lb: kg > 0 ? String(Math.round(kg / 0.453592)) : '',
+      });
+    }
+    setUnits(next);
+  };
   const isSpanishUI = i18n.language?.startsWith('es');
   const notSpecified = isSpanishUI ? 'No especificado' : 'Not specified';
 
@@ -483,6 +520,71 @@ export default function EndoGuardAssessment() {
               </select>
             </div>
 
+            {brand.isConsumerBrand && (
+            <div className="form-group">
+              <div className="units-switch" role="group" aria-label={isSpanishUI ? 'Unidades' : 'Units'}>
+                <button type="button" aria-pressed={units === 'imperial'} onClick={() => switchUnits('imperial')}>
+                  ft / in · lb
+                </button>
+                <button type="button" aria-pressed={units === 'metric'} onClick={() => switchUnits('metric')}>
+                  cm · kg
+                </button>
+              </div>
+            </div>
+            )}
+
+            {units === 'imperial' ? (
+              <>
+                <div className="form-group">
+                  <label>{t('endoguard.steps.demographics.height')}</label>
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <input
+                      type="number"
+                      inputMode="numeric"
+                      value={imperial.ft}
+                      onChange={(e) => setHeightFromImperial(e.target.value, imperial.in)}
+                      placeholder={isSpanishUI ? 'Pies' : 'Feet'}
+                      aria-label={isSpanishUI ? 'Estatura, pies' : 'Height, feet'}
+                      min="3"
+                      max="8"
+                      style={{ flex: 1 }}
+                    />
+                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>ft</span>
+                    <input
+                      type="number"
+                      inputMode="numeric"
+                      value={imperial.in}
+                      onChange={(e) => setHeightFromImperial(imperial.ft, e.target.value)}
+                      placeholder={isSpanishUI ? 'Pulgadas' : 'Inches'}
+                      aria-label={isSpanishUI ? 'Estatura, pulgadas' : 'Height, inches'}
+                      min="0"
+                      max="11"
+                      style={{ flex: 1 }}
+                    />
+                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>in</span>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>{t('endoguard.steps.demographics.weight')}</label>
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={imperial.lb}
+                      onChange={(e) => setWeightFromImperial(e.target.value)}
+                      placeholder={isSpanishUI ? 'Ingresa tu peso en libras' : 'Enter your weight in pounds'}
+                      aria-label={isSpanishUI ? 'Peso, libras' : 'Weight, pounds'}
+                      min="66"
+                      max="660"
+                      style={{ flex: 1 }}
+                    />
+                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>lb</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
             <div className="form-group">
               <label>{t('endoguard.steps.demographics.height')}</label>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -514,6 +616,8 @@ export default function EndoGuardAssessment() {
                 <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>kg</span>
               </div>
             </div>
+              </>
+            )}
 
             {formData.biologicalSex === 'female' && (
               <div className="form-group">

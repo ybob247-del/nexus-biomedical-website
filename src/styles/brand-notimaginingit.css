@@ -285,7 +285,12 @@
    endoguard-phase1-conversion-layer; the rule near the top of this file
    targets a name that does not exist. */
 [data-brand='notimaginingit'] .endoguard-phase1-conversion-layer {
-  padding: 96px 0 32px;
+  padding: 0 0 32px;
+}
+
+/* Line the sections up with the top card: same 1100px column. */
+[data-brand='notimaginingit'] .endoguard-landing > div[style*='max-width: 1200px'] {
+  max-width: 1100px !important;
 }
 
 [data-brand='notimaginingit'] .conversion-container,
@@ -568,4 +573,30 @@
   color: var(--nii-ink) !important;
   border: 1px solid var(--nii-rule-strong) !important;
   border-radius: var(--nii-radius) !important;
+}
+
+/* Height/weight unit switch on the assessment */
+[data-brand='notimaginingit'] .units-switch {
+  display: inline-flex;
+  border: 1px solid var(--nii-rule-strong);
+  border-radius: var(--nii-radius);
+  overflow: hidden;
+}
+
+[data-brand='notimaginingit'] .units-switch button {
+  background: var(--nii-surface);
+  border: 0;
+  padding: 6px 14px;
+  font: 500 0.9rem/1.2 var(--nii-body);
+  color: var(--nii-ink-2);
+  cursor: pointer;
+}
+
+[data-brand='notimaginingit'] .units-switch button + button {
+  border-left: 1px solid var(--nii-rule-strong);
+}
+
+[data-brand='notimaginingit'] .units-switch button[aria-pressed='true'] {
+  background: var(--nii-primary);
+  color: #fff;
 }

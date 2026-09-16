@@ -559,8 +559,12 @@ async function handler(req, res) {
       ]
     };
 
+    // The consumer site (Not Imagining It) never saves answers or results, and
+    // says so in its privacy policy. Nothing below may run for it.
+    const neverStore = (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit';
+
     // Save to assessment history for progress tracking (if user authenticated)
-    if (req.session?.userId || req.user?.id) {
+    if (!neverStore && (req.session?.userId || req.user?.id)) {
       const userId = req.session?.userId || req.user?.id;
       try {
         const historyQuery = `
@@ -600,7 +604,7 @@ async function handler(req, res) {
     }
 
     // Enroll user in email drip campaign (non-blocking)
-    if (formData.email) {
+    if (!neverStore && formData.email) {
       try {
         await fetch(`${process.env.VITE_OAUTH_PORTAL_URL || 'http://localhost:3006'}/api/email/enroll-campaign`, {
           method: 'POST',

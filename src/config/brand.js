@@ -120,6 +120,11 @@ const PHRASE_OVERRIDES = brand.isConsumerBrand
       [/a preventive, plain-language risk snapshot/g, 'a plain-language summary'],
       [/lab tests to request, lifestyle (changes|modifications), and (key )?talking points for your doctor/g,
         'questions to ask and talking points for your doctor'],
+      // The same inline copy in Spanish (conversion layer).
+      [/Comprende Tu Riesgo Hormonal — Antes de Tu Próxima Visita al Médico/g, 'Prepárate para tu próxima consulta'],
+      [/Obtén Mi Informe de Riesgo Hormonal/g, 'Empezar mi evaluación gratis'],
+      [/No es un diagnóstico\. Sin suscripciones\. Un informe claro — construido para apoyar la evaluación dirigida por atención primaria\./g,
+        `Empezar es gratis. El Kit de preparación para tu consulta completo cuesta ${brand.offer.priceLabel}, pago único. Sin suscripción. No es un diagnóstico.`],
     ]
   : [];
 

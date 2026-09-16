@@ -427,7 +427,31 @@
       "retakeAssessment": "Retake Assessment",
       "consultProvider": "Consult with Provider",
       "viewHistory": "View History",
-      "compareAssessments": "Compare Assessments"
+      "compareAssessments": "Compare Assessments",
+      "pdfError": "Failed to generate PDF report. Please try again.",
+      "emailReport": "📧 Email Report",
+      "signupFeature": "Your Complete Test Recommendations & PDF Lab Letter",
+      "ai": {
+        "analysisTitle": "AI-Powered Analysis",
+        "identifiedPattern": "Identified Pattern",
+        "analysisConfidence": "Analysis Confidence",
+        "confidencePercent": "{{percent}}% confidence",
+        "hormoneSystems": "AI-Identified Hormone Systems",
+        "importantConsiderations": "Important Considerations",
+        "actionPlanTitle": "AI-Personalized Action Plan",
+        "lifestyle": "Lifestyle Recommendations",
+        "supplements": "Supplement Considerations",
+        "edcReduction": "EDC Exposure Reduction",
+        "nextSteps": "Prioritized Action Steps",
+        "why": "Why:",
+        "expectedResults": "Expected results:",
+        "priority": {
+          "urgent": "urgent",
+          "high": "high",
+          "medium": "medium",
+          "low": "low"
+        }
+      }
     },
     "learnmore": {
       "hero": {
@@ -683,6 +707,125 @@
     "q10": {
       "question": "What happens to empathy when machines enter healthcare?",
       "answer": "Empathy grows. When technology handles the repetitive tasks, clinicians can spend more time with their patients—listening, connecting, and caring. AI should never replace compassion; it should give you the time and clarity to express it fully."
+    }
+  },
+  "bmi": {
+    "label": "BMI",
+    "underweight": "Underweight",
+    "normal": "Normal",
+    "overweight": "Overweight",
+    "obese": "Obese"
+  },
+  "fdaDisclaimer": {
+    "title": "⚠️ Important Medical Disclaimer",
+    "nexus": {
+      "before": "This platform is a ",
+      "strong1": "clinical decision support tool",
+      "middle": " designed to assist healthcare providers and empower patients with evidence-based information. It is ",
+      "strong2": "not intended to diagnose, treat, cure, or prevent any disease",
+      "after": " and does not replace professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of information provided by this platform.",
+      "footnote": "This product is not FDA-cleared or approved. The AI-powered features are continuously being improved and validated."
+    },
+    "consumer": {
+      "before": "Not Imagining It is an ",
+      "strong1": "educational tool",
+      "middle": " that helps you organize what you have been noticing so you can talk it through with your clinician. It ",
+      "strong2": "does not diagnose, treat, cure, or prevent any condition",
+      "after": " and does not replace professional medical advice. Always talk with your doctor or another qualified health professional about any questions you have about your health. Never ignore professional medical advice or delay seeking it because of something you read here.",
+      "footnote": "This product is not cleared or approved by the FDA."
+    }
+  },
+  "testRecommendations": {
+    "nexus": {
+      "title": "🧪 Recommended Hormone Tests",
+      "intro": "Based on your symptom profile, we recommend the following hormone tests. Bring this information to your healthcare provider to request these tests.",
+      "testCount": "{{n}} tests recommended",
+      "estimatedCost": "Estimated Cost",
+      "essentialOnlyNote": "(Essential tests only)",
+      "essential": "Essential",
+      "essentialDesc": "Start here - most important tests",
+      "recommended": "Recommended",
+      "recommendedDesc": "For comprehensive assessment",
+      "optional": "Optional",
+      "optionalDesc": "For advanced optimization",
+      "whyThisTest": "Why this test:",
+      "viewResearch": "📚 View Research Evidence",
+      "costEssential": "Essential tests only:",
+      "costAll": "All recommended tests:",
+      "downloadLetter": "📄 Download Lab Request Letter for Your Provider",
+      "downloadNote": "This professional letter includes the recommended tests, rationale, and research citations formatted for your healthcare provider.",
+      "signupConfirm": "Sign up FREE to download your personalized lab request letter. Create account now?",
+      "letterComingSoon": "Lab request letter for {{name}} will be generated. PDF export coming soon!",
+      "importantTitle": "⚕️ Important Information",
+      "importantText": "These test recommendations are based on your symptom profile and are for educational purposes only. They do not constitute medical advice. Always consult with a qualified healthcare provider before ordering any lab tests. Your provider will determine which tests are appropriate for your individual situation.",
+      "costNoteStrong": "Cost ranges are estimates",
+      "costNoteRest": " and may vary by laboratory, insurance coverage, and geographic location. Check with your insurance provider and lab for accurate pricing."
+    },
+    "consumer": {
+      "title": "🧪 Topics to Discuss With Your Clinician",
+      "intro": "Based on what you reported, these are tests you may want to ask your clinician about. Your clinician decides whether any of them are right for you.",
+      "testCount": "{{n}} tests to ask about",
+      "estimatedCost": "Estimated Cost",
+      "essentialOnlyNote": "(First topics only)",
+      "essential": "Ask first",
+      "essentialDesc": "Good topics to start the conversation",
+      "recommended": "Also worth asking",
+      "recommendedDesc": "For a fuller conversation",
+      "optional": "Optional",
+      "optionalDesc": "If you want to go further",
+      "whyThisTest": "Why you might ask about it:",
+      "viewResearch": "📚 View Research",
+      "costEssential": "First topics only:",
+      "costAll": "All topics listed:",
+      "downloadLetter": "📄 Download a Summary for Your Clinician",
+      "downloadNote": "This page lists the topics above, why they came up, and research sources, in a format you can hand to your clinician.",
+      "signupConfirm": "Create a free account to download this summary. Create account now?",
+      "letterComingSoon": "A summary for {{name}} will be generated. PDF download coming soon!",
+      "importantTitle": "⚕️ Important Information",
+      "importantText": "These topics are based on what you reported and are for educational purposes only. They are not medical advice. Talk with a qualified clinician before ordering any lab tests. Your clinician will decide which tests, if any, are appropriate for you.",
+      "costNoteStrong": "Cost ranges are estimates",
+      "costNoteRest": " and may vary by laboratory, insurance coverage, and geographic location. Check with your insurance provider and lab for accurate pricing."
+    }
+  },
+  "pdf": {
+    "endoguard": {
+      "subtitleNexus": "EndoGuard™ Hormone Disruption Assessment Report",
+      "subtitleConsumer": "Appointment Prep Kit",
+      "generated": "Generated: {{date}}",
+      "patientInfo": "Patient Information",
+      "yourInfo": "Your Information",
+      "name": "Name: {{value}}",
+      "email": "Email: {{value}}",
+      "age": "Age: {{value}}",
+      "biologicalSex": "Biological Sex: {{value}}",
+      "heightWeight": "Height: {{height}} cm | Weight: {{weight}} kg",
+      "bmi": "BMI: {{bmi}} ({{category}})",
+      "assessmentDate": "Assessment Date: {{value}}",
+      "notAvailable": "N/A",
+      "overallRisk": "Overall Risk Assessment",
+      "riskLevel": "Risk Level: {{level}}",
+      "score": "Score: {{score}}/100",
+      "assessmentCompleted": "Assessment completed.",
+      "edcTitle": "EDC Exposure Assessment",
+      "exposureRiskScore": "Exposure Risk Score: {{score}}/100 ({{level}} RISK)",
+      "keyRiskFactors": "Key Risk Factors:",
+      "impact": "Impact:",
+      "action": "Action:",
+      "hormoneTitle": "Hormone Health Analysis",
+      "symptomsReported": "Symptoms Reported: {{value}}",
+      "symptomSeverity": "Symptom Severity: {{value}}/10",
+      "systemsAffected": "Systems Affected: {{value}}",
+      "affectedSystems": "Affected Hormone Systems:",
+      "aiTitle": "AI-Powered Analysis (GPT-4)",
+      "primaryPattern": "Primary Pattern: {{value}}",
+      "analysisConfidence": "Analysis Confidence: {{value}}%",
+      "recommendationsTitle": "Personalized Recommendations",
+      "why": "Why: {{value}}",
+      "testsTitleNexus": "Recommended Laboratory Tests",
+      "testsTitleConsumer": "Topics to Discuss With Your Clinician",
+      "disclaimerTitle": "Medical Disclaimer",
+      "disclaimerText": "This assessment is for educational and informational purposes only. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. The information provided should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.",
+      "pageOf": "Page {{current}} of {{total}}"
     }
   }
 }

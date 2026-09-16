@@ -432,10 +432,11 @@ async function handler(req, res) {
       {
         age: formData.age,
         gender: formData.gender,
-        biologicalSex: formData.biologicalSex
+        biologicalSex: formData.biologicalSex,
+        language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
       }
     );
-    console.log('[EndoGuard] AI analysis complete:', aiSymptomAnalysis.primaryPattern);
+    console.log('[EndoGuard] AI analysis complete');
 
     // Generate rule-based recommendations
     const baseRecommendations = generateRecommendations(formData, { riskScore, riskFactors }, symptomAnalysis);
@@ -459,7 +460,8 @@ async function handler(req, res) {
         weight: formData.weight,
         bmi: formData.height && formData.weight ? calculateBMI(formData.height, formData.weight) : null
       },
-      hormonePattern: aiSymptomAnalysis
+      hormonePattern: aiSymptomAnalysis,
+      language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
     });
     console.log('[EndoGuard] AI recommendations generated');
 

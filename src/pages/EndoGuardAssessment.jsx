@@ -9,6 +9,7 @@ import UsageStatsDashboard from '../components/UsageStatsDashboard';
 import { useAnalytics } from '../hooks/useAnalytics';
 import BackToHomeButton from '../components/BackToHomeButton';
 import LanguageToggle from '../components/LanguageToggle';
+import Header from '../components/Header';
 import OnboardingTour from '../components/OnboardingTour';
 import { endoGuardAssessmentTour } from '../config/tours';
 import '../styles/endoguard-assessment.css';
@@ -34,7 +35,7 @@ export default function EndoGuardAssessment() {
       return () => clearTimeout(timer);
     }
   }, [showSuccessBanner]);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { trackAction } = useAnalytics('endoguard');
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -72,6 +73,11 @@ export default function EndoGuardAssessment() {
   const [results, setResults] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
+  // Consumer brand: explicit consent before answers (consumer health data) are
+  // sent anywhere. Required by health-data laws such as Washington's MHMDA.
+  const [healthDataConsent, setHealthDataConsent] = useState(false);
+  const isSpanishUI = i18n.language?.startsWith('es');
+  const notSpecified = isSpanishUI ? 'No especificado' : 'Not specified';
 
   // Returning from checkout: confirm the payment with Stripe, then restore the
   // results that were kept on this device before the buyer left for checkout.
@@ -111,6 +117,39 @@ export default function EndoGuardAssessment() {
 
     return () => { cancelled = true; };
   }, [searchParams]);
+
+  // Symptoms are kept as the label the visitor saw. The server's rules match the
+  // English labels, so map every label (in either language) back to its key.
+  const symptomKeyByLabel = useMemo(() => {
+    const index = new Map();
+    const walk = (node, path) => {
+      for (const [key, value] of Object.entries(node || {})) {
+        const fullKey = `${path}.${key}`;
+        if (typeof value === 'string') index.set(value, fullKey);
+        else walk(value, fullKey);
+      }
+    };
+    for (const lng of ['en', 'es']) {
+      for (const system of ['thyroid', 'reproductive', 'adrenal', 'metabolic']) {
+        const base = `endoguard.steps.symptoms.${system}`;
+        walk(i18n.getResource(lng, 'translation', base), base);
+      }
+    }
+    return index;
+  }, [i18n]);
+
+  // Switching language mid-assessment keeps the ticked symptoms ticked.
+  useEffect(() => {
+    setFormData((prev) => {
+      const relabeled = prev.symptoms.map((label) => {
+        const key = symptomKeyByLabel.get(label);
+        return key ? t(key) : label;
+      });
+      return relabeled.every((label, i) => label === prev.symptoms[i])
+        ? prev
+        : { ...prev, symptoms: relabeled };
+    });
+  }, [i18n.language, symptomKeyByLabel, t]);
 
   // Hybrid freemium model - allow unauthenticated access
   // Users will be prompted to sign up when viewing results
@@ -269,14 +308,22 @@ export default function EndoGuardAssessment() {
   };
 
   const submitAssessment = async () => {
+    if (brand.isConsumerBrand && !healthDataConsent) return;
     setIsAnalyzing(true);
     
     try {
       // Calculate severity automatically
       const calculatedSeverity = calculateSymptomSeverity();
+      const toEnglish = i18n.getFixedT('en');
       const assessmentData = {
         ...formData,
-        symptomSeverity: calculatedSeverity
+        symptoms: formData.symptoms.map((label) => {
+          const key = symptomKeyByLabel.get(label);
+          return key ? toEnglish(key) : label;
+        }),
+        symptomSeverity: calculatedSeverity,
+        // Lets the server write its AI text in the visitor's language.
+        language: i18n.language?.startsWith('es') ? 'es' : 'en'
       };
       
       const response = await fetch(`${API_BASE}/assess`, {
@@ -302,7 +349,9 @@ export default function EndoGuardAssessment() {
       }
     } catch (error) {
       console.error('Assessment error:', error);
-      alert('Failed to complete assessment. Please try again.');
+      alert(i18n.language?.startsWith('es')
+        ? 'No se pudo completar la evaluación. Inténtalo de nuevo.'
+        : 'Failed to complete assessment. Please try again.');
     } finally {
       setIsAnalyzing(false);
     }
@@ -319,16 +368,19 @@ export default function EndoGuardAssessment() {
           maxWidth: '90vw', textAlign: 'center', cursor: 'pointer'
         }} onClick={() => setShowSuccessBanner(false)}>
           {brand.isConsumerBrand
-            ? 'Payment received. Your Appointment Prep Kit is unlocked below.'
+            ? (i18n.language?.startsWith('es')
+              ? 'Pago recibido. Tu Kit de preparación para tu consulta está desbloqueado abajo.'
+              : 'Payment received. Your Appointment Prep Kit is unlocked below.')
             : 'Payment successful! Welcome to EndoGuard™. Your subscription is now active.'} ×
         </div>
       )}
       <OnboardingTour 
         tourId={endoGuardAssessmentTour.tourId}
-        steps={brandifyDeep(endoGuardAssessmentTour.steps)}
+        steps={brandifyDeep(i18n.language?.startsWith('es') ? endoGuardAssessmentTour.stepsEs : endoGuardAssessmentTour.steps)}
         autoStart={step === 1}
       />
-      <BackToHomeButton />
+      {/* Consumer brand: the site header (name links home, language switch) */}
+      {brand.isConsumerBrand ? <Header /> : <BackToHomeButton />}
       {user && <TrialExpirationBanner platform="endoguard" />}
       {/* Phase 1 Conversion Layer - Added above existing assessment page */}
       <EndoGuardPhase1ConversionLayer />
@@ -337,7 +389,7 @@ export default function EndoGuardAssessment() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h1 style={{ margin: 0 }}>{t('endoguard.assessment.title')}</h1>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <LanguageToggle />
+            {!brand.isConsumerBrand && <LanguageToggle />}
             {user && (
             <button
               onClick={() => navigate('/my-assessments')}
@@ -360,8 +412,8 @@ export default function EndoGuardAssessment() {
             )}
           </div>
         </div>
-        <p>{t('endoguard.assessment.description')}</p>
-        <div style={{
+        <p className="assessment-description">{t('endoguard.assessment.description')}</p>
+        <div className="free-assessment-banner" style={{
           background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
           padding: '1rem 1.5rem',
           borderRadius: '12px',
@@ -727,16 +779,16 @@ export default function EndoGuardAssessment() {
                 <strong>{t('endoguard.steps.review.symptoms')}:</strong> {t('endoguard.steps.review.selectedSymptoms', { count: formData.symptoms.length })}
               </div>
               <div className="summary-item">
-                <strong>Calculated Severity:</strong> {calculateSymptomSeverity()}/10 (auto-calculated)
+                <strong>{isSpanishUI ? 'Severidad calculada' : 'Calculated Severity'}:</strong> {calculateSymptomSeverity()}/10 {isSpanishUI ? '(cálculo automático)' : '(auto-calculated)'}
               </div>
               <div className="summary-item">
                 <strong>{t('endoguard.steps.review.stress')}:</strong> {formData.stressLevel}/10
               </div>
               <div className="summary-item">
-                <strong>{t('endoguard.steps.review.dietQuality')}:</strong> {formData.dietQuality || 'Not specified'}
+                <strong>{t('endoguard.steps.review.dietQuality')}:</strong> {formData.dietQuality || notSpecified}
               </div>
               <div className="summary-item">
-                <strong>{t('endoguard.steps.review.plasticUse')}:</strong> {formData.plasticUseFrequency || 'Not specified'}
+                <strong>{t('endoguard.steps.review.plasticUse')}:</strong> {formData.plasticUseFrequency || notSpecified}
               </div>
             </div>
 
@@ -745,11 +797,38 @@ export default function EndoGuardAssessment() {
               <p>{t('endoguard.steps.review.disclaimerText')}</p>
             </div>
 
+            {brand.isConsumerBrand && (
+              <label className="nii-consent">
+                <input
+                  type="checkbox"
+                  checked={healthDataConsent}
+                  onChange={(e) => setHealthDataConsent(e.target.checked)}
+                />
+                <span>
+                  {isSpanishUI ? (
+                    <>
+                      Acepto que mis respuestas se usen para calcular mis resultados y que algunas se envíen a
+                      nuestro proveedor de IA, como se explica en la{' '}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a>.
+                      No guardamos tus respuestas.
+                    </>
+                  ) : (
+                    <>
+                      I agree that my answers are used to calculate my results and that some are sent to an AI
+                      provider, as explained in the{' '}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                      Your answers are not stored.
+                    </>
+                  )}
+                </span>
+              </label>
+            )}
+
             <div className="button-group">
               <button onClick={prevStep} className="prev-btn">{t('common.previous')}</button>
               <button 
                 onClick={submitAssessment} 
-                disabled={isAnalyzing}
+                disabled={isAnalyzing || (brand.isConsumerBrand && !healthDataConsent)}
                 className="submit-btn"
               >
                 {isAnalyzing ? t('endoguard.assessment.analyzing') : t('endoguard.assessment.getResults')}

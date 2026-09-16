@@ -73,8 +73,18 @@ async function callOpenAI(messages, options = {}) {
  * AI-Powered Symptom Pattern Analysis
  * Uses GPT-4 to identify hormone patterns from symptoms
  */
+// Instruction appended to prompts when the visitor is using the Spanish site.
+// JSON keys stay English so the response still parses into the same shape.
+function languageInstruction(language) {
+  return language === 'es'
+    ? '
+
+Write every human-readable string value in the JSON in Spanish. Keep all JSON keys, and enum values such as strong/moderate/limited and high/medium/low, exactly as specified in English.'
+    : '';
+}
+
 export async function analyzeSymptomPatterns(symptoms, demographics) {
-  const { age, gender, biologicalSex } = demographics;
+  const { age, gender, biologicalSex, language } = demographics;
   
   const systemPrompt = `You are an expert endocrinologist analyzing hormone health symptoms. Provide clinical insights based on symptom patterns.
 
@@ -88,7 +98,7 @@ Your response must be a JSON object with this exact structure:
   "confidence": number between 0 and 1,
   "redFlags": ["array of concerning symptoms requiring immediate medical attention"],
   "differentialDiagnosis": ["array of possible conditions to rule out"]
-}`;
+}` + languageInstruction(language);
 
   const userPrompt = `Analyze these hormone health symptoms for a ${age}-year-old ${biologicalSex || gender}:
 
@@ -128,7 +138,7 @@ Provide AI-powered pattern recognition to identify the most likely hormone imbal
  * Uses GPT-4 to generate tailored health recommendations
  */
 export async function generatePersonalizedRecommendations(assessmentData) {
-  const { symptoms, edcRisk, lifestyle, demographics, hormonePattern } = assessmentData;
+  const { symptoms, edcRisk, lifestyle, demographics, hormonePattern, language } = assessmentData;
   
   const systemPrompt = `You are a functional medicine practitioner specializing in hormone health. Generate personalized, evidence-based recommendations backed by peer-reviewed scientific research.
 
@@ -174,7 +184,7 @@ Your response must be a JSON object with this exact structure:
   "nextSteps": [
     "prioritized action items in order"
   ]
-}`;
+}` + languageInstruction(language);
 
   const userPrompt = `Generate personalized recommendations for:
 

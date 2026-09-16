@@ -1,4 +1,5 @@
 import brand from '../config/brand';
+import i18n from '../i18n';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -134,8 +135,19 @@ export const exportRxGuardPDF = async (analysisData) => {
  * Export EndoGuard analysis to PDF with professional formatting
  * @param {Object} results - EndoGuard assessment results
  * @param {Object} user - User information
+ * @param {string} [language] - 'en' or 'es'. Defaults to the current UI language.
  */
-export const exportEndoGuardPDF = async (results, user) => {
+export const exportEndoGuardPDF = async (results, user, language = i18n.language) => {
+  const isSpanish = typeof language === 'string' && language.startsWith('es');
+  const tr = i18n.getFixedT(isSpanish ? 'es' : 'en');
+  const p = (key, options) => tr(`pdf.endoguard.${key}`, options);
+  const na = p('notAvailable');
+  // Risk levels and priorities arrive as English enum values.
+  const riskLevelKeys = { LOW: 'low', MODERATE: 'moderate', HIGH: 'high', 'VERY HIGH': 'veryHigh' };
+  const levelLabel = (level) =>
+    riskLevelKeys[level] ? tr(`endoguard.results.riskLevels.${riskLevelKeys[level]}`, level) : level;
+  const priorityLabel = (priority) => tr(`endoguard.results.ai.priority.${priority}`, priority);
+
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -186,16 +198,16 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(12);
   pdf.setFont('helvetica', 'normal');
   pdf.setTextColor(148, 163, 184); // slate-400
-  pdf.text(brand.isConsumerBrand ? 'Appointment Prep Kit' : 'EndoGuard™ Hormone Disruption Assessment Report', margin, 25);
+  pdf.text(brand.isConsumerBrand ? p('subtitleConsumer') : p('subtitleNexus'), margin, 25);
   
   pdf.setFontSize(9);
-  pdf.text(`Generated: ${new Date().toLocaleDateString('en-US', { 
+  pdf.text(p('generated', { date: new Date().toLocaleDateString(isSpanish ? 'es' : 'en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  })}`, margin, 33);
+  }) }), margin, 33);
 
   yPosition = 50;
 
@@ -203,26 +215,26 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(0, 0, 0);
-  pdf.text('Patient Information', margin, yPosition);
+  pdf.text(brand.isConsumerBrand ? p('yourInfo') : p('patientInfo'), margin, yPosition);
   yPosition += 10;
 
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
   if (user) {
-    addText(`Name: ${user.name || 'N/A'}`);
-    addText(`Email: ${user.email || 'N/A'}`);
+    addText(p('name', { value: user.name || na }));
+    addText(p('email', { value: user.email || na }));
   }
   if (results.demographics) {
-    addText(`Age: ${results.demographics.age || 'N/A'}`);
-    addText(`Biological Sex: ${results.demographics.biologicalSex || 'N/A'}`);
+    addText(p('age', { value: results.demographics.age || na }));
+    addText(p('biologicalSex', { value: results.demographics.biologicalSex || na }));
     if (results.demographics.height && results.demographics.weight) {
-      addText(`Height: ${results.demographics.height} cm | Weight: ${results.demographics.weight} kg`);
+      addText(p('heightWeight', { height: results.demographics.height, weight: results.demographics.weight }));
       if (results.demographics.bmi) {
-        addText(`BMI: ${results.demographics.bmi} (${results.demographics.bmiCategory?.category || 'N/A'})`);
+        addText(p('bmi', { bmi: results.demographics.bmi, category: results.demographics.bmiCategory?.category || na }));
       }
     }
   }
-  addText(`Assessment Date: ${results.completedAt ? new Date(results.completedAt).toLocaleDateString() : 'N/A'}`);
+  addText(p('assessmentDate', { value: results.completedAt ? new Date(results.completedAt).toLocaleDateString(isSpanish ? 'es' : undefined) : na }));
   
   yPosition += 5;
 
@@ -230,7 +242,7 @@ export const exportEndoGuardPDF = async (results, user) => {
   checkPageBreak(40);
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('Overall Risk Assessment', margin, yPosition);
+  pdf.text(p('overallRisk'), margin, yPosition);
   yPosition += 10;
 
   // Risk level box
@@ -251,10 +263,10 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(20);
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(255, 255, 255);
-  pdf.text(`Risk Level: ${riskLevel}`, margin + 5, yPosition + 10);
+  pdf.text(p('riskLevel', { level: levelLabel(riskLevel) }), margin + 5, yPosition + 10);
   
   pdf.setFontSize(16);
-  pdf.text(`Score: ${riskScore}/100`, margin + 5, yPosition + 20);
+  pdf.text(p('score', { score: riskScore }), margin + 5, yPosition + 20);
   
   yPosition += 30;
 
@@ -262,31 +274,29 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
   pdf.setTextColor(0, 0, 0);
-  const riskDescriptions = {
-    'HIGH': 'Your assessment indicates significant hormone disruption risk. Immediate action recommended.',
-    'MODERATE': 'Your assessment shows moderate risk factors. Lifestyle changes can make a significant difference.',
-    'LOW': 'Your assessment shows relatively low risk. Continue healthy habits and stay informed.'
-  };
-  addText(riskDescriptions[riskLevel] || 'Assessment completed.');
+  // Same wording as the results page (endoguard.results.riskDescriptions).
+  addText(['HIGH', 'MODERATE', 'LOW'].includes(riskLevel)
+    ? tr(`endoguard.results.riskDescriptions.${riskLevel}`)
+    : p('assessmentCompleted'));
 
   // ===== EDC EXPOSURE =====
   
   checkPageBreak(50);
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('EDC Exposure Assessment', margin, yPosition);
+  pdf.text(p('edcTitle'), margin, yPosition);
   yPosition += 10;
 
   if (results.edcExposure) {
     pdf.setFontSize(12);
     pdf.setFont('helvetica', 'bold');
-    addText(`Exposure Risk Score: ${results.edcExposure.riskScore}/100 (${results.edcExposure.riskLevel} RISK)`);
+    addText(p('exposureRiskScore', { score: results.edcExposure.riskScore, level: levelLabel(results.edcExposure.riskLevel) }));
     
     if (results.edcExposure.riskFactors && results.edcExposure.riskFactors.length > 0) {
       yPosition += 5;
       pdf.setFontSize(12);
       pdf.setFont('helvetica', 'bold');
-      pdf.text('Key Risk Factors:', margin, yPosition);
+      pdf.text(p('keyRiskFactors'), margin, yPosition);
       yPosition += 7;
       
       results.edcExposure.riskFactors.forEach((factor, index) => {
@@ -297,8 +307,8 @@ export const exportEndoGuardPDF = async (results, user) => {
         yPosition += 5;
         
         pdf.setFont('helvetica', 'normal');
-        addText(`   Impact: ${factor.impact}`, 9);
-        addText(`   Action: ${factor.recommendation}`, 9);
+        addText(`   ${p('impact')} ${factor.impact}`, 9);
+        addText(`   ${p('action')} ${factor.recommendation}`, 9);
         yPosition += 3;
       });
     }
@@ -309,20 +319,20 @@ export const exportEndoGuardPDF = async (results, user) => {
   checkPageBreak(50);
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('Hormone Health Analysis', margin, yPosition);
+  pdf.text(p('hormoneTitle'), margin, yPosition);
   yPosition += 10;
 
   if (results.hormoneHealth) {
     pdf.setFontSize(11);
-    addText(`Symptoms Reported: ${results.hormoneHealth.symptomCount || 0}`);
-    addText(`Symptom Severity: ${results.hormoneHealth.symptomSeverity || 0}/10`);
-    addText(`Systems Affected: ${results.hormoneHealth.systemsAffected?.length || 0}`);
+    addText(p('symptomsReported', { value: results.hormoneHealth.symptomCount || 0 }));
+    addText(p('symptomSeverity', { value: results.hormoneHealth.symptomSeverity || 0 }));
+    addText(p('systemsAffected', { value: results.hormoneHealth.systemsAffected?.length || 0 }));
     
     if (results.hormoneHealth.systemsAffected && results.hormoneHealth.systemsAffected.length > 0) {
       yPosition += 5;
       pdf.setFontSize(12);
       pdf.setFont('helvetica', 'bold');
-      pdf.text('Affected Hormone Systems:', margin, yPosition);
+      pdf.text(p('affectedSystems'), margin, yPosition);
       yPosition += 7;
       
       results.hormoneHealth.systemsAffected.forEach(system => {
@@ -342,20 +352,20 @@ export const exportEndoGuardPDF = async (results, user) => {
     pdf.setFontSize(16);
     pdf.setFont('helvetica', 'bold');
     pdf.setTextColor(102, 126, 234); // purple
-    pdf.text('AI-Powered Analysis (GPT-4)', margin, yPosition);
+    pdf.text(p('aiTitle'), margin, yPosition);
     yPosition += 10;
     
     pdf.setFontSize(12);
     pdf.setFont('helvetica', 'bold');
     pdf.setTextColor(0, 0, 0);
-    addText(`Primary Pattern: ${results.aiInsights.symptomPattern.primaryPattern}`);
+    addText(p('primaryPattern', { value: results.aiInsights.symptomPattern.primaryPattern }));
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
     addText(results.aiInsights.symptomPattern.clinicalReasoning);
     
     if (results.aiInsights.symptomPattern.confidence) {
-      addText(`Analysis Confidence: ${Math.round(results.aiInsights.symptomPattern.confidence * 100)}%`);
+      addText(p('analysisConfidence', { value: Math.round(results.aiInsights.symptomPattern.confidence * 100) }));
     }
   }
 
@@ -365,7 +375,7 @@ export const exportEndoGuardPDF = async (results, user) => {
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(0, 0, 0);
-  pdf.text('Personalized Recommendations', margin, yPosition);
+  pdf.text(p('recommendationsTitle'), margin, yPosition);
   yPosition += 10;
 
   if (results.recommendations && results.recommendations.length > 0) {
@@ -386,7 +396,7 @@ export const exportEndoGuardPDF = async (results, user) => {
       pdf.setFontSize(8);
       pdf.setFont('helvetica', 'bold');
       pdf.setTextColor(255, 255, 255);
-      pdf.text(rec.priority.toUpperCase(), margin + 2, yPosition + 1);
+      pdf.text(priorityLabel(rec.priority).toUpperCase(), margin + 2, yPosition + 1);
       
       // Category
       pdf.setFontSize(10);
@@ -401,7 +411,7 @@ export const exportEndoGuardPDF = async (results, user) => {
       
       if (rec.rationale) {
         pdf.setFont('helvetica', 'italic');
-        addText(`Why: ${rec.rationale}`, 9, 'italic', [75, 85, 99]);
+        addText(p('why', { value: rec.rationale }), 9, 'italic', [75, 85, 99]);
       }
       
       yPosition += 3;
@@ -414,7 +424,7 @@ export const exportEndoGuardPDF = async (results, user) => {
     checkPageBreak(50);
     pdf.setFontSize(16);
     pdf.setFont('helvetica', 'bold');
-    pdf.text('Recommended Laboratory Tests', margin, yPosition);
+    pdf.text(brand.isConsumerBrand ? p('testsTitleConsumer') : p('testsTitleNexus'), margin, yPosition);
     yPosition += 10;
     
     results.testRecommendations.forEach((test, index) => {
@@ -437,12 +447,12 @@ export const exportEndoGuardPDF = async (results, user) => {
   
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('Medical Disclaimer', margin, yPosition);
+  pdf.text(p('disclaimerTitle'), margin, yPosition);
   yPosition += 6;
   
   pdf.setFontSize(8);
   pdf.setFont('helvetica', 'normal');
-  const disclaimer = 'This assessment is for educational and informational purposes only. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. The information provided should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.';
+  const disclaimer = p('disclaimerText');
   const disclaimerLines = pdf.splitTextToSize(disclaimer, contentWidth);
   disclaimerLines.forEach(line => {
     pdf.text(line, margin, yPosition);
@@ -455,7 +465,7 @@ export const exportEndoGuardPDF = async (results, user) => {
     pdf.setPage(i);
     pdf.setFontSize(8);
     pdf.setTextColor(100, 100, 100);
-    pdf.text(`Page ${i} of ${pageCount}`, pageWidth - margin - 20, pageHeight - 10);
+    pdf.text(p('pageOf', { current: i, total: pageCount }), pageWidth - margin - 20, pageHeight - 10);
     pdf.text('© ' + brand.name, margin, pageHeight - 10);
   }
 

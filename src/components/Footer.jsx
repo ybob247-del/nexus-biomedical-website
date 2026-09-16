@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import '../styles/footer.css'
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
 
   const handlePlatformClick = (platformUrl) => {
@@ -21,24 +21,27 @@ export default function Footer() {
   // The consumer brand sells one product, so it gets a short footer: the legal
   // pages a buyer (and Stripe) looks for, a real contact, and who runs it.
   if (brand.isConsumerBrand) {
+    const es = i18n.language?.startsWith('es')
+    const year = new Date().getFullYear()
     return (
       <footer className="nii-footer">
         <div className="nii-footer-inner">
           <div>
             <p className="nii-footer-brand">{brand.name}</p>
-            <p className="nii-footer-tagline">{brand.tagline}</p>
+            <p className="nii-footer-tagline">{es ? 'Sistemas, no solo síntomas.' : brand.tagline}</p>
           </div>
-          <nav className="nii-footer-links" aria-label="Legal and contact">
-            <button onClick={() => handleLegalClick('/refund-policy')}>Refund Policy</button>
-            <button onClick={() => handleLegalClick('/privacy')}>Privacy Policy</button>
-            <button onClick={() => handleLegalClick('/terms')}>Terms of Service</button>
-            <button onClick={() => handleLegalClick('/medical-disclaimer')}>Medical Disclaimer</button>
+          <nav className="nii-footer-links" aria-label={es ? 'Información legal y contacto' : 'Legal and contact'}>
+            <button onClick={() => handleLegalClick('/refund-policy')}>{es ? 'Política de reembolso' : 'Refund Policy'}</button>
+            <button onClick={() => handleLegalClick('/privacy')}>{es ? 'Política de privacidad' : 'Privacy Policy'}</button>
+            <button onClick={() => handleLegalClick('/terms')}>{es ? 'Términos del servicio' : 'Terms of Service'}</button>
+            <button onClick={() => handleLegalClick('/medical-disclaimer')}>{es ? 'Aviso médico' : 'Medical Disclaimer'}</button>
             <a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
           </nav>
         </div>
         <p className="nii-footer-fine">
-          Educational only. Not medical advice, and not a diagnosis. © {new Date().getFullYear()}{' '}
-          {brand.legalName}. {brand.name} is a brand of {brand.legalName}.
+          {es
+            ? `Solo con fines educativos. No es consejo médico ni un diagnóstico. © ${year} ${brand.legalName}. ${brand.name} es una marca de ${brand.legalName}.`
+            : `Educational only. Not medical advice, and not a diagnosis. © ${year} ${brand.legalName}. ${brand.name} is a brand of ${brand.legalName}.`}
         </p>
       </footer>
     )

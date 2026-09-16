@@ -10,7 +10,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Import translation files
 import enTranslations from './locales/en.json';
 import esTranslations from './locales/es.json';
-import { brandifyDeep } from './config/brand';
+import brand, { brandifyDeep } from './config/brand';
+import { consumerOverrides, applyOverrides } from './locales/consumer-overrides';
+
+// The consumer brand replaces some shared copy by key (see consumer-overrides.js).
+const forBrand = (bundle, lng) =>
+  brandifyDeep(brand.isConsumerBrand ? applyOverrides(bundle, consumerOverrides[lng]) : bundle);
 
 i18n
   // Detect user language
@@ -21,10 +26,10 @@ i18n
   .init({
     resources: {
       en: {
-        translation: brandifyDeep(enTranslations)
+        translation: forBrand(enTranslations, 'en')
       },
       es: {
-        translation: brandifyDeep(esTranslations)
+        translation: forBrand(esTranslations, 'es')
       }
     },
     fallbackLng: 'en',

@@ -24,7 +24,7 @@ export default function EndoGuardPhase1Paywall({ results }) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
-  const isSpanish = i18n.language === 'es';
+  const isSpanish = i18n.language?.startsWith('es');
   const offer = brand.offer;
 
   const nexusEN = {
@@ -70,7 +70,7 @@ export default function EndoGuardPhase1Paywall({ results }) {
   };
 
   const kitES = {
-    headline: "Obtén tu kit para la consulta",
+    headline: "Obtén tu Kit de preparación para tu consulta",
     subheadline: "Tu resumen está arriba. El kit desbloquea el resto de tus resultados y un PDF para imprimir, organizado para que tu próxima consulta empiece desde tu registro y no desde cero.",
     valueBullets: [
       "Tus resultados completos — Cada sección de tu evaluación, no solo el resumen",
@@ -78,7 +78,7 @@ export default function EndoGuardPhase1Paywall({ results }) {
       "Recomendaciones y próximos pasos — Organizados para que sepas qué mencionar primero",
       "Un PDF para imprimir — Para guardarlo o entregárselo a tu médico"
     ],
-    ctaButtonText: `Obtener mi kit para la consulta — ${offer.priceLabel} (Pago único)`,
+    ctaButtonText: `Obtener mi kit — ${offer.priceLabel} (pago único)`,
     ctaSubtext: "(Sin suscripción. Sin cargos recurrentes.)",
     disclaimer: `Importante: ${brand.name} es una herramienta educativa. No diagnostica condiciones médicas, no recomienda tratamientos ni reemplaza la atención médica profesional. Organiza lo que reportaste para que tengas una conversación más informada con un profesional de la salud.`
   };

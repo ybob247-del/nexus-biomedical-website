@@ -3,6 +3,8 @@
  * Tracks user interactions with onboarding tours
  */
 
+import brand from '../config/brand';
+
 /**
  * Track tour event
  * @param {string} tourName - Name of the tour (e.g., 'dashboard', 'endoguard', 'rxguard')
@@ -10,6 +12,8 @@
  * @param {object} metadata - Additional metadata (step number, completion percentage, etc.)
  */
 export function trackTourEvent(tourName, event, metadata = {}) {
+  // The consumer brand collects no usage analytics (see its privacy policy).
+  if (brand.isConsumerBrand) return;
   try {
     // Get user info if available
     const userStr = localStorage.getItem('user');

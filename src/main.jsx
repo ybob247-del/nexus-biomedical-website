@@ -13,6 +13,17 @@ document.documentElement.setAttribute('data-brand', brand.id)
 // Consumer brand gets its own document title and description. Nexus keeps the
 // values already in index.html.
 if (brand.isConsumerBrand) {
+  // Results kept in this browser during checkout are removed once they are more
+  // than a day old, on whichever page the visitor opens (see the privacy policy).
+  try {
+    const saved = JSON.parse(localStorage.getItem('nii_pending_results') || 'null')
+    if (saved && Date.now() - (saved.savedAt || 0) > 24 * 60 * 60 * 1000) {
+      localStorage.removeItem('nii_pending_results')
+    }
+  } catch {
+    // Storage blocked or unreadable: nothing to clean up.
+  }
+
   document.title = `${brand.name} — ${brand.tagline}`
   const description = document.querySelector('meta[name="description"]')
   if (description) {

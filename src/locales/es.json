@@ -427,7 +427,31 @@
       "retakeAssessment": "Repetir evaluación",
       "consultProvider": "Consultar con proveedor",
       "viewHistory": "Ver historial",
-      "compareAssessments": "Comparar evaluaciones"
+      "compareAssessments": "Comparar evaluaciones",
+      "pdfError": "No se pudo generar el informe en PDF. Inténtalo de nuevo.",
+      "emailReport": "📧 Enviar informe por correo",
+      "signupFeature": "Tus recomendaciones completas de pruebas y tu carta de laboratorio en PDF",
+      "ai": {
+        "analysisTitle": "Análisis con IA",
+        "identifiedPattern": "Patrón identificado",
+        "analysisConfidence": "Confianza del análisis",
+        "confidencePercent": "{{percent}}% de confianza",
+        "hormoneSystems": "Sistemas hormonales identificados por la IA",
+        "importantConsiderations": "Consideraciones importantes",
+        "actionPlanTitle": "Plan de acción personalizado con IA",
+        "lifestyle": "Recomendaciones de estilo de vida",
+        "supplements": "Suplementos a considerar",
+        "edcReduction": "Cómo reducir tu exposición a EDC",
+        "nextSteps": "Pasos a seguir por prioridad",
+        "why": "Por qué:",
+        "expectedResults": "Resultados esperados:",
+        "priority": {
+          "urgent": "urgente",
+          "high": "alta",
+          "medium": "media",
+          "low": "baja"
+        }
+      }
     },
     "learnmore": {
       "hero": {
@@ -683,6 +707,125 @@
     "q10": {
       "question": "¿Qué sucede con la empatía cuando las máquinas entran en la atención médica?",
       "answer": "La empatía crece. Cuando la tecnología maneja tareas repetitivas, los clínicos pueden pasar más tiempo con sus pacientes: escuchando, conectando y cuidando. La IA nunca debe reemplazar la compasión; debe darte el tiempo y la claridad para expresarla plenamente."
+    }
+  },
+  "bmi": {
+    "label": "IMC",
+    "underweight": "Bajo peso",
+    "normal": "Normal",
+    "overweight": "Sobrepeso",
+    "obese": "Obesidad"
+  },
+  "fdaDisclaimer": {
+    "title": "⚠️ Aviso médico importante",
+    "nexus": {
+      "before": "Esta plataforma es una ",
+      "strong1": "herramienta de apoyo a la decisión clínica",
+      "middle": " diseñada para ayudar a profesionales de la salud y brindar a pacientes información basada en evidencia. ",
+      "strong2": "No está destinada a diagnosticar, tratar, curar ni prevenir ninguna enfermedad",
+      "after": " y no reemplaza el consejo, el diagnóstico ni el tratamiento médico profesional. Consulta siempre a tu médico u otro profesional de salud calificado si tienes preguntas sobre una condición médica. Nunca ignores el consejo médico profesional ni demores en buscarlo por información que hayas visto en esta plataforma.",
+      "footnote": "Este producto no está autorizado ni aprobado por la FDA. Las funciones con IA se mejoran y validan continuamente."
+    },
+    "consumer": {
+      "before": "Not Imagining It es una ",
+      "strong1": "herramienta educativa",
+      "middle": " que te ayuda a ordenar lo que has estado notando para que puedas conversarlo con tu profesional de salud. ",
+      "strong2": "No diagnostica, no trata, no cura ni previene ninguna condición",
+      "after": " y no reemplaza el consejo médico profesional. Habla siempre con tu médico u otro profesional de salud calificado sobre cualquier duda sobre tu salud. Nunca ignores el consejo médico profesional ni dejes de buscarlo por algo que hayas leído aquí.",
+      "footnote": "Este producto no está autorizado ni aprobado por la FDA."
+    }
+  },
+  "testRecommendations": {
+    "nexus": {
+      "title": "🧪 Pruebas hormonales recomendadas",
+      "intro": "Según tu perfil de síntomas, te recomendamos las siguientes pruebas hormonales. Lleva esta información a tu profesional de salud para solicitarlas.",
+      "testCount": "{{n}} pruebas recomendadas",
+      "estimatedCost": "Costo estimado",
+      "essentialOnlyNote": "(Solo pruebas esenciales)",
+      "essential": "Esenciales",
+      "essentialDesc": "Empieza aquí: las pruebas más importantes",
+      "recommended": "Recomendadas",
+      "recommendedDesc": "Para una evaluación completa",
+      "optional": "Opcionales",
+      "optionalDesc": "Para una optimización avanzada",
+      "whyThisTest": "Por qué esta prueba:",
+      "viewResearch": "📚 Ver evidencia científica",
+      "costEssential": "Solo pruebas esenciales:",
+      "costAll": "Todas las pruebas recomendadas:",
+      "downloadLetter": "📄 Descargar carta de solicitud de laboratorio para tu profesional de salud",
+      "downloadNote": "Esta carta profesional incluye las pruebas recomendadas, su justificación y las referencias científicas, con un formato pensado para tu profesional de salud.",
+      "signupConfirm": "Regístrate GRATIS para descargar tu carta personalizada de solicitud de laboratorio. ¿Quieres crear una cuenta ahora?",
+      "letterComingSoon": "Se generará la carta de solicitud de laboratorio para {{name}}. ¡La exportación a PDF llegará pronto!",
+      "importantTitle": "⚕️ Información importante",
+      "importantText": "Estas recomendaciones de pruebas se basan en tu perfil de síntomas y son solo con fines educativos. No constituyen consejo médico. Consulta siempre a un profesional de salud calificado antes de pedir cualquier análisis de laboratorio. Tu profesional de salud determinará qué pruebas son adecuadas para tu situación.",
+      "costNoteStrong": "Los rangos de costo son estimados",
+      "costNoteRest": " y pueden variar según el laboratorio, la cobertura de tu seguro y tu ubicación. Consulta con tu aseguradora y con el laboratorio para conocer los precios exactos."
+    },
+    "consumer": {
+      "title": "🧪 Temas para conversar con tu profesional de salud",
+      "intro": "Según lo que reportaste, estas son pruebas sobre las que quizá quieras preguntarle a tu profesional de salud. Tu profesional de salud decide si alguna es adecuada para ti.",
+      "testCount": "{{n}} pruebas para preguntar",
+      "estimatedCost": "Costo estimado",
+      "essentialOnlyNote": "(Solo los primeros temas)",
+      "essential": "Pregunta primero",
+      "essentialDesc": "Buenos temas para empezar la conversación",
+      "recommended": "También vale la pena preguntar",
+      "recommendedDesc": "Para una conversación más completa",
+      "optional": "Opcional",
+      "optionalDesc": "Si quieres profundizar más",
+      "whyThisTest": "Por qué podrías preguntar:",
+      "viewResearch": "📚 Ver investigación",
+      "costEssential": "Solo los primeros temas:",
+      "costAll": "Todos los temas de la lista:",
+      "downloadLetter": "📄 Descargar un resumen para tu profesional de salud",
+      "downloadNote": "Esta página reúne los temas de arriba, por qué surgieron y las fuentes de investigación, en un formato que puedes entregar a tu profesional de salud.",
+      "signupConfirm": "Crea una cuenta gratis para descargar este resumen. ¿Quieres crear una cuenta ahora?",
+      "letterComingSoon": "Se generará un resumen sobre {{name}}. ¡La descarga en PDF llegará pronto!",
+      "importantTitle": "⚕️ Información importante",
+      "importantText": "Estos temas se basan en lo que reportaste y son solo con fines educativos. No son consejo médico. Habla con un profesional de salud calificado antes de pedir cualquier análisis de laboratorio. Tu profesional de salud decidirá qué pruebas, si alguna, son adecuadas para ti.",
+      "costNoteStrong": "Los rangos de costo son estimados",
+      "costNoteRest": " y pueden variar según el laboratorio, la cobertura de tu seguro y tu ubicación. Consulta con tu aseguradora y con el laboratorio para conocer los precios exactos."
+    }
+  },
+  "pdf": {
+    "endoguard": {
+      "subtitleNexus": "Informe de evaluación de disrupción hormonal de EndoGuard™",
+      "subtitleConsumer": "Kit de preparación para tu consulta",
+      "generated": "Generado: {{date}}",
+      "patientInfo": "Información del paciente",
+      "yourInfo": "Tu información",
+      "name": "Nombre: {{value}}",
+      "email": "Correo electrónico: {{value}}",
+      "age": "Edad: {{value}}",
+      "biologicalSex": "Sexo biológico: {{value}}",
+      "heightWeight": "Estatura: {{height}} cm | Peso: {{weight}} kg",
+      "bmi": "IMC: {{bmi}} ({{category}})",
+      "assessmentDate": "Fecha de la evaluación: {{value}}",
+      "notAvailable": "N/D",
+      "overallRisk": "Evaluación general de riesgo",
+      "riskLevel": "Nivel de riesgo: {{level}}",
+      "score": "Puntuación: {{score}}/100",
+      "assessmentCompleted": "Evaluación completada.",
+      "edcTitle": "Evaluación de exposición a EDC",
+      "exposureRiskScore": "Puntuación de riesgo de exposición: {{score}}/100 (RIESGO {{level}})",
+      "keyRiskFactors": "Factores de riesgo clave:",
+      "impact": "Impacto:",
+      "action": "Acción:",
+      "hormoneTitle": "Análisis de salud hormonal",
+      "symptomsReported": "Síntomas reportados: {{value}}",
+      "symptomSeverity": "Severidad de los síntomas: {{value}}/10",
+      "systemsAffected": "Sistemas afectados: {{value}}",
+      "affectedSystems": "Sistemas hormonales afectados:",
+      "aiTitle": "Análisis con IA (GPT-4)",
+      "primaryPattern": "Patrón principal: {{value}}",
+      "analysisConfidence": "Confianza del análisis: {{value}}%",
+      "recommendationsTitle": "Recomendaciones personalizadas",
+      "why": "Por qué: {{value}}",
+      "testsTitleNexus": "Pruebas de laboratorio recomendadas",
+      "testsTitleConsumer": "Temas para conversar con tu profesional de salud",
+      "disclaimerTitle": "Aviso médico",
+      "disclaimerText": "Esta evaluación es solo para fines educativos e informativos. No está destinada a diagnosticar, tratar, curar ni prevenir ninguna enfermedad o condición médica. La información proporcionada no debe usarse como sustituto del consejo, el diagnóstico ni el tratamiento médico profesional. Consulta siempre a tu médico u otro profesional de salud calificado si tienes preguntas sobre una condición médica.",
+      "pageOf": "Página {{current}} de {{total}}"
     }
   }
 }

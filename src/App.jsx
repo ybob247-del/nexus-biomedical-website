@@ -39,6 +39,10 @@ const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 const MedicalDisclaimer = lazy(() => import('./components/MedicalDisclaimer'))
 const RefundPolicy = lazy(() => import('./pages/RefundPolicy'))
+// Consumer brand legal pages: written for its one-time product, in EN and ES
+const ConsumerPrivacyPolicy = lazy(() => import('./pages/consumer-legal/PrivacyPolicy'))
+const ConsumerTermsOfService = lazy(() => import('./pages/consumer-legal/TermsOfService'))
+const ConsumerMedicalDisclaimer = lazy(() => import('./pages/consumer-legal/MedicalDisclaimer'))
 const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
@@ -93,6 +97,18 @@ function RedirectKeepingQuery({ to }) {
   return <Navigate to={`${to}${search}${hash}`} replace />
 }
 
+// Consumer brand pages outside the product flow (legal pages): the brand
+// header, with its language switch, and the footer around the page.
+function ConsumerShell({ children }) {
+  return (
+    <>
+      <Header />
+      <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      <Footer />
+    </>
+  )
+}
+
 // Platform Page Component
 function PlatformPage({ platformKey }) {
   const navigate = useNavigate()
@@ -119,14 +135,16 @@ function PlatformPage({ platformKey }) {
     'endoguard': 'EndoGuard™'
   }
 
-  // Set language based on route
+  // Set language based on route. Not when the route names the platform: the
+  // consumer brand has no /es/ URLs and switches language in place.
   useEffect(() => {
+    if (platformKey) return
     if (isSpanish && i18n.language !== 'es') {
       i18n.changeLanguage('es')
     } else if (!isSpanish && i18n.language === 'es') {
       i18n.changeLanguage('en')
     }
-  }, [isSpanish, i18n])
+  }, [isSpanish, i18n, platformKey])
 
   const platformName = platformMap[platformId]
   const platform = platformsData[platformName]
@@ -277,15 +295,20 @@ function App() {
       {!brand.isConsumerBrand && <LanguageToggle />}
       {!brand.isConsumerBrand && <AIChatbot />}
       <Routes>
+      {/* Consumer brand legal pages. Listed first so they win over the Nexus
+          pages at the same paths further down. The Nexus-only pages (HIPAA and
+          the long-form aliases) point to the consumer equivalents. */}
       {brand.isConsumerBrand && (
-        <Route
-          path="/refund-policy"
-          element={
-            <Suspense fallback={<LoadingFallback />}>
-              <RefundPolicy />
-            </Suspense>
-          }
-        />
+        <>
+          <Route path="/refund-policy" element={<ConsumerShell><RefundPolicy /></ConsumerShell>} />
+          <Route path="/privacy" element={<ConsumerShell><ConsumerPrivacyPolicy /></ConsumerShell>} />
+          <Route path="/terms" element={<ConsumerShell><ConsumerTermsOfService /></ConsumerShell>} />
+          <Route path="/medical-disclaimer" element={<ConsumerShell><ConsumerMedicalDisclaimer /></ConsumerShell>} />
+          <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+          <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
+          <Route path="/hipaa" element={<Navigate to="/privacy" replace />} />
+          <Route path="/hipaa-compliance" element={<Navigate to="/privacy" replace />} />
+        </>
       )}
       {/* Compliance Pages Routes */}
       <Route 

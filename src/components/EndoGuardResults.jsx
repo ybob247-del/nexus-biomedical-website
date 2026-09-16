@@ -20,7 +20,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
   if (!results) return null;
 
   const { user } = useAuth();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
@@ -32,6 +32,16 @@ export default function EndoGuardResults({ results, unlocked = false }) {
   // Brands that sell a paid offer hold the detailed results back until purchase.
   // Nexus does not gate anything, so it renders exactly as before.
   const gated = Boolean(brand.offer?.gatesResults) && !unlocked;
+
+  const isSpanish = i18n.language?.startsWith('es');
+
+  // Risk levels and priorities arrive as English enum values. Show them in the
+  // current language, falling back to the raw value for anything unexpected.
+  const riskLevelKeys = { LOW: 'low', MODERATE: 'moderate', HIGH: 'high', 'VERY HIGH': 'veryHigh' };
+  const riskLevelLabel = (level) =>
+    riskLevelKeys[level] ? t(`endoguard.results.riskLevels.${riskLevelKeys[level]}`, level) : level;
+  const priorityLabel = (priority) =>
+    priority ? t(`endoguard.results.ai.priority.${priority}`, priority) : priority;
 
   const handleDownloadPDF = async () => {
     try {
@@ -46,7 +56,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
       }
     } catch (error) {
       console.error('PDF generation error:', error);
-      alert('Failed to generate PDF report. Please try again.');
+      alert(t('endoguard.results.pdfError'));
     } finally {
       setIsGeneratingPDF(false);
     }
@@ -61,14 +71,14 @@ export default function EndoGuardResults({ results, unlocked = false }) {
     <>
     <OnboardingTour 
       tourId={endoGuardResultsTour.tourId}
-      steps={brandifyDeep(endoGuardResultsTour.steps)}
+      steps={brandifyDeep(isSpanish ? endoGuardResultsTour.stepsEs : endoGuardResultsTour.steps)}
       autoStart={true}
     />
     <div className="endoguard-results">
       {/* Overall Risk Card */}
       <div className={`overall-risk-card risk-${overallRisk.level.toLowerCase()}`} data-tour="risk-score">
         <div className="risk-header">
-          <h2>{t('endoguard.results.overallRiskLevel')}: {overallRisk.level}</h2>
+          <h2>{t('endoguard.results.overallRiskLevel')}: {riskLevelLabel(overallRisk.level)}</h2>
           <div className="risk-score-large">{overallRisk.score}/100</div>
         </div>
         <p className="risk-description">
@@ -90,7 +100,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
             <div className={`stat-value risk-${edcExposure.riskLevel.toLowerCase()}`}>
               {edcExposure.riskScore}/100
             </div>
-            <div className="stat-level" data-tour="risk-level">{edcExposure.riskLevel} {t('endoguard.results.edcExposure.risk')}</div>
+            <div className="stat-level" data-tour="risk-level">{riskLevelLabel(edcExposure.riskLevel)} {t('endoguard.results.edcExposure.risk')}</div>
           </div>
         </div>
 
@@ -120,7 +130,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
             <span style={{ fontSize: '28px' }}>🤖</span>
-            <h3 style={{ margin: 0, color: 'white' }}>AI-Powered Analysis</h3>
+            <h3 style={{ margin: 0, color: 'white' }}>{t('endoguard.results.ai.analysisTitle')}</h3>
             <span style={{
               background: 'rgba(255,255,255,0.2)',
               padding: '4px 12px',
@@ -136,7 +146,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
             borderRadius: '8px',
             marginBottom: '16px'
           }}>
-            <h4 style={{ color: 'white', marginTop: 0, fontSize: '16px' }}>Identified Pattern</h4>
+            <h4 style={{ color: 'white', marginTop: 0, fontSize: '16px' }}>{t('endoguard.results.ai.identifiedPattern')}</h4>
             <p style={{ fontSize: '18px', fontWeight: 'bold', margin: '8px 0' }}>
               {aiInsights.symptomPattern.primaryPattern}
             </p>
@@ -145,7 +155,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
             </p>
             {aiInsights.symptomPattern.confidence > 0 && (
               <div style={{ marginTop: '12px' }}>
-                <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '4px' }}>Analysis Confidence</div>
+                <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '4px' }}>{t('endoguard.results.ai.analysisConfidence')}</div>
                 <div style={{ background: 'rgba(255,255,255,0.2)', borderRadius: '8px', height: '8px', overflow: 'hidden' }}>
                   <div style={{
                     background: 'linear-gradient(90deg, #10b981, #34d399)',
@@ -155,7 +165,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
                   }} />
                 </div>
                 <div style={{ fontSize: '12px', marginTop: '4px', opacity: 0.8 }}>
-                  {Math.round(aiInsights.symptomPattern.confidence * 100)}% confidence
+                  {t('endoguard.results.ai.confidencePercent', { percent: Math.round(aiInsights.symptomPattern.confidence * 100) })}
                 </div>
               </div>
             )}
@@ -163,7 +173,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
 
           {aiInsights.symptomPattern.affectedSystems && aiInsights.symptomPattern.affectedSystems.length > 0 && (
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ color: 'white', fontSize: '14px', marginBottom: '8px' }}>AI-Identified Hormone Systems</h4>
+              <h4 style={{ color: 'white', fontSize: '14px', marginBottom: '8px' }}>{t('endoguard.results.ai.hormoneSystems')}</h4>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {aiInsights.symptomPattern.affectedSystems.map((system, idx) => (
                   <span key={idx} style={{
@@ -190,7 +200,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
             }}>
               <div style={{ fontWeight: 'bold', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span>⚠️</span>
-                <span>Important Considerations</span>
+                <span>{t('endoguard.results.ai.importantConsiderations')}</span>
               </div>
               <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px' }}>
                 {aiInsights.symptomPattern.redFlags.map((flag, idx) => (
@@ -211,12 +221,12 @@ export default function EndoGuardResults({ results, unlocked = false }) {
         <div className="results-section" style={{ marginBottom: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
             <span style={{ fontSize: '24px' }}>💡</span>
-            <h3 style={{ margin: 0 }}>AI-Personalized Action Plan</h3>
+            <h3 style={{ margin: 0 }}>{t('endoguard.results.ai.actionPlanTitle')}</h3>
           </div>
 
           {aiInsights.personalizedRecommendations.lifestyle && aiInsights.personalizedRecommendations.lifestyle.length > 0 && (
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>Lifestyle Recommendations</h4>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>{t('endoguard.results.ai.lifestyle')}</h4>
               <div style={{ display: 'grid', gap: '12px' }}>
                 {aiInsights.personalizedRecommendations.lifestyle.map((rec, idx) => (
                   <div key={idx} style={{
@@ -237,16 +247,16 @@ export default function EndoGuardResults({ results, unlocked = false }) {
                         fontSize: '12px',
                         fontWeight: '600'
                       }}>
-                        {rec.priority}
+                        {priorityLabel(rec.priority)}
                       </span>
                     </div>
                     <p style={{ margin: '8px 0', color: '#334155' }}>{rec.recommendation}</p>
                     <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0' }}>
-                      <strong>Why:</strong> {rec.rationale}
+                      <strong>{t('endoguard.results.ai.why')}</strong> {rec.rationale}
                     </p>
                     {rec.timeframe && (
                       <p style={{ fontSize: '12px', color: '#94a3b8', margin: '4px 0', fontStyle: 'italic' }}>
-                        Expected results: {rec.timeframe}
+                        {t('endoguard.results.ai.expectedResults')} {rec.timeframe}
                       </p>
                     )}
                   </div>
@@ -257,7 +267,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
 
           {aiInsights.personalizedRecommendations.supplements && aiInsights.personalizedRecommendations.supplements.length > 0 && (
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>Supplement Considerations</h4>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>{t('endoguard.results.ai.supplements')}</h4>
               <div style={{ display: 'grid', gap: '12px' }}>
                 {aiInsights.personalizedRecommendations.supplements.map((supp, idx) => (
                   <div key={idx} style={{
@@ -283,7 +293,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
 
           {aiInsights.personalizedRecommendations.edcReduction && aiInsights.personalizedRecommendations.edcReduction.length > 0 && (
             <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>EDC Exposure Reduction</h4>
+              <h4 style={{ fontSize: '16px', color: '#667eea', marginBottom: '12px' }}>{t('endoguard.results.ai.edcReduction')}</h4>
               <div style={{ display: 'grid', gap: '12px' }}>
                 {aiInsights.personalizedRecommendations.edcReduction.map((action, idx) => (
                   <div key={idx} style={{
@@ -301,7 +311,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
                         borderRadius: '4px',
                         fontSize: '12px'
                       }}>
-                        {action.priority}
+                        {priorityLabel(action.priority)}
                       </span>
                     </div>
                     <p style={{ fontSize: '13px', color: '#166534', margin: '8px 0 0 0' }}>{action.impact}</p>
@@ -318,7 +328,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
               borderRadius: '8px',
               padding: '16px'
             }}>
-              <h4 style={{ color: 'white', marginTop: 0, marginBottom: '12px' }}>Prioritized Action Steps</h4>
+              <h4 style={{ color: 'white', marginTop: 0, marginBottom: '12px' }}>{t('endoguard.results.ai.nextSteps')}</h4>
               <ol style={{ margin: 0, paddingLeft: '20px' }}>
                 {aiInsights.personalizedRecommendations.nextSteps.map((step, idx) => (
                   <li key={idx} style={{ marginBottom: '8px', fontSize: '14px' }}>{step}</li>
@@ -400,7 +410,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
       </div>
 
       {/* Signup Prompt for Unauthenticated Users */}
-      {!brand.isConsumerBrand && <SignupPrompt feature="Your Complete Test Recommendations & PDF Lab Letter" />}
+      {!brand.isConsumerBrand && <SignupPrompt feature={t('endoguard.results.signupFeature')} />}
 
       {/* Test Recommendations Section */}
       {testRecommendations && testRecommendations.length > 0 && (
@@ -417,7 +427,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
               <div key={index} className={`recommendation-item priority-${rec.priority}`}>
                 <div className="rec-header">
                   <span className="rec-category">{rec.category.toUpperCase()}</span>
-                  <span className={`rec-priority priority-${rec.priority}`}>{rec.priority}</span>
+                  <span className={`rec-priority priority-${rec.priority}`}>{priorityLabel(rec.priority)}</span>
                 </div>
                 <div className="rec-text">{rec.text}</div>
                 {rec.rationale && <div className="rec-rationale">{t('endoguard.results.recommendations.why')} {rec.rationale}</div>}
@@ -523,7 +533,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
             onClick={() => setShowEmailModal(true)}
             style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white', border: 'none' }}
           >
-            📧 Email Report
+            {t('endoguard.results.emailReport')}
           </button>
         </div>
         

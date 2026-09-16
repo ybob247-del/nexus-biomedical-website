@@ -59,7 +59,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { priceId, email, userId, platform, trialDays, sku, successPath, cancelPath } = req.body || {};
+    const { priceId, email, userId, platform, trialDays, sku, successPath, cancelPath, language } = req.body || {};
 
     if (!priceId || !email) {
       return res.status(400).json({
@@ -80,6 +80,8 @@ export default async function handler(req, res) {
     const common = {
       customer_email: email,
       client_reference_id: userId || email,
+      // Show Stripe's checkout page in the visitor's language.
+      locale: String(language || '').startsWith('es') ? 'es' : 'auto',
       line_items: [{ price: priceId, quantity: 1 }],
       metadata: {
         userId: userId || email,

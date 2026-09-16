@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import brand from '../config/brand';
 import '../styles/assessment-preview.css';
 
 const getPreviewQuestions = (t) => [
@@ -89,7 +90,7 @@ export default function AssessmentPreview() {
               </p>
               <button 
                 className="cta-button primary"
-                onClick={() => navigate('/endoguard/assessment')}
+                onClick={() => navigate(brand.routes.assessment)}
               >
                 {t('assessmentPreview.result.takeFullAssessment')}
               </button>

@@ -1,8 +1,15 @@
 import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
+import brand from '../config/brand';
+
+// The consumer brand runs no analytics. Its pages are about a visitor's health,
+// and its privacy policy promises no tracking, so every call below is a no-op
+// there. The stub also keeps the analytics library from writing an anonymous
+// id to the visitor's browser.
+const noAnalytics = { page() {}, track() {}, identify() {} };
 
 // Initialize analytics instance
-const analytics = Analytics({
+const analytics = brand.isConsumerBrand ? noAnalytics : Analytics({
   app: 'nexus-biomedical',
   plugins: [
     googleAnalytics({

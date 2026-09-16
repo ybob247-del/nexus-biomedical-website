@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
+import brand from '../config/brand';
 import '../styles/test-recommendations.css';
 
 export default function TestRecommendations({ testRecommendations }) {
+  const { t } = useTranslation();
+  // The consumer brand lists tests as topics to discuss, not recommendations.
+  const tr = (key, options) => t(`testRecommendations.${brand.isConsumerBrand ? 'consumer' : 'nexus'}.${key}`, options);
   const [expandedCondition, setExpandedCondition] = useState(null);
 
   if (!testRecommendations || testRecommendations.length === 0) {
@@ -20,21 +25,21 @@ export default function TestRecommendations({ testRecommendations }) {
   const handleDownloadLabLetter = (condition) => {
     if (!isAuthenticated) {
       // Prompt user to sign up for PDF export
-      if (window.confirm('Sign up FREE to download your personalized lab request letter. Create account now?')) {
+      if (window.confirm(tr('signupConfirm'))) {
         navigate('/signup');
       }
       return;
     }
     // TODO: Implement PDF generation for authenticated users
-    alert(`Lab request letter for ${condition.name} will be generated. PDF export coming soon!`);
+    alert(tr('letterComingSoon', { name: condition.name }));
   };
 
   return (
     <div className="test-recommendations-section">
       <div className="test-rec-header">
-        <h3>🧪 Recommended Hormone Tests</h3>
+        <h3>{tr('title')}</h3>
         <p className="test-rec-intro">
-          Based on your symptom profile, we recommend the following hormone tests. Bring this information to your healthcare provider to request these tests.
+          {tr('intro')}
         </p>
       </div>
 
@@ -52,12 +57,12 @@ export default function TestRecommendations({ testRecommendations }) {
             >
               <div className="condition-title">
                 <h4>{condition.name}</h4>
-                <span className="test-count">{condition.tests.length} tests recommended</span>
+                <span className="test-count">{tr('testCount', { n: condition.tests.length })}</span>
               </div>
               <div className="condition-cost">
-                <div className="cost-label">Estimated Cost</div>
+                <div className="cost-label">{tr('estimatedCost')}</div>
                 <div className="cost-range">{condition.totalCostEssential}</div>
-                <div className="cost-note">(Essential tests only)</div>
+                <div className="cost-note">{tr('essentialOnlyNote')}</div>
               </div>
               <button className="expand-btn">
                 {isExpanded ? '−' : '+'}
@@ -70,8 +75,8 @@ export default function TestRecommendations({ testRecommendations }) {
                 {essentialTests.length > 0 && (
                   <div className="test-tier">
                     <div className="tier-header essential">
-                      <span className="tier-badge">Essential</span>
-                      <span className="tier-description">Start here - most important tests</span>
+                      <span className="tier-badge">{tr('essential')}</span>
+                      <span className="tier-description">{tr('essentialDesc')}</span>
                     </div>
                     <div className="test-list">
                       {essentialTests.map((test, testIndex) => (
@@ -82,7 +87,7 @@ export default function TestRecommendations({ testRecommendations }) {
                           </div>
                           <div className="test-description">{test.description}</div>
                           <div className="test-rationale">
-                            <strong>Why this test:</strong> {test.rationale}
+                            <strong>{tr('whyThisTest')}</strong> {test.rationale}
                           </div>
                           {test.research_pmid && (
                             <div className="test-research">
@@ -92,7 +97,7 @@ export default function TestRecommendations({ testRecommendations }) {
                                 rel="noopener noreferrer"
                                 className="research-link"
                               >
-                                📚 View Research Evidence
+                                {tr('viewResearch')}
                               </a>
                             </div>
                           )}
@@ -106,8 +111,8 @@ export default function TestRecommendations({ testRecommendations }) {
                 {recommendedTests.length > 0 && (
                   <div className="test-tier">
                     <div className="tier-header recommended">
-                      <span className="tier-badge">Recommended</span>
-                      <span className="tier-description">For comprehensive assessment</span>
+                      <span className="tier-badge">{tr('recommended')}</span>
+                      <span className="tier-description">{tr('recommendedDesc')}</span>
                     </div>
                     <div className="test-list">
                       {recommendedTests.map((test, testIndex) => (
@@ -118,7 +123,7 @@ export default function TestRecommendations({ testRecommendations }) {
                           </div>
                           <div className="test-description">{test.description}</div>
                           <div className="test-rationale">
-                            <strong>Why this test:</strong> {test.rationale}
+                            <strong>{tr('whyThisTest')}</strong> {test.rationale}
                           </div>
                           {test.research_pmid && (
                             <div className="test-research">
@@ -128,7 +133,7 @@ export default function TestRecommendations({ testRecommendations }) {
                                 rel="noopener noreferrer"
                                 className="research-link"
                               >
-                                📚 View Research Evidence
+                                {tr('viewResearch')}
                               </a>
                             </div>
                           )}
@@ -142,8 +147,8 @@ export default function TestRecommendations({ testRecommendations }) {
                 {optionalTests.length > 0 && (
                   <div className="test-tier">
                     <div className="tier-header optional">
-                      <span className="tier-badge">Optional</span>
-                      <span className="tier-description">For advanced optimization</span>
+                      <span className="tier-badge">{tr('optional')}</span>
+                      <span className="tier-description">{tr('optionalDesc')}</span>
                     </div>
                     <div className="test-list">
                       {optionalTests.map((test, testIndex) => (
@@ -154,7 +159,7 @@ export default function TestRecommendations({ testRecommendations }) {
                           </div>
                           <div className="test-description">{test.description}</div>
                           <div className="test-rationale">
-                            <strong>Why this test:</strong> {test.rationale}
+                            <strong>{tr('whyThisTest')}</strong> {test.rationale}
                           </div>
                           {test.research_pmid && (
                             <div className="test-research">
@@ -164,7 +169,7 @@ export default function TestRecommendations({ testRecommendations }) {
                                 rel="noopener noreferrer"
                                 className="research-link"
                               >
-                                📚 View Research Evidence
+                                {tr('viewResearch')}
                               </a>
                             </div>
                           )}
@@ -177,11 +182,11 @@ export default function TestRecommendations({ testRecommendations }) {
                 {/* Cost Summary */}
                 <div className="cost-summary">
                   <div className="cost-row">
-                    <span>Essential tests only:</span>
+                    <span>{tr('costEssential')}</span>
                     <strong>{condition.totalCostEssential}</strong>
                   </div>
                   <div className="cost-row">
-                    <span>All recommended tests:</span>
+                    <span>{tr('costAll')}</span>
                     <strong>{condition.totalCostAll}</strong>
                   </div>
                 </div>
@@ -192,10 +197,10 @@ export default function TestRecommendations({ testRecommendations }) {
                     className="download-lab-letter-btn"
                     onClick={() => handleDownloadLabLetter(condition)}
                   >
-                    📄 Download Lab Request Letter for Your Provider
+                    {tr('downloadLetter')}
                   </button>
                   <p className="download-note">
-                    This professional letter includes the recommended tests, rationale, and research citations formatted for your healthcare provider.
+                    {tr('downloadNote')}
                   </p>
                 </div>
               </div>
@@ -206,12 +211,12 @@ export default function TestRecommendations({ testRecommendations }) {
 
       {/* Important Note */}
       <div className="test-rec-disclaimer">
-        <h4>⚕️ Important Information</h4>
+        <h4>{tr('importantTitle')}</h4>
         <p>
-          These test recommendations are based on your symptom profile and are for educational purposes only. They do not constitute medical advice. Always consult with a qualified healthcare provider before ordering any lab tests. Your provider will determine which tests are appropriate for your individual situation.
+          {tr('importantText')}
         </p>
         <p>
-          <strong>Cost ranges are estimates</strong> and may vary by laboratory, insurance coverage, and geographic location. Check with your insurance provider and lab for accurate pricing.
+          <strong>{tr('costNoteStrong')}</strong>{tr('costNoteRest')}
         </p>
       </div>
     </div>

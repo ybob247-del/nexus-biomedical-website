@@ -221,3 +221,382 @@
 [data-brand='notimaginingit'] img[src*='_Logo_'] {
   display: none !important;
 }
+
+/* ---- Landing page (LearnMore's hormone layout) ---- */
+
+/* The layout was written for a dark starfield: white text, pale blue body copy
+   (#B8D4E8) and translucent white cards, all as inline styles. On paper those
+   are unreadable, so repaint them. Attribute selectors are how CSS reaches
+   inline styles; the browser serialises the hex colours as rgb(). */
+[data-brand='notimaginingit'] .endoguard-landing {
+  color: var(--nii-ink) !important;
+  padding-top: 0 !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing h3 {
+  font-family: var(--nii-display);
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='color: rgb(184, 212, 232)'],
+[data-brand='notimaginingit'] .endoguard-landing [style*='color: rgb(255, 255, 255)'] {
+  color: var(--nii-ink-2) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing section:not(.endoguard-phase1-conversion-layer) {
+  background: var(--nii-surface) !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: var(--nii-shadow);
+}
+
+/* Cards inside sections, and sections whose own grid children are cards. */
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)'] {
+  background: var(--nii-surface) !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: var(--nii-radius) !important;
+}
+
+/* Sections that only group cards should not also draw a box around them. */
+[data-brand='notimaginingit'] .endoguard-landing section[style='margin-bottom: 4rem;'] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Numbered step badges and inline buttons use the (already flat blue) gradient;
+   keep their labels white. */
+[data-brand='notimaginingit'] .endoguard-landing button,
+[data-brand='notimaginingit'] .endoguard-landing [style*='linear-gradient(180deg, rgb(46, 74, 107)'] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: none !important;
+}
+
+/* The content column starts under a fixed-header offset meant for the old hero. */
+[data-brand='notimaginingit'] .endoguard-landing > div[style*='padding-top: 8rem'] {
+  padding-top: 1rem !important;
+}
+
+/* Conversion card at the top of the landing page. The real class name is
+   endoguard-phase1-conversion-layer; the rule near the top of this file
+   targets a name that does not exist. */
+[data-brand='notimaginingit'] .endoguard-phase1-conversion-layer {
+  padding: 0 0 32px;
+}
+
+/* Line the sections up with the top card: same 1100px column. */
+[data-brand='notimaginingit'] .endoguard-landing > div[style*='max-width: 1200px'] {
+  max-width: 1100px !important;
+}
+
+[data-brand='notimaginingit'] .conversion-container,
+[data-brand='notimaginingit'] .conversion-container:hover {
+  background: var(--nii-surface);
+  backdrop-filter: none;
+  border: 1px solid var(--nii-rule);
+  border-radius: var(--nii-radius);
+  box-shadow: var(--nii-shadow);
+}
+
+[data-brand='notimaginingit'] .conversion-subheadline,
+[data-brand='notimaginingit'] .conversion-secondary-line,
+[data-brand='notimaginingit'] .conversion-footer-disclaimer {
+  color: var(--nii-ink-2);
+}
+
+[data-brand='notimaginingit'] .value-bullet-item,
+[data-brand='notimaginingit'] .value-bullet-item:hover {
+  background: var(--nii-surface-2);
+  border-left: 2px solid var(--nii-primary);
+  border-radius: var(--nii-radius);
+  transform: none;
+}
+
+[data-brand='notimaginingit'] .bullet-icon {
+  background: var(--nii-primary);
+  color: #fff;
+}
+
+[data-brand='notimaginingit'] .bullet-text {
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .conversion-cta-button,
+[data-brand='notimaginingit'] .conversion-cta-button:hover {
+  background: var(--nii-primary);
+  border-radius: var(--nii-radius);
+  box-shadow: none;
+  transform: none;
+}
+
+[data-brand='notimaginingit'] .conversion-cta-button:hover {
+  background: var(--nii-primary-ink);
+}
+
+/* ---- Footer ---- */
+
+[data-brand='notimaginingit'] .nii-footer {
+  border-top: 1px solid var(--nii-rule);
+  background: var(--nii-surface-2);
+  padding: 40px 24px 28px;
+  margin-top: 48px;
+}
+
+[data-brand='notimaginingit'] .nii-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+  justify-content: space-between;
+}
+
+[data-brand='notimaginingit'] .nii-footer-brand {
+  font-family: var(--nii-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+[data-brand='notimaginingit'] .nii-footer-tagline {
+  color: var(--nii-ink-3);
+  margin: 2px 0 0;
+}
+
+[data-brand='notimaginingit'] .nii-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+
+[data-brand='notimaginingit'] .nii-footer-links button,
+[data-brand='notimaginingit'] .nii-footer-links a {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--nii-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-brand='notimaginingit'] .nii-footer-fine {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  font-size: 0.85rem;
+  color: var(--nii-ink-3);
+}
+
+/* ---- Plain legal pages (refund policy) ---- */
+
+[data-brand='notimaginingit'] .nii-legal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 112px 24px 24px;
+}
+
+[data-brand='notimaginingit'] .nii-legal h1 {
+  margin-bottom: 4px;
+}
+
+[data-brand='notimaginingit'] .nii-legal h2 {
+  font-size: 1.35rem;
+  margin: 32px 0 8px;
+}
+
+[data-brand='notimaginingit'] .nii-legal p {
+  color: var(--nii-ink-2);
+}
+
+[data-brand='notimaginingit'] .nii-legal-updated {
+  font-family: var(--nii-mono);
+  font-size: 0.85rem;
+  color: var(--nii-ink-3) !important;
+}
+
+/* ---- Language switch (header and assessment page) ---- */
+
+[data-brand='notimaginingit'] .nii-lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--nii-rule-strong);
+  border-radius: var(--nii-radius);
+  overflow: hidden;
+  background: var(--nii-surface);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+[data-brand='notimaginingit'] .nii-lang-toggle button {
+  background: transparent;
+  border: 0;
+  padding: 6px 12px;
+  font: 500 0.875rem/1.2 var(--nii-body);
+  color: var(--nii-ink-2);
+  cursor: pointer;
+}
+
+[data-brand='notimaginingit'] .nii-lang-toggle button + button {
+  border-left: 1px solid var(--nii-rule-strong);
+}
+
+[data-brand='notimaginingit'] .nii-lang-toggle button[aria-pressed='true'] {
+  background: var(--nii-primary);
+  color: #fff;
+}
+
+/* ---- Legal pages: summary callout and cross-links ---- */
+
+[data-brand='notimaginingit'] .nii-legal ul {
+  color: var(--nii-ink-2);
+  padding-left: 1.25rem;
+}
+
+[data-brand='notimaginingit'] .nii-legal li + li {
+  margin-top: 4px;
+}
+
+[data-brand='notimaginingit'] .nii-legal-callout {
+  background: var(--nii-primary-soft);
+  border-left: 3px solid var(--nii-primary);
+  border-radius: var(--nii-radius);
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .nii-legal-callout h2 {
+  margin-top: 0;
+}
+
+[data-brand='notimaginingit'] .nii-legal-nav {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--nii-rule);
+}
+
+[data-brand='notimaginingit'] .nii-legal-nav h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+[data-brand='notimaginingit'] .nii-legal-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+[data-brand='notimaginingit'] .nii-legal-nav li + li {
+  margin-top: 0;
+}
+
+/* Consent checkbox on the assessment's review step */
+[data-brand='notimaginingit'] .nii-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 20px 0 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--nii-rule-strong);
+  border-radius: var(--nii-radius);
+  background: var(--nii-surface);
+  color: var(--nii-ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+
+[data-brand='notimaginingit'] .nii-consent input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--nii-primary);
+}
+
+/* The Nexus header hides its brand text on narrow screens because the logo
+   stands in for it. The consumer brand has no logo, so keep the name visible. */
+[data-brand='notimaginingit'] .header-brand-text {
+  display: block !important;
+}
+
+/* Header brand name: the Nexus stylesheet paints it with a cyan gradient. */
+[data-brand='notimaginingit'] .nexus-header .brand-name {
+  background: none !important;
+  -webkit-text-fill-color: var(--nii-ink) !important;
+  color: var(--nii-ink) !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* ---- Assessment page ---- */
+
+[data-brand='notimaginingit'] .endoguard-assessment .assessment-description,
+[data-brand='notimaginingit'] .endoguard-assessment .step-indicator,
+[data-brand='notimaginingit'] .endoguard-assessment [style*='color: rgba(255, 255, 255, 0.7)'] {
+  color: var(--nii-ink-2) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-assessment .free-assessment-banner {
+  background: var(--nii-primary-soft) !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: none !important;
+  color: var(--nii-primary-ink) !important;
+}
+
+/* Header is fixed; leave room for it above the conversion card. */
+[data-brand='notimaginingit'] .endoguard-assessment .next-btn,
+[data-brand='notimaginingit'] .endoguard-assessment .submit-btn {
+  background: var(--nii-primary) !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-radius: var(--nii-radius) !important;
+  box-shadow: none !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-assessment .submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[data-brand='notimaginingit'] .endoguard-assessment .prev-btn {
+  background: var(--nii-surface) !important;
+  color: var(--nii-ink) !important;
+  border: 1px solid var(--nii-rule-strong) !important;
+  border-radius: var(--nii-radius) !important;
+}
+
+/* Height/weight unit switch on the assessment */
+[data-brand='notimaginingit'] .units-switch {
+  display: inline-flex;
+  border: 1px solid var(--nii-rule-strong);
+  border-radius: var(--nii-radius);
+  overflow: hidden;
+}
+
+[data-brand='notimaginingit'] .units-switch button {
+  background: var(--nii-surface);
+  border: 0;
+  padding: 6px 14px;
+  font: 500 0.9rem/1.2 var(--nii-body);
+  color: var(--nii-ink-2);
+  cursor: pointer;
+}
+
+[data-brand='notimaginingit'] .units-switch button + button {
+  border-left: 1px solid var(--nii-rule-strong);
+}
+
+[data-brand='notimaginingit'] .units-switch button[aria-pressed='true'] {
+  background: var(--nii-primary);
+  color: #fff;
+}

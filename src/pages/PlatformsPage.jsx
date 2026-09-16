@@ -97,7 +97,7 @@ export default function PlatformsPage() {
     }
 
     // Hybrid freemium model for EndoGuard - allow unauthenticated assessment
-    if (platform.name === 'EndoGuard™') {
+    if ((platform.productKey || platform.name) === 'EndoGuard™') {
       navigate('/endoguard/assessment');
       return;
     }
@@ -396,7 +396,7 @@ export default function PlatformsPage() {
               }}
             >
               {platform.comingSoon ? 'Join Waitlist →' : 
-               platform.name === 'EndoGuard™' ? 'Start Free Assessment →' : 
+               (platform.productKey || platform.name) === 'EndoGuard™' ? 'Start Free Assessment →' : 
                'Start Free Trial →'}
             </button>
           </motion.div>

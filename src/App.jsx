@@ -38,6 +38,11 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./components/TermsOfService'))
 const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 const MedicalDisclaimer = lazy(() => import('./components/MedicalDisclaimer'))
+const RefundPolicy = lazy(() => import('./pages/RefundPolicy'))
+// Consumer brand legal pages: written for its one-time product, in EN and ES
+const ConsumerPrivacyPolicy = lazy(() => import('./pages/consumer-legal/PrivacyPolicy'))
+const ConsumerTermsOfService = lazy(() => import('./pages/consumer-legal/TermsOfService'))
+const ConsumerMedicalDisclaimer = lazy(() => import('./pages/consumer-legal/MedicalDisclaimer'))
 const BetaSignup = lazy(() => import('./components/BetaSignup'))
 const LearnMore = lazy(() => import('./components/LearnMore'))
 const PlatformsPage = lazy(() => import('./pages/PlatformsPage'))
@@ -86,14 +91,33 @@ const LoadingFallback = () => (
   </div>
 )
 
+// Redirect that carries the query string and hash along with it
+function RedirectKeepingQuery({ to }) {
+  const { search, hash } = useLocation()
+  return <Navigate to={`${to}${search}${hash}`} replace />
+}
+
+// Consumer brand pages outside the product flow (legal pages): the brand
+// header, with its language switch, and the footer around the page.
+function ConsumerShell({ children }) {
+  return (
+    <>
+      <Header />
+      <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      <Footer />
+    </>
+  )
+}
+
 // Platform Page Component
-function PlatformPage() {
+function PlatformPage({ platformKey }) {
   const navigate = useNavigate()
   const [showPrototype, setShowPrototype] = useState(false)
   const { i18n } = useTranslation()
 
-  // Get platform ID from URL path
-  let platformId = window.location.pathname.replace('/', '')
+  // Get platform ID from URL path, unless the route names it (the consumer
+  // brand serves its product at "/", which carries no platform in the path)
+  let platformId = platformKey || window.location.pathname.replace('/', '')
   const isSpanish = platformId.startsWith('es/')
   if (isSpanish) {
     platformId = platformId.replace('es/', '')
@@ -111,14 +135,16 @@ function PlatformPage() {
     'endoguard': 'EndoGuard™'
   }
 
-  // Set language based on route
+  // Set language based on route. Not when the route names the platform: the
+  // consumer brand has no /es/ URLs and switches language in place.
   useEffect(() => {
+    if (platformKey) return
     if (isSpanish && i18n.language !== 'es') {
       i18n.changeLanguage('es')
     } else if (!isSpanish && i18n.language === 'es') {
       i18n.changeLanguage('en')
     }
-  }, [isSpanish, i18n])
+  }, [isSpanish, i18n, platformKey])
 
   const platformName = platformMap[platformId]
   const platform = platformsData[platformName]
@@ -260,11 +286,30 @@ function App() {
 
   return (
     <>
-      <StarryBackground />
-      <ScreenshotBugWidget />
-      <LanguageToggle />
-      <AIChatbot />
+      {/* Nexus site chrome. The consumer brand leaves out the starfield, the
+          internal bug reporter, and the Nexus chatbot, which answers as Nexus.
+          It also drops the language toggle for now: the Spanish routes it
+          switches to are Nexus pages, not consumer ones. */}
+      {!brand.isConsumerBrand && <StarryBackground />}
+      {!brand.isConsumerBrand && <ScreenshotBugWidget />}
+      {!brand.isConsumerBrand && <LanguageToggle />}
+      {!brand.isConsumerBrand && <AIChatbot />}
       <Routes>
+      {/* Consumer brand legal pages. Listed first so they win over the Nexus
+          pages at the same paths further down. The Nexus-only pages (HIPAA and
+          the long-form aliases) point to the consumer equivalents. */}
+      {brand.isConsumerBrand && (
+        <>
+          <Route path="/refund-policy" element={<ConsumerShell><RefundPolicy /></ConsumerShell>} />
+          <Route path="/privacy" element={<ConsumerShell><ConsumerPrivacyPolicy /></ConsumerShell>} />
+          <Route path="/terms" element={<ConsumerShell><ConsumerTermsOfService /></ConsumerShell>} />
+          <Route path="/medical-disclaimer" element={<ConsumerShell><ConsumerMedicalDisclaimer /></ConsumerShell>} />
+          <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+          <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
+          <Route path="/hipaa" element={<Navigate to="/privacy" replace />} />
+          <Route path="/hipaa-compliance" element={<Navigate to="/privacy" replace />} />
+        </>
+      )}
       {/* Compliance Pages Routes */}
       <Route 
         path="/privacy" 
@@ -374,14 +419,19 @@ function App() {
       />
       
       {/* EndoGuard Assessment Route - Unauthenticated access allowed for hybrid freemium model */}
-      <Route 
-        path="/endoguard/assessment" 
+      <Route
+        path={brand.routes.assessment}
         element={
           <Suspense fallback={<LoadingFallback />}>
             <EndoGuardAssessment />
           </Suspense>
-        } 
+        }
       />
+      {/* Old product URLs on the consumer brand. The query string is kept so a
+          Stripe return (?session_id=) still unlocks the kit. */}
+      {brand.isConsumerBrand && (
+        <Route path="/endoguard/assessment" element={<RedirectKeepingQuery to={brand.routes.assessment} />} />
+      )}
       
       {/* EndoGuard Demo Results Route */}
       <Route 
@@ -400,7 +450,10 @@ function App() {
       <Route path="/elderwatch" element={<PlatformPage />} />
       <Route path="/pedicalc" element={<PlatformPage />} />
       <Route path="/skinscan" element={<PlatformPage />} />
-      <Route path="/endoguard" element={<PlatformPage />} />
+      <Route
+        path="/endoguard"
+        element={brand.isConsumerBrand ? <RedirectKeepingQuery to={brand.routes.landing} /> : <PlatformPage />}
+      />
 
       {/* Dashboard Route */}
       <Route 
@@ -770,7 +823,7 @@ function App() {
       {/* The consumer brand opens on its single product, not the platform homepage. */}
       <Route
         path="/"
-        element={brand.isConsumerBrand ? <Navigate to={brand.homeRoute} replace /> : <Homepage />}
+        element={brand.isConsumerBrand ? <PlatformPage platformKey="endoguard" /> : <Homepage />}
       />
       </Routes>
     </>

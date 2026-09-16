@@ -2,7 +2,32 @@
  * Onboarding Tour Configurations
  * 
  * Define all guided tours for the Nexus Biomedical platform
+ *
+ * The EndoGuard tours carry `steps` (English) and `stepsEs` (Spanish) with the
+ * same structure. Callers pick one by `i18n.language`. Where the consumer
+ * brand needs different wording (educational tool, topics to discuss rather
+ * than tests to order), the copy is chosen here so both arrays stay in step.
  */
+
+import brand from './brand';
+
+const isConsumer = brand.isConsumerBrand;
+
+/**
+ * driver.js shows English button labels by default. A step's `popover` object
+ * is spread last, so the Spanish labels and a fixed progress text go there.
+ */
+const withSpanishButtons = (steps) =>
+  steps.map((step, index) => ({
+    ...step,
+    popover: {
+      nextBtnText: index === steps.length - 1 ? 'Listo' : 'Siguiente &rarr;',
+      prevBtnText: '&larr; Anterior',
+      doneBtnText: 'Listo',
+      progressText: `${index + 1} de ${steps.length}`,
+      ...step.popover
+    }
+  }));
 
 export const endoGuardAssessmentTour = {
   tourId: 'endoguard-assessment',
@@ -38,11 +63,52 @@ export const endoGuardAssessmentTour = {
     {
       element: '[data-tour="disclaimer"]',
       title: '⚠️ Medical Disclaimer',
-      description: 'This is a clinical decision support tool, not a medical diagnosis. Always consult with your healthcare provider for medical advice.',
+      description: isConsumer
+        ? 'This is an educational tool. It does not diagnose or treat any condition. Always talk with your clinician about medical questions.'
+        : 'This is a clinical decision support tool, not a medical diagnosis. Always consult with your healthcare provider for medical advice.',
       side: 'top',
       align: 'start'
     }
-  ]
+  ],
+  stepsEs: withSpanishButtons([
+    {
+      element: 'body',
+      title: '🎉 Te damos la bienvenida a EndoGuard™',
+      description: 'Esta evaluación GRATUITA te ayudará a entender tu exposición a los disruptores endocrinos (EDC) y su posible impacto en tu salud hormonal. ¡Solo toma 5 minutos!',
+      side: 'bottom',
+      align: 'center'
+    },
+    {
+      element: '[data-tour="step-indicator"]',
+      title: '📊 Evaluación en 6 pasos',
+      description: 'Te guiaremos por 6 pasos sencillos sobre tus datos generales, síntomas, estilo de vida y exposiciones ambientales. Tu progreso se guarda automáticamente.',
+      side: 'bottom',
+      align: 'start'
+    },
+    {
+      element: '[data-tour="age-input"]',
+      title: '👤 Sobre ti',
+      description: 'Primero, cuéntanos tu edad y tu sexo biológico. Esto nos ayuda a darte recomendaciones personalizadas según tu perfil hormonal.',
+      side: 'right',
+      align: 'start'
+    },
+    {
+      element: '[data-tour="next-button"]',
+      title: '➡️ Avanza por los pasos',
+      description: 'Haz clic en "Siguiente" para avanzar en cada paso. Siempre puedes regresar para revisar o cambiar tus respuestas.',
+      side: 'top',
+      align: 'end'
+    },
+    {
+      element: '[data-tour="disclaimer"]',
+      title: '⚠️ Aviso médico',
+      description: isConsumer
+        ? 'Esta es una herramienta educativa: no diagnostica ni trata ninguna condición. Habla siempre con tu profesional de salud sobre cualquier duda médica.'
+        : 'Esta es una herramienta de apoyo a la decisión clínica, no un diagnóstico médico. Consulta siempre a tu profesional de salud para recibir consejo médico.',
+      side: 'top',
+      align: 'start'
+    }
+  ])
 };
 
 export const endoGuardResultsTour = {
@@ -65,7 +131,9 @@ export const endoGuardResultsTour = {
     {
       element: '[data-tour="recommendations"]',
       title: '💡 Personalized Recommendations',
-      description: 'Scroll down to see evidence-based recommendations tailored to your risk profile, including lifestyle changes and medical tests to consider.',
+      description: isConsumer
+        ? 'Scroll down to see evidence-based recommendations tailored to your risk profile, including lifestyle changes and topics to discuss with your clinician.'
+        : 'Scroll down to see evidence-based recommendations tailored to your risk profile, including lifestyle changes and medical tests to consider.',
       side: 'left',
       align: 'start'
     },
@@ -83,7 +151,46 @@ export const endoGuardResultsTour = {
       side: 'bottom',
       align: 'start'
     }
-  ]
+  ],
+  stepsEs: withSpanishButtons([
+    {
+      element: '[data-tour="risk-score"]',
+      title: '🎯 Tu puntuación de riesgo',
+      description: 'Esta puntuación (0-100) representa tu riesgo estimado de exposición a EDC según tus respuestas. Una puntuación más alta indica una mayor exposición potencial.',
+      side: 'bottom',
+      align: 'center'
+    },
+    {
+      element: '[data-tour="risk-level"]',
+      title: '📈 Nivel de riesgo',
+      description: 'Tu riesgo se clasifica como Bajo, Moderado, Alto o Muy alto. Cada nivel incluye recomendaciones específicas.',
+      side: 'bottom',
+      align: 'start'
+    },
+    {
+      element: '[data-tour="recommendations"]',
+      title: '💡 Recomendaciones personalizadas',
+      description: isConsumer
+        ? 'Desplázate hacia abajo para ver recomendaciones basadas en evidencia adaptadas a tu perfil, incluidos cambios en tu estilo de vida y temas para conversar con tu profesional de salud.'
+        : 'Desplázate hacia abajo para ver recomendaciones basadas en evidencia adaptadas a tu perfil de riesgo, incluidos cambios en tu estilo de vida y pruebas médicas a considerar.',
+      side: 'left',
+      align: 'start'
+    },
+    {
+      element: '[data-tour="pdf-download"]',
+      title: '📄 Descarga tu informe',
+      description: 'Guarda tus resultados en PDF para compartirlos con tu profesional de salud o seguir tu progreso con el tiempo.',
+      side: 'bottom',
+      align: 'end'
+    },
+    {
+      element: '[data-tour="retake-assessment"]',
+      title: '🔄 Sigue tu progreso',
+      description: 'Vuelve a hacer la evaluación después de hacer cambios en tu estilo de vida para ver cómo mejora tu puntuación de riesgo.',
+      side: 'bottom',
+      align: 'start'
+    }
+  ])
 };
 
 export const rxGuardDashboardTour = {

@@ -1,9 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import apiPlugin from './vite-plugin-api.js'
+import brandHtmlPlugin from './vite-plugin-brand-html.js'
 
-export default defineConfig({
-  plugins: [react(), apiPlugin()],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const brandId = (env.VITE_BRAND || 'nexus').toLowerCase()
+
+  return {
+  plugins: [react(), apiPlugin(), brandHtmlPlugin(brandId)],
   
   // SSR configuration
   ssr: {
@@ -47,6 +52,7 @@ export default defineConfig({
   // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom']
+  }
   }
 })
 

@@ -13,11 +13,13 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const { i18n, t } = useTranslation();
+  // Branch on the stable key: the consumer brand renames platform.name.
+  const productKey = platform?.productKey || platform?.name;
   
   // Map platform names to dashboard URLs
   const platformDashboards = {
     'RxGuard™': '/rxguard/dashboard',
-    'EndoGuard™': '/endoguard/assessment',
+    'EndoGuard™': brand.routes.assessment,
     'ElderWatch™': '/elderwatch/dashboard',
     'PediCalc Pro™': '/pedicalc/dashboard',
     'ClinicalIQ™': '/clinicaliq/dashboard',
@@ -26,12 +28,12 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   };
   
   const handleGetStarted = () => {
-    const dashboardUrl = platformDashboards[platform.name];
+    const dashboardUrl = platformDashboards[productKey];
     
     // Hybrid freemium model for EndoGuard - allow unauthenticated assessment
-    if (platform.name === 'EndoGuard™') {
+    if (productKey === 'EndoGuard™') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      navigate('/endoguard/assessment');
+      navigate(brand.routes.assessment);
       return;
     }
     
@@ -184,37 +186,37 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   // Handle Start Free Trial button clicks
   const handleStartTrial = () => {
     // For functional platforms, redirect to login/dashboard
-    if (['RxGuard™', 'EndoGuard™'].includes(platform.name)) {
+    if (['RxGuard™', 'EndoGuard™'].includes(productKey)) {
       handleGetStarted();
       return;
     }
     
     // RxGuard™ Professional - $49/month with 14-day trial
-    if (platform.name === 'RxGuard™') {
+    if (productKey === 'RxGuard™') {
       openPaymentLink('rxguard_professional');
     }
     // ReguReady™ - default to Starter plan ($199/month with 7-day trial)
-    else if (platform.name === 'ReguReady™') {
+    else if (productKey === 'ReguReady™') {
       openPaymentLink('reguready_starter');
     }
     // ClinicalIQ™ - default to Starter plan ($299/month with 14-day trial)
-    else if (platform.name === 'ClinicalIQ™') {
+    else if (productKey === 'ClinicalIQ™') {
       openPaymentLink('clinicaliq_starter');
     }
     // ElderWatch™ - default to Home Care ($49/month with 14-day trial)
-    else if (platform.name === 'ElderWatch™') {
+    else if (productKey === 'ElderWatch™') {
       openPaymentLink('elderwatch_home');
     }
     // PediCalc Pro™ - Individual ($19.99/month with 14-day trial)
-    else if (platform.name === 'PediCalc Pro™') {
+    else if (productKey === 'PediCalc Pro™') {
       openPaymentLink('pedicalc_individual');
     }
     // SkinScan Pro™ - Individual Provider ($59/month with 14-day trial)
-    else if (platform.name === 'SkinScan Pro™') {
+    else if (productKey === 'SkinScan Pro™') {
       openPaymentLink('skinscan_individual');
     }
     // EndoGuard™ - Premium ($29/month with 14-day trial)
-    else if (platform.name === 'EndoGuard™') {
+    else if (productKey === 'EndoGuard™') {
       openEndoGuardPayment('premium_monthly');
     }
     // Fallback
@@ -227,18 +229,18 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   // Handle CTA navigation for Phase 1 Conversion Layer
   const handlePhase1CTA = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    navigate('/endoguard/assessment');
+    navigate(brand.routes.assessment);
   };
 
   const handlePricingClick = (plan) => {
     // For functional platforms, redirect to login/dashboard
-    if (['RxGuard™', 'EndoGuard™'].includes(platform.name)) {
+    if (['RxGuard™', 'EndoGuard™'].includes(productKey)) {
       handleGetStarted();
       return;
     }
     
     // RxGuard™
-    if (platform.name === 'RxGuard™') {
+    if (productKey === 'RxGuard™') {
       if (plan.tier === 'Free') {
         window.location.href = '/beta-signup';
       } else if (plan.tier === 'Professional') {
@@ -248,7 +250,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // ReguReady™
-    else if (platform.name === 'ReguReady™') {
+    else if (productKey === 'ReguReady™') {
       if (plan.tier === 'Starter') {
         openPaymentLink('reguready_starter'); // $199/month with 7-day trial
       } else if (plan.tier === 'Professional') {
@@ -258,7 +260,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // ClinicalIQ™
-    else if (platform.name === 'ClinicalIQ™') {
+    else if (productKey === 'ClinicalIQ™') {
       if (plan.tier === 'Starter') {
         openPaymentLink('clinicaliq_starter'); // $299/month with 14-day trial
       } else if (plan.tier === 'Professional') {
@@ -268,7 +270,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // ElderWatch™
-    else if (platform.name === 'ElderWatch™') {
+    else if (productKey === 'ElderWatch™') {
       if (plan.tier === 'Home Care') {
         openPaymentLink('elderwatch_home'); // $49/month with 14-day trial
       } else if (plan.tier === 'Assisted Living') {
@@ -278,7 +280,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // PediCalc Pro™
-    else if (platform.name === 'PediCalc Pro™') {
+    else if (productKey === 'PediCalc Pro™') {
       if (plan.tier === 'Individual') {
         openPaymentLink('pedicalc_individual'); // $19.99/month with 14-day trial
       } else if (plan.tier === 'Group (5-20 providers)') {
@@ -288,7 +290,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // SkinScan Pro™
-    else if (platform.name === 'SkinScan Pro™') {
+    else if (productKey === 'SkinScan Pro™') {
       if (plan.tier === 'Individual') {
         openPaymentLink('skinscan_individual'); // $59/month with 14-day trial
       } else if (plan.tier === 'Group (5-20 providers)') {
@@ -298,7 +300,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
       }
     }
     // EndoGuard™
-    else if (platform.name === 'EndoGuard™') {
+    else if (productKey === 'EndoGuard™') {
       if (plan.tier === 'Free') {
         // Free tier - no payment needed, just redirect to signup
         window.location.href = '/beta-signup';
@@ -321,9 +323,9 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
   };
 
   // Render EndoGuard using i18n keys
-  if (platform.name === 'EndoGuard™') {
+  if (productKey === 'EndoGuard™') {
     return (
-      <div style={{
+      <div className="endoguard-landing" style={{
         minHeight: 'auto',
         background: 'transparent',
         color: '#FFFFFF',
@@ -332,6 +334,9 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         overflowY: 'visible',
         zIndex: 1
       }}>
+        {/* Back Button and Language Toggle. Nexus only: the consumer brand's landing
+            page is the homepage, and the app renders its own language toggle. */}
+        {!brand.isConsumerBrand && (<>
         {/* Back Button */}
         <button
           onClick={onBack}
@@ -372,13 +377,17 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
         }}>
           <LanguageToggle />
         </div>
+        </>)}
 
         {/* Phase 1 Conversion Layer for EndoGuard - Mounted at top of landing page */}
-        {platform.name === 'EndoGuard™' && <EndoGuardPhase1ConversionLayer />}
+        {productKey === 'EndoGuard™' && <EndoGuardPhase1ConversionLayer />}
 
         {/* Content Container */}
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '8rem' }}>
           
+          {/* Hero Section. The consumer brand skips it: the conversion layer above
+              already carries the same headline and button. */}
+          {!brand.isConsumerBrand && (<>
           {/* Hero Section */}
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             {/* Platform Logo */}
@@ -477,6 +486,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
               {t('endoguard.learnmore.hero.disclaimer2')}
             </p>
           </div>
+          </>)}
 
           {/* Problem Section */}
           <section style={{
@@ -711,7 +721,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
           }}>
             {platform.hero.subtitle}
           </p>
-          {platform.name === 'RxGuard™' && (
+          {productKey === 'RxGuard™' && (
             <div style={{
               display: 'inline-block',
               background: 'rgba(255, 255, 255, 0.1)',
@@ -835,7 +845,7 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
 
 
         {/* Pricing - Hidden for EndoGuard Phase 1, shown for other platforms */}
-        {platform.name !== 'EndoGuard™' && (
+        {productKey !== 'EndoGuard™' && (
         <section style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 700, marginBottom: '2rem', textAlign: 'center' }}>
             Pricing

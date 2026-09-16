@@ -7,7 +7,8 @@ import LegalPage from './LegalPage';
  *
  * Written to match how the site actually works: answers are processed but not
  * stored, some answers go to OpenAI, payments go through Stripe, no accounts,
- * no analytics, no marketing email. If any of that changes, change this page.
+ * no analytics, and email only for people who join the Kit list. If any of that
+ * changes, change this page.
  * English and Spanish live side by side so they stay in sync.
  */
 export default function PrivacyPolicy() {
@@ -28,7 +29,7 @@ export default function PrivacyPolicy() {
           <ul>
             <li>No guardamos tus respuestas ni tus resultados. Los calculamos y te los devolvemos.</li>
             <li>Algunas respuestas se envían a OpenAI para redactar partes de tu resumen. Tus condiciones, medicamentos y suplementos escritos a mano no se envían.</li>
-            <li>No hay cuentas, suscripciones, correos de marketing, cookies publicitarias ni herramientas de analítica.</li>
+            <li>No hay cuentas, suscripciones, cookies publicitarias ni herramientas de analítica. Solo recibes nuestros correos si te suscribes.</li>
             <li>Si compras, Stripe procesa el pago. Nosotros nunca vemos el número completo de tu tarjeta.</li>
             <li>No vendemos tu información ni la usamos para publicidad.</li>
           </ul>
@@ -77,7 +78,17 @@ export default function PrivacyPolicy() {
           de Stripe y que conservamos según lo exijan las normas fiscales y contables.
         </p>
         <p><strong>Correos que nos envías.</strong> Si escribes a soporte, tu mensaje se gestiona en
-          nuestro correo de Google Workspace.
+          nuestro correo de Google Workspace. El botón &quot;Reportar un problema&quot; solo abre un
+          correo en tu propia aplicación: no guarda nada en este sitio ni toma capturas de pantalla.
+          Por favor, no incluyas datos de salud en tus correos.
+        </p>
+        <p><strong>Nuestra lista de correos (opcional).</strong> Si te suscribes (por ejemplo, para
+          recibir un registro de síntomas gratis), guardamos tu correo, tu nombre si lo das, el
+          idioma que elegiste y la página donde te suscribiste, para enviarte esos correos. Usamos
+          Kit (EE. UU.) para enviarlos; Kit puede registrar si abres un correo o haces clic en un
+          enlace. Tus respuestas a la evaluación nunca se agregan a esta lista. Puedes darte de baja
+          en cualquier momento con el enlace al final de cada correo, y pedirnos que borremos tus
+          datos.
         </p>
 
         <h2>Información guardada en tu navegador</h2>
@@ -107,6 +118,7 @@ export default function PrivacyPolicy() {
           <li><strong>Vercel</strong>: hosting.</li>
           <li><strong>OpenAI</strong>: redacción de texto con IA.</li>
           <li><strong>Stripe</strong>: pagos y recibos.</li>
+          <li><strong>Kit</strong>: nuestra lista de correos, solo si te suscribes.</li>
           <li><strong>Google</strong>: correo de Google Workspace y Google Fonts.</li>
         </ul>
         <p>
@@ -125,12 +137,18 @@ export default function PrivacyPolicy() {
           tus resultados y enviar parte de ellas a nuestro proveedor de IA. Si no quieres, simplemente
           no envíes el cuestionario. Puedes dejarlo en cualquier momento.
         </p>
+        <p>
+          Suscribirte a correos sobre salud hormonal también puede revelar un interés de salud. Por
+          eso tratamos nuestra lista de correos con el mismo cuidado: solo la usamos para enviarte los
+          correos que pediste, nunca la vendemos ni la compartimos para publicidad, y puedes retirar
+          tu consentimiento dándote de baja.
+        </p>
 
         <h2>Tus derechos</h2>
         <p>
           Puedes pedirnos acceso a tu información, pedir que la borremos o retirar tu consentimiento.
           Como no guardamos tus respuestas, por lo general lo único que tenemos es el registro de
-          compra en Stripe y los correos que nos hayas enviado. Escríbenos a {email}. Respondemos
+          compra en Stripe, los correos que nos hayas enviado y, si te suscribiste, tus datos en nuestra lista de correos. Escríbenos a {email}. Respondemos
           en un plazo de 45 días.
         </p>
         <p>
@@ -163,8 +181,8 @@ export default function PrivacyPolicy() {
         <h2>Cambios a esta política</h2>
         <p>
           Si cambiamos esta política, publicaremos la nueva versión aquí con una fecha actualizada. Si
-          el cambio es importante, lo destacaremos en el sitio. No tenemos lista de correos, así que no
-          te enviaremos un aviso por email.
+          el cambio es importante, lo destacaremos en el sitio y, si estás en nuestra lista de correos,
+          también te avisaremos por email.
         </p>
 
         <h2>Contacto</h2>
@@ -180,7 +198,7 @@ export default function PrivacyPolicy() {
         <ul>
           <li>We don&apos;t store your answers or results. We calculate them and send them back to you.</li>
           <li>Some answers go to OpenAI to write parts of your summary. Anything you type about conditions, medications or supplements does not.</li>
-          <li>No accounts, subscriptions, marketing emails, advertising cookies or analytics.</li>
+          <li>No accounts, subscriptions, advertising cookies or analytics. You only get our emails if you sign up for them.</li>
           <li>If you buy, Stripe handles the payment. We never see your full card number.</li>
           <li>We don&apos;t sell your information or use it for advertising.</li>
         </ul>
@@ -227,7 +245,16 @@ export default function PrivacyPolicy() {
         for tax and accounting.
       </p>
       <p><strong>Emails you send us.</strong> If you email support, your message is handled in our
-        Google Workspace email.
+        Google Workspace email. The &quot;Report a problem&quot; button only opens an email in your own
+        mail app: it saves nothing on this site and takes no screenshots. Please don&apos;t include
+        health details in emails to us.
+      </p>
+      <p><strong>Our email list (optional).</strong> If you sign up (for example, to get a free
+        symptom tracker), we keep your email, your name if you give it, the language you chose and the
+        page you signed up on, so we can send you those emails. We use Kit (US) to send them; Kit may
+        record whether you open an email or click a link. Your assessment answers are never added to
+        this list. You can unsubscribe anytime with the link at the bottom of every email, and ask us
+        to delete your details.
       </p>
 
       <h2>What&apos;s stored in your browser</h2>
@@ -256,6 +283,7 @@ export default function PrivacyPolicy() {
         <li><strong>Vercel</strong>: hosting.</li>
         <li><strong>OpenAI</strong>: AI-written text.</li>
         <li><strong>Stripe</strong>: payments and receipts.</li>
+        <li><strong>Kit</strong>: our email list, only if you sign up.</li>
         <li><strong>Google</strong>: Google Workspace email and Google Fonts.</li>
       </ul>
       <p>
@@ -274,12 +302,16 @@ export default function PrivacyPolicy() {
         some answers to our AI provider. If you don&apos;t want that, don&apos;t submit the
         questionnaire. You can stop at any time.
       </p>
+      <p>
+        Signing up for emails about hormone health can also suggest a health interest. So we treat our
+        email list with the same care: we use it only to send the emails you asked for, never sell it or
+        share it for advertising, and you can withdraw consent by unsubscribing.
+      </p>
 
       <h2>Your rights</h2>
       <p>
         You can ask to access your information, ask us to delete it, or withdraw your consent. Because
-        we don&apos;t store your answers, the only things we usually have are the Stripe purchase record
-        and any emails you sent us. Email {email}. We respond within 45 days.
+        we don&apos;t store your answers, the only things we usually have are the Stripe purchase record, any emails you sent us and, if you signed up, your details on our email list. Email {email}. We respond within 45 days.
       </p>
       <p>
         If we deny your request, you can appeal by replying to our decision email with
@@ -310,8 +342,8 @@ export default function PrivacyPolicy() {
       <h2>Changes to this policy</h2>
       <p>
         If we change this policy, we will post the new version here with a new date. If the change is
-        material, we will highlight it on the site. We don&apos;t have an email list, so we won&apos;t
-        email you about it.
+        material, we will highlight it on the site and, if you are on our email list, email you about
+        it.
       </p>
 
       <h2>Contact</h2>

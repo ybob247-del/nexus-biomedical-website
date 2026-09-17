@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import LanguageToggle from './LanguageToggle';
 import EndoGuardPhase1ConversionLayer from './EndoGuardPhase1ConversionLayer';
+import ConsumerFAQ from './ConsumerFAQ';
 
 export default function LearnMore({ platform, onBack, onTryDemo }) {
   const navigate = useNavigate();
@@ -566,6 +567,9 @@ export default function LearnMore({ platform, onBack, onTryDemo }) {
               ))}
             </div>
           </section>
+
+          {/* Consumer brand: FAQ, led by the privacy promise */}
+          {brand.isConsumerBrand && <ConsumerFAQ />}
 
           {/* CTA Section */}
           <section style={{

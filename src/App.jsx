@@ -15,6 +15,7 @@ import FAQ from './components/FAQ'
 import WhoBenefits from './components/WhoBenefits'
 import Footer from './components/Footer'
 import ScreenshotBugWidget from './components/ScreenshotBugWidget'
+import ConsumerProblemReport from './components/ConsumerProblemReport'
 import LanguageToggle from './components/LanguageToggle'
 
 import AIChatbot from './components/AIChatbot'
@@ -287,11 +288,12 @@ function App() {
   return (
     <>
       {/* Nexus site chrome. The consumer brand leaves out the starfield, the
-          internal bug reporter, and the Nexus chatbot, which answers as Nexus.
+          screenshot bug reporter (it stores screenshots; the consumer version opens
+          an email instead), and the Nexus chatbot, which answers as Nexus.
           It also drops the language toggle for now: the Spanish routes it
           switches to are Nexus pages, not consumer ones. */}
       {!brand.isConsumerBrand && <StarryBackground />}
-      {!brand.isConsumerBrand && <ScreenshotBugWidget />}
+      {brand.isConsumerBrand ? <ConsumerProblemReport /> : <ScreenshotBugWidget />}
       {!brand.isConsumerBrand && <LanguageToggle />}
       {!brand.isConsumerBrand && <AIChatbot />}
       <Routes>

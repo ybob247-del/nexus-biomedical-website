@@ -77,9 +77,7 @@ async function callOpenAI(messages, options = {}) {
 // JSON keys stay English so the response still parses into the same shape.
 function languageInstruction(language) {
   return language === 'es'
-    ? '
-
-Write every human-readable string value in the JSON in Spanish. Keep all JSON keys, and enum values such as strong/moderate/limited and high/medium/low, exactly as specified in English.'
+    ? '\n\nWrite every human-readable string value in the JSON in Spanish. Keep all JSON keys, and enum values such as strong/moderate/limited and high/medium/low, exactly as specified in English.'
     : '';
 }
 

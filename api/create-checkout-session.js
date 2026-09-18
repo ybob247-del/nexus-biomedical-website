@@ -40,7 +40,12 @@ async function verifyPurchase(req, res) {
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     return res.status(200).json({
-      paid: session.mode === 'payment' && session.payment_status === 'paid',
+      // A 100%-off promotion code completes checkout with nothing to charge,
+      // which Stripe reports as 'no_payment_required' rather than 'paid'.
+      paid:
+        session.mode === 'payment' &&
+        session.status === 'complete' &&
+        (session.payment_status === 'paid' || session.payment_status === 'no_payment_required'),
       sku: (session.metadata && session.metadata.sku) || null,
     });
   } catch (error) {
@@ -97,6 +102,9 @@ export default async function handler(req, res) {
       ? await stripe.checkout.sessions.create({
           ...common,
           mode: 'payment',
+          // The consumer brand accepts promotion codes (launch discounts, free
+          // copies for testing and reviewers). Nexus checkout is unchanged.
+          allow_promotion_codes: (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit' || undefined,
           success_url: `${FRONTEND_URL}${safePath(successPath, '/')}?session_id={CHECKOUT_SESSION_ID}`,
           cancel_url: `${FRONTEND_URL}${safePath(cancelPath, '/')}`,
         })

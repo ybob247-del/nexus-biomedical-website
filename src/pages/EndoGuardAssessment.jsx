@@ -73,6 +73,7 @@ export default function EndoGuardAssessment() {
   const [results, setResults] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
+  const [answersMissing, setAnswersMissing] = useState(false);
   // Consumer brand: explicit consent before answers (consumer health data) are
   // sent anywhere. Required by health-data laws such as Washington's MHMDA.
   const [healthDataConsent, setHealthDataConsent] = useState(false);
@@ -143,6 +144,11 @@ export default function EndoGuardAssessment() {
         if (saved && saved.results) {
           setResults(saved.results);
           setStep(7);
+        } else {
+          // Paid, but the answers are not in this browser (checkout finished in
+          // another browser or app, or storage was cleared). Say so, rather than
+          // silently showing a blank assessment.
+          setAnswersMissing(true);
         }
         // Stays unlocked for this visit, so a buyer on a different device can
         // retake the assessment and still see the full results.
@@ -417,7 +423,7 @@ export default function EndoGuardAssessment() {
 
   return (
       <>
-      {showSuccessBanner && (unlocked || !brand.isConsumerBrand) && (
+      {showSuccessBanner && ((unlocked && !answersMissing) || !brand.isConsumerBrand) && (
         <div style={{
           position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
           zIndex: 9999, background: '#d4edda', border: '1px solid #28a745',
@@ -435,11 +441,23 @@ export default function EndoGuardAssessment() {
       <OnboardingTour 
         tourId={endoGuardAssessmentTour.tourId}
         steps={brandifyDeep(i18n.language?.startsWith('es') ? endoGuardAssessmentTour.stepsEs : endoGuardAssessmentTour.steps)}
-        autoStart={step === 1}
+        autoStart={step === 1 && !paymentSuccess}
       />
       {/* Consumer brand: the site header (name links home, language switch) */}
       {brand.isConsumerBrand ? <Header /> : <BackToHomeButton />}
       {user && <TrialExpirationBanner platform="endoguard" />}
+      {answersMissing && step < 7 && (
+        <div className="nii-purchase-notice" role="status">
+          <strong>
+            {i18n.language?.startsWith('es')
+              ? 'Tu compra está confirmada.'
+              : 'Your purchase is confirmed.'}
+          </strong>{' '}
+          {i18n.language?.startsWith('es')
+            ? 'Tus respuestas se quedaron en el navegador donde empezaste (nunca las guardamos en nuestros servidores), así que no aparecen aquí. Vuelve a responder la evaluación en esta página y tu kit completo se abrirá al final, sin pagar de nuevo. Mantén esta pestaña abierta mientras lo haces.'
+            : 'Your answers stayed in the browser where you started (we never keep them on our servers), so they are not here. Take the assessment again on this page and your full kit opens at the end, with no second payment. Keep this tab open while you do.'}
+        </div>
+      )}
       {/* Phase 1 Conversion Layer - Added above existing assessment page */}
       <EndoGuardPhase1ConversionLayer />
       <div id="endoguard-assessment" className="endoguard-assessment">

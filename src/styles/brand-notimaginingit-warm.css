@@ -242,3 +242,15 @@
   background: linear-gradient(135deg, var(--nii-blush) 0%, var(--nii-lilac) 48%, var(--nii-primary-soft) 100%) !important;
   box-shadow: 0 30px 60px -40px rgba(31, 92, 90, 0.45) !important;
 }
+
+/* Shown when a purchase is confirmed but the answers are not in this browser. */
+[data-brand='notimaginingit'] .nii-purchase-notice {
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #e3f0ed;
+  border-left: 4px solid var(--nii-primary, #1f5c5a);
+  color: var(--nii-ink, #1c2230);
+  line-height: 1.6;
+}

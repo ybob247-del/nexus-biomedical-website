@@ -23,6 +23,22 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const FRONTEND_URL = (process.env.FRONTEND_URL || 'https://nexusbiomedical.ai').replace(/\/$/, '');
 
+// Buyers must come back to the exact address they left from: results kept in
+// the browser during checkout are stored per address, so a buyer who started
+// on www. and returned without it found nothing. Use the page's own origin when
+// it is FRONTEND_URL or its www. twin, otherwise FRONTEND_URL.
+function returnBase(req) {
+  const origin = String((req.headers && req.headers.origin) || '').replace(/\/$/, '');
+  try {
+    const front = new URL(FRONTEND_URL);
+    const bare = front.hostname.replace(/^www\./, '');
+    const allowed = new Set([`${front.protocol}//${bare}`, `${front.protocol}//www.${bare}`]);
+    return allowed.has(origin) ? origin : FRONTEND_URL;
+  } catch {
+    return FRONTEND_URL;
+  }
+}
+
 // Same-site paths only, so a request cannot send a buyer to another site.
 function safePath(path, fallback) {
   if (typeof path !== 'string') return fallback;
@@ -115,8 +131,8 @@ export default async function handler(req, res) {
           // The consumer brand accepts promotion codes (launch discounts, free
           // copies for testing and reviewers). Nexus checkout is unchanged.
           allow_promotion_codes: (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit' || undefined,
-          success_url: `${FRONTEND_URL}${safePath(successPath, '/')}?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${FRONTEND_URL}${safePath(cancelPath, '/')}`,
+          success_url: `${returnBase(req)}${safePath(successPath, '/')}?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${returnBase(req)}${safePath(cancelPath, '/')}`,
         })
       : await stripe.checkout.sessions.create({
           ...common,

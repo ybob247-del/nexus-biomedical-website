@@ -24,12 +24,39 @@ export default function ConsumerProblemReport() {
   const pageAddress = `${window.location.origin}${window.location.pathname}`;
   const technical = `${es ? 'Página' : 'Page'}: ${pageAddress}\n${es ? 'Navegador' : 'Browser'}: ${navigator.userAgent}`;
 
-  const openEmail = () => {
-    const subject = es ? 'Reporte de un problema en el sitio' : 'Website problem report';
-    const body = [
-      description.trim() || (es ? '(Describe qué pasó)' : '(Describe what happened)'),
-      includeTechnical ? `\n---\n${technical}` : '',
-    ].join('\n');
+  const subject = es ? 'Reporte de un problema en el sitio' : 'Website problem report';
+  const body = [
+    description.trim() || (es ? '(Describe qué pasó)' : '(Describe what happened)'),
+    includeTechnical ? `\n---\n${technical}` : '',
+  ].join('\n');
+
+  // Many computers have no email app set up, and a mailto link then shows the
+  // system's "choose an app" picker. So offer three ways: copy the message,
+  // open Gmail in the browser, or use the email app.
+  const [copied, setCopied] = useState(false);
+  const copyMessage = async () => {
+    const text = `To: ${brand.supportEmail}\nSubject: ${subject}\n\n${body}`;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 4000);
+  };
+
+  const openGmail = () => {
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(brand.supportEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(url, '_blank', 'noopener');
+    setOpen(false);
+  };
+
+  const openEmailApp = () => {
     window.location.href = `mailto:${brand.supportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setOpen(false);
   };
@@ -53,8 +80,8 @@ export default function ConsumerProblemReport() {
 
             <p className="nii-report-notice">
               {es
-                ? 'Esto abre un correo a nuestro equipo de soporte. Solo lo ve soporte, nunca lo vendemos y no se guarda en este sitio. Por favor, no escribas tus síntomas, respuestas ni otros datos de salud. Si agregas una captura de pantalla, recorta o tapa cualquier información personal.'
-                : 'This opens an email to our support team. Only support sees it, we never sell it, and nothing is saved on this site. Please don’t include your symptoms, answers or other health details. If you attach a screenshot, crop or cover any personal information first.'}
+                ? 'Esto prepara un correo para nuestro equipo de soporte. Solo lo ve soporte, nunca lo vendemos y no se guarda en este sitio. Por favor, no escribas tus síntomas, respuestas ni otros datos de salud. Si agregas una captura de pantalla, recorta o tapa cualquier información personal.'
+                : 'This prepares an email to our support team. Only support sees it, we never sell it, and nothing is saved on this site. Please don’t include your symptoms, answers or other health details. If you attach a screenshot, crop or cover any personal information first.'}
             </p>
 
             <label htmlFor="nii-report-description">
@@ -86,13 +113,20 @@ export default function ConsumerProblemReport() {
               <button type="button" className="nii-report-cancel" onClick={() => setOpen(false)}>
                 {es ? 'Cancelar' : 'Cancel'}
               </button>
-              <button type="button" className="nii-report-send" onClick={openEmail}>
-                {es ? 'Abrir correo para enviar' : 'Open email to send'}
+              <button type="button" className="nii-report-cancel" onClick={copyMessage}>
+                {copied ? (es ? '¡Copiado!' : 'Copied!') : (es ? 'Copiar mensaje' : 'Copy message')}
+              </button>
+              <button type="button" className="nii-report-send" onClick={openGmail}>
+                {es ? 'Enviar con Gmail' : 'Send with Gmail'}
               </button>
             </div>
             <p className="nii-report-fallback">
-              {es ? '¿No se abrió tu correo? Escríbenos a ' : 'Email app didn’t open? Write to '}
-              <a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
+              {es ? 'Otro correo: ' : 'Other email: '}
+              <button type="button" className="nii-report-link" onClick={openEmailApp}>
+                {es ? 'abrir mi app de correo' : 'open my email app'}
+              </button>
+              {es ? ', o copia el mensaje y envíalo a ' : ', or copy the message and send it to '}
+              <strong>{brand.supportEmail}</strong>
             </p>
           </div>
         </div>

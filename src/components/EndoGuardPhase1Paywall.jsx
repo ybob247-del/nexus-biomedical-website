@@ -55,31 +55,34 @@ export default function EndoGuardPhase1Paywall({ results }) {
     disclaimer: "Importante: EndoGuard™ es una herramienta educativa. No diagnostica condiciones médicas, no recomienda tratamientos ni reemplaza la atención médica profesional. Los resultados se basan en información autodeclarada y están diseñados para apoyar conversaciones médicas más tempranas e informadas."
   };
 
+  // Every bullet here must match what the kit actually contains
+  // (src/utils/appointmentKit.js). Promising more invites refund requests and
+  // bad reviews.
   const kitEN = {
     headline: "Get Your Appointment Prep Kit",
-    subheadline: "Your summary is above. The kit unlocks the rest of your results and a printable PDF, organized so your next appointment starts from your record instead of from scratch.",
+    subheadline: "Your summary is above. The kit turns your answers into a personal, printable plan for your next appointment, so the visit starts from your record instead of from scratch.",
     valueBullets: [
-      "Your complete results — Every section of your assessment, not just the summary",
-      "Tests worth discussing — Lab tests you could ask your clinician about, based on what you reported",
-      "Recommendations and next steps — Organized so you know what to bring up first",
-      "A printable PDF — Yours to keep, or to hand to your clinician"
+      "Your five things to raise first — Ranked from your answers, each with a plain-language reason and a trusted source (ACOG, NIH, MedlinePlus)",
+      "Questions and tests to ask about — Written as questions, so you can ask with confidence and your clinician decides",
+      "A 30-second opener — Plus what to bring, what to say if you feel rushed, and when not to wait",
+      "A printable PDF with a two-week symptom log — Yours to keep. Nothing is stored on our servers"
     ],
     ctaButtonText: `Get My Appointment Prep Kit — ${offer.priceLabel} (One-Time)`,
-    ctaSubtext: "(No subscription. No recurring charges.)",
+    ctaSubtext: "(No subscription. No recurring charges. Full refund within 14 days if it is not useful to you.)",
     disclaimer: `Important: ${brand.name} is an educational tool. It does not diagnose medical conditions, does not recommend treatment, and does not replace professional medical care. It organizes what you reported so you can have a more informed conversation with a healthcare provider.`
   };
 
   const kitES = {
     headline: "Obtén tu Kit de preparación para tu consulta",
-    subheadline: "Tu resumen está arriba. El kit desbloquea el resto de tus resultados y un PDF para imprimir, organizado para que tu próxima consulta empiece desde tu registro y no desde cero.",
+    subheadline: "Tu resumen está arriba. El kit convierte tus respuestas en un plan personal para imprimir, para que tu próxima consulta empiece desde tu registro y no desde cero.",
     valueBullets: [
-      "Tus resultados completos — Cada sección de tu evaluación, no solo el resumen",
-      "Análisis que vale la pena conversar — Pruebas de laboratorio que podrías consultar con tu médico, según lo que reportaste",
-      "Recomendaciones y próximos pasos — Organizados para que sepas qué mencionar primero",
-      "Un PDF para imprimir — Para guardarlo o entregárselo a tu médico"
+      "Las cinco cosas que mencionar primero — Ordenadas según tus respuestas, cada una con una explicación sencilla y una fuente confiable (ACOG, NIH, MedlinePlus)",
+      "Preguntas y análisis por los que preguntar — Escritos como preguntas, para que preguntes con confianza y tu profesional de salud decida",
+      "Una presentación de 30 segundos — Además de qué llevar, qué decir si sientes prisa y cuándo no esperar",
+      "Un PDF para imprimir con un registro de síntomas de dos semanas — Para ti. No se guarda nada en nuestros servidores"
     ],
     ctaButtonText: `Obtener mi kit — ${offer.priceLabel} (pago único)`,
-    ctaSubtext: "(Sin suscripción. Sin cargos recurrentes.)",
+    ctaSubtext: "(Sin suscripción. Sin cargos recurrentes. Reembolso completo dentro de 14 días si no te resulta útil.)",
     disclaimer: `Importante: ${brand.name} es una herramienta educativa. No diagnostica condiciones médicas, no recomienda tratamientos ni reemplaza la atención médica profesional. Organiza lo que reportaste para que tengas una conversación más informada con un profesional de la salud.`
   };
 

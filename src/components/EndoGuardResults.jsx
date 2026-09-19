@@ -11,6 +11,8 @@ import OnboardingTour from './OnboardingTour';
 import { endoGuardResultsTour } from '../config/tours';
 import BMIGauge from './BMIGauge';
 import { exportEndoGuardPDF } from '../utils/pdfExport';
+import { exportAppointmentKitPDF } from '../utils/appointmentKitPdf';
+import AppointmentKitView from './AppointmentKitView';
 import EndoGuardPhase1Paywall from './EndoGuardPhase1Paywall';
 import brand, { brandifyDeep } from '../config/brand';
 import '../styles/endoguard-results.css';
@@ -47,8 +49,10 @@ export default function EndoGuardResults({ results, unlocked = false }) {
     try {
       setIsGeneratingPDF(true);
       
-      // Generate professional PDF report
-      const result = await exportEndoGuardPDF(results, user);
+      // The consumer brand's PDF is the Appointment Prep Kit; Nexus keeps its report.
+      const result = brand.isConsumerBrand
+        ? exportAppointmentKitPDF(results, i18n.language)
+        : await exportEndoGuardPDF(results, user);
       
       if (result.success) {
         // Show success message
@@ -90,6 +94,11 @@ export default function EndoGuardResults({ results, unlocked = false }) {
       {!unlocked && <EndoGuardPhase1Paywall results={results} />}
 
       {!gated && (<>
+      {/* Consumer brand: the Appointment Prep Kit replaces the Nexus report
+          sections (risk factors, supplement and test recommendations). */}
+      {brand.isConsumerBrand && <AppointmentKitView results={results} />}
+
+      {!brand.isConsumerBrand && (<>
       {/* EDC Exposure Section */}
       <div className="results-section">
         <h3>{t('endoguard.results.edcExposure.title')}</h3>
@@ -455,6 +464,7 @@ export default function EndoGuardResults({ results, unlocked = false }) {
           ))}
         </div>
       </div>
+      </>)}
 
       {/* Call to Action */}
       {brand.isConsumerBrand ? (

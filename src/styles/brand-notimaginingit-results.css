@@ -171,6 +171,58 @@
   border-color: #fff;
 }
 
+/* Next steps: teal panel instead of Nexus purple. */
+[data-brand='notimaginingit'] .next-steps-section {
+  background: linear-gradient(135deg, var(--nii-primary) 0%, #2a7470 100%) !important;
+  color: #fff !important;
+  border-radius: 24px !important;
+}
+
+[data-brand='notimaginingit'] .next-steps-section h3,
+[data-brand='notimaginingit'] .next-steps-section .step-title,
+[data-brand='notimaginingit'] .next-steps-section .step-action,
+[data-brand='notimaginingit'] .next-steps-section p,
+[data-brand='notimaginingit'] .next-steps-section div {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: transparent !important;
+}
+
+[data-brand='notimaginingit'] .next-steps-section .step-number {
+  background: #fff !important;
+  color: var(--nii-primary) !important;
+  -webkit-text-fill-color: var(--nii-primary) !important;
+}
+
+/* Download PDF: white pill on the teal panel, teal text. */
+[data-brand='notimaginingit'] .cta-section .btn-primary {
+  background: #fff !important;
+  color: var(--nii-primary) !important;
+  -webkit-text-fill-color: var(--nii-primary) !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+
+[data-brand='notimaginingit'] .cta-section .btn-primary:hover {
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Medical disclaimer: calm sage frame, teal title. */
+[data-brand='notimaginingit'] .medical-disclaimer {
+  background: #f3f8f6 !important;
+  border: 1px solid rgba(95, 143, 120, 0.45) !important;
+  border-left: 4px solid var(--nii-sage) !important;
+  border-radius: 16px !important;
+}
+
+[data-brand='notimaginingit'] .medical-disclaimer h4 {
+  color: var(--nii-primary-ink) !important;
+}
+
+[data-brand='notimaginingit'] .medical-disclaimer p {
+  color: var(--nii-ink-2) !important;
+}
+
 /* Headings inside teal panels: white (the global heading rule paints ink). */
 [data-brand='notimaginingit'] .cta-section h2,
 [data-brand='notimaginingit'] .cta-section h3,

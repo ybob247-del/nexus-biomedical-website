@@ -11,19 +11,37 @@ const SITE = 'https://notimaginingit.com';
 const TITLE = 'Not Imagining It — Systems, not symptoms.';
 const DESCRIPTION =
   'Turn what you have been noticing into a clear one-page summary you can hand to your doctor.';
+// Link previews (Facebook, iMessage, WhatsApp, YouTube, X) use the hero line,
+// which says what the visitor gets. Icons and the preview image live in
+// public/brand/notimaginingit/ and are linked only from the consumer build.
+const SHARE_TITLE = 'Not Imagining It — Walk into your next appointment prepared';
+const ASSETS = `${SITE}/brand/notimaginingit`;
 
 const CONSUMER_HEAD = `<title>${TITLE}</title>
     <meta name="description" content="${DESCRIPTION}" />
 
+    <link rel="icon" href="/brand/notimaginingit/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/notimaginingit/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/brand/notimaginingit/apple-touch-icon.png" />
+    <link rel="manifest" href="/brand/notimaginingit/site.webmanifest" />
+    <meta name="theme-color" content="#1f5c5a" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Not Imagining It" />
     <meta property="og:url" content="${SITE}/" />
-    <meta property="og:title" content="${TITLE}" />
+    <meta property="og:title" content="${SHARE_TITLE}" />
     <meta property="og:description" content="${DESCRIPTION}" />
+    <meta property="og:image" content="${ASSETS}/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Not Imagining It: walk into your next appointment prepared. Free assessment, English and Spanish." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="${TITLE}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${SHARE_TITLE}" />
     <meta name="twitter:description" content="${DESCRIPTION}" />
+    <meta name="twitter:image" content="${ASSETS}/og-image.png" />
 
     <meta name="author" content="Not Imagining It" />
     <meta name="robots" content="index, follow" />

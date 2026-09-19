@@ -74,6 +74,12 @@ export default function EndoGuardAssessment() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [answersMissing, setAnswersMissing] = useState(false);
+  const consumerResults = brand.isConsumerBrand && step === 7;
+
+  // Results replace the page content, so start them at the top.
+  useEffect(() => {
+    if (consumerResults) window.scrollTo(0, 0);
+  }, [consumerResults]);
   // Consumer brand: explicit consent before answers (consumer health data) are
   // sent anywhere. Required by health-data laws such as Washington's MHMDA.
   const [healthDataConsent, setHealthDataConsent] = useState(false);
@@ -458,9 +464,13 @@ export default function EndoGuardAssessment() {
             : 'Your answers stayed in the browser where you started (we never keep them on our servers), so they are not here. Take the assessment again on this page and your full kit opens at the end, with no second payment. Keep this tab open while you do.'}
         </div>
       )}
-      {/* Phase 1 Conversion Layer - Added above existing assessment page */}
-      <EndoGuardPhase1ConversionLayer />
+      {/* Phase 1 Conversion Layer - Added above existing assessment page.
+          Consumer brand: once results show, the landing hero, intro and step
+          counter are hidden so the page is just the results (and, after
+          purchase, the kit). */}
+      {!consumerResults && <EndoGuardPhase1ConversionLayer />}
       <div id="endoguard-assessment" className="endoguard-assessment">
+      {!consumerResults && (
       <div className="assessment-header">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h1 style={{ margin: 0 }}>{t('endoguard.assessment.title')}</h1>
@@ -510,10 +520,12 @@ export default function EndoGuardAssessment() {
           <FDADisclaimer />
         </div>
       </div>
+      )}
 
       {/* Usage Statistics Dashboard */}
       {user && <UsageStatsDashboard platform="endoguard" />}
 
+      {!consumerResults && (
       <div className="assessment-header">
         {/* Progress Bar */}
         <div className="progress-bar">
@@ -526,6 +538,7 @@ export default function EndoGuardAssessment() {
           {t('endoguard.assessment.stepIndicator', { current: step, total: 6 })}
         </div>
       </div>
+      )}
 
       <div className="assessment-content">
         {/* Step 1: Demographics */}

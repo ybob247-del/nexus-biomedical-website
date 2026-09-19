@@ -1,0 +1,244 @@
+/**
+ * Not Imagining It: "warm confidence" colour system (September 2026).
+ *
+ * Loaded after brand-notimaginingit.css and scoped the same way, so the Nexus
+ * site never sees it. Colour roles, chosen for what each signals:
+ *   - Deep teal: trust and calm. The credible health register, without
+ *     hospital blue. Headings accents, links, step numbers, the footer.
+ *   - Coral: action. Reserved for buttons that ask someone to take a step,
+ *     so the eye always knows where to go next. White text passes WCAG AA.
+ *   - Sage: reassurance. Ticks and "you're safe here" moments.
+ *   - Blush → lilac → mint wash: warmth and care in the hero, without
+ *     falling back on stereotyped pink.
+ */
+
+[data-brand='notimaginingit'] body {
+  background: var(--nii-paper);
+}
+
+/* Header: a small brand mark ahead of the name. */
+[data-brand='notimaginingit'] .nexus-header .brand-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[data-brand='notimaginingit'] .nexus-header .brand-name::before {
+  content: 'NI';
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--nii-primary);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  font: 600 0.8rem/1 var(--nii-display);
+  letter-spacing: -0.02em;
+}
+
+/* ---- Hero (conversion card) ---- */
+
+[data-brand='notimaginingit'] .endoguard-phase1-conversion-layer {
+  padding: 8px 0 40px;
+}
+
+[data-brand='notimaginingit'] .conversion-container,
+[data-brand='notimaginingit'] .conversion-container:hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, var(--nii-blush) 0%, var(--nii-lilac) 48%, var(--nii-primary-soft) 100%);
+  border: 0;
+  border-radius: 28px;
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);
+  box-shadow: 0 30px 60px -40px rgba(31, 92, 90, 0.45);
+}
+
+/* Soft light shapes behind the copy. */
+[data-brand='notimaginingit'] .conversion-container::before,
+[data-brand='notimaginingit'] .conversion-container::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+[data-brand='notimaginingit'] .conversion-container::before {
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: -160px;
+  background: radial-gradient(circle, rgba(196, 71, 47, 0.18) 0%, rgba(196, 71, 47, 0) 70%);
+}
+
+[data-brand='notimaginingit'] .conversion-container::after {
+  width: 380px;
+  height: 380px;
+  left: -140px;
+  bottom: -170px;
+  background: radial-gradient(circle, rgba(31, 92, 90, 0.2) 0%, rgba(31, 92, 90, 0) 70%);
+}
+
+[data-brand='notimaginingit'] .conversion-headline {
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem) !important;
+  line-height: 1.08 !important;
+  max-width: 16ch;
+  margin: 0 auto 18px !important;
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .conversion-subheadline {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  color: var(--nii-ink-2);
+  max-width: 44rem;
+}
+
+[data-brand='notimaginingit'] .value-bullet-item,
+[data-brand='notimaginingit'] .value-bullet-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 24px -20px rgba(28, 34, 48, 0.5);
+}
+
+[data-brand='notimaginingit'] .bullet-icon {
+  background: var(--nii-sage);
+  width: 22px;
+  height: 22px;
+}
+
+/* ---- Buttons that ask for action: coral pills ---- */
+
+[data-brand='notimaginingit'] .conversion-cta-button,
+[data-brand='notimaginingit'] .phase1-cta-button,
+[data-brand='notimaginingit'] .paywall-cta-button,
+[data-brand='notimaginingit'] .endoguard-assessment .submit-btn {
+  background: var(--nii-cta) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  padding: 16px 34px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+  box-shadow: 0 14px 28px -14px rgba(196, 71, 47, 0.75) !important;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+[data-brand='notimaginingit'] .conversion-cta-button:hover,
+[data-brand='notimaginingit'] .phase1-cta-button:hover,
+[data-brand='notimaginingit'] .paywall-cta-button:hover,
+[data-brand='notimaginingit'] .endoguard-assessment .submit-btn:not(:disabled):hover {
+  background: var(--nii-cta-hover) !important;
+  transform: translateY(-1px);
+}
+
+[data-brand='notimaginingit'] .endoguard-assessment .submit-btn:disabled {
+  background: #d9b7ae !important;
+  box-shadow: none !important;
+}
+
+[data-brand='notimaginingit'] .conversion-secondary-line {
+  color: var(--nii-primary-ink);
+  font-weight: 600;
+}
+
+/* Landing-page buttons get coral from the platform gradient; make them pills. */
+[data-brand='notimaginingit'] .endoguard-landing button {
+  border-radius: 999px !important;
+  padding: 16px 34px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 14px 28px -14px rgba(196, 71, 47, 0.75) !important;
+}
+
+/* Step-number badges use the same inline gradient; paint them teal instead. */
+[data-brand='notimaginingit'] .endoguard-landing div[style*='linear-gradient(135deg, rgb(196, 71, 47)'] {
+  background: var(--nii-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 18px -10px rgba(31, 92, 90, 0.8) !important;
+}
+
+/* Sections: softer corners, no hard outline. */
+[data-brand='notimaginingit'] .endoguard-landing section:not(.endoguard-phase1-conversion-layer) {
+  border-radius: 22px !important;
+  border-color: transparent !important;
+}
+
+/* Cards: a colour-coded top edge cycling teal, coral, sage, gold. */
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)'] {
+  border-radius: 18px !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-top: 4px solid var(--nii-primary) !important;
+  box-shadow: var(--nii-shadow);
+  transition: transform 160ms ease;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)']:hover {
+  transform: translateY(-2px);
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)']:nth-child(4n + 2) {
+  border-top-color: var(--nii-cta) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)']:nth-child(4n + 3) {
+  border-top-color: var(--nii-sage) !important;
+}
+
+[data-brand='notimaginingit'] .endoguard-landing [style*='background: rgba(255, 255, 255, 0.05)']:nth-child(4n + 4) {
+  border-top-color: var(--nii-gold) !important;
+}
+
+/* Feature titles carry the platform colour inline: teal. */
+[data-brand='notimaginingit'] .endoguard-landing h3[style*='color: rgb(31, 92, 90)'] {
+  color: var(--nii-primary) !important;
+}
+
+/* ---- FAQ ---- */
+
+[data-brand='notimaginingit'] .nii-faq summary {
+  color: var(--nii-primary-ink);
+}
+
+[data-brand='notimaginingit'] .nii-faq summary::marker {
+  color: var(--nii-cta);
+}
+
+/* ---- Footer: grounded deep teal ---- */
+
+[data-brand='notimaginingit'] .nii-footer {
+  background: #173f3d;
+  border-top: 0;
+  color: #e8f1ef;
+}
+
+[data-brand='notimaginingit'] .nii-footer-brand {
+  color: #fff !important;
+}
+
+[data-brand='notimaginingit'] .nii-footer-tagline,
+[data-brand='notimaginingit'] .nii-footer-fine {
+  color: #b9d0cc !important;
+}
+
+[data-brand='notimaginingit'] .nii-footer-links button,
+[data-brand='notimaginingit'] .nii-footer-links a {
+  color: #f6ddd4 !important;
+}
+
+/* ---- Switches: pill shaped ---- */
+
+[data-brand='notimaginingit'] .nii-lang-toggle,
+[data-brand='notimaginingit'] .units-switch {
+  border-radius: 999px;
+}
+
+/* Closing call to action repeats the hero wash, so the page starts and ends warm. */
+[data-brand='notimaginingit'] .endoguard-landing section[style*='rgba(31, 92, 90, 0.125)'] {
+  background: linear-gradient(135deg, var(--nii-blush) 0%, var(--nii-lilac) 48%, var(--nii-primary-soft) 100%) !important;
+  box-shadow: 0 30px 60px -40px rgba(31, 92, 90, 0.45) !important;
+}

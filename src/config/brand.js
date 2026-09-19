@@ -149,12 +149,13 @@ export function brandifyText(value) {
 /**
  * Colour fields the consumer brand overrides on the shared platform data.
  * These render as inline styles, so CSS cannot reach them; the data has to
- * change instead. The Nexus magenta gradient is replaced by a flat, steady blue.
+ * change instead. The Nexus magenta gradient is replaced by the brand teal and coral.
  */
 export const platformColorOverrides = brand.isConsumerBrand
   ? {
-      color: '#2e4a6b',
-      gradient: 'linear-gradient(180deg, #2e4a6b 0%, #2e4a6b 100%)',
+      color: '#1f5c5a',
+      // Landing-page buttons use this; step badges are recoloured teal in CSS.
+      gradient: 'linear-gradient(135deg, #c4472f 0%, #d4613f 100%)',
       badge: brand.tagline.toUpperCase(),
     }
   : null;

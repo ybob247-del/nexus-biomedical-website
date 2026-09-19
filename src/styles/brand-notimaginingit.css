@@ -14,21 +14,30 @@
 
 [data-brand='notimaginingit'] {
   /* Ground and ink — warm, not clinical. Paper, not a screen. */
-  --nii-paper: #faf7f3;
+  --nii-paper: #fcf8f4;
   --nii-surface: #ffffff;
-  --nii-surface-2: #f2ece5;
-  --nii-ink: #16171c;
-  --nii-ink-2: #454750;
-  --nii-ink-3: #767681;
-  --nii-rule: #e4ddd4;
+  --nii-surface-2: #f6efe8;
+  --nii-ink: #1c2230;
+  --nii-ink-2: #4a5160;
+  --nii-ink-3: #737987;
+  --nii-rule: #ebe2d8;
   --nii-rule-strong: #cdc3b7;
 
   /* Primary — a steady, measured blue. Credible without reading as hospital. */
-  --nii-primary: #2e4a6b;
-  --nii-primary-soft: #e4ebf3;
-  --nii-primary-ink: #1e3149;
+  --nii-primary: #1f5c5a;
+  --nii-primary-soft: #e3f0ed;
+  --nii-primary-ink: #164543;
 
   /* The human accent. Used sparingly, and never on data. */
+  /* Action color: warm coral for the buttons that ask someone to act. Passes
+     WCAG AA with white text. */
+  --nii-cta: #c4472f;
+  --nii-cta-hover: #a93a25;
+  --nii-blush: #fbeee8;
+  --nii-lilac: #f2eaf6;
+  --nii-sage: #5f8f78;
+  --nii-gold: #e2a93b;
+
   --nii-warm: #b85c38;
   --nii-warm-soft: #f8ebe4;
 
@@ -40,8 +49,8 @@
   --nii-crit: #9c2f2a;
   --nii-crit-soft: #f8e4e2;
 
-  --nii-shadow: 0 1px 2px rgba(22, 23, 28, 0.05), 0 10px 28px -18px rgba(22, 23, 28, 0.3);
-  --nii-radius: 4px;
+  --nii-shadow: 0 1px 2px rgba(28, 34, 48, 0.04), 0 18px 40px -26px rgba(31, 92, 90, 0.35);
+  --nii-radius: 14px;
 
   --nii-display: 'Petrona', Georgia, 'Times New Roman', serif;
   --nii-body: 'Karla', 'Segoe UI', Helvetica, Arial, sans-serif;

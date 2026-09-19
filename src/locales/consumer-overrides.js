@@ -107,9 +107,62 @@ const assessmentES = {
   freeAssessmentDetails: 'Unos 5 minutos • No guardamos tus respuestas • Educativo, no es un diagnóstico',
 };
 
+// Results page. The score is a summary of how much the visitor reported
+// (symptoms, duration, everyday exposures), not a risk of disease, so it is
+// named and explained that way.
+const resultsEN = {
+  title: 'Your Not Imagining It Summary',
+  overallRiskLevel: 'Your Summary Score',
+  riskScore: 'Summary Score',
+  riskLevel: 'Level',
+  riskLevels: { low: 'Low', moderate: 'Moderate', high: 'High', veryHigh: 'Very high' },
+  riskDescriptions: {
+    HIGH: 'You reported a lot: several symptoms, lasting a while, alongside everyday exposures. That is worth a clear conversation with your clinician. This score is not a diagnosis.',
+    MODERATE: 'You reported a meaningful number of symptoms and everyday exposures. Bringing a clear summary to your next appointment can help. This score is not a diagnosis.',
+    LOW: 'You reported relatively few symptoms and exposures. If something still feels off, it is still worth raising with your clinician. This score is not a diagnosis.',
+  },
+  edcExposure: {
+    title: '🧪 Everyday Exposures',
+    exposureRiskScore: 'Everyday Exposure Score',
+    risk: '',
+    keyRiskFactors: 'What stood out in your answers:',
+    impact: 'Why it matters:',
+    action: 'To discuss:',
+  },
+  recommendations: {
+    title: '💬 Topics To Discuss With Your Clinician',
+    noRecommendations: 'Nothing specific stood out. If something still feels off, bring it up at your next appointment.',
+  },
+};
+
+const resultsES = {
+  title: 'Tu resumen de Not Imagining It',
+  overallRiskLevel: 'Tu puntuación resumen',
+  riskScore: 'Puntuación resumen',
+  riskLevel: 'Nivel',
+  riskLevels: { low: 'Bajo', moderate: 'Moderado', high: 'Alto', veryHigh: 'Muy alto' },
+  riskDescriptions: {
+    HIGH: 'Reportaste bastante: varios síntomas, desde hace un tiempo, junto con exposiciones cotidianas. Vale la pena conversarlo con claridad con tu profesional de salud. Esta puntuación no es un diagnóstico.',
+    MODERATE: 'Reportaste un número importante de síntomas y exposiciones cotidianas. Llevar un resumen claro a tu próxima consulta puede ayudarte. Esta puntuación no es un diagnóstico.',
+    LOW: 'Reportaste relativamente pocos síntomas y exposiciones. Si algo aún no se siente bien, vale la pena mencionarlo a tu profesional de salud. Esta puntuación no es un diagnóstico.',
+  },
+  edcExposure: {
+    title: '🧪 Exposiciones cotidianas',
+    exposureRiskScore: 'Puntuación de exposiciones cotidianas',
+    risk: '',
+    keyRiskFactors: 'Lo que resaltó en tus respuestas:',
+    impact: 'Por qué importa:',
+    action: 'Para conversar:',
+  },
+  recommendations: {
+    title: '💬 Temas para conversar con tu profesional de salud',
+    noRecommendations: 'No resaltó nada en particular. Si algo aún no se siente bien, menciónalo en tu próxima consulta.',
+  },
+};
+
 export const consumerOverrides = {
-  en: { endoguard: { learnmore: learnmoreEN, assessment: assessmentEN } },
-  es: { endoguard: { learnmore: learnmoreES, assessment: assessmentES } },
+  en: { endoguard: { learnmore: learnmoreEN, assessment: assessmentEN, results: resultsEN } },
+  es: { endoguard: { learnmore: learnmoreES, assessment: assessmentES, results: resultsES } },
 };
 
 /** Deep-merge overrides into a locale bundle. Arrays in overrides replace whole. */

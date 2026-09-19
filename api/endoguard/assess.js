@@ -563,6 +563,17 @@ async function handler(req, res) {
     // says so in its privacy policy. Nothing below may run for it.
     const neverStore = (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit';
 
+    // The consumer site is educational and never recommends supplements or
+    // treatments (its terms and medical disclaimer say so). Its kit is built
+    // from the visitor's answers in the browser; drop supplement advice here
+    // too, so it cannot reach that site by any path.
+    if (neverStore) {
+      assessment.recommendations = (assessment.recommendations || []).filter((rec) => rec.category !== 'supplements');
+      if (assessment.aiInsights?.personalizedRecommendations) {
+        assessment.aiInsights.personalizedRecommendations.supplements = [];
+      }
+    }
+
     // Save to assessment history for progress tracking (if user authenticated)
     if (!neverStore && (req.session?.userId || req.user?.id)) {
       const userId = req.session?.userId || req.user?.id;

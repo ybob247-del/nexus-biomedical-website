@@ -1,0 +1,167 @@
+/**
+ * On-screen Appointment Prep Kit (AppointmentKitView). Only rendered on the
+ * consumer brand, and scoped to it anyway.
+ */
+
+[data-brand='notimaginingit'] .nii-kit {
+  display: grid;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+[data-brand='notimaginingit'] .nii-kit-card {
+  background: #fff;
+  border: 1px solid var(--nii-rule);
+  border-radius: 22px;
+  padding: clamp(20px, 4vw, 32px);
+  box-shadow: var(--nii-shadow);
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .nii-kit-card h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
+[data-brand='notimaginingit'] .nii-kit-card h3 {
+  margin: 22px 0 10px;
+  font-size: 1.3rem;
+  color: var(--nii-primary-ink) !important;
+}
+
+[data-brand='notimaginingit'] .nii-kit-card h3:first-child {
+  margin-top: 0;
+}
+
+[data-brand='notimaginingit'] .nii-kit-card h4 {
+  margin: 0 0 6px;
+  font-family: var(--nii-body);
+  font-size: 0.95rem;
+  color: var(--nii-primary);
+}
+
+[data-brand='notimaginingit'] .nii-kit-card p,
+[data-brand='notimaginingit'] .nii-kit-card li,
+[data-brand='notimaginingit'] .nii-kit-card dd {
+  color: var(--nii-ink-2);
+  line-height: 1.6;
+}
+
+[data-brand='notimaginingit'] .nii-kit-intro {
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px 20px;
+  margin: 0;
+}
+
+[data-brand='notimaginingit'] .nii-kit-about dt,
+[data-brand='notimaginingit'] .nii-kit-listed dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--nii-ink-3);
+}
+
+[data-brand='notimaginingit'] .nii-kit-about dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .nii-kit-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-group {
+  background: var(--nii-primary-soft);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-group ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+[data-brand='notimaginingit'] .nii-kit-ranked {
+  list-style: none;
+  counter-reset: kit;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-ranked li {
+  counter-increment: kit;
+  position: relative;
+  padding: 12px 14px 12px 56px;
+  border-radius: 14px;
+  background: var(--nii-surface-2);
+}
+
+[data-brand='notimaginingit'] .nii-kit-ranked li::before {
+  content: counter(kit);
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--nii-primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+[data-brand='notimaginingit'] .nii-kit-ranked strong {
+  display: block;
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .nii-kit-questions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-questions li {
+  position: relative;
+  padding-left: 30px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-questions li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--nii-cta);
+  border-radius: 4px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-listed {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+[data-brand='notimaginingit'] .nii-kit-listed dd {
+  margin: 2px 0 0;
+}
+
+[data-brand='notimaginingit'] .nii-kit-none {
+  font-style: italic;
+  color: var(--nii-ink-3) !important;
+}

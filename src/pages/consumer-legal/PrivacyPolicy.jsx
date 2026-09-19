@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
         <ul>
           <li>Tu preferencia de idioma (una cookie y almacenamiento local, unos 30 días).</li>
           <li>Una nota de que ya completaste la visita guiada.</li>
-          <li>Tus resultados, de forma temporal, por hasta 24 horas, para que no se pierdan al ir y
+          <li>Tus respuestas y resultados, de forma temporal, por hasta 24 horas, para que no se pierdan al ir y
             volver de Stripe ni si recargas la página. Se borran automáticamente la próxima vez que
             abras el sitio después de esas 24 horas, o cuando borres los datos de este sitio en tu
             navegador.</li>
@@ -263,7 +263,7 @@ export default function PrivacyPolicy() {
       <ul>
         <li>Your language preference (a cookie and local storage, about 30 days).</li>
         <li>A note that you finished the guided tour.</li>
-        <li>Your results, temporarily, for up to 24 hours, so they survive the trip to Stripe and a
+        <li>Your answers and results, temporarily, for up to 24 hours, so they survive the trip to Stripe and a
           page refresh. They are deleted automatically the next time you open the site after 24 hours,
           or whenever you clear this site&apos;s data in your browser.</li>
       </ul>

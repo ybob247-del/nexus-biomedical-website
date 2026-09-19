@@ -375,7 +375,28 @@ export default function EndoGuardAssessment() {
       const data = await response.json();
       
       if (data.success) {
-        setResults(data.assessment);
+        // The Appointment Prep Kit is built from the visitor's own answers.
+        // They stay in this browser: they are attached to the results object
+        // here and never sent anywhere else.
+        const reported = {
+          age: formData.age,
+          biologicalSex: formData.biologicalSex,
+          menstrualStatus: formData.menstrualStatus,
+          symptomKeys: formData.symptoms.map((label) => symptomKeyByLabel.get(label)).filter(Boolean),
+          symptomDuration: formData.symptomDuration,
+          dietQuality: formData.dietQuality,
+          exerciseFrequency: formData.exerciseFrequency,
+          sleepQuality: formData.sleepQuality,
+          stressLevel: formData.stressLevel,
+          plasticUseFrequency: formData.plasticUseFrequency,
+          processedFoodFrequency: formData.processedFoodFrequency,
+          waterSource: formData.waterSource,
+          occupationalExposure: formData.occupationalExposure,
+          existingConditions: formData.existingConditions,
+          medications: formData.medications,
+          supplements: formData.supplements,
+        };
+        setResults(brand.isConsumerBrand ? { ...data.assessment, reported } : data.assessment);
         setStep(7); // Results step
         trackAction('complete_assessment', { 
           age: formData.age,

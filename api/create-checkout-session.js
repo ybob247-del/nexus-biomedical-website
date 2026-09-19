@@ -68,7 +68,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { priceId, email, userId, platform, trialDays, sku, successPath, cancelPath, language } = req.body || {};
+    const { priceId: requestedPriceId, email, userId, platform, trialDays, sku, successPath, cancelPath, language } = req.body || {};
+
+    // The consumer brand sells one product, so the server uses its own
+    // configured price and ignores the one the page sends. A page left open
+    // from before a price change (or a tampered request) cannot pick the price.
+    const isConsumerBrand = (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit';
+    const priceId = (isConsumerBrand && process.env.VITE_ENDOGUARD_PRICE_ID) || requestedPriceId;
 
     if (!priceId || !email) {
       return res.status(400).json({

@@ -146,8 +146,10 @@ export const endoGuardResultsTour = {
     },
     {
       element: '[data-tour="retake-assessment"]',
-      title: '🔄 Track Progress',
-      description: 'Retake the assessment after making lifestyle changes to see how your risk score improves!',
+      title: isConsumer ? '🔄 Update Before Your Visit' : '🔄 Track Progress',
+      description: isConsumer
+        ? 'Things change. Retake the assessment before your next appointment so your summary reflects how you feel now.'
+        : 'Retake the assessment after making lifestyle changes to see how your risk score improves!',
       side: 'bottom',
       align: 'start'
     }
@@ -185,8 +187,10 @@ export const endoGuardResultsTour = {
     },
     {
       element: '[data-tour="retake-assessment"]',
-      title: '🔄 Sigue tu progreso',
-      description: 'Vuelve a hacer la evaluación después de hacer cambios en tu estilo de vida para ver cómo mejora tu puntuación de riesgo.',
+      title: isConsumer ? '🔄 Actualízalo antes de tu consulta' : '🔄 Sigue tu progreso',
+      description: isConsumer
+        ? 'Las cosas cambian. Vuelve a hacer la evaluación antes de tu próxima consulta para que tu resumen refleje cómo te sientes ahora.'
+        : 'Vuelve a hacer la evaluación después de hacer cambios en tu estilo de vida para ver cómo mejora tu puntuación de riesgo.',
       side: 'bottom',
       align: 'start'
     }

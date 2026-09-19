@@ -94,6 +94,9 @@ export function OnboardingTour({ tourId, steps, autoStart = true, onComplete }) 
             if (onComplete) {
               onComplete();
             }
+            // Defining onDestroyStarted makes driver.js wait for us to close the
+            // tour. Without this call, "Done" on the last step did nothing.
+            driverObj.destroy();
           }
         },
         // Custom styling to match Nexus Biomedical theme

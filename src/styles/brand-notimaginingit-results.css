@@ -1,0 +1,182 @@
+/**
+ * Not Imagining It: paywall, results page and guided tour in the warm
+ * confidence palette. Scoped to the consumer brand; Nexus is unchanged.
+ *
+ * These components were built for Nexus's dark purple theme, with white text
+ * on dark panels. On the consumer brand's light ground that left white text on
+ * pale pink (unreadable), so every panel here sets both its ground and its ink.
+ */
+
+/* ---- Paywall ("Get your Appointment Prep Kit") ---- */
+
+[data-brand='notimaginingit'] .endoguard-phase1-paywall {
+  background: transparent;
+  padding: 40px 0;
+}
+
+[data-brand='notimaginingit'] .paywall-container,
+[data-brand='notimaginingit'] .paywall-container:hover {
+  background: linear-gradient(135deg, var(--nii-blush) 0%, var(--nii-lilac) 48%, var(--nii-primary-soft) 100%);
+  backdrop-filter: none;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -40px rgba(31, 92, 90, 0.45);
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .paywall-headline {
+  color: var(--nii-ink) !important;
+  -webkit-text-fill-color: var(--nii-ink) !important;
+  background: none !important;
+}
+
+[data-brand='notimaginingit'] .paywall-subheadline {
+  color: var(--nii-ink-2) !important;
+}
+
+[data-brand='notimaginingit'] .paywall-bullet-item {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-left: 0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 24px -20px rgba(28, 34, 48, 0.5);
+}
+
+[data-brand='notimaginingit'] .paywall-bullet-item .bullet-text {
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .paywall-bullet-item .bullet-icon {
+  background: var(--nii-sage) !important;
+  color: #fff !important;
+}
+
+[data-brand='notimaginingit'] .paywall-email-label {
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .paywall-email-input {
+  background: #fff !important;
+  color: var(--nii-ink) !important;
+  border: 1px solid var(--nii-rule-strong) !important;
+  border-radius: 999px !important;
+  padding-left: 20px !important;
+}
+
+[data-brand='notimaginingit'] .paywall-email-input:focus {
+  border-color: var(--nii-primary) !important;
+  outline: 2px solid var(--nii-primary-soft);
+}
+
+[data-brand='notimaginingit'] .paywall-error {
+  color: var(--nii-crit) !important;
+  font-weight: 600;
+}
+
+[data-brand='notimaginingit'] .paywall-cta-subtext {
+  color: var(--nii-primary-ink) !important;
+  font-weight: 600;
+}
+
+[data-brand='notimaginingit'] .paywall-disclaimer-section {
+  border-top: 1px solid rgba(31, 92, 90, 0.15) !important;
+}
+
+[data-brand='notimaginingit'] .paywall-disclaimer {
+  color: var(--nii-ink-2) !important;
+}
+
+/* ---- Results: headline score card ---- */
+
+/* One calm teal for every level. Alarm colours (red, hot pink) would read as
+   a warning, and this score is a summary of what was reported, not a risk. */
+[data-brand='notimaginingit'] .overall-risk-card,
+[data-brand='notimaginingit'] .overall-risk-card.risk-low,
+[data-brand='notimaginingit'] .overall-risk-card.risk-moderate,
+[data-brand='notimaginingit'] .overall-risk-card.risk-high,
+[data-brand='notimaginingit'] .overall-risk-card.risk-very {
+  background: linear-gradient(135deg, var(--nii-primary) 0%, #2a7470 100%) !important;
+  border-radius: 24px !important;
+  color: #fff !important;
+  box-shadow: 0 30px 60px -40px rgba(31, 92, 90, 0.7);
+}
+
+[data-brand='notimaginingit'] .overall-risk-card h2,
+[data-brand='notimaginingit'] .overall-risk-card p,
+[data-brand='notimaginingit'] .overall-risk-card div {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Panels painted with Nexus purple inline: teal instead, white text kept. */
+[data-brand='notimaginingit'] [style*='background: linear-gradient(135deg, rgb(102, 126, 234)'],
+[data-brand='notimaginingit'] [style*='background: linear-gradient(135deg, rgb(217, 70, 239)'],
+[data-brand='notimaginingit'] .cta-section {
+  background: linear-gradient(135deg, var(--nii-primary) 0%, #2a7470 100%) !important;
+}
+
+/* Purple accents inside the results: teal. */
+[data-brand='notimaginingit'] .endoguard-results [style*='color: rgb(102, 126, 234)'] {
+  color: var(--nii-primary) !important;
+}
+
+[data-brand='notimaginingit'] .system-badge {
+  background: var(--nii-primary) !important;
+  color: #fff !important;
+}
+
+/* ---- Guided tour popover ---- */
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover {
+  background: #fff !important;
+  color: var(--nii-ink) !important;
+  border: 1px solid var(--nii-rule) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 24px 48px -24px rgba(28, 34, 48, 0.45) !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-title {
+  color: var(--nii-primary-ink) !important;
+  -webkit-text-fill-color: var(--nii-primary-ink) !important;
+  background: none !important;
+  font-family: var(--nii-display) !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-description,
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-progress-text {
+  color: var(--nii-ink-2) !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-next-btn {
+  background: var(--nii-cta) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  text-shadow: none !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-prev-btn {
+  background: #fff !important;
+  color: var(--nii-ink) !important;
+  border: 1px solid var(--nii-rule-strong) !important;
+  border-radius: 999px !important;
+  text-shadow: none !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-close-btn {
+  color: var(--nii-ink-3) !important;
+}
+
+[data-brand='notimaginingit'] .driver-popover.nexus-tour-popover .driver-popover-arrow {
+  border-color: #fff;
+}
+
+/* Headings inside teal panels: white (the global heading rule paints ink). */
+[data-brand='notimaginingit'] .cta-section h2,
+[data-brand='notimaginingit'] .cta-section h3,
+[data-brand='notimaginingit'] .cta-section p,
+[data-brand='notimaginingit'] [style*='background: linear-gradient(135deg, rgb(102, 126, 234)'] h2,
+[data-brand='notimaginingit'] [style*='background: linear-gradient(135deg, rgb(102, 126, 234)'] h3 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}

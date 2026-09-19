@@ -165,3 +165,46 @@
   font-style: italic;
   color: var(--nii-ink-3) !important;
 }
+
+[data-brand='notimaginingit'] .nii-kit-opener {
+  margin: 0;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #faece7;
+  color: var(--nii-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+[data-brand='notimaginingit'] .nii-kit-understanding {
+  display: grid;
+  gap: 18px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-understanding p {
+  margin: 0 0 6px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-understanding a {
+  font-size: 0.9rem;
+  color: var(--nii-primary);
+  text-decoration: underline;
+}
+
+[data-brand='notimaginingit'] .nii-kit-urgent {
+  margin-top: 22px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #faece7;
+  border-left: 4px solid var(--nii-cta);
+}
+
+[data-brand='notimaginingit'] .nii-kit-urgent h4 {
+  color: var(--nii-cta);
+  margin-bottom: 8px;
+}
+
+[data-brand='notimaginingit'] .nii-kit-urgent ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}

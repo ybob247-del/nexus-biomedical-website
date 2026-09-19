@@ -61,6 +61,14 @@ export default function AppointmentKitView({ results }) {
         </section>
       )}
 
+      {kit.opener && (
+        <section className="nii-kit-card">
+          <h3>{c.opener}</h3>
+          <p className="nii-kit-intro">{c.openerIntro}</p>
+          <blockquote className="nii-kit-opener">{kit.opener}</blockquote>
+        </section>
+      )}
+
       <section className="nii-kit-card">
         <h3>{c.questions}</h3>
         <p className="nii-kit-intro">{c.questionsIntro}</p>
@@ -69,6 +77,82 @@ export default function AppointmentKitView({ results }) {
             <li key={q}>{q}</li>
           ))}
         </ul>
+
+        {kit.tests.length > 0 && (
+          <>
+            <h3>{c.tests}</h3>
+            <p className="nii-kit-intro">{c.testsIntro}</p>
+            <ul className="nii-kit-questions">
+              {kit.tests.map((q) => (
+                <li key={q}>{q}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
+
+      {kit.understanding.length > 0 && (
+        <section className="nii-kit-card">
+          <h3>{c.understanding}</h3>
+          <p className="nii-kit-intro">{c.understandingIntro}</p>
+          <div className="nii-kit-understanding">
+            {kit.understanding.map((u) => (
+              <article key={u.title}>
+                <h4>{u.title}</h4>
+                <p>{u.why}</p>
+                {u.source && (
+                  <a href={u.source.url} target="_blank" rel="noopener noreferrer">
+                    {c.source}: {u.source.name}
+                  </a>
+                )}
+                {u.more && (
+                  <>
+                    <br />
+                    <a href={u.more.url} target="_blank" rel="noopener noreferrer">
+                      {c.moreInfo}: {u.more.name}
+                    </a>
+                  </>
+                )}
+              </article>
+            ))}
+          </div>
+          {kit.glossary.length > 0 && (
+            <>
+              <h3>{c.glossary}</h3>
+              <dl className="nii-kit-listed">
+                {kit.glossary.map((g) => (
+                  <div key={g.term}>
+                    <dt>{g.term}</dt>
+                    <dd>{g.text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </>
+          )}
+        </section>
+      )}
+
+      <section className="nii-kit-card">
+        <h3>{c.bring}</h3>
+        <ul>
+          {c.bringItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <h3>{c.rushed}</h3>
+        <ul>
+          {c.rushedItems.map((item) => (
+            <li key={item}>&ldquo;{item}&rdquo;</li>
+          ))}
+        </ul>
+        <div className="nii-kit-urgent">
+          <h4>{c.urgent}</h4>
+          <ul>
+            {c.urgentItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="nii-kit-card">
@@ -96,6 +180,7 @@ export default function AppointmentKitView({ results }) {
             </div>
           ))}
         </dl>
+        <p className="nii-kit-intro">{c.logOnPdf}</p>
       </section>
     </div>
   );

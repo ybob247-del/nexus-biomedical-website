@@ -105,6 +105,14 @@ export default function AppointmentKitView({ results }) {
                     {c.source}: {u.source.name}
                   </a>
                 )}
+                {u.more && (
+                  <>
+                    <br />
+                    <a href={u.more.url} target="_blank" rel="noopener noreferrer">
+                      {c.moreInfo}: {u.more.name}
+                    </a>
+                  </>
+                )}
               </article>
             ))}
           </div>

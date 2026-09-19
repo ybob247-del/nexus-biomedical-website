@@ -71,6 +71,7 @@ const COPY = {
     understanding: 'Why these are worth raising',
     understandingIntro: 'Plain-language background for you, with one trusted source for each. Not a diagnosis.',
     source: 'Source',
+    moreInfo: 'More',
     exposures: 'Everyday exposures I mentioned',
     noExposures: 'None of the everyday exposures in the questionnaire stood out.',
     meds: 'Conditions, medications and supplements I listed',
@@ -172,6 +173,7 @@ const COPY = {
     understanding: 'Por qué vale la pena mencionarlos',
     understandingIntro: 'Información sencilla para ti, con una fuente confiable para cada punto. No es un diagnóstico.',
     source: 'Fuente',
+    moreInfo: 'Más información',
     exposures: 'Exposiciones cotidianas que mencioné',
     noExposures: 'No resaltó ninguna de las exposiciones cotidianas del cuestionario.',
     meds: 'Condiciones, medicamentos y suplementos que indiqué',
@@ -377,7 +379,7 @@ export function buildAppointmentKit(results, language = i18n.language) {
   // Tests people commonly ask about: from every matched topic, top ranked first.
   const tests = ranked.filter((x) => x.test).map((x) => x.test).slice(0, 5);
 
-  // Background for each ranked topic, plus exposures when any were noted.
+  // Background for each ranked topic, plus endocrine-disrupting chemicals.
   const understanding = ranked.filter((x) => x.why).slice(0, 5).map(({ title, why, source }) => ({ title, why, source }));
 
   // Questions, chosen by what was reported.
@@ -396,9 +398,16 @@ export function buildAppointmentKit(results, language = i18n.language) {
   const waterKeys = { tap_unfiltered: 'tapUnfiltered', bottled: 'bottled', well: 'well' };
   if (waterKeys[r.waterSource]) exposures.push(c.exposure.water(t(`endoguard.steps.exposure.waterOptions.${waterKeys[r.waterSource]}`)));
   if (r.occupationalExposure) exposures.push(c.exposure.work);
+  // EDC background goes in every kit; it notes when the person reported exposures.
+  const edc = EXTRA_TOPICS.exposures[lang];
+  understanding.push({
+    title: edc.title,
+    why: exposures.length ? `${edc.why} ${edc.noted}` : edc.why,
+    source: edc.source,
+    more: edc.more,
+  });
   if (exposures.length) {
     questions.push(c.q.exposures);
-    understanding.push({ title: EXTRA_TOPICS.exposures[lang].title, why: EXTRA_TOPICS.exposures[lang].why, source: EXTRA_TOPICS.exposures[lang].source });
   }
 
   const conditions = (r.existingConditions || '').trim();

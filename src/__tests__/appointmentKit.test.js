@@ -80,3 +80,15 @@ describe('topic content stays educational', () => {
     for (const c of all) if (c.test) expect(c.test.trim()).toMatch(/\?$/);
   });
 });
+
+describe('endocrine-disrupting chemicals', () => {
+  it('appear in every kit with the Endocrine Society source', () => {
+    for (const lang of ['en', 'es']) {
+      const kit = buildAppointmentKit({ reported: { age: 40, biologicalSex: 'female', symptomKeys: [] } }, lang);
+      const edc = kit.understanding.find((u) => u.source.url.includes('endocrine.org'));
+      expect(edc).toBeTruthy();
+      expect(edc.more.url).toContain('niehs.nih.gov');
+      expect(kit.glossary.map((g) => g.term)).toContain(lang === 'es' ? 'EDC' : 'EDCs');
+    }
+  });
+});

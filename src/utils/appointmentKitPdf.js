@@ -238,15 +238,15 @@ export function exportAppointmentKitPDF(results, language) {
         y += 5;
       }
       paragraph(u.why, 10, INK_2);
-      if (u.source) {
+      for (const [label, src] of [[c.source, u.source], [c.moreInfo, u.more]]) {
+        if (!src) continue;
         ensure(10);
         font('normal', 8.5, TEAL);
-        const sourceText = `${c.source}: ${u.source.name}`;
-        pdf.textWithLink(sourceText, M, y, { url: u.source.url });
+        pdf.textWithLink(`${label}: ${src.name}`, M, y, { url: src.url });
         y += 4;
         font('normal', 7.5, INK_2);
-        pdf.textWithLink(u.source.url, M, y, { url: u.source.url });
-        y += 3;
+        pdf.textWithLink(src.url, M, y, { url: src.url });
+        y += 4;
       }
       y += 3.5;
     }

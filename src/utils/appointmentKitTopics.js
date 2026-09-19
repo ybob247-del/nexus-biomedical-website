@@ -235,16 +235,23 @@ export const EXTRA_TOPICS = {
       source: { name: 'MedlinePlus: Insomnio', url: 'https://medlineplus.gov/spanish/insomnia.html' },
     },
   },
+  // Endocrine-disrupting chemicals (EDCs). Shown in every kit: the brand
+  // grew out of EDC education, and it is useful background even when no
+  // exposures stood out. The wording changes when the person noted some.
   exposures: {
     en: {
-      title: 'Everyday chemical exposures',
-      why: 'Some chemicals in everyday products, such as certain plastics, can interfere with hormones. These are called endocrine disruptors. Research is still developing, so ask your clinician which changes, if any, are worth making.',
-      source: { name: 'NIEHS: Endocrine Disruptors', url: 'https://www.niehs.nih.gov/health/topics/agents/endocrine' },
+      title: 'Endocrine-disrupting chemicals (EDCs)',
+      why: 'Endocrine-disrupting chemicals (EDCs) are substances in some everyday products, such as certain plastics (BPA, phthalates), some personal care products and pesticides, that can interfere with how hormones work. Research is still developing and the effects in any one person are hard to measure, so ask your clinician which changes, if any, are worth making for you.',
+      noted: 'You noted some of these exposures in the questionnaire, so they are listed later in this kit.',
+      source: { name: 'Endocrine Society: Endocrine-Disrupting Chemicals (EDCs)', url: 'https://www.endocrine.org/patient-engagement/endocrine-library/edcs' },
+      more: { name: 'NIEHS: Endocrine Disruptors', url: 'https://www.niehs.nih.gov/health/topics/agents/endocrine' },
     },
     es: {
-      title: 'Exposiciones químicas cotidianas',
-      why: 'Algunas sustancias químicas de productos cotidianos, como ciertos plásticos, pueden interferir con las hormonas. Se llaman disruptores endocrinos. La investigación sigue avanzando, así que pregunta a tu profesional de salud qué cambios valen la pena, si los hay.',
-      source: { name: 'NIEHS: Endocrine Disruptors (en inglés)', url: 'https://www.niehs.nih.gov/health/topics/agents/endocrine' },
+      title: 'Disruptores endocrinos (EDC)',
+      why: 'Los disruptores endocrinos (EDC, por sus siglas en inglés) son sustancias de algunos productos cotidianos, como ciertos plásticos (BPA, ftalatos), algunos productos de cuidado personal y pesticidas, que pueden interferir con el funcionamiento de las hormonas. La investigación sigue avanzando y sus efectos en una persona concreta son difíciles de medir, así que pregunta a tu profesional de salud qué cambios valen la pena para ti, si los hay.',
+      noted: 'Marcaste algunas de estas exposiciones en el cuestionario, así que aparecen más adelante en este kit.',
+      source: { name: 'Endocrine Society: Endocrine-Disrupting Chemicals (en inglés)', url: 'https://www.endocrine.org/patient-engagement/endocrine-library/edcs' },
+      more: { name: 'NIEHS: Endocrine Disruptors (en inglés)', url: 'https://www.niehs.nih.gov/health/topics/agents/endocrine' },
     },
   },
 };
@@ -258,5 +265,5 @@ export const GLOSSARY = [
   { term: 'PCOS', es_term: 'SOP', en: 'Polycystic ovary syndrome. A common hormonal condition that can affect cycles, skin, hair and blood sugar.', es: 'Síndrome de ovario poliquístico. Una condición hormonal frecuente que puede afectar los ciclos, la piel, el cabello y el azúcar en sangre.' },
   { term: 'CBT-I', es_term: 'TCC-I', en: 'Cognitive behavioral therapy for insomnia. A structured, drug-free program to improve sleep.', es: 'Terapia cognitivo-conductual para el insomnio. Un programa estructurado, sin medicamentos, para dormir mejor.' },
   { term: 'perimenopause', es_term: 'perimenopausia', en: 'The years before menopause when hormone levels shift and periods change.', es: 'Los años antes de la menopausia, cuando las hormonas cambian y los períodos también.' },
-  { term: 'endocrine disruptors', es_term: 'disruptores endocrinos', en: 'Chemicals in some everyday products that can interfere with hormones.', es: 'Sustancias químicas de algunos productos cotidianos que pueden interferir con las hormonas.' },
+  { term: 'EDCs', es_term: 'EDC', en: 'Endocrine-disrupting chemicals: substances in some everyday products that can interfere with hormones.', es: 'Disruptores endocrinos: sustancias de algunos productos cotidianos que pueden interferir con las hormonas.' },
 ];

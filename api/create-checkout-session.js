@@ -27,7 +27,11 @@ const FRONTEND_URL = (process.env.FRONTEND_URL || 'https://nexusbiomedical.ai').
 function safePath(path, fallback) {
   if (typeof path !== 'string') return fallback;
   if (!path.startsWith('/') || path.startsWith('//')) return fallback;
-  if (/[?#\\s]/.test(path)) return fallback;
+  // Reject query strings, fragments, backslashes and whitespace. (An earlier
+  // version escaped this wrong and matched a literal "s", so every path with
+  // one, such as /assessment, fell back to "/" and buyers never returned to
+  // the page that unlocks their purchase.)
+  if (/[?#\\\s]/.test(path)) return fallback;
   return path;
 }
 

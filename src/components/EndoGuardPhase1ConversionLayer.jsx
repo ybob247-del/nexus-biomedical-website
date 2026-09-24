@@ -3,6 +3,8 @@ import brand, { brandifyDeep } from '../config/brand';
 import { useTranslation } from 'react-i18next';
 import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-phase1-conversion.css';
+import NiiHeroArt from './brand/NiiHeroArt';
+import NiiValueIcon from './brand/NiiValueIcon';
 
 /**
  * EndoGuard Phase 1 Conversion Layer
@@ -80,6 +82,8 @@ export default function EndoGuardPhase1ConversionLayer() {
   return (
     <section className="endoguard-phase1-conversion-layer">
       <div className="conversion-container">
+        {brand.isConsumerBrand && <NiiHeroArt className="nii-hero-art" />}
+
         {/* Hero Section */}
         <div className="conversion-hero">
           <h1 className="conversion-headline">{copy.headline}</h1>
@@ -91,7 +95,11 @@ export default function EndoGuardPhase1ConversionLayer() {
           <ul className="value-bullets">
             {copy.valueBullets.map((bullet, index) => (
               <li key={index} className="value-bullet-item">
-                <span className="bullet-icon">✓</span>
+                <span className="bullet-icon">
+                  {brand.isConsumerBrand
+                    ? <NiiValueIcon name={['summary', 'ranked', 'nextStep'][index] || 'summary'} />
+                    : '✓'}
+                </span>
                 <span className="bullet-text">{bullet}</span>
               </li>
             ))}

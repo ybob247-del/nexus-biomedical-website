@@ -20,9 +20,9 @@ const ASSETS = `${SITE}/brand/notimaginingit`;
 const CONSUMER_HEAD = `<title>${TITLE}</title>
     <meta name="description" content="${DESCRIPTION}" />
 
-    <link rel="icon" href="/brand/notimaginingit/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/brand/notimaginingit/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/brand/notimaginingit/apple-touch-icon.png" />
+    <link rel="icon" href="/brand/notimaginingit/favicon-v2.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/notimaginingit/favicon-32-v2.png" />
+    <link rel="apple-touch-icon" href="/brand/notimaginingit/apple-touch-icon-v2.png" />
     <link rel="manifest" href="/brand/notimaginingit/site.webmanifest" />
     <meta name="theme-color" content="#1f5c5a" />
 
@@ -31,7 +31,7 @@ const CONSUMER_HEAD = `<title>${TITLE}</title>
     <meta property="og:url" content="${SITE}/" />
     <meta property="og:title" content="${SHARE_TITLE}" />
     <meta property="og:description" content="${DESCRIPTION}" />
-    <meta property="og:image" content="${ASSETS}/og-image.png" />
+    <meta property="og:image" content="${ASSETS}/og-image-v2.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Not Imagining It: walk into your next appointment prepared. Free assessment, English and Spanish." />
@@ -41,7 +41,7 @@ const CONSUMER_HEAD = `<title>${TITLE}</title>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${SHARE_TITLE}" />
     <meta name="twitter:description" content="${DESCRIPTION}" />
-    <meta name="twitter:image" content="${ASSETS}/og-image.png" />
+    <meta name="twitter:image" content="${ASSETS}/og-image-v2.png" />
 
     <meta name="author" content="Not Imagining It" />
     <meta name="robots" content="index, follow" />

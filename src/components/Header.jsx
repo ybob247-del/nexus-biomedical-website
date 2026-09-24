@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext'
 import '../styles/header.css'
 import LanguageToggle from './LanguageToggle'
 import ConsumerLanguageToggle from './ConsumerLanguageToggle'
+import NiiMark from './brand/NiiMark'
 
 // Logo now uses CDN URL for better performance
 const nexusLogoOfficial = 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028302998/DKfTSqVxrqmtdUPk.png'
@@ -60,6 +61,11 @@ const Header = () => {
       <div className="header-container">
         {/* Logo and Brand */}
         <div className="header-brand" onClick={handleLogoClick}>
+          {brand.isConsumerBrand && (
+            <div className="nii-header-mark">
+              <NiiMark size={38} />
+            </div>
+          )}
           {!brand.isConsumerBrand && (
           <div className="header-logo">
             <img 

@@ -207,6 +207,13 @@ export default function EndoGuardPhase1Paywall({ results }) {
             {isProcessing ? (isSpanish ? 'Procesando...' : 'Processing...') : copy.ctaButtonText}
           </button>
           <p className="paywall-cta-subtext">{copy.ctaSubtext}</p>
+          {brand.isConsumerBrand && (
+            <p className="paywall-cta-subtext">
+              <a href="/sample" target="_blank" rel="noopener noreferrer">
+                {isSpanish ? 'Ver un kit de ejemplo completo primero' : 'See a full sample kit first'}
+              </a>
+            </p>
+          )}
         </div>
 
         {/* Disclaimer */}

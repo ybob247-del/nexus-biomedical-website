@@ -41,6 +41,9 @@ const HIPAACompliance = lazy(() => import('./components/HIPAACompliance'))
 const MedicalDisclaimer = lazy(() => import('./components/MedicalDisclaimer'))
 const RefundPolicy = lazy(() => import('./pages/RefundPolicy'))
 // Consumer brand legal pages: written for its one-time product, in EN and ES
+const ConsumerSampleKit = lazy(() => import('./pages/consumer/SampleKit'))
+const ConsumerHowItWorks = lazy(() => import('./pages/consumer/HowItWorks'))
+const ConsumerAbout = lazy(() => import('./pages/consumer/About'))
 const ConsumerPrivacyPolicy = lazy(() => import('./pages/consumer-legal/PrivacyPolicy'))
 const ConsumerTermsOfService = lazy(() => import('./pages/consumer-legal/TermsOfService'))
 const ConsumerMedicalDisclaimer = lazy(() => import('./pages/consumer-legal/MedicalDisclaimer'))
@@ -302,6 +305,9 @@ function App() {
           the long-form aliases) point to the consumer equivalents. */}
       {brand.isConsumerBrand && (
         <>
+          <Route path="/sample" element={<ConsumerShell><ConsumerSampleKit /></ConsumerShell>} />
+          <Route path="/how-it-works" element={<ConsumerShell><ConsumerHowItWorks /></ConsumerShell>} />
+          <Route path="/about" element={<ConsumerShell><ConsumerAbout /></ConsumerShell>} />
           <Route path="/refund-policy" element={<ConsumerShell><RefundPolicy /></ConsumerShell>} />
           <Route path="/privacy" element={<ConsumerShell><ConsumerPrivacyPolicy /></ConsumerShell>} />
           <Route path="/terms" element={<ConsumerShell><ConsumerTermsOfService /></ConsumerShell>} />

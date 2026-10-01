@@ -31,6 +31,9 @@ export default function Footer() {
             <p className="nii-footer-tagline">{es ? 'Sistemas, no solo síntomas.' : brand.tagline}</p>
           </div>
           <nav className="nii-footer-links" aria-label={es ? 'Información legal y contacto' : 'Legal and contact'}>
+            <button onClick={() => handleLegalClick('/sample')}>{es ? 'Ver un kit de ejemplo' : 'See a sample kit'}</button>
+            <button onClick={() => handleLegalClick('/how-it-works')}>{es ? 'Cómo se crea' : 'How it works'}</button>
+            <button onClick={() => handleLegalClick('/about')}>{es ? 'Sobre nosotras' : 'About'}</button>
             <button onClick={() => handleLegalClick('/refund-policy')}>{es ? 'Política de reembolso' : 'Refund Policy'}</button>
             <button onClick={() => handleLegalClick('/privacy')}>{es ? 'Política de privacidad' : 'Privacy Policy'}</button>
             <button onClick={() => handleLegalClick('/terms')}>{es ? 'Términos del servicio' : 'Terms of Service'}</button>

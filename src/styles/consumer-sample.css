@@ -1,0 +1,234 @@
+/**
+ * Sample kit page, How it works and About. Consumer brand only.
+ */
+
+[data-brand='notimaginingit'] .nii-sample,
+[data-brand='notimaginingit'] .nii-doc {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) 16px 72px;
+  color: var(--nii-ink);
+}
+
+[data-brand='notimaginingit'] .nii-sample-head {
+  text-align: center;
+}
+
+[data-brand='notimaginingit'] .nii-sample-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--nii-cta);
+  margin: 0 0 10px;
+}
+
+[data-brand='notimaginingit'] .nii-sample h1,
+[data-brand='notimaginingit'] .nii-doc h1 {
+  font-size: clamp(1.9rem, 4.4vw, 2.9rem);
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--nii-ink) !important;
+}
+
+[data-brand='notimaginingit'] .nii-sample-intro,
+[data-brand='notimaginingit'] .nii-doc-lead {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--nii-ink-2);
+  max-width: 62ch;
+  margin: 0 auto 24px;
+}
+
+[data-brand='notimaginingit'] .nii-doc-lead {
+  margin-left: 0;
+}
+
+[data-brand='notimaginingit'] .nii-sample-actions,
+[data-brand='notimaginingit'] .nii-doc-actions,
+[data-brand='notimaginingit'] .nii-sample-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0 10px;
+}
+
+[data-brand='notimaginingit'] .nii-doc-actions {
+  justify-content: flex-start;
+  margin-top: 36px;
+}
+
+[data-brand='notimaginingit'] .nii-sample-cta,
+[data-brand='notimaginingit'] .nii-sample-ghost {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font: 600 1rem/1.2 var(--nii-body);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-brand='notimaginingit'] .nii-sample-cta {
+  background: var(--nii-cta);
+  color: #fff;
+  border: 1px solid var(--nii-cta);
+}
+
+[data-brand='notimaginingit'] .nii-sample-ghost {
+  background: #fff;
+  color: var(--nii-primary-ink);
+  border: 1px solid var(--nii-rule-strong);
+}
+
+[data-brand='notimaginingit'] .nii-sample-refund {
+  font-size: 0.92rem;
+  color: var(--nii-ink-3);
+  margin: 0;
+}
+
+/* ---- Free vs paid ---- */
+
+[data-brand='notimaginingit'] .nii-sample-compare {
+  margin: 44px 0;
+  background: #fff;
+  border: 1px solid var(--nii-rule);
+  border-radius: 22px;
+  padding: clamp(18px, 3vw, 30px);
+  box-shadow: var(--nii-shadow);
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare h2 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+  color: var(--nii-primary-ink) !important;
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* On a phone the three columns do not fit: let the table scroll inside its
+   card rather than pushing the whole page sideways. */
+@media (max-width: 620px) {
+  [data-brand='notimaginingit'] .nii-sample-compare {
+    overflow-x: auto;
+  }
+
+  [data-brand='notimaginingit'] .nii-sample-compare table {
+    min-width: 440px;
+  }
+
+  [data-brand='notimaginingit'] .nii-sample-compare th[scope='row'] {
+    font-size: 0.92rem;
+    padding: 10px 6px;
+  }
+
+  [data-brand='notimaginingit'] .nii-sample-compare th[scope='col'] {
+    font-size: 0.74rem;
+  }
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare th[scope='col'] {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--nii-ink-3);
+  padding: 0 8px 10px;
+  text-align: center;
+  width: 22%;
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare th[scope='row'] {
+  text-align: left;
+  font-weight: 400;
+  color: var(--nii-ink-2);
+  padding: 11px 8px;
+  border-top: 1px solid var(--nii-rule);
+  line-height: 1.45;
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare td {
+  text-align: center;
+  border-top: 1px solid var(--nii-rule);
+  font-size: 1.1rem;
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare .yes {
+  color: var(--nii-primary);
+  font-weight: 700;
+}
+
+[data-brand='notimaginingit'] .nii-sample-compare .no {
+  color: var(--nii-ink-3);
+}
+
+[data-brand='notimaginingit'] .nii-sample-privacy {
+  margin: 16px 0 0;
+  font-size: 0.92rem;
+  color: var(--nii-ink-3);
+}
+
+/* ---- The watermarked sample ---- */
+
+[data-brand='notimaginingit'] .nii-sample-banner {
+  margin: 0;
+  padding: 10px 16px;
+  background: var(--nii-cta);
+  color: #fff;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+[data-brand='notimaginingit'] .nii-sample-frame {
+  display: grid;
+  gap: 14px;
+}
+
+[data-brand='notimaginingit'] .nii-sample-watermark {
+  position: relative;
+}
+
+/* Repeating diagonal label, so a screenshot or print of any part of the
+   sample still says it is not a real person. */
+[data-brand='notimaginingit'] .nii-sample-watermark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--nii-watermark);
+  background-repeat: repeat;
+}
+
+@media print {
+  /* Printed copies keep the label; make it a little stronger on paper. */
+  [data-brand='notimaginingit'] .nii-sample-watermark::after {
+    filter: saturate(1.4) contrast(1.4);
+  }
+}
+
+/* ---- Document pages (How it works, About) ---- */
+
+[data-brand='notimaginingit'] .nii-doc h2 {
+  font-size: 1.3rem;
+  margin: 30px 0 8px;
+  color: var(--nii-primary-ink) !important;
+}
+
+[data-brand='notimaginingit'] .nii-doc p {
+  color: var(--nii-ink-2);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+[data-brand='notimaginingit'] .nii-doc-updated {
+  font-size: 0.86rem;
+  color: var(--nii-ink-3);
+  margin: 0 0 22px;
+}

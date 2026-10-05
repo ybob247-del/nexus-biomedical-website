@@ -43,6 +43,10 @@ const CONSUMER_HEAD = `<title>${TITLE}</title>
     <meta name="twitter:description" content="${DESCRIPTION}" />
     <meta name="twitter:image" content="${ASSETS}/og-image-v2.png" />
 
+    <!-- Pinterest site claim, added 5 October 2026. Pinterest reads this on
+         the homepage to confirm the domain is ours. -->
+    <meta name="p:domain_verify" content="082d41e011729fe110400c640c26f4a1" />
+
     <meta name="author" content="Not Imagining It" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${SITE}/" />

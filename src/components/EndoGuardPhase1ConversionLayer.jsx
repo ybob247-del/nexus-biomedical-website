@@ -5,6 +5,7 @@ import { useAnalytics } from '../hooks/useAnalytics';
 import '../styles/endoguard-phase1-conversion.css';
 import NiiHeroArt from './brand/NiiHeroArt';
 import NiiValueIcon from './brand/NiiValueIcon';
+import FreeTrackerLink from './brand/FreeTrackerLink';
 
 /**
  * EndoGuard Phase 1 Conversion Layer
@@ -115,6 +116,7 @@ export default function EndoGuardPhase1ConversionLayer() {
           >
             {copy.ctaButtonText}
           </button>
+          {brand.isConsumerBrand && <FreeTrackerLink />}
         </div>
 
         {/* Secondary Reassurance Line */}

@@ -12,6 +12,28 @@
       ],
       "destination": "https://notimaginingit.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/tracker",
+      "has": [
+        {
+          "type": "host",
+          "value": "notimaginingit.com"
+        }
+      ],
+      "destination": "https://pages.notimaginingit.com/tracker",
+      "permanent": false
+    },
+    {
+      "source": "/registro",
+      "has": [
+        {
+          "type": "host",
+          "value": "notimaginingit.com"
+        }
+      ],
+      "destination": "https://pages.notimaginingit.com/registro",
+      "permanent": false
     }
   ],
   "rewrites": [

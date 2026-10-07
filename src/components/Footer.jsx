@@ -3,6 +3,7 @@ import brand from '../config/brand';
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import '../styles/footer.css'
+import { TRACKER_URL } from './brand/FreeTrackerLink'
 
 export default function Footer() {
   const { t, i18n } = useTranslation()
@@ -32,6 +33,7 @@ export default function Footer() {
           </div>
           <nav className="nii-footer-links" aria-label={es ? 'Información legal y contacto' : 'Legal and contact'}>
             <button onClick={() => handleLegalClick('/sample')}>{es ? 'Ver un kit de ejemplo' : 'See a sample kit'}</button>
+            <a href={es ? TRACKER_URL.es : TRACKER_URL.en}>{es ? 'Registro gratis' : 'Free tracker'}</a>
             <button onClick={() => handleLegalClick('/how-it-works')}>{es ? 'Cómo se crea' : 'How it works'}</button>
             <button onClick={() => handleLegalClick('/about')}>{es ? 'Sobre nosotras' : 'About'}</button>
             <button onClick={() => handleLegalClick('/refund-policy')}>{es ? 'Política de reembolso' : 'Refund Policy'}</button>

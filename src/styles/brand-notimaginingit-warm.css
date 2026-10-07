@@ -275,3 +275,58 @@
   color: var(--nii-ink, #1c2230);
   line-height: 1.6;
 }
+
+/* ---- Free tracker offer (FreeTrackerLink) ---- */
+
+[data-brand='notimaginingit'] .nii-free-tracker-inline {
+  margin: 14px 0 0;
+  font-size: 0.98rem;
+  color: var(--nii-ink-2);
+  text-align: center;
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-inline a {
+  color: var(--nii-primary-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-card {
+  max-width: 760px;
+  margin: 28px auto 0;
+  padding: 22px 26px;
+  border-radius: 18px;
+  background: var(--nii-primary-soft);
+  border: 1px solid rgba(31, 92, 90, 0.18);
+  text-align: center;
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: var(--nii-primary-ink) !important;
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-card p {
+  margin: 0 0 14px;
+  color: var(--nii-ink-2);
+  line-height: 1.6;
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-card .nii-free-tracker-note {
+  margin: 12px 0 0;
+  font-size: 0.86rem;
+  color: var(--nii-ink-3);
+}
+
+[data-brand='notimaginingit'] .nii-free-tracker-button {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--nii-primary-ink);
+  border: 1px solid var(--nii-primary);
+  font-weight: 600;
+  text-decoration: none;
+}

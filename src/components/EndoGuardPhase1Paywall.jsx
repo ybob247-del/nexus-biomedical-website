@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAnalytics } from '../hooks/useAnalytics';
 import brand from '../config/brand';
 import '../styles/endoguard-phase1-paywall.css';
+import FreeTrackerLink from './brand/FreeTrackerLink';
 
 /**
  * Paid offer shown after the free assessment.
@@ -215,6 +216,8 @@ export default function EndoGuardPhase1Paywall({ results }) {
             </p>
           )}
         </div>
+
+        {brand.isConsumerBrand && <FreeTrackerLink variant="card" />}
 
         {/* Disclaimer */}
         <div className="paywall-disclaimer-section">

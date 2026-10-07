@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import brand from '../../config/brand';
 import AppointmentKitView from '../../components/AppointmentKitView';
+import FreeTrackerLink from '../../components/brand/FreeTrackerLink';
 import { exportAppointmentKitPDF } from '../../utils/appointmentKitPdf';
 import '../../styles/consumer-sample.css';
 
@@ -172,6 +173,8 @@ export default function SampleKit() {
         </div>
         <p className="nii-sample-banner">{c.watermark}</p>
       </div>
+
+      <FreeTrackerLink variant="card" />
 
       <footer className="nii-sample-foot">
         <Link className="nii-sample-cta" to={brand.routes.assessment}>

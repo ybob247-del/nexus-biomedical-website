@@ -42,10 +42,13 @@ export async function checkRateLimit(req, { name = 'default', limit, windowSecon
   const max = limit ?? DEFAULTS.limit;
   const window = windowSeconds ?? DEFAULTS.windowSeconds;
 
-  const url = (process.env.UPSTASH_REDIS_REST_URL || '').replace(/\/+$/, '');
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || '';
+  // Upstash shows the endpoint as a bare hostname, so the env var is often set
+  // without a scheme. fetch() needs an absolute URL, so add it when missing.
+  let url = (process.env.UPSTASH_REDIS_REST_URL || '').trim().replace(/\/+$/, '');
+  if (url && !/^https?:\/\//i.test(url)) url = `https://${url}`;
+  const token = (process.env.UPSTASH_REDIS_REST_TOKEN || '').trim();
   if (!url || !token) {
-    console.warn('[rateLimit] Upstash not configured; request allowed without counting.');
+    console.error('[rateLimit] Upstash not configured (url set:', Boolean(url), 'token set:', Boolean(token), ') — request allowed without counting.');
     return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true };
   }
 
@@ -67,7 +70,9 @@ export async function checkRateLimit(req, { name = 'default', limit, windowSecon
     });
 
     if (!response.ok) {
-      console.error('[rateLimit] Upstash returned', response.status, '— allowing request.');
+      // Host only, never the token, so the log says which misconfiguration it is.
+      const detail = await response.text().catch(() => '');
+      console.error('[rateLimit] Upstash', response.status, 'from', new URL(url).host, detail.slice(0, 120), '— allowing request.');
       return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true };
     }
 

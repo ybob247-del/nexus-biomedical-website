@@ -48,8 +48,9 @@ export async function checkRateLimit(req, { name = 'default', limit, windowSecon
   if (url && !/^https?:\/\//i.test(url)) url = `https://${url}`;
   const token = (process.env.UPSTASH_REDIS_REST_TOKEN || '').trim();
   if (!url || !token) {
-    console.error('[rateLimit] Upstash not configured (url set:', Boolean(url), 'token set:', Boolean(token), ') — request allowed without counting.');
-    return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true };
+    const reason = `no-config url:${Boolean(url)} token:${Boolean(token)}`;
+    console.error('[rateLimit]', reason, '— request allowed without counting.');
+    return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true, reason };
   }
 
   // Fixed window: the bucket number changes every `window` seconds, so the key
@@ -73,7 +74,14 @@ export async function checkRateLimit(req, { name = 'default', limit, windowSecon
       // Host only, never the token, so the log says which misconfiguration it is.
       const detail = await response.text().catch(() => '');
       console.error('[rateLimit] Upstash', response.status, 'from', new URL(url).host, detail.slice(0, 120), '— allowing request.');
-      return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true };
+      return {
+        allowed: true,
+        remaining: max,
+        limit: max,
+        resetSeconds: window,
+        degraded: true,
+        reason: `http-${response.status}`,
+      };
     }
 
     const body = await response.json();
@@ -89,8 +97,16 @@ export async function checkRateLimit(req, { name = 'default', limit, windowSecon
       degraded: false,
     };
   } catch (error) {
-    console.error('[rateLimit] Upstash call failed:', error?.message || error, '— allowing request.');
-    return { allowed: true, remaining: max, limit: max, resetSeconds: window, degraded: true };
+    const message = String(error?.message || error);
+    console.error('[rateLimit] Upstash call failed:', message, '— allowing request.');
+    return {
+      allowed: true,
+      remaining: max,
+      limit: max,
+      resetSeconds: window,
+      degraded: true,
+      reason: `fetch-failed: ${message.slice(0, 80)}`,
+    };
   }
 }
 
@@ -103,6 +119,10 @@ export async function rateLimited(req, res, options) {
 
   res.setHeader('X-RateLimit-Limit', String(result.limit));
   res.setHeader('X-RateLimit-Remaining', String(result.remaining));
+  // When the counter is not actually running, say so in a header rather than
+  // only in the logs, so the limiter can be checked from outside with one curl.
+  // Carries no secret: just which misconfiguration it is.
+  if (result.degraded) res.setHeader('X-RateLimit-Degraded', result.reason || 'unknown');
 
   if (result.allowed) return false;
 

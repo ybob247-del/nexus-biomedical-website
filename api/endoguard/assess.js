@@ -5,6 +5,7 @@
  */
 
 import { analyzeSymptomPatterns, generatePersonalizedRecommendations, generateTestRationale } from '../utils/aiService.js';
+import { rateLimited } from '../utils/rateLimit.js';
 
 /**
  * Calculate BMI (Body Mass Index)
@@ -411,6 +412,12 @@ function generateRecommendations(formData, edcRisk, symptomAnalysis) {
 async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Each assessment costs two GPT-4 completions, and the endpoint is public and
+  // unauthenticated, so without this a loop could run up the OpenAI bill.
+  if (await rateLimited(req, res, { name: 'endoguard-assess', limit: 5, windowSeconds: 3600 })) {
+    return;
   }
 
   try {

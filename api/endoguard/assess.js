@@ -4,7 +4,7 @@
  * Complete hormone health assessment with AI-powered analysis (serverless function)
  */
 
-import { analyzeSymptomPatterns, generatePersonalizedRecommendations, generateTestRationale } from '../utils/aiService.js';
+import { analyzeSymptomPatterns, generatePersonalizedRecommendations, generateTestRationale, OPENAI_MODEL } from '../utils/aiService.js';
 import { rateLimited } from '../utils/rateLimit.js';
 
 /**
@@ -541,7 +541,7 @@ async function handler(req, res) {
         symptomPattern: aiSymptomAnalysis,
         personalizedRecommendations: aiRecommendations,
         analysisTimestamp: new Date().toISOString(),
-        model: 'gpt-4',
+        model: OPENAI_MODEL,
         disclaimer: 'AI-generated insights for educational purposes. Not a substitute for professional medical advice.'
       },
 

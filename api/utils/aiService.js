@@ -9,6 +9,11 @@ import https from 'https';
  * Call OpenAI GPT-4 API using raw HTTPS
  * (Bypasses SDK issues with project-scoped keys)
  */
+// The rest of this codebase runs on gpt-4o-mini, and legacy gpt-4 costs roughly
+// a hundred times more for the same three calls per assessment, which a $10
+// monthly cap cannot absorb. Overridable per deployment without a code change.
+export const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+
 async function callOpenAI(messages, options = {}) {
   const apiKey = process.env.OPENAI_API_KEY;
   
@@ -17,7 +22,7 @@ async function callOpenAI(messages, options = {}) {
   }
 
   const requestBody = JSON.stringify({
-    model: options.model || 'gpt-4',
+    model: options.model || OPENAI_MODEL,
     messages: messages,
     temperature: options.temperature || 0.7,
     max_tokens: options.maxTokens || 1500,

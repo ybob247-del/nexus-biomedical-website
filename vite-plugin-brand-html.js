@@ -7,6 +7,9 @@
  * runs at build time, so Nexus builds are untouched.
  */
 
+import fs from 'node:fs';
+import path from 'node:path';
+
 const SITE = 'https://notimaginingit.com';
 const TITLE = 'Not Imagining It — Systems, not symptoms.';
 const DESCRIPTION =
@@ -85,9 +88,54 @@ function between(html, start, end) {
   return [from, to];
 }
 
+// public/robots.txt, sitemap.xml and ai-sitemap*.json are Nexus's. Search engines
+// read them from notimaginingit.com too, so the consumer build replaces them.
+const CONSUMER_PAGES = [
+  ['/', '1.0'],
+  ['/assessment', '0.9'],
+  ['/sample', '0.8'],
+  ['/how-it-works', '0.8'],
+  ['/about', '0.6'],
+  ['/privacy', '0.3'],
+  ['/terms', '0.3'],
+  ['/medical-disclaimer', '0.3'],
+  ['/refund-policy', '0.3'],
+];
+
+function consumerRobots() {
+  return `# robots.txt for Not Imagining It (${SITE})
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: ${SITE}/sitemap.xml
+`;
+}
+
+function consumerSitemap() {
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const urls = CONSUMER_PAGES.map(([p, priority]) =>
+    `  <url>\n    <loc>${SITE}${p === '/' ? '/' : p}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${priority}</priority>\n  </url>`,
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
 export default function brandHtmlPlugin(brandId) {
+  let outDir = 'dist';
   return {
     name: 'brand-html',
+    configResolved(config) {
+      outDir = path.resolve(config.root, config.build.outDir);
+    },
+    // After the public/ folder has been copied into the build output.
+    closeBundle() {
+      if (brandId !== 'notimaginingit' || !fs.existsSync(outDir)) return;
+      fs.writeFileSync(path.join(outDir, 'robots.txt'), consumerRobots());
+      fs.writeFileSync(path.join(outDir, 'sitemap.xml'), consumerSitemap());
+      for (const f of ['ai-sitemap.json', 'ai-sitemap-schema.json']) {
+        fs.rmSync(path.join(outDir, f), { force: true });
+      }
+    },
     // 'pre' so this sees index.html as written, before Vite moves the entry
     // script into <head> and rewrites asset tags.
     transformIndexHtml: { order: 'pre', handler: (html) => {

@@ -38,3 +38,6 @@ Thumbs.db
 *.tmp
 *.swp
 .env*.local
+
+# Manus-era database query logs contained customer emails; never commit them
+.manus/db/

@@ -963,15 +963,13 @@ export default function EndoGuardAssessment() {
                 <span>
                   {isSpanishUI ? (
                     <>
-                      Acepto que mis respuestas se usen para calcular mis resultados y que algunas se envíen a
-                      nuestro proveedor de IA, como se explica en la{' '}
+                      Acepto que mis respuestas se usen para calcular mis resultados, como se explica en la{' '}
                       <a href="/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a>.
                       No guardamos tus respuestas.
                     </>
                   ) : (
                     <>
-                      I agree that my answers are used to calculate my results and that some are sent to an AI
-                      provider, as explained in the{' '}
+                      I agree that my answers are used to calculate my results, as explained in the{' '}
                       <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
                       Your answers are not stored.
                     </>

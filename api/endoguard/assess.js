@@ -414,14 +414,21 @@ async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Each assessment costs two GPT-4 completions, and the endpoint is public and
-  // unauthenticated, so without this a loop could run up the OpenAI bill.
+  // The endpoint is public and unauthenticated. On the Nexus site each assessment
+  // costs OpenAI completions, so without this a loop could run up the bill; on
+  // Not Imagining It it still stops scripted abuse.
   if (await rateLimited(req, res, { name: 'endoguard-assess', limit: 5, windowSeconds: 3600 })) {
     return;
   }
 
   try {
     const formData = req.body;
+
+    // The consumer site (Not Imagining It) never saves answers or results, and
+    // says so in its privacy policy. Its answers are also never sent to a
+    // third-party AI service: the visitor never sees that output, so the calls
+    // only cost money and widened the privacy policy.
+    const neverStore = (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit';
 
     // Calculate EDC exposure risk
     const { riskScore, riskFactors } = calculateEDCRisk(formData);
@@ -432,45 +439,51 @@ async function handler(req, res) {
       formData.symptomSeverity || 5
     );
 
-    // AI-POWERED ANALYSIS: Use GPT-4 to analyze symptom patterns
-    console.log('[EndoGuard] Initiating AI-powered symptom pattern analysis...');
-    const aiSymptomAnalysis = await analyzeSymptomPatterns(
-      formData.symptoms || [],
-      {
-        age: formData.age,
-        gender: formData.gender,
-        biologicalSex: formData.biologicalSex,
-        language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
-      }
-    );
-    console.log('[EndoGuard] AI analysis complete');
+    // AI-POWERED ANALYSIS (Nexus only): analyze symptom patterns with the model
+    let aiSymptomAnalysis = null;
+    if (!neverStore) {
+      console.log('[EndoGuard] Initiating AI-powered symptom pattern analysis...');
+      aiSymptomAnalysis = await analyzeSymptomPatterns(
+        formData.symptoms || [],
+        {
+          age: formData.age,
+          gender: formData.gender,
+          biologicalSex: formData.biologicalSex,
+          language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
+        }
+      );
+      console.log('[EndoGuard] AI analysis complete');
+    }
 
     // Generate rule-based recommendations
     const baseRecommendations = generateRecommendations(formData, { riskScore, riskFactors }, symptomAnalysis);
 
-    // AI-POWERED RECOMMENDATIONS: Use GPT-4 to generate personalized recommendations
-    console.log('[EndoGuard] Generating AI-powered personalized recommendations...');
-    const aiRecommendations = await generatePersonalizedRecommendations({
-      symptoms: formData.symptoms || [],
-      edcRisk: { riskScore, riskFactors },
-      lifestyle: {
-        sleepQuality: formData.sleepQuality,
-        exerciseFrequency: formData.exerciseFrequency,
-        dietQuality: formData.dietQuality,
-        stressLevel: formData.stressLevel
-      },
-      demographics: {
-        age: formData.age,
-        gender: formData.gender,
-        biologicalSex: formData.biologicalSex,
-        height: formData.height,
-        weight: formData.weight,
-        bmi: formData.height && formData.weight ? calculateBMI(formData.height, formData.weight) : null
-      },
-      hormonePattern: aiSymptomAnalysis,
-      language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
-    });
-    console.log('[EndoGuard] AI recommendations generated');
+    // AI-POWERED RECOMMENDATIONS (Nexus only)
+    let aiRecommendations = null;
+    if (!neverStore) {
+      console.log('[EndoGuard] Generating AI-powered personalized recommendations...');
+      aiRecommendations = await generatePersonalizedRecommendations({
+        symptoms: formData.symptoms || [],
+        edcRisk: { riskScore, riskFactors },
+        lifestyle: {
+          sleepQuality: formData.sleepQuality,
+          exerciseFrequency: formData.exerciseFrequency,
+          dietQuality: formData.dietQuality,
+          stressLevel: formData.stressLevel
+        },
+        demographics: {
+          age: formData.age,
+          gender: formData.gender,
+          biologicalSex: formData.biologicalSex,
+          height: formData.height,
+          weight: formData.weight,
+          bmi: formData.height && formData.weight ? calculateBMI(formData.height, formData.weight) : null
+        },
+        hormonePattern: aiSymptomAnalysis,
+        language: String(formData.language || '').startsWith('es') ? 'es' : 'en'
+      });
+      console.log('[EndoGuard] AI recommendations generated');
+    }
 
     // Combine rule-based and AI recommendations
     const recommendations = baseRecommendations;
@@ -537,7 +550,8 @@ async function handler(req, res) {
       ),
 
       // AI-POWERED INSIGHTS: GPT-4 analysis results
-      aiInsights: {
+      // Null on Not Imagining It: no AI service sees those answers.
+      aiInsights: neverStore ? null : {
         symptomPattern: aiSymptomAnalysis,
         personalizedRecommendations: aiRecommendations,
         analysisTimestamp: new Date().toISOString(),
@@ -566,9 +580,7 @@ async function handler(req, res) {
       ]
     };
 
-    // The consumer site (Not Imagining It) never saves answers or results, and
-    // says so in its privacy policy. Nothing below may run for it.
-    const neverStore = (process.env.VITE_BRAND || '').toLowerCase() === 'notimaginingit';
+    // Nothing below may store anything for the consumer site (see neverStore above).
 
     // The consumer site is educational and never recommends supplements or
     // treatments (its terms and medical disclaimer say so). Its kit is built

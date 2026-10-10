@@ -50,8 +50,6 @@ export default function MedicalDisclaimer() {
         <ul>
           <li>Tus resultados dependen de lo que respondiste y de investigaciones publicadas, que tienen
             sus propias limitaciones.</li>
-          <li>Partes del texto las redacta una inteligencia artificial y pueden ser incorrectas o estar
-            incompletas.</li>
           <li>Si se mencionan análisis de laboratorio, son temas para conversar con tu médico, no una
             recomendación para hacerte o evitar un análisis.</li>
         </ul>
@@ -104,7 +102,6 @@ export default function MedicalDisclaimer() {
       <ul>
         <li>Your results depend on what you entered and on published research, which has its own
           limits.</li>
-        <li>Parts of the text are written by AI and can be wrong or incomplete.</li>
         <li>Any mention of a lab test is a topic to discuss with your clinician, not a recommendation to
           get or skip a test.</li>
       </ul>

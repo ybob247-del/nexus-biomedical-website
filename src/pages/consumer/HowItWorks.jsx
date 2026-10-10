@@ -37,8 +37,8 @@ const COPY = {
         p: 'Each pattern carries two or three sentences of plain-language background and a link to one reputable patient-facing source: the American College of Obstetricians and Gynecologists, NIH institutes including NIDDK, NHLBI, NIMH and NIEHS, MedlinePlus, the Endocrine Society, the American Thyroid Association and the American Academy of Dermatology. Every link is checked to load before it ships. Spanish readers get a Spanish source wherever one exists, and English pages are labelled when one does not.',
       },
       {
-        h: 'Where artificial intelligence is used, and where it is not',
-        p: 'The ranking, the background text, the questions, the tests to ask about and the PDF are fixed content and rules, written and reviewed in advance, not generated per person. A language model is used only to phrase parts of the free summary in your language. It never decides what you have, never adds a test or treatment, and never changes the ranked list.',
+        h: 'Where artificial intelligence is used',
+        p: 'The ranking, the background text, the questions, the tests to ask about and the PDF are fixed content and rules, written and reviewed in advance, not generated per person. No AI or language model is used to produce your results, and your answers are not sent to any AI service. Nothing is generated per person: the same answers always give the same kit.',
       },
       {
         h: 'What the kit never does',
@@ -75,8 +75,8 @@ const COPY = {
         p: 'Cada patrón incluye dos o tres frases en lenguaje sencillo y un enlace a una fuente confiable para pacientes: el Colegio Americano de Obstetras y Ginecólogos (ACOG), institutos de los NIH como NIDDK, NHLBI, NIMH y NIEHS, MedlinePlus, la Endocrine Society, la American Thyroid Association y la Academia Americana de Dermatología. Cada enlace se verifica antes de publicarse. En español usamos una fuente en español siempre que exista, y marcamos las que solo están en inglés.',
       },
       {
-        h: 'Dónde se usa inteligencia artificial y dónde no',
-        p: 'El orden, los textos de contexto, las preguntas, los análisis por los que preguntar y el PDF son contenido y reglas fijas, escritas y revisadas de antemano, no generadas para cada persona. Un modelo de lenguaje se usa únicamente para redactar partes del resumen gratuito en tu idioma. Nunca decide qué tienes, nunca agrega un análisis o tratamiento y nunca cambia la lista ordenada.',
+        h: 'Dónde se usa inteligencia artificial',
+        p: 'El orden, los textos de contexto, las preguntas, los análisis por los que preguntar y el PDF son contenido y reglas fijas, escritas y revisadas de antemano, no generadas para cada persona. No se usa IA ni ningún modelo de lenguaje para producir tus resultados, y tus respuestas no se envían a ningún servicio de IA. Nada se genera por persona: las mismas respuestas dan siempre el mismo kit.',
       },
       {
         h: 'Lo que el kit nunca hace',

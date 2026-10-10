@@ -52,10 +52,11 @@ export default function TermsOfService() {
             <Link to="/refund-policy">política de reembolso</Link>.</li>
         </ul>
 
-        <h2>Texto escrito con IA</h2>
+        <h2>Cómo se crean tus resultados</h2>
         <p>
-          Partes de tus resultados las redacta un sistema de inteligencia artificial. Ese texto puede ser
-          incorrecto o estar incompleto. No lo tomes como consejo médico.
+          Tus resultados se calculan con reglas fijas y con contenido que escribimos de antemano; ningún
+          sistema de inteligencia artificial los redacta. Aun así, pueden ser incorrectos o estar
+          incompletos. No los tomes como consejo médico.
         </p>
 
         <h2>Uso aceptable</h2>
@@ -134,10 +135,10 @@ export default function TermsOfService() {
         <li>Refunds follow our <Link to="/refund-policy">Refund Policy</Link>.</li>
       </ul>
 
-      <h2>AI-written text</h2>
+      <h2>How your results are made</h2>
       <p>
-        Parts of your results are written by an AI system. That text can be wrong or incomplete. Don&apos;t
-        treat it as medical advice.
+        Your results are calculated with fixed rules and content we wrote in advance; no AI system writes
+        them. They can still be wrong or incomplete. Don&apos;t treat them as medical advice.
       </p>
 
       <h2>Using the site fairly</h2>

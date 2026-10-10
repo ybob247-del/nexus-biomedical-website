@@ -6,7 +6,7 @@ import LegalPage from './LegalPage';
  * Privacy policy for the consumer brand.
  *
  * Written to match how the site actually works: answers are processed but not
- * stored, some answers go to OpenAI, payments go through Stripe, no accounts,
+ * stored, no answers go to any AI service, payments go through Stripe, no accounts,
  * no analytics, and email only for people who join the Kit list. If any of that
  * changes, change this page.
  * English and Spanish live side by side so they stay in sync.
@@ -22,13 +22,13 @@ export default function PrivacyPolicy() {
     return (
       <LegalPage
         title="Política de privacidad"
-        updated="Última actualización: 16 de septiembre de 2026"
+        updated="Última actualización: 10 de octubre de 2026"
       >
         <div className="nii-legal-callout">
           <h2>En pocas palabras</h2>
           <ul>
             <li>No guardamos tus respuestas ni tus resultados. Los calculamos y te los devolvemos.</li>
-            <li>Algunas respuestas se envían a OpenAI para redactar partes de tu resumen. Tus condiciones, medicamentos y suplementos escritos a mano no se envían.</li>
+            <li>Tus respuestas no se envían a ningún servicio de inteligencia artificial. Los resultados se calculan con reglas fijas en nuestro servidor.</li>
             <li>No hay cuentas, suscripciones, cookies publicitarias ni herramientas de analítica. Solo recibes nuestros correos si te suscribes.</li>
             <li>Si compras, Stripe procesa el pago. Nosotros nunca vemos el número completo de tu tarjeta.</li>
             <li>No vendemos tu información ni la usamos para publicidad.</li>
@@ -61,10 +61,8 @@ export default function PrivacyPolicy() {
           <li>Se envían a nuestro servidor (alojado en Vercel, en EE. UU.) solo para calcular tus
             resultados, que luego regresan a tu navegador.</li>
           <li><strong>No guardamos tus respuestas ni tus resultados en ninguna base de datos.</strong></li>
-          <li>Para redactar partes del resumen, el servidor puede enviar a nuestro proveedor de IA,
-            OpenAI (EE. UU.), tu edad, sexo biológico, la lista de síntomas, tus calificaciones de estilo
-            de vida y un puntaje general de exposición. <strong>No enviamos a OpenAI el texto libre sobre
-            condiciones, medicamentos o suplementos.</strong></li>
+          <li><strong>No enviamos tus respuestas a ningún servicio de inteligencia artificial</strong>
+            ni a ningún otro tercero para calcular tus resultados.</li>
         </ul>
         <p><strong>Registros técnicos.</strong> Nuestro proveedor de hosting guarda registros técnicos
           estándar de cada solicitud (como dirección IP, tipo de navegador, hora y mensajes de error)
@@ -116,7 +114,6 @@ export default function PrivacyPolicy() {
         <p>Solo con los proveedores que hacen funcionar el sitio:</p>
         <ul>
           <li><strong>Vercel</strong>: hosting.</li>
-          <li><strong>OpenAI</strong>: redacción de texto con IA.</li>
           <li><strong>Stripe</strong>: pagos y recibos.</li>
           <li><strong>Kit</strong>: nuestra lista de correos, solo si te suscribes.</li>
           <li><strong>Google</strong>: correo de Google Workspace y Google Fonts.</li>
@@ -126,15 +123,17 @@ export default function PrivacyPolicy() {
           información de salud para publicidad. Podríamos divulgar información si la ley nos obliga.
         </p>
 
-        <h2>El texto escrito con IA</h2>
-        <p>El texto redactado por IA puede ser incorrecto o estar incompleto. Revísalo con tu médico.</p>
+        <h2>Inteligencia artificial</h2>
+        <p>No usamos inteligencia artificial para procesar tus respuestas ni para redactar tus resultados.
+          El contenido de tu kit está escrito de antemano y se ordena con reglas fijas. Aun así, revísalo
+          con tu médico.</p>
 
         <h2>Datos de salud del consumidor</h2>
         <p>
           Tus respuestas son &quot;datos de salud del consumidor&quot; según leyes como la My Health My
           Data Act de Washington y leyes similares de Nevada y Connecticut. Cuando decides enviar tus
           respuestas para obtener resultados, das tu consentimiento para el uso descrito aquí: calcular
-          tus resultados y enviar parte de ellas a nuestro proveedor de IA. Si no quieres, simplemente
+          tus resultados. Si no quieres, simplemente
           no envíes el cuestionario. Puedes dejarlo en cualquier momento.
         </p>
         <p>
@@ -192,12 +191,12 @@ export default function PrivacyPolicy() {
   }
 
   return (
-    <LegalPage title="Privacy Policy" updated="Last updated September 16, 2026">
+    <LegalPage title="Privacy Policy" updated="Last updated October 10, 2026">
       <div className="nii-legal-callout">
         <h2>The short version</h2>
         <ul>
           <li>We don&apos;t store your answers or results. We calculate them and send them back to you.</li>
-          <li>Some answers go to OpenAI to write parts of your summary. Anything you type about conditions, medications or supplements does not.</li>
+          <li>Your answers are not sent to any AI service. Your results are calculated with fixed rules on our server.</li>
           <li>No accounts, subscriptions, advertising cookies or analytics. You only get our emails if you sign up for them.</li>
           <li>If you buy, Stripe handles the payment. We never see your full card number.</li>
           <li>We don&apos;t sell your information or use it for advertising.</li>
@@ -229,9 +228,8 @@ export default function PrivacyPolicy() {
         <li>They are sent to our server (hosted on Vercel, in the US) only to calculate your results,
           which are then returned to your browser.</li>
         <li><strong>We do not store your answers or results in any database.</strong></li>
-        <li>To write parts of your summary, the server may send our AI provider, OpenAI (US), your age,
-          biological sex, symptom list, lifestyle ratings and an overall exposure score.{' '}
-          <strong>Your free-text conditions, medications and supplements are not sent to OpenAI.</strong></li>
+        <li><strong>We do not send your answers to any AI service</strong> or to any other third party
+          to calculate your results.</li>
       </ul>
       <p><strong>Technical logs.</strong> Our hosting provider keeps standard technical request logs
         (such as IP address, browser type, time of request and error messages) for a limited time, for
@@ -281,7 +279,6 @@ export default function PrivacyPolicy() {
       <p>Only the service providers that run the site:</p>
       <ul>
         <li><strong>Vercel</strong>: hosting.</li>
-        <li><strong>OpenAI</strong>: AI-written text.</li>
         <li><strong>Stripe</strong>: payments and receipts.</li>
         <li><strong>Kit</strong>: our email list, only if you sign up.</li>
         <li><strong>Google</strong>: Google Workspace email and Google Fonts.</li>
@@ -291,15 +288,17 @@ export default function PrivacyPolicy() {
         health information for advertising. We may disclose information if the law requires it.
       </p>
 
-      <h2>About AI-written text</h2>
-      <p>AI-written text can be wrong or incomplete. Check it with your clinician.</p>
+      <h2>Artificial intelligence</h2>
+      <p>We do not use artificial intelligence to process your answers or to write your results. The
+        content of your kit is written in advance and ordered by fixed rules. Still, check it with your
+        clinician.</p>
 
       <h2>Consumer health data</h2>
       <p>
         Your answers are &quot;consumer health data&quot; under laws such as Washington&apos;s My Health
         My Data Act and similar laws in Nevada and Connecticut. When you choose to submit your answers
-        to get results, you consent to the use described here: calculating your results and sending
-        some answers to our AI provider. If you don&apos;t want that, don&apos;t submit the
+        to get results, you consent to the use described here: calculating your results. If you
+        don&apos;t want that, don&apos;t submit the
         questionnaire. You can stop at any time.
       </p>
       <p>

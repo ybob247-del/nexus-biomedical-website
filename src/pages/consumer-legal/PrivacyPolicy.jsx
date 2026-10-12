@@ -125,8 +125,10 @@ export default function PrivacyPolicy() {
 
         <h2>Inteligencia artificial</h2>
         <p>No usamos inteligencia artificial para procesar tus respuestas ni para redactar tus resultados.
-          El contenido de tu kit está escrito de antemano y se ordena con reglas fijas. Aun así, revísalo
-          con tu médico.</p>
+          El contenido de tu kit está escrito de antemano y se ordena con reglas fijas. Sí usamos
+          herramientas de IA para ayudar a redactar de antemano nuestro contenido, videos y correos, y
+          algunos de nuestros videos usan una voz generada con IA; nada de eso involucra tus respuestas.
+          Aun así, revisa todo con tu médico.</p>
 
         <h2>Datos de salud del consumidor</h2>
         <p>
@@ -290,7 +292,9 @@ export default function PrivacyPolicy() {
 
       <h2>Artificial intelligence</h2>
       <p>We do not use artificial intelligence to process your answers or to write your results. The
-        content of your kit is written in advance and ordered by fixed rules. Still, check it with your
+        content of your kit is written in advance and ordered by fixed rules. We do use AI tools to help
+        draft our written content, videos and emails ahead of time, and some of our videos use an
+        AI-generated voice; none of that involves your answers. Still, check everything with your
         clinician.</p>
 
       <h2>Consumer health data</h2>

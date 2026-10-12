@@ -38,7 +38,7 @@ const COPY = {
       },
       {
         h: 'Where artificial intelligence is used',
-        p: 'The ranking, the background text, the questions, the tests to ask about and the PDF are fixed content and rules, written and reviewed in advance, not generated per person. No AI or language model is used to produce your results, and your answers are not sent to any AI service. Nothing is generated per person: the same answers always give the same kit.',
+        p: 'The ranking, the background text, the questions, the tests to ask about and the PDF are fixed content and rules, written and reviewed in advance, not generated per person. No AI or language model is used to produce your results, and your answers are not sent to any AI service. Nothing is generated per person: the same answers always give the same kit. We do use AI writing tools to help draft our written content ahead of time, as we do for our videos and emails; that never involves your answers.',
       },
       {
         h: 'What the kit never does',
@@ -76,7 +76,7 @@ const COPY = {
       },
       {
         h: 'Dónde se usa inteligencia artificial',
-        p: 'El orden, los textos de contexto, las preguntas, los análisis por los que preguntar y el PDF son contenido y reglas fijas, escritas y revisadas de antemano, no generadas para cada persona. No se usa IA ni ningún modelo de lenguaje para producir tus resultados, y tus respuestas no se envían a ningún servicio de IA. Nada se genera por persona: las mismas respuestas dan siempre el mismo kit.',
+        p: 'El orden, los textos de contexto, las preguntas, los análisis por los que preguntar y el PDF son contenido y reglas fijas, escritas y revisadas de antemano, no generadas para cada persona. No se usa IA ni ningún modelo de lenguaje para producir tus resultados, y tus respuestas no se envían a ningún servicio de IA. Nada se genera por persona: las mismas respuestas dan siempre el mismo kit. Sí usamos herramientas de escritura con IA para ayudar a redactar de antemano nuestro contenido, igual que en nuestros videos y correos; eso nunca involucra tus respuestas.',
       },
       {
         h: 'Lo que el kit nunca hace',

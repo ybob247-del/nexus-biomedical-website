@@ -110,24 +110,32 @@
   border-collapse: collapse;
 }
 
-/* On a phone the three columns do not fit: let the table scroll inside its
-   card rather than pushing the whole page sideways. */
+/* On a phone the table fits the card: the two check columns are narrow and the
+   row labels wrap. It used to scroll sideways inside the card, which hid half
+   of the "$39 kit" column from anyone who did not think to swipe. The card
+   keeps overflow-x as a fallback for very narrow screens. */
 @media (max-width: 620px) {
   [data-brand='notimaginingit'] .nii-sample-compare {
     overflow-x: auto;
   }
 
   [data-brand='notimaginingit'] .nii-sample-compare table {
-    min-width: 440px;
+    table-layout: fixed;
+    min-width: 0;
+    width: 100%;
   }
 
   [data-brand='notimaginingit'] .nii-sample-compare th[scope='row'] {
-    font-size: 0.92rem;
-    padding: 10px 6px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    padding: 9px 6px 9px 2px;
   }
 
   [data-brand='notimaginingit'] .nii-sample-compare th[scope='col'] {
-    font-size: 0.74rem;
+    width: 25%;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    padding: 0 2px 8px;
   }
 }
 

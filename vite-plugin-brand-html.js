@@ -82,11 +82,12 @@ const CONSUMER_STATIC = `
 // Cloudflare Web Analytics (approved 21 October 2026): counts visits in aggregate,
 // no cookies, no fingerprinting. It is the ONLY analytics on this site; Google
 // Analytics stays off. The token is public by design (it appears in the page source).
-// Set VITE_CF_BEACON_TOKEN in Vercel to turn it on; without it nothing is injected.
+// The site ID below is the beacon's public ID for notimaginingit.com (not a secret);
+// VITE_CF_BEACON_TOKEN in Vercel overrides it if the Cloudflare site is ever recreated.
 // The inline guard loads the beacon only on the real domain, never on localhost,
 // preview or staging deployments.
 function cloudflareBeacon() {
-  const token = (process.env.VITE_CF_BEACON_TOKEN || '').trim();
+  const token = (process.env.VITE_CF_BEACON_TOKEN || '75f819fbe1ab46cf82f276e03db1e22b').trim();
   if (!/^[a-f0-9]{32}$/i.test(token)) return '';
   return `
     <!-- Cloudflare Web Analytics: aggregate visit counts only, no cookies. -->

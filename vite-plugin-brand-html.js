@@ -79,6 +79,40 @@ const CONSUMER_STATIC = `
       </div>
     `;
 
+// Cloudflare Web Analytics (approved 21 October 2026): counts visits in aggregate,
+// no cookies, no fingerprinting. It is the ONLY analytics on this site; Google
+// Analytics stays off. The token is public by design (it appears in the page source).
+// Set VITE_CF_BEACON_TOKEN in Vercel to turn it on; without it nothing is injected.
+// The inline guard loads the beacon only on the real domain, never on localhost,
+// preview or staging deployments.
+function cloudflareBeacon() {
+  const token = (process.env.VITE_CF_BEACON_TOKEN || '').trim();
+  if (!/^[a-f0-9]{32}$/i.test(token)) return '';
+  return `
+    <!-- Cloudflare Web Analytics: aggregate visit counts only, no cookies. -->
+    <script>
+      (function () {
+        var h = location.hostname;
+        if (h !== 'notimaginingit.com' && h !== 'www.notimaginingit.com') return;
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        s.setAttribute('data-cf-beacon', '{"token": "${token}"}');
+        document.head.appendChild(s);
+      })();
+    </script>
+    `;
+}
+
+// Google Search Console ownership, URL-prefix method. Only used if set.
+function searchConsoleMeta() {
+  const v = (process.env.VITE_GSC_VERIFICATION || '').trim();
+  if (!/^[A-Za-z0-9_-]{20,80}$/.test(v)) return '';
+  return `
+    <meta name="google-site-verification" content="${v}" />
+    `;
+}
+
 function between(html, start, end) {
   const from = html.indexOf(start);
   const to = html.indexOf(end, from + start.length);
@@ -143,7 +177,7 @@ export default function brandHtmlPlugin(brandId) {
 
       // Head: everything from <title> up to the resource hints.
       let [from, to] = between(html, '<title>', '<!-- Resource Hints for Performance -->');
-      html = html.slice(0, from) + CONSUMER_HEAD + html.slice(to);
+      html = html.slice(0, from) + CONSUMER_HEAD + searchConsoleMeta() + cloudflareBeacon() + html.slice(to);
 
       // Body fallback: what shows before React mounts, and to non-JS readers.
       const rootOpen = '<div id="root">';

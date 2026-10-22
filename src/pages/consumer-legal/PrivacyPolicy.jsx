@@ -7,7 +7,7 @@ import LegalPage from './LegalPage';
  *
  * Written to match how the site actually works: answers are processed but not
  * stored, no answers go to any AI service, payments go through Stripe, no accounts,
- * no analytics, and email only for people who join the Kit list. If any of that
+ * only Cloudflare Web Analytics (aggregate visit counts, no cookies), and email only for people who join the Kit list. If any of that
  * changes, change this page.
  * English and Spanish live side by side so they stay in sync.
  */
@@ -22,14 +22,14 @@ export default function PrivacyPolicy() {
     return (
       <LegalPage
         title="Política de privacidad"
-        updated="Última actualización: 10 de octubre de 2026"
+        updated="Última actualización: 21 de octubre de 2026"
       >
         <div className="nii-legal-callout">
           <h2>En pocas palabras</h2>
           <ul>
             <li>No guardamos tus respuestas ni tus resultados. Los calculamos y te los devolvemos.</li>
             <li>Tus respuestas no se envían a ningún servicio de inteligencia artificial. Los resultados se calculan con reglas fijas en nuestro servidor.</li>
-            <li>No hay cuentas, suscripciones, cookies publicitarias ni herramientas de analítica. Solo recibes nuestros correos si te suscribes.</li>
+            <li>No hay cuentas, suscripciones ni cookies publicitarias. Solo contamos las visitas en conjunto, sin cookies. Solo recibes nuestros correos si te suscribes.</li>
             <li>Si compras, Stripe procesa el pago. Nosotros nunca vemos el número completo de tu tarjeta.</li>
             <li>No vendemos tu información ni la usamos para publicidad.</li>
           </ul>
@@ -90,8 +90,11 @@ export default function PrivacyPolicy() {
         </p>
 
         <h2>Información guardada en tu navegador</h2>
-        <p>No usamos cookies publicitarias, Google Analytics ni ninguna otra herramienta de rastreo o
-          analítica. Solo guardamos en tu propio navegador:</p>
+        <p>No usamos cookies publicitarias, Google Analytics ni ninguna otra herramienta de rastreo.
+          Usamos Cloudflare Web Analytics para contar las visitas a este sitio en conjunto. No
+          instala cookies, no te identifica por las características de tu dispositivo ni te sigue en
+          otros sitios, y no recopila datos personales. Tus respuestas y resultados de la evaluación
+          nunca se guardan. Solo guardamos en tu propio navegador:</p>
         <ul>
           <li>Tu preferencia de idioma (una cookie y almacenamiento local, unos 30 días).</li>
           <li>Una nota de que ya completaste la visita guiada.</li>
@@ -193,13 +196,13 @@ export default function PrivacyPolicy() {
   }
 
   return (
-    <LegalPage title="Privacy Policy" updated="Last updated October 10, 2026">
+    <LegalPage title="Privacy Policy" updated="Last updated October 21, 2026">
       <div className="nii-legal-callout">
         <h2>The short version</h2>
         <ul>
           <li>We don&apos;t store your answers or results. We calculate them and send them back to you.</li>
           <li>Your answers are not sent to any AI service. Your results are calculated with fixed rules on our server.</li>
-          <li>No accounts, subscriptions, advertising cookies or analytics. You only get our emails if you sign up for them.</li>
+          <li>No accounts, subscriptions or advertising cookies. We only count visits in aggregate, with no cookies. You only get our emails if you sign up for them.</li>
           <li>If you buy, Stripe handles the payment. We never see your full card number.</li>
           <li>We don&apos;t sell your information or use it for advertising.</li>
         </ul>
@@ -258,8 +261,10 @@ export default function PrivacyPolicy() {
       </p>
 
       <h2>What&apos;s stored in your browser</h2>
-      <p>We don&apos;t use advertising cookies, Google Analytics or any other tracking or analytics.
-        We only keep these in your own browser:</p>
+      <p>We don&apos;t use advertising cookies, Google Analytics or any other tracking tool. We use
+        Cloudflare Web Analytics to count visits to this site in aggregate. It sets no cookies, does
+        not fingerprint you or track you across other sites, and collects no personal data. Your
+        assessment answers and results are never saved. We only keep these in your own browser:</p>
       <ul>
         <li>Your language preference (a cookie and local storage, about 30 days).</li>
         <li>A note that you finished the guided tour.</li>

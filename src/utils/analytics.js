@@ -2,9 +2,10 @@ import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
 import brand from '../config/brand';
 
-// The consumer brand runs no analytics. Its pages are about a visitor's health,
+// The consumer brand runs no analytics in the app. Its pages are about a visitor's health,
 // and its privacy policy promises no tracking, so every call below is a no-op
-// there. The stub also keeps the analytics library from writing an anonymous
+// there. The only thing that counts visits there is Cloudflare Web Analytics, a static
+// beacon injected by vite-plugin-brand-html.js (no cookies, aggregate counts only). The stub also keeps the analytics library from writing an anonymous
 // id to the visitor's browser.
 const noAnalytics = { page() {}, track() {}, identify() {} };
 

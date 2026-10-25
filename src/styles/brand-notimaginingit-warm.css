@@ -247,8 +247,13 @@
 }
 
 [data-brand='notimaginingit'] .nii-footer-links button,
-[data-brand='notimaginingit'] .nii-footer-links a {
+[data-brand='notimaginingit'] .nii-footer-links a,
+[data-brand='notimaginingit'] .nii-footer-social a {
   color: #f6ddd4 !important;
+}
+
+[data-brand='notimaginingit'] .nii-footer-social a:hover {
+  color: #fff !important;
 }
 
 /* ---- Switches: pill shaped ---- */
